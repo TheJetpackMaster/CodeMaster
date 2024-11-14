@@ -71,4 +71,7 @@ dependencies {
 
     // LifeCycle Viewmodel
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7")
+
+    //Screen Sizes
+    implementation("androidx.compose.material3:material3-window-size-class:1.3.1")
 }
