@@ -8,14 +8,15 @@ plugins {
 
 android {
     namespace = "com.codemaster.codemasterapp"
-    compileSdk = 35
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.codemaster.codemasterapp"
         minSdk = 24
 
-        //noinspection EditedTargetSdkVersion
-        targetSdk = 35
+
+        //noinspection OldTargetApi
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
