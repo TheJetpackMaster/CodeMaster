@@ -16,9 +16,11 @@ val yellowishJava = Color(0xFFf2c34f)
 val bluishJava = Color(0XFF8ce6d7)
 
 
+
 //Python
 val bluishPython = Color(0XFF40bce4)
 val greenishPython = Color(0XFFadecbe)
+
 
 //Kotlin
 val purpleKt = Color(0XFFdc63f8)
