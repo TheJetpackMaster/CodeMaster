@@ -2,10 +2,7 @@ package com.codemaster.codemasterapp.main.ui.bottomNavigation.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.*
 
@@ -13,7 +10,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
@@ -27,7 +23,7 @@ fun HomeScreen(navController: NavController) {
 
     Scaffold(
         topBar = {
-            TopAppBar(
+            /*TopAppBar(
                 title = {
                     Row(
                         modifier = Modifier.fillMaxSize(),
@@ -52,7 +48,8 @@ fun HomeScreen(navController: NavController) {
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = Color(0xFF2F3E4C),
                 ),
-            )
+            )*/
+            HomeScreenCustomTopBar()
         },
         content = { paddingValues ->
             Box(
