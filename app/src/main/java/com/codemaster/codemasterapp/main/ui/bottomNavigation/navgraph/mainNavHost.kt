@@ -4,7 +4,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
-import com.codemaster.codemasterapp.main.ui.learning.selection.SelectionScreen
+import com.codemaster.codemasterapp.main.ui.learning.selection.LevelSelectionScreen
 
 
 fun NavGraphBuilder.mainNavHost(navController: NavController) {
@@ -13,7 +13,7 @@ fun NavGraphBuilder.mainNavHost(navController: NavController) {
         route = "main"
     ){
         composable("StageSelection"){
-            SelectionScreen(navController)
+            LevelSelectionScreen(navController)
         }
     }
 }

@@ -1,18 +1,8 @@
 package com.codemaster.codemasterapp.main.ui.learning.selection
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.FloatingActionButtonDefaults.elevation
-import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -20,33 +10,21 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.ColorFilter
-import androidx.compose.ui.graphics.painter.Painter
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.codemaster.codemasterapp.R
-import com.codemaster.codemasterapp.main.ui.components.LanguageCardDesign
 import com.codemaster.codemasterapp.main.ui.components.SelectionCardDesign
-import com.codemaster.codemasterapp.ui.theme.bluishJava
-import com.codemaster.codemasterapp.ui.theme.bluishPython
-import com.codemaster.codemasterapp.ui.theme.greenishPython
 import com.codemaster.codemasterapp.ui.theme.magentaCpp
 import com.codemaster.codemasterapp.ui.theme.purpleCpp
-import com.codemaster.codemasterapp.ui.theme.yellowishJava
 
-/*@OptIn(ExperimentalMaterial3Api::class)
+// SelectionCardDesign Screen
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SelectionScreen(navController: NavController) {
+fun LevelSelectionScreen(navController: NavController) {
     Scaffold(
         topBar = {
             TopAppBar(
@@ -147,10 +125,11 @@ fun SelectionScreen(navController: NavController) {
             }
         }
     )
-}*/
+}
 
+// SelectionCard
 
-@OptIn(ExperimentalMaterial3Api::class)
+/*@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SelectionScreen(navController: NavController) {
     Scaffold(
@@ -306,59 +285,169 @@ fun SelectionScreen(navController: NavController) {
             }
         }
     )
+}*/
+
+
+
+// animated cards
+/*@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun SelectionScreen(navController: NavController) {
+    val expandedCard = remember { mutableStateOf<String?>(null) } // Tracks the expanded card
+
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = {
+                    Text(
+                        text = "CodeMaster",
+                        color = Color(0xFFE5E5C2),
+                        fontSize = 20.sp,
+                        fontWeight = FontWeight.Bold
+                    )
+                },
+                colors = TopAppBarDefaults.topAppBarColors(containerColor = Color(0xFF202020))
+            )
+        },
+        content = { paddingValues ->
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(
+                        Brush.linearGradient(
+                            colors = listOf(Color(0xFF1A237E), Color(0xFF311B92), Color(0xFF4A148C))
+                        )
+                    )
+                    .padding(paddingValues)
+            ) {
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(16.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    // Title
+                    Text(
+                        text = "Choose Your Path",
+                        color = Color.White,
+                        fontSize = 24.sp,
+                        fontWeight = FontWeight.Bold,
+                        modifier = Modifier.padding(bottom = 8.dp)
+                    )
+                    Text(
+                        text = "Tap on a card to learn more!",
+                        color = Color.White.copy(alpha = 0.7f),
+                        fontSize = 16.sp
+                    )
+                    Spacer(modifier = Modifier.height(16.dp))
+
+                    // Level Cards
+                    LazyColumn(
+                        modifier = Modifier.fillMaxSize(),
+                        verticalArrangement = Arrangement.spacedBy(16.dp)
+                    ) {
+                        items(listOf("Easy", "Medium", "Hard", "Expert")) { level ->
+                            GradientLevelCard(
+                                levelName = level,
+                                isExpanded = expandedCard.value == level,
+                                gradientColors = getGradientColorsForLevel(level),
+                                icon = painterResource(id = getIconForLevel(level)),
+                                onClick = {
+                                    expandedCard.value = if (expandedCard.value == level) null else level
+                                },
+                                onNavigate = {
+                                    navController.navigate("courseScreen/$level")
+                                }
+                            )
+                        }
+                    }
+                }
+            }
+        }
+    )
 }
 
-
 @Composable
-fun SelectionCard(
-    stageName: String,
+fun GradientLevelCard(
+    levelName: String,
+    isExpanded: Boolean,
     gradientColors: List<Color>,
     icon: Painter,
     onClick: () -> Unit,
-    modifier: Modifier = Modifier,
+    onNavigate: () -> Unit
 ) {
+    val cardHeight = animateDpAsState(targetValue = if (isExpanded) 200.dp else 120.dp)
+    val descriptionAlpha = animateFloatAsState(targetValue = if (isExpanded) 1f else 0f)
+
     Card(
-        modifier = modifier
-            .height(155.dp)
-            .padding(8.dp)
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(cardHeight.value)
             .clickable(onClick = onClick),
-        shape = RoundedCornerShape(12.dp),
-        elevation = CardDefaults.cardElevation(defaultElevation = 8.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = Color.Transparent,
-            contentColor = Color.White
-        ),
+        shape = RoundedCornerShape(16.dp),
+        elevation = CardDefaults.cardElevation(defaultElevation = 12.dp),
+        colors = CardDefaults.cardColors(containerColor = Color.Transparent)
     ) {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(Brush.verticalGradient(gradientColors))
+                .background(Brush.linearGradient(gradientColors))
                 .padding(16.dp),
             contentAlignment = Alignment.Center
         ) {
             Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center,
-                modifier = Modifier.fillMaxSize()
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Icon(
                     painter = icon,
                     contentDescription = null,
-                    modifier = Modifier.size(48.dp),
-                    tint = Color.White
+                    tint = Color.White,
+                    modifier = Modifier.size(48.dp)
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(
-                    text = stageName,
+                    text = levelName,
+                    color = Color.White,
                     fontSize = 18.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = Color.White
+                    fontWeight = FontWeight.Bold
                 )
+
+                // Expanded Content
+                if (isExpanded) {
+                    Spacer(modifier = Modifier.height(16.dp))
+                    Text(
+                        text = "This level is suitable for $levelName learners. Dive in to test your skills!",
+                        color = Color.White.copy(alpha = descriptionAlpha.value),
+                        fontSize = 14.sp,
+                        modifier = Modifier.alpha(descriptionAlpha.value)
+                    )
+                    Spacer(modifier = Modifier.height(8.dp))
+                    Button(onClick = onNavigate) {
+                        Text(text = "Start $levelName")
+                    }
+                }
             }
         }
     }
 }
 
+fun getGradientColorsForLevel(level: String): List<Color> {
+    return when (level) {
+        "Easy" -> listOf(Color(0xFF81C784), Color(0xFF388E3C), Color(0xFF1B5E20))
+        "Medium" -> listOf(Color(0xFFFFD54F), Color(0xFFF9A825), Color(0xFFF57F17))
+        "Hard" -> listOf(Color(0xFFE57373), Color(0xFFD32F2F), Color(0xFFB71C1C))
+        "Expert" -> listOf(Color(0xFF64B5F6), Color(0xFF1976D2), Color(0xFF0D47A1))
+        else -> listOf(Color.Gray, Color.DarkGray)
+    }
+}
 
-
+fun getIconForLevel(level: String): Int {
+    return when (level) {
+        "Easy" -> R.drawable.cpp // Replace with appropriate resource
+        "Medium" -> R.drawable.cpp // Replace with appropriate resource
+        "Hard" -> R.drawable.cpp // Replace with appropriate resource
+        "Expert" -> R.drawable.cpp // Replace with appropriate resource
+        else -> R.drawable.cpp // Fallback resource
+    }
+}*/
 
