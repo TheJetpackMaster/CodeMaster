@@ -9,10 +9,9 @@ import androidx.navigation.compose.composable
 fun RootNavHost(navController: NavHostController) {
     // Main NavHost (for the entire app)
     NavHost(
-        navController = navController, startDestination = "auth",
+        navController = navController, startDestination = "bottom",
         route = "root"
     ) {
-
         authNavHost(navController)
         bottomNavHost(navController)
         mainNavHost(navController)

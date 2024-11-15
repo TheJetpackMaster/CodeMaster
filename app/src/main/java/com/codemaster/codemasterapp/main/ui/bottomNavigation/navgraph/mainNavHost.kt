@@ -12,7 +12,7 @@ fun NavGraphBuilder.mainNavHost(navController: NavController) {
         route = "main"
     ){
         composable("test"){
-            main(navController)
+//            main(navController)
         }
     }
 }

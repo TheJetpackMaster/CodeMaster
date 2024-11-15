@@ -32,7 +32,7 @@ fun MainScreen() {
     ) {  innerPadding->
         Column(
             modifier = Modifier.fillMaxSize()
-                .padding(innerPadding)
+
         ){
             RootNavHost(navController = navController)
         }
