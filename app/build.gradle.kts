@@ -75,4 +75,8 @@ dependencies {
 
     //Screen Sizes
     implementation("androidx.compose.material3:material3-window-size-class:1.3.1")
+
+    //Lotie
+    implementation("com.airbnb.android:lottie-compose:6.0.0")
+
 }
