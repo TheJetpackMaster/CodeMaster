@@ -90,6 +90,7 @@ fun LanguageCardDesign(
                     .background(Color.White.copy(alpha = 0.15f))
                     .border(1.dp, Color.White.copy(alpha = 0.3f), RoundedCornerShape(20.dp))
                     .padding(12.dp),
+                contentAlignment = Alignment.Center
 
             ) {
                 Column(
