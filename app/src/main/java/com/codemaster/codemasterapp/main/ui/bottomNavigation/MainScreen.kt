@@ -7,7 +7,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import com.codemaster.codemasterapp.R
 import androidx.compose.ui.graphics.Color
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
@@ -19,6 +22,7 @@ import javax.annotation.meta.When
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 fun MainScreen() {
     val navController = rememberNavController()
+    val selectedIndex = remember { mutableStateOf(0) }
 
     val currentRoute = navController.currentBackStackEntryAsState().value?.destination?.route
     val showBar = currentRoute == "home" || currentRoute == "settings"
@@ -26,7 +30,25 @@ fun MainScreen() {
     Scaffold(
         bottomBar = {
             if(showBar) {
-                BottomNavBar(navController)
+                //BottomNavBar(navController)
+
+                CustomBottomBar(
+                    items = listOf(
+                        BottomBarItem("Home", R.drawable.stud),
+                        BottomBarItem("Search", R.drawable.com),
+                        BottomBarItem("Profile", R.drawable.achivments)
+                    ),
+                    selectedItemIndex = selectedIndex.value,
+                    onItemSelected = { index ->
+                        selectedIndex.value = index
+                        // Navigate or perform actions based on index
+                        when (index) {
+                            0 -> navController.navigate("home")
+                            1 -> navController.navigate("settings")
+                            2 -> navController.navigate("home")
+                        }
+                    }
+                )
             }
         }
     ) {  innerPadding->
