@@ -1,5 +1,6 @@
 package com.codemaster.codemasterapp.main.ui.components
 
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -13,12 +14,17 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.LinearProgressIndicator
+import androidx.compose.material3.ProgressIndicatorDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -26,10 +32,13 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.codemaster.codemasterapp.ui.theme.bluishPython
+import com.codemaster.codemasterapp.ui.theme.yellowishKt
 
 
 @Composable
@@ -43,6 +52,15 @@ fun LanguageCardDesign(
     onClick: () -> Unit,
     modifier: Modifier
 ) {
+
+    val progress = remember {
+        mutableStateOf(
+            (completedLessonCount.toFloat()/lessonCount.toFloat())
+        )
+    }
+
+    Log.d("progress",progress.value.toString())
+
     Card(
         modifier = modifier
             .height(155.dp)
@@ -62,7 +80,7 @@ fun LanguageCardDesign(
                         start = Offset(500f, 0f), // Further out to the right
                         end = Offset(0f, 300f)    // Further down to the left
                     )
-                )
+                ),
         ) {
             // Glass effect overlay
             Box(
@@ -71,7 +89,8 @@ fun LanguageCardDesign(
                     .clip(RoundedCornerShape(20.dp))
                     .background(Color.White.copy(alpha = 0.15f))
                     .border(1.dp, Color.White.copy(alpha = 0.3f), RoundedCornerShape(20.dp))
-                    .padding(12.dp)
+                    .padding(12.dp),
+
             ) {
                 Column(
                     modifier = Modifier.fillMaxSize(),
@@ -127,6 +146,18 @@ fun LanguageCardDesign(
                     }
                 }
             }
+
+
+            LinearProgressIndicator(
+
+                gapSize = 0.dp,
+                strokeCap = StrokeCap.Square,
+                progress = {progress.value},
+                trackColor = Color.White.copy(.5f),
+                color = bluishPython.copy(.6f),
+                modifier = Modifier.align(Alignment.BottomCenter)
+                    .height(5.dp)
+            )
         }
     }
 }

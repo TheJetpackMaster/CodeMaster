@@ -1,20 +1,14 @@
 package com.codemaster.codemasterapp.main.ui.bottomNavigation.screens
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.*
+
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -25,66 +19,84 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.codemaster.codemasterapp.R
 import com.codemaster.codemasterapp.main.ui.components.LanguageCardDesign
-import com.codemaster.codemasterapp.ui.theme.bluishJava
-import com.codemaster.codemasterapp.ui.theme.bluishPython
-import com.codemaster.codemasterapp.ui.theme.greenishPython
-import com.codemaster.codemasterapp.ui.theme.magentaCpp
-import com.codemaster.codemasterapp.ui.theme.purpleCpp
-import com.codemaster.codemasterapp.ui.theme.purpleKt
-import com.codemaster.codemasterapp.ui.theme.yellowishJava
-import com.codemaster.codemasterapp.ui.theme.yellowishKt
+import com.codemaster.codemasterapp.ui.theme.*
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(navController: NavController) {
 
-
     Scaffold(
         topBar = {
             TopAppBar(
-                expandedHeight = 45.dp,
                 title = {
                     Row(
                         modifier = Modifier.fillMaxSize(),
-                        verticalAlignment = Alignment.Top
+                        verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Text("CodeMaster", color = Color(0xFFE5E5C2))
+                        Text(
+                            "CodeMaster",
+                            color = Color(0xFFE5E5C2),
+                            style = MaterialTheme.typography.titleLarge
+                        )
+                        Spacer(Modifier.weight(1f))
+                        IconButton(onClick = { /* Navigate to Profile Screen */ }) {
+                            Icon(
+                                imageVector = Icons.Filled.Person,
+                                contentDescription = "Profile",
+                                tint = Color.White,
+                                modifier = Modifier.size(24.dp)
+                            )
+                        }
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = Color(0xFF255A70),
-
-                    ),
+                    containerColor = Color(0xFF2F3E4C),
+                ),
             )
         },
         content = { paddingValues ->
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .background(Color(0xFF000000)) // Light background color
+                    .background(Color(0xFFF7F9FC)) // Soft background color for the main area
                     .padding(paddingValues)
             ) {
                 Column(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = 10.dp, vertical = 8.dp),
+                        .padding(horizontal = 16.dp, vertical = 8.dp),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
 
+                    // Title + Search Icon
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(start = 10.dp),
+                            .padding(start = 10.dp, end = 10.dp),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Text(text = "Popular courses:")
+                        Text(
+                            text = "Popular courses:",
+                            style = MaterialTheme.typography.titleMedium,
+                            color = Color(0xFF2F3E4C)
+                        )
+                        IconButton(onClick = { /* Handle search */ }) {
+                            Icon(
+                                imageVector = Icons.Filled.Search,
+                                contentDescription = "Search",
+                                tint = Color(0xFF2F3E4C),
+                                modifier = Modifier.size(24.dp)
+                            )
+                        }
                     }
 
-                    Spacer(Modifier.height(8.dp))
+                    Spacer(Modifier.height(16.dp))
 
+                    // First Row of Language Cards
                     Row(
                         modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.spacedBy(6.dp)
-
+                        horizontalArrangement = Arrangement.spacedBy(12.dp)
                     ) {
                         LanguageCardDesign(
                             languageName = "Python",
@@ -93,9 +105,8 @@ fun HomeScreen(navController: NavController) {
                             completedLessonCount = 30,
                             gradientColors = listOf(bluishPython, greenishPython),
                             languageImage = painterResource(id = R.drawable.pythonlogo),
-                            onClick = { /* Handle navigation or other actions */ },
-                            modifier = Modifier
-                                .weight(1f),
+                            onClick = { /* Navigate to Python course */ },
+                            modifier = Modifier.weight(1f)
                         )
 
                         LanguageCardDesign(
@@ -105,19 +116,17 @@ fun HomeScreen(navController: NavController) {
                             completedLessonCount = 3,
                             gradientColors = listOf(yellowishJava, bluishJava),
                             languageImage = painterResource(id = R.drawable.java),
-                            onClick = { /* Handle navigation or other actions */ },
-                            modifier = Modifier
-                                .weight(1f)
+                            onClick = { /* Navigate to Java course */ },
+                            modifier = Modifier.weight(1f)
                         )
-
                     }
 
-                    Spacer(Modifier.height(6.dp))
+                    Spacer(Modifier.height(16.dp))
 
+                    // Second Row of Language Cards
                     Row(
                         modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.spacedBy(4.dp)
-
+                        horizontalArrangement = Arrangement.spacedBy(12.dp)
                     ) {
                         LanguageCardDesign(
                             languageName = "Kotlin",
@@ -126,9 +135,8 @@ fun HomeScreen(navController: NavController) {
                             completedLessonCount = 20,
                             gradientColors = listOf(purpleKt, yellowishKt),
                             languageImage = painterResource(id = R.drawable.kotlin),
-                            onClick = { /* Handle navigation or other actions */ },
-                            modifier = Modifier
-                                .weight(1f),
+                            onClick = { /* Navigate to Kotlin course */ },
+                            modifier = Modifier.weight(1f)
                         )
 
                         LanguageCardDesign(
@@ -138,11 +146,9 @@ fun HomeScreen(navController: NavController) {
                             completedLessonCount = 30,
                             gradientColors = listOf(purpleCpp, magentaCpp),
                             languageImage = painterResource(id = R.drawable.cpp),
-                            onClick = { /* Handle navigation or other actions */ },
-                            modifier = Modifier
-                                .weight(1f)
+                            onClick = { /* Navigate to C++ course */ },
+                            modifier = Modifier.weight(1f)
                         )
-
                     }
                 }
             }
@@ -150,8 +156,3 @@ fun HomeScreen(navController: NavController) {
     )
 }
 
-// Data class to represent language information
-data class LanguageData(
-    val name: String,
-    val icon: Painter
-)
