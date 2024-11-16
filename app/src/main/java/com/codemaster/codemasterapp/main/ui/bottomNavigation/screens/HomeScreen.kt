@@ -1,7 +1,10 @@
 package com.codemaster.codemasterapp.main.ui.bottomNavigation.screens
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.*
@@ -14,13 +17,15 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.codemaster.codemasterapp.R
+import com.codemaster.codemasterapp.main.ui.bottomNavigation.components.HomeScreenCustomTopBar
+import com.codemaster.codemasterapp.main.ui.components.ContinueLearningCard
 import com.codemaster.codemasterapp.main.ui.components.LanguageCardDesign
 import com.codemaster.codemasterapp.ui.theme.*
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(navController: NavController) {
-
+    val scrollState = rememberScrollState()
     Scaffold(
         topBar = {
             /*TopAppBar(
@@ -57,10 +62,12 @@ fun HomeScreen(navController: NavController) {
                     .fillMaxSize()
                     .background(Color(0xFFF7F9FC)) // Soft background color for the main area
                     .padding(paddingValues)
+
             ) {
                 Column(
                     modifier = Modifier
                         .fillMaxWidth()
+                        .verticalScroll(scrollState)
                         .padding(horizontal = 16.dp, vertical = 8.dp),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
@@ -145,6 +152,24 @@ fun HomeScreen(navController: NavController) {
                             languageImage = painterResource(id = R.drawable.cpp),
                             onClick = { /* Navigate to C++ course */ },
                             modifier = Modifier.weight(1f)
+                        )
+
+                    }
+
+
+                    Column(modifier = Modifier.padding(bottom = 80.dp)) {
+                        Spacer(Modifier.height(18.dp))
+                        ContinueLearningCard(
+                            completedLessons = 14,
+                            totalLessons = 20,
+                            levelName = "Introduction",
+                            lessonName = "Variables Part 2",
+                            progressPercentage = 0.7f,
+                            paddingValues =PaddingValues(0.dp),
+                            onContinueClick = {
+                                // Handle the click event
+                                println("Continue Button Clicked")
+                            }
                         )
                     }
                 }
