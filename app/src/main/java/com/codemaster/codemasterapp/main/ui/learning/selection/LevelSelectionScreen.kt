@@ -135,6 +135,7 @@ fun LevelSelectionScreen(navController: NavController) {
                         levelName = "Introduction",
                         lessonName = "Variables Part 2",
                         progressPercentage = 0.7f,
+                        paddingValues = PaddingValues(horizontal = 14.dp),
                         onContinueClick = {
                             // Handle the click event
                             println("Continue Button Clicked")

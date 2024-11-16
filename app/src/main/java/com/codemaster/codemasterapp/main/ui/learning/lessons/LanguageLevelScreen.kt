@@ -1,14 +1,30 @@
-package com.codemaster.codemasterapp.main.ui.bottomNavigation.screens
+package com.codemaster.codemasterapp.main.ui.learning.lessons
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.gestures.scrollable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Search
-import androidx.compose.material3.*
-
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -20,15 +36,22 @@ import com.codemaster.codemasterapp.R
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.components.HomeScreenCustomTopBar
 import com.codemaster.codemasterapp.main.ui.components.ContinueLearningCard
 import com.codemaster.codemasterapp.main.ui.components.LanguageCardDesign
-import com.codemaster.codemasterapp.ui.theme.*
+import com.codemaster.codemasterapp.ui.theme.bluishJava
+import com.codemaster.codemasterapp.ui.theme.bluishPython
+import com.codemaster.codemasterapp.ui.theme.greenishPython
+import com.codemaster.codemasterapp.ui.theme.magentaCpp
+import com.codemaster.codemasterapp.ui.theme.purpleCpp
+import com.codemaster.codemasterapp.ui.theme.purpleKt
+import com.codemaster.codemasterapp.ui.theme.yellowishJava
+import com.codemaster.codemasterapp.ui.theme.yellowishKt
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(navController: NavController) {
+fun LanguageLevelScreen(navController: NavController) {
     val scrollState = rememberScrollState()
     Scaffold(
         topBar = {
-            /*TopAppBar(
+            TopAppBar(
                 title = {
                     Row(
                         modifier = Modifier.fillMaxSize(),
@@ -53,8 +76,7 @@ fun HomeScreen(navController: NavController) {
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = Color(0xFF2F3E4C),
                 ),
-            )*/
-            HomeScreenCustomTopBar()
+            )
         },
         content = { paddingValues ->
             Box(
@@ -177,4 +199,3 @@ fun HomeScreen(navController: NavController) {
         }
     )
 }
-

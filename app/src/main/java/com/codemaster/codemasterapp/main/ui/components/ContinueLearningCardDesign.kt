@@ -51,13 +51,15 @@ fun ContinueLearningCard(
     buttonText: String = "Resume",
     buttonTextSize: TextUnit = 12.sp,
     buttonHeight: Dp = 38.dp,
-    onContinueClick: () -> Unit
+    onContinueClick: () -> Unit,
+    paddingValues: PaddingValues
+
 ) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
             .height(cardHeight)
-            .padding(horizontal = 14.dp)
+            .padding(paddingValues)
             .clip(RoundedCornerShape(cardCornerRadius))
             .background(
                 brush = Brush.linearGradient(colors = gradientColors)
