@@ -58,7 +58,7 @@ import com.codemaster.codemasterapp.R
 @Composable
 fun HomeScreenCustomTopBar() {
     // Number of stars to draw
-    val starCount = 200
+    val starCount = 300
 
     Box(
         modifier = Modifier
@@ -104,7 +104,7 @@ fun HomeScreenCustomTopBar() {
                     val starY = Random.nextFloat() * height
                     val starSize = (1..3).random().toFloat()
                     drawCircle(
-                        color = Color.White.copy(alpha = 0.6f),
+                        color = Color.White.copy(alpha = 0.1f),
                         radius = starSize,
                         center = Offset(starX, starY)
                     )
