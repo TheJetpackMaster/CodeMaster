@@ -1,17 +1,14 @@
 package com.codemaster.codemasterapp.main.ui.learning.selection
 
+
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
@@ -29,6 +26,12 @@ import com.codemaster.codemasterapp.R
 import com.codemaster.codemasterapp.main.ui.components.LevelSelectionCardDesign
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.airbnb.lottie.compose.*
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.ui.Alignment
+import com.codemaster.codemasterapp.main.ui.components.ContinueLearningCard
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -41,21 +44,24 @@ fun LevelSelectionScreen(navController: NavController) {
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .background(color = Color(0xFF100F0F))
-                    .padding(paddingValues),
+                    .background(Color(0xFFF7F9FC))
+//                    .background(Color.Transparent)
+                    .padding(paddingValues)
+                    .verticalScroll(state = rememberScrollState()),
             ) {
                 Column(
-                    verticalArrangement = Arrangement.spacedBy(24.dp) // Increase vertical space between elements
+                    modifier = Modifier.padding(vertical = 18.dp)
                 ) {
                     // Title Text
                     Text(
                         text = "Select your learning stage:",
-                        color = Color.White,
-                        fontSize = 22.sp,
-                        fontWeight = FontWeight.Bold,
+                        color = Color.Black,
+                        fontSize = 16.sp,
+                        fontWeight = FontWeight.SemiBold,
                         modifier = Modifier.padding(
-                            horizontal = 16.dp,
-                            vertical = 8.dp
+                            start = 18.dp,
+                            end = 16.dp,
+                            bottom = 8.dp
                         ) // Extra padding for spacing
                     )
 
@@ -63,8 +69,8 @@ fun LevelSelectionScreen(navController: NavController) {
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(horizontal = 16.dp),
-                        horizontalArrangement = Arrangement.spacedBy(8.dp) // Increased spacing between cards
+                            .padding(horizontal = 12.dp),
+                        horizontalArrangement = Arrangement.spacedBy(10.dp) // Increased spacing between cards
                     ) {
                         LevelSelectionCardDesign(
                             stageName = "Introduction",
@@ -72,7 +78,7 @@ fun LevelSelectionScreen(navController: NavController) {
                             completedLessonCount = 12,
                             icon = painterResource(id = R.drawable.cpp),
                             onClick = {
-                                navController.navigate("courseScreen/easy")
+
                             },
                             modifier = Modifier.weight(1f)
                         )
@@ -83,17 +89,19 @@ fun LevelSelectionScreen(navController: NavController) {
                             completedLessonCount = 0,
                             icon = painterResource(id = R.drawable.cpp),
                             onClick = {
-                                navController.navigate("courseScreen/medium")
+
                             },
                             modifier = Modifier.weight(1f)
                         )
                     }
 
+                    Spacer(Modifier.height(14.dp))
+
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(horizontal = 16.dp),
-                        horizontalArrangement = Arrangement.spacedBy(8.dp) // Increased spacing between cards
+                            .padding(horizontal = 12.dp),
+                        horizontalArrangement = Arrangement.spacedBy(10.dp) // Increased spacing between cards
                     ) {
                         LevelSelectionCardDesign(
                             stageName = "Intermediate",
@@ -101,7 +109,7 @@ fun LevelSelectionScreen(navController: NavController) {
                             completedLessonCount = 0,
                             icon = painterResource(id = R.drawable.cpp),
                             onClick = {
-                                navController.navigate("courseScreen/hard")
+
                             },
                             modifier = Modifier.weight(1f)
                         )
@@ -112,16 +120,33 @@ fun LevelSelectionScreen(navController: NavController) {
                             completedLessonCount = 0,
                             icon = painterResource(id = R.drawable.cpp),
                             onClick = {
-                                navController.navigate("courseScreen/expert")
+
                             },
                             modifier = Modifier.weight(1f)
                         )
                     }
+
+                    Spacer(Modifier.height(18.dp))
+
+
+                    ContinueLearningCard(
+                        completedLessons = 14,
+                        totalLessons = 20,
+                        levelName = "Introduction",
+                        lessonName = "Variables Part 2",
+                        progressPercentage = 0.7f,
+                        onContinueClick = {
+                            // Handle the click event
+                            println("Continue Button Clicked")
+                        }
+                    )
+
                 }
             }
         }
     )
 }
+
 
 @Composable
 fun VibrantTopBarWithLottie() {
@@ -137,14 +162,14 @@ fun VibrantTopBarWithLottie() {
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .height(200.dp)
+            .height(180.dp)
             .clip(RoundedCornerShape(bottomStart = 18.dp, bottomEnd = 18.dp))
             .background(
                 Brush.linearGradient(
                     colors = listOf(
                         Color(0xFF255A70),   // Deep teal
                         Color(0xFF00A8E8),   // Bright cyan
-                        Color(0xFF29C290)    // Neon orange
+                        Color(0xFF3DC493)    // Neon orange
                     ),
                     start = Offset(0f, 0f),
                     end = Offset(500f, 500f)
@@ -158,7 +183,7 @@ fun VibrantTopBarWithLottie() {
                 .background(
                     Brush.radialGradient(
                         colors = listOf(
-                            Color(0x33FFFFFF), // Translucent white
+                            Color(0x5BBB7373), // Translucent white
                             Color.Transparent
                         ),
                         center = Offset(200f, 100f), // Center the highlight
@@ -210,7 +235,7 @@ fun VibrantTopBarWithLottie() {
                 progress = { progress.value },
                 modifier = Modifier
                     .fillMaxSize()
-                    .scale(3f)
+                    .scale(3.3f)
                     .align(Alignment.CenterHorizontally)
             )
         }
