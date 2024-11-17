@@ -15,14 +15,21 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Notifications
+import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.ScrollableTabRow
+import androidx.compose.material3.Tab
+import androidx.compose.material3.TabRow
+import androidx.compose.material3.TabRowDefaults
+import androidx.compose.material3.TabRowDefaults.tabIndicatorOffset
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -49,11 +56,131 @@ import com.codemaster.codemasterapp.R
 import kotlin.random.Random
 import androidx.compose.runtime.*
 import com.airbnb.lottie.compose.LottieAnimation
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.launch
 
+
+//@OptIn(ExperimentalMaterial3Api::class)
+//@Composable
+//fun AchievementScreenCustomTopBar() {
+//
+//    // Load Lottie composition
+//    val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.achivment))
+//
+//    // Animate the composition
+//    val progress by animateLottieCompositionAsState(
+//        composition = composition,
+//        iterations = LottieConstants.IterateForever // Infinite loop
+//    )
+//
+//    Box(
+//        modifier = Modifier
+//            .fillMaxWidth()
+//            .height(200.dp) // Adjusted height
+//            .background(Color.Transparent)
+//    ) {
+//        // Gradient Background with Stars
+//        Box(
+//            modifier = Modifier
+//                .fillMaxWidth()
+//                .height(200.dp)
+//                .blur(100.dp)
+//        ) {
+//            Canvas(modifier = Modifier.fillMaxSize()) {
+//                val width = size.width
+//                val height = size.height
+//
+//                val gradientBrush = Brush.sweepGradient(
+//                    colors = listOf(
+//                        Color(0xFF0F2027), // Midnight Blue
+//                        Color(0xFF203A43), // Deep Teal
+//
+//                        Color(0xFF1E1E2C)  // Dark color, similar to your base color
+//                    ),
+//                    center = Offset(width / 2, height / 2)
+//                )
+//
+//                drawRect(
+//                    brush = gradientBrush,
+//                    size = size
+//                )
+//            }
+//        }
+//
+//        // Top Section with Profile
+//        Column(
+//            modifier = Modifier
+//                .fillMaxSize()
+//                .statusBarsPadding()
+//
+//        ) {
+//            Row(
+//                modifier = Modifier
+//                    .fillMaxWidth()
+//
+//                    .padding(horizontal = 16.dp),
+//                horizontalArrangement = Arrangement.SpaceBetween,
+//                verticalAlignment = Alignment.CenterVertically
+//            ) {
+//                // Column for "My Honor" and the subtext
+//                Column(
+//                    verticalArrangement = Arrangement.Center
+//
+//                ) {
+//                    Text(
+//                        text = "My Honor",
+//                        color = Color.White,
+//                        fontSize = 20.sp,
+//                        fontWeight = FontWeight.Bold
+//                    )
+//                    Spacer(modifier = Modifier.height(4.dp))
+//                    Row(
+//                        modifier = Modifier
+//                            .background(Color.White.copy(0.2f), shape = CircleShape)
+//                            .padding(horizontal = 8.dp),
+//                        verticalAlignment = Alignment.CenterVertically,
+//                        horizontalArrangement = Arrangement.Center // Center everything horizontally
+//                    ) {
+//                        Image(
+//                            painter = painterResource(id = R.drawable.badge), // Replace with your drawable resource ID
+//                            contentDescription = "Example Badge", // Describe the image for accessibility
+//                            modifier = Modifier.size(15.dp) // Modify size as needed
+//                        )
+//                        Spacer(modifier = Modifier.width(4.dp)) // Add some space between the icon and text
+//                        Text(
+//                            text = "Award 1/10",
+//                            color = Color.White,
+//                            fontSize = 14.sp
+//                        )
+//                    }
+//
+//
+//                }
+//                Spacer(modifier = Modifier.weight(1f))
+//                // Lottie Animation completely on the right
+//                LottieAnimation(
+//                    composition = composition,
+//                    progress = { progress },
+//                    modifier = Modifier
+//                        .size(100.dp)
+//                        .scale(2.1f)
+//                        .padding(top = 22.dp)
+//
+//                )
+//            }
+//        }
+//    }
+//}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AchievementScreenCustomTopBar() {
+fun AchievementScreenCustomTopBar(
+    onTabSelected: (Int) -> Unit,
+    pagerState: PagerState
+) {
+    // State for selected tab
+    var selectedTabIndex by remember { mutableStateOf(0) }
+    val tabTitles = listOf("Achievements", "Progress")
 
     // Load Lottie composition
     val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.achivment))
@@ -64,102 +191,134 @@ fun AchievementScreenCustomTopBar() {
         iterations = LottieConstants.IterateForever // Infinite loop
     )
 
-    Box(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(200.dp) // Adjusted height
-            .background(Color.Transparent)
-    ) {
-        // Gradient Background with Stars
+    val coroutineScope = rememberCoroutineScope()
+
+    Column {
+        // Top Bar with Gradient and Profile Section
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(200.dp)
-                .blur(100.dp)
+                .height(200.dp) // Adjusted height
+                .background(Color.Transparent)
         ) {
-            Canvas(modifier = Modifier.fillMaxSize()) {
-                val width = size.width
-                val height = size.height
-
-                val gradientBrush = Brush.sweepGradient(
-                    colors = listOf(
-                        Color(0xFF0F2027), // Midnight Blue
-                        Color(0xFF203A43), // Deep Teal
-
-                        Color(0xFF1E1E2C)  // Dark color, similar to your base color
-                    ),
-                    center = Offset(width / 2, height / 2)
-                )
-
-                drawRect(
-                    brush = gradientBrush,
-                    size = size
-                )
-            }
-        }
-
-        // Top Section with Profile
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .statusBarsPadding()
-
-        ) {
-            Row(
+            // Gradient Background with Stars
+            Box(
                 modifier = Modifier
                     .fillMaxWidth()
-
-                    .padding(horizontal = 16.dp),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
+                    .height(200.dp)
+                    .blur(100.dp)
             ) {
-                // Column for "My Honor" and the subtext
-                Column(
-                    verticalArrangement = Arrangement.Center
+                Canvas(modifier = Modifier.fillMaxSize()) {
+                    val width = size.width
+                    val height = size.height
 
-                ) {
-                    Text(
-                        text = "My Honor",
-                        color = Color.White,
-                        fontSize = 20.sp,
-                        fontWeight = FontWeight.Bold
+                    val gradientBrush = Brush.sweepGradient(
+                        colors = listOf(
+                            Color(0xFF0F2027), // Midnight Blue
+                            Color(0xFF203A43), // Deep Teal
+                            Color(0xFF1E1E2C)  // Dark color, similar to your base color
+                        ),
+                        center = Offset(width / 2, height / 2)
                     )
-                    Spacer(modifier = Modifier.height(4.dp))
-                    Row(
-                        modifier = Modifier
-                            .background(Color.White.copy(0.2f), shape = CircleShape)
-                            .padding(horizontal = 8.dp),
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.Center // Center everything horizontally
+
+                    drawRect(
+                        brush = gradientBrush,
+                        size = size
+                    )
+                }
+            }
+
+            // Top Section with Profile
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .statusBarsPadding()
+            ) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    // Column for "My Honor" and the subtext
+                    Column(
+                        verticalArrangement = Arrangement.Center
                     ) {
-                        Image(
-                            painter = painterResource(id = R.drawable.badge), // Replace with your drawable resource ID
-                            contentDescription = "Example Badge", // Describe the image for accessibility
-                            modifier = Modifier.size(15.dp) // Modify size as needed
-                        )
-                        Spacer(modifier = Modifier.width(4.dp)) // Add some space between the icon and text
                         Text(
-                            text = "Award 1/10",
+                            text = "My Honor",
                             color = Color.White,
-                            fontSize = 14.sp
+                            fontSize = 20.sp,
+                            fontWeight = FontWeight.Bold
+                        )
+                        Spacer(modifier = Modifier.height(4.dp))
+                        Row(
+                            modifier = Modifier
+                                .background(Color.White.copy(0.2f), shape = CircleShape)
+                                .padding(horizontal = 8.dp),
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.Center // Center everything horizontally
+                        ) {
+                            Image(
+                                painter = painterResource(id = R.drawable.badge), // Replace with your drawable resource ID
+                                contentDescription = "Example Badge", // Describe the image for accessibility
+                                modifier = Modifier.size(15.dp) // Modify size as needed
+                            )
+                            Spacer(modifier = Modifier.width(4.dp)) // Add some space between the icon and text
+                            Text(
+                                text = "Award 1/10",
+                                color = Color.White,
+                                fontSize = 14.sp
+                            )
+                        }
+                    }
+                    Spacer(modifier = Modifier.weight(1f))
+                    // Lottie Animation completely on the right
+                    LottieAnimation(
+                        composition = composition,
+                        progress = { progress },
+                        modifier = Modifier
+                            .size(100.dp)
+                            .scale(1.5f)
+                    )
+                }
+
+                Spacer(modifier = Modifier.weight(1f))
+                TabRow(
+                    selectedTabIndex = pagerState.currentPage,
+                    modifier = Modifier.fillMaxWidth(),
+                    containerColor = Color.Transparent,
+                    contentColor = Color.White,
+                    indicator = { tabPositions ->
+                        TabRowDefaults.Indicator(
+                            Modifier.tabIndicatorOffset(tabPositions[pagerState.currentPage]),
+                            color = Color.White,
+                            height = 4.dp
                         )
                     }
-
-
+                ) {
+                    tabTitles.forEachIndexed { index, title ->
+                        Tab(
+                            selected = pagerState.currentPage == index,
+                            onClick = {
+                                coroutineScope.launch {
+                                    pagerState.animateScrollToPage(index) // Scroll to the selected page
+                                }
+                                onTabSelected(index) // Trigger callback with the selected index
+                            },
+                            text = {
+                                Text(
+                                    text = title,
+                                    color = if (pagerState.currentPage == index) Color.White else Color.White.copy(
+                                        0.7f
+                                    ),
+                                    fontWeight = if (pagerState.currentPage == index) FontWeight.Bold else FontWeight.Normal
+                                )
+                            }
+                        )
+                    }
                 }
-                Spacer(modifier = Modifier.weight(1f))
-                // Lottie Animation completely on the right
-                LottieAnimation(
-                    composition = composition,
-                    progress = { progress },
-                    modifier = Modifier
-                        .size(100.dp)
-                        .scale(2.1f)
-                        .padding(top = 22.dp)
-
-                )
             }
         }
     }
 }
-
