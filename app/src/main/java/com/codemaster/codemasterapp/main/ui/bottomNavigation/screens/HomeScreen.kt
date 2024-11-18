@@ -49,7 +49,7 @@ fun HomeScreen(navController: NavController) {
                     modifier = Modifier
                         .fillMaxWidth()
                         .verticalScroll(scrollState)
-                        .padding(horizontal = 16.dp, vertical = 8.dp),
+                        .padding(horizontal = 8.dp, vertical = 8.dp),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
 
@@ -57,31 +57,31 @@ fun HomeScreen(navController: NavController) {
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(start = 10.dp, end = 10.dp),
+                            .padding(top = 8.dp),
                         horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Text(
-                            text = "Popular courses:",
+                            text = "Popular courses",
                             style = MaterialTheme.typography.titleMedium,
                             color = Color(0xFF2F3E4C)
                         )
-                        IconButton(onClick = { /* Handle search */ }) {
+                        /*IconButton(onClick = { /* Handle search */ }) {
                             Icon(
                                 imageVector = Icons.Filled.Search,
                                 contentDescription = "Search",
                                 tint = Color(0xFF2F3E4C),
                                 modifier = Modifier.size(24.dp)
                             )
-                        }
+                        }*/
                     }
 
-                    Spacer(Modifier.height(16.dp))
+                    Spacer(Modifier.height(4.dp))
 
                     // First Row of Language Cards
                     Row(
                         modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.spacedBy(12.dp)
+                        horizontalArrangement = Arrangement.spacedBy(10.dp)
                     ) {
                         LanguageCardDesign(
                             languageName = "Python",
@@ -115,7 +115,7 @@ fun HomeScreen(navController: NavController) {
                     // Second Row of Language Cards
                     Row(
                         modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.spacedBy(12.dp)
+                        horizontalArrangement = Arrangement.spacedBy(10.dp)
                     ) {
                         LanguageCardDesign(
                             languageName = "Kotlin",
