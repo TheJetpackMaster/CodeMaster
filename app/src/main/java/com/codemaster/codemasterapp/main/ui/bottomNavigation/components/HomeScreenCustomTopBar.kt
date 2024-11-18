@@ -25,6 +25,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Notifications
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -66,7 +67,7 @@ fun HomeScreenCustomTopBar(
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .height(260.dp) // Increased height to accommodate all content
+            .height(200.dp) // Increased height to accommodate all content
             .background(Color.Transparent)
             .clip(RoundedCornerShape(bottomStart = 20.dp, bottomEnd = 20.dp)) // Rounded corners at the bottom
     ) {
@@ -74,7 +75,7 @@ fun HomeScreenCustomTopBar(
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(260.dp)
+                .height(200.dp)
                 .blur(100.dp)
         ) {
             Canvas(modifier = Modifier.fillMaxSize()) {
@@ -158,15 +159,16 @@ fun HomeScreenCustomTopBar(
                         modifier = Modifier
                             .size(40.dp)
                             .clip(CircleShape)
-                            .background(Color.Gray) // Placeholder for the profile image
+                            .background(Color.Gray.copy(0.4f)), // Placeholder for the profile image
+                        contentAlignment = Alignment.Center
 
                     ) {
                         // Replace with actual Image
                         Image(
-                            painter = painterResource(id = R.drawable.com),
+                            painter = painterResource(id = R.drawable.person),
                             contentDescription = "Profile Picture",
                             contentScale = ContentScale.Crop,
-                            modifier = Modifier.fillMaxSize()
+                            modifier = Modifier.size(30.dp)
                         )
                     }
 
@@ -189,10 +191,10 @@ fun HomeScreenCustomTopBar(
                 }
             }
 
-            Spacer(modifier = Modifier.height(16.dp))
+           /// Spacer(modifier = Modifier.height(16.dp))
 
             // Row with "Thanks for today" and "Show all"
-            Row(
+           /* Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
@@ -222,7 +224,7 @@ fun HomeScreenCustomTopBar(
                 UserActivityIndicator(0.6f,Icons.Default.AccountCircle,"31.31.1")
                 UserActivityIndicator(0.8f,Icons.Default.AccountCircle,"31.31.1")
                 UserActivityIndicator(1f,Icons.Default.AccountCircle,"31.31.1")
-            }
+            }*/
         }
     }
 }
