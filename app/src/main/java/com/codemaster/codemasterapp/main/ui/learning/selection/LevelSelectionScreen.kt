@@ -148,7 +148,6 @@ fun LevelSelectionScreen(navController: NavController) {
     )
 }
 
-
 @Composable
 fun VibrantTopBarWithLottie() {
     // Remember Lottie composition
@@ -157,72 +156,69 @@ fun VibrantTopBarWithLottie() {
     // Animate the Lottie composition with looping enabled
     val progress = animateLottieCompositionAsState(
         composition = composition.value,
-        iterations = LottieConstants.IterateForever // Loop infinitely
+        iterations = LottieConstants.IterateForever
     )
 
     Box(
         modifier = Modifier
             .fillMaxWidth()
             .height(180.dp)
-            .clip(RoundedCornerShape(bottomStart = 18.dp, bottomEnd = 18.dp))
+            .clip(RoundedCornerShape(bottomStart = 24.dp, bottomEnd = 24.dp))
             .background(
                 Brush.linearGradient(
                     colors = listOf(
-                        Color(0xFF255A70),   // Deep teal
-                        Color(0xFF00A8E8),   // Bright cyan
-                        Color(0xFF3DC493)    // Neon orange
+                        Color(0xFF1B3C5D),   // Dark teal
+                        Color(0xFF0089CF),   // Electric blue
+                        Color(0xFF22E57B)    // Vibrant green
                     ),
                     start = Offset(0f, 0f),
-                    end = Offset(500f, 500f)
+                    end = Offset(1000f, 1000f)
                 )
             )
     ) {
-        // Layer 1: Secondary overlay gradient for depth
+        // Layer 1: Soft radial overlay for lighting
         Box(
             modifier = Modifier
                 .fillMaxSize()
                 .background(
                     Brush.radialGradient(
                         colors = listOf(
-                            Color(0x5BBB7373), // Translucent white
+                            Color(0x33FFFFFF), // Soft white glow
                             Color.Transparent
                         ),
-                        center = Offset(200f, 100f), // Center the highlight
-                        radius = 400f
+                        center = Offset(400f, 100f),
+                        radius = 700f
                     )
                 )
         )
 
-        // Layer 2: Diagonal lines for texture
+        // Layer 2: Textured diagonal lines
         Canvas(modifier = Modifier.fillMaxSize()) {
-            drawLine(
-                color = Color(0x99FFFFFF), // Semi-transparent white
-                start = Offset(0f, size.height * 0.25f),
-                end = Offset(size.width, size.height * 0.75f),
-                strokeWidth = 2f
+            for (i in 0..10) {
+                drawLine(
+                    color = Color(0x22FFFFFF), // Faint diagonal texture
+                    start = Offset(0f, size.height * i / 10),
+                    end = Offset(size.width, size.height * (i + 0.5f) / 10),
+                    strokeWidth = 1.5f
+                )
+            }
+        }
+
+        // Layer 3: Vibrant gradient circles for futuristic accents
+        Canvas(modifier = Modifier.fillMaxSize()) {
+            drawCircle(
+                color = Color(0x88F5A623), // Warm golden hue
+                radius = 120f,
+                center = Offset(size.width * 0.4f, size.height * 0.3f)
             )
-            drawLine(
-                color = Color(0x33FFFFFF),
-                start = Offset(0f, size.height * 0.75f),
-                end = Offset(size.width, size.height * 0.25f),
-                strokeWidth = 2f
+            drawCircle(
+                color = Color(0x55FF57B2), // Magenta-pink glow
+                radius = 180f,
+                center = Offset(size.width * 0.7f, size.height * 0.8f)
             )
         }
 
-        // Layer 3: Vibrant gradient circles for a futuristic glow
-        Canvas(modifier = Modifier.fillMaxSize()) {
-            drawCircle(
-                color = Color(0x55D5AA1B), // Gold, semi-transparent
-                radius = 100f,
-                center = Offset(size.width * 0.3f, size.height * 0.5f)
-            )
-            drawCircle(
-                color = Color(0x44FF1493), // Hot pink, semi-transparent
-                radius = 150f,
-                center = Offset(size.width * 0.7f, size.height * 0.7f)
-            )
-        }
-
+        // Layer 4: Lottie animation
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -230,15 +226,14 @@ fun VibrantTopBarWithLottie() {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            // Lottie Animation
             LottieAnimation(
                 composition = composition.value,
                 progress = { progress.value },
                 modifier = Modifier
-                    .fillMaxSize()
                     .scale(3.3f)
                     .align(Alignment.CenterHorizontally)
             )
         }
     }
 }
+

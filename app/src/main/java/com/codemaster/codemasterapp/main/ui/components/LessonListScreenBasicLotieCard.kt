@@ -38,7 +38,7 @@ import com.airbnb.lottie.compose.rememberLottieComposition
 import com.codemaster.codemasterapp.R
 
 @Composable
-fun LanguageLevelBasicLotieCard(){
+fun LessonListScreenBasicLotieCard(){
 
     Box(
         modifier = Modifier

@@ -29,3 +29,8 @@ val yellowishKt = Color(0XFFf2d8a9)
 //C++
 val purpleCpp = Color(0XFFe481ef)
 val magentaCpp = Color(0XFF6fe9d9)
+
+//CppLevel Card colors
+//C++
+val purpleCppLevel = Color(0xFFFFD700)   // Gold
+val magentaCppLevel = Color(0xFFFFF8E1)     // Pale Cream

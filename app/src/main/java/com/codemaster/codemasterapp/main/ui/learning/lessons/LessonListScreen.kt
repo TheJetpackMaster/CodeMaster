@@ -51,7 +51,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.codemaster.codemasterapp.main.ui.components.LanguageLevelBasicLotieCard
+import com.codemaster.codemasterapp.main.ui.components.LessonListScreenBasicLotieCard
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.clip
@@ -134,7 +134,7 @@ fun LessonListScreen(navController: NavController) {
             ) {
                 Spacer(Modifier.height(4.dp))
                 // Display Course Overview Card
-                LanguageLevelBasicLotieCard()
+                LessonListScreenBasicLotieCard()
 
                 Spacer(modifier = Modifier.height(12.dp))
 
