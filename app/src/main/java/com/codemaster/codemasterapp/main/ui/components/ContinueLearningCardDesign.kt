@@ -21,6 +21,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.unit.Dp
@@ -60,11 +61,17 @@ fun ContinueLearningCard(
             .fillMaxWidth()
             .height(cardHeight)
             .padding(paddingValues)
+            .shadow(
+                elevation = 10.dp, // Adjust shadow elevation
+                shape = RoundedCornerShape(cardCornerRadius) // Match the corner shape
+            )
             .clip(RoundedCornerShape(cardCornerRadius))
             .background(
                 brush = Brush.linearGradient(colors = gradientColors)
             )
-            .padding(16.dp), // Inner padding
+            .padding(16.dp)
+            ,
+
         contentAlignment = Alignment.BottomStart
     ) {
         // Decorative Logo
