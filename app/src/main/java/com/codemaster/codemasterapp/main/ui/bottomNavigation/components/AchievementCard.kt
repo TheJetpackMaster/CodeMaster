@@ -1,5 +1,6 @@
 package com.codemaster.codemasterapp.main.ui.bottomNavigation.components
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -32,7 +33,11 @@ import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.codemaster.codemasterapp.R
 import androidx.compose.runtime.*
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.scale
+import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextOverflow
 import com.airbnb.lottie.compose.animateLottieCompositionAsState
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -72,6 +77,8 @@ fun AchievementCard(
                 color = Color.White,
                 fontSize = 18.sp,
                 fontWeight = FontWeight.Bold,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
                 modifier = Modifier.padding(top = 16.dp)
             )
 
