@@ -3,11 +3,14 @@ package com.codemaster.codemasterapp.main.ui.learning.lessons
 
 import android.app.Activity
 import android.content.Context
+import android.util.Log
 import android.view.View
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.gestures.detectHorizontalDragGestures
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -46,6 +49,7 @@ import androidx.compose.ui.draw.blur
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
@@ -54,7 +58,9 @@ import androidx.compose.ui.unit.sp
 import com.codemaster.codemasterapp.R
 import com.codemaster.codemasterapp.ui.theme.bluishPython
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
+import kotlin.coroutines.EmptyCoroutineContext.get
 
 fun getLessonContents(): List<LessonContent> {
 
@@ -75,7 +81,7 @@ fun getLessonContents(): List<LessonContent> {
                     incompleteCode = "#include <stdio.h>\n\nint main() {\n    ___\n    return 0;\n}"
                 )
             ),
-            type = LessonType.INTERACTIVE
+            type = LessonContentType.INTERACTIVE
         ),
         // Lesson 1: What are Variables?
         LessonContent(
@@ -94,7 +100,7 @@ fun getLessonContents(): List<LessonContent> {
                     code = "#include <stdio.h>\n\nint main() {\n    int a;\n    return 0;\n}"
                 )
             ),
-            type = LessonType.NON_INTERACTIVE
+            type = LessonContentType.NON_INTERACTIVE
         ),
 
         // Lesson 2: Initializing Variables
@@ -111,7 +117,7 @@ fun getLessonContents(): List<LessonContent> {
                     code = "#include <stdio.h>\n\nint main() {\n    int a = 10;\n    return 0;\n}"
                 )
             ),
-            type = LessonType.NON_INTERACTIVE
+            type = LessonContentType.NON_INTERACTIVE
         ),
 
         // Lesson 3: Using Variables in Operations
@@ -125,7 +131,7 @@ fun getLessonContents(): List<LessonContent> {
                     code = "#include <stdio.h>\n\nint main() {\n    int a = 10, b = 5;\n    int sum = a + b;\n    printf(\"Sum: %d\\n\", sum);\n    return 0;\n}"
                 )
             ),
-            type = LessonType.NON_INTERACTIVE
+            type = LessonContentType.NON_INTERACTIVE
         ),
 
         // Lesson 4: Understanding Data Types
@@ -139,7 +145,7 @@ fun getLessonContents(): List<LessonContent> {
                     code = "#include <stdio.h>\n\nint main() {\n    int a = 10;\n    float b = 5.75;\n    char c = 'A';\n    printf(\"a: %d, b: %.2f, c: %c\\n\", a, b, c);\n    return 0;\n}"
                 )
             ),
-            type = LessonType.NON_INTERACTIVE
+            type = LessonContentType.NON_INTERACTIVE
         ),
 
         // Lesson 5: Constants
@@ -153,7 +159,7 @@ fun getLessonContents(): List<LessonContent> {
                     code = "#include <stdio.h>\n\n#define PI 3.14\n\nint main() {\n    printf(\"Value of PI: %.2f\\n\", PI);\n    return 0;\n}"
                 )
             ),
-            type = LessonType.NON_INTERACTIVE
+            type = LessonContentType.NON_INTERACTIVE
         ),
 
         )
@@ -169,15 +175,21 @@ fun LessonContentScreen() {
         View.SYSTEM_UI_FLAG_FULLSCREEN
 
 
-    val lessons by remember {
-        mutableStateOf(getLessonContents())
+    var lessons by remember {
+        mutableStateOf(getLessonContents().toMutableList())
     }
+
+
     val pagerState = rememberPagerState(
         initialPage = 0,
         pageCount = { lessons.size }
     )
 
+
     val coroutineScope = rememberCoroutineScope()
+//
+//    val isCurrentLessonCompleted = lessons[if(pagerState.currentPage>0) pagerState.currentPage-1 else pagerState.currentPage].isCompleted
+//    Log.d("completedLesson",isCurrentLessonCompleted.toString())
 
     Column(
         modifier = Modifier
@@ -315,8 +327,34 @@ fun LessonContentScreen() {
             ) {
                 HorizontalPager(
                     state = pagerState,
-                    modifier = Modifier.weight(1f),
-                    userScrollEnabled = true
+                    modifier = Modifier
+                        .weight(1f)
+                        .pointerInput(Unit) {
+                            detectHorizontalDragGestures { _, dragAmount ->
+                                // If swipe is to the right (backward swipe)
+                                if (dragAmount > 0) {
+                                    // Allow backward swipe only if we're not at the first page
+                                    if (pagerState.currentPage > 0) {
+                                        // Allow swipe backward
+                                        coroutineScope.launch {
+                                            pagerState.animateScrollToPage(pagerState.currentPage - 1)
+                                        }
+
+                                    } else {
+                                        // If already at the first page, prevent further backward swipe
+                                        coroutineScope.launch {
+                                            pagerState.animateScrollToPage(pagerState.currentPage)
+                                        }
+                                    }
+                                }
+
+                                // If swipe is to the left (forward swipe)
+                                else if (dragAmount < 0) {
+
+                                }
+                            }
+                        },
+                    userScrollEnabled = false
                 ) { page ->
                     LessonContentView(
                         lessonContent = lessons[page],
@@ -325,9 +363,13 @@ fun LessonContentScreen() {
                                 pagerState.animateScrollToPage(page + 1)
                             }
                         },
+                        onLessonCompleted = { completedLesson ->
+                            lessons[page] = completedLesson.copy(isCompleted = true)
+                        },
                         pagerState = pagerState,
                         coroutineScope = coroutineScope,
-                        lessons = lessons
+                        lessons = lessons,
+
                     )
                 }
 
@@ -341,18 +383,22 @@ fun Context.findActivity(): Activity {
     return (this as? Activity) ?: throw IllegalStateException("Context is not an Activity")
 }
 
+
 @Composable
 fun LessonContentView(
     lessonContent: LessonContent,
     onNext: () -> Unit,
     pagerState: PagerState,
     coroutineScope: CoroutineScope,
-    lessons: List<LessonContent>
+    lessons: List<LessonContent>,
+    onLessonCompleted: (LessonContent) -> Unit,
+
 ) {
 
     //Feedback for Interactive answer
     val isAnswerGiven = remember { mutableStateOf(false) }
-    val isInteractiveTypeLesson = remember { mutableStateOf(lessonContent.type) }
+    val isInteractiveTypeLesson =
+        remember { mutableStateOf(lessonContent.type == LessonContentType.INTERACTIVE) }
     val answerFeedbackText = remember { mutableStateOf("") }
 
     Column(
@@ -469,9 +515,10 @@ fun LessonContentView(
 //                    // State to track the selected answer and available options
 //                    val buttonState = remember { mutableStateMapOf<String, String>() }
                     InteractiveCodeBlockView(
-                        contentBlock,
+                        contentBlock = contentBlock,
                         isAnswerGiven = isAnswerGiven,
-                        answerFeedbackText = answerFeedbackText
+                        answerFeedbackText = answerFeedbackText,
+
                     )
                 }
             }
@@ -480,190 +527,79 @@ fun LessonContentView(
         Spacer(modifier = Modifier.weight(1f))
 
 
-
-        if (isInteractiveTypeLesson.value == LessonType.NON_INTERACTIVE) {
-            Row(
+        //Continue Button
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(8.dp)
+                .height(46.dp),
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            Button(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(8.dp),
-                horizontalArrangement = Arrangement.SpaceBetween
-            ) {
-                Button(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .clip(RoundedCornerShape(12.dp))
-                        .background(bluishPython),
-                    onClick = {
-                        if (pagerState.currentPage < lessons.size - 1) {
-                            coroutineScope.launch {
-                                pagerState.animateScrollToPage(pagerState.currentPage + 1)
-                            }
-                        };
-                        isAnswerGiven.value = false
-                        answerFeedbackText.value = ""
-                    },
-                    colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent)
-                ) {
-                    Text(
-                        text = if (pagerState.currentPage < lessons.size - 1) "Next" else "Finish",
-                        style = TextStyle(fontSize = 16.sp, color = Color.White)
+                    .fillMaxSize(),
+                onClick = {
+                    if (pagerState.currentPage < lessons.size - 1) {
+                        coroutineScope.launch {
+                            pagerState.animateScrollToPage(pagerState.currentPage + 1)
+                        }
+                    };
+                    isAnswerGiven.value = false
+                    answerFeedbackText.value = ""
+                    onLessonCompleted(
+                        lessonContent
                     )
-                }
-            }
-        } else if (isInteractiveTypeLesson.value == LessonType.INTERACTIVE && isAnswerGiven.value) {
-            if (answerFeedbackText.value == "T") {
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(8.dp),
-                    horizontalArrangement = Arrangement.SpaceBetween
-                ) {
-                    Button(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .clip(RoundedCornerShape(12.dp))
-                            .background(bluishPython),
-                        onClick = {
-                            if (pagerState.currentPage < lessons.size - 1) {
-                                coroutineScope.launch {
-                                    pagerState.animateScrollToPage(pagerState.currentPage + 1)
-                                }
-                            };
-                            isAnswerGiven.value = false
-                            answerFeedbackText.value = ""
-                        },
-                        colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent)
-                    ) {
-                        Text(
-                            text = if (pagerState.currentPage < lessons.size - 1) "Next" else "Finish",
-                            style = TextStyle(fontSize = 16.sp, color = Color.White)
-                        )
-                    }
-                }
-            } else if (answerFeedbackText.value == "F") {
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(8.dp),
-                    horizontalArrangement = Arrangement.SpaceBetween
-                ) {
-                    Button(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .clip(RoundedCornerShape(12.dp))
-                            .background(Color(0xFF941818)),
-                        onClick = {
-                            if (pagerState.currentPage < lessons.size - 1) {
-                                coroutineScope.launch {
-                                    pagerState.animateScrollToPage(pagerState.currentPage + 1)
-                                }
-                            };
-                            isAnswerGiven.value = false
-                            answerFeedbackText.value = ""
-                        },
-                        colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent)
-                    ) {
-                        Text(
-                            text = "Try Again",
-                            style = TextStyle(fontSize = 16.sp, color = Color.White)
-                        )
-                    }
-                }
-            } else {
 
+                },
+                shape = RoundedCornerShape(8.dp),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = bluishPython,
+                    disabledContainerColor = Color(0xFF414559)
+                ),
+                enabled = shouldEnableContinueButton(
+                    isInteractive = isInteractiveTypeLesson.value,
+                    answerFeedbackText = answerFeedbackText.value,
+                    isAnswerGiven = isAnswerGiven.value
+                )
+            ) {
+                Text(
+                    text = if (pagerState.currentPage < lessons.size - 1) "Continue" else "Finish",
+                    style = TextStyle(fontSize = 16.sp, color = Color.White)
+                )
             }
         }
     }
 }
 
-//
-//@Composable
-//fun LessonNavigationView(
-//    isInteractiveTypeLesson: State<LessonType>,
-//    isAnswerGiven: MutableState<Boolean>,
-//    answerFeedbackText: MutableState<String>,
-//    pagerState: PagerState,
-//    lessons: List<LessonContent>,
-//    coroutineScope: CoroutineScope,
-//) {
-//    // Determine the state of the buttons based on feedback and lesson type
-//    val shouldShowContinueButton =
-//        isInteractiveTypeLesson.value == LessonType.NON_INTERACTIVE ||
-//                (isInteractiveTypeLesson.value == LessonType.INTERACTIVE && answerFeedbackText.value == "T")
-//
-//    val shouldShowTryAgainButton =
-//        isInteractiveTypeLesson.value == LessonType.INTERACTIVE && answerFeedbackText.value == "F"
-//
-//    Row(
-//        modifier = Modifier
-//            .fillMaxWidth()
-//            .padding(8.dp),
-//        horizontalArrangement = Arrangement.SpaceBetween
-//    ) {
-//        when {
-//            shouldShowContinueButton -> {
-//                // Show the "Next/Finish" button
-//                Button(
-//                    modifier = Modifier
-//                        .fillMaxWidth()
-//                        .clip(RoundedCornerShape(12.dp))
-//                        .background(bluishPython),
-//                    onClick = {
-//                        if (pagerState.currentPage < lessons.size - 1) {
-//                            coroutineScope.launch {
-//                                pagerState.animateScrollToPage(pagerState.currentPage + 1)
-//                            }
-//                        }
-//                        isAnswerGiven.value = false // Reset feedback
-//                    },
-//                    colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent)
-//                ) {
-//                    Text(
-//                        text = if (pagerState.currentPage < lessons.size - 1) "Next" else "Finish",
-//                        style = TextStyle(fontSize = 16.sp, color = Color.White)
-//                    )
-//                }
-//            }
-//
-//            shouldShowTryAgainButton -> {
-//                // Show the "Try Again" button
-//                Button(
-//                    modifier = Modifier
-//                        .fillMaxWidth()
-//                        .clip(RoundedCornerShape(12.dp))
-//                        .background(bluishPython),
-//                    onClick = {
-//                        // Reset feedback and allow the user to retry
-//                        answerFeedbackText.value = ""
-//                        isAnswerGiven.value = false
-//                    },
-//                    colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent)
-//                ) {
-//                    Text(
-//                        text = "Try Again",
-//                        style = TextStyle(fontSize = 16.sp, color = Color.White)
-//                    )
-//                }
-//            }
-//
-//            else -> {
-//                // No buttons to display when conditions aren't met
-//                Spacer(modifier = Modifier.height(0.dp))
-//            }
-//        }
-//    }
-//}
+// Helper Function to Determine Button State
+fun shouldEnableContinueButton(
+    isInteractive: Boolean,
+    answerFeedbackText: String,
+    isAnswerGiven: Boolean
+): Boolean {
+    return if (isInteractive) {
+        answerFeedbackText == "T" && isAnswerGiven // Enable only if correct answer is given
+    } else {
+        true // Always enable for non-interactive questions
+    }
+}
 
 
 @Composable
 fun InteractiveCodeBlockView(
     contentBlock: ContentBlock.InteractiveCodeBlock,
     isAnswerGiven: MutableState<Boolean>,
-    answerFeedbackText: MutableState<String>
+    answerFeedbackText: MutableState<String>,
+
 ) {
-    var userAnswer by remember { mutableStateOf("") }
-    var feedback by remember { mutableStateOf("") }
+
+    // Track the incomplete code and user answer state
     var codeWithAnswer by remember { mutableStateOf(contentBlock.incompleteCode) }
+    var userAnswer by remember { mutableStateOf(contentBlock.userAnswer ?: "") }
+    var feedback by remember { mutableStateOf("") }
+
+
+
     var isAnswerCorrect by remember { mutableStateOf(false) }
     val buttonState = remember {
         mutableStateMapOf<String, String>().apply {
@@ -671,7 +607,6 @@ fun InteractiveCodeBlockView(
         }
     }
 
-//    val showFeedback = remember { mutableStateOf(false) }
 
     Column(
         modifier = Modifier.fillMaxWidth(),
@@ -723,6 +658,7 @@ fun InteractiveCodeBlockView(
                             contentBlock.options.forEach { buttonState[it] = it }
                             isAnswerGiven.value = false
                             answerFeedbackText.value = ""
+
                         })
                         .background(Color(0xFF2D3040).copy(alpha = 0.3f)),
                     contentAlignment = Alignment.Center
@@ -761,6 +697,9 @@ fun InteractiveCodeBlockView(
                     .clip(RoundedCornerShape(12.dp))
                     .clickable(onClick = {
                         if (userAnswer.isNotEmpty()) {
+                            isAnswerCorrect = userAnswer == contentBlock.correctAnswer
+                            feedback = if (isAnswerCorrect) "Correct!" else "Try Again!"
+                            answerFeedbackText.value = if (isAnswerCorrect) "T" else "F"
                             isAnswerGiven.value = true
                         }
                     })
@@ -785,18 +724,20 @@ fun InteractiveCodeBlockView(
             contentBlock.options.forEach { option ->
                 Button(
                     onClick = {
+                        // Reset the previous button
                         if (userAnswer.isNotEmpty()) {
                             buttonState[userAnswer] = userAnswer
                         }
 
+                        // Update the selected answer
                         userAnswer = option
                         codeWithAnswer = contentBlock.incompleteCode.replace("___", option)
-                        buttonState[option] = ""
+                        buttonState[option] = "" // Mark this button as selected
+                        isAnswerGiven.value = false // Reset feedback until confirmed
 
-                        isAnswerCorrect = userAnswer == contentBlock.correctAnswer
-                        feedback = if (isAnswerCorrect) "Correct!" else "Try Again!"
-                        answerFeedbackText.value = if (isAnswerCorrect) "T" else "F"
                     },
+                    enabled = buttonState.getOrElse(option) { option }
+                        .isNotEmpty() && !isAnswerGiven.value,
                     colors = ButtonDefaults.buttonColors(
                         containerColor = Color(0xFF2D3040),
                         disabledContainerColor = Color(0xFF242734)
@@ -806,7 +747,6 @@ fun InteractiveCodeBlockView(
                     modifier = Modifier
                         .weight(1f)
                         .fillMaxWidth(),
-                    enabled = userAnswer.isEmpty()
                 ) {
                     Text(
                         text = buttonState.getOrElse(option) { option },
@@ -814,8 +754,8 @@ fun InteractiveCodeBlockView(
                     )
                 }
             }
-
         }
+
 
         // Feedback Text
         if (isAnswerGiven.value) {
@@ -973,17 +913,19 @@ sealed class ContentBlock {
         val question: String,
         val options: List<String>,
         val correctAnswer: String,
-        val incompleteCode: String
+        val incompleteCode: String,
+        var userAnswer: String? = null
     ) : ContentBlock()
 }
 
 data class LessonContent(
     val title: String,
     val contentBlocks: List<ContentBlock>,
-    val type: LessonType
+    val type: LessonContentType,
+    var isCompleted: Boolean = false
 )
 
-enum class LessonType {
+enum class LessonContentType {
     INTERACTIVE,
     NON_INTERACTIVE
 }
