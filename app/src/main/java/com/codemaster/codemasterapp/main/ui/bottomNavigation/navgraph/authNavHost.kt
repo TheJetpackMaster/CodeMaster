@@ -6,10 +6,12 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import com.codemaster.codemasterapp.main.ui.auth.LoginScreen
 import com.codemaster.codemasterapp.main.ui.auth.PreRegistrationScreen
+import com.codemaster.codemasterapp.main.ui.auth.ResetPasswordScreen
+import com.codemaster.codemasterapp.main.ui.auth.SignUpScreen
 
 fun NavGraphBuilder.authNavHost(navController: NavController) {
     navigation(
-        startDestination = "login",
+        startDestination = "ResetPassword",
         route = "auth"
     ){
         composable("PreRegistration") {
@@ -17,6 +19,12 @@ fun NavGraphBuilder.authNavHost(navController: NavController) {
         }
         composable("login") {
             LoginScreen(navController)
+        }
+        composable("SignUp") {
+            SignUpScreen(navController)
+        }
+        composable("ResetPassword") {
+            ResetPasswordScreen(navController)
         }
 
     }
