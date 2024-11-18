@@ -25,6 +25,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -42,6 +43,7 @@ import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExposedDropdownMenuDefaults.outlinedTextFieldColors
+import androidx.compose.material3.OutlinedIconButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBarDefaults
@@ -55,6 +57,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.runtime.*
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.PasswordVisualTransformation
@@ -79,23 +82,28 @@ fun LoginScreen(navController: NavController) {
     Scaffold(
         topBar = {
             TopAppBar(
+                windowInsets = WindowInsets(top = 30.dp),
                 navigationIcon = {
-                    IconButton(
+                    Spacer(Modifier.width(12.dp))
+                    OutlinedIconButton(
+                        border = BorderStroke(width = 2.dp, color = Color.White.copy(.8f)),
+                        modifier = Modifier
+                            .height(34.dp)
+                            .width(44.dp)
+                            .padding(start = 10.dp),
                         onClick = { navController.popBackStack() }
                     ) {
 
                         Icon(
-                            imageVector = Icons.Default.KeyboardArrowLeft, // Left arrow icon
+                            imageVector = Icons.AutoMirrored.Default.KeyboardArrowLeft,
                             contentDescription = "Back",
-                            tint = Color.White // Set the color of the icon to white
+                            tint = Color.White.copy(.8f),
+                            modifier = Modifier.size(26.dp)
                         )
                     }
                 },
                 title = {
-                    /*Text(
-                        text = "Login",
-                        style = MaterialTheme.typography.titleMedium.copy(color = Color.White)
-                    )*/
+
                 },
                 colors = TopAppBarDefaults.topAppBarColors(containerColor = Color.Transparent)
             )
@@ -124,6 +132,22 @@ fun LoginScreen(navController: NavController) {
                         navController.navigate(AuthRoutes.SignUpScreen.route)
                     }
                 )
+
+                LoginSection(
+                    onLoginClick = {
+                        navController.navigate(BottomNavRoutes.BOTTOM_ROOT.route)
+                    },
+                    onForgotPasswordClick = {
+
+                        navController.navigate(AuthRoutes.ResetPasswordScreen.route)
+                    },
+                    onSignUpClick = {
+
+                        navController.navigate(AuthRoutes.SignUpScreen.route)
+                    }
+                )
+
+
             }
         }
     )
@@ -134,7 +158,7 @@ fun LoginScreen(navController: NavController) {
 fun LoginSection(
     onLoginClick: () -> Unit,
     onForgotPasswordClick: () -> Unit,
-    onSignUpClick:()->Unit,
+    onSignUpClick: () -> Unit,
 ) {
     var username by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
@@ -153,22 +177,29 @@ fun LoginSection(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
             .fillMaxSize()
+            .padding(
+                top = 0.dp,
+                start = 18.dp, end = 18.dp, bottom = 24.dp
+            )
+            .verticalScroll(rememberScrollState())
 
     ) {
         LottieAnimation(
             composition = composition,
             progress = { progress },
             modifier = Modifier
-                .size(200.dp)
-                .scale(2f)
-             .padding(top = 16.dp)
+                .size(190.dp)
+                .scale(1.8f)
+                .padding(top = 16.dp)
 
         )
-        Column(horizontalAlignment = Alignment.CenterHorizontally,
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
+                .padding(top = 24.dp)
                 .fillMaxSize()
-                .padding(top = 32.dp)
-                .padding(24.dp)) {
+
+        ) {
             // Welcome Text
             Text(
                 text = "Welcome Back",
@@ -177,7 +208,7 @@ fun LoginSection(
                     color = Color.White
                 )
             )
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(4.dp))
             Text(
                 text = "Login to continue",
                 style = MaterialTheme.typography.bodyMedium.copy(color = Color.White),
@@ -199,7 +230,7 @@ fun LoginSection(
                 }
             )
 
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(12.dp))
 
             // Password TextField
             CustomTextField(
@@ -229,61 +260,62 @@ fun LoginSection(
                     )
                 }
             }
+        }
 
-            Spacer(modifier = Modifier.weight(1f))
+        Spacer(modifier = Modifier.weight(1f))
 
-            // Login Button
-            Button(
-                onClick = onLoginClick,
-                colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent),
-                contentPadding = PaddingValues()
-            ) {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth(0.8f)
-                        .height(50.dp)
-                        .background(
-                            brush = Brush.horizontalGradient(
-                                colors = listOf(
-                                    Color(0xFF293959), // First gradient color
-                                    Color(0xFF354C88)  // Second gradient color
-                                )
-                            ),
-                            shape = RoundedCornerShape(8.dp)
-                        ),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Text(
-                        text = "Login",
-                        style = MaterialTheme.typography.bodyLarge.copy(
-                            color = Color.White,
-                            fontWeight = FontWeight.Bold
-                        )
-                    )
-                }
-            }
-
-            //Spacer(modifier = Modifier.height(16.dp))
-
-            Row(
+        // Login Button
+        Button(
+            onClick = onLoginClick,
+            colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent),
+            contentPadding = PaddingValues(),
+            modifier = Modifier.shadow(2.dp, shape = CircleShape)
+        ) {
+            Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(start = 16.dp),
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.Center
+                    .height(50.dp)
+                    .background(
+                        brush = Brush.horizontalGradient(
+                            colors = listOf(
+                                Color(0xFF252B52), // First gradient color
+                                Color(0xFF3F4C88)  // Second gradient color
+                            )
+                        ),
+                        shape = RoundedCornerShape(8.dp)
+                    ),
+                contentAlignment = Alignment.Center
             ) {
                 Text(
-                    text = "Dont have an Account?",
+                    text = "Login",
+                    style = MaterialTheme.typography.bodyLarge.copy(
+                        color = Color.White,
+                        fontWeight = FontWeight.Bold
+                    )
+                )
+            }
+        }
+
+        //Spacer(modifier = Modifier.height(16.dp))
+
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 16.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Center
+        ) {
+            Text(
+                text = "Dont have an Account?",
+                style = MaterialTheme.typography.bodyMedium.copy(color = Color.White),
+                textAlign = TextAlign.Center
+            )
+            TextButton(onClick = onSignUpClick) {
+                Text(
+                    text = "Sign Up",
                     style = MaterialTheme.typography.bodyMedium.copy(color = Color.White),
                     textAlign = TextAlign.Center
                 )
-                TextButton(onClick = onSignUpClick) {
-                    Text(
-                        text = "Sign Up",
-                        style = MaterialTheme.typography.bodyMedium.copy(color = Color.White),
-                        textAlign = TextAlign.Center
-                    )
-                }
             }
         }
     }

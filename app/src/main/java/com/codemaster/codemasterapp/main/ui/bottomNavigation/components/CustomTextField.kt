@@ -71,7 +71,7 @@ fun CustomTextField(
                 )
                 .border(
                     width = 1.dp, // Border width
-                    color = Color.White.copy(alpha = 0.8f), // White border with 0.5 alpha
+                    color = Color.White.copy(alpha = 0.6f), // White border with 0.5 alpha
                     shape = RoundedCornerShape(12.dp) // Rounded corners for the border
                 )
 

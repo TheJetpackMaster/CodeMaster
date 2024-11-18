@@ -24,7 +24,6 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
@@ -38,6 +37,8 @@ import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.codemaster.codemasterapp.R
 import androidx.compose.runtime.*
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.AuthRoutes
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -47,52 +48,6 @@ fun PreRegistrationScreen(navController: NavController) {
 
     Scaffold(
         topBar = {
-            /*TopAppBar(
-                navigationIcon = {
-                    IconButton(
-                        modifier = Modifier
-                            .size(30.dp),
-                        onClick = { navController.popBackStack() } // Navigate back
-                    ) {
-                        Icon(
-                            imageVector = Icons.Default.KeyboardArrowLeft, // Back arrow icon
-                            contentDescription = "Back",
-                            tint = Color.Black // Black arrow for better contrast
-                        )
-                    }
-                },
-                title = {
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(end = 30.dp),
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.Center
-                    ) {
-                        Text(
-                            text = "Settings", // Title text
-                            style = MaterialTheme.typography.titleMedium.copy(
-                                color = Color.Black
-                            ),
-                            modifier = Modifier.padding(start = 8.dp)
-                        )
-                    }
-
-                },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = Color(0xFFF7F9FC) // Light background color
-                ),
-                actions = {
-                    // Optional action buttons (if needed)
-                    /* IconButton(onClick = { /* Additional action */ }) {
-                        Icon(
-                            imageVector = Icons.Default.Settings, // Example action icon
-                            contentDescription = "Settings",
-                            tint = Color.Black
-                        )
-                    }*/
-                }
-            )*/
         },
         content = { paddingValues ->
             Column(
@@ -103,7 +58,7 @@ fun PreRegistrationScreen(navController: NavController) {
                     .verticalScroll(scrollState),
                 horizontalAlignment = Alignment.CenterHorizontally,
 
-            ) {
+                ) {
 
                 PreRegistrationSection(
                     onLoginClick = {
@@ -137,18 +92,18 @@ fun PreRegistrationSection(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
             .fillMaxWidth()
-            .padding(16.dp)
+            .padding(12.dp)
     ) {
         // Lottie Animation completely on the right
-                LottieAnimation(
-                    composition = composition,
-                    progress = { progress },
-                    modifier = Modifier
-                        .size(300.dp)
-                        .padding(top = 22.dp)
+        LottieAnimation(
+            composition = composition,
+            progress = { progress },
+            modifier = Modifier
+                .size(280.dp)
+                .padding(top = 22.dp)
 
-                )
-        // App Name or Heading
+        )
+
         Text(
             text = "Code Master",
             style = MaterialTheme.typography.headlineMedium.copy(
@@ -173,7 +128,8 @@ fun PreRegistrationSection(
         Button(
             onClick = onLoginClick,
             colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent),
-            contentPadding = PaddingValues()
+            contentPadding = PaddingValues(),
+            modifier = Modifier.shadow(2.dp, shape = CircleShape)
         ) {
             Box(
                 modifier = Modifier
@@ -182,8 +138,8 @@ fun PreRegistrationSection(
                     .background(
                         brush = Brush.horizontalGradient(
                             colors = listOf(
-                                Color(0xFF293959), // First gradient color
-                                Color(0xFF354C88)  // Second gradient color
+                                Color(0xFF252B52), // First gradient color
+                                Color(0xFF3F4C88)  // Second gradient color
                             )
                         ),
                         shape = RoundedCornerShape(8.dp)
