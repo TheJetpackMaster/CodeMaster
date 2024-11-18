@@ -15,6 +15,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.RootNavHost
+import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.BottomNavRoutes
 import javax.annotation.meta.When
 
 
@@ -25,7 +26,7 @@ fun MainScreen() {
     val selectedIndex = remember { mutableStateOf(0) }
 
     val currentRoute = navController.currentBackStackEntryAsState().value?.destination?.route
-    val showBar = currentRoute == "home" || currentRoute == "settings"
+    val showBar = currentRoute == BottomNavRoutes.HomeScreen.route || currentRoute == BottomNavRoutes.AchievementsScreen.route
 
     Scaffold(
         bottomBar = {
@@ -43,9 +44,11 @@ fun MainScreen() {
                         selectedIndex.value = index
                         // Navigate or perform actions based on index
                         when (index) {
-                            0 -> navController.navigate("home")
-                            1 -> navController.navigate("settings")
-                            2 -> navController.navigate("home")
+                            0 -> navController.navigate(BottomNavRoutes.HomeScreen.route)
+                            1 -> {
+//                                navController.navigate(BottomNavRoutes.ExtraScreen.route)
+                            }
+                            2 -> navController.navigate(BottomNavRoutes.AchievementsScreen.route)
                         }
                     }
                 )

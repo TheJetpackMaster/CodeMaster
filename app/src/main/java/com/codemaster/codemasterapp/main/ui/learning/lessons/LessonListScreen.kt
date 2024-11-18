@@ -60,11 +60,12 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.sp
+import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.MainRoutes
 import com.codemaster.codemasterapp.ui.theme.bluishPython
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LanguageLevelScreen(navController: NavController) {
+fun LessonListScreen(navController: NavController) {
     val scrollState = rememberScrollState()
 
     // Add state to track selected language and level
@@ -221,12 +222,15 @@ fun LanguageLevelScreen(navController: NavController) {
                                             title = lesson.title,
                                             description = lesson.description,
                                             status = lesson.status,
-                                            onLessonClicked = {
+                                            onArrowClick = {
                                                 // Toggle expansion of this lesson's sub-lessons
                                                 expandedLessons.value =
                                                     expandedLessons.value.toMutableMap().apply {
                                                         put(index, !isExpanded)
                                                     }
+                                            },
+                                            onLessonClick = {
+                                                navController.navigate(MainRoutes.LessonContentScreen.route)
                                             },
                                             isExpanded = isExpanded,
                                             isLastLesson = isLastLesson // Pass the check here
@@ -376,7 +380,8 @@ fun LessonItem(
     title: String,
     description: String,
     status: LessonStatus,
-    onLessonClicked: () -> Unit, // Callback for expanding the lesson
+    onArrowClick: () -> Unit, // Callback for expanding the lesson,
+    onLessonClick:()->Unit,
     isExpanded: Boolean,
     isLastLesson: Boolean // Add a flag to check if it's the last lesson
 ) {
@@ -398,11 +403,13 @@ fun LessonItem(
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .clickable(enabled = status != LessonStatus.LOCKED) {
-                Toast
-                    .makeText(context, "Lesson: $title", Toast.LENGTH_SHORT)
-                    .show()
-            }
+            .clickable(enabled = status != LessonStatus.LOCKED,
+                onClick = {
+                    onLessonClick()
+                    Toast
+                        .makeText(context, "Lesson: $title", Toast.LENGTH_SHORT)
+                        .show()
+                } )
             .padding(horizontal = 8.dp)
     ) {
         Row(
@@ -476,7 +483,7 @@ fun LessonItem(
             }
 
             // Expand Arrow (Right Arrow)
-            IconButton(onClick = { onLessonClicked() }) {
+            IconButton(onClick = { onArrowClick() }) {
                 Icon(
                     imageVector = if (isExpanded) Icons.Default.KeyboardArrowDown else Icons.AutoMirrored.Default.KeyboardArrowRight,
                     contentDescription = null,

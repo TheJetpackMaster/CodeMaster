@@ -51,6 +51,7 @@ import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.codemaster.codemasterapp.R
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.components.CustomTextField
+import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.AuthRoutes
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -93,7 +94,12 @@ fun SignUpScreen(navController: NavController){
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 SignUpSection(
-                    onLoginClick = {}, onForgotPasswordClick = {})
+                    onLoginClick = {
+                        navController.navigate(AuthRoutes.LoginScreen.route)
+                    },
+                    onRegisterClick =  {
+                        navController.navigate(AuthRoutes.LoginScreen.route)
+                    })
             }
         }
     )
@@ -103,7 +109,7 @@ fun SignUpScreen(navController: NavController){
 @Composable
 fun SignUpSection(
     onLoginClick: () -> Unit,
-    onForgotPasswordClick: () -> Unit,
+    onRegisterClick: () -> Unit,
 ) {
     var username by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
@@ -222,7 +228,7 @@ fun SignUpSection(
 
             // Login Button
             Button(
-                onClick = onLoginClick,
+                onClick = onRegisterClick,
                 colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent),
                 contentPadding = PaddingValues()
             ) {
@@ -265,7 +271,7 @@ fun SignUpSection(
                     style = MaterialTheme.typography.bodyMedium.copy(color = Color.White),
                     textAlign = TextAlign.Center
                 )
-                TextButton(onClick = onForgotPasswordClick) {
+                TextButton(onClick = onLoginClick) {
                     Text(
                         text = "Login",
                         style = MaterialTheme.typography.bodyMedium.copy(color = Color.White),

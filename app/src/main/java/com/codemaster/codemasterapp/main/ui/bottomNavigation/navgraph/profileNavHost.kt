@@ -4,23 +4,21 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
-import com.codemaster.codemasterapp.main.ui.bottomNavigation.screens.SettingScreen
-import com.codemaster.codemasterapp.main.ui.bottomNavigation.screens.UserProfileScreen
-import com.codemaster.codemasterapp.main.ui.learning.lessons.LanguageLevelScreen
-import com.codemaster.codemasterapp.main.ui.learning.selection.LevelSelectionScreen
+import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.ProfileRoutes
+import com.codemaster.codemasterapp.main.ui.userProfileDetails.SettingScreen
+import com.codemaster.codemasterapp.main.ui.userProfileDetails.UserProfileScreen
 
 fun NavGraphBuilder.profileNavHost(navController: NavController) {
     navigation(
-        startDestination = "Setting",
-        route = "profile"
+        startDestination = ProfileRoutes.UserProfileScreen.route,
+        route = ProfileRoutes.PROFILE_ROOT.route
     ) {
-        composable("UserProfile") {
+        composable(ProfileRoutes.UserProfileScreen.route) {
             UserProfileScreen(navController)
         }
 
-        composable("Setting") {
+        composable(ProfileRoutes.SettingsScreen.route) {
             SettingScreen(navController)
         }
-
     }
 }

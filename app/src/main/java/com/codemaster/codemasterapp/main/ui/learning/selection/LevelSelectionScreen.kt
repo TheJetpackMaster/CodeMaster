@@ -30,6 +30,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.ui.Alignment
+import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.MainRoutes
 import com.codemaster.codemasterapp.main.ui.components.ContinueLearningCard
 
 
@@ -78,7 +79,7 @@ fun LevelSelectionScreen(navController: NavController) {
                             completedLessonCount = 12,
                             icon = painterResource(id = R.drawable.cpp),
                             onClick = {
-
+                                navController.navigate(MainRoutes.LessonListScreen.route)
                             },
                             modifier = Modifier.weight(1f)
                         )
@@ -89,7 +90,7 @@ fun LevelSelectionScreen(navController: NavController) {
                             completedLessonCount = 0,
                             icon = painterResource(id = R.drawable.cpp),
                             onClick = {
-
+                                navController.navigate(MainRoutes.LessonListScreen.route)
                             },
                             modifier = Modifier.weight(1f)
                         )
@@ -109,7 +110,7 @@ fun LevelSelectionScreen(navController: NavController) {
                             completedLessonCount = 0,
                             icon = painterResource(id = R.drawable.cpp),
                             onClick = {
-
+                                navController.navigate(MainRoutes.LessonListScreen.route)
                             },
                             modifier = Modifier.weight(1f)
                         )
@@ -120,7 +121,7 @@ fun LevelSelectionScreen(navController: NavController) {
                             completedLessonCount = 0,
                             icon = painterResource(id = R.drawable.cpp),
                             onClick = {
-
+                                navController.navigate(MainRoutes.LessonListScreen.route)
                             },
                             modifier = Modifier.weight(1f)
                         )
@@ -137,8 +138,7 @@ fun LevelSelectionScreen(navController: NavController) {
                         progressPercentage = 0.7f,
                         paddingValues = PaddingValues(horizontal = 14.dp),
                         onContinueClick = {
-                            // Handle the click event
-                            println("Continue Button Clicked")
+                            navController.navigate(MainRoutes.LessonContentScreen.route)
                         }
                     )
 

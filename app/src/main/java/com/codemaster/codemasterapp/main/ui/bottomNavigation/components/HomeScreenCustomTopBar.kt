@@ -6,6 +6,7 @@ import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -56,7 +57,9 @@ import com.codemaster.codemasterapp.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreenCustomTopBar() {
+fun HomeScreenCustomTopBar(
+    onProfileClick:()->Unit
+) {
     // Number of stars to draw
     val starCount = 300
 
@@ -145,6 +148,9 @@ fun HomeScreenCustomTopBar() {
                     modifier = Modifier
                         .clip(RoundedCornerShape(20.dp))
                         .background(Color.White.copy(alpha = 0.1f))
+                        .clickable(onClick = {
+                            onProfileClick()
+                        })
                         .padding(8.dp)
                 ) {
                     // Profile Picture
@@ -153,6 +159,7 @@ fun HomeScreenCustomTopBar() {
                             .size(40.dp)
                             .clip(CircleShape)
                             .background(Color.Gray) // Placeholder for the profile image
+
                     ) {
                         // Replace with actual Image
                         Image(

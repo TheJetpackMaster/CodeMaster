@@ -76,7 +76,10 @@ import androidx.compose.ui.graphics.Path
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun UserProfileScreenCustomTopBar() {
+fun UserProfileScreenCustomTopBar(
+    onSettingsClick:()->Unit,
+    onBackClick:()->Unit
+) {
 
     // Load Lottie composition (achievement animation)
     val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.achivment))
@@ -171,7 +174,7 @@ fun UserProfileScreenCustomTopBar() {
                 // Arrow Back Button (for navigation)
                 IconButton(
                     onClick = {
-                        // Handle back navigation (you can add action here)
+                        onBackClick()
                     }
                 ) {
                     Icon(
@@ -183,7 +186,9 @@ fun UserProfileScreenCustomTopBar() {
 
                 // Settings Button
                 Button(
-                    onClick = { /* Handle settings action here */ },
+                    onClick = {
+                        onSettingsClick()
+                    },
                     modifier = Modifier
                         .padding(
                             horizontal = 16.dp,

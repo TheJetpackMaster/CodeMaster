@@ -67,6 +67,8 @@ import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.codemaster.codemasterapp.R
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.components.CustomTextField
+import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.AuthRoutes
+import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.BottomNavRoutes
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -110,7 +112,18 @@ fun LoginScreen(navController: NavController) {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 LoginSection(
-                    onLoginClick = {}, onForgotPasswordClick = {})
+                    onLoginClick = {
+                        navController.navigate(BottomNavRoutes.BOTTOM_ROOT.route)
+                    },
+                    onForgotPasswordClick = {
+
+                        navController.navigate(AuthRoutes.ResetPasswordScreen.route)
+                    },
+                    onSignUpClick = {
+
+                        navController.navigate(AuthRoutes.SignUpScreen.route)
+                    }
+                )
             }
         }
     )
@@ -121,6 +134,7 @@ fun LoginScreen(navController: NavController) {
 fun LoginSection(
     onLoginClick: () -> Unit,
     onForgotPasswordClick: () -> Unit,
+    onSignUpClick:()->Unit,
 ) {
     var username by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
@@ -263,7 +277,7 @@ fun LoginSection(
                     style = MaterialTheme.typography.bodyMedium.copy(color = Color.White),
                     textAlign = TextAlign.Center
                 )
-                TextButton(onClick = onForgotPasswordClick) {
+                TextButton(onClick = onSignUpClick) {
                     Text(
                         text = "Sign Up",
                         style = MaterialTheme.typography.bodyMedium.copy(color = Color.White),

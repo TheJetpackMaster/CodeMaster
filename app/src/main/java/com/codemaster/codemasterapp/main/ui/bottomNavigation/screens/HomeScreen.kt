@@ -18,6 +18,9 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.codemaster.codemasterapp.R
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.components.HomeScreenCustomTopBar
+import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.BottomNavRoutes
+import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.MainRoutes
+import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.ProfileRoutes
 import com.codemaster.codemasterapp.main.ui.components.ContinueLearningCard
 import com.codemaster.codemasterapp.main.ui.components.LanguageCardDesign
 import com.codemaster.codemasterapp.ui.theme.*
@@ -28,33 +31,11 @@ fun HomeScreen(navController: NavController) {
     val scrollState = rememberScrollState()
     Scaffold(
         topBar = {
-            /*TopAppBar(
-                title = {
-                    Row(
-                        modifier = Modifier.fillMaxSize(),
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Text(
-                            "CodeMaster",
-                            color = Color(0xFFE5E5C2),
-                            style = MaterialTheme.typography.titleLarge
-                        )
-                        Spacer(Modifier.weight(1f))
-                        IconButton(onClick = { /* Navigate to Profile Screen */ }) {
-                            Icon(
-                                imageVector = Icons.Filled.Person,
-                                contentDescription = "Profile",
-                                tint = Color.White,
-                                modifier = Modifier.size(24.dp)
-                            )
-                        }
-                    }
-                },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = Color(0xFF2F3E4C),
-                ),
-            )*/
-            HomeScreenCustomTopBar()
+            HomeScreenCustomTopBar(
+                onProfileClick = {
+                    navController.navigate(ProfileRoutes.PROFILE_ROOT.route)
+                }
+            )
         },
         content = { paddingValues ->
             Box(
@@ -109,7 +90,9 @@ fun HomeScreen(navController: NavController) {
                             completedLessonCount = 30,
                             gradientColors = listOf(bluishPython, greenishPython),
                             languageImage = painterResource(id = R.drawable.pythonlogo),
-                            onClick = { /* Navigate to Python course */ },
+                            onClick = {
+                                navController.navigate(MainRoutes.MAIN_ROOT.route)
+                            },
                             modifier = Modifier.weight(1f)
                         )
 
@@ -120,7 +103,9 @@ fun HomeScreen(navController: NavController) {
                             completedLessonCount = 3,
                             gradientColors = listOf(yellowishJava, bluishJava),
                             languageImage = painterResource(id = R.drawable.java),
-                            onClick = { /* Navigate to Java course */ },
+                            onClick = {
+                                navController.navigate(MainRoutes.MAIN_ROOT.route)
+                            },
                             modifier = Modifier.weight(1f)
                         )
                     }
@@ -139,7 +124,9 @@ fun HomeScreen(navController: NavController) {
                             completedLessonCount = 20,
                             gradientColors = listOf(purpleKt, yellowishKt),
                             languageImage = painterResource(id = R.drawable.kotlin),
-                            onClick = { /* Navigate to Kotlin course */ },
+                            onClick = {
+                                navController.navigate(MainRoutes.MAIN_ROOT.route)
+                            },
                             modifier = Modifier.weight(1f)
                         )
 
@@ -150,7 +137,9 @@ fun HomeScreen(navController: NavController) {
                             completedLessonCount = 30,
                             gradientColors = listOf(purpleCpp, magentaCpp),
                             languageImage = painterResource(id = R.drawable.cpp),
-                            onClick = { /* Navigate to C++ course */ },
+                            onClick = {
+                                navController.navigate(MainRoutes.MAIN_ROOT.route)
+                            },
                             modifier = Modifier.weight(1f)
                         )
 
@@ -167,8 +156,7 @@ fun HomeScreen(navController: NavController) {
                             progressPercentage = 0.7f,
                             paddingValues =PaddingValues(0.dp),
                             onContinueClick = {
-                                // Handle the click event
-                                println("Continue Button Clicked")
+                                navController.navigate(MainRoutes.LessonContentScreen.route)
                             }
                         )
                     }

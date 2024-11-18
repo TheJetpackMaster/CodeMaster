@@ -4,25 +4,25 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
-import com.codemaster.codemasterapp.main.ui.learning.lessons.LanguageLevelScreen
+import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.MainRoutes
+import com.codemaster.codemasterapp.main.ui.learning.lessons.LessonListScreen
 import com.codemaster.codemasterapp.main.ui.learning.lessons.LessonContentScreen
-import com.codemaster.codemasterapp.main.ui.learning.lessons.getLessons
 import com.codemaster.codemasterapp.main.ui.learning.selection.LevelSelectionScreen
 
 
 fun NavGraphBuilder.mainNavHost(navController: NavController) {
     navigation(
-        startDestination = "LessonOverview",
-        route = "main"
+        startDestination = MainRoutes.LevelSelectionScreen.route,
+        route = MainRoutes.MAIN_ROOT.route
     ){
-        composable("StageSelection"){
+        composable(MainRoutes.LevelSelectionScreen.route){
             LevelSelectionScreen(navController)
         }
-        composable("LanguageLevel"){
-            LanguageLevelScreen(navController)
+        composable(MainRoutes.LessonListScreen.route){
+            LessonListScreen(navController)
         }
         
-        composable("LessonOverview"){
+        composable(MainRoutes.LessonContentScreen.route){
             LessonContentScreen()
         }
     }

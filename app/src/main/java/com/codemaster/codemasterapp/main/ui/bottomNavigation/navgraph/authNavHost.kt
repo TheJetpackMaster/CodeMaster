@@ -8,24 +8,24 @@ import com.codemaster.codemasterapp.main.ui.auth.LoginScreen
 import com.codemaster.codemasterapp.main.ui.auth.PreRegistrationScreen
 import com.codemaster.codemasterapp.main.ui.auth.ResetPasswordScreen
 import com.codemaster.codemasterapp.main.ui.auth.SignUpScreen
+import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.AuthRoutes
 
 fun NavGraphBuilder.authNavHost(navController: NavController) {
     navigation(
-        startDestination = "ResetPassword",
-        route = "auth"
+        startDestination = AuthRoutes.PreRegistrationScreen.route,
+        route = AuthRoutes.AUTH_ROOT.route
     ){
-        composable("PreRegistration") {
+        composable(AuthRoutes.PreRegistrationScreen.route) {
             PreRegistrationScreen(navController)
         }
-        composable("login") {
+        composable(AuthRoutes.LoginScreen.route) {
             LoginScreen(navController)
         }
-        composable("SignUp") {
+        composable(AuthRoutes.SignUpScreen.route) {
             SignUpScreen(navController)
         }
-        composable("ResetPassword") {
+        composable(AuthRoutes.ResetPasswordScreen.route) {
             ResetPasswordScreen(navController)
         }
-
     }
 }
