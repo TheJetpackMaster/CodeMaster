@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.rememberScrollState
@@ -134,64 +135,67 @@ fun AchievementScreen(navController: NavController) {
 
 @Composable
 fun AchievementsContent() {
+
+    // List of 100 titles
+    val titles = listOf(
+        "Achiever", "Prodigy", "Master", "Champion", "Maverick", "Hero", "Legend", "Titan", "Conqueror", "Innovator",
+        "Strategist", "Philanthropist", "Expert", "Winner", "Adventurer","Pathfinder", "Explorer", "Creator",
+        "Builder", "Visionary", "Revolutionary", "Pioneer", "Achiever", "Goalsetter", "Transformer", "Empowerer", "Inspire",
+        "Mentor", "Influencer", "Leader", "Inventor", "Guru", "Evolver", "Mastermind", "Navigator", "Determined", "Focused",
+        "Hustler", "Go-Getter", "Overcomer", "Legendary", "Breakthrough", "Elevator", "Optimist", "Game-Changer", "Shaker",
+        "Craftsman", "Shining Star", "Innovative", "Achiever", "Tactician"
+    )
+
+    // List of progress values, representing the completion of the achievement
+    /*val progressValues = listOf(0.1f, 0.2f, 0.3f, 0.4f, 0.5f,
+        0.6f, 0.7f, 0.8f, 0.9f, 1.0f)
+
+    // List of animation resource IDs (Assume you have different animation files)
+    val animationResources = listOf(
+        R.raw.cardbadge, R.raw.cardbadge, R.raw.cardbadge,
+        R.raw.cardbadge, R.raw.cardbadge, R.raw.cardbadge,
+        R.raw.cardbadge, R.raw.cardbadge, R.raw.cardbadge,
+        R.raw.cardbadge
+    )*/
+
+    // Progress values and animation resources for each achievement
+    val progressValues = List(48) { (it + 1) / 100f }
+    val animationResources = List(48) { R.raw.cardbadge }
+
+    // Create a list of 10 achievements with different titles, progress, and animation
+    val achievements = List(48) { index ->
+        AchievementItem(
+            title = titles[index],  // Unique title
+            progressValue = progressValues[index],  // Unique progress
+            animationResource = animationResources[index]  // Unique animation
+        )
+    }
+
     LazyColumn(
         modifier = Modifier.fillMaxSize()
     ) {
-        // First Row
-        item {
-            Row() {
-                AchievementCard(
-                    title = "C",
-                    progressValue = 0f,
-                    animationResource = R.raw.cardbadge,
-                    modifier = Modifier.weight(1f)
-                )
-                AchievementCard(
-                    title = "C++",
-                    progressValue = 0.2f,
-                    animationResource = R.raw.cardbadge,
-                    modifier = Modifier.weight(1f)
-                )
-            }
-        }
-
-        // Second Row
-        item {
-            Row() {
-                AchievementCard(
-                    title = "Python",
-                    progressValue = 0.4f,
-                    animationResource = R.raw.cardbadge,
-                    modifier = Modifier.weight(1f)
-                )
-                AchievementCard(
-                    title = "Java",
-                    progressValue = 0.6f,
-                    animationResource = R.raw.cardbadge,
-                    modifier = Modifier.weight(1f)
-                )
-            }
-        }
-
-        // Third Row
-        item {
-            Row() {
-                AchievementCard(
-                    title = "DSA",
-                    progressValue = 0.8f,
-                    animationResource = R.raw.cardbadge,
-                    modifier = Modifier.weight(1f)
-                )
-                AchievementCard(
-                    title = "Kotlin",
-                    progressValue = 1f,
-                    animationResource = R.raw.cardbadge,
-                    modifier = Modifier.weight(1f)
-                )
+        // Dynamically create rows based on the list of achievements
+        items(achievements.chunked(2)) { achievementRow ->
+            Row(modifier = Modifier.fillMaxWidth()) {
+                achievementRow.forEach { achievement ->
+                    AchievementCard(
+                        title = achievement.title,
+                        progressValue = achievement.progressValue,
+                        animationResource = achievement.animationResource,
+                        modifier = Modifier.weight(1f)
+                    )
+                }
             }
         }
     }
 }
+
+// Data class to represent each achievement
+data class AchievementItem(
+    val title: String,
+    val progressValue: Float,
+    val animationResource: Int
+)
 
 @Composable
 fun ProgressContent() {
