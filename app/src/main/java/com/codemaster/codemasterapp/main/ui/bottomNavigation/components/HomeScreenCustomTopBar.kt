@@ -67,7 +67,7 @@ fun HomeScreenCustomTopBar(
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .height(200.dp) // Increased height to accommodate all content
+            .height(180.dp) // Increased height to accommodate all content
             .background(Color.Transparent)
             .clip(RoundedCornerShape(bottomStart = 20.dp, bottomEnd = 20.dp)) // Rounded corners at the bottom
     ) {
@@ -75,7 +75,7 @@ fun HomeScreenCustomTopBar(
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(200.dp)
+                .height(180.dp)
                 .blur(100.dp)
         ) {
             Canvas(modifier = Modifier.fillMaxSize()) {

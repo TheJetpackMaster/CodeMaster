@@ -29,6 +29,7 @@ import com.airbnb.lottie.compose.*
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.ui.Alignment
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.MainRoutes
 import com.codemaster.codemasterapp.main.ui.components.ContinueLearningCard
@@ -51,18 +52,17 @@ fun LevelSelectionScreen(navController: NavController) {
                     .verticalScroll(state = rememberScrollState()),
             ) {
                 Column(
-                    modifier = Modifier.padding(vertical = 18.dp)
+                    modifier = Modifier.padding(top = 16.dp)
                 ) {
                     // Title Text
                     Text(
                         text = "Select your learning stage:",
-                        color = Color.Black,
+                        color = Color(0xFF2F3E4C),
                         fontSize = 16.sp,
-                        fontWeight = FontWeight.SemiBold,
+                        style = MaterialTheme.typography.titleMedium,
                         modifier = Modifier.padding(
-                            start = 18.dp,
-                            end = 16.dp,
-                            bottom = 8.dp
+                            start = 8.dp,
+                            bottom = 4.dp
                         ) // Extra padding for spacing
                     )
 
@@ -70,7 +70,7 @@ fun LevelSelectionScreen(navController: NavController) {
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(horizontal = 12.dp),
+                            .padding(horizontal = 8.dp),
                         horizontalArrangement = Arrangement.spacedBy(10.dp) // Increased spacing between cards
                     ) {
                         LevelSelectionCardDesign(
@@ -101,7 +101,7 @@ fun LevelSelectionScreen(navController: NavController) {
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(horizontal = 12.dp),
+                            .padding(horizontal = 8.dp),
                         horizontalArrangement = Arrangement.spacedBy(10.dp) // Increased spacing between cards
                     ) {
                         LevelSelectionCardDesign(
@@ -136,7 +136,7 @@ fun LevelSelectionScreen(navController: NavController) {
                         levelName = "Introduction",
                         lessonName = "Variables Part 2",
                         progressPercentage = 0.7f,
-                        paddingValues = PaddingValues(horizontal = 14.dp),
+                        paddingValues = PaddingValues(horizontal = 8.dp),
                         onContinueClick = {
                             navController.navigate(MainRoutes.LessonContentScreen.route)
                         }

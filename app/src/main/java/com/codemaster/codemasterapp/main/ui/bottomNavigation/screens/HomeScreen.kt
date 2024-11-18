@@ -81,7 +81,7 @@ fun HomeScreen(navController: NavController) {
                     // First Row of Language Cards
                     Row(
                         modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.spacedBy(12.dp)
+                        horizontalArrangement = Arrangement.spacedBy(10.dp)
                     ) {
                         LanguageCardDesign(
                             languageName = "Python",
@@ -115,7 +115,7 @@ fun HomeScreen(navController: NavController) {
                     // Second Row of Language Cards
                     Row(
                         modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.spacedBy(12.dp)
+                        horizontalArrangement = Arrangement.spacedBy(10.dp)
                     ) {
                         LanguageCardDesign(
                             languageName = "Kotlin",
