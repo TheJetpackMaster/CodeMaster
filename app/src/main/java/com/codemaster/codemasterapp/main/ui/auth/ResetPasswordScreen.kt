@@ -109,7 +109,7 @@ fun ResetPasswordSection(
     var email by remember { mutableStateOf("") }
 
     // Load Lottie composition
-    val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.signup))
+    val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.resetpassword))
 
     // Animate the composition
     val progress by animateLottieCompositionAsState(
@@ -141,7 +141,7 @@ fun ResetPasswordSection(
                 .padding(24.dp)) {
             // Welcome Text
             Text(
-                text = "ResetPassword",
+                text = "Reset Password",
                 style = MaterialTheme.typography.headlineMedium.copy(
                     fontWeight = FontWeight.Bold,
                     color = Color.White
