@@ -6,50 +6,53 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.LottieConstants
+import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.codemaster.codemasterapp.R
-import androidx.compose.runtime.*
-import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.draw.scale
-import androidx.compose.ui.graphics.ColorFilter
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.style.TextOverflow
-import com.airbnb.lottie.compose.animateLottieCompositionAsState
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AchievementCard(
+fun ProgressCard(
     title: String, // Title of the achievement (can be customized)
     progressValue: Float, // Progress value (0.0f to 1.0f)
     progressBarColor: Color = Color.Yellow, // Color of the progress bar
     completedText: String = "Completed", // Text to show when progress is completed
-    ImageResource: Int,
+    animationResource: Int,
     modifier: Modifier,
 ) {
+    // Lottie composition and animation state
+    val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(animationResource))
+    val LottieProgress by animateLottieCompositionAsState(
+        composition = composition,
+        iterations = LottieConstants.IterateForever
+    )
+
     // Card to contain the content
     Card(
         modifier = modifier
@@ -83,13 +86,16 @@ fun AchievementCard(
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 // Lottie Animation
-                Image(
-                    painter = painterResource(id = ImageResource), // Replace with your drawable resource ID
-                    contentDescription = "Example Badge", // Describe the image for accessibility
-                    modifier = Modifier.size(80.dp) // Modify size as needed
+                LottieAnimation(
+                    composition = composition,
+                    progress = { LottieProgress },
+                    modifier = Modifier
+                        .size(80.dp)
+                        .scale(1.2f)
+                        .padding(bottom = 8.dp)
+
+                    // Space between animation and progress bar
                 )
-
-
                 // Custom Progress Bar with Text Above it (only if progress is not 100%)
                 if (progressValue < 1f) {
                     // Custom Progress Bar with Text Above it
@@ -114,7 +120,7 @@ fun AchievementCard(
                             )
                         }
 
-                        AchievementCustomProgressBar(
+                        CustomProgressBar(
                             progressValue = progressValue,
                             progressBarColor = progressBarColor
                         ) // Use the progress value
@@ -135,7 +141,7 @@ fun AchievementCard(
 }
 
 @Composable
-fun AchievementCustomProgressBar(
+fun CustomProgressBar(
     progressValue: Float, // The current progress (0.0f to 1.0f)
     progressBarColor: Color = Color.Yellow, // Color of the progress bar
 ) {

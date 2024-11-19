@@ -55,6 +55,7 @@ import com.codemaster.codemasterapp.ui.theme.purpleKt
 import com.codemaster.codemasterapp.ui.theme.yellowishJava
 import com.codemaster.codemasterapp.ui.theme.yellowishKt
 import androidx.compose.runtime.*
+import com.codemaster.codemasterapp.main.ui.bottomNavigation.components.ProgressCard
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 
@@ -114,8 +115,8 @@ fun AchievementScreen(navController: NavController) {
                 Column(
                     modifier = Modifier
                         .fillMaxSize(),
-                        // .padding(start = 8.dp, end = 8.dp)
-                      //  .verticalScroll(scrollState),
+                    // .padding(bottom = 80.dp),
+                    //  .verticalScroll(scrollState),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     HorizontalPager(
@@ -138,32 +139,95 @@ fun AchievementsContent() {
 
     // List of 100 titles
     val titles = listOf(
-        "Achiever", "Prodigy", "Master", "Champion", "Maverick", "Hero", "Legend", "Titan", "Conqueror", "Innovator",
-        "Strategist", "Philanthropist", "Expert", "Winner", "Adventurer","Pathfinder", "Explorer", "Creator",
-        "Builder", "Visionary", "Revolutionary", "Pioneer", "Achiever", "Goalsetter", "Transformer", "Empowerer", "Inspire",
-        "Mentor", "Influencer", "Leader", "Inventor", "Guru", "Evolver", "Mastermind", "Navigator", "Determined", "Focused",
-        "Hustler", "Go-Getter", "Overcomer", "Legendary", "Breakthrough", "Elevator", "Optimist", "Game-Changer", "Shaker",
-        "Craftsman", "Shining Star", "Innovative", "Achiever", "Tactician"
+        "Achiever",
+        "Prodigy",
+        "Master",
+        "Champion",
+        "Maverick",
+        "Hero",
+        "Legend",
+        "Titan",
+        "Conqueror",
+        "Innovator",
+        "Strategist",
+        "Philanthropist",
+        "Expert",
+        "Winner",
+        "Adventurer",
+        "Pathfinder",
+        "Explorer",
+        "Creator",
+        "Builder",
+        "Visionary",
+        "Revolutionary",
+        "Pioneer",
+        "Goalsetter",
+        "Transformer",
+        "Empowerer",
+        "Inspire",
+        "Mentor",
+        "Influencer",
+        "Leader",
+        "Inventor",
+        "Guru",
+       /* "Evolver",
+        "Mastermind",
+        "Navigator",
+        "Determined",
+        "Focused",
+        "Hustler",
+        "Go-Getter",
+        "Overcomer",
+        "Legendary",
+        "Breakthrough",
+        "Elevator",
+        "Optimist",
+        "Game-Changer",
+        "Shaker",
+        "Craftsman",
+        "Shining Star",
+        "Innovative",
+        "Achiever",
+        "Tactician"*/
     )
 
     // List of progress values, representing the completion of the achievement
     /*val progressValues = listOf(0.1f, 0.2f, 0.3f, 0.4f, 0.5f,
-        0.6f, 0.7f, 0.8f, 0.9f, 1.0f)
+        0.6f, 0.7f, 0.8f, 0.9f, 1.0f)*/
 
     // List of animation resource IDs (Assume you have different animation files)
     val animationResources = listOf(
-        R.raw.cardbadge, R.raw.cardbadge, R.raw.cardbadge,
-        R.raw.cardbadge, R.raw.cardbadge, R.raw.cardbadge,
-        R.raw.cardbadge, R.raw.cardbadge, R.raw.cardbadge,
-        R.raw.cardbadge
-    )*/
+        R.drawable.achiever, R.drawable.prodigy,
+        R.drawable.master, R.drawable.champion,
+        R.drawable.maverick, R.drawable.hero,
+        R.drawable.legend, R.drawable.titan,
+        R.drawable.conqueror, R.drawable.innovator,
+
+        R.drawable.strategist, R.drawable.philanthropist,
+        R.drawable.expert, R.drawable.winner,
+        R.drawable.adventurer, R.drawable.pathfinder,
+        R.drawable.explorer, R.drawable.creator,
+        R.drawable.builder, R.drawable.visionary,
+
+        R.drawable.revolutionary, R.drawable.pioneer,
+        R.drawable.goalsetter, R.drawable.transformer,
+        R.drawable.empowerer, R.drawable.inspire,
+        R.drawable.mentor, R.drawable.influencer,
+        R.drawable.leader, R.drawable.inventor,
+
+       /* R.drawable.guru, R.drawable.evolver,
+        R.drawable.goalsetter, R.drawable.transformer,
+        R.drawable.empowerer, R.drawable.inspire,
+        R.drawable.mentor, R.drawable.influencer,
+        R.drawable.leader, R.drawable.inventor,*/
+    )
 
     // Progress values and animation resources for each achievement
-    val progressValues = List(48) { (it + 1) / 100f }
-    val animationResources = List(48) { R.raw.cardbadge }
+    val progressValues = List(30) { (it + 1) / 100f }
+    // val animationResources = List(48) { R.raw.cardbadge }
 
     // Create a list of 10 achievements with different titles, progress, and animation
-    val achievements = List(48) { index ->
+    val achievements = List(30) { index ->
         AchievementItem(
             title = titles[index],  // Unique title
             progressValue = progressValues[index],  // Unique progress
@@ -181,11 +245,14 @@ fun AchievementsContent() {
                     AchievementCard(
                         title = achievement.title,
                         progressValue = achievement.progressValue,
-                        animationResource = achievement.animationResource,
+                        ImageResource = achievement.animationResource,
                         modifier = Modifier.weight(1f)
                     )
                 }
             }
+        }
+        item{
+            Spacer(modifier = Modifier.height(80.dp))
         }
     }
 }
@@ -194,7 +261,7 @@ fun AchievementsContent() {
 data class AchievementItem(
     val title: String,
     val progressValue: Float,
-    val animationResource: Int
+    val animationResource: Int,
 )
 
 @Composable
@@ -205,13 +272,13 @@ fun ProgressContent() {
         // First Row
         item {
             Row() {
-                AchievementCard(
+                ProgressCard(
                     title = "C",
                     progressValue = 0f,
                     animationResource = R.raw.cardbadge,
                     modifier = Modifier.weight(1f)
                 )
-                AchievementCard(
+                ProgressCard(
                     title = "C++",
                     progressValue = 0.2f,
                     animationResource = R.raw.cardbadge,
@@ -223,13 +290,13 @@ fun ProgressContent() {
         // Second Row
         item {
             Row() {
-                AchievementCard(
+                ProgressCard(
                     title = "Python",
                     progressValue = 0.4f,
                     animationResource = R.raw.cardbadge,
                     modifier = Modifier.weight(1f)
                 )
-                AchievementCard(
+                ProgressCard(
                     title = "Java",
                     progressValue = 0.6f,
                     animationResource = R.raw.cardbadge,
@@ -241,19 +308,23 @@ fun ProgressContent() {
         // Third Row
         item {
             Row() {
-                AchievementCard(
+                ProgressCard(
                     title = "DSA",
                     progressValue = 0.8f,
                     animationResource = R.raw.cardbadge,
                     modifier = Modifier.weight(1f)
                 )
-                AchievementCard(
+                ProgressCard(
                     title = "Kotlin",
                     progressValue = 1f,
                     animationResource = R.raw.cardbadge,
                     modifier = Modifier.weight(1f)
                 )
             }
+        }
+
+        item{
+            Spacer(modifier = Modifier.height(80.dp))
         }
     }
 }
