@@ -23,6 +23,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
@@ -57,8 +58,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.sp
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.MainRoutes
 import com.codemaster.codemasterapp.ui.theme.bluishPython
@@ -86,7 +91,18 @@ fun LessonListScreen(navController: NavController) {
     val expandedLessons = remember { mutableStateOf(mapOf<Int, Boolean>()) }
 
     Scaffold(
+        containerColor = Color.Transparent,
         topBar = {
+
+            val topBarGradient = Brush.verticalGradient(
+                colors = listOf(
+                    Color(0x661D3A53), // A deep, dark blue-gray
+                    Color(0x662A4F6D), // A muted, medium blue
+                    Color(0x6635597D)  // A slightly lighter, yet still muted, cool blue
+                )
+            )
+
+
             TopAppBar(
                 windowInsets = WindowInsets(top = 30.dp, bottom = 0.dp),
                 title = {
@@ -97,14 +113,14 @@ fun LessonListScreen(navController: NavController) {
                     ) {
                         Text(
                             text = "C - Basic Concepts",
-                            color = Color.Black.copy(.6f),
+                            color = Color(0xFFDED6D6),
                             fontSize = 20.sp,
                             fontWeight = FontWeight.Medium
                         )
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = Color.Gray.copy(.1f),
+                    containerColor = Color.Transparent,
                 ),
                 navigationIcon = {
                     IconButton(
@@ -113,18 +129,31 @@ fun LessonListScreen(navController: NavController) {
                         Icon(
                             imageVector = Icons.AutoMirrored.Default.KeyboardArrowLeft,
                             contentDescription = "Go Back",
-                            tint = Color.Black.copy(.6f),
+                            tint = Color(0xFFDED6D6),
                             modifier = Modifier.size(28.dp)
                         )
                     }
-                }
+                },
+                modifier = Modifier.background(
+                    topBarGradient
+                )
             )
         }
     ) { paddingValues ->
+
+        val screenBackgroundGradient = Brush.verticalGradient(
+            colors = listOf(
+                Color(0xBB101820), // Very Dark Blue
+                Color(0xBB0F263D), // Slightly Brighter Blue
+                Color(0xBB15476E)  // Cool Medium Blue
+            )
+        )
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(Color(0xFFF7F9FC))
+                .background(
+                    screenBackgroundGradient
+                )
                 .padding(top = paddingValues.calculateTopPadding())
                 .navigationBarsPadding()
         ) {
@@ -132,16 +161,20 @@ fun LessonListScreen(navController: NavController) {
                 modifier = Modifier
                     .fillMaxWidth()
             ) {
-                Spacer(Modifier.height(4.dp))
+                Spacer(Modifier.height(6.dp))
                 // Display Course Overview Card
                 LessonListScreenBasicLotieCard()
 
                 Spacer(modifier = Modifier.height(12.dp))
 
-                Column(modifier = Modifier.padding(horizontal = 14.dp)) {
+                Column(
+
+                ) {
 
                     Row(
-                        modifier = Modifier.fillMaxWidth(),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(horizontal = 14.dp),
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         // "28 lessons" Text with gray color
@@ -169,25 +202,32 @@ fun LessonListScreen(navController: NavController) {
                     Spacer(Modifier.height(4.dp))
 
                     Row(
-                        modifier = Modifier.fillMaxWidth(),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(horizontal = 14.dp),
                         horizontalArrangement = Arrangement.spacedBy(12.dp)
                     ) {
+
+                        val selectedTabColor = Color(0xFFEAC645)
+
                         Text(
                             text = "Lessons",
-                            color = if (selectedTab == LessonOrDescription.LESSON) Color.Blue else Color.Gray,
+                            color = if (selectedTab == LessonOrDescription.LESSON) selectedTabColor else Color.Gray,
                             fontSize = 16.sp,
+                            fontWeight = if (selectedTab == LessonOrDescription.LESSON) FontWeight.Medium else FontWeight.Normal,
                             modifier = Modifier
                                 .clip(CircleShape)
                                 .clickable(onClick = {
                                     selectedTab = LessonOrDescription.LESSON
                                 })
-                                .padding(4.dp)
+                                .padding(4.dp),
                         )
 
                         Text(
                             text = "Description",
-                            color = if (selectedTab == LessonOrDescription.DESCRIPTION) Color.Blue else Color.Gray,
+                            color = if (selectedTab == LessonOrDescription.DESCRIPTION) selectedTabColor else Color.LightGray,
                             fontSize = 16.sp,
+                            fontWeight = if (selectedTab == LessonOrDescription.DESCRIPTION) FontWeight.Medium else FontWeight.Normal,
                             modifier = Modifier
                                 .clip(CircleShape)
                                 .clickable(onClick = {
@@ -220,7 +260,7 @@ fun LessonListScreen(navController: NavController) {
                                     Column {
                                         LessonItem(
                                             title = lesson.title,
-                                            description = lesson.description,
+                                            description = "${lesson.count} Lessons",
                                             status = lesson.status,
                                             onArrowClick = {
                                                 // Toggle expansion of this lesson's sub-lessons
@@ -235,6 +275,7 @@ fun LessonListScreen(navController: NavController) {
                                             isExpanded = isExpanded,
                                             isLastLesson = isLastLesson // Pass the check here
                                         )
+                                        Spacer(Modifier.height(if (isExpanded) 12.dp else 0.dp))
 
                                         if (isExpanded) {
                                             // Display sub-lessons if the lesson is expanded
@@ -258,6 +299,8 @@ fun LessonListScreen(navController: NavController) {
                                                 )
                                             }
                                         }
+
+                                        Spacer(Modifier.height(if (isExpanded) 12.dp else 0.dp))
                                     }
                                 }
                             }
@@ -286,7 +329,7 @@ fun SubLessonItem(
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(start = 24.dp) // Indentation for sub-lessons
+            .padding(start = 32.dp) // Indentation for sub-lessons
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
@@ -324,7 +367,7 @@ fun SubLessonItem(
                     tint = Color.White,
                     modifier = Modifier
                         .align(Alignment.Center)
-                        .size(16.dp)
+                        .size(14.dp)
                 )
             }
 
@@ -335,7 +378,7 @@ fun SubLessonItem(
                     text = subLesson.title,
                     style = MaterialTheme.typography.bodyMedium,
                     color = when (subLesson.status) {
-                        LessonStatus.ACTIVE -> Color.Black
+                        LessonStatus.ACTIVE -> Color.White.copy(.9f)
                         LessonStatus.COMPLETED -> bluishPython
                         else -> Color.Gray
                     },
@@ -359,10 +402,10 @@ fun SubLessonItem(
     if (!isLastSubLesson) {
         Column(
             modifier = Modifier.padding(
-                start = 34.dp
+                start = 42.dp
             )
         ) {
-            for (i in 1..3) {
+            for (i in 1..4) {
                 Spacer(
                     modifier = Modifier
                         .size(3.dp)
@@ -381,7 +424,7 @@ fun LessonItem(
     description: String,
     status: LessonStatus,
     onArrowClick: () -> Unit, // Callback for expanding the lesson,
-    onLessonClick:()->Unit,
+    onLessonClick: () -> Unit,
     isExpanded: Boolean,
     isLastLesson: Boolean // Add a flag to check if it's the last lesson
 ) {
@@ -409,8 +452,8 @@ fun LessonItem(
                     Toast
                         .makeText(context, "Lesson: $title", Toast.LENGTH_SHORT)
                         .show()
-                } )
-            .padding(horizontal = 8.dp)
+                })
+            .padding(horizontal = 14.dp),
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
@@ -428,7 +471,7 @@ fun LessonItem(
                                 radius = 100f
                             )
 
-                            else -> Brush.linearGradient(listOf(Color.LightGray, Color.LightGray))
+                            else -> Brush.linearGradient(listOf(Color.Gray, Color.LightGray))
                         },
                         shape = CircleShape
                     )
@@ -436,8 +479,8 @@ fun LessonItem(
                         width = if (status == LessonStatus.ACTIVE) glowAnimation.value.dp else 1.dp,
                         color = when (status) {
                             LessonStatus.ACTIVE -> Color.Green
-                            LessonStatus.COMPLETED -> bluishPython
-                            else -> Color.Gray
+                            LessonStatus.COMPLETED -> Color.White.copy(.6f)
+                            else -> Color.White.copy(.6f)
                         },
                         shape = CircleShape
                     )
@@ -449,7 +492,11 @@ fun LessonItem(
                         LessonStatus.LOCKED -> Icons.Default.Lock
                     },
                     contentDescription = null,
-                    tint = if (status == LessonStatus.LOCKED) Color.Gray else Color.White,
+                    tint = when (status) {
+                        LessonStatus.ACTIVE -> Color.White
+                        LessonStatus.COMPLETED -> Color.Black.copy(.6f)
+                        LessonStatus.LOCKED -> Color.Black.copy(.6f)
+                    },
                     modifier = Modifier
                         .align(Alignment.Center)
                         .size(18.dp)
@@ -464,7 +511,7 @@ fun LessonItem(
                     text = title,
                     style = MaterialTheme.typography.bodyLarge,
                     color = when (status) {
-                        LessonStatus.ACTIVE -> Color.Black
+                        LessonStatus.ACTIVE -> Color.White
                         LessonStatus.COMPLETED -> bluishPython
                         else -> Color.Gray
                     },
@@ -474,7 +521,9 @@ fun LessonItem(
                     text = description,
                     style = MaterialTheme.typography.bodySmall,
                     color = when (status) {
-                        LessonStatus.ACTIVE, LessonStatus.COMPLETED -> Color.Gray
+                        LessonStatus.ACTIVE,
+                        LessonStatus.COMPLETED -> Color.Gray
+
                         else -> Color.LightGray
                     },
                     maxLines = 1,
@@ -488,7 +537,7 @@ fun LessonItem(
                     imageVector = if (isExpanded) Icons.Default.KeyboardArrowDown else Icons.AutoMirrored.Default.KeyboardArrowRight,
                     contentDescription = null,
                     tint = when (status) {
-                        LessonStatus.ACTIVE -> Color.Black
+                        LessonStatus.ACTIVE -> Color.White
                         LessonStatus.COMPLETED -> bluishPython
                         else -> Color.Gray
                     }
@@ -501,10 +550,10 @@ fun LessonItem(
     if (!isLastLesson && !isExpanded) {
         Column(
             modifier = Modifier.padding(
-                start = 22.dp
+                start = 28.dp
             )
         ) {
-            for (i in 1..3) {
+            for (i in 1..4) {
                 Spacer(
                     modifier = Modifier
                         .size(3.dp)
@@ -518,44 +567,46 @@ fun LessonItem(
 }
 
 @Composable
-fun CourseDescriptionScreen(course: Course) {
-    Column(
-        modifier = Modifier
-            .padding(top = 16.dp, start = 16.dp, end = 16.dp)
-            .verticalScroll(rememberScrollState())
-    ) {
-        Text(
-            text = course.title,
-            style = MaterialTheme.typography.headlineLarge,
-            modifier = Modifier.padding(bottom = 8.dp)
-        )
+fun CourseDescriptionScreen(course: List<Course>) {
+    LazyColumn {
+        items(course) { courseItem ->
+            Column(modifier = Modifier.padding(horizontal = 6.dp)) {
 
-        Text(
-            text = course.description,
-            style = MaterialTheme.typography.bodyMedium,
-            modifier = Modifier.padding(bottom = 16.dp)
-        )
-
-        Text(
-            text = "Other Information",
-            style = MaterialTheme.typography.headlineLarge,
-            modifier = Modifier.padding(bottom = 4.dp)
-        )
-
-        Text(
-            text = course.otherInfo,
-            style = MaterialTheme.typography.bodyLarge,
-            color = Color.Gray
-        )
-
-        Spacer(Modifier.height(12.dp))
+                val customText = buildAnnotatedString {
+                    withStyle(
+                        style = SpanStyle(
+                            color = Color.LightGray,
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.Bold
+                        )
+                    ) {
+                        append(courseItem.title)
+                    }
+                    withStyle(
+                        style = SpanStyle(
+                            color = Color.Gray,
+                            fontSize = 14.sp,
+                            fontWeight = FontWeight.Normal
+                        )
+                    ) {
+                        append(courseItem.description)
+                    }
+                }
+                Text(
+                    lineHeight = 20.sp,
+                    text = customText,
+                    style = MaterialTheme.typography.headlineLarge,
+                    fontWeight = FontWeight.Bold
+                )
+            }
+            Spacer(Modifier.height(8.dp))
+        }
     }
 }
 
-
 data class Lesson(
     val title: String,
-    val description: String,
+    val count: Int,
     var status: LessonStatus = LessonStatus.LOCKED,
     val subLessons: List<SubLesson> = emptyList() // Sub-lessons for each main lesson
 )
@@ -585,21 +636,21 @@ fun getLessons(): List<Lesson> {
     return listOf(
         Lesson(
             "Introduction to Programming Languages",
-            "An overview of what programming languages are, why we need them, and the history of programming languages.",
+            6,
             status = LessonStatus.COMPLETED,
             subLessons = listOf(
                 SubLesson(
-                    "Sub-lesson 1: What is a Programming Language?",
+                    "What is a Programming Language?",
                     "Understanding the purpose and types of programming languages.",
                     LessonStatus.COMPLETED
                 ),
                 SubLesson(
-                    "Sub-lesson 2: Evolution of Programming Languages",
+                    "Evolution of Programming Languages",
                     "A brief history of programming languages and their development over time.",
                     LessonStatus.COMPLETED
                 ),
                 SubLesson(
-                    "Sub-lesson 3: Importance of C",
+                    "Importance of C",
                     "Why C is considered one of the most important programming languages.",
                     LessonStatus.COMPLETED
                 )
@@ -607,7 +658,7 @@ fun getLessons(): List<Lesson> {
         ),
         Lesson(
             "Introduction to C Programming",
-            "An introduction to the C programming language, its origins, and its widespread usage.",
+            6,
             status = LessonStatus.COMPLETED,
             subLessons = listOf(
                 SubLesson(
@@ -629,21 +680,21 @@ fun getLessons(): List<Lesson> {
         ),
         Lesson(
             "Basic Syntax of C",
-            "Understanding the syntax rules for writing C programs, including structure, functions, and statements.",
+            6,
             status = LessonStatus.ACTIVE,
             subLessons = listOf(
                 SubLesson(
-                    "Sub-lesson 1: Structure of a C Program",
+                    "Structure of a C Program",
                     "Overview of a basic C program structure, including main() function, headers, and statements.",
                     LessonStatus.COMPLETED
                 ),
                 SubLesson(
-                    "Sub-lesson 2: C Keywords",
+                    "C Keywords",
                     "An introduction to reserved keywords in C and their usage.",
                     LessonStatus.ACTIVE
                 ),
                 SubLesson(
-                    "Sub-lesson 3: Writing Your First C Program",
+                    "Writing Your First C Program",
                     "Step-by-step guidance to write, compile, and execute a simple C program.",
                     LessonStatus.LOCKED
                 )
@@ -651,7 +702,7 @@ fun getLessons(): List<Lesson> {
         ),
         Lesson(
             "Variables and Data Types",
-            "Learn about variables, constants, and data types used in C programming.",
+            5,
             status = LessonStatus.LOCKED,
             subLessons = listOf(
                 SubLesson(
@@ -673,7 +724,7 @@ fun getLessons(): List<Lesson> {
         ),
         Lesson(
             "Operators in C",
-            "Understanding the different types of operators used in C for performing calculations and comparisons.",
+            7,
             status = LessonStatus.LOCKED,
             subLessons = listOf(
                 SubLesson(
@@ -695,7 +746,7 @@ fun getLessons(): List<Lesson> {
         ),
         Lesson(
             "Control Flow: Conditional Statements",
-            "Understanding how to control the flow of a C program using conditional statements.",
+            6,
             status = LessonStatus.LOCKED,
             subLessons = listOf(
                 SubLesson(
@@ -717,7 +768,7 @@ fun getLessons(): List<Lesson> {
         ),
         Lesson(
             "Loops in C",
-            "Learn how to use loops in C for repeating actions in a program.",
+            6,
             status = LessonStatus.LOCKED,
             subLessons = listOf(
                 SubLesson(
@@ -740,16 +791,38 @@ fun getLessons(): List<Lesson> {
     )
 }
 
-fun getCourseDescription(): Course {
-    return Course(
-        title = "Basic Concepts of C Programming",
-        description = """
-            This course introduces you to the fundamental concepts of the C programming language. 
-            It covers everything from setting up a development environment to understanding syntax, 
-            variables, operators, control flow, and more. Each lesson will introduce key aspects 
-            of the C language with examples and exercises.
-        """.trimIndent(),
-        otherInfo = "Lessons: 28 hours\nPrerequisites: Basic understanding of programming concepts"
+fun getCourseDescription(): List<Course> {
+    return listOf(
+        Course(
+            title = "Introduction to Programming: ",
+            description = "Here we will learn the basics of programming, including syntax, control flow, and more.",
+            otherInfo = "Lessons: 28 hours\nPrerequisites: Basic understanding of programming concepts"
+        ),
+        Course(
+            title = "Introduction to C Programming: ",
+            description = "Introduction to C: This section will provide an overview of C programming, covering its features and history.",
+            otherInfo = "Lessons: 28 hours\nPrerequisites: Basic understanding of programming concepts"
+        ),
+        Course(
+            title = "Variables and Data Types: ",
+            description = "Understanding Variables and Data Types: This lesson covers the basics of variables, constants, and different data types in C.",
+            otherInfo = "Lessons: 24 hours\nPrerequisites: Basic knowledge of C syntax"
+        ),
+        Course(
+            title = "Control Flow in C: ",
+            description = "Mastering Control Flow: Learn how to use conditional statements and loops to control the flow of your programs.",
+            otherInfo = "Lessons: 20 hours\nPrerequisites: Basic understanding of programming concepts"
+        ),
+        Course(
+            title = "Functions in C Programming:",
+            description = "Functions in C: This section teaches how to write and use functions in C for modular programming.",
+            otherInfo = "Lessons: 22 hours\nPrerequisites: Basic understanding of C"
+        ),
+        Course(
+            title = "Advanced C Programming: ",
+            description = "Advanced Topics in C: Dive into advanced C concepts like pointers, memory management, and file handling.",
+            otherInfo = "Lessons: 30 hours\nPrerequisites: Intermediate knowledge of C programming"
+        )
     )
 }
 

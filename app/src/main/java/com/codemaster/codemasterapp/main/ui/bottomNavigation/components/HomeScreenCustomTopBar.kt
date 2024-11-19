@@ -90,6 +90,7 @@ fun HomeScreenCustomTopBar(
             .fillMaxWidth()
             .height(180.dp)
             .clip(RoundedCornerShape(bottomStart = 24.dp, bottomEnd = 24.dp))
+
     ) {
 
         // Background with gradient and coding elements
@@ -110,7 +111,7 @@ fun HomeScreenCustomTopBar(
             )
 
             // Binary numbers
-            for (i in 0..25) {
+            for (i in 0..10) {
                 drawContext.canvas.nativeCanvas.drawText(
                     "1010 0101 1100",
                     Random.nextFloat() * width,
@@ -125,7 +126,7 @@ fun HomeScreenCustomTopBar(
             }
 
             // Circle-like Paths (more added)
-            for (i in 1..3) {
+            for (i in 1..2) {
                 val centerX = Random.nextFloat() * width
                 val centerY = Random.nextFloat() * height
                 drawCircle(
@@ -137,7 +138,7 @@ fun HomeScreenCustomTopBar(
             }
 
             // </> Coding Symbols
-            for (i in 0..10) {
+            for (i in 0..5) {
                 drawContext.canvas.nativeCanvas.drawText(
                     "</>",
                     Random.nextFloat() * width,
@@ -167,7 +168,7 @@ fun HomeScreenCustomTopBar(
             )
 
             // Circuit-like paths (more dynamic)
-            for (i in 1..4) {
+            for (i in 1..3) {
                 val startX = Random.nextFloat() * width
                 val startY = Random.nextFloat() * height
                 val endX = Random.nextFloat() * width

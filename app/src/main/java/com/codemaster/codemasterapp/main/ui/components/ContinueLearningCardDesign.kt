@@ -43,6 +43,8 @@ fun ContinueLearningCard(
         Color(0xFF9EEEA7),
         Color(0xFF87E8C6)
     ),
+    animatedButtonBorderColor1:Color = Color(0xFF0B8755),
+    animatedButtonBorderColor2:Color = Color(0xFFB9FBC0),
     levelTextColor: Color = Color(0xFF0B3D2E),
     lessonTextColor: Color = Color(0xFF558776),
     progressBarColor: Color = Color(0xFF0B8755),
@@ -148,7 +150,10 @@ fun ContinueLearningCard(
                     buttonHeight = buttonHeight,
                     onClick = {
                         onContinueClick()
-                    }
+                    },
+                    animatedButtonBorderColor1 = animatedButtonBorderColor1,
+                    animatedButtonBorderColor2 = animatedButtonBorderColor2,
+
                 )
             }
         }

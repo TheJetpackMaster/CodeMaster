@@ -25,11 +25,13 @@ import com.codemaster.codemasterapp.main.ui.components.ContinueLearningCard
 import com.codemaster.codemasterapp.main.ui.components.LanguageCardDesign
 import com.codemaster.codemasterapp.ui.theme.*
 
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(navController: NavController) {
     val scrollState = rememberScrollState()
     Scaffold(
+        containerColor = Color.Transparent,
         topBar = {
             HomeScreenCustomTopBar(
                 onProfileClick = {
@@ -41,7 +43,7 @@ fun HomeScreen(navController: NavController) {
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .background(Color(0xFFF7F9FC)) // Soft background color for the main area
+//                    .background(Color(0xFFF7F9FC)) // Soft background color for the main area
                     .padding(paddingValues)
 
             ) {
@@ -64,7 +66,8 @@ fun HomeScreen(navController: NavController) {
                         Text(
                             text = "Popular courses",
                             style = MaterialTheme.typography.titleMedium,
-                            color = Color(0xFF2F3E4C)
+//                            color = Color(0xFF2F3E4C)
+                            color = Color(0xFFFFFFFF)
                         )
                         /*IconButton(onClick = { /* Handle search */ }) {
                             Icon(

@@ -67,7 +67,7 @@ fun LanguageCardDesign(
             .clickable { onClick() },
 //            .shadow(8.dp, RoundedCornerShape(24.dp), ambientColor = Color.White, spotColor = Color.White),
         shape = RoundedCornerShape(20.dp),
-        elevation = CardDefaults.cardElevation(defaultElevation = 8.dp),
+        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
         colors = CardDefaults.cardColors(containerColor = Color.Transparent)
     ) {
         // Outer Box with gradient background

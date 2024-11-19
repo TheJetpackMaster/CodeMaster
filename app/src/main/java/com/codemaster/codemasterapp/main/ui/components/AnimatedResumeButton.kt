@@ -34,12 +34,14 @@ fun AnimatedResumeButton(
     buttonTextColor: Color = Color.White,
     buttonText: String = "Resume",
     buttonTextSize: TextUnit = 12.sp,
+    animatedButtonBorderColor1:Color = Color(0xFF0B8755), // Green
+    animatedButtonBorderColor2:Color = Color(0xFFB9FBC0), // Green
 ) {
     // Infinite transition for animating the border color
     val infiniteTransition = rememberInfiniteTransition(label = "")
     val animatedBorderColor = infiniteTransition.animateColor(
-        initialValue = Color(0xFF0B8755), // Green
-        targetValue = Color(0xFFB9FBC0), // Light green
+        initialValue = animatedButtonBorderColor1, // Green
+        targetValue = animatedButtonBorderColor2, // Light green
         animationSpec = infiniteRepeatable(
             tween(durationMillis = 1200, easing = LinearEasing),
             repeatMode = RepeatMode.Reverse

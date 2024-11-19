@@ -12,7 +12,7 @@ import com.codemaster.codemasterapp.main.ui.learning.selection.LevelSelectionScr
 
 fun NavGraphBuilder.mainNavHost(navController: NavController) {
     navigation(
-        startDestination = MainRoutes.LevelSelectionScreen.route,
+        startDestination = MainRoutes.LessonListScreen.route,
         route = MainRoutes.MAIN_ROOT.route
     ){
         composable(MainRoutes.LevelSelectionScreen.route){

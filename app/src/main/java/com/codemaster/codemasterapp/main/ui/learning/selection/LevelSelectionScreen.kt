@@ -1,6 +1,7 @@
 package com.codemaster.codemasterapp.main.ui.learning.selection
 
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -14,9 +15,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -29,8 +28,16 @@ import com.airbnb.lottie.compose.*
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.KeyboardArrowLeft
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedIconButton
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.graphics.Color
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.MainRoutes
 import com.codemaster.codemasterapp.main.ui.components.ContinueLearningCard
 
@@ -38,15 +45,59 @@ import com.codemaster.codemasterapp.main.ui.components.ContinueLearningCard
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LevelSelectionScreen(navController: NavController) {
+
+    val cardGradientColors1 = listOf(
+        Color(0xFF6C9BAF), // Muted Light Blue
+        Color(0xFF5A8198), // Muted Cyan Blue
+        Color(0xFF3D5B6E)  // Darker Blue-Grey
+    )
+
+    val cardGradientColors2 = listOf(
+        Color(0xFFF58A8C), // Soft Peach
+        Color(0xFFFDE3D9), // Light Pink
+        Color(0xFFEEA28D)  // Warm Peachy-Coral
+    )
+
+    val cardGradientColors3 = listOf(
+        Color(0xFF8ED081), // Soft Green
+        Color(0xFF6C9F6E), // Muted Olive Green
+        Color(0xFF4F6F4A)  // Earthy Dark Green
+    )
+
+    val cardGradientColors4 = listOf(
+        Color(0xFF8E4F96), // Rich Purple
+        Color(0xFFBC6C9A), // Soft Pink
+        Color(0xFFD3A1C9)  // Pale Lavender
+    )
+
+    val cardGradientColors5 = listOf(
+        Color(0xFFEE5F73), // Coral Pink
+        Color(0xFFFDBD72), // Light Peach
+        Color(0xFFF1C2B8)  // Soft Cream
+    )
+
+    val cardGradientColors6 = listOf(
+        Color(0xFF3F8E9B), // Teal
+        Color(0xFF50B2C0), // Aqua Blue
+        Color(0xFF76D2E4)  // Soft Aqua
+    )
+
+
+
     Scaffold(
+        containerColor = Color.Transparent,
         topBar = {
-            VibrantTopBarWithLottie()
+            VibrantTopBarWithLottie(
+                onBackClick = {
+                    navController.popBackStack()
+                }
+            )
         },
         content = { paddingValues ->
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .background(Color(0xFFF7F9FC))
+//                    .background(Color(0xFFF7F9FC))
 //                    .background(Color.Transparent)
                     .padding(paddingValues)
                     .verticalScroll(state = rememberScrollState()),
@@ -57,7 +108,7 @@ fun LevelSelectionScreen(navController: NavController) {
                     // Title Text
                     Text(
                         text = "Select your learning stage:",
-                        color = Color(0xFF2F3E4C),
+                        color = Color.White,
                         fontSize = 16.sp,
                         style = MaterialTheme.typography.titleMedium,
                         modifier = Modifier.padding(
@@ -74,6 +125,7 @@ fun LevelSelectionScreen(navController: NavController) {
                         horizontalArrangement = Arrangement.spacedBy(10.dp) // Increased spacing between cards
                     ) {
                         LevelSelectionCardDesign(
+//                            gradientColors = cardGradientColors1,
                             stageName = "Introduction",
                             lessonCount = 20,
                             completedLessonCount = 12,
@@ -85,6 +137,7 @@ fun LevelSelectionScreen(navController: NavController) {
                         )
 
                         LevelSelectionCardDesign(
+//                            gradientColors = cardGradientColors1,
                             stageName = "Beginner",
                             lessonCount = 20,
                             completedLessonCount = 0,
@@ -105,6 +158,7 @@ fun LevelSelectionScreen(navController: NavController) {
                         horizontalArrangement = Arrangement.spacedBy(10.dp) // Increased spacing between cards
                     ) {
                         LevelSelectionCardDesign(
+//                            gradientColors = cardGradientColors1,
                             stageName = "Intermediate",
                             lessonCount = 20,
                             completedLessonCount = 0,
@@ -116,6 +170,7 @@ fun LevelSelectionScreen(navController: NavController) {
                         )
 
                         LevelSelectionCardDesign(
+//                            gradientColors = cardGradientColors1,
                             stageName = "Advanced",
                             lessonCount = 20,
                             completedLessonCount = 0,
@@ -139,9 +194,24 @@ fun LevelSelectionScreen(navController: NavController) {
                         paddingValues = PaddingValues(horizontal = 8.dp),
                         onContinueClick = {
                             navController.navigate(MainRoutes.LessonContentScreen.route)
-                        }
+                        },
+                        gradientColors = listOf(
+                            Color(0xFF82E9FF), // Light Blue
+                            Color(0xFF00B4DB)  // Cyan Blue
+                        ),
+                        levelTextColor = Color(0xFF0B3D2E), // Darker green to match the level card text color
+                        lessonTextColor = Color(0xFF558776), // Muted greenish tone to harmonize with level text color
+                        progressBarColor = Color(0xFF007B93), // Muted Cyan for progress bar to match gradient colors
+                        progressBarTrackColor = Color(0xFFC4E4F3), // Light cyan for track, ensuring consistency with the progress bar
+                        buttonBackgroundColor = Color(0xFF007B93), // Button color matches the progress bar color for a cohesive look
+                        buttonTextColor = Color.White, // White button text for high contrast
+                        buttonText = "Resume",
+                        buttonTextSize = 12.sp,
+                        buttonHeight = 38.dp,
+                        // If you want an animated border color for the button:
+                        animatedButtonBorderColor1 = Color(0xFF007B93), // Darker blue for animated border
+                        animatedButtonBorderColor2 = Color(0xFF00B4DB)  // Lighter cyan for animated border transition
                     )
-
                 }
             }
         }
@@ -149,8 +219,10 @@ fun LevelSelectionScreen(navController: NavController) {
 }
 
 @Composable
-fun VibrantTopBarWithLottie() {
-    // Remember Lottie composition
+fun VibrantTopBarWithLottie(
+    onBackClick:()->Unit
+) {
+
     val composition = rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.codinglotie))
 
     // Animate the Lottie composition with looping enabled
@@ -234,6 +306,29 @@ fun VibrantTopBarWithLottie() {
                     .align(Alignment.CenterHorizontally)
             )
         }
+
+        OutlinedIconButton(
+            onClick = {
+                onBackClick()
+            },
+            modifier = Modifier
+                .statusBarsPadding()
+                .padding(start = 8.dp)
+                .size(36.dp),
+            border = BorderStroke(1.3.dp, color = Color.LightGray.copy(alpha = 0.5f)), // Light border with transparency
+            colors = IconButtonDefaults.outlinedIconButtonColors(
+                containerColor = Color.White.copy(.08f),
+                contentColor = Color.White.copy(alpha = 0.9f)
+            )
+        ) {
+            Icon(
+                imageVector = Icons.Default.KeyboardArrowLeft,
+                contentDescription = "",
+                modifier = Modifier.size(26.dp),
+                tint = Color.White.copy(alpha = 0.8f) // White icon with some transparency for the glass effect
+            )
+        }
+
     }
 }
 

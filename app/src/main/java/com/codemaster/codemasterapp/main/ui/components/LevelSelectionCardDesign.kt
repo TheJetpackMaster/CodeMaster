@@ -34,17 +34,56 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 
+val cardGradientColors1 = listOf(
+    Color(0xFF6C9BAF), // Muted Light Blue
+    Color(0xFF5A8198), // Muted Cyan Blue
+    Color(0xFF365264)  // Darker Blue-Grey
+)
+
+val cardGradientColors2 = listOf(
+    Color(0xFFF58A8C), // Soft Peach
+    Color(0xFFFDE3D9), // Light Pink
+    Color(0xFFEEA28D)  // Warm Peachy-Coral
+)
+
+val cardGradientColors3 = listOf(
+    Color(0xFF8ED081), // Soft Green
+    Color(0xFF6C9F6E), // Muted Olive Green
+    Color(0xFF4F6F4A)  // Earthy Dark Green
+)
+
+val cardGradientColors4 = listOf(
+    Color(0xFF8E4F96), // Rich Purple
+    Color(0xFFBC6C9A), // Soft Pink
+    Color(0xFFD3A1C9)  // Pale Lavender
+)
+
+val cardGradientColors5 = listOf(
+    Color(0xFFEE5F73), // Coral Pink
+    Color(0xFFFDBD72), // Light Peach
+    Color(0xFFF1C2B8)  // Soft Cream
+)
+
+val cardGradientColors6 = listOf(
+    Color(0xFF3F8E9B), // Teal
+    Color(0xFF50B2C0), // Aqua Blue
+    Color(0xFF76D2E4)  // Soft Aqua
+)
+
 @Composable
 fun LevelSelectionCardDesign(
     stageName: String,
     lessonCount: Int,
     completedLessonCount: Int,
-    gradientColors: List<Color> = listOf(Color(0xFFFFA7E3), Color(0xFFB722EE)), // Example gradient
+    gradientColors: List<Color> = cardGradientColors1,
 //    gradientColors: List<Color> = listOf(yellowishKt,purpleKt), // Example gradient
     icon: Painter,
     onClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+
+
+
     // Calculate progress percentage
     val progress = remember {
         (completedLessonCount.toFloat() / lessonCount.toFloat()).coerceIn(0f, 1f)

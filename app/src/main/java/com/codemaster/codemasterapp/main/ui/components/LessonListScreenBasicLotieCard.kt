@@ -22,6 +22,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.blur
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
@@ -38,26 +39,27 @@ import com.airbnb.lottie.compose.rememberLottieComposition
 import com.codemaster.codemasterapp.R
 
 @Composable
-fun LessonListScreenBasicLotieCard(){
+fun LessonListScreenBasicLotieCard() {
 
     Box(
         modifier = Modifier
             .fillMaxWidth()
             .height(180.dp)
-            .padding(horizontal = 10.dp)
+            .shadow(8.dp, shape = RoundedCornerShape(8.dp))
+            .padding(horizontal = 6.dp)
             .clip(RoundedCornerShape(8.dp)) // Rounded corners for elegance
             .background(Color.Transparent) // Transparent background to blend
 
     ) {
-        // Gradient Background
+        // Gradient Background that blends with the screen background
         Box(
             modifier = Modifier
                 .fillMaxSize()
                 .background(
                     Brush.linearGradient(
                         colors = listOf(
-                            Color(0xFF2D3047), // Deep blue-gray
-                            Color(0xFF4A4E69)  // Soft purple-gray
+                            Color(0xFF1D2B3D), // Darker deep blue, matching screen gradient
+                            Color(0xFF3C4A64)  // Muted, bluish-purple
                         ),
                         start = Offset(0f, 0f),
                         end = Offset(0f, 400f) // Adjust gradient direction
@@ -65,7 +67,7 @@ fun LessonListScreenBasicLotieCard(){
                 )
         )
 
-        // Subtle Overlay with Stars
+        // Subtle Overlay with Stars (ensure they're not too bright)
         Canvas(
             modifier = Modifier
                 .fillMaxSize()
@@ -73,7 +75,7 @@ fun LessonListScreenBasicLotieCard(){
         ) {
             val width = size.width
             val height = size.height
-            val starColor = Color(0xFFFFFFFF) // Soft white with transparency
+            val starColor = Color(0x66FFFFFF) // Slightly transparent soft white for stars
 
             for (i in 1..30) { // Add random small stars
                 val x = (0..width.toInt()).random().toFloat()
@@ -108,12 +110,10 @@ fun LessonListScreenBasicLotieCard(){
                 progress = { progress.value },
                 modifier = Modifier
                     .fillMaxSize()
-                    .scale(2.5f)
+                    .scale(2.4f)
                     .align(Alignment.CenterHorizontally)
             )
         }
-
-
     }
 }
 

@@ -31,6 +31,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
@@ -90,14 +91,36 @@ fun CustomBottomBar(
     selectedItemIndex: Int,
     onItemSelected: (Int) -> Unit
 ) {
+
+    val bottomBarGradient = Brush.horizontalGradient(
+        colors = listOf(
+            Color(0xFF1A1A1A), // Dark Charcoal
+            Color(0xFF2A2A2A)  // Slightly lighter gray
+        )
+    )
+
+    val darkNeutralBottomBar = Color(0xFF2C2C2C) // Deep Gray
+    val accentedDarkBottomBar = Color(0xFF1E1F26) // Dark Blueish Gray
+    val darkPurpleBottomBar = Color(0xFF2B1D3A) // Deep Purple
+    val mutedBlueGrayBottomBar = Color(0xFF20232A) // Dark Slate Blue
+
+
+
     // Box to contain the Row and underline
     Box(
         modifier = Modifier
-            .height(70.dp) // Height of the BottomBar
-            .fillMaxWidth() // Fill the full width
-            .clip(RoundedCornerShape(topStart = 8.dp, topEnd = 8.dp)) // Rounded corners at the top
-            .background(Color.White) // Dark background
-            .shadow(elevation = 0.7.dp, shape = RoundedCornerShape(topStart = 8.dp, topEnd = 8.dp))
+            .height(70.dp)
+            .fillMaxWidth()
+            .clip(RoundedCornerShape(topStart = 8.dp, topEnd = 8.dp))
+            .background(
+                mutedBlueGrayBottomBar
+            )
+//            .background(
+//                brush = bottomBarGradient
+//            )
+
+            .shadow(elevation = .5.dp, shape = RoundedCornerShape(topStart = 8.dp, topEnd = 8.dp), ambientColor = Color.White,
+                spotColor = Color.White)
     ) {
         // Row to hold the icons
         Row(
@@ -143,11 +166,19 @@ fun BottomBarItem(
             modifier = Modifier.fillMaxHeight(),
             contentAlignment = Alignment.Center // Ensures icon stays centered
         ) {
+
+
+            val activeIconColor = Color(0xFFEAC645) // Warm golden yellow
+            val activeIconColor2 = Color(0xFF4FC3F7) // Muted cyan
+            val activeIconColor3 = Color(0xFFB39DDB) // Soft lavender purple
+
+
             // Icon for the BottomBarItem
             Icon(
                 painter = painterResource(id = item.iconRes),
                 contentDescription = item.label,
-                tint = if (isSelected) Color.Blue else Color.Gray,
+                tint = if (isSelected) activeIconColor
+                else Color.White,
                 modifier = Modifier.size(25.dp) // Set the icon size
             )
 
@@ -158,7 +189,9 @@ fun BottomBarItem(
                     .width(underlineWidth.value) // Animate the underline width
                     .height(3.dp) // Height of the underline
                     .clip(CircleShape)
-                    .background(Color.Blue) // Active underline
+                    .background(
+                        activeIconColor
+                    ) // Active underline
 
             )
         }
