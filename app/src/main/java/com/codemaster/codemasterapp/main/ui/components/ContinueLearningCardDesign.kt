@@ -19,6 +19,7 @@ import androidx.compose.ui.unit.sp
 import com.codemaster.codemasterapp.R
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.LinearProgressIndicator
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.shadow
@@ -97,23 +98,26 @@ fun ContinueLearningCard(
             ) {
                 Text(
                     text = levelName,
-                    fontSize = 16.sp,
-                    color = levelTextColor,
-                    fontWeight = FontWeight.SemiBold
+                    style = MaterialTheme.typography.titleMedium.copy(
+                        color = levelTextColor,
+                        fontWeight = FontWeight.SemiBold
+                    )
                 )
 
                 Text(
                     text = "$completedLessons steps completed",
-                    fontSize = 15.sp,
-                    color = levelTextColor,
-                    fontWeight = FontWeight.SemiBold
+                    style = MaterialTheme.typography.titleSmall.copy(
+                        color = levelTextColor,
+                    )
                 )
 
                 Text(
                     text = lessonName,
-                    fontSize = 14.sp,
+                    style = MaterialTheme.typography.bodyMedium.copy(
+                        color = lessonTextColor,
+                    ),
                     color = lessonTextColor,
-                    modifier = Modifier.padding(top = 2.dp)
+                    modifier = Modifier.padding(top = 4.dp)
                 )
 
                 Spacer(Modifier.height(10.dp))

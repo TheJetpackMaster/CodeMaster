@@ -37,12 +37,14 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
+import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExposedDropdownMenuDefaults.outlinedTextFieldColors
+import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.material3.OutlinedIconButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.TextButton
@@ -59,9 +61,13 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.focus.onFocusChanged
+import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.TextFieldValue
+import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.sp
 import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
@@ -82,7 +88,7 @@ fun LoginScreen(navController: NavController) {
     Scaffold(
         topBar = {
             TopAppBar(
-                windowInsets = WindowInsets(top = 30.dp),
+                windowInsets = WindowInsets(top = 35.dp),
                 navigationIcon = {
                     Spacer(Modifier.width(12.dp))
                     OutlinedIconButton(
@@ -91,7 +97,10 @@ fun LoginScreen(navController: NavController) {
                             .height(34.dp)
                             .width(44.dp)
                             .padding(start = 10.dp),
-                        onClick = { navController.popBackStack() }
+                        onClick = { navController.popBackStack() },
+                        colors = IconButtonDefaults.outlinedIconButtonColors(
+                            containerColor = Color.White.copy(.08f),
+                        )
                     ) {
 
                         Icon(
@@ -200,6 +209,7 @@ fun LoginSection(
                 .fillMaxSize()
 
         ) {
+            Spacer(modifier = Modifier.height(4.dp))
             // Welcome Text
             Text(
                 text = "Welcome Back",
@@ -301,22 +311,44 @@ fun LoginSection(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(start = 16.dp),
+                .padding(start = 16.dp, top = 8.dp),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Center
         ) {
-            Text(
-                text = "Dont have an Account?",
-                style = MaterialTheme.typography.bodyMedium.copy(color = Color.White),
-                textAlign = TextAlign.Center
-            )
-            TextButton(onClick = onSignUpClick) {
-                Text(
-                    text = "Sign Up",
-                    style = MaterialTheme.typography.bodyMedium.copy(color = Color.White),
-                    textAlign = TextAlign.Center
-                )
+            val annotatedString = buildAnnotatedString {
+                append("Don't have an Account? ")
+
+                // Add the "Sign Up" part with Material font styles
+                pushStringAnnotation(tag = "SIGN_UP", annotation = "SignUp")
+                withStyle(
+                    style = MaterialTheme.typography.bodyMedium.toSpanStyle().copy(
+                        color = Color.Cyan,
+                        fontWeight = FontWeight.SemiBold
+                    )
+                ) {
+                    append("Sign Up")
+                }
+                pop()
             }
+
+            ClickableText(
+                text = annotatedString,
+                style = MaterialTheme.typography.bodyMedium.copy(
+                    color = Color.White,
+                    textAlign = TextAlign.Center
+                ),
+                onClick = { offset ->
+                    // Handle click on "Sign Up"
+                    annotatedString.getStringAnnotations(
+                        tag = "SIGN_UP",
+                        start = offset,
+                        end = offset
+                    ).firstOrNull()?.let {
+                        onSignUpClick()
+                    }
+                }
+            )
+
         }
     }
 }

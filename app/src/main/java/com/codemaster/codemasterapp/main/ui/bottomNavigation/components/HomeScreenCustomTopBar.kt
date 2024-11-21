@@ -30,6 +30,7 @@ import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
@@ -181,6 +182,9 @@ fun HomeScreenCustomTopBar(
                 )
             }
         }
+
+
+
         LottieAnimation(
             composition = composition.value,
             progress = { progress.value },
@@ -236,7 +240,7 @@ fun HomeScreenCustomTopBar(
                         )
                         .clickable(onClick = { onProfileClick() })
                         .border(1.dp, Color.White.copy(.2f), shape = RoundedCornerShape(16.dp))
-                        .padding(8.dp)
+                        .padding(12.dp)
                 ) {
                     // Profile Picture
                     Box(
@@ -261,14 +265,17 @@ fun HomeScreenCustomTopBar(
                         Text(
                             text = "Alan Cooper",
                             maxLines = 1,
-                            color = Color.White,
-                            fontSize = 14.sp,
-                            fontWeight = FontWeight.Medium
+                            style = MaterialTheme.typography.bodyLarge.copy(
+                                color = Color.White,
+                                fontWeight = FontWeight.Medium
+                            )
                         )
                         Text(
                             text = "1520 pts",
                             color = Color(0xFFD1D1D1),
-                            fontSize = 14.sp
+                            style = MaterialTheme.typography.bodyMedium.copy(
+                                color = Color(0xFFD1D1D1),
+                            )
                         )
                     }
                 }

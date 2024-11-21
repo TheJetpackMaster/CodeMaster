@@ -1,62 +1,34 @@
 package com.codemaster.codemasterapp.main.ui.bottomNavigation.screens
 
-import androidx.compose.animation.core.animate
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Person
-import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.codemaster.codemasterapp.R
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.components.AchievementCard
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.components.AchievementScreenCustomTopBar
-import com.codemaster.codemasterapp.main.ui.bottomNavigation.components.HomeScreenCustomTopBar
-import com.codemaster.codemasterapp.main.ui.components.ContinueLearningCard
-import com.codemaster.codemasterapp.main.ui.components.LanguageCardDesign
-import com.codemaster.codemasterapp.ui.theme.bluishJava
-import com.codemaster.codemasterapp.ui.theme.bluishPython
-import com.codemaster.codemasterapp.ui.theme.greenishPython
-import com.codemaster.codemasterapp.ui.theme.magentaCpp
-import com.codemaster.codemasterapp.ui.theme.purpleCpp
-import com.codemaster.codemasterapp.ui.theme.purpleKt
-import com.codemaster.codemasterapp.ui.theme.yellowishJava
-import com.codemaster.codemasterapp.ui.theme.yellowishKt
 import androidx.compose.runtime.*
-import com.codemaster.codemasterapp.main.ui.bottomNavigation.components.ProgressCard
-import kotlinx.coroutines.coroutineScope
+import androidx.compose.ui.graphics.Brush
+import com.codemaster.codemasterapp.main.ui.bottomNavigation.components.LanguageProgressCard
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -68,33 +40,8 @@ fun AchievementScreen(navController: NavController) {
     val coroutineScope = rememberCoroutineScope()
 
     Scaffold(
+        containerColor = Color.Transparent,
         topBar = {
-            /*TopAppBar(
-                title = {
-                    Row(
-                        modifier = Modifier.fillMaxSize(),
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Text(
-                            "CodeMaster",
-                            color = Color(0xFFE5E5C2),
-                            style = MaterialTheme.typography.titleLarge
-                        )
-                        Spacer(Modifier.weight(1f))
-                        IconButton(onClick = { /* Navigate to Profile Screen */ }) {
-                            Icon(
-                                imageVector = Icons.Filled.Person,
-                                contentDescription = "Profile",
-                                tint = Color.White,
-                                modifier = Modifier.size(24.dp)
-                            )
-                        }
-                    }
-                },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = Color(0xFF2F3E4C),
-                ),
-            )*/
             AchievementScreenCustomTopBar(
                 onTabSelected = { selectedIndex ->
                     coroutineScope.launch {
@@ -103,35 +50,35 @@ fun AchievementScreen(navController: NavController) {
                 },
                 pagerState = pagerState // Pass the pagerState as well
             )
-        },
-        content = { paddingValues ->
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(Color(0xFFF7F9FC)) // Soft background color for the main area
-                    .padding(paddingValues)
+        }
+    ) { paddingValues ->
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+//                .background(Color(0xFFF7F9FC)) // Soft background color for the main area
+                .padding(paddingValues)
 
+        ) {
+            Column(
+                modifier = Modifier
+                    .fillMaxSize(),
+                // .padding(bottom = 80.dp),
+                //  .verticalScroll(scrollState),
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Column(
-                    modifier = Modifier
-                        .fillMaxSize(),
-                    // .padding(bottom = 80.dp),
-                    //  .verticalScroll(scrollState),
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-                    HorizontalPager(
-                        state = pagerState,
-                    ) { page ->
-                        when (page) {
-                            0 -> AchievementsContent()
-                            1 -> ProgressContent()
-                        }
+                HorizontalPager(
+                    state = pagerState,
+                ) { page ->
+                    when (page) {
+                        0 -> AchievementsContent()
+                        1 -> ProgressContent()
                     }
                 }
-
             }
+
         }
-    )
+
+    }
 }
 
 @Composable
@@ -170,25 +117,25 @@ fun AchievementsContent() {
         "Leader",
         "Inventor",
         "Guru",
-       /* "Evolver",
-        "Mastermind",
-        "Navigator",
-        "Determined",
-        "Focused",
-        "Hustler",
-        "Go-Getter",
-        "Overcomer",
-        "Legendary",
-        "Breakthrough",
-        "Elevator",
-        "Optimist",
-        "Game-Changer",
-        "Shaker",
-        "Craftsman",
-        "Shining Star",
-        "Innovative",
-        "Achiever",
-        "Tactician"*/
+        /* "Evolver",
+         "Mastermind",
+         "Navigator",
+         "Determined",
+         "Focused",
+         "Hustler",
+         "Go-Getter",
+         "Overcomer",
+         "Legendary",
+         "Breakthrough",
+         "Elevator",
+         "Optimist",
+         "Game-Changer",
+         "Shaker",
+         "Craftsman",
+         "Shining Star",
+         "Innovative",
+         "Achiever",
+         "Tactician"*/
     )
 
     // List of progress values, representing the completion of the achievement
@@ -215,11 +162,11 @@ fun AchievementsContent() {
         R.drawable.mentor, R.drawable.influencer,
         R.drawable.leader, R.drawable.inventor,
 
-       /* R.drawable.guru, R.drawable.evolver,
-        R.drawable.goalsetter, R.drawable.transformer,
-        R.drawable.empowerer, R.drawable.inspire,
-        R.drawable.mentor, R.drawable.influencer,
-        R.drawable.leader, R.drawable.inventor,*/
+        /* R.drawable.guru, R.drawable.evolver,
+         R.drawable.goalsetter, R.drawable.transformer,
+         R.drawable.empowerer, R.drawable.inspire,
+         R.drawable.mentor, R.drawable.influencer,
+         R.drawable.leader, R.drawable.inventor,*/
     )
 
     // Progress values and animation resources for each achievement
@@ -235,6 +182,16 @@ fun AchievementsContent() {
         )
     }
 
+
+
+    // AchievementCard bg colors
+    val achievementCardColor = Brush.verticalGradient(
+        colors = listOf(
+            Color(0xFF002F6C), // Deep ocean blue at the top
+            Color(0xFF1565C0)  // Brighter blue at the bottom
+        )
+    )
+
     LazyColumn(
         modifier = Modifier.fillMaxSize()
     ) {
@@ -246,12 +203,14 @@ fun AchievementsContent() {
                         title = achievement.title,
                         progressValue = achievement.progressValue,
                         ImageResource = achievement.animationResource,
-                        modifier = Modifier.weight(1f)
+                        modifier = Modifier.weight(1f),
+                        cardGradientColor = achievementCardColor
+
                     )
                 }
             }
         }
-        item{
+        item {
             Spacer(modifier = Modifier.height(80.dp))
         }
     }
@@ -272,17 +231,25 @@ fun ProgressContent() {
         // First Row
         item {
             Row() {
-                ProgressCard(
+                LanguageProgressCard(
                     title = "C",
                     progressValue = 0f,
                     animationResource = R.raw.cardbadge,
-                    modifier = Modifier.weight(1f)
+                    bgDecorativeIcon = R.drawable.cpp,
+                    modifier = Modifier.weight(1f),
+
+                    //Test
+                    decorativeImagePadding = 0.dp
                 )
-                ProgressCard(
+                LanguageProgressCard(
                     title = "C++",
                     progressValue = 0.2f,
                     animationResource = R.raw.cardbadge,
-                    modifier = Modifier.weight(1f)
+                    bgDecorativeIcon = R.drawable.cpp,
+                    modifier = Modifier.weight(1f),
+
+                    //Test
+                    decorativeImagePadding = 0.dp
                 )
             }
         }
@@ -290,17 +257,25 @@ fun ProgressContent() {
         // Second Row
         item {
             Row() {
-                ProgressCard(
+                LanguageProgressCard(
                     title = "Python",
                     progressValue = 0.4f,
                     animationResource = R.raw.cardbadge,
-                    modifier = Modifier.weight(1f)
+                    bgDecorativeIcon = R.drawable.pythonlogo,
+                    modifier = Modifier.weight(1f),
+
+                    //Test
+                    decorativeImagePadding = 24.dp
                 )
-                ProgressCard(
+                LanguageProgressCard(
                     title = "Java",
                     progressValue = 0.6f,
                     animationResource = R.raw.cardbadge,
-                    modifier = Modifier.weight(1f)
+                    bgDecorativeIcon = R.drawable.java,
+                    modifier = Modifier.weight(1f),
+
+                    //Test
+                    decorativeImagePadding = 24.dp
                 )
             }
         }
@@ -308,22 +283,31 @@ fun ProgressContent() {
         // Third Row
         item {
             Row() {
-                ProgressCard(
+                LanguageProgressCard(
                     title = "DSA",
                     progressValue = 0.8f,
                     animationResource = R.raw.cardbadge,
-                    modifier = Modifier.weight(1f)
+                    bgDecorativeIcon = R.drawable.cpp,
+                    modifier = Modifier.weight(1f),
+
+                    //Test
+                    decorativeImagePadding = 0.dp
                 )
-                ProgressCard(
+                LanguageProgressCard(
                     title = "Kotlin",
                     progressValue = 1f,
                     animationResource = R.raw.cardbadge,
-                    modifier = Modifier.weight(1f)
+                    bgDecorativeIcon = R.drawable.kotlin,
+                    modifier = Modifier.weight(1f),
+
+
+                    //Test
+                    decorativeImagePadding = 34.dp
                 )
             }
         }
 
-        item{
+        item {
             Spacer(modifier = Modifier.height(80.dp))
         }
     }

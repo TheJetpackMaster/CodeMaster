@@ -18,6 +18,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowLeft
@@ -48,8 +49,10 @@ import androidx.compose.ui.draw.scale
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.airbnb.lottie.compose.LottieAnimation
@@ -291,22 +294,44 @@ fun SignUpSection(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(start = 16.dp),
+                .padding(start = 16.dp, top = 8.dp),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Center
         ) {
-            Text(
-                text = "Already have an account?",
-                style = MaterialTheme.typography.bodyMedium.copy(color = Color.White),
-                textAlign = TextAlign.Center
-            )
-            TextButton(onClick = onLoginClick) {
-                Text(
-                    text = "Login",
-                    style = MaterialTheme.typography.bodyMedium.copy(color = Color.White),
-                    textAlign = TextAlign.Center
-                )
+
+            val annotatedString = buildAnnotatedString {
+                append("Already have an account?")
+
+                // Add the "Sign Up" part with Material font styles
+                pushStringAnnotation(tag = "LOGIN", annotation = "Login")
+                withStyle(
+                    style = MaterialTheme.typography.bodyMedium.toSpanStyle().copy(
+                        color = Color.Cyan,
+                        fontWeight = FontWeight.SemiBold
+                    )
+                ) {
+                    append("Login")
+                }
+                pop()
             }
+
+            ClickableText(
+                text = annotatedString,
+                style = MaterialTheme.typography.bodyMedium.copy(
+                    color = Color.White,
+                    textAlign = TextAlign.Center
+                ),
+                onClick = { offset ->
+                    // Handle click on "Sign Up"
+                    annotatedString.getStringAnnotations(
+                        tag = "LOGIN",
+                        start = offset,
+                        end = offset
+                    ).firstOrNull()?.let {
+                        onLoginClick()
+                    }
+                }
+            )
         }
 
         Spacer(Modifier.height(24.dp))

@@ -20,6 +20,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.LinearProgressIndicator
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ProgressIndicatorDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -117,12 +118,13 @@ fun LanguageCardDesign(
 
                         Text(
                             text = difficulty,
-                            color = Color.Black.copy(.7f),
-                            fontSize = 12.sp,
-                            fontWeight = FontWeight.Medium,
+                            style = MaterialTheme.typography.bodySmall.copy(
+                                color = Color.Black.copy(alpha = 0.7f),
+                                fontWeight = FontWeight.Medium
+                            ),
                             modifier = Modifier
                                 .background(Color.White.copy(alpha = 0.2f), CircleShape)
-                                .padding(horizontal = 12.dp, vertical = 2.dp)
+                                .padding(horizontal = 12.dp, vertical = 5.dp)
                         )
                     }
 
@@ -135,14 +137,15 @@ fun LanguageCardDesign(
                     ) {
                         Text(
                             text = languageName,
-                            color = Color.Black,
-                            fontSize = 15.sp,
-                            fontWeight = FontWeight.Bold
+                            style = MaterialTheme.typography.titleMedium.copy(
+                                color = Color.Black,
+                            )
                         )
                         Text(
-                            text = "lessons:$completedLessonCount/$lessonCount",
-                            color = Color.Black.copy(alpha = 0.75f),
-                            fontSize = 13.sp
+                            text = "Lessons:$completedLessonCount/$lessonCount",
+                            style = MaterialTheme.typography.bodyMedium.copy(
+                                color = Color.Black.copy(alpha = 0.75f),
+                            )
                         )
                     }
                 }

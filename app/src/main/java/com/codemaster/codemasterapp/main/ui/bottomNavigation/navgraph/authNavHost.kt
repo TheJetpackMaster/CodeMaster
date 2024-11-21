@@ -12,7 +12,7 @@ import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.Aut
 
 fun NavGraphBuilder.authNavHost(navController: NavController) {
     navigation(
-        startDestination = AuthRoutes.PreRegistrationScreen.route,
+        startDestination = AuthRoutes.SignUpScreen.route,
         route = AuthRoutes.AUTH_ROOT.route
     ){
         composable(AuthRoutes.PreRegistrationScreen.route) {

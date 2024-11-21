@@ -10,6 +10,7 @@ import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.Mai
 
 @Composable
 fun RootNavHost(navController: NavHostController) {
+
     // Main NavHost (for the entire app)
     NavHost(
         navController = navController, startDestination = BottomNavRoutes.BOTTOM_ROOT.route,

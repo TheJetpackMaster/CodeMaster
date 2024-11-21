@@ -16,6 +16,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.LinearProgressIndicator
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -40,35 +41,6 @@ val cardGradientColors1 = listOf(
     Color(0xFF365264)  // Darker Blue-Grey
 )
 
-val cardGradientColors2 = listOf(
-    Color(0xFFF58A8C), // Soft Peach
-    Color(0xFFFDE3D9), // Light Pink
-    Color(0xFFEEA28D)  // Warm Peachy-Coral
-)
-
-val cardGradientColors3 = listOf(
-    Color(0xFF8ED081), // Soft Green
-    Color(0xFF6C9F6E), // Muted Olive Green
-    Color(0xFF4F6F4A)  // Earthy Dark Green
-)
-
-val cardGradientColors4 = listOf(
-    Color(0xFF8E4F96), // Rich Purple
-    Color(0xFFBC6C9A), // Soft Pink
-    Color(0xFFD3A1C9)  // Pale Lavender
-)
-
-val cardGradientColors5 = listOf(
-    Color(0xFFEE5F73), // Coral Pink
-    Color(0xFFFDBD72), // Light Peach
-    Color(0xFFF1C2B8)  // Soft Cream
-)
-
-val cardGradientColors6 = listOf(
-    Color(0xFF3F8E9B), // Teal
-    Color(0xFF50B2C0), // Aqua Blue
-    Color(0xFF76D2E4)  // Soft Aqua
-)
 
 @Composable
 fun LevelSelectionCardDesign(
@@ -142,17 +114,18 @@ fun LevelSelectionCardDesign(
                     // Top section: Title
                     Text(
                         text = stageName,
-                        color = Color.White,
-                        fontSize = 18.sp,
-                        fontWeight = FontWeight.Bold,
+                        style = MaterialTheme.typography.titleMedium.copy(
+                            color = Color.White,
+                        )
                     )
 
                     // Middle section: Lesson progress
                     Column {
                         Text(
                             text = "Lessons: $completedLessonCount/$lessonCount",
-                            color = Color.White.copy(alpha = 0.9f),
-                            fontSize = 14.sp,
+                            style = MaterialTheme.typography.bodyMedium.copy(
+                                color = Color.White.copy(alpha = 0.9f),
+                            ),
                             modifier = Modifier.padding(bottom = 4.dp)
                         )
 

@@ -6,6 +6,7 @@ import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.tween
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -21,6 +22,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -33,6 +35,7 @@ import androidx.compose.material.icons.automirrored.filled.KeyboardArrowLeft
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.KeyboardArrowDown
+import androidx.compose.material.icons.filled.KeyboardArrowLeft
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Star
@@ -40,7 +43,9 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedIconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -56,6 +61,7 @@ import com.codemaster.codemasterapp.main.ui.components.LessonListScreenBasicLoti
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.SpanStyle
@@ -101,51 +107,55 @@ fun LessonListScreen(navController: NavController) {
                     Color(0x6635597D)  // A slightly lighter, yet still muted, cool blue
                 )
             )
-
-
             TopAppBar(
-                windowInsets = WindowInsets(top = 30.dp, bottom = 0.dp),
-                title = {
-                    Row(
-                        modifier = Modifier
-                            .fillMaxSize(),
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Text(
-                            text = "C - Basic Concepts",
-                            color = Color(0xFFDED6D6),
-                            fontSize = 20.sp,
-                            fontWeight = FontWeight.Medium
-                        )
-                    }
-                },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = Color.Transparent,
-                ),
                 navigationIcon = {
-                    IconButton(
-                        onClick = { /* Navigate back */ },
+
+                    OutlinedIconButton(
+                        onClick = {
+                            navController.popBackStack()
+                        },
+                        modifier = Modifier
+                            .statusBarsPadding()
+                            .padding(start = 8.dp)
+                            .size(36.dp),
+                        border = BorderStroke(1.3.dp, color = Color.LightGray.copy(alpha = 0.4f)), // Light border with transparency
+                        colors = IconButtonDefaults.outlinedIconButtonColors(
+                            containerColor = Color.White.copy(.08f),
+                        )
                     ) {
                         Icon(
-                            imageVector = Icons.AutoMirrored.Default.KeyboardArrowLeft,
-                            contentDescription = "Go Back",
-                            tint = Color(0xFFDED6D6),
-                            modifier = Modifier.size(28.dp)
+                            imageVector = Icons.Default.KeyboardArrowLeft,
+                            contentDescription = "",
+                            modifier = Modifier.size(26.dp),
+                            tint = Color.White.copy(alpha = 0.8f)
                         )
                     }
                 },
-                modifier = Modifier.background(
-                    topBarGradient
-                )
+
+                title = {
+                    Text(
+                        modifier = Modifier.padding(start = 24.dp),
+                        text = "C - Beginner",
+                        color = Color.White
+                    )
+
+                },
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = Color.Transparent // Desired dark gradient tone
+                ),
+                modifier = Modifier
+                    .shadow(.5.dp, ambientColor = Color.White, spotColor = Color.White)
+                    .background(topBarGradient)
+
             )
         }
     ) { paddingValues ->
 
         val screenBackgroundGradient = Brush.verticalGradient(
             colors = listOf(
-                Color(0xBB101820), // Very Dark Blue
-                Color(0xBB0F263D), // Slightly Brighter Blue
-                Color(0xBB15476E)  // Cool Medium Blue
+                Color(0x44101820), // Very Dark Blue
+                Color(0x440F263D), // Slightly Brighter Blue
+                Color(0x4415476E)  // Cool Medium Blue
             )
         )
         Box(
@@ -179,9 +189,10 @@ fun LessonListScreen(navController: NavController) {
                     ) {
                         // "28 lessons" Text with gray color
                         Text(
-                            "28 lessons",
-                            color = Color.Gray,
-                            fontSize = 13.sp
+                            text = "28 lessons",
+                            style = MaterialTheme.typography.bodyMedium.copy(
+                                color = Color.Gray,
+                            )
                         )
 
                         Spacer(Modifier.width(8.dp))
@@ -193,8 +204,10 @@ fun LessonListScreen(navController: NavController) {
                             modifier = Modifier.size(18.dp)
                         )
                         Text(
-                            text = "4.9", color = Color.Gray,
-                            fontSize = 14.sp,
+                            text = "4.9",
+                            style = MaterialTheme.typography.bodyMedium.copy(
+                                color = Color.Gray,
+                            ),
                             modifier = Modifier.padding(top = 4.dp)
                         )
                     }
@@ -212,9 +225,10 @@ fun LessonListScreen(navController: NavController) {
 
                         Text(
                             text = "Lessons",
-                            color = if (selectedTab == LessonOrDescription.LESSON) selectedTabColor else Color.Gray,
-                            fontSize = 16.sp,
-                            fontWeight = if (selectedTab == LessonOrDescription.LESSON) FontWeight.Medium else FontWeight.Normal,
+                            style = MaterialTheme.typography.titleMedium.copy(
+                                color = if (selectedTab == LessonOrDescription.LESSON) selectedTabColor else Color.Gray,
+                                fontWeight = if (selectedTab == LessonOrDescription.LESSON) FontWeight.Medium else FontWeight.Normal,
+                            ),
                             modifier = Modifier
                                 .clip(CircleShape)
                                 .clickable(onClick = {
@@ -225,9 +239,10 @@ fun LessonListScreen(navController: NavController) {
 
                         Text(
                             text = "Description",
-                            color = if (selectedTab == LessonOrDescription.DESCRIPTION) selectedTabColor else Color.LightGray,
-                            fontSize = 16.sp,
-                            fontWeight = if (selectedTab == LessonOrDescription.DESCRIPTION) FontWeight.Medium else FontWeight.Normal,
+                            style = MaterialTheme.typography.titleMedium.copy(
+                                color = if (selectedTab == LessonOrDescription.DESCRIPTION) selectedTabColor else Color.Gray,
+                                fontWeight = if (selectedTab == LessonOrDescription.DESCRIPTION) FontWeight.Medium else FontWeight.Normal,
+                            ),
                             modifier = Modifier
                                 .clip(CircleShape)
                                 .clickable(onClick = {
@@ -250,6 +265,12 @@ fun LessonListScreen(navController: NavController) {
                     when (selectedTab) {
                         LessonOrDescription.LESSON -> {
                             LazyColumn {
+
+                                item{
+                                    Spacer(Modifier.height( 8.dp))
+                                }
+
+
                                 itemsIndexed(getLessons()) { index, lesson ->
                                     // Handling section expansion
                                     val isExpanded = expandedLessons.value[index] ?: false
@@ -303,6 +324,10 @@ fun LessonListScreen(navController: NavController) {
                                         Spacer(Modifier.height(if (isExpanded) 12.dp else 0.dp))
                                     }
                                 }
+
+                                item{
+                                    Spacer(Modifier.height( 8.dp))
+                                }
                             }
 
                         }
@@ -326,10 +351,11 @@ fun SubLessonItem(
     onSubLessonComplete: () -> Unit,
     isLastSubLesson: Boolean
 ) {
+
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(start = 32.dp) // Indentation for sub-lessons
+            .padding(start = 38.dp) // Indentation for sub-lessons
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
@@ -378,9 +404,9 @@ fun SubLessonItem(
                     text = subLesson.title,
                     style = MaterialTheme.typography.bodyMedium,
                     color = when (subLesson.status) {
-                        LessonStatus.ACTIVE -> Color.White.copy(.9f)
+                        LessonStatus.ACTIVE -> Color.White
                         LessonStatus.COMPLETED -> bluishPython
-                        else -> Color.Gray
+                        else -> Color(0xFFC5BFBF)
                     },
                     maxLines = 1
                 )
@@ -388,8 +414,10 @@ fun SubLessonItem(
                     text = subLesson.description,
                     style = MaterialTheme.typography.bodySmall,
                     color = when (subLesson.status) {
-                        LessonStatus.ACTIVE, LessonStatus.COMPLETED -> Color.Gray
-                        else -> Color.LightGray
+                        LessonStatus.ACTIVE,
+                        LessonStatus.COMPLETED -> Color.Gray
+
+                        else -> Color.Gray
                     },
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis
@@ -402,7 +430,7 @@ fun SubLessonItem(
     if (!isLastSubLesson) {
         Column(
             modifier = Modifier.padding(
-                start = 42.dp
+                start = 49.dp
             )
         ) {
             for (i in 1..4) {
@@ -513,18 +541,18 @@ fun LessonItem(
                     color = when (status) {
                         LessonStatus.ACTIVE -> Color.White
                         LessonStatus.COMPLETED -> bluishPython
-                        else -> Color.Gray
+                        else -> Color(0xFFC5BFBF)
                     },
                     maxLines = 1
                 )
                 Text(
                     text = description,
-                    style = MaterialTheme.typography.bodySmall,
+                    style = MaterialTheme.typography.bodyMedium,
                     color = when (status) {
                         LessonStatus.ACTIVE,
                         LessonStatus.COMPLETED -> Color.Gray
 
-                        else -> Color.LightGray
+                        else -> Color.Gray
                     },
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis

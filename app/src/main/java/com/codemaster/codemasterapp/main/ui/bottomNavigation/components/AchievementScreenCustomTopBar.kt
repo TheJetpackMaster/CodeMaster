@@ -25,6 +25,7 @@ import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ScrollableTabRow
 import androidx.compose.material3.Tab
 import androidx.compose.material3.TabRow
@@ -246,16 +247,18 @@ fun AchievementScreenCustomTopBar(
                         verticalArrangement = Arrangement.Center
                     ) {
                         Text(
+                            modifier = Modifier.padding(start = 4.dp),
                             text = "My Honor",
-                            color = Color.White,
-                            fontSize = 20.sp,
-                            fontWeight = FontWeight.Bold
+                            style = MaterialTheme.typography.titleLarge.copy(
+                                color = Color.White,
+                                fontWeight = FontWeight.Bold
+                            ),
                         )
-                        Spacer(modifier = Modifier.height(4.dp))
+                        Spacer(modifier = Modifier.height(5.dp))
                         Row(
                             modifier = Modifier
                                 .background(Color.White.copy(0.2f), shape = CircleShape)
-                                .padding(horizontal = 8.dp),
+                                .padding(horizontal = 8.dp, vertical = 4.dp),
                             verticalAlignment = Alignment.CenterVertically,
                             horizontalArrangement = Arrangement.Center // Center everything horizontally
                         ) {
@@ -267,8 +270,9 @@ fun AchievementScreenCustomTopBar(
                             Spacer(modifier = Modifier.width(4.dp)) // Add some space between the icon and text
                             Text(
                                 text = "Award 1/10",
-                                color = Color.White,
-                                fontSize = 14.sp
+                                style = MaterialTheme.typography.bodyMedium.copy(
+                                    color = Color.White,
+                                ),
                             )
                         }
                     }
@@ -309,10 +313,14 @@ fun AchievementScreenCustomTopBar(
                             text = {
                                 Text(
                                     text = title,
-                                    color = if (pagerState.currentPage == index) Color.White else Color.White.copy(
-                                        0.7f
+
+                                    style = MaterialTheme.typography.bodyMedium.copy(
+                                        color = if (pagerState.currentPage == index) Color.White else Color.White.copy(
+                                            0.7f
+                                        ),
+                                        fontWeight = if (pagerState.currentPage == index) FontWeight.SemiBold
+                                        else FontWeight.Normal,
                                     ),
-                                    fontWeight = if (pagerState.currentPage == index) FontWeight.Bold else FontWeight.Normal
                                 )
                             }
                         )

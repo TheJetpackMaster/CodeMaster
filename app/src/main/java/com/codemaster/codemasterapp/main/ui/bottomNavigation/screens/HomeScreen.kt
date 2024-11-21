@@ -66,8 +66,11 @@ fun HomeScreen(navController: NavController) {
                         Text(
                             text = "Popular courses",
                             style = MaterialTheme.typography.titleMedium,
-//                            color = Color(0xFF2F3E4C)
-                            color = Color(0xFFFFFFFF)
+                            color = Color(0xFFFFFFFF),
+                            modifier = Modifier.padding(
+                                start = 2.dp,
+                                bottom = 0.dp
+                            )
                         )
                         /*IconButton(onClick = { /* Handle search */ }) {
                             Icon(

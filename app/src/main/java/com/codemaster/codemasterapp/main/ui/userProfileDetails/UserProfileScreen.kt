@@ -52,6 +52,45 @@ import com.codemaster.codemasterapp.main.ui.bottomNavigation.components.UserProf
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.ProfileRoutes
 
 
+val profileSectionGradient = Brush.verticalGradient(
+    colors = listOf(
+        Color(0xFF557A95), // Muted steel blue (top)
+        Color(0xFF436D8D), // Rich blue-gray (middle)
+        Color(0xFF2A4F6D)  // Dark slate blue (bottom)
+    )
+)
+
+
+val statsCardGradient = Brush.verticalGradient(
+    colors = listOf(
+        Color(0xFF3C5866), // Medium slate blue-gray (top)
+        Color(0xFF2F4554)  // Deep blue-gray (bottom)
+    )
+)
+
+val waveGradient = Brush.verticalGradient(
+    colors = listOf(
+        Color(0xFF2A4F6D), // Dark blue (top)
+        Color(0xFF3C5866)  // Medium blue-gray (bottom)
+    )
+)
+
+val freeCoursesGradientColors = Brush.horizontalGradient(
+    listOf(
+        Color(0xFFFFB7A5), // Soft coral (gentle and inviting)
+        Color(0xFFFF6F61)  // Warm reddish-pink (vibrant but not harsh)
+    )
+)
+
+
+val liveSupportButtonColors = Brush.horizontalGradient(
+    colors = listOf(
+        Color(0xFF64B5F6), // Soft sky blue (lighter and calming)
+        Color(0xFF1565C0)  // Deep blue (provides contrast and vibrancy)
+    )
+)
+
+
 @Composable
 fun UserProfileScreen(
     navController: NavController
@@ -59,191 +98,203 @@ fun UserProfileScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFFF7F9FC)) // Soft background color for the main area
-            .statusBarsPadding()
 
     ) {
         // Top Header
         Row(
             modifier = Modifier
                 .fillMaxWidth()
+                .height(100.dp)
+                .background(Color(0xFF101820).copy(.5f))
                 .padding(bottom = 16.dp)
-                .padding(horizontal = 12.dp),
+                .padding(horizontal = 12.dp)
+                .statusBarsPadding(),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
                 text = "Profile",
                 style = MaterialTheme.typography.titleLarge.copy(
-                    color = Color.Black,
+                    color = Color.White.copy(.7f),
                     fontSize = 24.sp,
                     fontWeight = FontWeight.Bold
                 )
             )
             Row(
+                horizontalArrangement = Arrangement.spacedBy(4.dp),
                 modifier = Modifier
-                    .clip(RoundedCornerShape(8.dp))
-                    .background(Color.LightGray.copy(.6f))
+                    .clip(RoundedCornerShape(6.dp))
+                    .clickable(onClick = {
+                        navController.navigate(ProfileRoutes.SettingsScreen.route)
+                    })
+                    .background(Color.LightGray.copy(.2f))
                     .padding(6.dp)
+
             ) {
                 Icon(
                     imageVector = Icons.Default.Settings,
                     contentDescription = "",
-                    tint = Color.Black
+                    tint = Color.White.copy(.7f)
                 )
 
                 Text(
                     "Settings",
-                    color = Color.Black,
+                    color = Color.White.copy(.7f),
                     fontWeight = FontWeight.Medium
                 )
             }
         }
 
-        HorizontalDivider(thickness = 1.dp, color = Color.LightGray)
-        Spacer(Modifier.height(14.dp))
+        HorizontalDivider(thickness = 1.dp, color = Color.LightGray.copy(.2f))
 
-        //User Profile Section
-        UserProfileSection()
 
-        Spacer(modifier = Modifier.height(16.dp))
-
-        // Highlight Free Courses Section
-        Box(
+        //Main Content Section
+        Column(
             modifier = Modifier
-                .padding(horizontal = 12.dp)
-                .fillMaxWidth()
-                .height(68.dp)
-                .shadow(elevation = 3.dp, shape = RoundedCornerShape(12.dp))
-                .background(
-                    brush = Brush.horizontalGradient(
-                        colors = listOf(
-                            Color(0xFFF6C142),
-                            Color(0xFFFF9800)
-                        )
-                    ),
-                    shape = RoundedCornerShape(12.dp)
-                )
-                .padding(10.dp)
-             ,
-            contentAlignment = Alignment.Center
+                .fillMaxSize()
+                .verticalScroll(rememberScrollState())
         ) {
-            Row(
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically,
+            Spacer(Modifier.height(14.dp))
+
+            //User Profile Section
+            UserProfileSection()
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            // Highlight Free Courses Section
+            Box(
                 modifier = Modifier
-
+                    .padding(horizontal = 12.dp, vertical = 8.dp) // Added vertical padding
+                    .fillMaxWidth()
+                    .height(72.dp) // Slightly taller for breathing room
+                    .shadow(
+                        elevation = 3.dp,
+                        shape = RoundedCornerShape(14.dp)
+                    ) // Subtle shadow for depth
+                    .background(
+                        brush = freeCoursesGradientColors,
+                        shape = RoundedCornerShape(14.dp) // Slightly more rounded
+                    )
+                    .padding(12.dp), // Increased padding
+                contentAlignment = Alignment.Center
             ) {
-                Column(
-                    modifier = Modifier.fillMaxWidth(.69f)
+                Row(
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.fillMaxWidth()
                 ) {
-                    Text(
-                        text = "All Courses Are Free",
-                        style = MaterialTheme.typography.titleMedium.copy(
-                            color = Color.Black,
-                            fontWeight = FontWeight.Medium
+                    Column(
+                        modifier = Modifier.fillMaxWidth(0.7f) // Adjusted width allocation
+                    ) {
+                        Text(
+                            text = "All Courses Are Free",
+                            style = MaterialTheme.typography.titleMedium.copy(
+                                color = Color.Black, // Black for contrast
+                                fontWeight = FontWeight.Bold // Slightly bolder
+                            )
                         )
-                    )
-                    Text(
-                        text = "Learn without limits.Start exploring!",
-                        style = MaterialTheme.typography.bodySmall.copy(
-                            color = Color(0xFF3A3A3A)
-                        ),
-                        maxLines = 2,
-                    )
-                }
+                        Spacer(modifier = Modifier.height(4.dp)) // Added spacing
+                        Text(
+                            text = "Learn without limits. Start exploring!",
+                            style = MaterialTheme.typography.bodySmall.copy(
+                                color = Color(0xFF4F4F4F) // Subtle gray for readability
+                            ),
+                            maxLines = 2,
+                        )
+                    }
 
-                Spacer(Modifier.weight(1f))
+                    Spacer(Modifier.weight(1f))
 
-                Box(
-                    modifier = Modifier
-                        .wrapContentSize()
-                        .clip(RoundedCornerShape(6.dp))
-                        .background(Color(0xFF1A7306))
-                        .padding(vertical = 4.dp)
-                        .padding(horizontal = 6.dp)
-
-//                    onClick = { /* Handle Explore Courses */ },
-//                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF1A7306)),
-//                    shape = RoundedCornerShape(8.dp)
-                ) {
-                    Text(
-                        text = "Explore Now!",
-                        color = Color.White,
-                        fontSize = 12.sp,
-                        fontWeight = FontWeight.Medium
-                    )
+                    Box(
+                        modifier = Modifier
+                            .clip(RoundedCornerShape(6.dp))
+                            .background(Color(0xFF1A7306)) // Vibrant green for CTA
+                            .padding(horizontal = 8.dp, vertical = 6.dp), // Compact padding
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Text(
+                            text = "Explore Now!",
+                            color = Color.White,
+                            fontSize = 12.sp,
+                            fontWeight = FontWeight.Bold // Better emphasis
+                        )
+                    }
                 }
             }
-        }
 
-        Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(16.dp))
 
-        // Stats Section
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp),
-            horizontalArrangement = Arrangement.spacedBy(8.dp)
-        ) {
-            StatsCard(
-                iconRes = R.drawable.person, // Replace with correct icons
-                value = "0",
-                label = "Gems",
-                modifier = Modifier.weight(1f)
-            )
-            StatsCard(
-                iconRes = R.drawable.person, // Replace with correct icons
-                value = "0",
-                label = "Social Index",
-                modifier = Modifier.weight(1f)
-            )
-        }
-
-        Spacer(modifier = Modifier.height(12.dp))
-
-        // Stats Section
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp),
-            horizontalArrangement = Arrangement.spacedBy(8.dp)
-        ) {
-
-            StatsCard(
-                iconRes = R.drawable.person, // Replace with correct icons
-                value = "0",
-                label = "Days Streak",
-                modifier = Modifier.weight(1f)
-            )
-            StatsCard(
-                iconRes = R.drawable.person, // Replace with correct icons
-                value = "0%",
-                label = "Accuracy",
-                modifier = Modifier.weight(1f)
-            )
-
-        }
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        // Live Support Button
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 12.dp)
-                .background(Color(0xFF1A73E8), shape = RoundedCornerShape(12.dp))
-                .clickable { /* Handle click */ }
-                .padding(vertical = 14.dp),
-            contentAlignment = Alignment.Center
-        ) {
-            Text(
-                text = "Live Support",
-                style = MaterialTheme.typography.titleMedium.copy(
-                    color = Color.White,
-                    fontWeight = FontWeight.Bold
+            // Stats Section
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp),
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                StatsCard(
+                    iconRes = R.drawable.person, // Replace with correct icons
+                    value = "0",
+                    label = "Gems",
+                    modifier = Modifier.weight(1f)
                 )
-            )
+                StatsCard(
+                    iconRes = R.drawable.person, // Replace with correct icons
+                    value = "0",
+                    label = "Social Index",
+                    modifier = Modifier.weight(1f)
+                )
+            }
+
+            Spacer(modifier = Modifier.height(12.dp))
+
+            // Stats Section
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp),
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+
+                StatsCard(
+                    iconRes = R.drawable.person, // Replace with correct icons
+                    value = "0",
+                    label = "Days Streak",
+                    modifier = Modifier.weight(1f)
+                )
+                StatsCard(
+                    iconRes = R.drawable.person, // Replace with correct icons
+                    value = "0%",
+                    label = "Accuracy",
+                    modifier = Modifier.weight(1f)
+                )
+
+            }
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+
+            // Live Support Button
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 12.dp)
+                    .shadow(elevation = 3.dp, shape = RoundedCornerShape(12.dp))
+                    .background(
+                        liveSupportButtonColors,
+                        shape = RoundedCornerShape(12.dp)
+                    )
+                    .clickable { /* Handle click */ }
+                    .padding(vertical = 14.dp),
+                contentAlignment = Alignment.Center
+            ) {
+                Text(
+                    text = "Live Support",
+                    style = MaterialTheme.typography.titleMedium.copy(
+                        color = Color.White,
+                        fontWeight = FontWeight.Bold
+                    )
+                )
+            }
         }
     }
 }
@@ -255,9 +306,11 @@ fun UserProfileSection() {
             .padding(horizontal = 12.dp)
             .fillMaxWidth()
             .height(200.dp)
-            .shadow(4.dp, shape = RoundedCornerShape(16.dp))
-            .background(Color(0xFF192228), shape = RoundedCornerShape(16.dp))
-
+            .shadow(3.dp, shape = RoundedCornerShape(16.dp))
+            .background(
+                brush = profileSectionGradient,
+                shape = RoundedCornerShape(16.dp)
+            )
 
 
     ) {
@@ -270,12 +323,6 @@ fun UserProfileSection() {
             val width = size.width
             val height = size.height
 
-            // Gradient colors
-            val gradientColors = listOf(
-                Color(0xFF1C1C8F), // Blue
-                Color(0xFF385E91), // Light Blue
-                Color(0xFF005DF4)  // Darker Blue
-            )
 
             // Wave path
             val wavePath = Path().apply {
@@ -292,12 +339,11 @@ fun UserProfileSection() {
 
             drawPath(
                 path = wavePath,
-                brush = Brush.horizontalGradient(gradientColors)
+                brush = waveGradient
             )
         }
 
         // Edit Icon (Top-right corner)
-
         Icon(
             painter = painterResource(R.drawable.editicon), // Replace with your edit icon resource
             contentDescription = "Edit Profile",
@@ -375,13 +421,18 @@ fun StatsCard(
     iconRes: Int, value: String, label: String,
     modifier: Modifier = Modifier
 ) {
+
+
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
         modifier = modifier
             .height(100.dp)
-            .shadow(elevation = 4.dp, shape = RoundedCornerShape(8.dp))
-            .background(Color(0xFF1E243F), shape = RoundedCornerShape(8.dp))
+            .shadow(elevation = 3.dp, shape = RoundedCornerShape(8.dp))
+            .background(
+                brush = statsCardGradient,
+                shape = RoundedCornerShape(8.dp)
+            )
             .padding(12.dp)
 
     ) {

@@ -47,41 +47,12 @@ import com.codemaster.codemasterapp.main.ui.components.ContinueLearningCard
 fun LevelSelectionScreen(navController: NavController) {
 
     val cardGradientColors1 = listOf(
-        Color(0xFF6C9BAF), // Muted Light Blue
-        Color(0xFF5A8198), // Muted Cyan Blue
-        Color(0xFF3D5B6E)  // Darker Blue-Grey
+//        Color(0xFF6C9BAF), // Muted Light Blue
+//        Color(0xFF5A8198), // Muted Cyan Blue
+//        Color(0xFF3D5B6E)  // Darker Blue-Grey
+        Color(0xFF245FA4), // Vibrant Blue
+        Color(0xFF5FD5BB)  // Vibrant Mint Green
     )
-
-    val cardGradientColors2 = listOf(
-        Color(0xFFF58A8C), // Soft Peach
-        Color(0xFFFDE3D9), // Light Pink
-        Color(0xFFEEA28D)  // Warm Peachy-Coral
-    )
-
-    val cardGradientColors3 = listOf(
-        Color(0xFF8ED081), // Soft Green
-        Color(0xFF6C9F6E), // Muted Olive Green
-        Color(0xFF4F6F4A)  // Earthy Dark Green
-    )
-
-    val cardGradientColors4 = listOf(
-        Color(0xFF8E4F96), // Rich Purple
-        Color(0xFFBC6C9A), // Soft Pink
-        Color(0xFFD3A1C9)  // Pale Lavender
-    )
-
-    val cardGradientColors5 = listOf(
-        Color(0xFFEE5F73), // Coral Pink
-        Color(0xFFFDBD72), // Light Peach
-        Color(0xFFF1C2B8)  // Soft Cream
-    )
-
-    val cardGradientColors6 = listOf(
-        Color(0xFF3F8E9B), // Teal
-        Color(0xFF50B2C0), // Aqua Blue
-        Color(0xFF76D2E4)  // Soft Aqua
-    )
-
 
 
     Scaffold(
@@ -108,13 +79,12 @@ fun LevelSelectionScreen(navController: NavController) {
                     // Title Text
                     Text(
                         text = "Select your learning stage:",
-                        color = Color.White,
-                        fontSize = 16.sp,
                         style = MaterialTheme.typography.titleMedium,
+                        color = Color(0xFFFFFFFF),
                         modifier = Modifier.padding(
-                            start = 8.dp,
+                            start = 10.dp,
                             bottom = 4.dp
-                        ) // Extra padding for spacing
+                        )
                     )
 
                     // Row for Easy, Medium cards
@@ -125,7 +95,7 @@ fun LevelSelectionScreen(navController: NavController) {
                         horizontalArrangement = Arrangement.spacedBy(10.dp) // Increased spacing between cards
                     ) {
                         LevelSelectionCardDesign(
-//                            gradientColors = cardGradientColors1,
+                            gradientColors = cardGradientColors1,
                             stageName = "Introduction",
                             lessonCount = 20,
                             completedLessonCount = 12,
@@ -137,7 +107,7 @@ fun LevelSelectionScreen(navController: NavController) {
                         )
 
                         LevelSelectionCardDesign(
-//                            gradientColors = cardGradientColors1,
+                            gradientColors = cardGradientColors1,
                             stageName = "Beginner",
                             lessonCount = 20,
                             completedLessonCount = 0,
@@ -158,7 +128,7 @@ fun LevelSelectionScreen(navController: NavController) {
                         horizontalArrangement = Arrangement.spacedBy(10.dp) // Increased spacing between cards
                     ) {
                         LevelSelectionCardDesign(
-//                            gradientColors = cardGradientColors1,
+                            gradientColors = cardGradientColors1,
                             stageName = "Intermediate",
                             lessonCount = 20,
                             completedLessonCount = 0,
@@ -170,7 +140,7 @@ fun LevelSelectionScreen(navController: NavController) {
                         )
 
                         LevelSelectionCardDesign(
-//                            gradientColors = cardGradientColors1,
+                            gradientColors = cardGradientColors1,
                             stageName = "Advanced",
                             lessonCount = 20,
                             completedLessonCount = 0,
@@ -313,7 +283,7 @@ fun VibrantTopBarWithLottie(
             },
             modifier = Modifier
                 .statusBarsPadding()
-                .padding(start = 8.dp)
+                .padding(start = 12.dp, top = 13.dp)
                 .size(36.dp),
             border = BorderStroke(1.3.dp, color = Color.LightGray.copy(alpha = 0.5f)), // Light border with transparency
             colors = IconButtonDefaults.outlinedIconButtonColors(

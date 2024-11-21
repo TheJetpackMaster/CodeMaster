@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import com.codemaster.codemasterapp.R
@@ -131,7 +132,7 @@ fun TechBackground(navController: NavHostController) {
                     Random.nextFloat() * height,
                     android.graphics.Paint().apply {
                         color = android.graphics.Color.WHITE
-                        alpha = 40 // Slightly visible
+                        alpha = 40
                         textSize = 20f
                         isAntiAlias = true
                     }
@@ -143,7 +144,7 @@ fun TechBackground(navController: NavHostController) {
                 val centerX = Random.nextFloat() * width
                 val centerY = Random.nextFloat() * height
                 drawCircle(
-                    color = Color.White.copy(alpha = 0.1f),
+                    color = Color.White.copy(alpha = 0.05f),
                     radius = 50f * i,
                     center = Offset(centerX, centerY),
                     style = Stroke(width = 1.5f)
@@ -175,7 +176,7 @@ fun TechBackground(navController: NavHostController) {
                     Random.nextFloat() * height,
                     android.graphics.Paint().apply {
                         color = android.graphics.Color.WHITE
-                        alpha = 50 // Slightly more visible
+                        alpha = 40 // Slightly more visible
                         textSize = 25f
                         isAntiAlias = true
                     }
@@ -195,6 +196,18 @@ fun TechBackground(navController: NavHostController) {
                     strokeWidth = 1.5f
                 )
             }
+        }
+
+        val screenBackgroundGradient2 = Brush.verticalGradient(
+            colors = listOf(
+                Color(0x99101820), // Very Dark Blue
+                Color(0x990F263D), // Slightly Brighter Blue
+                Color(0x9915476E)  // Cool Medium Blue
+            )
+        )
+        Box(modifier = Modifier.fillMaxSize()
+            .background(screenBackgroundGradient2)) {
+
         }
 
         // Navigation host

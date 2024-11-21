@@ -1,5 +1,6 @@
 package com.codemaster.codemasterapp.main.ui.auth
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -7,14 +8,18 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.KeyboardArrowLeft
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.KeyboardArrowLeft
 import androidx.compose.material.icons.filled.Lock
@@ -25,6 +30,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedIconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -38,6 +44,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
@@ -55,21 +62,29 @@ import com.codemaster.codemasterapp.main.ui.bottomNavigation.components.CustomTe
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ResetPasswordScreen(navController: NavController){
+fun ResetPasswordScreen(navController: NavController) {
     val scrollState = rememberScrollState()
 
     Scaffold(
         topBar = {
             TopAppBar(
+                windowInsets = WindowInsets(top = 30.dp),
                 navigationIcon = {
-                    IconButton(
+                    Spacer(Modifier.width(12.dp))
+                    OutlinedIconButton(
+                        border = BorderStroke(width = 2.dp, color = Color.White.copy(.8f)),
+                        modifier = Modifier
+                            .height(34.dp)
+                            .width(44.dp)
+                            .padding(start = 10.dp),
                         onClick = { navController.popBackStack() }
                     ) {
 
                         Icon(
-                            imageVector = Icons.Default.KeyboardArrowLeft, // Left arrow icon
+                            imageVector = Icons.AutoMirrored.Default.KeyboardArrowLeft,
                             contentDescription = "Back",
-                            tint = Color.White // Set the color of the icon to white
+                            tint = Color.White.copy(.8f),
+                            modifier = Modifier.size(26.dp)
                         )
                     }
                 },
@@ -94,7 +109,10 @@ fun ResetPasswordScreen(navController: NavController){
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 ResetPasswordSection(
-                    onLoginClick = {}, onForgotPasswordClick = {})
+                    onContinueClick = {
+
+                    }
+                )
             }
         }
     )
@@ -103,8 +121,7 @@ fun ResetPasswordScreen(navController: NavController){
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ResetPasswordSection(
-    onLoginClick: () -> Unit,
-    onForgotPasswordClick: () -> Unit,
+    onContinueClick: () -> Unit,
 ) {
     var email by remember { mutableStateOf("") }
 
@@ -134,11 +151,13 @@ fun ResetPasswordSection(
                 .scale(2f)
 
         )
-        Column(horizontalAlignment = Alignment.CenterHorizontally,
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
                 .fillMaxSize()
                 .padding(top = 32.dp)
-                .padding(24.dp)) {
+                .padding(24.dp)
+        ) {
             // Welcome Text
             Text(
                 text = "Reset Password",
@@ -168,26 +187,25 @@ fun ResetPasswordSection(
                 }
             )
 
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(24.dp))
 
 
-            Spacer(modifier = Modifier.height(32.dp))
-
-            // Login Button
+            //Continue Button
             Button(
-                onClick = onLoginClick,
+                onClick = onContinueClick,
                 colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent),
-                contentPadding = PaddingValues()
+                contentPadding = PaddingValues(),
+                modifier = Modifier.shadow(2.dp, shape = CircleShape)
             ) {
                 Box(
                     modifier = Modifier
-                        .fillMaxWidth(0.8f)
+                        .fillMaxWidth()
                         .height(50.dp)
                         .background(
                             brush = Brush.horizontalGradient(
                                 colors = listOf(
-                                    Color(0xFF293959), // First gradient color
-                                    Color(0xFF354C88)  // Second gradient color
+                                    Color(0xFF252B52), // First gradient color
+                                    Color(0xFF3F4C88)  // Second gradient color
                                 )
                             ),
                             shape = RoundedCornerShape(8.dp)
@@ -195,7 +213,7 @@ fun ResetPasswordSection(
                     contentAlignment = Alignment.Center
                 ) {
                     Text(
-                        text = "Continue",
+                        text = "Login",
                         style = MaterialTheme.typography.bodyLarge.copy(
                             color = Color.White,
                             fontWeight = FontWeight.Bold
@@ -203,6 +221,7 @@ fun ResetPasswordSection(
                     )
                 }
             }
+
 
             //Spacer(modifier = Modifier.height(16.dp))
 
