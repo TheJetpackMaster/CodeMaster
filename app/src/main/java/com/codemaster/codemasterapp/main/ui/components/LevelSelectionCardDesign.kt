@@ -100,7 +100,7 @@ fun LevelSelectionCardDesign(
                     .fillMaxSize()
                     .clip(RoundedCornerShape(20.dp))
                     .background(Color.White.copy(alpha = .15f))
-                    .border(1.dp, Color.White.copy(alpha = .3f), RoundedCornerShape(20.dp)),
+                    .border(.5.dp, Color.White.copy(alpha = .1f), RoundedCornerShape(20.dp)),
                 contentAlignment = Alignment.Center
 
             ) {

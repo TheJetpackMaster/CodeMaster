@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -37,11 +38,12 @@ fun MainScreen() {
     val selectedIndex = remember { mutableStateOf(0) }
 
     val currentRoute = navController.currentBackStackEntryAsState().value?.destination?.route
-    val showBar = currentRoute == BottomNavRoutes.HomeScreen.route || currentRoute == BottomNavRoutes.AchievementsScreen.route
+    val showBar =
+        currentRoute == BottomNavRoutes.HomeScreen.route || currentRoute == BottomNavRoutes.AchievementsScreen.route
 
     Scaffold(
         bottomBar = {
-            if(showBar) {
+            if (showBar) {
                 //BottomNavBar(navController)
 
                 CustomBottomBar(
@@ -59,6 +61,7 @@ fun MainScreen() {
                             1 -> {
 //                                navController.navigate(BottomNavRoutes.ExtraScreen.route)
                             }
+
                             2 -> navController.navigate(BottomNavRoutes.AchievementsScreen.route)
                         }
                     }
@@ -91,10 +94,9 @@ fun MainScreen() {
             )
         )
 
-
         TechBackground(navController)
-    }
 
+    }
 }
 
 val blueTechGradient = Brush.verticalGradient(
@@ -119,6 +121,7 @@ fun TechBackground(navController: NavHostController) {
         modifier = Modifier
             .fillMaxSize()
             .background(brush = screenBackgroundGradient)
+
     ) {
         Canvas(modifier = Modifier.fillMaxSize()) {
             val width = size.width
@@ -205,8 +208,11 @@ fun TechBackground(navController: NavHostController) {
                 Color(0x9915476E)  // Cool Medium Blue
             )
         )
-        Box(modifier = Modifier.fillMaxSize()
-            .background(screenBackgroundGradient2)) {
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(screenBackgroundGradient2)
+        ) {
 
         }
 

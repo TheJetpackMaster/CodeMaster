@@ -72,8 +72,7 @@ fun ContinueLearningCard(
             .background(
                 brush = Brush.linearGradient(colors = gradientColors)
             )
-            .padding(16.dp)
-            ,
+            .padding(16.dp),
 
         contentAlignment = Alignment.BottomStart
     ) {

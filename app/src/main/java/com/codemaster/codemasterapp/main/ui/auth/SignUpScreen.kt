@@ -1,43 +1,28 @@
 package com.codemaster.codemasterapp.main.ui.auth
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.KeyboardArrowLeft
 import androidx.compose.material.icons.filled.Email
-import androidx.compose.material.icons.filled.KeyboardArrowLeft
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Person
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedIconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -47,7 +32,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
@@ -61,7 +45,9 @@ import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.codemaster.codemasterapp.R
-import com.codemaster.codemasterapp.main.ui.bottomNavigation.components.CustomTextField
+import com.codemaster.codemasterapp.main.ui.auth.components.AuthActionButton
+import com.codemaster.codemasterapp.main.ui.auth.components.AuthBasicTopBar
+import com.codemaster.codemasterapp.main.ui.auth.components.AuthInputField
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.AuthRoutes
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -71,62 +57,38 @@ fun SignUpScreen(navController: NavController) {
 
     Scaffold(
         topBar = {
-            TopAppBar(
-                windowInsets = WindowInsets(top = 30.dp),
-                navigationIcon = {
-                    Spacer(Modifier.width(12.dp))
-                    OutlinedIconButton(
-                        border = BorderStroke(width = 2.dp, color = Color.White.copy(.8f)),
-                        modifier = Modifier
-                            .height(34.dp)
-                            .width(44.dp)
-                            .padding(start = 10.dp),
-                        onClick = { navController.popBackStack() }
-                    ) {
-
-                        Icon(
-                            imageVector = Icons.AutoMirrored.Default.KeyboardArrowLeft,
-                            contentDescription = "Back",
-                            tint = Color.White.copy(.8f),
-                            modifier = Modifier.size(26.dp)
-                        )
-                    }
-                },
-                title = {
-                    /*Text(
-                        text = "Login",
-                        style = MaterialTheme.typography.titleMedium.copy(color = Color.White)
-                    )*/
-                },
-                colors = TopAppBarDefaults.topAppBarColors(containerColor = Color.Transparent)
+            AuthBasicTopBar(
+                onBackClick = {
+                    navController.popBackStack()
+                }
             )
-        },
-        content = { paddingValues ->
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(
-                        Color(0xFF576cd6)
-                    )
-                    .padding(paddingValues),
-                // .verticalScroll(scrollState),
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                SignUpSection(
-                    onLoginClick = {
-                        navController.navigate(AuthRoutes.LoginScreen.route)
-                    },
-                    onRegisterClick = {
-                        navController.navigate(AuthRoutes.LoginScreen.route)
-                    })
-            }
         }
-    )
+    ) { paddingValues ->
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(
+                    Color(0xFF576cd6)
+                )
+                .padding(paddingValues),
+            // .verticalScroll(scrollState),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            SignUpScreenContent(
+                onLoginClick = {
+                    navController.navigate(AuthRoutes.LoginScreen.route)
+                },
+                onRegisterClick = {
+                    navController.navigate(AuthRoutes.LoginScreen.route)
+                }
+            )
+        }
+    }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SignUpSection(
+fun SignUpScreenContent(
     onLoginClick: () -> Unit,
     onRegisterClick: () -> Unit,
 ) {
@@ -186,7 +148,7 @@ fun SignUpSection(
             Spacer(modifier = Modifier.height(24.dp))
 
             // Username TextField
-            CustomTextField(
+            AuthInputField(
                 value = username,
                 onValueChange = { username = it },
                 hint = "Username",
@@ -201,7 +163,7 @@ fun SignUpSection(
 
             Spacer(modifier = Modifier.height(12.dp))
 
-            CustomTextField(
+            AuthInputField(
                 value = email,
                 onValueChange = { email = it },
                 hint = "Email",
@@ -216,7 +178,7 @@ fun SignUpSection(
 
             Spacer(modifier = Modifier.height(12.dp))
 
-            CustomTextField(
+            AuthInputField(
                 value = password,
                 onValueChange = { password = it },
                 hint = "Password",
@@ -232,7 +194,7 @@ fun SignUpSection(
             Spacer(modifier = Modifier.height(12.dp))
 
             // Password TextField
-            CustomTextField(
+            AuthInputField(
                 value = ConfirmPassword,
                 onValueChange = { ConfirmPassword = it },
                 hint = "Confirm Password",
@@ -258,36 +220,14 @@ fun SignUpSection(
         Spacer(Modifier.height(12.dp))
 
         // Register Button
-        Button(
-            onClick = onRegisterClick,
-            colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent),
-            contentPadding = PaddingValues(),
+        AuthActionButton(
+            text = "Register",
+            onClick = {
+                onRegisterClick()
+            },
+            innerModifier = Modifier.fillMaxWidth(),
             modifier = Modifier.shadow(2.dp, shape = CircleShape)
-        ) {
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(50.dp)
-                    .background(
-                        brush = Brush.horizontalGradient(
-                            colors = listOf(
-                                Color(0xFF252B52), // First gradient color
-                                Color(0xFF3F4C88)  // Second gradient color
-                            )
-                        ),
-                        shape = RoundedCornerShape(8.dp)
-                    ),
-                contentAlignment = Alignment.Center
-            ) {
-                Text(
-                    text = "Register",
-                    style = MaterialTheme.typography.bodyLarge.copy(
-                        color = Color.White,
-                        fontWeight = FontWeight.Bold
-                    )
-                )
-            }
-        }
+        )
 
         //Spacer(modifier = Modifier.height(16.dp))
 

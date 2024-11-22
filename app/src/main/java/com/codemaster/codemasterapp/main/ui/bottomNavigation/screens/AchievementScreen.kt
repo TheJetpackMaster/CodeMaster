@@ -24,11 +24,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.codemaster.codemasterapp.R
-import com.codemaster.codemasterapp.main.ui.bottomNavigation.components.AchievementCard
-import com.codemaster.codemasterapp.main.ui.bottomNavigation.components.AchievementScreenCustomTopBar
+import com.codemaster.codemasterapp.main.ui.bottomNavigation.screens.components.AchievementCard
+import com.codemaster.codemasterapp.main.ui.bottomNavigation.screens.components.AchievementScreenCustomTopBar
 import androidx.compose.runtime.*
 import androidx.compose.ui.graphics.Brush
-import com.codemaster.codemasterapp.main.ui.bottomNavigation.components.LanguageProgressCard
+import com.codemaster.codemasterapp.main.ui.bottomNavigation.screens.components.LanguageProgressCard
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)

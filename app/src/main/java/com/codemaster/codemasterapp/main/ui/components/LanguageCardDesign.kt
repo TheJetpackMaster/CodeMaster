@@ -153,12 +153,11 @@ fun LanguageCardDesign(
 
 
             LinearProgressIndicator(
-
                 gapSize = 0.dp,
                 strokeCap = StrokeCap.Square,
                 progress = {progress.value},
                 trackColor = Color.White.copy(.5f),
-                color = bluishPython.copy(.6f),
+                color = Color(0xFF3CAFE3),
                 modifier = Modifier.align(Alignment.BottomCenter)
                     .height(5.dp)
             )

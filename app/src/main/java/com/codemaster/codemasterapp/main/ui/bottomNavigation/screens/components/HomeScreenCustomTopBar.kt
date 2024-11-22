@@ -1,8 +1,6 @@
-package com.codemaster.codemasterapp.main.ui.bottomNavigation.components
+package com.codemaster.codemasterapp.main.ui.bottomNavigation.screens.components
 
-import androidx.compose.animation.core.LinearOutSlowInEasing
-import androidx.compose.animation.core.animateFloatAsState
-import androidx.compose.animation.core.tween
+import android.graphics.Paint
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -23,29 +21,21 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AccountCircle
-import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Notifications
-import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.blur
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.PaintingStyle.Companion.Stroke
 import androidx.compose.ui.graphics.Path
-import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.nativeCanvas
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -53,7 +43,6 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.airbnb.lottie.compose.LottieAnimation
@@ -65,10 +54,6 @@ import kotlin.random.Random
 import com.codemaster.codemasterapp.R
 import com.codemaster.codemasterapp.ui.theme.bluishPython
 import com.codemaster.codemasterapp.ui.theme.greenishPython
-import com.codemaster.codemasterapp.ui.theme.purpleCpp
-import com.codemaster.codemasterapp.ui.theme.purpleKt
-import com.codemaster.codemasterapp.ui.theme.yellowishJava
-import com.codemaster.codemasterapp.ui.theme.yellowishKt
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -117,7 +102,7 @@ fun HomeScreenCustomTopBar(
                     "1010 0101 1100",
                     Random.nextFloat() * width,
                     Random.nextFloat() * height,
-                    android.graphics.Paint().apply {
+                    Paint().apply {
                         color = android.graphics.Color.WHITE
                         alpha = 30 // Low opacity
                         textSize = 20f
@@ -144,7 +129,7 @@ fun HomeScreenCustomTopBar(
                     "</>",
                     Random.nextFloat() * width,
                     Random.nextFloat() * height,
-                    android.graphics.Paint().apply {
+                    Paint().apply {
                         color = android.graphics.Color.WHITE
                         alpha = 30 // Low opacity
                         textSize = 30f

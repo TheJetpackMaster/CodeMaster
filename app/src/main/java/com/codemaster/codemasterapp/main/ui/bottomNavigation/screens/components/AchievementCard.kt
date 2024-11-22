@@ -1,4 +1,4 @@
-package com.codemaster.codemasterapp.main.ui.bottomNavigation.components
+package com.codemaster.codemasterapp.main.ui.bottomNavigation.screens.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -20,90 +19,54 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.scale
-import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.ColorFilter
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import com.airbnb.lottie.compose.LottieAnimation
-import com.airbnb.lottie.compose.LottieCompositionSpec
-import com.airbnb.lottie.compose.LottieConstants
-import com.airbnb.lottie.compose.animateLottieCompositionAsState
-import com.airbnb.lottie.compose.rememberLottieComposition
-import com.codemaster.codemasterapp.R
-
-
-val codeBreeze = Brush.verticalGradient(
-    colors = listOf(
-        Color(0xFF175D67), // Cyan
-        Color(0xFF009688)  // Teal
-    )
-)
-
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextOverflow
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LanguageProgressCard(
-    cardGradientColor: Brush = codeBreeze,
+fun AchievementCard(
+    cardGradientColor: Brush,
     title: String, // Title of the achievement (can be customized)
     progressValue: Float, // Progress value (0.0f to 1.0f)
-    progressBarColor: Color = Color.Yellow, // Color of the progress bar
+    progressBarColor: Color = Color(0xFF42C72A), // Muted Green for progress
     completedText: String = "Completed", // Text to show when progress is completed
-    animationResource: Int,
-    bgDecorativeIcon: Int = R.drawable.cpp,
-    modifier: Modifier,
-
-    //Test
-    decorativeImagePadding:Dp = 0.dp
+    ImageResource: Int,
+    modifier: Modifier = Modifier,
 ) {
-    // Lottie composition and animation state
-    val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(animationResource))
-    val LottieProgress by animateLottieCompositionAsState(
-        composition = composition,
-        iterations = LottieConstants.IterateForever
-    )
-
-    // Card to contain the content
+    // Card to contain the content with gradient background
     Card(
         modifier = modifier
             .height(200.dp)
-            .padding(8.dp)
-            .shadow(4.dp, shape = RoundedCornerShape(16.dp))
-            .background(cardGradientColor, shape = RoundedCornerShape(16.dp)),
-        colors = CardDefaults.cardColors(containerColor = Color.Transparent)
+            .padding(8.dp), // Adjust padding around the card
+        shape = RoundedCornerShape(16.dp),
+        elevation = CardDefaults.cardElevation(defaultElevation = 8.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = Color.Transparent // We use transparent to apply a gradient
+        ),
     ) {
+        // Gradient Background for the card
         Box(
-            modifier = Modifier.fillMaxSize()
+            modifier = Modifier
+                .fillMaxSize()
+                .background(
+                    cardGradientColor
+                )
         ) {
-            Image(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(decorativeImagePadding)
-                    .alpha(.2f),
-                colorFilter = ColorFilter.tint(color = Color.White),
-                painter = painterResource(bgDecorativeIcon),
-                contentDescription = "")
-
             Column(
-                modifier = Modifier
-                    .fillMaxSize(),
+                modifier = Modifier.fillMaxSize(),
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 // Title at the top center
                 Text(
                     text = title,
+                    color = Color.White,
                     style = MaterialTheme.typography.titleMedium.copy(
                         color = Color.White,
                     ),
@@ -120,22 +83,17 @@ fun LanguageProgressCard(
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     // Lottie Animation
-                    LottieAnimation(
-                        composition = composition,
-                        progress = { LottieProgress },
-                        modifier = Modifier
-                            .size(80.dp)
-                            .scale(1.2f)
-                            .padding(bottom = 8.dp)
-
-                        // Space between animation and progress bar
+                    Image(
+                        painter = painterResource(id = ImageResource), // Replace with your drawable resource ID
+                        contentDescription = "Example Badge", // Describe the image for accessibility
+                        modifier = Modifier.size(80.dp) // Modify size as needed
                     )
+
                     // Custom Progress Bar with Text Above it (only if progress is not 100%)
                     if (progressValue < 1f) {
                         // Custom Progress Bar with Text Above it
                         Column(
-                            modifier = Modifier
-                                .fillMaxWidth()
+                            modifier = Modifier.fillMaxWidth()
                         ) {
                             // Label text above progress bar (on the left)
                             Row(
@@ -148,6 +106,7 @@ fun LanguageProgressCard(
                                         color = Color.White,
                                     ),
                                 )
+
                                 Text(
                                     text = "${(progressValue * 100).toInt()}%", // Right progress percentage
                                     style = MaterialTheme.typography.bodyMedium.copy(
@@ -156,10 +115,10 @@ fun LanguageProgressCard(
                                 )
                             }
 
-                            CustomProgressBar(
+                            AchievementCustomProgressBar(
                                 progressValue = progressValue,
-                                progressBarColor = progressBarColor
-                            ) // Use the progress value
+                                progressBarColor = progressBarColor // Use the muted green color for progress
+                            )
                         }
                     } else {
                         // If progress is 100%, show "Completed" text instead of progress bar
@@ -168,7 +127,7 @@ fun LanguageProgressCard(
                             style = MaterialTheme.typography.titleMedium.copy(
                                 color = Color.White,
                             ),
-                            modifier = Modifier.padding(top = 16.dp) // Space between the animation and "Completed" text
+                            modifier = Modifier.padding(top = 16.dp)
                         )
                     }
                 }
@@ -177,8 +136,9 @@ fun LanguageProgressCard(
     }
 }
 
+
 @Composable
-fun CustomProgressBar(
+fun AchievementCustomProgressBar(
     progressValue: Float, // The current progress (0.0f to 1.0f)
     progressBarColor: Color = Color.Yellow, // Color of the progress bar
 ) {
@@ -187,7 +147,7 @@ fun CustomProgressBar(
             .height(10.dp)
             .fillMaxWidth() // Fill the width of the container
             .clip(RoundedCornerShape(5.dp)) // Rounded edges
-            .background(Color.LightGray.copy(alpha = 0.5f)) // Background of the progress bar
+            .background(Color.Gray.copy(alpha = 0.4f)) // Background of the progress bar
     ) {
         Box(
             modifier = Modifier

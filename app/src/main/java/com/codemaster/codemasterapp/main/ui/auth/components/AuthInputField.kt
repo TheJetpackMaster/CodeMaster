@@ -1,4 +1,4 @@
-package com.codemaster.codemasterapp.main.ui.bottomNavigation.components
+package com.codemaster.codemasterapp.main.ui.auth.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -24,13 +24,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 
 @Composable
-fun CustomTextField(
+fun AuthInputField(
     value: String,
     onValueChange: (String) -> Unit,
     hint: String,

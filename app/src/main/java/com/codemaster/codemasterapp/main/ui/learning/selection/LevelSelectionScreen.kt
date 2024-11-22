@@ -47,11 +47,10 @@ import com.codemaster.codemasterapp.main.ui.components.ContinueLearningCard
 fun LevelSelectionScreen(navController: NavController) {
 
     val cardGradientColors1 = listOf(
-//        Color(0xFF6C9BAF), // Muted Light Blue
-//        Color(0xFF5A8198), // Muted Cyan Blue
-//        Color(0xFF3D5B6E)  // Darker Blue-Grey
-        Color(0xFF245FA4), // Vibrant Blue
-        Color(0xFF5FD5BB)  // Vibrant Mint Green
+//        Color(0xFF245FA4),
+//        Color(0xFF5FD5BB)
+        Color(0xFF175D67), // Cyan
+        Color(0xFF009688)  // Teal
     )
 
 

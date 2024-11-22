@@ -1,12 +1,8 @@
 package com.codemaster.codemasterapp.main.ui.bottomNavigation.screens
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.*
 
 import androidx.compose.runtime.Composable
@@ -14,11 +10,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.codemaster.codemasterapp.R
-import com.codemaster.codemasterapp.main.ui.bottomNavigation.components.HomeScreenCustomTopBar
-import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.BottomNavRoutes
+import com.codemaster.codemasterapp.main.ui.bottomNavigation.screens.components.HomeScreenCustomTopBar
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.MainRoutes
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.ProfileRoutes
 import com.codemaster.codemasterapp.main.ui.components.ContinueLearningCard
@@ -43,7 +39,6 @@ fun HomeScreen(navController: NavController) {
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-//                    .background(Color(0xFFF7F9FC)) // Soft background color for the main area
                     .padding(paddingValues)
 
             ) {
@@ -65,21 +60,14 @@ fun HomeScreen(navController: NavController) {
                     ) {
                         Text(
                             text = "Popular courses",
-                            style = MaterialTheme.typography.titleMedium,
+                            style = MaterialTheme.typography.bodyLarge,
                             color = Color(0xFFFFFFFF),
+                            fontWeight = FontWeight.SemiBold,
                             modifier = Modifier.padding(
                                 start = 2.dp,
-                                bottom = 0.dp
+                                bottom = 2.dp
                             )
                         )
-                        /*IconButton(onClick = { /* Handle search */ }) {
-                            Icon(
-                                imageVector = Icons.Filled.Search,
-                                contentDescription = "Search",
-                                tint = Color(0xFF2F3E4C),
-                                modifier = Modifier.size(24.dp)
-                            )
-                        }*/
                     }
 
                     Spacer(Modifier.height(4.dp))
@@ -152,8 +140,28 @@ fun HomeScreen(navController: NavController) {
                     }
 
 
+
+                    //Continue
                     Column(modifier = Modifier.padding(bottom = 80.dp)) {
-                        Spacer(Modifier.height(18.dp))
+                        // Progress
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(top = 14.dp),
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Text(
+                                text = "Continue where you left:",
+                                style = MaterialTheme.typography.bodyLarge,
+                                color = Color(0xFFFFFFFF),
+                                fontWeight = FontWeight.Medium,
+                                modifier = Modifier.padding(
+                                    start = 4.dp,
+                                    bottom = 6.dp
+                                )
+                            )
+                        }
                         ContinueLearningCard(
                             completedLessons = 14,
                             totalLessons = 20,
