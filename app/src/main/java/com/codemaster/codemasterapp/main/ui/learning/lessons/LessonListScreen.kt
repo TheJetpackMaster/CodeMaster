@@ -71,30 +71,35 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.sp
+import com.codemaster.codemasterapp.main.data.Lesson
+import com.codemaster.codemasterapp.main.data.LessonStatus
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.MainRoutes
+import com.codemaster.codemasterapp.main.ui.viewModels.CourseViewModel
 import com.codemaster.codemasterapp.ui.theme.bluishPython
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LessonListScreen(navController: NavController) {
+fun LessonListScreen(
+    navController: NavController,
+    courseViewModel: CourseViewModel
+) {
     val scrollState = rememberScrollState()
 
-    // Add state to track selected language and level
-    var selectedLanguage by remember { mutableStateOf("C Language") }
-    var selectedLevel by remember { mutableStateOf("Basic") }
+
+    val lessonCompletionStatus by courseViewModel.lessonCompletionStatus.collectAsState()
 
     //Lesson or Description
     var selectedTab by remember {
         mutableStateOf(LessonOrDescription.LESSON)
     }
 
-    val courseTitle = when {
-        selectedLanguage == "C Language" && selectedLevel == "Basic" -> "C Programming for Beginners"
-        else -> "Default Course Title"
-    }
-
-
     val expandedLessons = remember { mutableStateOf(mapOf<Int, Boolean>()) }
+
+    //Current stage
+    // Fetch the selected stage using the stageId
+    val selectedLanguage by courseViewModel.selectedCourse.collectAsState()
+    val selectedStage by courseViewModel.selectedStage.collectAsState()
 
     Scaffold(
         containerColor = Color.Transparent,
@@ -118,7 +123,10 @@ fun LessonListScreen(navController: NavController) {
                             .statusBarsPadding()
                             .padding(start = 8.dp)
                             .size(36.dp),
-                        border = BorderStroke(1.3.dp, color = Color.LightGray.copy(alpha = 0.4f)), // Light border with transparency
+                        border = BorderStroke(
+                            1.3.dp,
+                            color = Color.LightGray.copy(alpha = 0.4f)
+                        ), // Light border with transparency
                         colors = IconButtonDefaults.outlinedIconButtonColors(
                             containerColor = Color.White.copy(.08f),
                         )
@@ -135,7 +143,7 @@ fun LessonListScreen(navController: NavController) {
                 title = {
                     Text(
                         modifier = Modifier.padding(start = 24.dp),
-                        text = "C - Beginner",
+                        text = "${selectedLanguage?.language} - ${selectedStage?.title}",
                         color = Color.White
                     )
 
@@ -263,80 +271,107 @@ fun LessonListScreen(navController: NavController) {
 
                     //Main Content for description or lessons
                     when (selectedTab) {
+                        // Inside the Composable function
                         LessonOrDescription.LESSON -> {
-                            LazyColumn {
+                            // Ensure the selected stage is not null
+                            selectedStage?.let { stage ->
+                                // Collect the lesson completion status from the ViewModel
+                                val lessonCompletionStatus =
+                                    courseViewModel.lessonCompletionStatus.collectAsState()
 
-                                item{
-                                    Spacer(Modifier.height( 8.dp))
-                                }
+                                // Use the stage's lessons
+                                LazyColumn {
+                                    item {
+                                        Spacer(Modifier.height(8.dp))
+                                    }
 
+                                    itemsIndexed(stage.lessons) { index, lesson ->
+                                        // Observe if the lesson is completed or not
+                                        val lessonStatus =
+                                            lessonCompletionStatus.value[lesson.id] ?: lesson.status
 
-                                itemsIndexed(getLessons()) { index, lesson ->
-                                    // Handling section expansion
-                                    val isExpanded = expandedLessons.value[index] ?: false
+                                        // Handling section expansion
+                                        val isExpanded = expandedLessons.value[index] ?: false
 
-                                    // Check if it's the last item in the list
-                                    val isLastLesson = index == getLessons().size - 1
+                                        // Check if it's the last item in the list
+                                        val isLastLesson = index == stage.lessons.size - 1
 
-                                    Column {
-                                        LessonItem(
-                                            title = lesson.title,
-                                            description = "${lesson.count} Lessons",
-                                            status = lesson.status,
-                                            onArrowClick = {
-                                                // Toggle expansion of this lesson's sub-lessons
-                                                expandedLessons.value =
-                                                    expandedLessons.value.toMutableMap().apply {
-                                                        put(index, !isExpanded)
-                                                    }
-                                            },
-                                            onLessonClick = {
-                                                navController.navigate(MainRoutes.LessonContentScreen.route)
-                                            },
-                                            isExpanded = isExpanded,
-                                            isLastLesson = isLastLesson // Pass the check here
-                                        )
-                                        Spacer(Modifier.height(if (isExpanded) 12.dp else 0.dp))
-
-                                        if (isExpanded) {
-                                            // Display sub-lessons if the lesson is expanded
-                                            lesson.subLessons.forEachIndexed { subIndex, subLesson ->
-                                                // Check if it's the last sub-lesson in the list
-                                                val isLastSubLesson =
-                                                    subIndex == lesson.subLessons.size - 1
-
-                                                SubLessonItem(
-                                                    subLesson = subLesson,
-                                                    onSubLessonComplete = {
-                                                        // Handle sub-lesson completion
-                                                        if (subLesson.status == LessonStatus.LOCKED) {
-                                                            subLesson.status = LessonStatus.ACTIVE
-                                                        } else if (subLesson.status == LessonStatus.ACTIVE) {
-                                                            subLesson.status =
-                                                                LessonStatus.COMPLETED
+                                        Column {
+                                            LessonItem(
+                                                title = lesson.title,
+                                                description = "6 Lessons",
+                                                status = lessonStatus,
+                                                onArrowClick = {
+                                                    // Toggle expansion of this lesson's sub-lessons
+                                                    expandedLessons.value =
+                                                        expandedLessons.value.toMutableMap().apply {
+                                                            put(index, !isExpanded)
                                                         }
-                                                    },
-                                                    isLastSubLesson = isLastSubLesson // Pass the isLastSubLesson check here
-                                                )
-                                            }
-                                        }
+                                                },
+                                                onLessonClick = {
+                                                    courseViewModel.selectLesson(lesson)
+                                                    navController.navigate(MainRoutes.LessonContentScreen.route)
+                                                },
+                                                isExpanded = isExpanded,
+                                                isLastLesson = isLastLesson
+                                            )
+                                            Spacer(Modifier.height(if (isExpanded) 12.dp else 0.dp))
 
-                                        Spacer(Modifier.height(if (isExpanded) 12.dp else 0.dp))
+                                            if (isExpanded) {
+                                                // Display sub-lessons if the lesson is expanded
+                                                lesson.subLessons.forEachIndexed { subIndex, subLesson ->
+                                                    // Check if the sub-lesson is completed
+                                                    val subLessonStatus =
+                                                        lessonCompletionStatus.value[subLesson.id]
+                                                            ?: subLesson.status
+
+                                                    // Check if it's the last sub-lesson in the list
+                                                    val isLastSubLesson =
+                                                        subIndex == lesson.subLessons.size - 1
+
+                                                    SubLessonItem(
+                                                        subLesson = subLesson,
+                                                        onSubLessonComplete = {
+                                                            // Handle sub-lesson completion
+                                                            if (subLesson.status == LessonStatus.LOCKED) {
+                                                                subLesson.status =
+                                                                    LessonStatus.ACTIVE
+                                                            } else if (subLesson.status == LessonStatus.ACTIVE) {
+                                                                subLesson.status =
+                                                                    LessonStatus.COMPLETED
+                                                            }
+                                                        },
+                                                        isLastSubLesson = isLastSubLesson,
+                                                        status = subLessonStatus,
+                                                        onLessonClick = {
+                                                            if (subLessonStatus == LessonStatus.ACTIVE) {
+                                                                courseViewModel.selectLesson(lesson)
+                                                                courseViewModel.selectSubLessonIndex(
+                                                                    subIndex
+                                                                )
+                                                                navController.navigate(MainRoutes.LessonContentScreen.route)
+                                                            }
+                                                        }
+                                                    )
+                                                }
+                                            }
+
+                                            Spacer(Modifier.height(if (isExpanded) 12.dp else 0.dp))
+                                        }
+                                    }
+
+                                    item {
+                                        Spacer(Modifier.height(8.dp))
                                     }
                                 }
-
-                                item{
-                                    Spacer(Modifier.height( 8.dp))
-                                }
                             }
-
                         }
 
+
                         LessonOrDescription.DESCRIPTION -> {
-                            val currentCourseLevelDesc = getCourseDescription()
-                            CourseDescriptionScreen(
-                                course = currentCourseLevelDesc
-                            )
+
+                            CourseDescriptionScreen()
+
                         }
                     }
                 }
@@ -347,9 +382,11 @@ fun LessonListScreen(navController: NavController) {
 
 @Composable
 fun SubLessonItem(
-    subLesson: SubLesson,
+    subLesson: Lesson,
     onSubLessonComplete: () -> Unit,
-    isLastSubLesson: Boolean
+    isLastSubLesson: Boolean,
+    onLessonClick: () -> Unit,
+    status: LessonStatus
 ) {
 
     Box(
@@ -360,13 +397,19 @@ fun SubLessonItem(
         Row(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween,
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier
+                .fillMaxWidth()
+                .clickable(
+                    onClick = {
+                        onLessonClick()
+                    }
+                )
         ) {
             Box(
                 modifier = Modifier
                     .size(26.dp)
                     .background(
-                        when (subLesson.status) {
+                        when (status) {
                             LessonStatus.ACTIVE -> Color.Green.copy(alpha = 0.6f)
                             LessonStatus.COMPLETED -> bluishPython.copy(alpha = 0.6f)
                             else -> Color.Gray.copy(alpha = 0.6f)
@@ -375,7 +418,7 @@ fun SubLessonItem(
                     )
                     .border(
                         width = 2.dp,
-                        color = when (subLesson.status) {
+                        color = when (status) {
                             LessonStatus.ACTIVE -> Color.Green
                             LessonStatus.COMPLETED -> bluishPython
                             else -> Color.Gray
@@ -384,7 +427,7 @@ fun SubLessonItem(
                     )
             ) {
                 Icon(
-                    imageVector = when (subLesson.status) {
+                    imageVector = when (status) {
                         LessonStatus.ACTIVE -> Icons.Default.PlayArrow
                         LessonStatus.COMPLETED -> Icons.Default.Check
                         LessonStatus.LOCKED -> Icons.Default.Lock
@@ -403,7 +446,7 @@ fun SubLessonItem(
                 Text(
                     text = subLesson.title,
                     style = MaterialTheme.typography.bodyMedium,
-                    color = when (subLesson.status) {
+                    color = when (status) {
                         LessonStatus.ACTIVE -> Color.White
                         LessonStatus.COMPLETED -> bluishPython
                         else -> Color(0xFFC5BFBF)
@@ -413,7 +456,7 @@ fun SubLessonItem(
                 Text(
                     text = subLesson.description,
                     style = MaterialTheme.typography.bodySmall,
-                    color = when (subLesson.status) {
+                    color = when (status) {
                         LessonStatus.ACTIVE,
                         LessonStatus.COMPLETED -> Color.Gray
 
@@ -595,281 +638,683 @@ fun LessonItem(
 }
 
 @Composable
-fun CourseDescriptionScreen(course: List<Course>) {
-    LazyColumn {
-        items(course) { courseItem ->
-            Column(modifier = Modifier.padding(horizontal = 6.dp)) {
-
-                val customText = buildAnnotatedString {
-                    withStyle(
-                        style = SpanStyle(
-                            color = Color.LightGray,
-                            fontSize = 16.sp,
-                            fontWeight = FontWeight.Bold
-                        )
-                    ) {
-                        append(courseItem.title)
-                    }
-                    withStyle(
-                        style = SpanStyle(
-                            color = Color.Gray,
-                            fontSize = 14.sp,
-                            fontWeight = FontWeight.Normal
-                        )
-                    ) {
-                        append(courseItem.description)
-                    }
-                }
-                Text(
-                    lineHeight = 20.sp,
-                    text = customText,
-                    style = MaterialTheme.typography.headlineLarge,
-                    fontWeight = FontWeight.Bold
-                )
-            }
-            Spacer(Modifier.height(8.dp))
-        }
-    }
+fun CourseDescriptionScreen() {
+//    LazyColumn {
+//        items(courseDesc) { courseItem ->
+//            Column(modifier = Modifier.padding(horizontal = 6.dp)) {
+//
+//                val customText = buildAnnotatedString {
+//                    withStyle(
+//                        style = SpanStyle(
+//                            color = Color.LightGray,
+//                            fontSize = 16.sp,
+//                            fontWeight = FontWeight.Bold
+//                        )
+//                    ) {
+//                        append(courseItem.title)
+//                    }
+//                    withStyle(
+//                        style = SpanStyle(
+//                            color = Color.Gray,
+//                            fontSize = 14.sp,
+//                            fontWeight = FontWeight.Normal
+//                        )
+//                    ) {
+//                        append(courseItem.description)
+//                    }
+//                }
+//                Text(
+//                    lineHeight = 20.sp,
+//                    text = customText,
+//                    style = MaterialTheme.typography.headlineLarge,
+//                    fontWeight = FontWeight.Bold
+//                )
+//            }
+//            Spacer(Modifier.height(8.dp))
+//        }
+//    }
 }
 
-data class Lesson(
-    val title: String,
-    val count: Int,
-    var status: LessonStatus = LessonStatus.LOCKED,
-    val subLessons: List<SubLesson> = emptyList() // Sub-lessons for each main lesson
-)
-
-enum class LessonStatus {
-    COMPLETED, ACTIVE, LOCKED
-}
-
-data class SubLesson(
-    val title: String,
-    val description: String,
-    var status: LessonStatus = LessonStatus.LOCKED // Can be LOCKED, ACTIVE, or COMPLETED
-)
+//
+//@OptIn(ExperimentalMaterial3Api::class)
+//@Composable
+//fun LessonListScreen(navController: NavController) {
+//    val scrollState = rememberScrollState()
+//
+//    // Add state to track selected language and level
+//    var selectedLanguage by remember { mutableStateOf("C Language") }
+//    var selectedLevel by remember { mutableStateOf("Basic") }
+//
+//    //Lesson or Description
+//    var selectedTab by remember {
+//        mutableStateOf(LessonOrDescription.LESSON)
+//    }
+//
+//    val courseTitle = when {
+//        selectedLanguage == "C Language" && selectedLevel == "Basic" -> "C Programming for Beginners"
+//        else -> "Default Course Title"
+//    }
+//
+//
+//    val expandedLessons = remember { mutableStateOf(mapOf<Int, Boolean>()) }
+//
+//    Scaffold(
+//        containerColor = Color.Transparent,
+//        topBar = {
+//
+//            val topBarGradient = Brush.verticalGradient(
+//                colors = listOf(
+//                    Color(0x661D3A53), // A deep, dark blue-gray
+//                    Color(0x662A4F6D), // A muted, medium blue
+//                    Color(0x6635597D)  // A slightly lighter, yet still muted, cool blue
+//                )
+//            )
+//            TopAppBar(
+//                navigationIcon = {
+//
+//                    OutlinedIconButton(
+//                        onClick = {
+//                            navController.popBackStack()
+//                        },
+//                        modifier = Modifier
+//                            .statusBarsPadding()
+//                            .padding(start = 8.dp)
+//                            .size(36.dp),
+//                        border = BorderStroke(1.3.dp, color = Color.LightGray.copy(alpha = 0.4f)), // Light border with transparency
+//                        colors = IconButtonDefaults.outlinedIconButtonColors(
+//                            containerColor = Color.White.copy(.08f),
+//                        )
+//                    ) {
+//                        Icon(
+//                            imageVector = Icons.Default.KeyboardArrowLeft,
+//                            contentDescription = "",
+//                            modifier = Modifier.size(26.dp),
+//                            tint = Color.White.copy(alpha = 0.8f)
+//                        )
+//                    }
+//                },
+//
+//                title = {
+//                    Text(
+//                        modifier = Modifier.padding(start = 24.dp),
+//                        text = "C - Beginner",
+//                        color = Color.White
+//                    )
+//
+//                },
+//                colors = TopAppBarDefaults.topAppBarColors(
+//                    containerColor = Color.Transparent // Desired dark gradient tone
+//                ),
+//                modifier = Modifier
+//                    .shadow(.5.dp, ambientColor = Color.White, spotColor = Color.White)
+//                    .background(topBarGradient)
+//
+//            )
+//        }
+//    ) { paddingValues ->
+//
+//        val screenBackgroundGradient = Brush.verticalGradient(
+//            colors = listOf(
+//                Color(0x44101820), // Very Dark Blue
+//                Color(0x440F263D), // Slightly Brighter Blue
+//                Color(0x4415476E)  // Cool Medium Blue
+//            )
+//        )
+//        Box(
+//            modifier = Modifier
+//                .fillMaxSize()
+//                .background(
+//                    screenBackgroundGradient
+//                )
+//                .padding(top = paddingValues.calculateTopPadding())
+//                .navigationBarsPadding()
+//        ) {
+//            Column(
+//                modifier = Modifier
+//                    .fillMaxWidth()
+//            ) {
+//                Spacer(Modifier.height(6.dp))
+//                // Display Course Overview Card
+//                LessonListScreenBasicLotieCard()
+//
+//                Spacer(modifier = Modifier.height(12.dp))
+//
+//                Column(
+//
+//                ) {
+//
+//                    Row(
+//                        modifier = Modifier
+//                            .fillMaxWidth()
+//                            .padding(horizontal = 14.dp),
+//                        verticalAlignment = Alignment.CenterVertically
+//                    ) {
+//                        // "28 lessons" Text with gray color
+//                        Text(
+//                            text = "28 lessons",
+//                            style = MaterialTheme.typography.bodyMedium.copy(
+//                                color = Color.Gray,
+//                            )
+//                        )
+//
+//                        Spacer(Modifier.width(8.dp))
+//
+//                        Icon(
+//                            imageVector = Icons.Default.Star,
+//                            contentDescription = "Rating Star",
+//                            tint = Color(0xFFF6AD42),
+//                            modifier = Modifier.size(18.dp)
+//                        )
+//                        Text(
+//                            text = "4.9",
+//                            style = MaterialTheme.typography.bodyMedium.copy(
+//                                color = Color.Gray,
+//                            ),
+//                            modifier = Modifier.padding(top = 4.dp)
+//                        )
+//                    }
+//
+//                    Spacer(Modifier.height(4.dp))
+//
+//                    Row(
+//                        modifier = Modifier
+//                            .fillMaxWidth()
+//                            .padding(horizontal = 14.dp),
+//                        horizontalArrangement = Arrangement.spacedBy(12.dp)
+//                    ) {
+//
+//                        val selectedTabColor = Color(0xFFEAC645)
+//
+//                        Text(
+//                            text = "Lessons",
+//                            style = MaterialTheme.typography.titleMedium.copy(
+//                                color = if (selectedTab == LessonOrDescription.LESSON) selectedTabColor else Color.Gray,
+//                                fontWeight = if (selectedTab == LessonOrDescription.LESSON) FontWeight.Medium else FontWeight.Normal,
+//                            ),
+//                            modifier = Modifier
+//                                .clip(CircleShape)
+//                                .clickable(onClick = {
+//                                    selectedTab = LessonOrDescription.LESSON
+//                                })
+//                                .padding(4.dp),
+//                        )
+//
+//                        Text(
+//                            text = "Description",
+//                            style = MaterialTheme.typography.titleMedium.copy(
+//                                color = if (selectedTab == LessonOrDescription.DESCRIPTION) selectedTabColor else Color.Gray,
+//                                fontWeight = if (selectedTab == LessonOrDescription.DESCRIPTION) FontWeight.Medium else FontWeight.Normal,
+//                            ),
+//                            modifier = Modifier
+//                                .clip(CircleShape)
+//                                .clickable(onClick = {
+//                                    selectedTab = LessonOrDescription.DESCRIPTION
+//                                })
+//                                .padding(4.dp)
+//
+//                        )
+//                    }
+//
+//
+//                    HorizontalDivider(
+//                        color = Color.LightGray,
+//                        thickness = 1.dp,
+//                        modifier = Modifier.padding(bottom = 2.dp, top = 2.dp)
+//                    )
+//
+//
+//                    //Main Content for description or lessons
+//                    when (selectedTab) {
+//                        LessonOrDescription.LESSON -> {
+//                            LazyColumn {
+//
+//                                item{
+//                                    Spacer(Modifier.height( 8.dp))
+//                                }
+//
+//
+//                                itemsIndexed(getLessons()) { index, lesson ->
+//                                    // Handling section expansion
+//                                    val isExpanded = expandedLessons.value[index] ?: false
+//
+//                                    // Check if it's the last item in the list
+//                                    val isLastLesson = index == getLessons().size - 1
+//
+//                                    Column {
+//                                        LessonItem(
+//                                            title = lesson.title,
+//                                            description = "${lesson.count} Lessons",
+//                                            status = lesson.status,
+//                                            onArrowClick = {
+//                                                // Toggle expansion of this lesson's sub-lessons
+//                                                expandedLessons.value =
+//                                                    expandedLessons.value.toMutableMap().apply {
+//                                                        put(index, !isExpanded)
+//                                                    }
+//                                            },
+//                                            onLessonClick = {
+//                                                navController.navigate(MainRoutes.LessonContentScreen.route)
+//                                            },
+//                                            isExpanded = isExpanded,
+//                                            isLastLesson = isLastLesson // Pass the check here
+//                                        )
+//                                        Spacer(Modifier.height(if (isExpanded) 12.dp else 0.dp))
+//
+//                                        if (isExpanded) {
+//                                            // Display sub-lessons if the lesson is expanded
+//                                            lesson.subLessons.forEachIndexed { subIndex, subLesson ->
+//                                                // Check if it's the last sub-lesson in the list
+//                                                val isLastSubLesson =
+//                                                    subIndex == lesson.subLessons.size - 1
+//
+//                                                SubLessonItem(
+//                                                    subLesson = subLesson,
+//                                                    onSubLessonComplete = {
+//                                                        // Handle sub-lesson completion
+//                                                        if (subLesson.status == LessonStatus.LOCKED) {
+//                                                            subLesson.status = LessonStatus.ACTIVE
+//                                                        } else if (subLesson.status == LessonStatus.ACTIVE) {
+//                                                            subLesson.status =
+//                                                                LessonStatus.COMPLETED
+//                                                        }
+//                                                    },
+//                                                    isLastSubLesson = isLastSubLesson // Pass the isLastSubLesson check here
+//                                                )
+//                                            }
+//                                        }
+//
+//                                        Spacer(Modifier.height(if (isExpanded) 12.dp else 0.dp))
+//                                    }
+//                                }
+//
+//                                item{
+//                                    Spacer(Modifier.height( 8.dp))
+//                                }
+//                            }
+//
+//                        }
+//
+//                        LessonOrDescription.DESCRIPTION -> {
+//                            val currentCourseLevelDesc = getCourseDescription()
+//                            CourseDescriptionScreen(
+//                                course = currentCourseLevelDesc
+//                            )
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//    }
+//}
+//
+//@Composable
+//fun SubLessonItem(
+//    subLesson: SubLesson,
+//    onSubLessonComplete: () -> Unit,
+//    isLastSubLesson: Boolean
+//) {
+//
+//    Box(
+//        modifier = Modifier
+//            .fillMaxWidth()
+//            .padding(start = 38.dp) // Indentation for sub-lessons
+//    ) {
+//        Row(
+//            verticalAlignment = Alignment.CenterVertically,
+//            horizontalArrangement = Arrangement.SpaceBetween,
+//            modifier = Modifier.fillMaxWidth()
+//        ) {
+//            Box(
+//                modifier = Modifier
+//                    .size(26.dp)
+//                    .background(
+//                        when (subLesson.status) {
+//                            LessonStatus.ACTIVE -> Color.Green.copy(alpha = 0.6f)
+//                            LessonStatus.COMPLETED -> bluishPython.copy(alpha = 0.6f)
+//                            else -> Color.Gray.copy(alpha = 0.6f)
+//                        },
+//                        shape = CircleShape
+//                    )
+//                    .border(
+//                        width = 2.dp,
+//                        color = when (subLesson.status) {
+//                            LessonStatus.ACTIVE -> Color.Green
+//                            LessonStatus.COMPLETED -> bluishPython
+//                            else -> Color.Gray
+//                        },
+//                        shape = CircleShape
+//                    )
+//            ) {
+//                Icon(
+//                    imageVector = when (subLesson.status) {
+//                        LessonStatus.ACTIVE -> Icons.Default.PlayArrow
+//                        LessonStatus.COMPLETED -> Icons.Default.Check
+//                        LessonStatus.LOCKED -> Icons.Default.Lock
+//                    },
+//                    contentDescription = null,
+//                    tint = Color.White,
+//                    modifier = Modifier
+//                        .align(Alignment.Center)
+//                        .size(14.dp)
+//                )
+//            }
+//
+//            Spacer(modifier = Modifier.width(16.dp))
+//
+//            Column(modifier = Modifier.weight(1f)) {
+//                Text(
+//                    text = subLesson.title,
+//                    style = MaterialTheme.typography.bodyMedium,
+//                    color = when (subLesson.status) {
+//                        LessonStatus.ACTIVE -> Color.White
+//                        LessonStatus.COMPLETED -> bluishPython
+//                        else -> Color(0xFFC5BFBF)
+//                    },
+//                    maxLines = 1
+//                )
+//                Text(
+//                    text = subLesson.description,
+//                    style = MaterialTheme.typography.bodySmall,
+//                    color = when (subLesson.status) {
+//                        LessonStatus.ACTIVE,
+//                        LessonStatus.COMPLETED -> Color.Gray
+//
+//                        else -> Color.Gray
+//                    },
+//                    maxLines = 1,
+//                    overflow = TextOverflow.Ellipsis
+//                )
+//            }
+//        }
+//    }
+//
+//    // Only display dots if it's not the last lesson
+//    if (!isLastSubLesson) {
+//        Column(
+//            modifier = Modifier.padding(
+//                start = 49.dp
+//            )
+//        ) {
+//            for (i in 1..4) {
+//                Spacer(
+//                    modifier = Modifier
+//                        .size(3.dp)
+//                        .clip(CircleShape)
+//                        .background(bluishPython)
+//                )
+//                Spacer(Modifier.height(2.dp))
+//            }
+//        }
+//    }
+//}
+//
+//@Composable
+//fun LessonItem(
+//    title: String,
+//    description: String,
+//    status: LessonStatus,
+//    onArrowClick: () -> Unit, // Callback for expanding the lesson,
+//    onLessonClick: () -> Unit,
+//    isExpanded: Boolean,
+//    isLastLesson: Boolean // Add a flag to check if it's the last lesson
+//) {
+//    val glowAnimation = remember { Animatable(0f) }
+//    val context = LocalContext.current
+//
+//    LaunchedEffect(status == LessonStatus.ACTIVE) {
+//        if (status == LessonStatus.ACTIVE) {
+//            glowAnimation.animateTo(
+//                targetValue = 4f,
+//                animationSpec = infiniteRepeatable(
+//                    animation = tween(durationMillis = 1000, easing = LinearEasing),
+//                    repeatMode = RepeatMode.Reverse
+//                )
+//            )
+//        }
+//    }
+//
+//    Box(
+//        modifier = Modifier
+//            .fillMaxWidth()
+//            .clickable(enabled = status != LessonStatus.LOCKED,
+//                onClick = {
+//                    onLessonClick()
+//                    Toast
+//                        .makeText(context, "Lesson: $title", Toast.LENGTH_SHORT)
+//                        .show()
+//                })
+//            .padding(horizontal = 14.dp),
+//    ) {
+//        Row(
+//            verticalAlignment = Alignment.CenterVertically,
+//            horizontalArrangement = Arrangement.SpaceBetween,
+//            modifier = Modifier.fillMaxWidth()
+//        ) {
+//            // Status Icon (Check, Play, or Lock)
+//            Box(
+//                modifier = Modifier
+//                    .size(32.dp)
+//                    .background(
+//                        when (status) {
+//                            LessonStatus.ACTIVE -> Brush.radialGradient(
+//                                colors = listOf(Color.Green.copy(alpha = 0.3f), Color.Transparent),
+//                                radius = 100f
+//                            )
+//
+//                            else -> Brush.linearGradient(listOf(Color.Gray, Color.LightGray))
+//                        },
+//                        shape = CircleShape
+//                    )
+//                    .border(
+//                        width = if (status == LessonStatus.ACTIVE) glowAnimation.value.dp else 1.dp,
+//                        color = when (status) {
+//                            LessonStatus.ACTIVE -> Color.Green
+//                            LessonStatus.COMPLETED -> Color.White.copy(.6f)
+//                            else -> Color.White.copy(.6f)
+//                        },
+//                        shape = CircleShape
+//                    )
+//            ) {
+//                Icon(
+//                    imageVector = when (status) {
+//                        LessonStatus.ACTIVE -> Icons.Default.PlayArrow
+//                        LessonStatus.COMPLETED -> Icons.Default.Check
+//                        LessonStatus.LOCKED -> Icons.Default.Lock
+//                    },
+//                    contentDescription = null,
+//                    tint = when (status) {
+//                        LessonStatus.ACTIVE -> Color.White
+//                        LessonStatus.COMPLETED -> Color.Black.copy(.6f)
+//                        LessonStatus.LOCKED -> Color.Black.copy(.6f)
+//                    },
+//                    modifier = Modifier
+//                        .align(Alignment.Center)
+//                        .size(18.dp)
+//                )
+//            }
+//
+//            Spacer(modifier = Modifier.width(16.dp))
+//
+//            // Lesson Text
+//            Column(modifier = Modifier.weight(1f)) {
+//                Text(
+//                    text = title,
+//                    style = MaterialTheme.typography.bodyLarge,
+//                    color = when (status) {
+//                        LessonStatus.ACTIVE -> Color.White
+//                        LessonStatus.COMPLETED -> bluishPython
+//                        else -> Color(0xFFC5BFBF)
+//                    },
+//                    maxLines = 1
+//                )
+//                Text(
+//                    text = description,
+//                    style = MaterialTheme.typography.bodyMedium,
+//                    color = when (status) {
+//                        LessonStatus.ACTIVE,
+//                        LessonStatus.COMPLETED -> Color.Gray
+//
+//                        else -> Color.Gray
+//                    },
+//                    maxLines = 1,
+//                    overflow = TextOverflow.Ellipsis
+//                )
+//            }
+//
+//            // Expand Arrow (Right Arrow)
+//            IconButton(onClick = { onArrowClick() }) {
+//                Icon(
+//                    imageVector = if (isExpanded) Icons.Default.KeyboardArrowDown else Icons.AutoMirrored.Default.KeyboardArrowRight,
+//                    contentDescription = null,
+//                    tint = when (status) {
+//                        LessonStatus.ACTIVE -> Color.White
+//                        LessonStatus.COMPLETED -> bluishPython
+//                        else -> Color.Gray
+//                    }
+//                )
+//            }
+//        }
+//    }
+//
+//    // Only display dots if it's not the last lesson
+//    if (!isLastLesson && !isExpanded) {
+//        Column(
+//            modifier = Modifier.padding(
+//                start = 28.dp
+//            )
+//        ) {
+//            for (i in 1..4) {
+//                Spacer(
+//                    modifier = Modifier
+//                        .size(3.dp)
+//                        .clip(CircleShape)
+//                        .background(bluishPython)
+//                )
+//                Spacer(Modifier.height(2.dp))
+//            }
+//        }
+//    }
+//}
+//
+//@Composable
+//fun CourseDescriptionScreen(course: List<Course>) {
+//    LazyColumn {
+//        items(course) { courseItem ->
+//            Column(modifier = Modifier.padding(horizontal = 6.dp)) {
+//
+//                val customText = buildAnnotatedString {
+//                    withStyle(
+//                        style = SpanStyle(
+//                            color = Color.LightGray,
+//                            fontSize = 16.sp,
+//                            fontWeight = FontWeight.Bold
+//                        )
+//                    ) {
+//                        append(courseItem.title)
+//                    }
+//                    withStyle(
+//                        style = SpanStyle(
+//                            color = Color.Gray,
+//                            fontSize = 14.sp,
+//                            fontWeight = FontWeight.Normal
+//                        )
+//                    ) {
+//                        append(courseItem.description)
+//                    }
+//                }
+//                Text(
+//                    lineHeight = 20.sp,
+//                    text = customText,
+//                    style = MaterialTheme.typography.headlineLarge,
+//                    fontWeight = FontWeight.Bold
+//                )
+//            }
+//            Spacer(Modifier.height(8.dp))
+//        }
+//    }
+//}
+//
+//data class Lesson(
+//    val title: String,
+//    val count: Int,
+//    var status: LessonStatus = LessonStatus.LOCKED,
+//    val subLessons: List<SubLesson> = emptyList() // Sub-lessons for each main lesson
+//)
+//
+//enum class LessonStatus {
+//    COMPLETED, ACTIVE, LOCKED
+//}
+//
+//data class SubLesson(
+//    val title: String,
+//    val description: String,
+//    var status: LessonStatus = LessonStatus.LOCKED // Can be LOCKED, ACTIVE, or COMPLETED
+//)
 
 enum class LessonOrDescription {
     LESSON, DESCRIPTION
 }
 
-data class Course(
-    val title: String,
-    val description: String, // Detailed description of the course or level
-    val otherInfo: String // Any other information you'd like to add (e.g., prerequisites, duration, etc.)
-)
+//
+//data class Course(
+//    val title: String,
+//    val description: String, // Detailed description of the course or level
+//    val otherInfo: String // Any other information you'd like to add (e.g., prerequisites, duration, etc.)
+//)
+//
 
-
-fun getLessons(): List<Lesson> {
-    return listOf(
-        Lesson(
-            "Introduction to Programming Languages",
-            6,
-            status = LessonStatus.COMPLETED,
-            subLessons = listOf(
-                SubLesson(
-                    "What is a Programming Language?",
-                    "Understanding the purpose and types of programming languages.",
-                    LessonStatus.COMPLETED
-                ),
-                SubLesson(
-                    "Evolution of Programming Languages",
-                    "A brief history of programming languages and their development over time.",
-                    LessonStatus.COMPLETED
-                ),
-                SubLesson(
-                    "Importance of C",
-                    "Why C is considered one of the most important programming languages.",
-                    LessonStatus.COMPLETED
-                )
-            )
-        ),
-        Lesson(
-            "Introduction to C Programming",
-            6,
-            status = LessonStatus.COMPLETED,
-            subLessons = listOf(
-                SubLesson(
-                    "Sub-lesson 1: What is C?",
-                    "An introduction to the C language, its features, and characteristics.",
-                    LessonStatus.COMPLETED
-                ),
-                SubLesson(
-                    "Sub-lesson 2: Setting Up C Environment",
-                    "Instructions for installing a C compiler and setting up the development environment.",
-                    LessonStatus.COMPLETED
-                ),
-                SubLesson(
-                    "Sub-lesson 3: Hello World Program",
-                    "How to write and run your first simple program in C.",
-                    LessonStatus.COMPLETED
-                )
-            )
-        ),
-        Lesson(
-            "Basic Syntax of C",
-            6,
-            status = LessonStatus.ACTIVE,
-            subLessons = listOf(
-                SubLesson(
-                    "Structure of a C Program",
-                    "Overview of a basic C program structure, including main() function, headers, and statements.",
-                    LessonStatus.COMPLETED
-                ),
-                SubLesson(
-                    "C Keywords",
-                    "An introduction to reserved keywords in C and their usage.",
-                    LessonStatus.ACTIVE
-                ),
-                SubLesson(
-                    "Writing Your First C Program",
-                    "Step-by-step guidance to write, compile, and execute a simple C program.",
-                    LessonStatus.LOCKED
-                )
-            )
-        ),
-        Lesson(
-            "Variables and Data Types",
-            5,
-            status = LessonStatus.LOCKED,
-            subLessons = listOf(
-                SubLesson(
-                    "Sub-lesson 1: Variables in C",
-                    "How to declare and use variables to store data in C.",
-                    LessonStatus.LOCKED
-                ),
-                SubLesson(
-                    "Sub-lesson 2: Constants in C",
-                    "Understanding constants and how they are used in C programs.",
-                    LessonStatus.LOCKED
-                ),
-                SubLesson(
-                    "Sub-lesson 3: Data Types",
-                    "Introduction to different data types in C like int, char, float, and double.",
-                    LessonStatus.LOCKED
-                )
-            )
-        ),
-        Lesson(
-            "Operators in C",
-            7,
-            status = LessonStatus.LOCKED,
-            subLessons = listOf(
-                SubLesson(
-                    "Sub-lesson 1: Arithmetic Operators",
-                    "Learn the basic arithmetic operators used in C for addition, subtraction, multiplication, etc.",
-                    LessonStatus.LOCKED
-                ),
-                SubLesson(
-                    "Sub-lesson 2: Relational and Logical Operators",
-                    "Introduction to relational and logical operators in C.",
-                    LessonStatus.LOCKED
-                ),
-                SubLesson(
-                    "Sub-lesson 3: Assignment and Increment/Decrement Operators",
-                    "Using assignment, increment, and decrement operators in C.",
-                    LessonStatus.LOCKED
-                )
-            )
-        ),
-        Lesson(
-            "Control Flow: Conditional Statements",
-            6,
-            status = LessonStatus.LOCKED,
-            subLessons = listOf(
-                SubLesson(
-                    "Sub-lesson 1: The If Statement",
-                    "How to use the if statement to perform conditional checks in C.",
-                    LessonStatus.LOCKED
-                ),
-                SubLesson(
-                    "Sub-lesson 2: The If-Else Statement",
-                    "Learn how to use if-else for branching logic.",
-                    LessonStatus.LOCKED
-                ),
-                SubLesson(
-                    "Sub-lesson 3: The Switch Statement",
-                    "Introduction to using the switch statement for multi-way branching.",
-                    LessonStatus.LOCKED
-                )
-            )
-        ),
-        Lesson(
-            "Loops in C",
-            6,
-            status = LessonStatus.LOCKED,
-            subLessons = listOf(
-                SubLesson(
-                    "Sub-lesson 1: The For Loop",
-                    "How to use a for loop for iteration in C.",
-                    LessonStatus.LOCKED
-                ),
-                SubLesson(
-                    "Sub-lesson 2: The While Loop",
-                    "Using the while loop for repeating code while a condition is true.",
-                    LessonStatus.LOCKED
-                ),
-                SubLesson(
-                    "Sub-lesson 3: The Do-While Loop",
-                    "Understanding the do-while loop and when to use it.",
-                    LessonStatus.LOCKED
-                )
-            )
-        )
-    )
-}
-
-fun getCourseDescription(): List<Course> {
-    return listOf(
-        Course(
-            title = "Introduction to Programming: ",
-            description = "Here we will learn the basics of programming, including syntax, control flow, and more.",
-            otherInfo = "Lessons: 28 hours\nPrerequisites: Basic understanding of programming concepts"
-        ),
-        Course(
-            title = "Introduction to C Programming: ",
-            description = "Introduction to C: This section will provide an overview of C programming, covering its features and history.",
-            otherInfo = "Lessons: 28 hours\nPrerequisites: Basic understanding of programming concepts"
-        ),
-        Course(
-            title = "Variables and Data Types: ",
-            description = "Understanding Variables and Data Types: This lesson covers the basics of variables, constants, and different data types in C.",
-            otherInfo = "Lessons: 24 hours\nPrerequisites: Basic knowledge of C syntax"
-        ),
-        Course(
-            title = "Control Flow in C: ",
-            description = "Mastering Control Flow: Learn how to use conditional statements and loops to control the flow of your programs.",
-            otherInfo = "Lessons: 20 hours\nPrerequisites: Basic understanding of programming concepts"
-        ),
-        Course(
-            title = "Functions in C Programming:",
-            description = "Functions in C: This section teaches how to write and use functions in C for modular programming.",
-            otherInfo = "Lessons: 22 hours\nPrerequisites: Basic understanding of C"
-        ),
-        Course(
-            title = "Advanced C Programming: ",
-            description = "Advanced Topics in C: Dive into advanced C concepts like pointers, memory management, and file handling.",
-            otherInfo = "Lessons: 30 hours\nPrerequisites: Intermediate knowledge of C programming"
-        )
-    )
-}
-
-
-fun getLessonsForLanguageAndLevel(language: String, level: String): List<Lesson> {
-    return when {
-        language == "C Language" && level == "Basic" -> listOf(
-
-            // Add more lessons
-        )
-
-        language == "Java" && level == "Intermediate" -> listOf(
-
-            // Add more lessons
-        )
-
-        else -> emptyList() // Default case
-    }
-}
+//
+//fun getCourseDescription(): List<Course> {
+//    return listOf(
+//        Course(
+//            title = "Introduction to Programming: ",
+//            description = "Here we will learn the basics of programming, including syntax, control flow, and more.",
+//            otherInfo = "Lessons: 28 hours\nPrerequisites: Basic understanding of programming concepts"
+//        ),
+//        Course(
+//            title = "Introduction to C Programming: ",
+//            description = "Introduction to C: This section will provide an overview of C programming, covering its features and history.",
+//            otherInfo = "Lessons: 28 hours\nPrerequisites: Basic understanding of programming concepts"
+//        ),
+//        Course(
+//            title = "Variables and Data Types: ",
+//            description = "Understanding Variables and Data Types: This lesson covers the basics of variables, constants, and different data types in C.",
+//            otherInfo = "Lessons: 24 hours\nPrerequisites: Basic knowledge of C syntax"
+//        ),
+//        Course(
+//            title = "Control Flow in C: ",
+//            description = "Mastering Control Flow: Learn how to use conditional statements and loops to control the flow of your programs.",
+//            otherInfo = "Lessons: 20 hours\nPrerequisites: Basic understanding of programming concepts"
+//        ),
+//        Course(
+//            title = "Functions in C Programming:",
+//            description = "Functions in C: This section teaches how to write and use functions in C for modular programming.",
+//            otherInfo = "Lessons: 22 hours\nPrerequisites: Basic understanding of C"
+//        ),
+//        Course(
+//            title = "Advanced C Programming: ",
+//            description = "Advanced Topics in C: Dive into advanced C concepts like pointers, memory management, and file handling.",
+//            otherInfo = "Lessons: 30 hours\nPrerequisites: Intermediate knowledge of C programming"
+//        )
+//    )
+//}
+//
+//
+//fun getLessonsForLanguageAndLevel(language: String, level: String): List<Lesson> {
+//    return when {
+//        language == "C Language" && level == "Basic" -> listOf(
+//
+//            // Add more lessons
+//        )
+//
+//        language == "Java" && level == "Intermediate" -> listOf(
+//
+//            // Add more lessons
+//        )
+//
+//        else -> emptyList() // Default case
+//    }
+//}
 
 //@OptIn(ExperimentalMaterial3Api::class)
 //@Composable

@@ -38,53 +38,6 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 
-/*@Composable
-fun BottomNavBar(navController: NavController) {
-    NavigationBar(
-        containerColor = Color.LightGray,
-        contentColor = Color.White
-    ) {
-        NavigationBarItem(
-            icon = {
-                Icon(
-                    Icons.Filled.Home, contentDescription = "Home",
-                    tint = Color.Black
-                )
-            },
-            selected = false,
-            onClick = {
-                navController.navigate("home")
-            }
-        )
-        NavigationBarItem(
-            icon = {
-                Icon(
-                    Icons.Filled.Settings, contentDescription = "Learning",
-                    tint = Color.Black
-                )
-            },
-            selected = false,
-            onClick = {
-                navController.navigate("settings")
-            }
-        )
-
-        NavigationBarItem(
-            icon = {
-                Icon(
-                    Icons.Filled.Person, contentDescription = "Learning",
-                    tint = Color.Black
-                )
-            },
-            selected = false,
-            onClick = {
-                navController.navigate("settings")
-            }
-        )
-    }
-}*/
-
-
 @Composable
 fun CustomBottomBar(
     items: List<BottomBarItem>,
@@ -101,7 +54,7 @@ fun CustomBottomBar(
 
     val darkNeutralBottomBar = Color(0xFF2C2C2C) // Deep Gray
     val accentedDarkBottomBar = Color(0xFF1E1F26) // Dark Blueish Gray
-    val darkPurpleBottomBar = Color(0xFF2B1D3A) // Deep Purple
+    val darkPurpleBottomBar = Color(0xFF012B33) // Deep Purple
     val mutedBlueGrayBottomBar = Color(0xFF20232A) // Dark Slate Blue
 
 
@@ -113,7 +66,7 @@ fun CustomBottomBar(
             .fillMaxWidth()
             .clip(RoundedCornerShape(topStart = 8.dp, topEnd = 8.dp))
             .background(
-                mutedBlueGrayBottomBar
+                darkPurpleBottomBar
             )
 //            .background(
 //                brush = bottomBarGradient

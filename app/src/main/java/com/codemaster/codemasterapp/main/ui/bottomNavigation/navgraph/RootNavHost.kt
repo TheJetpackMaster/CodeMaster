@@ -7,9 +7,13 @@ import androidx.navigation.compose.composable
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.AuthRoutes
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.BottomNavRoutes
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.MainRoutes
+import com.codemaster.codemasterapp.main.ui.viewModels.CourseViewModel
 
 @Composable
-fun RootNavHost(navController: NavHostController) {
+fun RootNavHost(
+    navController: NavHostController,
+    courseViewModel: CourseViewModel
+) {
 
     // Main NavHost (for the entire app)
     NavHost(
@@ -17,8 +21,13 @@ fun RootNavHost(navController: NavHostController) {
         route = "ROOT"
     ) {
         authNavHost(navController)
-        bottomNavHost(navController)
-        mainNavHost(navController)
+        bottomNavHost(
+            navController = navController,
+            courseViewModel = courseViewModel
+        )
+        mainNavHost(
+            navController = navController,
+            courseViewModel = courseViewModel)
         profileNavHost(navController)
     }
 }

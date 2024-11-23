@@ -55,7 +55,6 @@ fun AchievementScreen(navController: NavController) {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-//                .background(Color(0xFFF7F9FC)) // Soft background color for the main area
                 .padding(paddingValues)
 
         ) {
@@ -117,30 +116,9 @@ fun AchievementsContent() {
         "Leader",
         "Inventor",
         "Guru",
-        /* "Evolver",
-         "Mastermind",
-         "Navigator",
-         "Determined",
-         "Focused",
-         "Hustler",
-         "Go-Getter",
-         "Overcomer",
-         "Legendary",
-         "Breakthrough",
-         "Elevator",
-         "Optimist",
-         "Game-Changer",
-         "Shaker",
-         "Craftsman",
-         "Shining Star",
-         "Innovative",
-         "Achiever",
-         "Tactician"*/
+
     )
 
-    // List of progress values, representing the completion of the achievement
-    /*val progressValues = listOf(0.1f, 0.2f, 0.3f, 0.4f, 0.5f,
-        0.6f, 0.7f, 0.8f, 0.9f, 1.0f)*/
 
     // List of animation resource IDs (Assume you have different animation files)
     val animationResources = listOf(
@@ -162,11 +140,7 @@ fun AchievementsContent() {
         R.drawable.mentor, R.drawable.influencer,
         R.drawable.leader, R.drawable.inventor,
 
-        /* R.drawable.guru, R.drawable.evolver,
-         R.drawable.goalsetter, R.drawable.transformer,
-         R.drawable.empowerer, R.drawable.inspire,
-         R.drawable.mentor, R.drawable.influencer,
-         R.drawable.leader, R.drawable.inventor,*/
+
     )
 
     // Progress values and animation resources for each achievement

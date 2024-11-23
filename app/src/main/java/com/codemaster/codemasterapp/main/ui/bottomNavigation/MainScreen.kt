@@ -27,13 +27,16 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.RootNavHost
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.BottomNavRoutes
+import com.codemaster.codemasterapp.main.ui.viewModels.CourseViewModel
 import javax.annotation.meta.When
 import kotlin.random.Random
 
 
 @Composable
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
-fun MainScreen() {
+fun MainScreen(
+    courseViewModel: CourseViewModel
+) {
     val navController = rememberNavController()
     val selectedIndex = remember { mutableStateOf(0) }
 
@@ -49,8 +52,8 @@ fun MainScreen() {
                 CustomBottomBar(
                     items = listOf(
                         BottomBarItem("Home", R.drawable.stud),
-                        BottomBarItem("Search", R.drawable.com),
-                        BottomBarItem("Profile", R.drawable.achivments)
+                        BottomBarItem("Compiler", R.drawable.com),
+                        BottomBarItem("Achievements", R.drawable.achivments)
                     ),
                     selectedItemIndex = selectedIndex.value,
                     onItemSelected = { index ->
@@ -59,7 +62,7 @@ fun MainScreen() {
                         when (index) {
                             0 -> navController.navigate(BottomNavRoutes.HomeScreen.route)
                             1 -> {
-//                                navController.navigate(BottomNavRoutes.ExtraScreen.route)
+                                navController.navigate(BottomNavRoutes.CompilerScreen.route)
                             }
 
                             2 -> navController.navigate(BottomNavRoutes.AchievementsScreen.route)
@@ -94,7 +97,10 @@ fun MainScreen() {
             )
         )
 
-        TechBackground(navController)
+        TechBackground(
+            navController = navController,
+            courseViewModel = courseViewModel
+        )
 
     }
 }
@@ -116,7 +122,10 @@ val screenBackgroundGradient = Brush.verticalGradient(
 )
 
 @Composable
-fun TechBackground(navController: NavHostController) {
+fun TechBackground(
+    navController: NavHostController,
+    courseViewModel: CourseViewModel
+) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -215,9 +224,10 @@ fun TechBackground(navController: NavHostController) {
         ) {
 
         }
-
-        // Navigation host
-        RootNavHost(navController = navController)
+        RootNavHost(
+            navController = navController,
+            courseViewModel = courseViewModel
+        )
     }
 }
 

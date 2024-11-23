@@ -48,6 +48,7 @@ fun CodeMasterTheme(
 
         darkTheme -> DarkColorScheme
         else -> LightColorScheme
+
     }
 
     MaterialTheme(
