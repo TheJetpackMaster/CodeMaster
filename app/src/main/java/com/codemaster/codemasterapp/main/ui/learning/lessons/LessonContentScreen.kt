@@ -9,10 +9,13 @@ import android.util.Log
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowInsetsController
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.gestures.detectHorizontalDragGestures
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Arrangement
@@ -25,6 +28,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -33,16 +37,20 @@ import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Clear
+import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Star
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -50,15 +58,20 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.runtime.*
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.Alignment.Companion
 import androidx.compose.ui.draw.blur
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.codemaster.codemasterapp.R
@@ -72,13 +85,14 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 import kotlin.coroutines.EmptyCoroutineContext.get
+import kotlin.math.roundToInt
 
 
 @Composable
 fun LessonContentScreen(
     navController: NavController,
     courseViewModel: CourseViewModel, // Your ViewModel that holds the selectedLesson
-    noteViewModel: NoteViewModel
+    noteViewModel: NoteViewModel,
 ) {
 
     val context = LocalContext.current
@@ -123,208 +137,393 @@ fun LessonContentScreen(
         rememberPagerState(initialPage = selectedSubLesson, pageCount = { lessons.size })
     val coroutineScope = rememberCoroutineScope()
 
+    val selectedCourse by courseViewModel.selectedCourse.collectAsState()
+    val selectedStage by courseViewModel.selectedStage.collectAsState()
+   // val selectedSubLessonIndex by courseViewModel.selectedSubLessonIndex.collectAsState()
+
+
+
+    // State for dialog visibility
+    var showDialog by remember { mutableStateOf(false) }
+    val languageName = selectedCourse?.language ?: ""
+    val stageName = selectedStage?.title ?: ""
+    val lessonNumber = selectedLesson?.id?.takeLast(1)?.toIntOrNull() ?: 0
+    val subLessonNumber =  (pagerState.currentPage + 1).toFloat()
+//    var title by remember { mutableStateOf("") }
+//    var description by remember { mutableStateOf("") }
+
 
     Log.d("selectedSub", selectedSubLesson.toString())
 
     LaunchedEffect(Unit) {
         courseViewModel.selectSubLessonIndex(0)
     }
+    Box() {
 
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(
-                Brush.linearGradient(
-                    colors = listOf(
-                        Color(0xFF1D1B25),
-                        Color(0xFF1D2836),
-                    ),
-                    start = Offset(0f, 0f),
-                    end = Offset(0f, 400f)
-                )
-            )
-            .padding(top = 24.dp)
-    ) {
-        // Title and Progress Bar
-        Row(
+
+        Column(
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp),
-            horizontalArrangement = Arrangement.SpaceBetween
-        ) {
-            Text(
-                text = selectedLesson?.subLessons?.getOrNull(pagerState.currentPage)?.title
-                    ?: "Default Title",
-                style = TextStyle(
-                    fontSize = 26.sp,
-                    fontWeight = FontWeight.Medium,
-                    color = Color.White
+                .fillMaxSize()
+                .background(
+                    Brush.linearGradient(
+                        colors = listOf(
+                            Color(0xFF1D1B25),
+                            Color(0xFF1D2836),
+                        ),
+                        start = Offset(0f, 0f),
+                        end = Offset(0f, 400f)
+                    )
                 )
-            )
-        }
-
-        val progress = (pagerState.currentPage + 1).toFloat() / lessons.size
-
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 12.dp),
-            verticalAlignment = Alignment.CenterVertically
+                .padding(top = 24.dp)
         ) {
-            Text(
-                text = "${pagerState.currentPage + 1} / ${lessons.size}",
-                style = TextStyle(
-                    fontSize = 18.sp,
-                    fontWeight = FontWeight.Medium,
-                    color = Color.White
+            // Title and Progress Bar
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Text(
+                    text = selectedLesson?.subLessons?.getOrNull(pagerState.currentPage)?.title
+                        ?: "Default Title",
+                    style = TextStyle(
+                        fontSize = 26.sp,
+                        fontWeight = FontWeight.Medium,
+                        color = Color.White
+                    )
                 )
-            )
+            }
 
+            val progress = (pagerState.currentPage + 1).toFloat() / lessons.size
+
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 12.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    text = "${pagerState.currentPage + 1} / ${lessons.size}",
+                    style = TextStyle(
+                        fontSize = 18.sp,
+                        fontWeight = FontWeight.Medium,
+                        color = Color.White
+                    )
+                )
+
+                Box(
+                    modifier = Modifier
+                        .padding(start = 14.dp, end = 24.dp)
+                        .weight(1f)
+                        .height(10.dp),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Box(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .clip(RoundedCornerShape(20.dp))
+                            .background(Color.White.copy(.8f))
+                            .align(Alignment.CenterStart)
+                    )
+
+                    Box(
+                        modifier = Modifier
+                            .fillMaxHeight()
+                            .fillMaxWidth(progress)
+                            .clip(RoundedCornerShape(20.dp))
+                            .background(Color(0xFF2FA20C))
+                            .align(Alignment.CenterStart)
+                    )
+                }
+
+                Icon(
+                    imageVector = Icons.Default.Star,
+                    contentDescription = "",
+                    tint = if (pagerState.currentPage < (lessons.size - 1)) Color.White else Color.Yellow
+                )
+            }
+
+            Spacer(Modifier.height(16.dp))
+
+
+            // Lesson Content Part
             Box(
                 modifier = Modifier
-                    .padding(start = 14.dp, end = 24.dp)
-                    .weight(1f)
-                    .height(10.dp),
-                contentAlignment = Alignment.Center
+                    .fillMaxSize()
             ) {
+                // Gradient Background
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
-                        .clip(RoundedCornerShape(20.dp))
-                        .background(Color.White.copy(.8f))
-                        .align(Alignment.CenterStart)
-                )
-
-                Box(
-                    modifier = Modifier
-                        .fillMaxHeight()
-                        .fillMaxWidth(progress)
-                        .clip(RoundedCornerShape(20.dp))
-                        .background(Color(0xFF2FA20C))
-                        .align(Alignment.CenterStart)
-                )
-            }
-
-            Icon(
-                imageVector = Icons.Default.Star,
-                contentDescription = "",
-                tint = if (pagerState.currentPage < (lessons.size - 1)) Color.White else Color.Yellow
-            )
-        }
-
-        Spacer(Modifier.height(16.dp))
-
-
-        // Lesson Content Part
-        Box(
-            modifier = Modifier
-                .fillMaxSize()
-
-        ) {
-            // Gradient Background
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(
-                        Brush.linearGradient(
-                            colors = listOf(
-                                Color(0xFF2D3040), // Deep blue-gray
-                                Color(0xFF4A4E69)  // Soft purple-gray
-                            ),
-                            start = Offset(0f, 0f),
-                            end = Offset(0f, 400f) // Adjust gradient direction
+                        .background(
+                            Brush.linearGradient(
+                                colors = listOf(
+                                    Color(0xFF2D3040), // Deep blue-gray
+                                    Color(0xFF4A4E69)  // Soft purple-gray
+                                ),
+                                start = Offset(0f, 0f),
+                                end = Offset(0f, 400f) // Adjust gradient direction
+                            )
                         )
-                    )
-            )
+                )
 
 
-            // Subtle Overlay with Stars
-            Canvas(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .blur(8.dp) // Add subtle blur to soften edges
-            ) {
-                val width = size.width
-                val height = size.height
-                val starColor = Color(0xFFFFFFFF) // Soft white with transparency
-
-                for (i in 1..30) { // Add random small stars
-                    val x = (0..width.toInt()).random().toFloat()
-                    val y = (0..height.toInt()).random().toFloat()
-                    drawCircle(
-                        color = starColor,
-                        radius = (2..6).random().toFloat(),
-                        center = Offset(x, y)
-                    )
-                }
-            }
-
-
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-
-            ) {
-                HorizontalPager(
-                    state = pagerState,
+                // Subtle Overlay with Stars
+                Canvas(
                     modifier = Modifier
-                        .weight(1f)
-                        .pointerInput(Unit) {
-                            detectHorizontalDragGestures { _, dragAmount ->
-                                // If swipe is to the right (backward swipe)
-                                if (dragAmount > 0) {
-                                    // Allow backward swipe only if we're not at the first page
-                                    if (pagerState.currentPage > 0) {
-                                        // Allow swipe backward
-                                        coroutineScope.launch {
-                                            pagerState.animateScrollToPage(pagerState.currentPage - 1)
-                                        }
+                        .fillMaxSize()
+                        .blur(8.dp) // Add subtle blur to soften edges
+                ) {
+                    val width = size.width
+                    val height = size.height
+                    val starColor = Color(0xFFFFFFFF) // Soft white with transparency
 
-                                    } else {
-                                        // If already at the first page, prevent further backward swipe
-                                        coroutineScope.launch {
-                                            pagerState.animateScrollToPage(pagerState.currentPage)
+                    for (i in 1..30) { // Add random small stars
+                        val x = (0..width.toInt()).random().toFloat()
+                        val y = (0..height.toInt()).random().toFloat()
+                        drawCircle(
+                            color = starColor,
+                            radius = (2..6).random().toFloat(),
+                            center = Offset(x, y)
+                        )
+                    }
+                }
+
+
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+
+                ) {
+                    HorizontalPager(
+                        state = pagerState,
+                        modifier = Modifier
+                            .weight(1f)
+                            .pointerInput(Unit) {
+                                detectHorizontalDragGestures { _, dragAmount ->
+                                    // If swipe is to the right (backward swipe)
+                                    if (dragAmount > 0) {
+                                        // Allow backward swipe only if we're not at the first page
+                                        if (pagerState.currentPage > 0) {
+                                            // Allow swipe backward
+                                            coroutineScope.launch {
+                                                pagerState.animateScrollToPage(pagerState.currentPage - 1)
+                                            }
+
+                                        } else {
+                                            // If already at the first page, prevent further backward swipe
+                                            coroutineScope.launch {
+                                                pagerState.animateScrollToPage(pagerState.currentPage)
+                                            }
                                         }
                                     }
-                                }
 
-                                // If swipe is to the left (forward swipe)
-                                else if (dragAmount < 0) {
+                                    // If swipe is to the left (forward swipe)
+                                    else if (dragAmount < 0) {
 
+                                    }
                                 }
+                            },
+                        userScrollEnabled = false
+                    ) { page ->
+                        LessonContentView(
+                            lessonContent = lessons[pagerState.currentPage],  // Pass the current lesson content
+                            onNext = {
+                                courseViewModel.markSubLessonAsCompleted(
+                                    selectedLesson?.subLessons[pagerState.currentPage]?.id ?: "",
+                                    selectedLesson?.id ?: ""
+                                )
+                                courseViewModel.updateLessonCompletionStatus()
+
+
+                                if (pagerState.currentPage < lessons.size - 1) {
+                                    coroutineScope.launch {
+                                        pagerState.animateScrollToPage(pagerState.currentPage + 1)
+                                    }
+                                }
+                            },
+                            pagerState = pagerState,
+                            coroutineScope = coroutineScope,
+                            lessons = lessons,
+                            onFinish = {
+                                navController.popBackStack()
                             }
-                        },
-                    userScrollEnabled = false
-                ) { page ->
-                    LessonContentView(
-                        lessonContent = lessons[pagerState.currentPage],  // Pass the current lesson content
-                        onNext = {
-                            courseViewModel.markSubLessonAsCompleted(
-                                selectedLesson?.subLessons[pagerState.currentPage]?.id ?: "",
-                                selectedLesson?.id ?: ""
-                            )
-                            courseViewModel.updateLessonCompletionStatus()
+                        )
+                    }
 
-
-                            if (pagerState.currentPage < lessons.size - 1) {
-                                coroutineScope.launch {
-                                    pagerState.animateScrollToPage(pagerState.currentPage + 1)
-                                }
-                            }
-                        },
-                        pagerState = pagerState,
-                        coroutineScope = coroutineScope,
-                        lessons = lessons,
-                        onFinish = {
-                            navController.popBackStack()
-                        }
-                    )
                 }
 
             }
         }
+        // add note button
+        DraggableFloatingButton { isClicked ->
+            showDialog = isClicked
+        }
+
+        AddSubLessonNoteDialog(
+            showDialog = showDialog,
+            onDismiss = { showDialog = false },
+            noteViewModel = noteViewModel,
+            languageName = languageName,
+            stageName = stageName,
+            lessonNumber = lessonNumber,
+            subLessonNumber = subLessonNumber
+        )
     }
 }
+
+@Composable
+fun DraggableFloatingButton(onClick: (Boolean) -> Unit) {
+    // State for vertical offset
+    var offsetY by remember { mutableStateOf(0f) }
+
+    // Get screen dimensions and density
+    val configuration = LocalConfiguration.current
+    val density = LocalDensity.current
+
+    // Convert dimensions to pixels
+    val screenWidthPx = with(density) { configuration.screenWidthDp.dp.toPx() }
+    val screenHeightPx = with(density) { configuration.screenHeightDp.dp.toPx() }
+    val buttonHeightPx = with(density) { 35.dp.toPx() } // Height of the button
+
+    // Set initial offset for center-right position
+    if (offsetY == 0f) {
+        offsetY = (screenHeightPx - buttonHeightPx) / 2 // Center vertically
+    }
+
+    Box(
+        modifier = Modifier
+            .offset {
+                IntOffset(
+                    x = (screenWidthPx - 60.dp.toPx()).roundToInt(), // Stick to the right side
+                    y = offsetY.roundToInt()
+                )
+            }
+            .padding(start = 4.dp)
+            .width(60.dp)
+            .height(35.dp)
+            .clip(RoundedCornerShape(topStart = 16.dp, bottomStart = 16.dp))
+            .border(
+                BorderStroke(1.dp, Color.White),
+                shape = RoundedCornerShape(topStart = 16.dp, bottomStart = 16.dp)
+            )
+            .background(Color(0xFF1D2836))
+            .pointerInput(Unit) {
+                detectDragGestures { change, dragAmount ->
+                    change.consume()
+                    // Update the vertical offset within bounds
+                    offsetY = (offsetY + dragAmount.y).coerceIn(0f, screenHeightPx - buttonHeightPx)
+                }
+            }
+            .clickable {
+                // Call the onClick callback and pass `true` when the button is clicked
+                onClick(true)
+            },
+        contentAlignment = Alignment.Center
+    ) {
+        Icon(
+            imageVector = Icons.Filled.Edit,
+            contentDescription = "Edit",
+            modifier = Modifier.size(25.dp),
+            tint = Color.White
+        )
+    }
+}
+
+@Composable
+fun AddSubLessonNoteDialog(
+    showDialog: Boolean,
+    onDismiss: () -> Unit,
+    noteViewModel: NoteViewModel,
+    languageName: String,
+    stageName: String,
+    lessonNumber: Int,
+    subLessonNumber: Float
+) {
+    if (showDialog) {
+        AlertDialog(
+            onDismissRequest = onDismiss,
+            title = {
+                Text(text = "Add Sub-Lesson Note")
+            },
+            text = {
+                var title by remember { mutableStateOf("") }
+                var description by remember { mutableStateOf("") }
+
+                Column {
+                    // Display pre-filled text fields
+                    TextField(
+                        value = languageName,
+                        onValueChange = { /* Do nothing, value comes from parameter */ },
+                        label = { Text("Language Name") },
+                        enabled = false // Disable editing
+                    )
+                    Spacer(modifier = Modifier.height(8.dp))
+                    TextField(
+                        value = stageName,
+                        onValueChange = { /* Do nothing, value comes from parameter */ },
+                        label = { Text("Stage Name") },
+                        enabled = false // Disable editing
+                    )
+                    Spacer(modifier = Modifier.height(8.dp))
+                    TextField(
+                        value = lessonNumber.toString(),
+                        onValueChange = { /* Do nothing, value comes from parameter */ },
+                        label = { Text("Lesson Number") },
+                        keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
+                        enabled = false // Disable editing
+                    )
+                    Spacer(modifier = Modifier.height(8.dp))
+                    TextField(
+                        value = subLessonNumber.toString(),
+                        onValueChange = { /* Do nothing, value comes from parameter */ },
+                        label = { Text("Sub-Lesson Number") },
+                        keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
+                        enabled = false // Disable editing
+                    )
+                    Spacer(modifier = Modifier.height(8.dp))
+                    TextField(
+                        value = title,
+                        onValueChange = { title = it },
+                        label = { Text("Title") }
+                    )
+                    Spacer(modifier = Modifier.height(8.dp))
+                    TextField(
+                        value = description,
+                        onValueChange = { description = it },
+                        label = { Text("Description") }
+                    )
+                }
+            },
+            confirmButton = {
+                Button(
+                    onClick = {
+                        // Add the note via the ViewModel
+                        /*noteViewModel.addSubLessonNote(
+                            languageName = languageName,
+                            stageName = stageName,
+                            lessonNumber = lessonNumber,
+                            subLessonNumber = subLessonNumber,
+                            title = title,
+                            description = description
+                        )*/
+                        onDismiss() // Close the dialog
+                    }
+                ) {
+                    Text("Add Note")
+                }
+            },
+            dismissButton = {
+                Button(
+                    onClick = onDismiss
+                ) {
+                    Text("Cancel")
+                }
+            }
+        )
+    }
+}
+
 
 
 @Composable
@@ -525,9 +724,9 @@ fun LessonContentView(
 fun InteractiveCodeBlockView(
     contentBlock: ContentBlock.InteractiveCodeBlock,
     isAnswerGiven: MutableState<Boolean>,
-    answerFeedbackText: MutableState<String>
+    answerFeedbackText: MutableState<String>,
 
-) {
+    ) {
 
     // Track the incomplete code and user answer state
     var codeWithAnswer by remember { mutableStateOf(contentBlock.incompleteCode) }
@@ -710,7 +909,7 @@ fun InteractiveCodeBlockView(
 fun shouldEnableContinueButton(
     isInteractive: Boolean,
     answerFeedbackText: String,
-    isAnswerGiven: Boolean
+    isAnswerGiven: Boolean,
 ): Boolean {
     return if (isInteractive) {
         answerFeedbackText == "T" && isAnswerGiven // Enable only if correct answer is given
