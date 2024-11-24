@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable;
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.codemaster.codemasterapp.main.DataBase.NoteViewModel
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.AuthRoutes
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.BottomNavRoutes
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.MainRoutes
@@ -12,7 +13,8 @@ import com.codemaster.codemasterapp.main.ui.viewModels.CourseViewModel
 @Composable
 fun RootNavHost(
     navController: NavHostController,
-    courseViewModel: CourseViewModel
+    courseViewModel: CourseViewModel,
+    noteViewModel: NoteViewModel,
 ) {
 
     // Main NavHost (for the entire app)
@@ -27,7 +29,9 @@ fun RootNavHost(
         )
         mainNavHost(
             navController = navController,
-            courseViewModel = courseViewModel)
-        profileNavHost(navController)
+            courseViewModel = courseViewModel,
+            noteViewModel = noteViewModel
+        )
+        profileNavHost(navController = navController, noteViewModel = noteViewModel)
     }
 }

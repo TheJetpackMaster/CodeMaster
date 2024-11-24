@@ -41,6 +41,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.codemaster.codemasterapp.R
+import com.codemaster.codemasterapp.main.DataBase.NoteViewModel
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.ProfileRoutes
 
 
@@ -85,7 +86,8 @@ val liveSupportButtonColors = Brush.horizontalGradient(
 
 @Composable
 fun UserProfileScreen(
-    navController: NavController
+    navController: NavController,
+    noteViewModel: NoteViewModel
 ) {
     Column(
         modifier = Modifier

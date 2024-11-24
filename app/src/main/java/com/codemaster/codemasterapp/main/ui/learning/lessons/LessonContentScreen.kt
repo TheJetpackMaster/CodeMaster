@@ -62,6 +62,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.codemaster.codemasterapp.R
+import com.codemaster.codemasterapp.main.DataBase.NoteViewModel
 import com.codemaster.codemasterapp.main.data.ContentBlock
 import com.codemaster.codemasterapp.main.data.LessonContent
 import com.codemaster.codemasterapp.main.data.LessonContentType
@@ -76,7 +77,8 @@ import kotlin.coroutines.EmptyCoroutineContext.get
 @Composable
 fun LessonContentScreen(
     navController: NavController,
-    courseViewModel: CourseViewModel // Your ViewModel that holds the selectedLesson
+    courseViewModel: CourseViewModel, // Your ViewModel that holds the selectedLesson
+    noteViewModel: NoteViewModel
 ) {
 
     val context = LocalContext.current

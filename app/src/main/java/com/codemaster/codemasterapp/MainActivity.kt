@@ -8,6 +8,7 @@ import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
+import com.codemaster.codemasterapp.main.DataBase.NoteViewModel
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.MainScreen
 import com.codemaster.codemasterapp.main.ui.viewModels.CourseViewModel
 import com.codemaster.codemasterapp.ui.theme.CodeMasterTheme
@@ -20,6 +21,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         val courseViewModel: CourseViewModel by viewModels()
+        val noteViewModel: NoteViewModel by viewModels()
 
         enableEdgeToEdge()
 
@@ -28,7 +30,8 @@ class MainActivity : ComponentActivity() {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
 
                     MainScreen(
-                        courseViewModel = courseViewModel
+                        courseViewModel = courseViewModel,
+                        noteViewModel = noteViewModel
                     )
                 }
             }

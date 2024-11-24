@@ -25,6 +25,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.codemaster.codemasterapp.main.DataBase.NoteViewModel
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.RootNavHost
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.BottomNavRoutes
 import com.codemaster.codemasterapp.main.ui.viewModels.CourseViewModel
@@ -35,7 +36,8 @@ import kotlin.random.Random
 @Composable
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 fun MainScreen(
-    courseViewModel: CourseViewModel
+    courseViewModel: CourseViewModel,
+    noteViewModel: NoteViewModel
 ) {
     val navController = rememberNavController()
     val selectedIndex = remember { mutableStateOf(0) }
@@ -99,7 +101,8 @@ fun MainScreen(
 
         TechBackground(
             navController = navController,
-            courseViewModel = courseViewModel
+            courseViewModel = courseViewModel,
+            noteViewModel = noteViewModel
         )
 
     }
@@ -124,7 +127,8 @@ val screenBackgroundGradient = Brush.verticalGradient(
 @Composable
 fun TechBackground(
     navController: NavHostController,
-    courseViewModel: CourseViewModel
+    courseViewModel: CourseViewModel,
+    noteViewModel: NoteViewModel
 ) {
     Box(
         modifier = Modifier
@@ -226,7 +230,8 @@ fun TechBackground(
         }
         RootNavHost(
             navController = navController,
-            courseViewModel = courseViewModel
+            courseViewModel = courseViewModel,
+            noteViewModel = noteViewModel
         )
     }
 }

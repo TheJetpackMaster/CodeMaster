@@ -40,6 +40,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
+import com.codemaster.codemasterapp.main.DataBase.NoteViewModel
 import com.codemaster.codemasterapp.main.data.LessonStatus
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.MainRoutes
 import com.codemaster.codemasterapp.main.ui.components.ContinueLearningCard
@@ -50,7 +51,8 @@ import com.codemaster.codemasterapp.main.ui.viewModels.CourseViewModel
 @Composable
 fun LevelSelectionScreen(
     navController: NavController,
-    courseViewModel: CourseViewModel
+    courseViewModel: CourseViewModel,
+    noteViewModel: NoteViewModel
 ) {
 
     val cardGradientColors1 = listOf(
