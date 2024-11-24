@@ -84,5 +84,10 @@ dependencies {
     implementation ("com.google.accompanist:accompanist-pager:0.32.0")
     implementation ( "com.google.accompanist:accompanist-pager-indicators:0.32.0")
 
+    // Room Database
+    implementation ("androidx.room:room-runtime:2.6.1") // Latest version of Room
+    ksp ("androidx.room:room-compiler:2.6.1")  // For Kotlin
+    implementation("androidx.room:room-ktx:2.6.1") // Add this line for Room KTX support
+
 
 }

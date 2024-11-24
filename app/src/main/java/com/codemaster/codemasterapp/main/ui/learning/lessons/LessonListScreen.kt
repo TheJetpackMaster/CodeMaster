@@ -71,6 +71,7 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.sp
+import com.codemaster.codemasterapp.main.DataBase.NoteViewModel
 import com.codemaster.codemasterapp.main.data.Lesson
 import com.codemaster.codemasterapp.main.data.LessonStatus
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.MainRoutes
@@ -82,7 +83,8 @@ import com.codemaster.codemasterapp.ui.theme.bluishPython
 @Composable
 fun LessonListScreen(
     navController: NavController,
-    courseViewModel: CourseViewModel
+    courseViewModel: CourseViewModel,
+    noteViewModel: NoteViewModel
 ) {
     val scrollState = rememberScrollState()
 
