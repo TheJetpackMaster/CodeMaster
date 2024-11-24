@@ -74,6 +74,10 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.airbnb.lottie.compose.LottieAnimation
+import com.airbnb.lottie.compose.LottieCompositionSpec
+import com.airbnb.lottie.compose.animateLottieCompositionAsState
+import com.airbnb.lottie.compose.rememberLottieComposition
 import com.codemaster.codemasterapp.R
 import com.codemaster.codemasterapp.main.DataBase.NoteViewModel
 import com.codemaster.codemasterapp.main.data.ContentBlock
@@ -94,6 +98,8 @@ fun LessonContentScreen(
     courseViewModel: CourseViewModel, // Your ViewModel that holds the selectedLesson
     noteViewModel: NoteViewModel,
 ) {
+
+
 
     val context = LocalContext.current
     val window = context.findActivity().window
@@ -126,6 +132,7 @@ fun LessonContentScreen(
         }
     }
 
+
     //SelectedSubLesson
     val selectedSubLesson by courseViewModel.selectedSubLessonIndex.collectAsState()
 
@@ -141,7 +148,13 @@ fun LessonContentScreen(
     val selectedStage by courseViewModel.selectedStage.collectAsState()
    // val selectedSubLessonIndex by courseViewModel.selectedSubLessonIndex.collectAsState()
 
+    // Check if the lesson points are assigned and if points are already collected
+    val points by courseViewModel.points.collectAsState()
+    val isPointsAssigned = selectedLesson?.points != 0 // Check if points are assigned
+    val isPointsCollected = points[selectedLesson?.id] != null || !isPointsAssigned // If points are assigned and already collected, or if no points are assigned, consider them collected
+    val showPointsDialog = remember { mutableStateOf(false) } // To control dialog visibility
 
+    Log.d("pointsforlesson",points[selectedLesson?.id].toString())
 
     // State for dialog visibility
     var showDialog by remember { mutableStateOf(false) }
@@ -346,7 +359,12 @@ fun LessonContentScreen(
                             coroutineScope = coroutineScope,
                             lessons = lessons,
                             onFinish = {
-                                navController.popBackStack()
+                                if(!isPointsCollected){
+                                    showPointsDialog.value = true
+                                }else{
+                                    navController.popBackStack()
+                                }
+
                             }
                         )
                     }
@@ -369,6 +387,38 @@ fun LessonContentScreen(
             lessonNumber = lessonNumber,
             subLessonNumber = subLessonNumber
         )
+
+        // Show the Lottie dialog when collecting points
+        if (showPointsDialog.value) {
+
+            val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.rewarddiamondlotie))
+            // Dialog with Lottie Animation
+            androidx.compose.material.AlertDialog(
+                backgroundColor = Color.Transparent,
+                onDismissRequest = { showPointsDialog.value = false }, // Dismiss when tapped outside
+                buttons = {
+                    // Button for dismissing the dialog (e.g., to simulate collection completion)
+                    Button(
+                        onClick = { showPointsDialog.value = false },
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Text(text = "Close")
+                    }
+                },
+                text = {
+                    // Lottie Animation
+                    Box(
+                        contentAlignment = Alignment.Center,
+                        modifier = Modifier.fillMaxSize()
+                    ) {
+                        LottieAnimation(
+                            composition = composition,
+                            progress = animateLottieCompositionAsState(composition).progress
+                        )
+                    }
+                }
+            )
+        }
     }
 }
 
@@ -536,7 +586,6 @@ fun LessonContentView(
     onFinish: () -> Unit,
 
     ) {
-
 
     //Feedback for Interactive answer
     val isAnswerGiven = remember { mutableStateOf(false) }

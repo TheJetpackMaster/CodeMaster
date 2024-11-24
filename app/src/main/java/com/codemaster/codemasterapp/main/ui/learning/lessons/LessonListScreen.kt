@@ -103,6 +103,9 @@ fun LessonListScreen(
     val selectedLanguage by courseViewModel.selectedCourse.collectAsState()
     val selectedStage by courseViewModel.selectedStage.collectAsState()
 
+    //context
+    val context = LocalContext.current
+
     Scaffold(
         containerColor = Color.Transparent,
         topBar = {
@@ -311,8 +314,18 @@ fun LessonListScreen(
                                                         }
                                                 },
                                                 onLessonClick = {
-                                                    courseViewModel.selectLesson(lesson)
-                                                    navController.navigate(MainRoutes.LessonContentScreen.route)
+                                                    if (lessonStatus != LessonStatus.LOCKED) {
+                                                        courseViewModel.selectLesson(lesson)
+                                                        navController.navigate(MainRoutes.LessonContentScreen.route)
+                                                    } else {
+                                                        Toast
+                                                            .makeText(
+                                                                context,
+                                                                "complete previous lesson first",
+                                                                Toast.LENGTH_SHORT
+                                                            )
+                                                            .show()
+                                                    }
                                                 },
                                                 isExpanded = isExpanded,
                                                 isLastLesson = isLastLesson
@@ -346,12 +359,20 @@ fun LessonListScreen(
                                                         isLastSubLesson = isLastSubLesson,
                                                         status = subLessonStatus,
                                                         onLessonClick = {
-                                                            if (subLessonStatus == LessonStatus.ACTIVE) {
+                                                            if (subLessonStatus != LessonStatus.LOCKED) {
                                                                 courseViewModel.selectLesson(lesson)
                                                                 courseViewModel.selectSubLessonIndex(
                                                                     subIndex
                                                                 )
                                                                 navController.navigate(MainRoutes.LessonContentScreen.route)
+                                                            } else {
+                                                                Toast
+                                                                    .makeText(
+                                                                        context,
+                                                                        "complete previous lesson first",
+                                                                        Toast.LENGTH_SHORT
+                                                                    )
+                                                                    .show()
                                                             }
                                                         }
                                                     )
@@ -519,12 +540,9 @@ fun LessonItem(
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .clickable(enabled = status != LessonStatus.LOCKED,
+            .clickable(
                 onClick = {
                     onLessonClick()
-                    Toast
-                        .makeText(context, "Lesson: $title", Toast.LENGTH_SHORT)
-                        .show()
                 })
             .padding(horizontal = 14.dp),
     ) {

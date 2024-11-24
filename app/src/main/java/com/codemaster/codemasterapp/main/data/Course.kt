@@ -22,7 +22,8 @@ data class Lesson(
     val description: String = "", // Optional lesson description
     var status: LessonStatus = LessonStatus.LOCKED, // Lesson status
     val subLessons: List<Lesson> = emptyList(), // Nested sub-lessons (optional)
-    val lessonContents: List<LessonContent> = emptyList() // List of lesson contents (interactive or non-interactive)
+    val lessonContents: List<LessonContent> = emptyList(),
+    val points: Int = 0
 )
 
 

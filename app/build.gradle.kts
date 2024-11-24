@@ -90,4 +90,8 @@ dependencies {
     implementation("androidx.room:room-ktx:2.6.1") // Add this line for Room KTX support
 
 
+    //Gson
+    implementation("com.google.code.gson:gson:2.10.1")
+
+
 }
