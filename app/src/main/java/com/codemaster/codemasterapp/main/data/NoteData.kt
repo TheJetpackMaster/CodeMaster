@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 @Entity
 data class NoteLanguage(
     @PrimaryKey(autoGenerate = true) var id: Long = 0, // Primary Key
-    val name: String // Language name, e.g., "C"
+    val languageName: String // Language name, e.g., "C"
 )
 
 @Entity(
@@ -21,7 +21,7 @@ data class NoteLanguage(
 data class NoteStage(
     @PrimaryKey(autoGenerate = true) var id: Long = 0, // Primary Key
     val languageId: Long, // Foreign Key referencing NoteLanguage
-    val name: String // Stage name, e.g., "Beginner"
+    val stageName: String // Stage name, e.g., "Beginner"
 )
 
 @Entity(

@@ -8,6 +8,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
+
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
@@ -19,25 +20,25 @@ object AppModule {
     }
 
     @Provides
-    fun provideLanguageDao(database: NoteDatabase): LanguageDao = database.languageDao()
+    fun provideNoteLanguageDao(database: NoteDatabase): NoteLanguageDao = database.noteLanguageDao()
 
     @Provides
-    fun provideStageDao(database: NoteDatabase): StageDao = database.stageDao()
+    fun provideNoteStageDao(database: NoteDatabase): NoteStageDao = database.noteStageDao()
 
     @Provides
-    fun provideLessonDao(database: NoteDatabase): LessonDao = database.lessonDao()
+    fun provideNoteLessonDao(database: NoteDatabase): NoteLessonDao = database.noteLessonDao()
 
     @Provides
-    fun provideSubLessonDao(database: NoteDatabase): SubLessonDao = database.subLessonDao()
+    fun provideNoteSubLessonDao(database: NoteDatabase): NoteSubLessonDao = database.noteSubLessonDao()
 
     @Provides
     @Singleton
     fun provideNoteRepository(
-        languageDao: LanguageDao,
-        stageDao: StageDao,
-        lessonDao: LessonDao,
-        subLessonDao: SubLessonDao
+        noteLanguageDao: NoteLanguageDao,
+        noteStageDao: NoteStageDao,
+        noteLessonDao: NoteLessonDao,
+        noteSubLessonDao: NoteSubLessonDao
     ): NoteRepository {
-        return NoteRepository(languageDao, stageDao, lessonDao, subLessonDao)
+        return NoteRepository(noteLanguageDao, noteStageDao, noteLessonDao, noteSubLessonDao)
     }
 }

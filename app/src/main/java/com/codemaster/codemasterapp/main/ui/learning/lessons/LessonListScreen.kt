@@ -316,6 +316,7 @@ fun LessonListScreen(
                                                 onLessonClick = {
                                                     if (lessonStatus != LessonStatus.LOCKED) {
                                                         courseViewModel.selectLesson(lesson)
+                                                        courseViewModel.selectLessonIndex(index = index)
                                                         navController.navigate(MainRoutes.LessonContentScreen.route)
                                                     } else {
                                                         Toast

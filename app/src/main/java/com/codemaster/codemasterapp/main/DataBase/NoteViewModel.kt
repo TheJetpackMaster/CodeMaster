@@ -1,6 +1,7 @@
 package com.codemaster.codemasterapp.main.DataBase
 
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
@@ -17,46 +18,50 @@ class NoteViewModel @Inject constructor(
     private val repository: NoteRepository,
 ) : ViewModel() {
 
-    fun addNote(
+    fun addOrUpdateSubLesson(
         languageName: String,
         stageName: String,
         lessonNumber: Int,
         subLessonNumber: Float,
         title: String,
-        description: String,
-    ) {
-        viewModelScope.launch {
-            val language = repository.getLanguageByName(languageName)
-                ?: NoteLanguage(name = languageName).also {
-                    it.id = repository.insertLanguage(it)
-                }
-
-            val stage = repository.getStageByName(language.id, stageName)
-                ?: NoteStage(languageId = language.id, name = stageName).also {
-                    it.id = repository.insertStage(it)
-                }
-
-            val lesson = repository.getLessonByNumber(stage.id, lessonNumber)
-                ?: NoteLesson(stageId = stage.id, lessonNumber = lessonNumber).also {
-                    it.id = repository.insertLesson(it)
-                }
-
-            val subLesson = NoteSubLesson(
-                lessonId = lesson.id,
+        description: String
+    ) = viewModelScope.launch {
+        try {
+            repository.getOrInsertSubLesson(
+                languageName = languageName,
+                stageName = stageName,
+                lessonNumber = lessonNumber,
                 subLessonNumber = subLessonNumber,
                 title = title,
                 description = description
             )
-            repository.insertSubLesson(subLesson)
+            Log.d("NoteViewModel", "Sub-lesson added or updated successfully.")
+        } catch (e: Exception) {
+            Log.e("NoteViewModel", "Error adding or updating sub-lesson: ${e.message}")
         }
     }
 
-    suspend fun getNotes(
+    // Function to retrieve sub-lesson by names
+    fun getSubLessonByNames(
         languageName: String,
         stageName: String,
         lessonNumber: Int,
         subLessonNumber: Float,
-    ): List<NoteSubLesson> {
-        return repository.getNotes(languageName, stageName, lessonNumber, subLessonNumber)
+        onResult: (NoteSubLesson?) -> Unit
+    ) = viewModelScope.launch {
+        try {
+            val subLesson = repository.getSubLessonByNames(
+                languageName = languageName,
+                stageName = stageName,
+                lessonNumber = lessonNumber,
+                subLessonNumber = subLessonNumber
+            )
+            onResult(subLesson)
+        } catch (e: Exception) {
+            Log.e("NoteViewModel", "Error retrieving sub-lesson: ${e.message}")
+            onResult(null)
+        }
     }
+
 }
+
