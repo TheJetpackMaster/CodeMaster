@@ -44,12 +44,22 @@ sealed class ContentBlock {
         val incompleteCode: String,
         var userAnswer: String? = null
     ) : ContentBlock() // Interactive code block with options and user input
+
+    data class QuizContentBlock(
+        val question: String, // The quiz question
+        val options: List<String>, // List of answer options
+        val correctAnswer: String, // Correct answer for the quiz
+        var userAnswer: String? = null, // User's selected answer (null if not answered)
+        var isCorrect: Boolean = false // Whether the user's answer is correct
+    ) : ContentBlock()
 }
+
 
 // Represents the type of lesson content (interactive or non-interactive)
 enum class LessonContentType {
-    INTERACTIVE, // Interactive content (e.g., quizzes, coding exercises)
-    NON_INTERACTIVE // Non-interactive content (e.g., text, images)
+    INTERACTIVE,
+    NON_INTERACTIVE,
+    QUIZ
 }
 
 // Represents a specific content block within a lesson
@@ -60,3 +70,5 @@ data class LessonContent(
     val type: LessonContentType, // Whether the content is interactive or non-interactive
     var isCompleted: Boolean = false // Whether the content has been completed (for progress tracking)
 )
+
+

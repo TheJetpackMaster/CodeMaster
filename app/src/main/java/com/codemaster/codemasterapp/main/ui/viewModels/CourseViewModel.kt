@@ -8,6 +8,7 @@ import kotlinx.coroutines.flow.StateFlow
 import com.codemaster.codemasterapp.R
 import com.codemaster.codemasterapp.main.DataBase.NoteRepository
 import com.codemaster.codemasterapp.main.data.ContentBlock
+import com.codemaster.codemasterapp.main.data.ContentBlock.QuizContentBlock
 import com.codemaster.codemasterapp.main.data.Course
 import com.codemaster.codemasterapp.main.data.Lesson
 import com.codemaster.codemasterapp.main.data.LessonContent
@@ -202,7 +203,8 @@ class CourseViewModel @Inject constructor(
     private fun loadLessonCompletionStatus() {
         val completionStatusJson = sharedPreferences.getString("lesson_completion_status", null)
         val type = object : TypeToken<Map<String, LessonStatus>>() {}.type
-        val loadedStatus = completionStatusJson?.let { gson.fromJson<Map<String, LessonStatus>>(it, type) }
+        val loadedStatus =
+            completionStatusJson?.let { gson.fromJson<Map<String, LessonStatus>>(it, type) }
         _lessonCompletionStatus.value = loadedStatus ?: emptyMap()
     }
 
@@ -286,7 +288,6 @@ class CourseViewModel @Inject constructor(
             }
         }
     }
-
 
 
 //
@@ -420,9 +421,9 @@ class CourseViewModel @Inject constructor(
 //
 
 
-
     //Sample course
     fun createBeginnerCProgrammingCourse(): List<Course> {
+
         return listOf(
             Course(
                 id = "course_c_beginner",
@@ -435,138 +436,353 @@ class CourseViewModel @Inject constructor(
                         lessons = listOf(
                             Lesson(
                                 id = "beginner_c1",
-                                title = "Lesson 1: Introduction to C Programming",
+                                title = "Introduction to C Programming",
                                 description = "In this lesson, we will cover the basics of C programming, including syntax, structure, and variables.",
-                                status = LessonStatus.ACTIVE,
                                 subLessons = listOf(
                                     Lesson(
                                         id = "beginner_c1_sub1",
-                                        title = "Sublesson 1: Overview of C Programming",
-                                        description = "This sublesson introduces C programming and its key features.",
+                                        title = "Overview of C Programming",
+                                        description = "Introduction to C programming and its key features. Discuss the history of C, its popularity, and where it is used.",
                                         status = LessonStatus.ACTIVE
                                     ),
                                     Lesson(
                                         id = "beginner_c1_sub2",
-                                        title = "Sublesson 2: Basic Syntax",
-                                        description = "In this sublesson, we will understand the structure of a C program.",
+                                        title = "Basic Syntax",
+                                        description = "Understanding the structure of a C program, including functions, libraries, and statements.",
+                                        status = LessonStatus.LOCKED
+                                    ),
+                                    Lesson(
+                                        id = "beginner_c1_sub3",
+                                        title = "Printing Output in C",
+                                        description = "How to print output in C using the `printf` function, including printing strings and variables.",
                                         status = LessonStatus.LOCKED
                                     )
                                 ),
                                 lessonContents = listOf(
+                                    // Lesson Content 1: Overview of C Programming
                                     LessonContent(
-                                        id = "content_1_1",
-                                        title = "Sublesson 1: Overview of C Programming",
+                                        id = "beginner_c1_sub1",
+                                        title = "Overview of C Programming",
                                         contentBlocks = listOf(
-                                            ContentBlock.Text("C is a high-level, general-purpose programming language. It was developed in the early 1970s and is widely used for system programming."),
-                                            ContentBlock.Image(imageRes = R.drawable.coding),
-                                            ContentBlock.Code("/* Simple C program */\n#include <stdio.h>\nint main() {\n    printf(\"Hello, World!\");\n    return 0;\n}")
+                                            ContentBlock.Text(
+                                                "C is one of the most popular and widely used programming languages, " +
+                                                        "especially for system-level programming. Developed in the 1970s by Dennis Ritchie, C has influenced" +
+                                                        " many modern programming languages. It is fast, efficient, and allows direct manipulation of memory, " +
+                                                        "making it ideal for writing operating systems, embedded systems, and more."
+                                            ),
                                         ),
                                         type = LessonContentType.NON_INTERACTIVE
                                     ),
+                                    // Lesson Content 2: Basic Syntax
                                     LessonContent(
-                                        id = "content_1_2",
-                                        title = "Sublesson 2: Basic Syntax",
+                                        id = "beginner_c1_sub2",
+                                        title = "Basic Syntax",
                                         contentBlocks = listOf(
-                                            ContentBlock.Text("A basic C program consists of functions, declarations, and statements. The entry point for any C program is the `main` function."),
-                                            ContentBlock.Image(imageRes = R.drawable.coding),
-                                            ContentBlock.Code("/* Simple C syntax example */\n#include <stdio.h>\nint main() {\n    printf(\"Welcome to C programming!\");\n    return 0;\n}")
+                                            ContentBlock.Text(
+                                                "A basic C program has a clear structure: it includes functions, declarations, and statements." +
+                                                        " All C programs start execution from the `main()` function. The structure is simple but powerful."
+                                            ),
+                                            ContentBlock.Code(
+                                                "/* Simple C syntax example */\n#include <stdio.h>\nint main() {\n    printf(\"Welcome to C programming!\");\n    return 0;\n}"
+                                            )
+                                        ),
+                                        type = LessonContentType.NON_INTERACTIVE
+                                    ),
+                                    // Lesson Content 3: Printing Output
+                                    LessonContent(
+                                        id = "beginner_c1_sub3",
+                                        title = "Printing Output in C",
+                                        contentBlocks = listOf(
+                                            ContentBlock.Text(
+                                                "In C, we use the `printf()` function to display output. The `printf` function prints text or other data types to the console."
+                                            ),
+                                            ContentBlock.Code(
+                                                "/* Simple printing example */\n#include <stdio.h>\nint main() {\n    printf(\"Hello, World!\\n\");\n    return 0;\n}"
+                                            ),
+                                            ContentBlock.Text(
+                                                "In the example above, the `\\n` is used to add a newline after the printed message."
+                                            ),
+                                            ContentBlock.Text(
+                                                "To print variables, we use placeholders (format specifiers) like `%d` for integers or `%s` for strings."
+                                            ),
+                                            ContentBlock.Code(
+                                                "/* Printing variables example */\n#include <stdio.h>\nint main() {\n    int number = 10;\n    printf(\"The value of number is: %d\\n\", number);\n    return 0;\n}"
+                                            )
                                         ),
                                         type = LessonContentType.NON_INTERACTIVE
                                     )
                                 ),
-                                points = 20
+                                status = LessonStatus.ACTIVE
                             ),
+                            // Lesson 2: Data Types and Variables
                             Lesson(
                                 id = "beginner_c2",
-                                title = "Lesson 2: Variables and Data Types",
-                                description = "This lesson explains how to declare and use variables and various data types in C.",
-                                status = LessonStatus.LOCKED,
+                                title = "Data Types and Variables",
+                                description = "In this lesson, we will learn about different data types in C and how to declare and use variables.",
                                 subLessons = listOf(
                                     Lesson(
                                         id = "beginner_c2_sub1",
-                                        title = "Sublesson 1: Variables in C",
-                                        description = "Learn how to declare and initialize variables in C.",
+                                        title = "Understanding Data Types",
+                                        description = "Introduction to basic data types like int, char, float, and double.",
                                         status = LessonStatus.LOCKED
                                     ),
                                     Lesson(
                                         id = "beginner_c2_sub2",
-                                        title = "Sublesson 2: Data Types",
-                                        description = "Understand the different types of data that can be stored in variables, such as integers, floats, and characters.",
+                                        title = "Declaring and Using Variables",
+                                        description = "Learn how to declare variables and assign values in C.",
                                         status = LessonStatus.LOCKED
                                     )
                                 ),
                                 lessonContents = listOf(
                                     LessonContent(
-                                        id = "content_2_1",
-                                        title = "Sublesson 1: Variables in C",
+                                        id = "beginner_c2_sub1",
+                                        title = "Understanding Data Types",
                                         contentBlocks = listOf(
-                                            ContentBlock.Text("In C, a variable is a storage location identified by a name. A variable must be declared before it can be used."),
-                                            ContentBlock.Image(imageRes = R.drawable.coding),
-                                            ContentBlock.Code("int x = 10;\nfloat y = 5.5;\nchar c = 'A';")
+                                            ContentBlock.Text(
+                                                "In C, you use different data types to store values of different kinds, such as integers, floating-point numbers, or characters. Here are some of the most commonly used data types:"
+                                            ),
+                                            ContentBlock.Text(
+                                                "1. `int`: Stores integers (whole numbers). Example: `int a = 5;`\n" +
+                                                        "2. `char`: Stores a single character. Example: `char letter = 'A';`\n" +
+                                                        "3. `float`: Stores floating-point numbers (numbers with decimals). Example: `float pi = 3.14f;`\n" +
+                                                        "4. `double`: Stores larger floating-point numbers. Example: `double e = 2.71828;`"
+                                            )
                                         ),
                                         type = LessonContentType.NON_INTERACTIVE
                                     ),
                                     LessonContent(
-                                        id = "content_2_2",
-                                        title = "Sublesson 2: Data Types",
+                                        id = "beginner_c2_sub2",
+                                        title = "Declaring and Using Variables",
                                         contentBlocks = listOf(
-                                            ContentBlock.Text("C supports several data types, including integer types (int), floating-point types (float), and character types (char)."),
-                                            ContentBlock.Image(imageRes = R.drawable.coding),
-                                            ContentBlock.Code("int x = 5;\nfloat y = 3.14;\ndouble pi = 3.14159;\nchar letter = 'A';")
+                                            ContentBlock.Text(
+                                                "To declare a variable in C, you specify the data type, followed by the variable name. You can also assign a value when declaring it."
+                                            ),
+                                            ContentBlock.Code(
+                                                "/* Declaring and using variables example */\n#include <stdio.h>\nint main() {\n    int age = 25;  // Declaring an integer variable\n    char grade = 'A';  // Declaring a character variable\n    printf(\"Age: %d, Grade: %c\\n\", age, grade);\n    return 0;\n}"
+                                            ),
+                                            ContentBlock.Text(
+                                                "In this example, we declare two variables: `age` of type `int`, and `grade` of type `char`. We then print them using `printf`."
+                                            )
                                         ),
                                         type = LessonContentType.NON_INTERACTIVE
                                     )
                                 ),
-                                points = 20
-                            ),
+                                status = LessonStatus.LOCKED
+                            )
+                        )
+                    ),
+
+                    // Intermediate Stage
+                    Stage(
+                        id = "intermediate_stage",
+                        title = "Intermediate",
+                        lessons = listOf(
                             Lesson(
-                                id = "beginner_c3",
-                                title = "Lesson 3: Control Flow Statements",
-                                description = "Learn how to use if-else conditions, loops (for, while), and switch statements for controlling the flow of your program.",
-                                status = LessonStatus.LOCKED,
+                                id = "intermediate_c1",
+                                title = "Control Structures in C",
+                                description = "This lesson introduces control structures like if-else statements, loops (for, while), and switches.",
                                 subLessons = listOf(
                                     Lesson(
-                                        id = "beginner_c3_sub1",
-                                        title = "Sublesson 1: If-Else Statements",
-                                        description = "Learn how to make decisions using `if`, `else if`, and `else` statements.",
-                                        status = LessonStatus.LOCKED,
+                                        id = "intermediate_c1_sub1",
+                                        title = "Conditional Statements (if-else)",
+                                        description = "Learn how to use if-else statements for decision-making in programs.",
+                                        status = LessonStatus.LOCKED
                                     ),
                                     Lesson(
-                                        id = "beginner_c3_sub2",
-                                        title = "Sublesson 2: Loops in C",
-                                        description = "Understand how loops work, including `for` and `while` loops.",
-                                        status = LessonStatus.LOCKED,
+                                        id = "intermediate_c1_sub2",
+                                        title = "Loops (for, while)",
+                                        description = "Learn how to use loops for repeated execution of code.",
+                                        status = LessonStatus.LOCKED
                                     )
                                 ),
                                 lessonContents = listOf(
                                     LessonContent(
-                                        id = "content_3_1",
-                                        title = "Sublesson 1: If-Else Statements",
+                                        id = "intermediate_c1_sub1",
+                                        title = "Conditional Statements (if-else)",
                                         contentBlocks = listOf(
-                                            ContentBlock.Text("The `if` statement is used to execute a block of code based on a condition. The `else` statement is used for alternative conditions."),
-                                            ContentBlock.Image(imageRes = R.drawable.coding),
-                                            ContentBlock.Code("if (x > 10) {\n    printf(\"x is greater than 10\");\n} else {\n    printf(\"x is 10 or less\");\n}")
-                                        ),
-                                        type = LessonContentType.NON_INTERACTIVE
-                                    ),
-                                    LessonContent(
-                                        id = "content_3_2",
-                                        title = "Sublesson 2: Loops in C",
-                                        contentBlocks = listOf(
-                                            ContentBlock.Text("Loops allow you to repeat a block of code multiple times. `for` loops and `while` loops are the most common types."),
-                                            ContentBlock.Image(imageRes = R.drawable.coding),
-                                            ContentBlock.Code("for (int i = 0; i < 5; i++) {\n    printf(\"i: %d\", i);\n}\n\nwhile (x < 10) {\n    printf(\"x: %d\", x);\n    x++;\n}")
+                                            ContentBlock.Text(
+                                                "Conditional statements allow you to execute certain blocks of code depending on whether a condition is true or false."
+                                            ),
+                                            ContentBlock.Code(
+                                                "/* If-else statement example */\n#include <stdio.h>\nint main() {\n    int age = 18;\n    if (age >= 18) {\n        printf(\"You are an adult!\\n\");\n    } else {\n        printf(\"You are a minor!\\n\");\n    }\n    return 0;\n}"
+                                            ),
+                                            ContentBlock.Text(
+                                                "In the above code, we check if the `age` is greater than or equal to 18 using an `if` statement. If the condition is true, it prints 'You are an adult!'. Otherwise, it prints 'You are a minor!'."
+                                            )
                                         ),
                                         type = LessonContentType.NON_INTERACTIVE
                                     )
                                 ),
-                                points = 20
+                                status = LessonStatus.LOCKED
                             )
                         )
                     )
                 )
             )
         )
+
+//        return listOf(
+//            Course(
+//                id = "course_c_beginner",
+//                language = "C",
+//                stages = listOf(
+//                    // Beginner Stage
+//                    Stage(
+//                        id = "beginner_stage",
+//                        title = "Beginner",
+//                        lessons = listOf(
+//                            Lesson(
+//                                id = "beginner_c1",
+//                                title = "Lesson 1: Introduction to C Programming",
+//                                description = "In this lesson, we will cover the basics of C programming, including syntax, structure, and variables.",
+//                                status = LessonStatus.ACTIVE,
+//                                subLessons = listOf(
+//                                    Lesson(
+//                                        id = "beginner_c1_sub1",
+//                                        title = "Sublesson 1: Overview of C Programming",
+//                                        description = "This sublesson introduces C programming and its key features.",
+//                                        status = LessonStatus.ACTIVE
+//                                    ),
+//                                    Lesson(
+//                                        id = "beginner_c1_sub2",
+//                                        title = "Sublesson 2: Basic Syntax",
+//                                        description = "In this sublesson, we will understand the structure of a C program.",
+//                                        status = LessonStatus.LOCKED
+//                                    ),
+//                                    Lesson(
+//                                        id = "beginner_c1_sub3",
+//                                        title = "Sublesson 3: Quiz",
+//                                        description = "In this sublesson, we will understand the structure of a C program.",
+//                                        status = LessonStatus.LOCKED
+//                                    )
+//                                ),
+//                                lessonContents = listOf(
+//                                    LessonContent(
+//                                        id = "content_1_1",
+//                                        title = "Sublesson 1: Overview of C Programming",
+//                                        contentBlocks = listOf(
+//                                            ContentBlock.Text("C is a high-level, general-purpose programming language. It was developed in the early 1970s and is widely used for system programming."),
+//                                            ContentBlock.Image(imageRes = R.drawable.coding),
+//                                            ContentBlock.Code("/* Simple C program */\n#include <stdio.h>\nint main() {\n    printf(\"Hello, World!\");\n    return 0;\n}")
+//                                        ),
+//                                        type = LessonContentType.NON_INTERACTIVE
+//                                    ),
+//                                    LessonContent(
+//                                        id = "content_1_2",
+//                                        title = "Sublesson 2: Basic Syntax",
+//                                        contentBlocks = listOf(
+//                                            ContentBlock.Text("A basic C program consists of functions, declarations, and statements. The entry point for any C program is the `main` function."),
+//                                            ContentBlock.Image(imageRes = R.drawable.coding),
+//                                            ContentBlock.Code("/* Simple C syntax example */\n#include <stdio.h>\nint main() {\n    printf(\"Welcome to C programming!\");\n    return 0;\n}")
+//                                        ),
+//                                        type = LessonContentType.NON_INTERACTIVE
+//                                    ),
+//                                    LessonContent(
+//                                        id = "content_1_3",
+//                                        title = "Sublesson 3: Quiz",
+//                                        contentBlocks = listOf(
+//                                            QuizContentBlock(
+//                                                question = "What is the capital of France?",
+//                                                options = listOf("Berlin", "Paris", "Rome"),
+//                                                correctAnswer = "Paris"
+//                                            )
+//                                        ),
+//                                        type = LessonContentType.QUIZ
+//                                    )
+//                                ),
+//                                points = 20
+//                            ),
+//                            Lesson(
+//                                id = "beginner_c2",
+//                                title = "Lesson 2: Variables and Data Types",
+//                                description = "This lesson explains how to declare and use variables and various data types in C.",
+//                                status = LessonStatus.LOCKED,
+//                                subLessons = listOf(
+//                                    Lesson(
+//                                        id = "beginner_c2_sub1",
+//                                        title = "Sublesson 1: Variables in C",
+//                                        description = "Learn how to declare and initialize variables in C.",
+//                                        status = LessonStatus.LOCKED
+//                                    ),
+//                                    Lesson(
+//                                        id = "beginner_c2_sub2",
+//                                        title = "Sublesson 2: Data Types",
+//                                        description = "Understand the different types of data that can be stored in variables, such as integers, floats, and characters.",
+//                                        status = LessonStatus.LOCKED
+//                                    )
+//                                ),
+//                                lessonContents = listOf(
+//                                    LessonContent(
+//                                        id = "content_2_1",
+//                                        title = "Sublesson 1: Variables in C",
+//                                        contentBlocks = listOf(
+//                                            ContentBlock.Text("In C, a variable is a storage location identified by a name. A variable must be declared before it can be used."),
+//                                            ContentBlock.Image(imageRes = R.drawable.coding),
+//                                            ContentBlock.Code("int x = 10;\nfloat y = 5.5;\nchar c = 'A';")
+//                                        ),
+//                                        type = LessonContentType.NON_INTERACTIVE
+//                                    ),
+//                                    LessonContent(
+//                                        id = "content_2_2",
+//                                        title = "Sublesson 2: Data Types",
+//                                        contentBlocks = listOf(
+//                                            ContentBlock.Text("C supports several data types, including integer types (int), floating-point types (float), and character types (char)."),
+//                                            ContentBlock.Image(imageRes = R.drawable.coding),
+//                                            ContentBlock.Code("int x = 5;\nfloat y = 3.14;\ndouble pi = 3.14159;\nchar letter = 'A';")
+//                                        ),
+//                                        type = LessonContentType.NON_INTERACTIVE
+//                                    )
+//                                ),
+//                                points = 20
+//                            ),
+//                            Lesson(
+//                                id = "beginner_c3",
+//                                title = "Lesson 3: Control Flow Statements",
+//                                description = "Learn how to use if-else conditions, loops (for, while), and switch statements for controlling the flow of your program.",
+//                                status = LessonStatus.LOCKED,
+//                                subLessons = listOf(
+//                                    Lesson(
+//                                        id = "beginner_c3_sub1",
+//                                        title = "Sublesson 1: If-Else Statements",
+//                                        description = "Learn how to make decisions using `if`, `else if`, and `else` statements.",
+//                                        status = LessonStatus.LOCKED,
+//                                    ),
+//                                    Lesson(
+//                                        id = "beginner_c3_sub2",
+//                                        title = "Sublesson 2: Loops in C",
+//                                        description = "Understand how loops work, including `for` and `while` loops.",
+//                                        status = LessonStatus.LOCKED,
+//                                    )
+//                                ),
+//                                lessonContents = listOf(
+//                                    LessonContent(
+//                                        id = "content_3_1",
+//                                        title = "Sublesson 1: If-Else Statements",
+//                                        contentBlocks = listOf(
+//                                            ContentBlock.Text("The `if` statement is used to execute a block of code based on a condition. The `else` statement is used for alternative conditions."),
+//                                            ContentBlock.Image(imageRes = R.drawable.coding),
+//                                            ContentBlock.Code("if (x > 10) {\n    printf(\"x is greater than 10\");\n} else {\n    printf(\"x is 10 or less\");\n}")
+//                                        ),
+//                                        type = LessonContentType.NON_INTERACTIVE
+//                                    ),
+//                                    LessonContent(
+//                                        id = "content_3_2",
+//                                        title = "Sublesson 2: Loops in C",
+//                                        contentBlocks = listOf(
+//                                            ContentBlock.Text("Loops allow you to repeat a block of code multiple times. `for` loops and `while` loops are the most common types."),
+//                                            ContentBlock.Image(imageRes = R.drawable.coding),
+//                                            ContentBlock.Code("for (int i = 0; i < 5; i++) {\n    printf(\"i: %d\", i);\n}\n\nwhile (x < 10) {\n    printf(\"x: %d\", x);\n    x++;\n}")
+//                                        ),
+//                                        type = LessonContentType.NON_INTERACTIVE
+//                                    )
+//                                ),
+//                                points = 20
+//                            )
+//                        )
+//                    )
+//                )
+//            )
+//        )
     }
 
 }

@@ -49,6 +49,8 @@ import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.RadioButton
+import androidx.compose.material3.RadioButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
@@ -100,7 +102,6 @@ fun LessonContentScreen(
 ) {
 
 
-
     val context = LocalContext.current
     val window = context.findActivity().window
 
@@ -146,22 +147,23 @@ fun LessonContentScreen(
 
     val selectedCourse by courseViewModel.selectedCourse.collectAsState()
     val selectedStage by courseViewModel.selectedStage.collectAsState()
-   // val selectedSubLessonIndex by courseViewModel.selectedSubLessonIndex.collectAsState()
+    // val selectedSubLessonIndex by courseViewModel.selectedSubLessonIndex.collectAsState()
 
     // Check if the lesson points are assigned and if points are already collected
     val points by courseViewModel.points.collectAsState()
     val isPointsAssigned = selectedLesson?.points != 0 // Check if points are assigned
-    val isPointsCollected = points[selectedLesson?.id] != null || !isPointsAssigned // If points are assigned and already collected, or if no points are assigned, consider them collected
+    val isPointsCollected =
+        points[selectedLesson?.id] != null || !isPointsAssigned // If points are assigned and already collected, or if no points are assigned, consider them collected
     val showPointsDialog = remember { mutableStateOf(false) } // To control dialog visibility
 
-    Log.d("pointsforlesson",points[selectedLesson?.id].toString())
+    Log.d("pointsforlesson", points[selectedLesson?.id].toString())
 
     // State for dialog visibility
     var showDialog by remember { mutableStateOf(false) }
     val languageName = selectedCourse?.language ?: ""
     val stageName = selectedStage?.title ?: ""
     val lessonNumber = selectedLesson?.id?.takeLast(1)?.toIntOrNull() ?: 0
-    val subLessonNumber =  (pagerState.currentPage + 1).toFloat()
+    val subLessonNumber = (pagerState.currentPage + 1).toFloat()
 //    var title by remember { mutableStateOf("") }
 //    var description by remember { mutableStateOf("") }
 
@@ -359,9 +361,9 @@ fun LessonContentScreen(
                             coroutineScope = coroutineScope,
                             lessons = lessons,
                             onFinish = {
-                                if(!isPointsCollected){
+                                if (!isPointsCollected) {
                                     showPointsDialog.value = true
-                                }else{
+                                } else {
                                     navController.popBackStack()
                                 }
 
@@ -395,7 +397,9 @@ fun LessonContentScreen(
             // Dialog with Lottie Animation
             androidx.compose.material.AlertDialog(
                 backgroundColor = Color.Transparent,
-                onDismissRequest = { showPointsDialog.value = false }, // Dismiss when tapped outside
+                onDismissRequest = {
+                    showPointsDialog.value = false
+                }, // Dismiss when tapped outside
                 buttons = {
                     // Button for dismissing the dialog (e.g., to simulate collection completion)
                     Button(
@@ -575,7 +579,6 @@ fun AddSubLessonNoteDialog(
 }
 
 
-
 @Composable
 fun LessonContentView(
     lessonContent: LessonContent,
@@ -590,12 +593,20 @@ fun LessonContentView(
     //Feedback for Interactive answer
     val isAnswerGiven = remember { mutableStateOf(false) }
     val isInteractiveTypeLesson =
-        remember { mutableStateOf(lessonContent.type == LessonContentType.INTERACTIVE) }
+        remember {
+            mutableStateOf(
+                lessonContent.type == LessonContentType.INTERACTIVE || lessonContent.type == LessonContentType.QUIZ
+            )
+        }
     val answerFeedbackText = remember { mutableStateOf("") }
 
-    LaunchedEffect(lessonContent.type == LessonContentType.INTERACTIVE) {
+    LaunchedEffect(
+        lessonContent.type == LessonContentType.INTERACTIVE,
+        lessonContent.type == LessonContentType.QUIZ
+    ) {
         Log.d("contentType", lessonContent.type.toString())
-        isInteractiveTypeLesson.value = lessonContent.type == LessonContentType.INTERACTIVE
+        isInteractiveTypeLesson.value =
+            lessonContent.type == LessonContentType.INTERACTIVE || lessonContent.type == LessonContentType.QUIZ
     }
 
     Column(
@@ -716,6 +727,14 @@ fun LessonContentView(
                         answerFeedbackText = answerFeedbackText,
 
                         )
+                }
+
+                is ContentBlock.QuizContentBlock -> {
+                    QuizContentBlock(
+                        contentBlock = contentBlock,
+                        isAnswerGiven = isAnswerGiven,
+                        answerFeedbackText = answerFeedbackText
+                    )
                 }
             }
         }
@@ -953,6 +972,92 @@ fun InteractiveCodeBlockView(
         }
     }
 }
+
+@Composable
+fun QuizContentBlock(
+    contentBlock: ContentBlock.QuizContentBlock,
+    isAnswerGiven: MutableState<Boolean>,
+    answerFeedbackText: MutableState<String>,
+) {
+    // Track the selected answer and feedback state
+    var userAnswer by remember { mutableStateOf("") }
+    var isAnswerCorrect by remember { mutableStateOf(false) }
+    var feedback by remember { mutableStateOf("") }
+//    var isAnswerGiven by remember { mutableStateOf(false) }
+
+    // Function to handle when an option is selected
+    fun onOptionSelected(option: String) {
+        userAnswer = option
+        isAnswerGiven.value = false // Reset feedback until confirmed
+        feedback = "" // Clear previous feedback
+    }
+
+    Column(
+        modifier = Modifier.fillMaxWidth(),
+        verticalArrangement = Arrangement.spacedBy(10.dp)
+    ) {
+        // Question Text
+        Text(
+            text = contentBlock.question,
+            style = TextStyle(fontSize = 16.sp, color = Color.White),
+            lineHeight = 24.sp
+        )
+
+        // Radio Button Options
+        contentBlock.options.forEach { option ->
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                RadioButton(
+                    selected = userAnswer == option,
+                    onClick = { onOptionSelected(option) },
+                    colors = RadioButtonDefaults.colors(selectedColor = Color(0xFF66116E))
+                )
+                Text(
+                    text = option,
+                    style = TextStyle(fontSize = 14.sp, color = Color.White)
+                )
+            }
+        }
+
+        // Submit Button
+        Spacer(Modifier.height(16.dp))
+
+        Button(
+            onClick = {
+                if (userAnswer.isNotEmpty()) {
+                    isAnswerCorrect = userAnswer == contentBlock.correctAnswer
+                    feedback = if (isAnswerCorrect) "Correct!" else "Incorrect. Try again!"
+                    answerFeedbackText.value = if (isAnswerCorrect) "T" else "F"
+                    isAnswerGiven.value = true
+                }
+            },
+            enabled = userAnswer.isNotEmpty(),
+            shape = RoundedCornerShape(8.dp),
+            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF66116E)),
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text(
+                text = "Submit Answer",
+                style = TextStyle(fontSize = 14.sp, color = Color.White)
+            )
+        }
+
+        // Feedback Text
+        if (isAnswerGiven.value) {
+            Text(
+                text = feedback,
+                style = TextStyle(
+                    fontSize = 18.sp,
+                    color = if (isAnswerCorrect) Color.Green else Color.Red
+                ),
+                modifier = Modifier.padding(top = 16.dp)
+            )
+        }
+    }
+}
+
 
 // Helper Function to Determine Button State
 fun shouldEnableContinueButton(
