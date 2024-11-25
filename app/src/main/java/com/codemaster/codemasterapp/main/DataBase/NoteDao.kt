@@ -10,46 +10,59 @@ import com.codemaster.codemasterapp.main.data.NoteSubLesson
 
 
 @Dao
-interface LanguageDao {
+interface NoteLanguageDao {
     @Insert
-    suspend fun insert(NoteLanguage: NoteLanguage): Long
+    suspend fun insert(noteLanguage: NoteLanguage): Long
 
-    @Query("SELECT * FROM NoteLanguage WHERE name = :name LIMIT 1")
-    suspend fun getLanguageByName(name: String): NoteLanguage?
+    @Query("SELECT * FROM NoteLanguage WHERE languageName = :languageName")
+    suspend fun getLanguageByName(languageName: String): NoteLanguage?
 
     @Query("SELECT * FROM NoteLanguage")
-    suspend fun getAllLanguages(): List<NoteLanguage> // New query
+    suspend fun getAllLanguages(): List<NoteLanguage>
 }
 
+
+
 @Dao
-interface StageDao {
+interface NoteStageDao {
     @Insert
     suspend fun insert(noteStage: NoteStage): Long
 
-    @Query("SELECT * FROM NoteStage WHERE languageId = :languageId AND name = :name LIMIT 1")
-    suspend fun getStageByName(languageId: Long, name: String): NoteStage?
+    @Query("SELECT * FROM NoteStage WHERE languageId = :languageId AND stageName = :stageName")
+    suspend fun getStageByName(languageId: Long, stageName: String): NoteStage?
 
     @Query("SELECT * FROM NoteStage WHERE languageId = :languageId")
-    suspend fun getStagesByLanguageId(languageId: Long): List<NoteStage> // New query
+    suspend fun getStagesByLanguageId(languageId: Long): List<NoteStage>
 }
 
+
+
 @Dao
-interface LessonDao {
+interface NoteLessonDao {
     @Insert
     suspend fun insert(noteLesson: NoteLesson): Long
 
-    @Query("SELECT * FROM NoteLesson WHERE stageId = :stageId AND lessonNumber = :number LIMIT 1")
-    suspend fun getLessonByNumber(stageId: Long, number: Int): NoteLesson?
+    @Query("SELECT * FROM NoteLesson WHERE stageId = :stageId AND lessonNumber = :lessonNumber")
+    suspend fun getLessonByNumber(stageId: Long, lessonNumber: Int): NoteLesson?
 
     @Query("SELECT * FROM NoteLesson WHERE stageId = :stageId")
-    suspend fun getLessonsByStageId(stageId: Long): List<NoteLesson> // New query
+    suspend fun getLessonsByStageId(stageId: Long): List<NoteLesson>
 }
 
+
 @Dao
-interface SubLessonDao {
+interface NoteSubLessonDao {
+    @Insert
+    suspend fun insert(noteSubLesson: NoteSubLesson): Long
+
+    @Update
+    suspend fun update(noteSubLesson: NoteSubLesson)
+
     @Query("SELECT * FROM NoteSubLesson WHERE lessonId = :lessonId")
     suspend fun getSubLessonsByLessonId(lessonId: Long): List<NoteSubLesson>
 
-    @Insert
-    suspend fun insert(noteSubLesson: NoteSubLesson): Long
+    @Query("SELECT * FROM NoteSubLesson WHERE lessonId = :lessonId AND subLessonNumber = :subLessonNumber")
+    suspend fun getSubLessonByNumber(lessonId: Long, subLessonNumber: Float): NoteSubLesson?
 }
+
+

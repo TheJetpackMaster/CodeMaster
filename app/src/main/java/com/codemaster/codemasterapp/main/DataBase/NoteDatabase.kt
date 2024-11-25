@@ -19,10 +19,10 @@ import org.intellij.lang.annotations.Language
 )
 abstract class NoteDatabase : RoomDatabase() {
 
-    abstract fun languageDao(): LanguageDao
-    abstract fun stageDao(): StageDao
-    abstract fun lessonDao(): LessonDao
-    abstract fun subLessonDao(): SubLessonDao
+    abstract fun noteLanguageDao(): NoteLanguageDao
+    abstract fun noteStageDao(): NoteStageDao
+    abstract fun noteLessonDao(): NoteLessonDao
+    abstract fun noteSubLessonDao(): NoteSubLessonDao
 
     companion object {
         @Volatile

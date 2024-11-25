@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import com.codemaster.codemasterapp.R
-import com.codemaster.codemasterapp.main.DataBase.NoteRepository
 import com.codemaster.codemasterapp.main.data.ContentBlock
 import com.codemaster.codemasterapp.main.data.ContentBlock.QuizContentBlock
 import com.codemaster.codemasterapp.main.data.Course
@@ -35,12 +34,14 @@ class CourseViewModel @Inject constructor(
     private val _selectedStage = MutableStateFlow<Stage?>(null)
     private val _selectedLesson = MutableStateFlow<Lesson?>(null)
     private val _selectedSubLessonIndex = MutableStateFlow<Int>(0)
+    private val _selectedLessonIndex  = MutableStateFlow<Int>(0)
 
     // Exposed state for UI binding
     val selectedCourse: StateFlow<Course?> get() = _selectedCourse
     val selectedStage: StateFlow<Stage?> get() = _selectedStage
     val selectedLesson: StateFlow<Lesson?> get() = _selectedLesson
     val selectedSubLessonIndex: StateFlow<Int> get() = _selectedSubLessonIndex
+    val selectedLessonIndex: StateFlow<Int> get() = _selectedLessonIndex
 
     // Map to track lesson and sub-lesson completion status
     private val _lessonCompletionStatus = MutableStateFlow<Map<String, LessonStatus>>(emptyMap())
@@ -65,6 +66,9 @@ class CourseViewModel @Inject constructor(
 
     fun selectSubLessonIndex(index: Int) {
         _selectedSubLessonIndex.value = index
+    }
+    fun selectLessonIndex(index: Int) {
+        _selectedLessonIndex.value = index
     }
 
 

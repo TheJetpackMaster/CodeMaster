@@ -136,6 +136,7 @@ fun LessonContentScreen(
 
     //SelectedSubLesson
     val selectedSubLesson by courseViewModel.selectedSubLessonIndex.collectAsState()
+    val selectedLessonIndex by courseViewModel.selectedLessonIndex.collectAsState()
 
     // Collect lesson content and pager state from ViewModel
     val selectedLesson by courseViewModel.selectedLesson.collectAsState()
@@ -158,14 +159,43 @@ fun LessonContentScreen(
 
     Log.d("pointsforlesson", points[selectedLesson?.id].toString())
 
-    // State for dialog visibility
+// State for dialog visibility
     var showDialog by remember { mutableStateOf(false) }
+
+// Mutable states for title and description
+    var title by remember { mutableStateOf("") }
+    var description by remember { mutableStateOf("") }
+
+// Other properties for identifying the sub-lesson
     val languageName = selectedCourse?.language ?: ""
     val stageName = selectedStage?.title ?: ""
-    val lessonNumber = selectedLesson?.id?.takeLast(1)?.toIntOrNull() ?: 0
-    val subLessonNumber = (pagerState.currentPage + 1).toFloat()
-//    var title by remember { mutableStateOf("") }
-//    var description by remember { mutableStateOf("") }
+    val lessonNumber = selectedLessonIndex + 1
+    val subLessonNumberCalculated = (pagerState.currentPage + 1).toFloat()
+    val combinedLesson: Float = lessonNumber + subLessonNumberCalculated / 10f
+
+// Loading state
+    var isLoading by remember { mutableStateOf(true) }
+
+// Fetch and update UI when lesson changes
+    LaunchedEffect(lessonNumber, combinedLesson) {
+        isLoading = true // Start loading
+
+        // Fetch the note asynchronously
+        noteViewModel.getSubLessonByNames(
+            languageName = languageName,
+            stageName = stageName,
+            lessonNumber = lessonNumber,
+            subLessonNumber = combinedLesson
+        ) { subLesson ->
+            subLesson?.let {
+                // Update title and description if the sub-lesson is found
+                title = it.title
+                description = it.description
+                Log.d("UI", "Title: ${it.title}, Description: ${it.description}")
+            }
+            isLoading = false // Done loading
+        }
+    }
 
 
     Log.d("selectedSub", selectedSubLesson.toString())
@@ -387,7 +417,9 @@ fun LessonContentScreen(
             languageName = languageName,
             stageName = stageName,
             lessonNumber = lessonNumber,
-            subLessonNumber = subLessonNumber
+            subLessonNumber = combinedLesson,
+            Title = title,
+            Description = description
         )
 
         // Show the Lottie dialog when collecting points
@@ -492,8 +524,14 @@ fun AddSubLessonNoteDialog(
     languageName: String,
     stageName: String,
     lessonNumber: Int,
-    subLessonNumber: Float
+    subLessonNumber: Float,
+    Title: String,
+    Description: String,
 ) {
+    // State for title and description, initialized with provided values when the dialog is shown
+    var title by remember(showDialog) { mutableStateOf(Title) }
+    var description by remember(showDialog) { mutableStateOf(Description) }
+
     if (showDialog) {
         AlertDialog(
             onDismissRequest = onDismiss,
@@ -501,11 +539,7 @@ fun AddSubLessonNoteDialog(
                 Text(text = "Add Sub-Lesson Note")
             },
             text = {
-                var title by remember { mutableStateOf("") }
-                var description by remember { mutableStateOf("") }
-
                 Column {
-                    // Display pre-filled text fields
                     TextField(
                         value = languageName,
                         onValueChange = { /* Do nothing, value comes from parameter */ },
@@ -538,13 +572,15 @@ fun AddSubLessonNoteDialog(
                     Spacer(modifier = Modifier.height(8.dp))
                     TextField(
                         value = title,
-                        onValueChange = { title = it },
+                        onValueChange = { title = it }, // Allow user to update the title
                         label = { Text("Title") }
                     )
                     Spacer(modifier = Modifier.height(8.dp))
                     TextField(
                         value = description,
-                        onValueChange = { description = it },
+                        onValueChange = {
+                            description = it
+                        }, // Allow user to update the description
                         label = { Text("Description") }
                     )
                 }
@@ -552,19 +588,19 @@ fun AddSubLessonNoteDialog(
             confirmButton = {
                 Button(
                     onClick = {
-                        // Add the note via the ViewModel
-                        /*noteViewModel.addSubLessonNote(
+                        // Add or update the note via the ViewModel
+                        noteViewModel.addOrUpdateSubLesson(
                             languageName = languageName,
                             stageName = stageName,
                             lessonNumber = lessonNumber,
                             subLessonNumber = subLessonNumber,
                             title = title,
                             description = description
-                        )*/
+                        )
                         onDismiss() // Close the dialog
                     }
                 ) {
-                    Text("Add Note")
+                    Text("Save Note")
                 }
             },
             dismissButton = {

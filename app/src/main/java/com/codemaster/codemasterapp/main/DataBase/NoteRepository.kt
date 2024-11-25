@@ -1,6 +1,7 @@
 package com.codemaster.codemasterapp.main.DataBase
 
 
+import android.util.Log
 import com.codemaster.codemasterapp.main.data.Lesson
 import com.codemaster.codemasterapp.main.data.NoteLanguage
 import com.codemaster.codemasterapp.main.data.NoteLesson
@@ -9,35 +10,128 @@ import com.codemaster.codemasterapp.main.data.NoteSubLesson
 import com.codemaster.codemasterapp.main.data.Stage
 
 class NoteRepository(
-    private val languageDao: LanguageDao,
-    private val stageDao: StageDao,
-    private val lessonDao: LessonDao,
-    private val subLessonDao: SubLessonDao
+    private val noteLanguageDao: NoteLanguageDao,
+    private val noteStageDao: NoteStageDao,
+    private val noteLessonDao: NoteLessonDao,
+    private val noteSubLessonDao: NoteSubLessonDao
 ) {
-    // Language operations
-    suspend fun getLanguageByName(name: String): NoteLanguage? = languageDao.getLanguageByName(name)
-    suspend fun insertLanguage(noteLanguage: NoteLanguage): Long = languageDao.insert(noteLanguage)
 
-    // Stage operations
-    suspend fun getStageByName(languageId: Long, name: String): NoteStage? = stageDao.getStageByName(languageId, name)
-    suspend fun insertStage(noteStage: NoteStage): Long = stageDao.insert(noteStage)
+    // Get or insert language by name
+    suspend fun getOrInsertLanguage(languageName: String): Long {
+        val language = noteLanguageDao.getLanguageByName(languageName)
+        return if (language != null) {
+            language.id
+        } else {
+            insertLanguage(NoteLanguage(languageName = languageName))
+        }
+    }
 
-    // Lesson operations
-    suspend fun getLessonByNumber(stageId: Long, number: Int): NoteLesson? = lessonDao.getLessonByNumber(stageId, number)
-    suspend fun insertLesson(noteLesson: NoteLesson): Long = lessonDao.insert(noteLesson)
+    // Get or insert stage by name
+    suspend fun getOrInsertStage(languageName: String, stageName: String): Long {
+        val languageId = getOrInsertLanguage(languageName)
+        val stage = noteStageDao.getStageByName(languageId, stageName)
+        return if (stage != null) {
+            stage.id
+        } else {
+            insertStage(NoteStage(languageId = languageId, stageName = stageName))
+        }
+    }
 
-    // SubLesson operations
-    suspend fun insertSubLesson(noteSubLesson: NoteSubLesson): Long = subLessonDao.insert(noteSubLesson)
+    // Get or insert lesson by number
+    suspend fun getOrInsertLesson(languageName: String, stageName: String, lessonNumber: Int): Long {
+        val stageId = getOrInsertStage(languageName, stageName)
+        val lesson = noteLessonDao.getLessonByNumber(stageId, lessonNumber)
+        return if (lesson != null) {
+            lesson.id
+        } else {
+            insertLesson(NoteLesson(stageId = stageId, lessonNumber = lessonNumber))
+        }
+    }
 
-    // Get notes (SubLessons) based on language, stage, lesson, and subLessonNumber
-    suspend fun getNotes(languageName: String, stageName: String, lessonNumber: Int, subLessonNumber: Float): List<NoteSubLesson> {
-        val language = languageDao.getLanguageByName(languageName)
-        val stage = language?.let { stageDao.getStageByName(it.id, stageName) }
-        val lesson = stage?.let { lessonDao.getLessonByNumber(it.id, lessonNumber) }
+    // Get or insert sub-lesson by number
+    /*suspend fun getOrInsertSubLesson(languageName: String, stageName: String, lessonNumber: Int, subLessonNumber: Float, title: String, description: String): Long {
+        val lessonId = getOrInsertLesson(languageName, stageName, lessonNumber)
+        val subLesson = noteSubLessonDao.getSubLessonByNumber(lessonId, subLessonNumber)
+        return if (subLesson != null) {
+            subLesson.id
+        } else {
+            insertSubLesson(NoteSubLesson(lessonId = lessonId, subLessonNumber = subLessonNumber, title = title, description = description))
+        }
+    }*/
 
-        return lesson?.let {
-            subLessonDao.getSubLessonsByLessonId(it.id)
-                .filter { it.subLessonNumber == subLessonNumber }
-        } ?: emptyList()
+    suspend fun getOrInsertSubLesson(
+        languageName: String,
+        stageName: String,
+        lessonNumber: Int,
+        subLessonNumber: Float,
+        title: String,
+        description: String
+    ): Long {
+        val lessonId = getOrInsertLesson(languageName, stageName, lessonNumber)
+        val existingSubLesson = noteSubLessonDao.getSubLessonByNumber(lessonId, subLessonNumber)
+
+        return if (existingSubLesson != null) {
+            // Update the existing sub-lesson with new details
+            val updatedSubLesson = existingSubLesson.copy(
+                title = title,
+                description = description
+            )
+            noteSubLessonDao.update(updatedSubLesson) // Perform the update
+            existingSubLesson.id // Return the ID of the updated sub-lesson
+        } else {
+            // Insert a new sub-lesson
+            insertSubLesson(
+                NoteSubLesson(
+                    lessonId = lessonId,
+                    subLessonNumber = subLessonNumber,
+                    title = title,
+                    description = description
+                )
+            )
+        }
+    }
+
+
+    suspend fun getSubLessonByNames(
+        languageName: String,
+        stageName: String,
+        lessonNumber: Int,
+        subLessonNumber: Float
+    ): NoteSubLesson? {
+        // Step 1: Fetch the language ID by name
+        val language = noteLanguageDao.getLanguageByName(languageName)
+            ?: return null // Return null if the language does not exist
+
+        // Step 2: Fetch the stage ID by name
+        val stage = noteStageDao.getStageByName(language.id, stageName)
+            ?: return null // Return null if the stage does not exist
+
+        // Step 3: Fetch the lesson ID by number
+        val lesson = noteLessonDao.getLessonByNumber(stage.id, lessonNumber)
+            ?: return null // Return null if the lesson does not exist
+
+        // Step 4: Fetch the sub-lesson by number
+        return noteSubLessonDao.getSubLessonByNumber(lesson.id, subLessonNumber)
+    }
+
+
+    // Insert language
+    suspend fun insertLanguage(language: NoteLanguage): Long {
+        return noteLanguageDao.insert(language)
+    }
+
+    // Insert stage
+    suspend fun insertStage(stage: NoteStage): Long {
+        return noteStageDao.insert(stage)
+    }
+
+    // Insert lesson
+    suspend fun insertLesson(lesson: NoteLesson): Long {
+        return noteLessonDao.insert(lesson)
+    }
+
+    // Insert sub-lesson
+    suspend fun insertSubLesson(subLesson: NoteSubLesson): Long {
+        return noteSubLessonDao.insert(subLesson)
     }
 }
