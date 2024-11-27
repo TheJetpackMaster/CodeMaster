@@ -18,6 +18,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.gestures.detectHorizontalDragGestures
 import androidx.compose.foundation.gestures.detectTapGestures
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -70,9 +71,13 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -691,61 +696,114 @@ fun LessonContentView(
                 }
 
                 is ContentBlock.Code -> {
-                    // Split the code into individual lines
-                    val codeLines = contentBlock.code.split("\n")
 
-                    Box(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .background(Color.Black, shape = RoundedCornerShape(8.dp))
-                            .padding(16.dp)
-                    ) {
-                        Row(
-                            modifier = Modifier
-                                .fillMaxWidth(),
-                            verticalAlignment = Alignment.Top
-                        ) {
-                            // Column for Line Numbers
-                            Column(
-                                modifier = Modifier
-                                    .padding(end = 8.dp)
-                                    .fillMaxHeight(),
-                                horizontalAlignment = Alignment.CenterHorizontally
-                            ) {
-                                // Render each line number
-                                codeLines.forEachIndexed { index, _ ->
-                                    Text(
-                                        text = "${index + 1}",
-                                        style = TextStyle(fontSize = 16.sp, color = Color.Gray)
-                                    )
-                                    Spacer(modifier = Modifier.height(4.dp)) // Ensure spacing between numbers
-                                }
-                            }
-
-                            // Full Vertical Divider between line numbers and code
-                            Box(
-                                modifier = Modifier
-                                    .width(12.dp) // Adjust width of the divider
-                                    .fillMaxHeight() // Ensure divider fills the height of the Row
-
-                            )
-
-                            // Column for Code
-                            Column(
-                                modifier = Modifier
-                                    .weight(1f)
-                                    .fillMaxHeight()
-                            ) {
-                                // Render each line of code
-                                codeLines.forEach { line ->
-                                    Text(
-                                        text = line,
-                                        style = TextStyle(fontSize = 16.sp, color = Color.Green)
-                                    )
-                                }
-                            }
-                        }
-                    }
+                    CodeBlockWithScrolling(contentBlock.code)
+//
+//                    val keywords = listOf("int", "return", "printf", "endl", "void", "if", "else", "while", "for", "#include", "#define")
+//                    val braces = listOf("{", "}", "(", ")", "[", "]")
+//
+//                    val codeLines = contentBlock.code.split("\n")
+//
+//                    Box(
+//                        modifier = Modifier
+//                            .fillMaxWidth()
+//                            .background(Color.Black, shape = RoundedCornerShape(8.dp))
+//                            .padding(16.dp)
+//                    ) {
+//                        Row(
+//                            modifier = Modifier.fillMaxWidth(),
+//                            verticalAlignment = Alignment.Top
+//                        ) {
+//                            // Column for Line Numbers
+//                            Column(
+//                                modifier = Modifier
+//                                    .padding(end = 8.dp)
+//                                    .fillMaxHeight(),
+//                                horizontalAlignment = Alignment.CenterHorizontally
+//                            ) {
+//                                codeLines.forEachIndexed { index, _ ->
+//                                    Text(
+//                                        text = "${index + 1}",
+//                                        style = TextStyle(fontSize = 16.sp, color = Color.Gray)
+//                                    )
+//                                    Spacer(modifier = Modifier.height(4.dp)) // Ensure spacing between numbers
+//                                }
+//                            }
+//
+//                            // Divider
+//                            Box(
+//                                modifier = Modifier
+//                                    .width(12.dp)
+//                                    .fillMaxHeight()
+//                            )
+//
+//                            // Column for Code
+//                            Column(
+//                                modifier = Modifier
+//                                    .weight(1f)
+//                                    .fillMaxHeight()
+//                            ) {
+//                                codeLines.forEach { line ->
+//                                    Text(
+//                                        text = buildAnnotatedString {
+//                                            var tempLine = line // A temporary line to handle cases like `printf(`
+//
+//                                            // Handle cases where keywords are adjacent to parentheses like `printf(`
+//                                            keywords.forEach { keyword ->
+//                                                if (tempLine.contains("$keyword(")) {
+//                                                    tempLine = tempLine.replace("$keyword(", "$keyword (") // Adding space between keyword and parentheses
+//                                                }
+//                                            }
+//
+//                                            // Updated regex to handle keywords with # and other symbols like . (period) and _ (underscore)
+//                                            val regex = Regex("([#a-zA-Z_][a-zA-Z0-9_]*|\"[^\"]*\")|([0-9])|([(){}\\[\\]><])|(\\.)|(\\s+)")
+//                                            val matches = regex.findAll(tempLine)
+//
+//                                            var previousWasSpace = false // To track if the previous token was space
+//
+//                                            // Process each match
+//                                            matches.forEach { matchResult ->
+//                                                val word = matchResult.value
+//                                                when {
+//                                                    word in keywords -> {
+//                                                        if (previousWasSpace) append(" ")
+//                                                        withStyle(
+//                                                            style = SpanStyle(color = Color(0xFF49D9C8)) // Keyword color for all keywords including #include
+//                                                        ) { append(word) }
+//                                                        previousWasSpace = false
+//                                                    }
+//                                                    word in braces -> {
+//                                                        if (previousWasSpace) append(" ")
+//                                                        withStyle(
+//                                                            style = SpanStyle(color = Color(0XFFFFFFFF)) // Braces color
+//                                                        ) { append(word) }
+//                                                        previousWasSpace = false
+//                                                    }
+//                                                    word.startsWith("\"") && word.endsWith("\"") -> {
+//                                                        if (previousWasSpace) append(" ")
+//                                                        withStyle(
+//                                                            style = SpanStyle(color = Color.Red) // String literal color
+//                                                        ) { append(word) }
+//                                                        previousWasSpace = false
+//                                                    }
+//                                                    word.isNotBlank() -> {
+//                                                        if (previousWasSpace) append(" ") // Ensure space between words
+//                                                        append(word) // Default text color
+//                                                        previousWasSpace = false
+//                                                    }
+//                                                    else -> {
+//                                                        // Handle spaces carefully
+//                                                        previousWasSpace = true
+//                                                    }
+//                                                }
+//                                            }
+//                                        },
+//                                        style = TextStyle(fontSize = 16.sp, color = Color.White) // Font size for code text
+//                                    )
+//                                }
+//                            }
+//                        }
+//                    }
                 }
 
 
@@ -821,6 +879,275 @@ fun LessonContentView(
         }
     }
 }
+
+@Composable
+fun CodeBlockWithScrolling(contentBlock: String) {
+    val keywords = listOf("int", "return", "printf", "endl", "void", "if", "else", "while", "for", "#include", "#define")
+    val braces = listOf("{", "}", "(", ")", "[", "]")
+    val codeLines = contentBlock.split("\n")
+
+    // Create a scroll state for tracking scroll position
+    val scrollState = rememberScrollState()
+
+    // Define a fixed height for the code block container
+    val containerHeight = 200.dp
+    val scrollIndicatorHeight = 30.dp  // Fixed height for the scroll indicator line
+
+    // Get the LocalDensity to convert Dp to pixels
+    val density = LocalDensity.current.density
+
+    // Convert Dp to pixels for height calculations
+    val containerHeightPx = with(LocalDensity.current) { containerHeight.toPx() }
+    val scrollIndicatorHeightPx = with(LocalDensity.current) { scrollIndicatorHeight.toPx() }
+
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .heightIn(max = containerHeight) // Limit the height of the code block container
+            .background(Color.Black, shape = RoundedCornerShape(8.dp)) // Background color of the code block
+    ) {
+        // Code content with scrolling
+        Column(
+            modifier = Modifier
+                .fillMaxHeight()
+                .padding(horizontal = 12.dp)
+                .verticalScroll(scrollState) // Make the code block scrollable
+        ) {
+            Spacer(Modifier.height(12.dp))
+
+            // Loop through each line of code
+            codeLines.forEachIndexed { index, line ->
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = 2.dp)
+                ) {
+                    // Column for Line Numbers
+                    Column(
+                        modifier = Modifier
+                            .padding(end = 8.dp),
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        Text(
+                            text = "${index + 1}",
+                            style = TextStyle(fontSize = 16.sp, color = Color.Gray)
+                        )
+                    }
+
+                    // Column for Code content
+                    Column(
+                        modifier = Modifier.weight(1f)
+                    ) {
+                        // Display code with styled syntax
+                        Text(
+                            text = buildAnnotatedString {
+                                var tempLine = line // A temporary line to handle cases like `printf(`
+
+                                // Updated regex to handle spaces and syntax components more precisely
+                                val regex = Regex(
+                                    "([#a-zA-Z_][a-zA-Z0-9_]*|\"[^\"]*\")|" +      // Keywords, identifiers, strings
+                                            "([0-9]+(?:\\.[0-9]+)?)|" +                     // Numbers (integer and floating point)
+                                            "([+\\-*/%=<>!&|^,;:._?])|" +                   // Operators and punctuation
+                                            "([(){}\\[\\]])|"                                // Parentheses, braces, and brackets
+                                )
+
+                                val matches = regex.findAll(tempLine)
+
+                                // Process each match
+                                matches.forEach { matchResult ->
+                                    val word = matchResult.value
+                                    when {
+                                        word in keywords -> {
+                                            withStyle(
+                                                style = SpanStyle(color = Color(0xFF49D9C8)) // Keyword color
+                                            ) { append(word) }
+                                        }
+                                        word in braces -> {
+                                            withStyle(
+                                                style = SpanStyle(color = Color(0XFFFFFFFF)) // Braces color
+                                            ) { append(word) }
+                                        }
+                                        word.startsWith("\"") && word.endsWith("\"") -> {
+                                            // Ensure strings inside parentheses or anywhere else are colored red
+                                            withStyle(
+                                                style = SpanStyle(color = Color.Red) // String literal color
+                                            ) { append(word) }
+                                        }
+                                        word.isNotBlank() -> {
+                                            append(word) // Default text color for regular tokens
+                                        }
+                                        else -> {
+                                            append(" ") // Preserve spaces exactly as they are
+                                        }
+                                    }
+                                }
+                            },
+                            style = TextStyle(fontSize = 16.sp, color = Color.White) // Font size for code text
+                        )
+                    }
+                }
+            }
+
+            Spacer(Modifier.height(12.dp))
+        }
+
+        // Scroll Indicator
+        Box(
+            modifier = Modifier
+                .align(Alignment.CenterEnd)
+                .fillMaxHeight()
+                .width(4.dp)
+                .background(Color.Gray.copy(alpha = 0.5f), shape = RoundedCornerShape(topEnd = 124.dp, bottomEnd = 124.dp)) // Background for the scroll indicator
+
+        ) {
+            // Scroll indicator height calculation
+            val scrollPercentage = scrollState.value.toFloat() / scrollState.maxValue.toFloat()
+            val scrollIndicatorHeight = (containerHeight.value * scrollPercentage).coerceIn(0f, containerHeight.value)
+
+            Box(
+                modifier = Modifier
+                    .align(Alignment.TopStart)
+                    .fillMaxWidth()
+                    .height(if(scrollIndicatorHeight.dp > 5.dp) scrollIndicatorHeight.dp else 5.dp) // Use Dp value directly for height
+                    .background(Color.White,shape = RoundedCornerShape(topEnd = 124.dp, bottomEnd = 124.dp)) // Scroll indicator color
+
+            )
+        }
+    }
+}
+
+//@Composable
+//fun CodeBlockWithScrolling(contentBlock: String) {
+//    val keywords = listOf("int", "return", "printf", "endl", "void", "if", "else", "while", "for", "#include", "#define")
+//    val braces = listOf("{", "}", "(", ")", "[", "]")
+//    val codeLines = contentBlock.split("\n")
+//
+//    // Create a scroll state for tracking scroll position
+//    val scrollState = rememberScrollState()
+//
+//    // Define a fixed height for the code block container
+//    val containerHeight = 50.dp
+//
+//    // Get the current Density for converting Dp to Pixels
+//    val density = LocalDensity.current.density
+//
+//    Column(
+//        modifier = Modifier
+//            .fillMaxWidth()
+//            .background(Color.Black, shape = RoundedCornerShape(8.dp))
+//            .padding(horizontal = 12.dp)
+//            .heightIn(max = containerHeight)
+//            .verticalScroll(scrollState) // Make the code block scrollable
+//    ) {
+//        Spacer(Modifier.height(12.dp))
+//
+//        // Loop through each line of code
+//        codeLines.forEachIndexed { index, line ->
+//            Row(
+//                modifier = Modifier
+//                    .fillMaxWidth()
+//                    .padding(vertical = 2.dp)
+//            ) {
+//                // Column for Line Numbers
+//                Column(
+//                    modifier = Modifier
+//                        .padding(end = 8.dp),
+//                    horizontalAlignment = Alignment.CenterHorizontally
+//                ) {
+//                    Text(
+//                        text = "${index + 1}",
+//                        style = TextStyle(fontSize = 16.sp, color = Color.Gray)
+//                    )
+//                }
+//
+//                // Column for Code content
+//                Column(
+//                    modifier = Modifier.weight(1f)
+//                ) {
+//                    // Display code with styled syntax
+//                    Text(
+//                        text = buildAnnotatedString {
+//                            var tempLine = line // A temporary line to handle cases like `printf(`
+//
+//                            // Updated regex to handle spaces and syntax components more precisely
+//                            val regex = Regex(
+//                                "([#a-zA-Z_][a-zA-Z0-9_]*|\"[^\"]*\")|" +      // Keywords, identifiers, strings
+//                                        "([0-9]+(?:\\.[0-9]+)?)|" +                     // Numbers (integer and floating point)
+//                                        "([+\\-*/%=<>!&|^,;:._?])|" +                   // Operators and punctuation
+//                                        "([(){}\\[\\]])|"                                // Parentheses, braces, and brackets
+//                            )
+//
+//                            val matches = regex.findAll(tempLine)
+//
+//                            // Process each match
+//                            matches.forEach { matchResult ->
+//                                val word = matchResult.value
+//                                when {
+//                                    word in keywords -> {
+//                                        withStyle(
+//                                            style = SpanStyle(color = Color(0xFF49D9C8)) // Keyword color
+//                                        ) { append(word) }
+//                                    }
+//                                    word in braces -> {
+//                                        withStyle(
+//                                            style = SpanStyle(color = Color(0XFFFFFFFF)) // Braces color
+//                                        ) { append(word) }
+//                                    }
+//                                    word.startsWith("\"") && word.endsWith("\"") -> {
+//                                        // Ensure strings inside parentheses or anywhere else are colored red
+//                                        withStyle(
+//                                            style = SpanStyle(color = Color.Red) // String literal color
+//                                        ) { append(word) }
+//                                    }
+//                                    word.isNotBlank() -> {
+//                                        append(word) // Default text color for regular tokens
+//                                    }
+//                                    else -> {
+//                                        append(" ") // Preserve spaces exactly as they are
+//                                    }
+//                                }
+//                            }
+//                        },
+//                        style = TextStyle(fontSize = 16.sp, color = Color.White) // Font size for code text
+//                    )
+//                }
+//            }
+//        }
+//
+//        Spacer(Modifier.height(12.dp))
+//    }
+//
+//    // Scroll Indicator
+//    Box(
+//        modifier = Modifier
+//            .fillMaxHeight()
+//            .width(4.dp)
+//            .background(Color.Gray.copy(alpha = 0.5f)) // Background for the scroll indicator
+//    ) {
+//        // Scroll indicator height calculation
+//        val scrollPercentage = scrollState.value.toFloat() / scrollState.maxValue.toFloat()
+//        val scrollIndicatorHeight = (containerHeight.value * scrollPercentage).coerceIn(0f, containerHeight.value)
+//
+//        Box(
+//            modifier = Modifier
+//                .align(Alignment.TopStart)
+//                .fillMaxWidth()
+//                .height(scrollIndicatorHeight.dp) // Use Dp value directly for height
+//                .background(Color.White) // Scroll indicator color
+//        )
+//    }
+//}
+
+
+
+
+
+
+
+
+
+
+
 
 
 @Composable

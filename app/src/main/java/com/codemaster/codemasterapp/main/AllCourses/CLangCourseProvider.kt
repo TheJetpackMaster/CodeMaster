@@ -1,7 +1,13 @@
 package com.codemaster.codemasterapp.main.AllCourses
 
+import androidx.compose.ui.graphics.Color
 import com.codemaster.codemasterapp.R
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.withStyle
 import com.codemaster.codemasterapp.main.data.ContentBlock
 import com.codemaster.codemasterapp.main.data.Course
 import com.codemaster.codemasterapp.main.data.Lesson
@@ -79,9 +85,25 @@ class CLangCourseProvider() {
                             id = "beginner_c1_sub1",
                             title = "What is Programming?",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Programming creates instructions for computers to automate tasks, solve problems, and build software."),
+                                ContentBlock.Text.fromString("Programming creates instructions for computers to automate tasks, solve problems, and build software."),
                                 ContentBlock.Image(R.drawable.c_intro),
-                                ContentBlock.Text("Programming languages help bridge human communication with machines, enabling the creation of games, websites, and systems.")
+
+
+                                // Create an AnnotatedString for the text
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        withStyle(
+                                            style = SpanStyle(
+                                                color = Color(0xFFADD8E6), // Light blue
+                                                fontWeight = FontWeight.Bold
+                                            )
+                                        ) {
+                                            append("Programming languages")
+                                        }
+                                        append(" help bridge human communication with machines, enabling the creation of games, websites, and systems.")
+                                    }
+                                )
+
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -89,9 +111,30 @@ class CLangCourseProvider() {
                             id = "beginner_c1_sub2",
                             title = "Introduction to the C Language",
                             contentBlocks = listOf(
-                                ContentBlock.Text("C, developed in the 1970s, is a powerful, efficient, and portable language used for operating systems like UNIX."),
+                                ContentBlock.Text.fromString("C, developed in the 1970s, is a powerful, efficient, and portable language used for operating systems like UNIX."),
                                 ContentBlock.Image(R.drawable.c_intro),
-                                ContentBlock.Text("C combines low-level power with ease of use and has influenced many languages like C++, Java, and Python.")
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text = "C combines low-level power with ease of use and has influenced many languages like C++, Java, and Python."
+                                        append(text)
+
+                                        val wordsToStyle = listOf("low-level", "C++, Java")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6), // Light blue
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                )
+
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -99,9 +142,9 @@ class CLangCourseProvider() {
                             id = "beginner_c1_sub3",
                             title = "Applications of C Programming",
                             contentBlocks = listOf(
-                                ContentBlock.Text("C is widely used in operating systems, embedded systems, game development, and system software."),
+                                ContentBlock.Text.fromString("C is widely used in operating systems, embedded systems, game development, and system software."),
                                 ContentBlock.Image(R.drawable.c_intro),
-                                ContentBlock.Text("C’s direct hardware access and memory management make it ideal for resource-constrained environments.")
+                                ContentBlock.Text.fromString("C’s direct hardware access and memory management make it ideal for resource-constrained environments.")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -109,9 +152,9 @@ class CLangCourseProvider() {
                             id = "beginner_c1_sub4",
                             title = "Benefits of Learning C Language",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Learning C builds a strong foundation in core programming concepts and computational thinking."),
+                                ContentBlock.Text.fromString("Learning C builds a strong foundation in core programming concepts and computational thinking."),
                                 ContentBlock.Image(R.drawable.c_intro),
-                                ContentBlock.Text("It opens career opportunities and prepares you for advanced programming topics and languages influenced by C.")
+                                ContentBlock.Text.fromString("It opens career opportunities and prepares you for advanced programming topics and languages influenced by C.")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -119,9 +162,9 @@ class CLangCourseProvider() {
                             id = "beginner_c1_sub5",
                             title = "What's Next?",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Congrats! You now have a foundation in C programming and its importance."),
+                                ContentBlock.Text.fromString("Congrats! You now have a foundation in C programming and its importance."),
                                 ContentBlock.Image(R.drawable.c_intro),
-                                ContentBlock.Text("Upcoming lessons will cover loops, arrays, functions, and advanced topics like pointers and algorithms.")
+                                ContentBlock.Text.fromString("Upcoming lessons will cover loops, arrays, functions, and advanced topics like pointers and algorithms.")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -129,9 +172,9 @@ class CLangCourseProvider() {
                             id = "beginner_c1_sub6",
                             title = "What's Next?",
                             contentBlocks = listOf(
-                                ContentBlock.Text("You're ready for more! Dive into loops, arrays, functions, and advanced topics like memory management."),
+                                ContentBlock.Text.fromString("You're ready for more! Dive into loops, arrays, functions, and advanced topics like memory management."),
                                 ContentBlock.Image(R.drawable.c_intro),
-                                ContentBlock.Text("Hands-on projects will strengthen your skills and build your confidence as a programmer.")
+                                ContentBlock.Text.fromString("Hands-on projects will strengthen your skills and build your confidence as a programmer.")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         )
@@ -169,7 +212,7 @@ class CLangCourseProvider() {
                             id = "beginner_c2_sub1",
                             title = "Installing a C Compiler",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Install a C compiler like GCC or an IDE like Code::Blocks. Follow the setup instructions for your tool.")
+                                ContentBlock.Text.fromString("Install a C compiler like GCC or an IDE like Code::Blocks. Follow the setup instructions for your tool.")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -177,9 +220,9 @@ class CLangCourseProvider() {
                             id = "beginner_c2_sub2",
                             title = "Writing Your First Program",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Write your first C program with the following code:"),
+                                ContentBlock.Text.fromString("Write your first C program with the following code:"),
                                 ContentBlock.Code("#include <stdio.h>\n\nint main() {\n    printf(\"Hello, World!\\n\");\n    return 0;\n}"),
-                                ContentBlock.Text("Explanation: `#include <stdio.h>` includes I/O functions, `int main()` is the main function, `printf()` prints the message.")
+                                ContentBlock.Text.fromString("Explanation: `#include <stdio.h>` includes I/O functions, `int main()` is the main function, `printf()` prints the message.")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -187,7 +230,7 @@ class CLangCourseProvider() {
                             id = "beginner_c2_sub3",
                             title = "Running the Program",
                             contentBlocks = listOf(
-                                ContentBlock.Text("To compile, use `gcc hello_world.c -o hello_world` and run with `./hello_world` to display `Hello, World!`.")
+                                ContentBlock.Text.fromString("To compile, use `gcc hello_world.c -o hello_world` and run with `./hello_world` to display `Hello, World!`.")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         )
@@ -237,7 +280,7 @@ class CLangCourseProvider() {
                             id = "beginner_c3_sub1",
                             title = "What is Syntax in C?",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Syntax defines rules for writing understandable and executable code."),
+                                ContentBlock.Text.fromString("Syntax defines rules for writing understandable and executable code."),
                                 ContentBlock.Code(
                                     """
                     #include <stdio.h>
@@ -248,9 +291,9 @@ class CLangCourseProvider() {
                     }
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("- `#include <stdio.h>` enables input/output functions."),
-                                ContentBlock.Text("- `int main()` is the entry point."),
-                                ContentBlock.Text("- Statements like `printf(...)` must follow syntax rules.")
+                                ContentBlock.Text.fromString("- `#include <stdio.h>` enables input/output functions."),
+                                ContentBlock.Text.fromString("- `int main()` is the entry point."),
+                                ContentBlock.Text.fromString("- Statements like `printf(...)` must follow syntax rules.")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -258,10 +301,10 @@ class CLangCourseProvider() {
                             id = "beginner_c3_sub2",
                             title = "Core Elements of Syntax",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Key syntax elements:"),
-                                ContentBlock.Text("1. **Keywords**: Reserved words like `int`, `return`."),
-                                ContentBlock.Text("2. **Identifiers**: User-defined names (e.g., `int num;`)."),
-                                ContentBlock.Text("3. **Operators**: Symbols for operations (e.g., `+`, `-`)."),
+                                ContentBlock.Text.fromString("Key syntax elements:"),
+                                ContentBlock.Text.fromString("1. **Keywords**: Reserved words like `int`, `return`."),
+                                ContentBlock.Text.fromString("2. **Identifiers**: User-defined names (e.g., `int num;`)."),
+                                ContentBlock.Text.fromString("3. **Operators**: Symbols for operations (e.g., `+`, `-`)."),
                                 ContentBlock.Code(
                                     """
                     int x = 5, y = 10;
@@ -269,7 +312,7 @@ class CLangCourseProvider() {
                     printf("Sum: %d\\n", sum);
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("4. **Delimiters**: Structure code (e.g., `;`, `{}`).")
+                                ContentBlock.Text.fromString("4. **Delimiters**: Structure code (e.g., `;`, `{}`).")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -277,14 +320,14 @@ class CLangCourseProvider() {
                             id = "beginner_c3_sub3",
                             title = "What is a Statement in C?",
                             contentBlocks = listOf(
-                                ContentBlock.Text("A statement is an instruction to perform a task."),
+                                ContentBlock.Text.fromString("A statement is an instruction to perform a task."),
                                 ContentBlock.Code(
                                     """
                     int x = 10;
                     printf("x: %d\\n", x);
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("Statements must end with `;` and are executed sequentially.")
+                                ContentBlock.Text.fromString("Statements must end with `;` and are executed sequentially.")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -292,10 +335,10 @@ class CLangCourseProvider() {
                             id = "beginner_c3_sub4",
                             title = "Types of Statements in C",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Types of statements:"),
-                                ContentBlock.Text("1. **Declaration**: `int x = 5;`."),
-                                ContentBlock.Text("2. **Expression**: `x = x + 1;`."),
-                                ContentBlock.Text("3. **Control**: Direct execution flow (e.g., `if`, `while`)."),
+                                ContentBlock.Text.fromString("Types of statements:"),
+                                ContentBlock.Text.fromString("1. **Declaration**: `int x = 5;`."),
+                                ContentBlock.Text.fromString("2. **Expression**: `x = x + 1;`."),
+                                ContentBlock.Text.fromString("3. **Control**: Direct execution flow (e.g., `if`, `while`)."),
                                 ContentBlock.Code(
                                     """
                     if (x > 0) {
@@ -303,7 +346,7 @@ class CLangCourseProvider() {
                     }
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("4. **Compound**: Grouped in `{}`.")
+                                ContentBlock.Text.fromString("4. **Compound**: Grouped in `{}`.")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -311,7 +354,7 @@ class CLangCourseProvider() {
                             id = "beginner_c3_sub5",
                             title = "Combining Multiple Statements",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Programs use sequential statements."),
+                                ContentBlock.Text.fromString("Programs use sequential statements."),
                                 ContentBlock.Code(
                                     """
                     #include <stdio.h>
@@ -323,9 +366,9 @@ class CLangCourseProvider() {
                     }
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("- Initialize variables."),
-                                ContentBlock.Text("- Calculate results."),
-                                ContentBlock.Text("- Print output.")
+                                ContentBlock.Text.fromString("- Initialize variables."),
+                                ContentBlock.Text.fromString("- Calculate results."),
+                                ContentBlock.Text.fromString("- Print output.")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         )
@@ -381,7 +424,7 @@ class CLangCourseProvider() {
                             id = "beginner_c4_sub1",
                             title = "Printing Text in C",
                             contentBlocks = listOf(
-                                ContentBlock.Text("In C, we use `printf()` to print messages to the console. It's like talking to your computer! 🖥️"),
+                                ContentBlock.Text.fromString("In C, we use `printf()` to print messages to the console. It's like talking to your computer! 🖥️"),
                                 ContentBlock.Code(
                                     """
                     #include <stdio.h>
@@ -392,9 +435,9 @@ class CLangCourseProvider() {
                     }
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("- Wrap your message in double quotes (\"...\"). 🎁"),
-                                ContentBlock.Text("- `printf()` prints exactly what's inside the quotes."),
-                                ContentBlock.Text("Example:"),
+                                ContentBlock.Text.fromString("- Wrap your message in double quotes (\"...\"). 🎁"),
+                                ContentBlock.Text.fromString("- `printf()` prints exactly what's inside the quotes."),
+                                ContentBlock.Text.fromString("Example:"),
                                 ContentBlock.Code(
                                     """
                     printf("Coding is fun! 🎉");
@@ -407,7 +450,7 @@ class CLangCourseProvider() {
                             id = "beginner_c4_sub2",
                             title = "New Lines in Output",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Want neat output? Use `\\n` to start a new line. 📜"),
+                                ContentBlock.Text.fromString("Want neat output? Use `\\n` to start a new line. 📜"),
                                 ContentBlock.Code(
                                     """
                     #include <stdio.h>
@@ -419,8 +462,8 @@ class CLangCourseProvider() {
                     }
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("- `\\n` is like pressing 'Enter' on your keyboard. ⌨️"),
-                                ContentBlock.Text("Output:"),
+                                ContentBlock.Text.fromString("- `\\n` is like pressing 'Enter' on your keyboard. ⌨️"),
+                                ContentBlock.Text.fromString("Output:"),
                                 ContentBlock.Code(
                                     """
                     Hello, World!
@@ -434,9 +477,9 @@ class CLangCourseProvider() {
                             id = "beginner_c4_sub3",
                             title = "Special Characters in Output",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Add cool characters using escape sequences! 🚀"),
-                                ContentBlock.Text("- `\\t`: Adds a tab space."),
-                                ContentBlock.Text("- `\\\"`: Prints double quotes."),
+                                ContentBlock.Text.fromString("Add cool characters using escape sequences! 🚀"),
+                                ContentBlock.Text.fromString("- `\\t`: Adds a tab space."),
+                                ContentBlock.Text.fromString("- `\\\"`: Prints double quotes."),
                                 ContentBlock.Code(
                                     """
                     #include <stdio.h>
@@ -448,7 +491,7 @@ class CLangCourseProvider() {
                     }
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("Output:"),
+                                ContentBlock.Text.fromString("Output:"),
                                 ContentBlock.Code(
                                     """
                     Tabs    are    fun!
@@ -462,10 +505,10 @@ class CLangCourseProvider() {
                             id = "beginner_c4_sub4",
                             title = "Printing Variables",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Display variable values with format specifiers. 🎯"),
-                                ContentBlock.Text("- `%d`: For integers"),
-                                ContentBlock.Text("- `%f`: For floats"),
-                                ContentBlock.Text("- `%s`: For strings"),
+                                ContentBlock.Text.fromString("Display variable values with format specifiers. 🎯"),
+                                ContentBlock.Text.fromString("- `%d`: For integers"),
+                                ContentBlock.Text.fromString("- `%f`: For floats"),
+                                ContentBlock.Text.fromString("- `%s`: For strings"),
                                 ContentBlock.Code(
                                     """
                     #include <stdio.h>
@@ -479,7 +522,7 @@ class CLangCourseProvider() {
                     }
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("Output:"),
+                                ContentBlock.Text.fromString("Output:"),
                                 ContentBlock.Code(
                                     """
                     Age: 25
@@ -493,7 +536,7 @@ class CLangCourseProvider() {
                             id = "beginner_c4_sub5",
                             title = "Printing Multiple Values",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Print multiple values in one `printf()`! 🤹‍♂️"),
+                                ContentBlock.Text.fromString("Print multiple values in one `printf()`! 🤹‍♂️"),
                                 ContentBlock.Code(
                                     """
                     #include <stdio.h>
@@ -506,7 +549,7 @@ class CLangCourseProvider() {
                     }
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("Output:"),
+                                ContentBlock.Text.fromString("Output:"),
                                 ContentBlock.Code(
                                     """
                     Age: 25, Height: 5.9
@@ -519,9 +562,9 @@ class CLangCourseProvider() {
                             id = "beginner_c4_sub6",
                             title = "Formatted Output",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Want to format your output? Use precision and width! 🎨"),
-                                ContentBlock.Text("- Control decimal places with `.2f` for 2 decimals."),
-                                ContentBlock.Text("- Align text using width formatting like `%10s`."),
+                                ContentBlock.Text.fromString("Want to format your output? Use precision and width! 🎨"),
+                                ContentBlock.Text.fromString("- Control decimal places with `.2f` for 2 decimals."),
+                                ContentBlock.Text.fromString("- Align text using width formatting like `%10s`."),
                                 ContentBlock.Code(
                                     """
                     #include <stdio.h>
@@ -533,7 +576,7 @@ class CLangCourseProvider() {
                     }
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("Output:"),
+                                ContentBlock.Text.fromString("Output:"),
                                 ContentBlock.Code(
                                     """
                     Pi to 2 decimals: 3.14
@@ -588,11 +631,11 @@ class CLangCourseProvider() {
                             id = "beginner_c5_sub1",
                             title = "Introduction to Comments",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Comments are non-executable lines that explain code, improving readability. 📖"),
-                                ContentBlock.Text("They’re ignored by the compiler, ideal for documentation and clarifying logic."),
-                                ContentBlock.Text("Why use comments?"),
-                                ContentBlock.Text("- Explain code to others (or future you). 💬"),
-                                ContentBlock.Text("- Improve code maintenance. 🔧")
+                                ContentBlock.Text.fromString("Comments are non-executable lines that explain code, improving readability. 📖"),
+                                ContentBlock.Text.fromString("They’re ignored by the compiler, ideal for documentation and clarifying logic."),
+                                ContentBlock.Text.fromString("Why use comments?"),
+                                ContentBlock.Text.fromString("- Explain code to others (or future you). 💬"),
+                                ContentBlock.Text.fromString("- Improve code maintenance. 🔧")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -600,7 +643,7 @@ class CLangCourseProvider() {
                             id = "beginner_c5_sub2",
                             title = "Single-Line Comments",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Single-line comments begin with `//` and continue until the end of the line. 🎯"),
+                                ContentBlock.Text.fromString("Single-line comments begin with `//` and continue until the end of the line. 🎯"),
                                 ContentBlock.Code(
                                     """
                     #include <stdio.h>
@@ -612,8 +655,8 @@ class CLangCourseProvider() {
                     }
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("- Use for quick notes or explanations."),
-                                ContentBlock.Text("Example output:"),
+                                ContentBlock.Text.fromString("- Use for quick notes or explanations."),
+                                ContentBlock.Text.fromString("Example output:"),
                                 ContentBlock.Code(
                                     """
                     Hello, World!
@@ -626,7 +669,7 @@ class CLangCourseProvider() {
                             id = "beginner_c5_sub3",
                             title = "Multi-Line Comments",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Multi-line comments start with `/*` and end with `*/`, spanning multiple lines. 📄"),
+                                ContentBlock.Text.fromString("Multi-line comments start with `/*` and end with `*/`, spanning multiple lines. 📄"),
                                 ContentBlock.Code(
                                     """
                     #include <stdio.h>
@@ -639,8 +682,8 @@ class CLangCourseProvider() {
                     }
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("- Use for detailed explanations or large comment blocks."),
-                                ContentBlock.Text("Example output:"),
+                                ContentBlock.Text.fromString("- Use for detailed explanations or large comment blocks."),
+                                ContentBlock.Text.fromString("Example output:"),
                                 ContentBlock.Code(
                                     """
                     Hello, World!
@@ -653,8 +696,8 @@ class CLangCourseProvider() {
                             id = "beginner_c5_sub4",
                             title = "Nested Comments",
                             contentBlocks = listOf(
-                                ContentBlock.Text("C doesn’t support nested multi-line comments. For example, `/* /* ... */ */` doesn’t work. 🚫"),
-                                ContentBlock.Text("Use single-line comments for nested comments within multi-line ones."),
+                                ContentBlock.Text.fromString("C doesn’t support nested multi-line comments. For example, `/* /* ... */ */` doesn’t work. 🚫"),
+                                ContentBlock.Text.fromString("Use single-line comments for nested comments within multi-line ones."),
                                 ContentBlock.Code(
                                     """
                     #include <stdio.h>
@@ -668,7 +711,7 @@ class CLangCourseProvider() {
                     }
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("- Be careful with nested comments; combine single-line and multi-line for best results.")
+                                ContentBlock.Text.fromString("- Be careful with nested comments; combine single-line and multi-line for best results.")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -676,19 +719,19 @@ class CLangCourseProvider() {
                             id = "beginner_c5_sub5",
                             title = "Commenting Best Practices",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Effective comments improve code clarity and maintenance. Follow these practices: 🔑"),
-                                ContentBlock.Text("- Explain *why*, not *what*. Example: why bubble sort is used, not just what it does."),
-                                ContentBlock.Text("- Keep comments concise. Avoid over-explaining simple code."),
-                                ContentBlock.Text("- Clarify complex or tricky logic."),
-                                ContentBlock.Text("- Remove outdated comments."),
-                                ContentBlock.Text("Good Example:"),
+                                ContentBlock.Text.fromString("Effective comments improve code clarity and maintenance. Follow these practices: 🔑"),
+                                ContentBlock.Text.fromString("- Explain *why*, not *what*. Example: why bubble sort is used, not just what it does."),
+                                ContentBlock.Text.fromString("- Keep comments concise. Avoid over-explaining simple code."),
+                                ContentBlock.Text.fromString("- Clarify complex or tricky logic."),
+                                ContentBlock.Text.fromString("- Remove outdated comments."),
+                                ContentBlock.Text.fromString("Good Example:"),
                                 ContentBlock.Code(
                                     """
                     // Using bubble sort for small arrays
                     bubbleSort(arr, n);
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("Bad Example:"),
+                                ContentBlock.Text.fromString("Bad Example:"),
                                 ContentBlock.Code(
                                     """
                     // Sorting the array
@@ -749,7 +792,7 @@ class CLangCourseProvider() {
                             id = "beginner_c6_sub1",
                             title = "Creating Variables",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Variables store data that can be used throughout a program. Declare variables with a type and a name. 🖥️"),
+                                ContentBlock.Text.fromString("Variables store data that can be used throughout a program. Declare variables with a type and a name. 🖥️"),
                                 ContentBlock.Code(
                                     """
                     int age = 25;  // Declaring an integer variable with an initial value
@@ -763,7 +806,7 @@ class CLangCourseProvider() {
                             id = "beginner_c6_sub2",
                             title = "Format Specifiers",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Format specifiers are used to display different data types correctly. 🎯"),
+                                ContentBlock.Text.fromString("Format specifiers are used to display different data types correctly. 🎯"),
                                 ContentBlock.Code(
                                     """
                     int x = 10;
@@ -779,7 +822,7 @@ class CLangCourseProvider() {
                             id = "beginner_c6_sub3",
                             title = "Change Variable Values",
                             contentBlocks = listOf(
-                                ContentBlock.Text("You can update a variable's value at any point in the program. 🔄"),
+                                ContentBlock.Text.fromString("You can update a variable's value at any point in the program. 🔄"),
                                 ContentBlock.Code(
                                     """
                     int age = 25;
@@ -793,7 +836,7 @@ class CLangCourseProvider() {
                             id = "beginner_c6_sub4",
                             title = "Declare Multiple Variables",
                             contentBlocks = listOf(
-                                ContentBlock.Text("You can declare multiple variables of the same type in a single line. 🖋️"),
+                                ContentBlock.Text.fromString("You can declare multiple variables of the same type in a single line. 🖋️"),
                                 ContentBlock.Code(
                                     """
                     int x = 10, y = 20, z = 30;  // Declaring multiple integers
@@ -806,10 +849,10 @@ class CLangCourseProvider() {
                             id = "beginner_c6_sub5",
                             title = "Variable Names",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Variable names must start with a letter or an underscore, followed by letters, numbers, or underscores. 🚫"),
-                                ContentBlock.Text("Example of valid names: `age`, `_count`, `temperature1`"),
-                                ContentBlock.Text("Example of invalid names: `1age`, `@count`"),
-                                ContentBlock.Text("Naming should be meaningful and follow conventions (e.g., `snake_case`).")
+                                ContentBlock.Text.fromString("Variable names must start with a letter or an underscore, followed by letters, numbers, or underscores. 🚫"),
+                                ContentBlock.Text.fromString("Example of valid names: `age`, `_count`, `temperature1`"),
+                                ContentBlock.Text.fromString("Example of invalid names: `1age`, `@count`"),
+                                ContentBlock.Text.fromString("Naming should be meaningful and follow conventions (e.g., `snake_case`).")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -817,7 +860,7 @@ class CLangCourseProvider() {
                             id = "beginner_c6_sub6",
                             title = "Real-Life Example",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Here's an example using variables in a simple program:"),
+                                ContentBlock.Text.fromString("Here's an example using variables in a simple program:"),
                                 ContentBlock.Code(
                                     """
                     #include <stdio.h>
@@ -832,7 +875,7 @@ class CLangCourseProvider() {
                     }
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("This program uses integer and float variables to store age and height, then prints them out.")
+                                ContentBlock.Text.fromString("This program uses integer and float variables to store age and height, then prints them out.")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         )
@@ -894,12 +937,12 @@ class CLangCourseProvider() {
                             id = "beginner_c7_sub1",
                             title = "Data Types",
                             contentBlocks = listOf(
-                                ContentBlock.Text("C provides several data types for storing different kinds of values. 🧮"),
-                                ContentBlock.Text("Common types:"),
-                                ContentBlock.Text("- `int` for integers"),
-                                ContentBlock.Text("- `float` and `double` for floating-point numbers"),
-                                ContentBlock.Text("- `char` for characters"),
-                                ContentBlock.Text("- `void` for functions that don’t return a value")
+                                ContentBlock.Text.fromString("C provides several data types for storing different kinds of values. 🧮"),
+                                ContentBlock.Text.fromString("Common types:"),
+                                ContentBlock.Text.fromString("- `int` for integers"),
+                                ContentBlock.Text.fromString("- `float` and `double` for floating-point numbers"),
+                                ContentBlock.Text.fromString("- `char` for characters"),
+                                ContentBlock.Text.fromString("- `void` for functions that don’t return a value")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -907,7 +950,7 @@ class CLangCourseProvider() {
                             id = "beginner_c7_sub2",
                             title = "The `char` Type",
                             contentBlocks = listOf(
-                                ContentBlock.Text("The `char` type stores a single character or small integer value. 🅰️"),
+                                ContentBlock.Text.fromString("The `char` type stores a single character or small integer value. 🅰️"),
                                 ContentBlock.Code(
                                     """
                     char letter = 'A';  // A character
@@ -921,7 +964,7 @@ class CLangCourseProvider() {
                             id = "beginner_c7_sub3",
                             title = "Numeric Types",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Numeric types store numbers. C supports integers (`int`) and floating-point numbers (`float`, `double`). 🔢"),
+                                ContentBlock.Text.fromString("Numeric types store numbers. C supports integers (`int`) and floating-point numbers (`float`, `double`). 🔢"),
                                 ContentBlock.Code(
                                     """
                     int age = 25;  // Integer
@@ -936,7 +979,7 @@ class CLangCourseProvider() {
                             id = "beginner_c7_sub4",
                             title = "Set Decimal Precision",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Use format specifiers to control the number of decimal places when printing floating-point numbers. 🎯"),
+                                ContentBlock.Text.fromString("Use format specifiers to control the number of decimal places when printing floating-point numbers. 🎯"),
                                 ContentBlock.Code(
                                     """
                     float price = 10.12345;
@@ -950,7 +993,7 @@ class CLangCourseProvider() {
                             id = "beginner_c7_sub5",
                             title = "Get the Memory Size",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Use `sizeof()` to get the memory size of a data type. 📏"),
+                                ContentBlock.Text.fromString("Use `sizeof()` to get the memory size of a data type. 📏"),
                                 ContentBlock.Code(
                                     """
                     printf("Size of int: %zu bytes", sizeof(int));
@@ -964,7 +1007,7 @@ class CLangCourseProvider() {
                             id = "beginner_c7_sub6",
                             title = "Real-Life Example",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Here’s an example using various data types in a simple program:"),
+                                ContentBlock.Text.fromString("Here’s an example using various data types in a simple program:"),
                                 ContentBlock.Code(
                                     """
                     #include <stdio.h>
@@ -980,7 +1023,7 @@ class CLangCourseProvider() {
                     }
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("This program combines integers, floats, and characters to store and display personal information.")
+                                ContentBlock.Text.fromString("This program combines integers, floats, and characters to store and display personal information.")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -988,8 +1031,8 @@ class CLangCourseProvider() {
                             id = "beginner_c7_sub7",
                             title = "Type Conversion",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Sometimes you may need to convert one type to another. C supports implicit and explicit conversions. 🔄"),
-                                ContentBlock.Text("Example of implicit conversion (automatic):"),
+                                ContentBlock.Text.fromString("Sometimes you may need to convert one type to another. C supports implicit and explicit conversions. 🔄"),
+                                ContentBlock.Text.fromString("Example of implicit conversion (automatic):"),
                                 ContentBlock.Code(
                                     """
                     int num = 5;
@@ -997,7 +1040,7 @@ class CLangCourseProvider() {
                     printf("Result: %.2f", result);  // 10.50
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("Example of explicit conversion (manual):"),
+                                ContentBlock.Text.fromString("Example of explicit conversion (manual):"),
                                 ContentBlock.Code(
                                     """
                     float pi = 3.14;
@@ -1047,8 +1090,8 @@ class CLangCourseProvider() {
                             id = "beginner_c8_sub1",
                             title = "Introduction to Constants",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Constants are fixed values that cannot be changed during the execution of a program. 🔒"),
-                                ContentBlock.Text("They make code more readable and maintainable by using meaningful names instead of hard-coded numbers.")
+                                ContentBlock.Text.fromString("Constants are fixed values that cannot be changed during the execution of a program. 🔒"),
+                                ContentBlock.Text.fromString("They make code more readable and maintainable by using meaningful names instead of hard-coded numbers.")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -1056,15 +1099,15 @@ class CLangCourseProvider() {
                             id = "beginner_c8_sub2",
                             title = "Defining Constants",
                             contentBlocks = listOf(
-                                ContentBlock.Text("There are two common ways to define constants in C:"),
-                                ContentBlock.Text("1. Using `#define`:"),
+                                ContentBlock.Text.fromString("There are two common ways to define constants in C:"),
+                                ContentBlock.Text.fromString("1. Using `#define`:"),
                                 ContentBlock.Code(
                                     """
                     #define PI 3.14159
                     printf("PI value: %f", PI);  // Output: 3.14159
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("2. Using `const` keyword:"),
+                                ContentBlock.Text.fromString("2. Using `const` keyword:"),
                                 ContentBlock.Code(
                                     """
                     const int maxLimit = 100;
@@ -1078,9 +1121,9 @@ class CLangCourseProvider() {
                             id = "beginner_c8_sub3",
                             title = "Constant Naming",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Naming constants follows the same rules as variables but is often written in uppercase to distinguish them. 📛"),
-                                ContentBlock.Text("Example: `const int MAX_SPEED = 120;`"),
-                                ContentBlock.Text("Using uppercase letters makes constants easy to identify in code.")
+                                ContentBlock.Text.fromString("Naming constants follows the same rules as variables but is often written in uppercase to distinguish them. 📛"),
+                                ContentBlock.Text.fromString("Example: `const int MAX_SPEED = 120;`"),
+                                ContentBlock.Text.fromString("Using uppercase letters makes constants easy to identify in code.")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -1088,7 +1131,7 @@ class CLangCourseProvider() {
                             id = "beginner_c8_sub4",
                             title = "Real-Life Example",
                             contentBlocks = listOf(
-                                ContentBlock.Text("A practical example of using constants in a program:"),
+                                ContentBlock.Text.fromString("A practical example of using constants in a program:"),
                                 ContentBlock.Code(
                                     """
                     #include <stdio.h>
@@ -1102,7 +1145,7 @@ class CLangCourseProvider() {
                     }
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("This program uses a constant `MAX_ATTEMPTS` to control the number of attempts in the loop.")
+                                ContentBlock.Text.fromString("This program uses a constant `MAX_ATTEMPTS` to control the number of attempts in the loop.")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         )
@@ -1151,8 +1194,8 @@ class CLangCourseProvider() {
                             id = "beginner_c9_sub1",
                             title = "Introduction to Operators",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Operators are symbols that perform operations on variables and values. They are essential in performing computations and comparisons. 🔧"),
-                                ContentBlock.Text("Examples: `+`, `-`, `*`, `/`, `%`.")
+                                ContentBlock.Text.fromString("Operators are symbols that perform operations on variables and values. They are essential in performing computations and comparisons. 🔧"),
+                                ContentBlock.Text.fromString("Examples: `+`, `-`, `*`, `/`, `%`.")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -1160,7 +1203,7 @@ class CLangCourseProvider() {
                             id = "beginner_c9_sub2",
                             title = "Arithmetic Operators",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Arithmetic operators perform basic math operations:"),
+                                ContentBlock.Text.fromString("Arithmetic operators perform basic math operations:"),
                                 ContentBlock.Code(
                                     """
                     int a = 5, b = 3;
@@ -1178,7 +1221,7 @@ class CLangCourseProvider() {
                             id = "beginner_c9_sub3",
                             title = "Relational Operators",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Relational operators compare two values and return a boolean result:"),
+                                ContentBlock.Text.fromString("Relational operators compare two values and return a boolean result:"),
                                 ContentBlock.Code(
                                     """
                     int x = 10, y = 20;
@@ -1194,7 +1237,7 @@ class CLangCourseProvider() {
                             id = "beginner_c9_sub4",
                             title = "Logical Operators",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Logical operators are used to combine multiple conditions:"),
+                                ContentBlock.Text.fromString("Logical operators are used to combine multiple conditions:"),
                                 ContentBlock.Code(
                                     """
                     int a = 1, b = 0;
@@ -1210,7 +1253,7 @@ class CLangCourseProvider() {
                             id = "beginner_c9_sub5",
                             title = "Assignment and Increment/Decrement Operators",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Assignment (`=`) stores a value in a variable. Increment (`++`) and Decrement (`--`) increase or decrease a variable's value by 1:"),
+                                ContentBlock.Text.fromString("Assignment (`=`) stores a value in a variable. Increment (`++`) and Decrement (`--`) increase or decrease a variable's value by 1:"),
                                 ContentBlock.Code(
                                     """
                     int a = 5;
@@ -1271,8 +1314,8 @@ class CLangCourseProvider() {
                             id = "beginner_c10_sub1",
                             title = "Introduction to Booleans",
                             contentBlocks = listOf(
-                                ContentBlock.Text("A boolean is a binary value that represents either `true` (1) or `false` (0)."),
-                                ContentBlock.Text("In C, booleans are often implemented using integers, where `0` represents `false` and any non-zero value represents `true`. This binary representation is fundamental for decision making and logical operations in programs.")
+                                ContentBlock.Text.fromString("A boolean is a binary value that represents either `true` (1) or `false` (0)."),
+                                ContentBlock.Text.fromString("In C, booleans are often implemented using integers, where `0` represents `false` and any non-zero value represents `true`. This binary representation is fundamental for decision making and logical operations in programs.")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -1280,8 +1323,8 @@ class CLangCourseProvider() {
                             id = "beginner_c10_sub2",
                             title = "Basic Boolean Representation",
                             contentBlocks = listOf(
-                                ContentBlock.Text("In C, boolean values are represented using integers, where `0` represents `false` and `1` (or any non-zero integer) represents `true`."),
-                                ContentBlock.Text("Example:"),
+                                ContentBlock.Text.fromString("In C, boolean values are represented using integers, where `0` represents `false` and `1` (or any non-zero integer) represents `true`."),
+                                ContentBlock.Text.fromString("Example:"),
                                 ContentBlock.Code(
                                     """
                     int flag = 1;  // true
@@ -1295,7 +1338,7 @@ class CLangCourseProvider() {
                             id = "beginner_c10_sub3",
                             title = "Boolean Values",
                             contentBlocks = listOf(
-                                ContentBlock.Text("The `stdbool.h` library in C defines the `bool` type. It provides the constants `true` (1) and `false` (0) for better readability."),
+                                ContentBlock.Text.fromString("The `stdbool.h` library in C defines the `bool` type. It provides the constants `true` (1) and `false` (0) for better readability."),
                                 ContentBlock.Code(
                                     """
                     #include <stdbool.h>
@@ -1311,7 +1354,7 @@ class CLangCourseProvider() {
                             id = "beginner_c10_sub4",
                             title = "Boolean Operations",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Boolean operations use logical operators (`&&`, `||`, `!`) to combine or negate conditions:"),
+                                ContentBlock.Text.fromString("Boolean operations use logical operators (`&&`, `||`, `!`) to combine or negate conditions:"),
                                 ContentBlock.Code(
                                     """
                     bool a = true, b = false;
@@ -1327,7 +1370,7 @@ class CLangCourseProvider() {
                             id = "beginner_c10_sub5",
                             title = "Boolean in Conditional Statements",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Booleans are often used in `if` and `while` statements to control program flow:"),
+                                ContentBlock.Text.fromString("Booleans are often used in `if` and `while` statements to control program flow:"),
                                 ContentBlock.Code(
                                     """
                     if (isEven) {
@@ -1402,8 +1445,8 @@ class CLangCourseProvider() {
                             id = "intermediate_c1_sub1",
                             title = "If Statements",
                             contentBlocks = listOf(
-                                ContentBlock.Text("The `if` statement allows you to execute a block of code if a condition is true."),
-                                ContentBlock.Text("Syntax:"),
+                                ContentBlock.Text.fromString("The `if` statement allows you to execute a block of code if a condition is true."),
+                                ContentBlock.Text.fromString("Syntax:"),
                                 ContentBlock.Code(
                                     """
                     if (condition) {
@@ -1411,7 +1454,7 @@ class CLangCourseProvider() {
                     }
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("Example:"),
+                                ContentBlock.Text.fromString("Example:"),
                                 ContentBlock.Code(
                                     """
                     int age = 18;
@@ -1427,8 +1470,8 @@ class CLangCourseProvider() {
                             id = "intermediate_c1_sub2",
                             title = "Else Statement",
                             contentBlocks = listOf(
-                                ContentBlock.Text("The `else` statement allows you to execute a block of code when the `if` condition is false."),
-                                ContentBlock.Text("Syntax:"),
+                                ContentBlock.Text.fromString("The `else` statement allows you to execute a block of code when the `if` condition is false."),
+                                ContentBlock.Text.fromString("Syntax:"),
                                 ContentBlock.Code(
                                     """
                     if (condition) {
@@ -1438,7 +1481,7 @@ class CLangCourseProvider() {
                     }
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("Example:"),
+                                ContentBlock.Text.fromString("Example:"),
                                 ContentBlock.Code(
                                     """
                     int age = 16;
@@ -1456,8 +1499,8 @@ class CLangCourseProvider() {
                             id = "intermediate_c1_sub3",
                             title = "Else If Statement",
                             contentBlocks = listOf(
-                                ContentBlock.Text("The `else if` statement is used to test multiple conditions sequentially."),
-                                ContentBlock.Text("Syntax:"),
+                                ContentBlock.Text.fromString("The `else if` statement is used to test multiple conditions sequentially."),
+                                ContentBlock.Text.fromString("Syntax:"),
                                 ContentBlock.Code(
                                     """
                     if (condition1) {
@@ -1469,7 +1512,7 @@ class CLangCourseProvider() {
                     }
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("Example:"),
+                                ContentBlock.Text.fromString("Example:"),
                                 ContentBlock.Code(
                                     """
                     int score = 85;
@@ -1489,14 +1532,14 @@ class CLangCourseProvider() {
                             id = "intermediate_c1_sub4",
                             title = "Short Hand If...Else (Ternary Operator)",
                             contentBlocks = listOf(
-                                ContentBlock.Text("The ternary operator (`?:`) is a shorthand version of the `if...else` statement."),
-                                ContentBlock.Text("Syntax:"),
+                                ContentBlock.Text.fromString("The ternary operator (`?:`) is a shorthand version of the `if...else` statement."),
+                                ContentBlock.Text.fromString("Syntax:"),
                                 ContentBlock.Code(
                                     """
                     condition ? expression_if_true : expression_if_false;
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("Example:"),
+                                ContentBlock.Text.fromString("Example:"),
                                 ContentBlock.Code(
                                     """
                     int age = 20;
@@ -1510,8 +1553,8 @@ class CLangCourseProvider() {
                             id = "intermediate_c1_sub5",
                             title = "Real-Life Examples",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Here are some practical examples where `if`, `else`, and `else if` are used:"),
-                                ContentBlock.Text("Example 1: Checking if a user is logged in."),
+                                ContentBlock.Text.fromString("Here are some practical examples where `if`, `else`, and `else if` are used:"),
+                                ContentBlock.Text.fromString("Example 1: Checking if a user is logged in."),
                                 ContentBlock.Code(
                                     """
                     bool isLoggedIn = true;
@@ -1522,7 +1565,7 @@ class CLangCourseProvider() {
                     }
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("Example 2: Determine the largest of three numbers."),
+                                ContentBlock.Text.fromString("Example 2: Determine the largest of three numbers."),
                                 ContentBlock.Code(
                                     """
                     int a = 5, b = 10, c = 3;
@@ -1572,8 +1615,8 @@ class CLangCourseProvider() {
                             id = "intermediate_c2_sub1",
                             title = "Introduction to Nested If...Else",
                             contentBlocks = listOf(
-                                ContentBlock.Text("A nested `if...else` statement is an `if` statement inside another `if` statement, allowing for more complex conditions."),
-                                ContentBlock.Text("Syntax:"),
+                                ContentBlock.Text.fromString("A nested `if...else` statement is an `if` statement inside another `if` statement, allowing for more complex conditions."),
+                                ContentBlock.Text.fromString("Syntax:"),
                                 ContentBlock.Code(
                                     """
                     if (condition1) {
@@ -1594,8 +1637,8 @@ class CLangCourseProvider() {
                             id = "intermediate_c2_sub2",
                             title = "Nesting Multiple If...Else",
                             contentBlocks = listOf(
-                                ContentBlock.Text("You can nest multiple `if...else` statements to handle more than two conditions."),
-                                ContentBlock.Text("Example:"),
+                                ContentBlock.Text.fromString("You can nest multiple `if...else` statements to handle more than two conditions."),
+                                ContentBlock.Text.fromString("Example:"),
                                 ContentBlock.Code(
                                     """
                     int age = 20;
@@ -1623,7 +1666,7 @@ class CLangCourseProvider() {
                             id = "intermediate_c2_sub3",
                             title = "Real-Life Example",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Here's a real-life example where you use nested `if...else` to check user permissions:"),
+                                ContentBlock.Text.fromString("Here's a real-life example where you use nested `if...else` to check user permissions:"),
                                 ContentBlock.Code(
                                     """
                     bool isAdmin = true;
@@ -1640,7 +1683,7 @@ class CLangCourseProvider() {
                     }
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("This example checks if the user is logged in first, then checks if the user is an admin to give them different levels of access.")
+                                ContentBlock.Text.fromString("This example checks if the user is logged in first, then checks if the user is an admin to give them different levels of access.")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         )
@@ -1677,8 +1720,8 @@ class CLangCourseProvider() {
                             id = "intermediate_c3_sub1",
                             title = "Introduction to Switch Statement",
                             contentBlocks = listOf(
-                                ContentBlock.Text("The `switch` statement evaluates an expression and executes corresponding code blocks for matching `case` values."),
-                                ContentBlock.Text("Syntax:"),
+                                ContentBlock.Text.fromString("The `switch` statement evaluates an expression and executes corresponding code blocks for matching `case` values."),
+                                ContentBlock.Text.fromString("Syntax:"),
                                 ContentBlock.Code(
                                     """
                     switch (expression) {
@@ -1700,8 +1743,8 @@ class CLangCourseProvider() {
                             id = "intermediate_c3_sub2",
                             title = "Switch Case and Default",
                             contentBlocks = listOf(
-                                ContentBlock.Text("You can have multiple `case` labels and one `default` label, which is executed if no `case` matches."),
-                                ContentBlock.Text("Example:"),
+                                ContentBlock.Text.fromString("You can have multiple `case` labels and one `default` label, which is executed if no `case` matches."),
+                                ContentBlock.Text.fromString("Example:"),
                                 ContentBlock.Code(
                                     """
                     int day = 3;
@@ -1727,7 +1770,7 @@ class CLangCourseProvider() {
                             id = "intermediate_c3_sub3",
                             title = "Real-Life Example",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Here's an example where the `switch` statement is used to handle different menu options:"),
+                                ContentBlock.Text.fromString("Here's an example where the `switch` statement is used to handle different menu options:"),
                                 ContentBlock.Code(
                                     """
                     int option = 2;
@@ -1746,7 +1789,7 @@ class CLangCourseProvider() {
                     }
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("This `switch` statement makes it easy to handle different menu selections.")
+                                ContentBlock.Text.fromString("This `switch` statement makes it easy to handle different menu selections.")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         )
@@ -1789,8 +1832,8 @@ class CLangCourseProvider() {
                             id = "intermediate_c4_sub1",
                             title = "While Loop",
                             contentBlocks = listOf(
-                                ContentBlock.Text("A `while` loop repeats code as long as a condition evaluates to `true`. The condition is checked before each iteration."),
-                                ContentBlock.Text("Syntax:"),
+                                ContentBlock.Text.fromString("A `while` loop repeats code as long as a condition evaluates to `true`. The condition is checked before each iteration."),
+                                ContentBlock.Text.fromString("Syntax:"),
                                 ContentBlock.Code(
                                     """ 
                     while (condition) {
@@ -1805,8 +1848,8 @@ class CLangCourseProvider() {
                             id = "intermediate_c4_sub2",
                             title = "The Do/While Loop",
                             contentBlocks = listOf(
-                                ContentBlock.Text("The `do-while` loop executes code at least once, regardless of the condition, and checks the condition after each iteration."),
-                                ContentBlock.Text("Syntax:"),
+                                ContentBlock.Text.fromString("The `do-while` loop executes code at least once, regardless of the condition, and checks the condition after each iteration."),
+                                ContentBlock.Text.fromString("Syntax:"),
                                 ContentBlock.Code(
                                     """ 
                     do {
@@ -1821,8 +1864,8 @@ class CLangCourseProvider() {
                             id = "intermediate_c4_sub3",
                             title = "The For Loop",
                             contentBlocks = listOf(
-                                ContentBlock.Text("The `for` loop is a more compact version of the `while` loop where the initialization, condition, and increment are all included in one line."),
-                                ContentBlock.Text("Syntax:"),
+                                ContentBlock.Text.fromString("The `for` loop is a more compact version of the `while` loop where the initialization, condition, and increment are all included in one line."),
+                                ContentBlock.Text.fromString("Syntax:"),
                                 ContentBlock.Code(
                                     """ 
                     for (initialization; condition; increment) {
@@ -1837,8 +1880,8 @@ class CLangCourseProvider() {
                             id = "intermediate_c4_sub4",
                             title = "Real-Life Examples",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Here are practical examples of `while`, `do-while`, and `for` loops in C."),
-                                ContentBlock.Text("Example of `while` loop:"),
+                                ContentBlock.Text.fromString("Here are practical examples of `while`, `do-while`, and `for` loops in C."),
+                                ContentBlock.Text.fromString("Example of `while` loop:"),
                                 ContentBlock.Code(
                                     """ 
                     int i = 0;
@@ -1848,7 +1891,7 @@ class CLangCourseProvider() {
                     }
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("Example of `do-while` loop:"),
+                                ContentBlock.Text.fromString("Example of `do-while` loop:"),
                                 ContentBlock.Code(
                                     """ 
                     int i = 0;
@@ -1858,7 +1901,7 @@ class CLangCourseProvider() {
                     } while (i < 5);
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("Example of `for` loop:"),
+                                ContentBlock.Text.fromString("Example of `for` loop:"),
                                 ContentBlock.Code(
                                     """ 
                     for (int i = 0; i < 5; i++) {
@@ -1920,8 +1963,8 @@ class CLangCourseProvider() {
                             id = "intermediate_c5_sub1",
                             title = "Nested For Loops",
                             contentBlocks = listOf(
-                                ContentBlock.Text("A `for` loop can be nested inside another `for` loop, useful for multi-dimensional data or complex iterations."),
-                                ContentBlock.Text("Syntax:"),
+                                ContentBlock.Text.fromString("A `for` loop can be nested inside another `for` loop, useful for multi-dimensional data or complex iterations."),
+                                ContentBlock.Text.fromString("Syntax:"),
                                 ContentBlock.Code(
                                     """ 
                     for (int i = 0; i < n; i++) {
@@ -1938,8 +1981,8 @@ class CLangCourseProvider() {
                             id = "intermediate_c5_sub2",
                             title = "Nested While Loops",
                             contentBlocks = listOf(
-                                ContentBlock.Text("A `while` loop can be nested inside another `while` loop for more complex conditions."),
-                                ContentBlock.Text("Syntax:"),
+                                ContentBlock.Text.fromString("A `while` loop can be nested inside another `while` loop for more complex conditions."),
+                                ContentBlock.Text.fromString("Syntax:"),
                                 ContentBlock.Code(
                                     """ 
                     while (condition1) {
@@ -1956,8 +1999,8 @@ class CLangCourseProvider() {
                             id = "intermediate_c5_sub3",
                             title = "For in While Loops",
                             contentBlocks = listOf(
-                                ContentBlock.Text("You can nest a `for` loop inside a `while` loop to handle specific conditions within an ongoing iteration."),
-                                ContentBlock.Text("Syntax:"),
+                                ContentBlock.Text.fromString("You can nest a `for` loop inside a `while` loop to handle specific conditions within an ongoing iteration."),
+                                ContentBlock.Text.fromString("Syntax:"),
                                 ContentBlock.Code(
                                     """ 
                     while (condition) {
@@ -1974,8 +2017,8 @@ class CLangCourseProvider() {
                             id = "intermediate_c5_sub4",
                             title = "While in For Loops",
                             contentBlocks = listOf(
-                                ContentBlock.Text("A `while` loop can also be nested inside a `for` loop to handle different conditions for each iteration."),
-                                ContentBlock.Text("Syntax:"),
+                                ContentBlock.Text.fromString("A `while` loop can also be nested inside a `for` loop to handle different conditions for each iteration."),
+                                ContentBlock.Text.fromString("Syntax:"),
                                 ContentBlock.Code(
                                     """ 
                     for (int i = 0; i < n; i++) {
@@ -1992,8 +2035,8 @@ class CLangCourseProvider() {
                             id = "intermediate_c5_sub5",
                             title = "Nested Do-While Loops",
                             contentBlocks = listOf(
-                                ContentBlock.Text("A `do-while` loop can be nested inside another `do-while` loop. This ensures that code runs at least once, even if conditions aren't initially met."),
-                                ContentBlock.Text("Syntax:"),
+                                ContentBlock.Text.fromString("A `do-while` loop can be nested inside another `do-while` loop. This ensures that code runs at least once, even if conditions aren't initially met."),
+                                ContentBlock.Text.fromString("Syntax:"),
                                 ContentBlock.Code(
                                     """ 
                     do {
@@ -2010,8 +2053,8 @@ class CLangCourseProvider() {
                             id = "intermediate_c5_sub6",
                             title = "Real-Life Examples",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Here are practical examples of different nested loop types."),
-                                ContentBlock.Text("Example of nested `for` loops:"),
+                                ContentBlock.Text.fromString("Here are practical examples of different nested loop types."),
+                                ContentBlock.Text.fromString("Example of nested `for` loops:"),
                                 ContentBlock.Code(
                                     """ 
                     for (int i = 0; i < 3; i++) {
@@ -2021,7 +2064,7 @@ class CLangCourseProvider() {
                     }
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("Example of nested `while` loops:"),
+                                ContentBlock.Text.fromString("Example of nested `while` loops:"),
                                 ContentBlock.Code(
                                     """ 
                     int i = 0;
@@ -2035,7 +2078,7 @@ class CLangCourseProvider() {
                     }
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("Example of `for` in `while` loop:"),
+                                ContentBlock.Text.fromString("Example of `for` in `while` loop:"),
                                 ContentBlock.Code(
                                     """ 
                     int i = 0;
@@ -2047,7 +2090,7 @@ class CLangCourseProvider() {
                     }
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("Example of `while` in `for` loop:"),
+                                ContentBlock.Text.fromString("Example of `while` in `for` loop:"),
                                 ContentBlock.Code(
                                     """ 
                     for (int i = 0; i < 3; i++) {
@@ -2059,7 +2102,7 @@ class CLangCourseProvider() {
                     }
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("Example of nested `do-while` loops:"),
+                                ContentBlock.Text.fromString("Example of nested `do-while` loops:"),
                                 ContentBlock.Code(
                                     """ 
                     int i = 0;
@@ -2121,8 +2164,8 @@ class CLangCourseProvider() {
                             id = "intermediate_c6_sub1",
                             title = "Basic Break Statement",
                             contentBlocks = listOf(
-                                ContentBlock.Text("The `break` statement allows you to exit a loop early when a condition is met."),
-                                ContentBlock.Text("Syntax:"),
+                                ContentBlock.Text.fromString("The `break` statement allows you to exit a loop early when a condition is met."),
+                                ContentBlock.Text.fromString("Syntax:"),
                                 ContentBlock.Code(
                                     """ 
                     while (condition) {
@@ -2132,7 +2175,7 @@ class CLangCourseProvider() {
                     }
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("Example of `break` in a `for` loop:"),
+                                ContentBlock.Text.fromString("Example of `break` in a `for` loop:"),
                                 ContentBlock.Code(
                                     """ 
                     for (int i = 0; i < 10; i++) {
@@ -2150,8 +2193,8 @@ class CLangCourseProvider() {
                             id = "intermediate_c6_sub2",
                             title = "Basic Continue Statement",
                             contentBlocks = listOf(
-                                ContentBlock.Text("The `continue` statement skips the current iteration and moves to the next iteration in the loop."),
-                                ContentBlock.Text("Syntax:"),
+                                ContentBlock.Text.fromString("The `continue` statement skips the current iteration and moves to the next iteration in the loop."),
+                                ContentBlock.Text.fromString("Syntax:"),
                                 ContentBlock.Code(
                                     """ 
                     while (condition) {
@@ -2161,7 +2204,7 @@ class CLangCourseProvider() {
                     }
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("Example of `continue` in a `for` loop:"),
+                                ContentBlock.Text.fromString("Example of `continue` in a `for` loop:"),
                                 ContentBlock.Code(
                                     """ 
                     for (int i = 0; i < 10; i++) {
@@ -2179,8 +2222,8 @@ class CLangCourseProvider() {
                             id = "intermediate_c6_sub3",
                             title = "Break in Nested Loops",
                             contentBlocks = listOf(
-                                ContentBlock.Text("In nested loops, `break` only exits the innermost loop. You can’t directly exit outer loops."),
-                                ContentBlock.Text("Example of `break` in nested `for` loops:"),
+                                ContentBlock.Text.fromString("In nested loops, `break` only exits the innermost loop. You can’t directly exit outer loops."),
+                                ContentBlock.Text.fromString("Example of `break` in nested `for` loops:"),
                                 ContentBlock.Code(
                                     """ 
                     for (int i = 0; i < 3; i++) {
@@ -2199,8 +2242,8 @@ class CLangCourseProvider() {
                             id = "intermediate_c6_sub4",
                             title = "Continue in Nested Loops",
                             contentBlocks = listOf(
-                                ContentBlock.Text("In nested loops, `continue` will skip the current iteration of the innermost loop."),
-                                ContentBlock.Text("Example of `continue` in nested `for` loops:"),
+                                ContentBlock.Text.fromString("In nested loops, `continue` will skip the current iteration of the innermost loop."),
+                                ContentBlock.Text.fromString("Example of `continue` in nested `for` loops:"),
                                 ContentBlock.Code(
                                     """ 
                     for (int i = 0; i < 3; i++) {
@@ -2219,8 +2262,8 @@ class CLangCourseProvider() {
                             id = "intermediate_c6_sub5",
                             title = "Real-Life Examples",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Practical examples of `break` and `continue` in loops:"),
-                                ContentBlock.Text("Example of `break` in a `while` loop:"),
+                                ContentBlock.Text.fromString("Practical examples of `break` and `continue` in loops:"),
+                                ContentBlock.Text.fromString("Example of `break` in a `while` loop:"),
                                 ContentBlock.Code(
                                     """ 
                     int i = 0;
@@ -2233,7 +2276,7 @@ class CLangCourseProvider() {
                     }
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("Example of `continue` in a `while` loop:"),
+                                ContentBlock.Text.fromString("Example of `continue` in a `while` loop:"),
                                 ContentBlock.Code(
                                     """ 
                     int i = 0;
@@ -2306,10 +2349,10 @@ class CLangCourseProvider() {
                             id = "intermediate_c7_sub1",
                             title = "Introduction to Arrays",
                             contentBlocks = listOf(
-                                ContentBlock.Text("An array is a collection of elements, all of the same type, stored in contiguous memory locations."),
-                                ContentBlock.Text("Arrays allow you to store multiple values under a single variable name, indexed by integers."),
-                                ContentBlock.Text("In C, the elements in an array are of the same type, such as `int`, `char`, etc."),
-                                ContentBlock.Text("Example:"),
+                                ContentBlock.Text.fromString("An array is a collection of elements, all of the same type, stored in contiguous memory locations."),
+                                ContentBlock.Text.fromString("Arrays allow you to store multiple values under a single variable name, indexed by integers."),
+                                ContentBlock.Text.fromString("In C, the elements in an array are of the same type, such as `int`, `char`, etc."),
+                                ContentBlock.Text.fromString("Example:"),
                                 ContentBlock.Code(
                                     """
                     int numbers[5];  // Declares an array of 5 integers
@@ -2322,15 +2365,15 @@ class CLangCourseProvider() {
                             id = "intermediate_c7_sub2",
                             title = "Array Declaration and Initialization",
                             contentBlocks = listOf(
-                                ContentBlock.Text("To declare an array, you need to specify the type and the size of the array."),
-                                ContentBlock.Text("Arrays can be initialized at the time of declaration or after declaration."),
-                                ContentBlock.Text("Example of declaration and initialization:"),
+                                ContentBlock.Text.fromString("To declare an array, you need to specify the type and the size of the array."),
+                                ContentBlock.Text.fromString("Arrays can be initialized at the time of declaration or after declaration."),
+                                ContentBlock.Text.fromString("Example of declaration and initialization:"),
                                 ContentBlock.Code(
                                     """
                     int numbers[5] = {1, 2, 3, 4, 5};  // Initializes the array with values
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("You can also initialize an array without specifying the size:"),
+                                ContentBlock.Text.fromString("You can also initialize an array without specifying the size:"),
                                 ContentBlock.Code(
                                     """
                     int numbers[] = {1, 2, 3, 4, 5};  // Size is inferred automatically
@@ -2343,15 +2386,15 @@ class CLangCourseProvider() {
                             id = "intermediate_c7_sub3",
                             title = "Accessing Array Elements",
                             contentBlocks = listOf(
-                                ContentBlock.Text("You can access and modify elements of an array using the index, starting from 0."),
-                                ContentBlock.Text("Example of accessing array elements:"),
+                                ContentBlock.Text.fromString("You can access and modify elements of an array using the index, starting from 0."),
+                                ContentBlock.Text.fromString("Example of accessing array elements:"),
                                 ContentBlock.Code(
                                     """
                     int numbers[5] = {1, 2, 3, 4, 5};
                     printf("%d", numbers[0]);  // Accesses the first element (output: 1)
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("To modify an element in the array, assign a new value to it using its index:"),
+                                ContentBlock.Text.fromString("To modify an element in the array, assign a new value to it using its index:"),
                                 ContentBlock.Code(
                                     """
                     numbers[2] = 10;  // Changes the third element to 10
@@ -2364,8 +2407,8 @@ class CLangCourseProvider() {
                             id = "intermediate_c7_sub4",
                             title = "Array Size or Length",
                             contentBlocks = listOf(
-                                ContentBlock.Text("In C, the size of an array is fixed once it is declared. However, you can calculate the size of an array using `sizeof`."),
-                                ContentBlock.Text("To calculate the number of elements in an array:"),
+                                ContentBlock.Text.fromString("In C, the size of an array is fixed once it is declared. However, you can calculate the size of an array using `sizeof`."),
+                                ContentBlock.Text.fromString("To calculate the number of elements in an array:"),
                                 ContentBlock.Code(
                                     """
                     int numbers[5] = {1, 2, 3, 4, 5};
@@ -2373,7 +2416,7 @@ class CLangCourseProvider() {
                     printf("Size: %d", size);  // Output: 5
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("This gives the number of elements in the array. The `sizeof` operator returns the total size in bytes of the array."),
+                                ContentBlock.Text.fromString("This gives the number of elements in the array. The `sizeof` operator returns the total size in bytes of the array."),
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -2381,8 +2424,8 @@ class CLangCourseProvider() {
                             id = "intermediate_c7_sub5",
                             title = "Multidimensional Arrays",
                             contentBlocks = listOf(
-                                ContentBlock.Text("A multidimensional array is an array of arrays. The most common form is a 2D array."),
-                                ContentBlock.Text("Syntax for a 2D array:"),
+                                ContentBlock.Text.fromString("A multidimensional array is an array of arrays. The most common form is a 2D array."),
+                                ContentBlock.Text.fromString("Syntax for a 2D array:"),
                                 ContentBlock.Code(
                                     """
                     int matrix[3][3] = {
@@ -2392,13 +2435,13 @@ class CLangCourseProvider() {
                     };
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("Accessing elements of a 2D array:"),
+                                ContentBlock.Text.fromString("Accessing elements of a 2D array:"),
                                 ContentBlock.Code(
                                     """
                     printf("%d", matrix[0][0]);  // Accesses the element at row 0, column 0 (output: 1)
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("You can also use loops to traverse through multidimensional arrays."),
+                                ContentBlock.Text.fromString("You can also use loops to traverse through multidimensional arrays."),
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -2406,8 +2449,8 @@ class CLangCourseProvider() {
                             id = "intermediate_c7_sub6",
                             title = "Array Operations",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Arrays can be used for various operations like searching, sorting, and modifying elements."),
-                                ContentBlock.Text("Example of sorting an array:"),
+                                ContentBlock.Text.fromString("Arrays can be used for various operations like searching, sorting, and modifying elements."),
+                                ContentBlock.Text.fromString("Example of sorting an array:"),
                                 ContentBlock.Code(
                                     """
                     int numbers[5] = {5, 2, 9, 1, 3};
@@ -2423,7 +2466,7 @@ class CLangCourseProvider() {
                     }
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("Example of searching in an array (linear search):"),
+                                ContentBlock.Text.fromString("Example of searching in an array (linear search):"),
                                 ContentBlock.Code(
                                     """
                     int numbers[5] = {1, 2, 3, 4, 5};
@@ -2442,8 +2485,8 @@ class CLangCourseProvider() {
                             id = "intermediate_c7_sub7",
                             title = "Real-Life Example with Arrays",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Arrays are used in real-life applications such as storing temperatures, processing data, etc."),
-                                ContentBlock.Text("Example: Store temperatures for a week in an array."),
+                                ContentBlock.Text.fromString("Arrays are used in real-life applications such as storing temperatures, processing data, etc."),
+                                ContentBlock.Text.fromString("Example: Store temperatures for a week in an array."),
                                 ContentBlock.Code(
                                     """
                     float temperatures[7] = {20.5, 22.3, 21.0, 19.8, 23.5, 21.6, 20.1};
@@ -2533,9 +2576,9 @@ class CLangCourseProvider() {
                             id = "intermediate_c8_sub1",
                             title = "Introduction to Strings in C",
                             contentBlocks = listOf(
-                                ContentBlock.Text("A string in C is an array of characters, terminated by a null character (`'0'`)."),
-                                ContentBlock.Text("Strings in C are handled as arrays of characters with a special character (`'0'`) at the end."),
-                                ContentBlock.Text("Example of a string:"),
+                                ContentBlock.Text.fromString("A string in C is an array of characters, terminated by a null character (`'0'`)."),
+                                ContentBlock.Text.fromString("Strings in C are handled as arrays of characters with a special character (`'0'`) at the end."),
+                                ContentBlock.Text.fromString("Example of a string:"),
                                 ContentBlock.Code(
                                     """
                     char name[] = "Hello";
@@ -2548,14 +2591,14 @@ class CLangCourseProvider() {
                             id = "intermediate_c8_sub2",
                             title = "Declaring and Initializing Strings",
                             contentBlocks = listOf(
-                                ContentBlock.Text("In C, a string is declared as a character array."),
-                                ContentBlock.Text("You can initialize a string at the time of declaration:"),
+                                ContentBlock.Text.fromString("In C, a string is declared as a character array."),
+                                ContentBlock.Text.fromString("You can initialize a string at the time of declaration:"),
                                 ContentBlock.Code(
                                     """
                     char name[] = "John";  // Automatic null-termination
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("Alternatively, you can declare an empty string and later assign a value:"),
+                                ContentBlock.Text.fromString("Alternatively, you can declare an empty string and later assign a value:"),
                                 ContentBlock.Code(
                                     """
                     char name[10];  // A string of size 10
@@ -2569,8 +2612,8 @@ class CLangCourseProvider() {
                             id = "intermediate_c8_sub3",
                             title = "Accessing String Elements",
                             contentBlocks = listOf(
-                                ContentBlock.Text("To access individual characters of a string, use the array indexing method."),
-                                ContentBlock.Text("Example of accessing characters in a string:"),
+                                ContentBlock.Text.fromString("To access individual characters of a string, use the array indexing method."),
+                                ContentBlock.Text.fromString("Example of accessing characters in a string:"),
                                 ContentBlock.Code(
                                     """
                     char name[] = "Hello";
@@ -2578,7 +2621,7 @@ class CLangCourseProvider() {
                     printf("%c", name[4]);  // Output: 'o'
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("Note that the first character is at index 0, and the last character is at `length-1`.")
+                                ContentBlock.Text.fromString("Note that the first character is at index 0, and the last character is at `length-1`.")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -2586,8 +2629,8 @@ class CLangCourseProvider() {
                             id = "intermediate_c8_sub4",
                             title = "String Length and Size",
                             contentBlocks = listOf(
-                                ContentBlock.Text("The length of a string can be calculated using the `strlen` function from `string.h`."),
-                                ContentBlock.Text("Example to calculate the length of a string:"),
+                                ContentBlock.Text.fromString("The length of a string can be calculated using the `strlen` function from `string.h`."),
+                                ContentBlock.Text.fromString("Example to calculate the length of a string:"),
                                 ContentBlock.Code(
                                     """
                     char name[] = "Hello";
@@ -2595,7 +2638,7 @@ class CLangCourseProvider() {
                     printf("Length: %d", length);
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("The `sizeof` operator returns the size of the array in bytes, including the null-terminator.")
+                                ContentBlock.Text.fromString("The `sizeof` operator returns the size of the array in bytes, including the null-terminator.")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -2603,15 +2646,15 @@ class CLangCourseProvider() {
                             id = "intermediate_c8_sub5",
                             title = "String Special Characters",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Strings can contain special characters, such as `\n` (new line), `\t` (tab), and `\'` (single quote)."),
-                                ContentBlock.Text("Example of a string with special characters:"),
+                                ContentBlock.Text.fromString("Strings can contain special characters, such as `\n` (new line), `\t` (tab), and `\'` (single quote)."),
+                                ContentBlock.Text.fromString("Example of a string with special characters:"),
                                 ContentBlock.Code(
                                     """
                     char message[] = "Hello, world!\nWelcome to C programming.";
                     printf("%s", message);
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("The `\n` inserts a new line when printed.")
+                                ContentBlock.Text.fromString("The `\n` inserts a new line when printed.")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -2619,8 +2662,8 @@ class CLangCourseProvider() {
                             id = "intermediate_c8_sub6",
                             title = "Common String Functions",
                             contentBlocks = listOf(
-                                ContentBlock.Text("C provides several string functions, such as `strlen()`, `strcpy()`, `strcat()`, and `strcmp()`."),
-                                ContentBlock.Text("Some common functions are:"),
+                                ContentBlock.Text.fromString("C provides several string functions, such as `strlen()`, `strcpy()`, `strcat()`, and `strcmp()`."),
+                                ContentBlock.Text.fromString("Some common functions are:"),
                                 ContentBlock.Code(
                                     """
                     // Copying a string
@@ -2648,8 +2691,8 @@ class CLangCourseProvider() {
                             id = "intermediate_c8_sub7",
                             title = "String Comparison",
                             contentBlocks = listOf(
-                                ContentBlock.Text("The `strcmp()` function compares two strings lexicographically."),
-                                ContentBlock.Text("Example:"),
+                                ContentBlock.Text.fromString("The `strcmp()` function compares two strings lexicographically."),
+                                ContentBlock.Text.fromString("Example:"),
                                 ContentBlock.Code(
                                     """
                     char str1[] = "apple";
@@ -2666,8 +2709,8 @@ class CLangCourseProvider() {
                             id = "intermediate_c8_sub8",
                             title = "String Copying and Concatenation",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Strings can be copied and concatenated using `strcpy()` and `strcat()`."),
-                                ContentBlock.Text("Example of copying a string:"),
+                                ContentBlock.Text.fromString("Strings can be copied and concatenated using `strcpy()` and `strcat()`."),
+                                ContentBlock.Text.fromString("Example of copying a string:"),
                                 ContentBlock.Code(
                                     """
                     char src[] = "Hello";
@@ -2675,7 +2718,7 @@ class CLangCourseProvider() {
                     strcpy(dest, src);  // Copies "Hello" into dest
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("Example of concatenating two strings:"),
+                                ContentBlock.Text.fromString("Example of concatenating two strings:"),
                                 ContentBlock.Code(
                                     """
                     char str1[20] = "Hello, ";
@@ -2690,8 +2733,8 @@ class CLangCourseProvider() {
                             id = "intermediate_c8_sub9",
                             title = "String Input and Output",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Strings can be input using `scanf()` and output using `printf()`."),
-                                ContentBlock.Text("Example:"),
+                                ContentBlock.Text.fromString("Strings can be input using `scanf()` and output using `printf()`."),
+                                ContentBlock.Text.fromString("Example:"),
                                 ContentBlock.Code(
                                     """
                     char name[20];
@@ -2707,8 +2750,8 @@ class CLangCourseProvider() {
                             id = "intermediate_c8_sub10",
                             title = "Real-Life Example with Strings",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Strings are used in a wide variety of real-world applications, like user input, file reading, and string manipulation."),
-                                ContentBlock.Text("Example: Prompting a user for input and greeting them:"),
+                                ContentBlock.Text.fromString("Strings are used in a wide variety of real-world applications, like user input, file reading, and string manipulation."),
+                                ContentBlock.Text.fromString("Example: Prompting a user for input and greeting them:"),
                                 ContentBlock.Code(
                                     """
                     char name[50];
@@ -2759,7 +2802,7 @@ class CLangCourseProvider() {
                             id = "intermediate_c9_sub1",
                             title = "Using `scanf` for Input",
                             contentBlocks = listOf(
-                                ContentBlock.Text("`scanf` is used to accept formatted input from the user."),
+                                ContentBlock.Text.fromString("`scanf` is used to accept formatted input from the user."),
                                 ContentBlock.Code(
                                     """
                     int age;
@@ -2773,7 +2816,7 @@ class CLangCourseProvider() {
                             id = "intermediate_c9_sub2",
                             title = "Using `getchar` for Single Character Input",
                             contentBlocks = listOf(
-                                ContentBlock.Text("`getchar` reads a single character entered by the user."),
+                                ContentBlock.Text.fromString("`getchar` reads a single character entered by the user."),
                                 ContentBlock.Code(
                                     """
                     char letter;
@@ -2787,7 +2830,7 @@ class CLangCourseProvider() {
                             id = "intermediate_c9_sub3",
                             title = "Using `fgets` for String Input",
                             contentBlocks = listOf(
-                                ContentBlock.Text("`fgets` allows reading a full line of input, including spaces."),
+                                ContentBlock.Text.fromString("`fgets` allows reading a full line of input, including spaces."),
                                 ContentBlock.Code(
                                     """
                     char name[50];
@@ -2801,7 +2844,7 @@ class CLangCourseProvider() {
                             id = "intermediate_c9_sub4",
                             title = "Input Validation",
                             contentBlocks = listOf(
-                                ContentBlock.Text("It's important to validate user input to ensure it's correct."),
+                                ContentBlock.Text.fromString("It's important to validate user input to ensure it's correct."),
                                 ContentBlock.Code(
                                     """
                     int num;
@@ -2851,9 +2894,9 @@ class CLangCourseProvider() {
                             id = "advanced_c1_sub1",
                             title = "Understanding Memory Address",
                             contentBlocks = listOf(
-                                ContentBlock.Text("In C, every variable has a memory address, which is the location in memory where the data is stored."),
-                                ContentBlock.Text("You can access a variable's memory address using the `&` operator."),
-                                ContentBlock.Text("Memory addresses are typically represented as hexadecimal values."),
+                                ContentBlock.Text.fromString("In C, every variable has a memory address, which is the location in memory where the data is stored."),
+                                ContentBlock.Text.fromString("You can access a variable's memory address using the `&` operator."),
+                                ContentBlock.Text.fromString("Memory addresses are typically represented as hexadecimal values."),
                                 ContentBlock.Code(
                                     """
                     int num = 10;
@@ -2867,8 +2910,8 @@ class CLangCourseProvider() {
                             id = "advanced_c1_sub2",
                             title = "Accessing Memory Address",
                             contentBlocks = listOf(
-                                ContentBlock.Text("You can access a variable's memory address by using the `&` operator followed by the variable name."),
-                                ContentBlock.Text("The `%p` format specifier is used in `printf` to print the memory address."),
+                                ContentBlock.Text.fromString("You can access a variable's memory address by using the `&` operator followed by the variable name."),
+                                ContentBlock.Text.fromString("The `%p` format specifier is used in `printf` to print the memory address."),
                                 ContentBlock.Code(
                                     """
                     int num = 10;
@@ -2935,9 +2978,9 @@ class CLangCourseProvider() {
                             id = "advanced_c2_sub1",
                             title = "Creating Pointers",
                             contentBlocks = listOf(
-                                ContentBlock.Text("In C, a pointer is a variable that stores the memory address of another variable."),
-                                ContentBlock.Text("A pointer is declared using the `*` symbol. Example: `int* ptr;`"),
-                                ContentBlock.Text("To assign a pointer, use the `&` operator to store the address of a variable."),
+                                ContentBlock.Text.fromString("In C, a pointer is a variable that stores the memory address of another variable."),
+                                ContentBlock.Text.fromString("A pointer is declared using the `*` symbol. Example: `int* ptr;`"),
+                                ContentBlock.Text.fromString("To assign a pointer, use the `&` operator to store the address of a variable."),
                                 ContentBlock.Code(
                                     """
                     int num = 10;
@@ -2952,8 +2995,8 @@ class CLangCourseProvider() {
                             id = "advanced_c2_sub2",
                             title = "Pointer Dereferencing",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Dereferencing a pointer means accessing the value stored at the memory address it points to."),
-                                ContentBlock.Text("Use the `*` operator to dereference a pointer and access the variable's value."),
+                                ContentBlock.Text.fromString("Dereferencing a pointer means accessing the value stored at the memory address it points to."),
+                                ContentBlock.Text.fromString("Use the `*` operator to dereference a pointer and access the variable's value."),
                                 ContentBlock.Code(
                                     """
                     int num = 10;
@@ -2968,8 +3011,8 @@ class CLangCourseProvider() {
                             id = "advanced_c2_sub3",
                             title = "Pointers & Arrays",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Arrays and pointers are closely related in C. The name of an array is a constant pointer to its first element."),
-                                ContentBlock.Text("You can use pointers to access array elements by incrementing the pointer."),
+                                ContentBlock.Text.fromString("Arrays and pointers are closely related in C. The name of an array is a constant pointer to its first element."),
+                                ContentBlock.Text.fromString("You can use pointers to access array elements by incrementing the pointer."),
                                 ContentBlock.Code(
                                     """
                     int arr[] = {1, 2, 3};
@@ -2984,8 +3027,8 @@ class CLangCourseProvider() {
                             id = "advanced_c2_sub4",
                             title = "Pointer Arithmetic",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Pointers in C allow arithmetic operations like addition or subtraction."),
-                                ContentBlock.Text("When you increment or decrement a pointer, it moves by the size of the type it points to."),
+                                ContentBlock.Text.fromString("Pointers in C allow arithmetic operations like addition or subtraction."),
+                                ContentBlock.Text.fromString("When you increment or decrement a pointer, it moves by the size of the type it points to."),
                                 ContentBlock.Code(
                                     """
                     int arr[] = {1, 2, 3};
@@ -3001,8 +3044,8 @@ class CLangCourseProvider() {
                             id = "advanced_c2_sub5",
                             title = "Pointers to Pointers",
                             contentBlocks = listOf(
-                                ContentBlock.Text("A pointer to a pointer is a pointer that stores the address of another pointer."),
-                                ContentBlock.Text("You can access the value of a pointer to a pointer by dereferencing it twice."),
+                                ContentBlock.Text.fromString("A pointer to a pointer is a pointer that stores the address of another pointer."),
+                                ContentBlock.Text.fromString("You can access the value of a pointer to a pointer by dereferencing it twice."),
                                 ContentBlock.Code(
                                     """
                     int num = 10;
@@ -3018,8 +3061,8 @@ class CLangCourseProvider() {
                             id = "advanced_c2_sub6",
                             title = "Pointer & Function Arguments",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Pointers are commonly used to pass large structures or arrays to functions, as they allow modification of data directly."),
-                                ContentBlock.Text("Passing a pointer to a function allows that function to modify the original data."),
+                                ContentBlock.Text.fromString("Pointers are commonly used to pass large structures or arrays to functions, as they allow modification of data directly."),
+                                ContentBlock.Text.fromString("Passing a pointer to a function allows that function to modify the original data."),
                                 ContentBlock.Code(
                                     """
                     void updateValue(int* ptr) {
@@ -3040,9 +3083,9 @@ class CLangCourseProvider() {
                             id = "advanced_c2_sub7",
                             title = "Real-Life Example of Pointers",
                             contentBlocks = listOf(
-                                ContentBlock.Text("In real life, pointers are useful when you need to work with dynamic memory or large amounts of data that should not be copied multiple times."),
-                                ContentBlock.Text("Consider a game with a large array of data (e.g., the state of each player). Instead of copying the whole array when passing data between functions, a pointer to the array can be passed, making the process more efficient."),
-                                ContentBlock.Text("Real-life use case: If you're designing a game or a simulation program where you need to pass large structures like a player's game state (inventory, stats, etc.), pointers are used to avoid the high cost of copying large amounts of data."),
+                                ContentBlock.Text.fromString("In real life, pointers are useful when you need to work with dynamic memory or large amounts of data that should not be copied multiple times."),
+                                ContentBlock.Text.fromString("Consider a game with a large array of data (e.g., the state of each player). Instead of copying the whole array when passing data between functions, a pointer to the array can be passed, making the process more efficient."),
+                                ContentBlock.Text.fromString("Real-life use case: If you're designing a game or a simulation program where you need to pass large structures like a player's game state (inventory, stats, etc.), pointers are used to avoid the high cost of copying large amounts of data."),
                                 ContentBlock.Code(
                                     """
                     // Example: Game with a player's data
@@ -3106,8 +3149,8 @@ class CLangCourseProvider() {
                             id = "advanced_c3_sub1",
                             title = "Predefined Functions",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Predefined functions are built into C, such as `printf()` for output and `scanf()` for input."),
-                                ContentBlock.Text("Example of using `printf` to print a message:"),
+                                ContentBlock.Text.fromString("Predefined functions are built into C, such as `printf()` for output and `scanf()` for input."),
+                                ContentBlock.Text.fromString("Example of using `printf` to print a message:"),
                                 ContentBlock.Code(
                                     """
                     #include <stdio.h>
@@ -3124,8 +3167,8 @@ class CLangCourseProvider() {
                             id = "advanced_c3_sub2",
                             title = "Create a Function",
                             contentBlocks = listOf(
-                                ContentBlock.Text("In C, you can define your own functions to group code into reusable blocks."),
-                                ContentBlock.Text("Function syntax:"),
+                                ContentBlock.Text.fromString("In C, you can define your own functions to group code into reusable blocks."),
+                                ContentBlock.Text.fromString("Function syntax:"),
                                 ContentBlock.Code(
                                     """
                     returnType functionName(parameters) {
@@ -3133,7 +3176,7 @@ class CLangCourseProvider() {
                     }
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("Example: A function to add two numbers:"),
+                                ContentBlock.Text.fromString("Example: A function to add two numbers:"),
                                 ContentBlock.Code(
                                     """
                     int add(int a, int b) {
@@ -3148,8 +3191,8 @@ class CLangCourseProvider() {
                             id = "advanced_c3_sub3",
                             title = "Call a Function",
                             contentBlocks = listOf(
-                                ContentBlock.Text("To use a function, simply call it by its name and pass the required arguments."),
-                                ContentBlock.Text("Example: Calling the `add` function in `main`:"),
+                                ContentBlock.Text.fromString("To use a function, simply call it by its name and pass the required arguments."),
+                                ContentBlock.Text.fromString("Example: Calling the `add` function in `main`:"),
                                 ContentBlock.Code(
                                     """
                     int main() {
@@ -3166,8 +3209,8 @@ class CLangCourseProvider() {
                             id = "advanced_c3_sub4",
                             title = "Real-Life Example of Functions",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Functions are useful in real-life applications to keep the code organized, reusable, and maintainable."),
-                                ContentBlock.Text("For example, in a banking system, functions could be used to handle different tasks like checking balance, withdrawing money, and depositing money."),
+                                ContentBlock.Text.fromString("Functions are useful in real-life applications to keep the code organized, reusable, and maintainable."),
+                                ContentBlock.Text.fromString("For example, in a banking system, functions could be used to handle different tasks like checking balance, withdrawing money, and depositing money."),
                                 ContentBlock.Code(
                                     """
                     #include <stdio.h>
@@ -3253,9 +3296,9 @@ class CLangCourseProvider() {
                             id = "advanced_c4_sub1",
                             title = "Function Data Types Overview",
                             contentBlocks = listOf(
-                                ContentBlock.Text("In C, function data types define the type of value a function will return. The function's return type is specified before its name in the function declaration."),
-                                ContentBlock.Text("Functions can return a variety of data types such as `int`, `float`, `char`, `void`, and others."),
-                                ContentBlock.Text("This sub-lesson will cover the use of specific data types in functions, including their purpose and examples.")
+                                ContentBlock.Text.fromString("In C, function data types define the type of value a function will return. The function's return type is specified before its name in the function declaration."),
+                                ContentBlock.Text.fromString("Functions can return a variety of data types such as `int`, `float`, `char`, `void`, and others."),
+                                ContentBlock.Text.fromString("This sub-lesson will cover the use of specific data types in functions, including their purpose and examples.")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -3263,8 +3306,8 @@ class CLangCourseProvider() {
                             id = "advanced_c4_sub2",
                             title = "int Data Type",
                             contentBlocks = listOf(
-                                ContentBlock.Text("The `int` data type is used for functions that return integer values."),
-                                ContentBlock.Text("Example: Function returning an integer:"),
+                                ContentBlock.Text.fromString("The `int` data type is used for functions that return integer values."),
+                                ContentBlock.Text.fromString("Example: Function returning an integer:"),
                                 ContentBlock.Code(
                                     """
                     int add(int a, int b) {
@@ -3279,8 +3322,8 @@ class CLangCourseProvider() {
                             id = "advanced_c4_sub3",
                             title = "float Data Type",
                             contentBlocks = listOf(
-                                ContentBlock.Text("The `float` data type is used for functions that return floating-point numbers."),
-                                ContentBlock.Text("Example: Function returning a float value:"),
+                                ContentBlock.Text.fromString("The `float` data type is used for functions that return floating-point numbers."),
+                                ContentBlock.Text.fromString("Example: Function returning a float value:"),
                                 ContentBlock.Code(
                                     """
                     float divide(float a, float b) {
@@ -3295,8 +3338,8 @@ class CLangCourseProvider() {
                             id = "advanced_c4_sub4",
                             title = "char Data Type",
                             contentBlocks = listOf(
-                                ContentBlock.Text("The `char` data type is used for functions that return a single character."),
-                                ContentBlock.Text("Example: Function returning a character:"),
+                                ContentBlock.Text.fromString("The `char` data type is used for functions that return a single character."),
+                                ContentBlock.Text.fromString("Example: Function returning a character:"),
                                 ContentBlock.Code(
                                     """
                     char getGrade(int score) {
@@ -3313,8 +3356,8 @@ class CLangCourseProvider() {
                             id = "advanced_c4_sub5",
                             title = "void Data Type",
                             contentBlocks = listOf(
-                                ContentBlock.Text("The `void` data type is used for functions that do not return any value."),
-                                ContentBlock.Text("Example: A function that doesn't return anything:"),
+                                ContentBlock.Text.fromString("The `void` data type is used for functions that do not return any value."),
+                                ContentBlock.Text.fromString("Example: A function that doesn't return anything:"),
                                 ContentBlock.Code(
                                     """
                     void printMessage() {
@@ -3329,9 +3372,9 @@ class CLangCourseProvider() {
                             id = "advanced_c4_sub6",
                             title = "Real-Life Example of Function Data Types",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Let's consider a real-life scenario of a simple calculator program that uses different function data types to perform various operations."),
-                                ContentBlock.Text("This program will include functions that use the `int`, `float`, and `void` data types."),
-                                ContentBlock.Text("Example: A calculator with different functions for addition, division, and a message display:"),
+                                ContentBlock.Text.fromString("Let's consider a real-life scenario of a simple calculator program that uses different function data types to perform various operations."),
+                                ContentBlock.Text.fromString("This program will include functions that use the `int`, `float`, and `void` data types."),
+                                ContentBlock.Text.fromString("Example: A calculator with different functions for addition, division, and a message display:"),
                                 ContentBlock.Code(
                                     """
                     #include <stdio.h>
@@ -3411,9 +3454,9 @@ class CLangCourseProvider() {
                             id = "advanced_c5_sub1",
                             title = "Parameters and Arguments",
                             contentBlocks = listOf(
-                                ContentBlock.Text("In C, function parameters are variables defined in the function declaration."),
-                                ContentBlock.Text("Arguments are values passed to the function when it is called."),
-                                ContentBlock.Text("Example of parameters and arguments:"),
+                                ContentBlock.Text.fromString("In C, function parameters are variables defined in the function declaration."),
+                                ContentBlock.Text.fromString("Arguments are values passed to the function when it is called."),
+                                ContentBlock.Text.fromString("Example of parameters and arguments:"),
                                 ContentBlock.Code(
                                     """
                     void greet(char name[]) {
@@ -3433,8 +3476,8 @@ class CLangCourseProvider() {
                             id = "advanced_c5_sub2",
                             title = "Multiple Parameters",
                             contentBlocks = listOf(
-                                ContentBlock.Text("A function can accept multiple parameters, separated by commas."),
-                                ContentBlock.Text("Example with multiple parameters:"),
+                                ContentBlock.Text.fromString("A function can accept multiple parameters, separated by commas."),
+                                ContentBlock.Text.fromString("Example with multiple parameters:"),
                                 ContentBlock.Code(
                                     """
                     int add(int a, int b) {
@@ -3455,9 +3498,9 @@ class CLangCourseProvider() {
                             id = "advanced_c5_sub3",
                             title = "Pass Arrays as Function Parameters",
                             contentBlocks = listOf(
-                                ContentBlock.Text("In C, you can pass arrays to functions as parameters."),
-                                ContentBlock.Text("Arrays are passed by reference, meaning the function can modify the original array."),
-                                ContentBlock.Text("Example of passing an array as a function parameter:"),
+                                ContentBlock.Text.fromString("In C, you can pass arrays to functions as parameters."),
+                                ContentBlock.Text.fromString("Arrays are passed by reference, meaning the function can modify the original array."),
+                                ContentBlock.Text.fromString("Example of passing an array as a function parameter:"),
                                 ContentBlock.Code(
                                     """
                     void printArray(int arr[], int size) {
@@ -3481,9 +3524,9 @@ class CLangCourseProvider() {
                             id = "advanced_c5_sub4",
                             title = "Return Values from Functions",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Functions in C can return values to the calling code."),
-                                ContentBlock.Text("The return type is specified in the function declaration, and the return value is given with the `return` keyword."),
-                                ContentBlock.Text("Example: A function that returns an integer value:"),
+                                ContentBlock.Text.fromString("Functions in C can return values to the calling code."),
+                                ContentBlock.Text.fromString("The return type is specified in the function declaration, and the return value is given with the `return` keyword."),
+                                ContentBlock.Text.fromString("Example: A function that returns an integer value:"),
                                 ContentBlock.Code(
                                     """
                     int multiply(int a, int b) {
@@ -3504,9 +3547,9 @@ class CLangCourseProvider() {
                             id = "advanced_c5_sub5",
                             title = "Real-Life Example of Function Parameters",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Let's consider a real-world example: A function to calculate the area of a rectangle."),
-                                ContentBlock.Text("The function will take two parameters: `length` and `width`, and return the calculated area."),
-                                ContentBlock.Text("Example:"),
+                                ContentBlock.Text.fromString("Let's consider a real-world example: A function to calculate the area of a rectangle."),
+                                ContentBlock.Text.fromString("The function will take two parameters: `length` and `width`, and return the calculated area."),
+                                ContentBlock.Text.fromString("Example:"),
                                 ContentBlock.Code(
                                     """
                     #include <stdio.h>
@@ -3566,7 +3609,7 @@ class CLangCourseProvider() {
                             id = "advanced_c6_sub1",
                             title = "Local Scope",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Variables declared inside a function are local and only accessible within that function."),
+                                ContentBlock.Text.fromString("Variables declared inside a function are local and only accessible within that function."),
                                 ContentBlock.Code(
                                     """
                     void myFunction() {
@@ -3587,7 +3630,7 @@ class CLangCourseProvider() {
                             id = "advanced_c6_sub2",
                             title = "Global Scope",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Global variables are declared outside functions and can be accessed anywhere in the program."),
+                                ContentBlock.Text.fromString("Global variables are declared outside functions and can be accessed anywhere in the program."),
                                 ContentBlock.Code(
                                     """
                     int x = 10;  // Global variable
@@ -3608,8 +3651,8 @@ class CLangCourseProvider() {
                             id = "advanced_c6_sub3",
                             title = "Naming Variables",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Variable names must start with a letter or an underscore. They are case-sensitive and cannot be C keywords."),
-                                ContentBlock.Text("Important: If the same name is used for a variable inside and outside a function, C treats them as separate variables."),
+                                ContentBlock.Text.fromString("Variable names must start with a letter or an underscore. They are case-sensitive and cannot be C keywords."),
+                                ContentBlock.Text.fromString("Important: If the same name is used for a variable inside and outside a function, C treats them as separate variables."),
                                 ContentBlock.Code(
                                     """
                     int x = 10;  // Global variable
@@ -3631,7 +3674,7 @@ class CLangCourseProvider() {
                             id = "advanced_c6_sub4",
                             title = "Real-Life Example",
                             contentBlocks = listOf(
-                                ContentBlock.Text("In a game, we can use global variables to track scores and local variables to compute values within specific functions."),
+                                ContentBlock.Text.fromString("In a game, we can use global variables to track scores and local variables to compute values within specific functions."),
                                 ContentBlock.Code(
                                     """
                     int score = 0;  // Global variable
@@ -3691,14 +3734,14 @@ class CLangCourseProvider() {
                             id = "advanced_c7_sub1",
                             title = "Function Declaration",
                             contentBlocks = listOf(
-                                ContentBlock.Text("In C, a function declaration tells the compiler about the function's name, return type, and parameters. This allows the compiler to check for errors when the function is called before it is defined."),
-                                ContentBlock.Text("Function declaration syntax:"),
+                                ContentBlock.Text.fromString("In C, a function declaration tells the compiler about the function's name, return type, and parameters. This allows the compiler to check for errors when the function is called before it is defined."),
+                                ContentBlock.Text.fromString("Function declaration syntax:"),
                                 ContentBlock.Code(
                                     """
                     return_type function_name(parameter1, parameter2, ...);
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("Example of a function declaration:"),
+                                ContentBlock.Text.fromString("Example of a function declaration:"),
                                 ContentBlock.Code(
                                     """
                     int add(int a, int b);  // Function declaration
@@ -3711,8 +3754,8 @@ class CLangCourseProvider() {
                             id = "advanced_c7_sub2",
                             title = "Function Definition",
                             contentBlocks = listOf(
-                                ContentBlock.Text("A function definition provides the actual implementation of the function. It includes the function's body, where the code is written to execute the desired task."),
-                                ContentBlock.Text("Function definition syntax:"),
+                                ContentBlock.Text.fromString("A function definition provides the actual implementation of the function. It includes the function's body, where the code is written to execute the desired task."),
+                                ContentBlock.Text.fromString("Function definition syntax:"),
                                 ContentBlock.Code(
                                     """
                     return_type function_name(parameter1, parameter2, ...) {
@@ -3720,7 +3763,7 @@ class CLangCourseProvider() {
                     }
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("Example of a function definition:"),
+                                ContentBlock.Text.fromString("Example of a function definition:"),
                                 ContentBlock.Code(
                                     """
                     int add(int a, int b) {  // Function definition
@@ -3735,9 +3778,9 @@ class CLangCourseProvider() {
                             id = "advanced_c7_sub3",
                             title = "Functions Calling Other Functions",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Functions in C can call other functions to perform specific tasks, making code modular and reusable."),
-                                ContentBlock.Text("To call a function, simply use its name followed by the arguments (if any) in parentheses."),
-                                ContentBlock.Text("Example of one function calling another:"),
+                                ContentBlock.Text.fromString("Functions in C can call other functions to perform specific tasks, making code modular and reusable."),
+                                ContentBlock.Text.fromString("To call a function, simply use its name followed by the arguments (if any) in parentheses."),
+                                ContentBlock.Text.fromString("Example of one function calling another:"),
                                 ContentBlock.Code(
                                     """
                     int add(int a, int b) {
@@ -3762,8 +3805,8 @@ class CLangCourseProvider() {
                             id = "advanced_c7_sub4",
                             title = "Real-Life Example",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Consider a scenario where we need to calculate the area of different shapes in a program. We can create separate functions for calculating the area of a circle, rectangle, and triangle, and call them as needed."),
-                                ContentBlock.Text("Example:"),
+                                ContentBlock.Text.fromString("Consider a scenario where we need to calculate the area of different shapes in a program. We can create separate functions for calculating the area of a circle, rectangle, and triangle, and call them as needed."),
+                                ContentBlock.Text.fromString("Example:"),
                                 ContentBlock.Code(
                                     """
                     #include <stdio.h>
@@ -3840,11 +3883,11 @@ class CLangCourseProvider() {
                             id = "advanced_c8_sub1",
                             title = "What is Recursion?",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Recursion in C is when a function calls itself in order to solve smaller instances of the same problem."),
-                                ContentBlock.Text("A recursive function typically has two parts:"),
-                                ContentBlock.Text("1. **Base Case**: A condition that stops the recursion to prevent infinite calls."),
-                                ContentBlock.Text("2. **Recursive Case**: The part of the function that calls itself to solve the smaller subproblem."),
-                                ContentBlock.Text("Example of recursion concept:"),
+                                ContentBlock.Text.fromString("Recursion in C is when a function calls itself in order to solve smaller instances of the same problem."),
+                                ContentBlock.Text.fromString("A recursive function typically has two parts:"),
+                                ContentBlock.Text.fromString("1. **Base Case**: A condition that stops the recursion to prevent infinite calls."),
+                                ContentBlock.Text.fromString("2. **Recursive Case**: The part of the function that calls itself to solve the smaller subproblem."),
+                                ContentBlock.Text.fromString("Example of recursion concept:"),
                                 ContentBlock.Code(
                                     """
                     int factorial(int n) {
@@ -3862,9 +3905,9 @@ class CLangCourseProvider() {
                             id = "advanced_c8_sub2",
                             title = "Base Case in Recursion",
                             contentBlocks = listOf(
-                                ContentBlock.Text("The **base case** is critical in recursion. It defines when the recursion should stop and return a result."),
-                                ContentBlock.Text("Without a base case, the function would call itself indefinitely, resulting in a stack overflow."),
-                                ContentBlock.Text("Example of base case in recursion:"),
+                                ContentBlock.Text.fromString("The **base case** is critical in recursion. It defines when the recursion should stop and return a result."),
+                                ContentBlock.Text.fromString("Without a base case, the function would call itself indefinitely, resulting in a stack overflow."),
+                                ContentBlock.Text.fromString("Example of base case in recursion:"),
                                 ContentBlock.Code(
                                     """
                     int factorial(int n) {
@@ -3881,10 +3924,10 @@ class CLangCourseProvider() {
                             id = "advanced_c8_sub3",
                             title = "Recursive Function Example",
                             contentBlocks = listOf(
-                                ContentBlock.Text("A simple recursive function example: Calculating the factorial of a number."),
-                                ContentBlock.Text("The factorial of a number `n` is the product of all integers from 1 to n. It is defined as:"),
-                                ContentBlock.Text("`n! = n * (n - 1) * (n - 2) * ... * 1`, with `0! = 1`."),
-                                ContentBlock.Text("Recursive function example:"),
+                                ContentBlock.Text.fromString("A simple recursive function example: Calculating the factorial of a number."),
+                                ContentBlock.Text.fromString("The factorial of a number `n` is the product of all integers from 1 to n. It is defined as:"),
+                                ContentBlock.Text.fromString("`n! = n * (n - 1) * (n - 2) * ... * 1`, with `0! = 1`."),
+                                ContentBlock.Text.fromString("Recursive function example:"),
                                 ContentBlock.Code(
                                     """
                     #include <stdio.h>
@@ -3910,9 +3953,9 @@ class CLangCourseProvider() {
                             id = "advanced_c8_sub4",
                             title = "Recursive vs Iterative Solutions",
                             contentBlocks = listOf(
-                                ContentBlock.Text("In C, recursion can often be replaced with an iterative solution using loops."),
-                                ContentBlock.Text("For example, calculating the factorial of a number can be done recursively or iteratively."),
-                                ContentBlock.Text("Recursive approach (previous example):"),
+                                ContentBlock.Text.fromString("In C, recursion can often be replaced with an iterative solution using loops."),
+                                ContentBlock.Text.fromString("For example, calculating the factorial of a number can be done recursively or iteratively."),
+                                ContentBlock.Text.fromString("Recursive approach (previous example):"),
                                 ContentBlock.Code(
                                     """
                     int factorial(int n) {
@@ -3921,7 +3964,7 @@ class CLangCourseProvider() {
                     }
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("Iterative approach:"),
+                                ContentBlock.Text.fromString("Iterative approach:"),
                                 ContentBlock.Code(
                                     """
                     int factorial(int n) {
@@ -3933,7 +3976,7 @@ class CLangCourseProvider() {
                     }
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text("The recursive approach is elegant and simpler to write, but the iterative approach is often more efficient in terms of memory usage.")
+                                ContentBlock.Text.fromString("The recursive approach is elegant and simpler to write, but the iterative approach is often more efficient in terms of memory usage.")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -3941,8 +3984,8 @@ class CLangCourseProvider() {
                             id = "advanced_c8_sub5",
                             title = "Real-Life Example of Recursion",
                             contentBlocks = listOf(
-                                ContentBlock.Text("A real-world example of recursion is **directory traversal**. When you need to process files in directories and subdirectories, recursion helps to navigate through each folder and subfolder."),
-                                ContentBlock.Text("Example:"),
+                                ContentBlock.Text.fromString("A real-world example of recursion is **directory traversal**. When you need to process files in directories and subdirectories, recursion helps to navigate through each folder and subfolder."),
+                                ContentBlock.Text.fromString("Example:"),
                                 ContentBlock.Code(
                                     """
                     #include <stdio.h>
@@ -4023,7 +4066,7 @@ class CLangCourseProvider() {
                             id = "advanced_c9_sub1",
                             title = "Intro to C Math Functions",
                             contentBlocks = listOf(
-                                ContentBlock.Text("The `math.h` library provides basic math functions like square roots, powers, and trigonometry."),
+                                ContentBlock.Text.fromString("The `math.h` library provides basic math functions like square roots, powers, and trigonometry."),
                                 ContentBlock.Code("""#include <math.h>""")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
@@ -4032,10 +4075,10 @@ class CLangCourseProvider() {
                             id = "advanced_c9_sub2",
                             title = "Common Math Functions",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Common functions include:"),
-                                ContentBlock.Text("1. `sqrt(x)` - Square root of `x`."),
-                                ContentBlock.Text("2. `pow(x, y)` - `x` raised to the power of `y`."),
-                                ContentBlock.Text("3. `fabs(x)` - Absolute value of `x`."),
+                                ContentBlock.Text.fromString("Common functions include:"),
+                                ContentBlock.Text.fromString("1. `sqrt(x)` - Square root of `x`."),
+                                ContentBlock.Text.fromString("2. `pow(x, y)` - `x` raised to the power of `y`."),
+                                ContentBlock.Text.fromString("3. `fabs(x)` - Absolute value of `x`."),
                                 ContentBlock.Code(
                                     """#include <stdio.h>
 #include <math.h>
@@ -4052,8 +4095,8 @@ int main() {
                             id = "advanced_c9_sub3",
                             title = "Trigonometric Functions",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Functions like sin(), cos(), and tan() work with radians."),
-                                ContentBlock.Text("Example:"),
+                                ContentBlock.Text.fromString("Functions like sin(), cos(), and tan() work with radians."),
+                                ContentBlock.Text.fromString("Example:"),
                                 ContentBlock.Code(
                                     """#include <stdio.h>
 #include <math.h>
@@ -4069,7 +4112,7 @@ int main() {
                             id = "advanced_c9_sub4",
                             title = "Logarithmic & Exponential",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Use log(), log10(), and exp() for logarithmic and exponential calculations."),
+                                ContentBlock.Text.fromString("Use log(), log10(), and exp() for logarithmic and exponential calculations."),
                                 ContentBlock.Code(
                                     """#include <stdio.h>
 #include <math.h>
@@ -4085,10 +4128,10 @@ int main() {
                             id = "advanced_c9_sub5",
                             title = "Rounding Functions",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Rounding functions include:"),
-                                ContentBlock.Text("1. `round(x)` - Rounds `x` to the nearest integer."),
-                                ContentBlock.Text("2. `floor(x)` - Largest integer less than or equal to `x`."),
-                                ContentBlock.Text("3. `ceil(x)` - Smallest integer greater than or equal to `x`."),
+                                ContentBlock.Text.fromString("Rounding functions include:"),
+                                ContentBlock.Text.fromString("1. `round(x)` - Rounds `x` to the nearest integer."),
+                                ContentBlock.Text.fromString("2. `floor(x)` - Largest integer less than or equal to `x`."),
+                                ContentBlock.Text.fromString("3. `ceil(x)` - Smallest integer greater than or equal to `x`."),
                                 ContentBlock.Code(
                                     """#include <stdio.h>
 #include <math.h>
@@ -4146,8 +4189,8 @@ int main() {
                             id = "advanced_c10_sub1",
                             title = "Introduction to Structures",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Structures allow grouping of different data types into a single unit. It's useful when you need to represent real-world entities."),
-                                ContentBlock.Text("Syntax:"),
+                                ContentBlock.Text.fromString("Structures allow grouping of different data types into a single unit. It's useful when you need to represent real-world entities."),
+                                ContentBlock.Text.fromString("Syntax:"),
                                 ContentBlock.Code(
                                     """struct StructureName {
     dataType member1;
@@ -4162,8 +4205,8 @@ int main() {
                             id = "advanced_c10_sub2",
                             title = "Creating a Structure",
                             contentBlocks = listOf(
-                                ContentBlock.Text("To create a structure, you define it with the `struct` keyword and then create an instance of it."),
-                                ContentBlock.Text("Example:"),
+                                ContentBlock.Text.fromString("To create a structure, you define it with the `struct` keyword and then create an instance of it."),
+                                ContentBlock.Text.fromString("Example:"),
                                 ContentBlock.Code(
                                     """struct Person {
     char name[50];
@@ -4184,8 +4227,8 @@ int main() {
                             id = "advanced_c10_sub3",
                             title = "Accessing Structure Members",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Structure members can be accessed using the dot operator (`.`)."),
-                                ContentBlock.Text("Example:"),
+                                ContentBlock.Text.fromString("Structure members can be accessed using the dot operator (`.`)."),
+                                ContentBlock.Text.fromString("Example:"),
                                 ContentBlock.Code(
                                     """struct Person {
     char name[50];
@@ -4205,8 +4248,8 @@ int main() {
                             id = "advanced_c10_sub4",
                             title = "Nested Structures",
                             contentBlocks = listOf(
-                                ContentBlock.Text("You can define a structure inside another structure."),
-                                ContentBlock.Text("Example:"),
+                                ContentBlock.Text.fromString("You can define a structure inside another structure."),
+                                ContentBlock.Text.fromString("Example:"),
                                 ContentBlock.Code(
                                     """struct Address {
     char street[100];
@@ -4235,8 +4278,8 @@ int main() {
                             id = "advanced_c10_sub5",
                             title = "Pointers to Structures",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Pointers can be used to reference structures. To access members via pointers, use the arrow operator (`->`)."),
-                                ContentBlock.Text("Example:"),
+                                ContentBlock.Text.fromString("Pointers can be used to reference structures. To access members via pointers, use the arrow operator (`->`)."),
+                                ContentBlock.Text.fromString("Example:"),
                                 ContentBlock.Code(
                                     """struct Person {
     char name[50];
@@ -4315,8 +4358,8 @@ int main() {
                             id = "expert_c1_sub1",
                             title = "Introduction to File Handling",
                             contentBlocks = listOf(
-                                ContentBlock.Text("File handling in C allows programs to read from and write to files. You'll use file pointers to access files."),
-                                ContentBlock.Text("To work with files, you need to include the `stdio.h` header."),
+                                ContentBlock.Text.fromString("File handling in C allows programs to read from and write to files. You'll use file pointers to access files."),
+                                ContentBlock.Text.fromString("To work with files, you need to include the `stdio.h` header."),
                                 ContentBlock.Code("""#include <stdio.h>""")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
@@ -4325,8 +4368,8 @@ int main() {
                             id = "expert_c1_sub2",
                             title = "Creating a File",
                             contentBlocks = listOf(
-                                ContentBlock.Text("To create and open a file in C, use the `fopen()` function with mode `w` (write) or `wb` (binary)."),
-                                ContentBlock.Text("Example:"),
+                                ContentBlock.Text.fromString("To create and open a file in C, use the `fopen()` function with mode `w` (write) or `wb` (binary)."),
+                                ContentBlock.Text.fromString("Example:"),
                                 ContentBlock.Code(
                                     """#include <stdio.h>
 
@@ -4348,8 +4391,8 @@ int main() {
                             id = "expert_c1_sub3",
                             title = "Reading from a File",
                             contentBlocks = listOf(
-                                ContentBlock.Text("To read from a file, use `fopen()` in `r` (read) mode, and use functions like `fscanf()`, `fgets()`, or `fgetc()` to read data."),
-                                ContentBlock.Text("Example:"),
+                                ContentBlock.Text.fromString("To read from a file, use `fopen()` in `r` (read) mode, and use functions like `fscanf()`, `fgets()`, or `fgetc()` to read data."),
+                                ContentBlock.Text.fromString("Example:"),
                                 ContentBlock.Code(
                                     """#include <stdio.h>
 
@@ -4373,8 +4416,8 @@ int main() {
                             id = "expert_c1_sub4",
                             title = "Writing to a File",
                             contentBlocks = listOf(
-                                ContentBlock.Text("To write to a file, use `fopen()` in `w` or `a` (append) mode, and use functions like `fprintf()`, `fputs()`, or `fwrite()`."),
-                                ContentBlock.Text("Example:"),
+                                ContentBlock.Text.fromString("To write to a file, use `fopen()` in `w` or `a` (append) mode, and use functions like `fprintf()`, `fputs()`, or `fwrite()`."),
+                                ContentBlock.Text.fromString("Example:"),
                                 ContentBlock.Code(
                                     """#include <stdio.h>
 
@@ -4396,8 +4439,8 @@ int main() {
                             id = "expert_c1_sub5",
                             title = "Closing a File",
                             contentBlocks = listOf(
-                                ContentBlock.Text("To safely close a file, use the `fclose()` function. This ensures all data is written and the file is properly closed."),
-                                ContentBlock.Text("Example:"),
+                                ContentBlock.Text.fromString("To safely close a file, use the `fclose()` function. This ensures all data is written and the file is properly closed."),
+                                ContentBlock.Text.fromString("Example:"),
                                 ContentBlock.Code(
                                     """#include <stdio.h>
 
@@ -4419,8 +4462,8 @@ int main() {
                             id = "expert_c1_sub6",
                             title = "File Error Handling",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Always check if file operations succeed. Use `ferror()` to check for errors during file operations."),
-                                ContentBlock.Text("Example:"),
+                                ContentBlock.Text.fromString("Always check if file operations succeed. Use `ferror()` to check for errors during file operations."),
+                                ContentBlock.Text.fromString("Example:"),
                                 ContentBlock.Code(
                                     """#include <stdio.h>
 
@@ -4477,8 +4520,8 @@ int main() {
                             id = "expert_c2_sub1",
                             title = "Introduction to Enums",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Enums in C are used to define a set of named integer constants. They improve code readability and provide better organization."),
-                                ContentBlock.Text("Syntax:"),
+                                ContentBlock.Text.fromString("Enums in C are used to define a set of named integer constants. They improve code readability and provide better organization."),
+                                ContentBlock.Text.fromString("Syntax:"),
                                 ContentBlock.Code(
                                     """enum EnumName {
     CONSTANT_1,
@@ -4486,7 +4529,7 @@ int main() {
     CONSTANT_3
 };"""
                                 ),
-                                ContentBlock.Text("Example:"),
+                                ContentBlock.Text.fromString("Example:"),
                                 ContentBlock.Code(
                                     """#include <stdio.h>
 
@@ -4505,8 +4548,8 @@ int main() {
                             id = "expert_c2_sub2",
                             title = "Changing Enum Values",
                             contentBlocks = listOf(
-                                ContentBlock.Text("You can change the underlying integer values of an enum. By default, the first value is 0, and each subsequent value increments by 1."),
-                                ContentBlock.Text("Example:"),
+                                ContentBlock.Text.fromString("You can change the underlying integer values of an enum. By default, the first value is 0, and each subsequent value increments by 1."),
+                                ContentBlock.Text.fromString("Example:"),
                                 ContentBlock.Code(
                                     """#include <stdio.h>
 
@@ -4518,7 +4561,7 @@ int main() {
     return 0;
 }"""
                                 ),
-                                ContentBlock.Text("In the above code, Sunday starts at 1, Monday at 2, Tuesday at 4, etc.")
+                                ContentBlock.Text.fromString("In the above code, Sunday starts at 1, Monday at 2, Tuesday at 4, etc.")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -4526,8 +4569,8 @@ int main() {
                             id = "expert_c2_sub3",
                             title = "Enum in Switch Statement",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Enums work well with switch statements, as you can match specific enum values to execute corresponding code."),
-                                ContentBlock.Text("Example:"),
+                                ContentBlock.Text.fromString("Enums work well with switch statements, as you can match specific enum values to execute corresponding code."),
+                                ContentBlock.Text.fromString("Example:"),
                                 ContentBlock.Code(
                                     """#include <stdio.h>
 
@@ -4556,9 +4599,9 @@ int main() {
                             id = "expert_c2_sub4",
                             title = "Enum with Bit Flags",
                             contentBlocks = listOf(
-                                ContentBlock.Text("You can use enums with bit flags for efficient storage and checking multiple conditions."),
-                                ContentBlock.Text("Bitwise OR (`|`) and AND (`&`) operations are used to combine or check flags."),
-                                ContentBlock.Text("Example:"),
+                                ContentBlock.Text.fromString("You can use enums with bit flags for efficient storage and checking multiple conditions."),
+                                ContentBlock.Text.fromString("Bitwise OR (`|`) and AND (`&`) operations are used to combine or check flags."),
+                                ContentBlock.Text.fromString("Example:"),
                                 ContentBlock.Code(
                                     """#include <stdio.h>
 
@@ -4604,10 +4647,10 @@ int main() {
                             id = "expert_c3_sub1",
                             title = "Memory in C",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Memory in C is divided into three sections: the stack, heap, and data segment."),
-                                ContentBlock.Text("1. **Stack**: Used for local variables, automatically managed, limited size."),
-                                ContentBlock.Text("2. **Heap**: Used for dynamic memory allocation, manually managed."),
-                                ContentBlock.Text("3. **Data Segment**: Used for global and static variables.")
+                                ContentBlock.Text.fromString("Memory in C is divided into three sections: the stack, heap, and data segment."),
+                                ContentBlock.Text.fromString("1. **Stack**: Used for local variables, automatically managed, limited size."),
+                                ContentBlock.Text.fromString("2. **Heap**: Used for dynamic memory allocation, manually managed."),
+                                ContentBlock.Text.fromString("3. **Data Segment**: Used for global and static variables.")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -4615,12 +4658,12 @@ int main() {
                             id = "expert_c3_sub2",
                             title = "Dynamic Memory Allocation",
                             contentBlocks = listOf(
-                                ContentBlock.Text("C provides functions for dynamic memory allocation, allowing memory to be allocated at runtime."),
-                                ContentBlock.Text("Functions:"),
-                                ContentBlock.Text("1. **malloc()**: Allocates uninitialized memory."),
-                                ContentBlock.Text("2. **calloc()**: Allocates zero-initialized memory."),
-                                ContentBlock.Text("3. **realloc()**: Resizes previously allocated memory."),
-                                ContentBlock.Text("Example:"),
+                                ContentBlock.Text.fromString("C provides functions for dynamic memory allocation, allowing memory to be allocated at runtime."),
+                                ContentBlock.Text.fromString("Functions:"),
+                                ContentBlock.Text.fromString("1. **malloc()**: Allocates uninitialized memory."),
+                                ContentBlock.Text.fromString("2. **calloc()**: Allocates zero-initialized memory."),
+                                ContentBlock.Text.fromString("3. **realloc()**: Resizes previously allocated memory."),
+                                ContentBlock.Text.fromString("Example:"),
                                 ContentBlock.Code("""#include <stdio.h>
 #include <stdlib.h>
 
@@ -4653,9 +4696,9 @@ int main() {
                             id = "expert_c3_sub3",
                             title = "Memory Deallocation",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Memory allocated dynamically using malloc, calloc, or realloc should be deallocated using **free()**."),
-                                ContentBlock.Text("Failure to free memory can cause memory leaks, leading to resource wastage."),
-                                ContentBlock.Text("Example:"),
+                                ContentBlock.Text.fromString("Memory allocated dynamically using malloc, calloc, or realloc should be deallocated using **free()**."),
+                                ContentBlock.Text.fromString("Failure to free memory can cause memory leaks, leading to resource wastage."),
+                                ContentBlock.Text.fromString("Example:"),
                                 ContentBlock.Code("""#include <stdio.h>
 #include <stdlib.h>
 
@@ -4674,12 +4717,12 @@ int main() {
                             id = "expert_c3_sub4",
                             title = "Memory Leaks and Optimization",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Memory leaks occur when dynamically allocated memory is not freed, causing wasted resources and possible application crashes."),
-                                ContentBlock.Text("Best Practices:"),
-                                ContentBlock.Text("1. Always pair malloc/calloc/realloc with free."),
-                                ContentBlock.Text("2. Use tools like **Valgrind** to detect memory leaks."),
-                                ContentBlock.Text("3. Consider using **smart pointers** in C++ to automate memory management."),
-                                ContentBlock.Text("Example of a memory leak:"),
+                                ContentBlock.Text.fromString("Memory leaks occur when dynamically allocated memory is not freed, causing wasted resources and possible application crashes."),
+                                ContentBlock.Text.fromString("Best Practices:"),
+                                ContentBlock.Text.fromString("1. Always pair malloc/calloc/realloc with free."),
+                                ContentBlock.Text.fromString("2. Use tools like **Valgrind** to detect memory leaks."),
+                                ContentBlock.Text.fromString("3. Consider using **smart pointers** in C++ to automate memory management."),
+                                ContentBlock.Text.fromString("Example of a memory leak:"),
                                 ContentBlock.Code("""#include <stdio.h>
 #include <stdlib.h>
 
@@ -4695,10 +4738,10 @@ int main() {
                             id = "expert_c3_sub5",
                             title = "Advanced Memory Management Techniques",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Advanced memory management techniques can help optimize memory usage in larger applications."),
-                                ContentBlock.Text("1. **Memory Pools**: Pre-allocate a fixed amount of memory and distribute it to components as needed."),
-                                ContentBlock.Text("2. **Garbage Collection**: Though C doesn't have built-in garbage collection, you can implement custom memory management strategies."),
-                                ContentBlock.Text("Example of a basic memory pool (conceptual):"),
+                                ContentBlock.Text.fromString("Advanced memory management techniques can help optimize memory usage in larger applications."),
+                                ContentBlock.Text.fromString("1. **Memory Pools**: Pre-allocate a fixed amount of memory and distribute it to components as needed."),
+                                ContentBlock.Text.fromString("2. **Garbage Collection**: Though C doesn't have built-in garbage collection, you can implement custom memory management strategies."),
+                                ContentBlock.Text.fromString("Example of a basic memory pool (conceptual):"),
                                 ContentBlock.Code("""// A simple memory pool would allocate a chunk of memory and return pointers to sections of it.
 #include <stdio.h>
 #include <stdlib.h>
@@ -4742,9 +4785,9 @@ int main() {
                             id = "expert_c4_sub1",
                             title = "Static Memory Allocation",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Static memory allocation is done at compile time, and the memory is reserved for the entire lifetime of the program."),
-                                ContentBlock.Text("Variables allocated statically have a fixed size and are stored on the stack or in the data segment."),
-                                ContentBlock.Text("Example:"),
+                                ContentBlock.Text.fromString("Static memory allocation is done at compile time, and the memory is reserved for the entire lifetime of the program."),
+                                ContentBlock.Text.fromString("Variables allocated statically have a fixed size and are stored on the stack or in the data segment."),
+                                ContentBlock.Text.fromString("Example:"),
                                 ContentBlock.Code("""#include <stdio.h>
 
 int main() {
@@ -4760,13 +4803,13 @@ int main() {
                             id = "expert_c4_sub2",
                             title = "Dynamic Memory Allocation",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Dynamic memory allocation is done at runtime using functions like `malloc()`, `calloc()`, and `realloc()`."),
-                                ContentBlock.Text("Memory is allocated on the heap and can be resized, deallocated, and managed manually."),
-                                ContentBlock.Text("Functions:"),
-                                ContentBlock.Text("1. **malloc()**: Allocates memory but does not initialize it."),
-                                ContentBlock.Text("2. **calloc()**: Allocates memory and initializes it to zero."),
-                                ContentBlock.Text("3. **realloc()**: Changes the size of previously allocated memory."),
-                                ContentBlock.Text("Example:"),
+                                ContentBlock.Text.fromString("Dynamic memory allocation is done at runtime using functions like `malloc()`, `calloc()`, and `realloc()`."),
+                                ContentBlock.Text.fromString("Memory is allocated on the heap and can be resized, deallocated, and managed manually."),
+                                ContentBlock.Text.fromString("Functions:"),
+                                ContentBlock.Text.fromString("1. **malloc()**: Allocates memory but does not initialize it."),
+                                ContentBlock.Text.fromString("2. **calloc()**: Allocates memory and initializes it to zero."),
+                                ContentBlock.Text.fromString("3. **realloc()**: Changes the size of previously allocated memory."),
+                                ContentBlock.Text.fromString("Example:"),
                                 ContentBlock.Code("""#include <stdio.h>
 #include <stdlib.h>
 
@@ -4794,11 +4837,11 @@ int main() {
                             id = "expert_c4_sub3",
                             title = "Differences Between Static and Dynamic Memory",
                             contentBlocks = listOf(
-                                ContentBlock.Text("1. **Static Memory**: Allocated at compile time, fixed size, faster access, limited flexibility."),
-                                ContentBlock.Text("2. **Dynamic Memory**: Allocated at runtime, flexible size, can be resized, requires manual management (using `malloc()`, `realloc()`, `free()`)."),
-                                ContentBlock.Text("Use Case:"),
-                                ContentBlock.Text("1. **Static Memory**: Use when the size of the data is known and constant throughout the program."),
-                                ContentBlock.Text("2. **Dynamic Memory**: Use when the size of the data can change at runtime or when memory requirements are not known upfront.")
+                                ContentBlock.Text.fromString("1. **Static Memory**: Allocated at compile time, fixed size, faster access, limited flexibility."),
+                                ContentBlock.Text.fromString("2. **Dynamic Memory**: Allocated at runtime, flexible size, can be resized, requires manual management (using `malloc()`, `realloc()`, `free()`)."),
+                                ContentBlock.Text.fromString("Use Case:"),
+                                ContentBlock.Text.fromString("1. **Static Memory**: Use when the size of the data is known and constant throughout the program."),
+                                ContentBlock.Text.fromString("2. **Dynamic Memory**: Use when the size of the data can change at runtime or when memory requirements are not known upfront.")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         )
@@ -4820,8 +4863,8 @@ int main() {
                             id = "expert_c5_sub1",
                             title = "Accessing Dynamically Allocated Memory",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Once memory is allocated dynamically, you access it just like static memory, using pointers and array indexing."),
-                                ContentBlock.Text("Example:"),
+                                ContentBlock.Text.fromString("Once memory is allocated dynamically, you access it just like static memory, using pointers and array indexing."),
+                                ContentBlock.Text.fromString("Example:"),
                                 ContentBlock.Code("""#include <stdio.h>
 #include <stdlib.h>
 
@@ -4849,9 +4892,9 @@ int main() {
                             id = "expert_c5_sub2",
                             title = "Using Pointers with Dynamic Memory",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Dynamic memory allocation returns a pointer to the allocated memory block."),
-                                ContentBlock.Text("You can access memory using the pointer directly or through pointer arithmetic."),
-                                ContentBlock.Text("Example:"),
+                                ContentBlock.Text.fromString("Dynamic memory allocation returns a pointer to the allocated memory block."),
+                                ContentBlock.Text.fromString("You can access memory using the pointer directly or through pointer arithmetic."),
+                                ContentBlock.Text.fromString("Example:"),
                                 ContentBlock.Code("""#include <stdio.h>
 #include <stdlib.h>
 
@@ -4879,9 +4922,9 @@ int main() {
                             id = "expert_c5_sub3",
                             title = "Freeing Dynamically Allocated Memory",
                             contentBlocks = listOf(
-                                ContentBlock.Text("It's important to free dynamically allocated memory using `free()` to prevent memory leaks."),
-                                ContentBlock.Text("Once you free the memory, the pointer still holds the address, but it's no longer valid."),
-                                ContentBlock.Text("Example:"),
+                                ContentBlock.Text.fromString("It's important to free dynamically allocated memory using `free()` to prevent memory leaks."),
+                                ContentBlock.Text.fromString("Once you free the memory, the pointer still holds the address, but it's no longer valid."),
+                                ContentBlock.Text.fromString("Example:"),
                                 ContentBlock.Code("""#include <stdio.h>
 #include <stdlib.h>
 
@@ -4923,10 +4966,10 @@ int main() {
                             id = "expert_c6_sub1",
                             title = "Reallocating Memory in C",
                             contentBlocks = listOf(
-                                ContentBlock.Text("In C, you can use `realloc()` to change the size of a previously allocated memory block."),
-                                ContentBlock.Text("Syntax: `ptr = realloc(ptr, new_size);`"),
-                                ContentBlock.Text("If `realloc()` fails, it returns `NULL` and the original memory is untouched."),
-                                ContentBlock.Text("Example:"),
+                                ContentBlock.Text.fromString("In C, you can use `realloc()` to change the size of a previously allocated memory block."),
+                                ContentBlock.Text.fromString("Syntax: `ptr = realloc(ptr, new_size);`"),
+                                ContentBlock.Text.fromString("If `realloc()` fails, it returns `NULL` and the original memory is untouched."),
+                                ContentBlock.Text.fromString("Example:"),
                                 ContentBlock.Code("""#include <stdio.h>
 #include <stdlib.h>
 
@@ -4966,9 +5009,9 @@ int main() {
                             id = "expert_c6_sub2",
                             title = "NULL Pointer & Error Checking",
                             contentBlocks = listOf(
-                                ContentBlock.Text("When reallocating memory, it's crucial to check for `NULL` to prevent memory corruption or loss."),
-                                ContentBlock.Text("If `realloc()` fails, it returns `NULL`. Always assign the result to a temporary pointer to avoid memory leaks."),
-                                ContentBlock.Text("Example:"),
+                                ContentBlock.Text.fromString("When reallocating memory, it's crucial to check for `NULL` to prevent memory corruption or loss."),
+                                ContentBlock.Text.fromString("If `realloc()` fails, it returns `NULL`. Always assign the result to a temporary pointer to avoid memory leaks."),
+                                ContentBlock.Text.fromString("Example:"),
                                 ContentBlock.Code("""#include <stdio.h>
 #include <stdlib.h>
 
@@ -5023,10 +5066,10 @@ int main() {
                             id = "expert_c7_sub1",
                             title = "Deallocate (Free) Memory",
                             contentBlocks = listOf(
-                                ContentBlock.Text("In C, memory that is dynamically allocated using `malloc()`, `calloc()`, or `realloc()` must be manually freed using `free()` when it's no longer needed."),
-                                ContentBlock.Text("Syntax: `free(ptr);`"),
-                                ContentBlock.Text("Always ensure that you deallocate memory after you’re done using it to prevent memory leaks."),
-                                ContentBlock.Text("Example:"),
+                                ContentBlock.Text.fromString("In C, memory that is dynamically allocated using `malloc()`, `calloc()`, or `realloc()` must be manually freed using `free()` when it's no longer needed."),
+                                ContentBlock.Text.fromString("Syntax: `free(ptr);`"),
+                                ContentBlock.Text.fromString("Always ensure that you deallocate memory after you’re done using it to prevent memory leaks."),
+                                ContentBlock.Text.fromString("Example:"),
                                 ContentBlock.Code("""#include <stdio.h>
 #include <stdlib.h>
 
@@ -5057,10 +5100,10 @@ int main() {
                             id = "expert_c7_sub2",
                             title = "Memory Leaks",
                             contentBlocks = listOf(
-                                ContentBlock.Text("A memory leak occurs when memory is allocated dynamically but not freed after use, leading to unused memory consuming system resources."),
-                                ContentBlock.Text("Memory leaks can slow down or crash programs, especially when dealing with large amounts of data."),
-                                ContentBlock.Text("To avoid memory leaks, always ensure that every `malloc()`, `calloc()`, or `realloc()` has a corresponding `free()` call."),
-                                ContentBlock.Text("Example of memory leak:"),
+                                ContentBlock.Text.fromString("A memory leak occurs when memory is allocated dynamically but not freed after use, leading to unused memory consuming system resources."),
+                                ContentBlock.Text.fromString("Memory leaks can slow down or crash programs, especially when dealing with large amounts of data."),
+                                ContentBlock.Text.fromString("To avoid memory leaks, always ensure that every `malloc()`, `calloc()`, or `realloc()` has a corresponding `free()` call."),
+                                ContentBlock.Text.fromString("Example of memory leak:"),
                                 ContentBlock.Code("""#include <stdio.h>
 #include <stdlib.h>
 

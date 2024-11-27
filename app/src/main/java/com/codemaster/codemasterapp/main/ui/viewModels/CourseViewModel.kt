@@ -49,6 +49,29 @@ class CourseViewModel @Inject constructor(
             cCourseProvider.CBeginnerCourse().lessons,
         )
     )
+
+//    val cPPCourseProvider = CPPCourseProvider()
+//    // Mutable state for selected course, stage, lesson, and sub-lesson
+//    private val _selectedCourse = MutableStateFlow<Course?>(
+//        Course(
+//            id = "cpp_course",
+//            language = "C++",
+//            stages = listOf(
+//                cPPCourseProvider.CPPBeginnerCourse(),
+//                cPPCourseProvider.CPPIntermediateCourse(),
+//                cPPCourseProvider.CPPAdvancedCourse(),
+//                cPPCourseProvider.CPPExpertCourse()
+//            )
+//        )
+//    )
+//    private val _selectedStage = MutableStateFlow<Stage?>(
+//        Stage(
+//            id = "cpp_beginner_stage",
+//            title = "Beginner",
+//            lessons =
+//            cPPCourseProvider.CPPBeginnerCourse().lessons,
+//        )
+//    )
 //
 //    private val _selectedCourse = MutableStateFlow<Course?>(null)
 //    private val _selectedStage = MutableStateFlow<Stage?>(null)

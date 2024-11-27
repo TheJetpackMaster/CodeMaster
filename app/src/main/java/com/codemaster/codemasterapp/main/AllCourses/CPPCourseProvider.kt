@@ -86,11 +86,11 @@ class CPPCourseProvider {
                             id = "beginner_c1_sub1_content",
                             title = "What is C++?",
                             contentBlocks = listOf(
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "C++ is a powerful, high-performance programming language that is widely used in software development." +
                                             " It was created by Bjarne Stroustrup in 1979 and has evolved to support both object-oriented and procedural programming."
                                 ),
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "Its ability to give programmers fine control over system resources is one of the reasons it’s still popular today."
                                 )
                             ),
@@ -101,7 +101,7 @@ class CPPCourseProvider {
                             id = "beginner_c1_sub2_content",
                             title = "Why C++?",
                             contentBlocks = listOf(
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "C++ is not just about writing code. It's about writing efficient, powerful code that can do anything from games to operating systems." +
                                             " The language's versatility, performance, and wide usage in high-performance applications make it a must-learn for programmers."
                                 )
@@ -113,11 +113,11 @@ class CPPCourseProvider {
                             id = "beginner_c1_sub3_content",
                             title = "History of C++",
                             contentBlocks = listOf(
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "C++ originated as an extension of the C programming language in the early 1980s. C++, as its name suggests, is 'C with classes,' " +
                                             "introducing object-oriented concepts to the language."
                                 ),
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "Since then, C++ has evolved and remained a go-to language for applications where performance and efficiency are crucial."
                                 )
                             ),
@@ -128,10 +128,10 @@ class CPPCourseProvider {
                             id = "beginner_c1_sub4_content",
                             title = "What's Next in Course?",
                             contentBlocks = listOf(
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "In the next lessons, we will dive into variables, data types, and how to use them effectively in your programs. The real fun starts here!"
                                 ),
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "We’ll explore how to work with numbers, strings, and different data structures, preparing you to write more complex programs."
                                 )
                             ),
@@ -143,10 +143,10 @@ class CPPCourseProvider {
                             id = "beginner_c1_sub5_content",
                             title = "Get Ready for Action!",
                             contentBlocks = listOf(
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "Now it's time to roll up your sleeves! In upcoming lessons, you'll create a fully interactive program and learn how to take user input."
                                 ),
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "We'll also introduce you to loops and conditions, which will allow you to make your programs more dynamic and responsive!"
                                 )
                             ),
@@ -225,14 +225,14 @@ class CPPCourseProvider {
                             id = "beginner_c2_sub1_content",
                             title = "Setting Up an IDE",
                             contentBlocks = listOf(
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "To start writing C++ code, you need an IDE (Integrated Development Environment) where you can write, compile, and run your programs. There are several popular IDEs for C++ programming, such as:"
                                 ),
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "For Android :Coding C++ (PlayStore)\n" +
                                             "For IOS: C++ Compiler"
                                 ),
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "Visual Studio (Windows)\n" +
                                             "Code::Blocks (Cross-platform)\n" +
                                             "CLion (Cross-platform, paid)"
@@ -245,13 +245,13 @@ class CPPCourseProvider {
                             id = "beginner_c2_sub2_content",
                             title = "Installing a C++ Compiler",
                             contentBlocks = listOf(
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "A C++ compiler is necessary for converting the C++ code you write into an executable program. On Windows, we recommend installing MinGW or the Cygwin environment to get GCC (GNU Compiler Collection)."
                                 ),
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "If you are on macOS or Linux, you likely already have Clang or GCC installed, but if not, we’ll show you how to install it using a package manager."
                                 ),
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "To install MinGW on Windows, download and install it from the official website, then add it to your system’s PATH variable to allow the compiler to be accessed from the command line."
                                 )
                             ),
@@ -262,13 +262,13 @@ class CPPCourseProvider {
                             id = "beginner_c2_sub3_content",
                             title = "Your First C++ Program",
                             contentBlocks = listOf(
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "Now that you have your IDE and compiler set up, let’s write your first program. This simple program will display the message 'Hello, World!' on the screen."
                                 ),
                                 ContentBlock.Code(
                                     code = "# include < iostream > \n int main () { \n cout < < 'Hello, World!' <<endl; \nreturn 0; \n}",
                                 ),
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "Once you’ve written the code, click 'Build' or 'Run' in your IDE to compile and execute it. You should see 'Hello, World!' printed on the screen."
                                 )
                             ),
@@ -279,13 +279,13 @@ class CPPCourseProvider {
                             id = "beginner_c2_sub4_content",
                             title = "Setting Up Debugging Tools",
                             contentBlocks = listOf(
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "Debugging is essential for finding and fixing errors in your programs. IDEs like Visual Studio, Code::Blocks, and CLion come with built-in debuggers."
                                 ),
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "You can use breakpoints to pause your program’s execution at specific points, allowing you to examine the state of variables and track down bugs."
                                 ),
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "In this sub-lesson, you’ll learn how to set breakpoints in your IDE and step through your code to understand how it executes."
                                 )
                             ),
@@ -401,13 +401,13 @@ class CPPCourseProvider {
                             id = "beginner_c3_sub1",
                             title = "The '#include' Directive",
                             contentBlocks = listOf(
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "In C++, the '#include' directive is used to include libraries or header files in your program. This allows you to use predefined functions and classes provided by the standard C++ library or third-party libraries."
                                 ),
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     """"For example, "#include <iostream>" includes the input/output stream library that allows you to use "cout" for printing text to the console."""
                                 ),
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "There are two types of includes:\n" +
                                             "1. '#include <library>' for standard libraries like iostream.\n" +
                                             "2. '#include \"filename\"' for user-defined header files."
@@ -420,10 +420,10 @@ class CPPCourseProvider {
                             id = "beginner_c3_sub2",
                             title = "Understanding the 'main()' Function",
                             contentBlocks = listOf(
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "The 'main()' function is the entry point of any C++ program. It is where the execution of the program begins."
                                 ),
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "Example Code here you see:"
                                 ),
                                 ContentBlock.Code(
@@ -438,16 +438,16 @@ class CPPCourseProvider {
                             id = "beginner_c3_sub3",
                             title = "What Are Statements?",
                             contentBlocks = listOf(
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "A statement is a single instruction that a computer can execute. It's like giving a single step of an order to the computer."
                                 ),
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "For example, if you want your program to say something, you'd write a statement like this:"
                                 ),
                                 ContentBlock.Code(
                                     "cout << \"Hello, World!\";"
                                 ),
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "That's it! One command, one action. Statements are the building blocks of a program."
                                 )
                             ),
@@ -458,16 +458,16 @@ class CPPCourseProvider {
                             id = "beginner_c3_sub4",
                             title = "Single Statements",
                             contentBlocks = listOf(
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "A single statement does one thing at a time. It must end with a semicolon (';') in C++."
                                 ),
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "For example, this is a single statement that outputs text:"
                                 ),
                                 ContentBlock.Code(
                                     "cout << \"I love coding!\";"
                                 ),
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "Always remember the semicolon! Forgetting it is like forgetting to end a sentence in English—it just won’t work."
                                 )
                             ),
@@ -479,7 +479,7 @@ class CPPCourseProvider {
                             id = "beginner_c3_sub5",
                             title = "Multiple Statements",
                             contentBlocks = listOf(
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "A program usually contains multiple statements to perform a series of tasks. For example:"
                                 ),
                                 ContentBlock.Code(
@@ -502,10 +502,10 @@ int main() {
                             id = "beginner_c3_sub6",
                             title = "More on Statements!",
                             contentBlocks = listOf(
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "Each statement does a small part of the work. Together, they make your program accomplish more complex tasks."
                                 ),
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "Think of statements like bricks. One brick alone doesn't make a wall, but many bricks together can build something great!"
                                 )
                             ),
@@ -538,10 +538,10 @@ int main() {
                             id = "beginner_c3_sub8",
                             title = "Code Block Structure",
                             contentBlocks = listOf(
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "In C++, code blocks are enclosed by curly braces '{}'. These blocks are used to group statements together, such as inside functions or loops."
                                 ),
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "Each code block in C++ must be properly opened and closed with curly braces. Improperly closed blocks can lead to syntax errors."
                                 ),
                                 ContentBlock.Code(
@@ -641,13 +641,13 @@ int main() {
                             id = "beginner_cpp4_sub1",
                             title = "What Are Comments? 📝",
                             contentBlocks = listOf(
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "Ever wanted to leave a secret note in your code? 🤫 That’s what comments are for!"
                                 ),
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "Comments are messages for *humans*, not computers. 💻 They explain what’s going on, but the computer skips them while running the code. 🚀"
                                 ),
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "Think of them as sticky notes for your future self or teammates. 🧠💡"
                                 ),
                                 ContentBlock.Code(
@@ -662,14 +662,14 @@ int main() {
                             id = "beginner_cpp4_sub2",
                             title = "Single-Line Comments 🖊️",
                             contentBlocks = listOf(
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "Need to leave a quick reminder? 🏷️ Use a single-line comment by starting with '//'. It's like writing a tweet for your code! 🐦"
                                 ),
                                 ContentBlock.Code(
                                     code = """// This tells the computer to say hello!
 cout << "Hello, World!";"""
                                 ),
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "See? Short and sweet. 🍭 Just add '//' before your note!"
                                 )
                             ),
@@ -681,7 +681,7 @@ cout << "Hello, World!";"""
                             id = "beginner_cpp4_sub3",
                             title = "Multi-Line Comments 📜",
                             contentBlocks = listOf(
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "Sometimes, a single line just isn’t enough. 😅 Enter multi-line comments! Start with '/*' and end with '*/'."
                                 ),
                                 ContentBlock.Code(
@@ -692,7 +692,7 @@ You can use it to write a whole essay (but don’t do that). 😂
 */
 cout << "C++ is cool!";"""
                                 ),
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "Great for explaining *why* you wrote that complicated piece of code. 🤔💡"
                                 )
                             ),
@@ -704,15 +704,15 @@ cout << "C++ is cool!";"""
                             id = "beginner_cpp4_sub4",
                             title = "Why Use Comments? 🤷‍♂️",
                             contentBlocks = listOf(
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "Why bother with comments? Here’s why: 🧐"
                                 ),
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "- They help others understand your code (and future-you will thank you too!). 🤝\n" +
                                             "- They’re lifesavers when debugging. 🛟\n" +
                                             "- Code without comments is like a book without chapter titles. Confusing! 📖❓"
                                 ),
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "In short: Comments = clarity. 🕶️✨"
                                 )
                             ),
@@ -724,15 +724,15 @@ cout << "C++ is cool!";"""
                             id = "beginner_cpp4_sub5",
                             title = "Commenting Best Practices 🧹",
                             contentBlocks = listOf(
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "Here’s how to write comments like a pro: 🌟"
                                 ),
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "- **Be concise.** 📝 No one likes essays in code!\n" +
                                             "- **Don’t state the obvious.** (e.g., '// Adds 2 and 2' for '2 + 2'). 🙄\n" +
                                             "- **Keep them updated.** Old comments are like expired milk—useless and smelly. 🥛💀"
                                 ),
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "Great comments make great programmers. 💪"
                                 )
                             ),
@@ -838,13 +838,13 @@ cout << "C++ is cool!";"""
                             id = "beginner_cpp5_sub1",
                             title = "What is Output?",
                             contentBlocks = listOf(
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "Imagine you’re at a party 🎉, rocking out 🎧, but no one can hear you. That’s your program without output – it’s working, but silent! 🤫"
                                 ),
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "Output is your program's way of speaking up 🔊. It lets the world know what’s happening inside. Without it, your program’s just a ninja. 👻"
                                 ),
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "Next, we’ll make your program shout its results to the world. Ready to turn the volume up? 🎶"
                                 )
                             ),
@@ -856,9 +856,9 @@ cout << "C++ is cool!";"""
                             id = "beginner_cpp5_sub2",
                             title = "Introducing cout",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Here’s your program’s loudspeaker – 'cout'. It prints text to the screen."),
+                                ContentBlock.Text.fromString("Here’s your program’s loudspeaker – 'cout'. It prints text to the screen."),
                                 ContentBlock.Code(code = "cout << \"Hello, World!\";"),
-                                ContentBlock.Text("Run this and you’ll see 'Hello, World!' popping up. 🎉 Now you’re talking!")
+                                ContentBlock.Text.fromString("Run this and you’ll see 'Hello, World!' popping up. 🎉 Now you’re talking!")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -868,9 +868,9 @@ cout << "C++ is cool!";"""
                             id = "beginner_cpp5_sub3",
                             title = "Printing Text",
                             contentBlocks = listOf(
-                                ContentBlock.Text("To print text, just wrap it in double quotes. No quotes? Your code will get confused! 😅"),
+                                ContentBlock.Text.fromString("To print text, just wrap it in double quotes. No quotes? Your code will get confused! 😅"),
                                 ContentBlock.Code(code = "cout << \"Coding is fun!\";"),
-                                ContentBlock.Text("This prints: 'Coding is fun!'. Now, tell the world! 🌍")
+                                ContentBlock.Text.fromString("This prints: 'Coding is fun!'. Now, tell the world! 🌍")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -880,9 +880,9 @@ cout << "C++ is cool!";"""
                             id = "beginner_cpp5_sub4",
                             title = "Printing Numbers",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Numbers? No problem. Just type them without quotes, and let them flow."),
+                                ContentBlock.Text.fromString("Numbers? No problem. Just type them without quotes, and let them flow."),
                                 ContentBlock.Code(code = "cout << 42;"),
-                                ContentBlock.Text("This prints: '42'. The answer to everything... almost! 🤔")
+                                ContentBlock.Text.fromString("This prints: '42'. The answer to everything... almost! 🤔")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -892,9 +892,9 @@ cout << "C++ is cool!";"""
                             id = "beginner_cpp5_sub5",
                             title = "Adding New Lines with \\n",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Need some space? '\\n' gives your output some breathing room."),
+                                ContentBlock.Text.fromString("Need some space? '\\n' gives your output some breathing room."),
                                 ContentBlock.Code(code = "cout << \"First line\\n\";\ncout << \"Second line\";"),
-                                ContentBlock.Text("You’ll get: 'First line\nSecond line'. Clean, right? 🙌")
+                                ContentBlock.Text.fromString("You’ll get: 'First line\nSecond line'. Clean, right? 🙌")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -904,9 +904,9 @@ cout << "C++ is cool!";"""
                             id = "beginner_cpp5_sub6",
                             title = "Using endl",
                             contentBlocks = listOf(
-                                ContentBlock.Text("'endl' is another way to create new lines. It's a bit fancier and does some extra work."),
+                                ContentBlock.Text.fromString("'endl' is another way to create new lines. It's a bit fancier and does some extra work."),
                                 ContentBlock.Code(code = "cout << \"First line\" << endl;\ncout << \"Second line\";"),
-                                ContentBlock.Text("It’s the same as '\\n', but 'endl' also flushes the output buffer. 🎉")
+                                ContentBlock.Text.fromString("It’s the same as '\\n', but 'endl' also flushes the output buffer. 🎉")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -1013,7 +1013,7 @@ cout << "C++ is cool!";"""
                             id = "beginner_cpp6_sub1",
                             title = "Practice Previous Lessons! 🔄",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Before jumping into variables, take time to practice what you've learned in the previous lessons. Make sure you’re comfortable with the basics to get the most out of this lesson! 💡")
+                                ContentBlock.Text.fromString("Before jumping into variables, take time to practice what you've learned in the previous lessons. Make sure you’re comfortable with the basics to get the most out of this lesson! 💡")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -1023,9 +1023,9 @@ cout << "C++ is cool!";"""
                             id = "beginner_cpp6_sub2",
                             title = "What Are Variables?",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Variables are like storage containers in your program. You store data in them, and later you can use that data to perform operations or make decisions. 🗂️"),
-                                ContentBlock.Text("Think of a variable like a labeled box. You put something inside it (data), and you can retrieve it later by referring to the label (the variable's name). 📦"),
-                                ContentBlock.Text("In C++, we can declare a variable by specifying its type and giving it a name. Let's see how this works in code! 🖥️")
+                                ContentBlock.Text.fromString("Variables are like storage containers in your program. You store data in them, and later you can use that data to perform operations or make decisions. 🗂️"),
+                                ContentBlock.Text.fromString("Think of a variable like a labeled box. You put something inside it (data), and you can retrieve it later by referring to the label (the variable's name). 📦"),
+                                ContentBlock.Text.fromString("In C++, we can declare a variable by specifying its type and giving it a name. Let's see how this works in code! 🖥️")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -1035,9 +1035,9 @@ cout << "C++ is cool!";"""
                             id = "beginner_cpp6_sub3",
                             title = "Declaring Variables",
                             contentBlocks = listOf(
-                                ContentBlock.Text("To declare a variable, we need to specify its type first, followed by its name. The type determines what kind of data the variable can hold. 🎯"),
+                                ContentBlock.Text.fromString("To declare a variable, we need to specify its type first, followed by its name. The type determines what kind of data the variable can hold. 🎯"),
                                 ContentBlock.Code(code = "int age; // Declares an integer variable called 'age'"),
-                                ContentBlock.Text("This declares an integer variable named 'age'. But wait – it's not yet holding any value! 🤔")
+                                ContentBlock.Text.fromString("This declares an integer variable named 'age'. But wait – it's not yet holding any value! 🤔")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -1047,9 +1047,9 @@ cout << "C++ is cool!";"""
                             id = "beginner_cpp6_sub4",
                             title = "Initializing Variables",
                             contentBlocks = listOf(
-                                ContentBlock.Text("You can initialize a variable by giving it a value right when you declare it. This is like filling the box with something! 🎁"),
+                                ContentBlock.Text.fromString("You can initialize a variable by giving it a value right when you declare it. This is like filling the box with something! 🎁"),
                                 ContentBlock.Code(code = "int age = 25; // Declares and initializes 'age' with a value of 25"),
-                                ContentBlock.Text("Now the variable 'age' holds the value '25'. You can use it in calculations or display it. 💪")
+                                ContentBlock.Text.fromString("Now the variable 'age' holds the value '25'. You can use it in calculations or display it. 💪")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -1059,9 +1059,9 @@ cout << "C++ is cool!";"""
                             id = "beginner_cpp6_sub5",
                             title = "Declaring Multiple Variables",
                             contentBlocks = listOf(
-                                ContentBlock.Text("You can also declare multiple variables of the same type in a single line. This is a great way to keep your code neat and efficient. 🎯"),
+                                ContentBlock.Text.fromString("You can also declare multiple variables of the same type in a single line. This is a great way to keep your code neat and efficient. 🎯"),
                                 ContentBlock.Code(code = "int x = 5, y = 10, z = 15; // Declares and initializes three integer variables"),
-                                ContentBlock.Text("In this case, 'x', 'y', and 'z' are all integer variables, each initialized with a value. 🧮")
+                                ContentBlock.Text.fromString("In this case, 'x', 'y', and 'z' are all integer variables, each initialized with a value. 🧮")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -1071,10 +1071,10 @@ cout << "C++ is cool!";"""
                             id = "beginner_cpp6_sub6",
                             title = "Variable Types",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Variables in C++ can hold different types of data, like integers ('int'), floating-point numbers ('float'), characters ('char'), and more. 💭"),
+                                ContentBlock.Text.fromString("Variables in C++ can hold different types of data, like integers ('int'), floating-point numbers ('float'), characters ('char'), and more. 💭"),
                                 ContentBlock.Code(code = "float height = 5.9; // Declares a float variable"),
-                                ContentBlock.Text("This declares a variable 'height' that holds a floating-point number (a decimal). It's important to choose the correct type based on what kind of data you need to store. 🧠"),
-                                ContentBlock.Text("Here’s a breakdown of common C++ variable types and how they work:")
+                                ContentBlock.Text.fromString("This declares a variable 'height' that holds a floating-point number (a decimal). It's important to choose the correct type based on what kind of data you need to store. 🧠"),
+                                ContentBlock.Text.fromString("Here’s a breakdown of common C++ variable types and how they work:")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -1084,13 +1084,13 @@ cout << "C++ is cool!";"""
                             id = "beginner_cpp6_sub6_data_types",
                             title = "Data Types in C++",
                             contentBlocks = listOf(
-                                ContentBlock.Text("In C++, variables are containers for storing different types of data. Here's a look at common data types: 🎉"),
+                                ContentBlock.Text.fromString("In C++, variables are containers for storing different types of data. Here's a look at common data types: 🎉"),
 
-                                ContentBlock.Text("**'int'**: Stores integers (whole numbers), without decimals, such as 123 or -123."),
-                                ContentBlock.Text("**'double'**: Stores floating-point numbers, with decimals, such as 19.99 or -19.99."),
-                                ContentBlock.Text("**'char'**: Stores single characters, such as 'a' or 'B'. Char values are surrounded by single quotes. 🅰️"),
-                                ContentBlock.Text("**'string'**: Stores text, such as \"Hello World\". String values are surrounded by double quotes. 💬"),
-                                ContentBlock.Text("**'bool'**: Stores values with two states: true or false. ✅❌")
+                                ContentBlock.Text.fromString("**'int'**: Stores integers (whole numbers), without decimals, such as 123 or -123."),
+                                ContentBlock.Text.fromString("**'double'**: Stores floating-point numbers, with decimals, such as 19.99 or -19.99."),
+                                ContentBlock.Text.fromString("**'char'**: Stores single characters, such as 'a' or 'B'. Char values are surrounded by single quotes. 🅰️"),
+                                ContentBlock.Text.fromString("**'string'**: Stores text, such as \"Hello World\". String values are surrounded by double quotes. 💬"),
+                                ContentBlock.Text.fromString("**'bool'**: Stores values with two states: true or false. ✅❌")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -1182,7 +1182,7 @@ cout << "C++ is cool!";"""
                             id = "beginner_cpp7_sub1",
                             title = "Practice Your Variables! 🔄",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Before we dive into advanced topics, take a moment to review what you’ve learned so far. Trust me, you’ll feel way more confident moving forward! 😎")
+                                ContentBlock.Text.fromString("Before we dive into advanced topics, take a moment to review what you’ve learned so far. Trust me, you’ll feel way more confident moving forward! 😎")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -1192,11 +1192,11 @@ cout << "C++ is cool!";"""
                             id = "beginner_cpp7_sub2",
                             title = "Naming Variables: The Fun Part! 🤔",
                             contentBlocks = listOf(
-                                ContentBlock.Text("So, naming your variables. It’s like naming your pets! But instead of 'Fluffy', you should go for something meaningful. 🐱"),
-                                ContentBlock.Text("Some rules: No spaces, start with a letter or underscore, and don’t start with a number. And no, ‘123abc’ is not a valid name! 😂"),
-                                ContentBlock.Text("Here are some good examples:"),
+                                ContentBlock.Text.fromString("So, naming your variables. It’s like naming your pets! But instead of 'Fluffy', you should go for something meaningful. 🐱"),
+                                ContentBlock.Text.fromString("Some rules: No spaces, start with a letter or underscore, and don’t start with a number. And no, ‘123abc’ is not a valid name! 😂"),
+                                ContentBlock.Text.fromString("Here are some good examples:"),
                                 ContentBlock.Code(code = "int userAge; // This is a good name!"),
-                                ContentBlock.Text("But please, for the love of code, avoid names like 'int temp1' – let’s be creative, folks! 🧑‍🎨")
+                                ContentBlock.Text.fromString("But please, for the love of code, avoid names like 'int temp1' – let’s be creative, folks! 🧑‍🎨")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -1206,9 +1206,9 @@ cout << "C++ is cool!";"""
                             id = "beginner_cpp7_sub3",
                             title = "Constants: The Unchangeable Heroes 🦸‍♂️",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Constants are like that one friend who never changes their mind. They’re set in stone, unmovable. Once a constant is declared, it stays the same throughout your program. No changes allowed! 🙅‍♂️"),
+                                ContentBlock.Text.fromString("Constants are like that one friend who never changes their mind. They’re set in stone, unmovable. Once a constant is declared, it stays the same throughout your program. No changes allowed! 🙅‍♂️"),
                                 ContentBlock.Code(code = "const int MAX_USERS = 100; // This value cannot be changed!"),
-                                ContentBlock.Text("So, why use constants? They make your code safer by preventing accidental changes to important values. Plus, they make your code more readable. Win-win! 😁")
+                                ContentBlock.Text.fromString("So, why use constants? They make your code safer by preventing accidental changes to important values. Plus, they make your code more readable. Win-win! 😁")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -1218,11 +1218,11 @@ cout << "C++ is cool!";"""
                             id = "beginner_cpp7_sub4",
                             title = "Why Naming Conventions Matter 🧐",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Good naming conventions are like good manners. They help others (and future-you) understand your code better."),
-                                ContentBlock.Text("In C++, we often use camelCase or snake_case, depending on your team’s preference. But the most important thing is consistency! 🧐"),
+                                ContentBlock.Text.fromString("Good naming conventions are like good manners. They help others (and future-you) understand your code better."),
+                                ContentBlock.Text.fromString("In C++, we often use camelCase or snake_case, depending on your team’s preference. But the most important thing is consistency! 🧐"),
                                 ContentBlock.Code(code = "int totalAmount; // camelCase"),
                                 ContentBlock.Code(code = "int total_amount; // snake_case"),
-                                ContentBlock.Text("Pick one style and stick with it. Your future self will thank you. 😉")
+                                ContentBlock.Text.fromString("Pick one style and stick with it. Your future self will thank you. 😉")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -1232,10 +1232,10 @@ cout << "C++ is cool!";"""
                             id = "beginner_cpp7_sub5",
                             title = "Naming Variables with Style ✌️",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Naming variables can be an art. So why not add a little flair? 🖌️"),
-                                ContentBlock.Text("For example:"),
+                                ContentBlock.Text.fromString("Naming variables can be an art. So why not add a little flair? 🖌️"),
+                                ContentBlock.Text.fromString("For example:"),
                                 ContentBlock.Code(code = "int superCoolUserAge; // A stylish name!"),
-                                ContentBlock.Text("Now, don't go overboard, but a bit of creativity never hurt anyone. Naming variables with style makes your code stand out like a work of art. 🎨")
+                                ContentBlock.Text.fromString("Now, don't go overboard, but a bit of creativity never hurt anyone. Naming variables with style makes your code stand out like a work of art. 🎨")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -1326,8 +1326,8 @@ cout << "C++ is cool!";"""
                             id = "beginner_cpp8_sub1",
                             title = "User Input: Let’s Hear It! 🎤",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Okay, we’ve been talking to the screen with 'cout' like it’s our best friend. But now, it's time to invite the user to the conversation! Enter 'cin', your new best friend in the world of user input. 🌍"),
-                                ContentBlock.Text("In C++, 'cin' stands for 'Character Input' but you can think of it like 'Chat Input'. It lets you receive data from the keyboard. 🎹 Let’s dive into it! 👇")
+                                ContentBlock.Text.fromString("Okay, we’ve been talking to the screen with 'cout' like it’s our best friend. But now, it's time to invite the user to the conversation! Enter 'cin', your new best friend in the world of user input. 🌍"),
+                                ContentBlock.Text.fromString("In C++, 'cin' stands for 'Character Input' but you can think of it like 'Chat Input'. It lets you receive data from the keyboard. 🎹 Let’s dive into it! 👇")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -1337,8 +1337,8 @@ cout << "C++ is cool!";"""
                             id = "beginner_cpp8_sub2",
                             title = "Getting Input with cin: Ready, Set, Go! 🏁",
                             contentBlocks = listOf(
-                                ContentBlock.Text("So, you’ve learned how to output data with 'cout'. Now let’s see how we can take some input with 'cin'. It’s like when your friend says, ‘Hey, tell me a joke!’ You reply, and they laugh. 😂"),
-                                ContentBlock.Text("Here’s how it works:"),
+                                ContentBlock.Text.fromString("So, you’ve learned how to output data with 'cout'. Now let’s see how we can take some input with 'cin'. It’s like when your friend says, ‘Hey, tell me a joke!’ You reply, and they laugh. 😂"),
+                                ContentBlock.Text.fromString("Here’s how it works:"),
                                 ContentBlock.Code(
                                     code = """
 int x; // Declare a variable
@@ -1347,7 +1347,7 @@ cin >> x; // Capture input from the user
 cout << 'Your number is: ' << x; // Print the value
                 """
                                 ),
-                                ContentBlock.Text("Now, your program is waiting for the user to type something. Just like how you wait for a pizza delivery. 🍕")
+                                ContentBlock.Text.fromString("Now, your program is waiting for the user to type something. Just like how you wait for a pizza delivery. 🍕")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -1357,7 +1357,7 @@ cout << 'Your number is: ' << x; // Print the value
                             id = "beginner_cpp8_sub3",
                             title = "Get a Number: Your First Input 📲",
                             contentBlocks = listOf(
-                                ContentBlock.Text("In this lesson, let’s get the user’s number. Simple, right? Here’s an example:"),
+                                ContentBlock.Text.fromString("In this lesson, let’s get the user’s number. Simple, right? Here’s an example:"),
                                 ContentBlock.Code(
                                     code = """
 int x;
@@ -1366,7 +1366,7 @@ cin >> x;
 cout << 'Your number is: ' << x;
                 """
                                 ),
-                                ContentBlock.Text("Now your program can talk back! It’s like magic, but real! 🎩✨")
+                                ContentBlock.Text.fromString("Now your program can talk back! It’s like magic, but real! 🎩✨")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -1376,7 +1376,7 @@ cout << 'Your number is: ' << x;
                             id = "beginner_cpp8_sub4",
                             title = "Creating a Simple Calculator: Math Magic! 🧙‍♂️",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Let’s build a simple calculator. The user will give us two numbers, and we’ll sum them up. Easy, right? Let’s make it happen! 🧮"),
+                                ContentBlock.Text.fromString("Let’s build a simple calculator. The user will give us two numbers, and we’ll sum them up. Easy, right? Let’s make it happen! 🧮"),
                                 ContentBlock.Code(
                                     code = """
 int x, y, sum;
@@ -1388,7 +1388,7 @@ sum = x + y;
 cout << 'Sum is: ' << sum;
                 """
                                 ),
-                                ContentBlock.Text("You’ve just built your first calculator! You’re officially a programmer! 🎉")
+                                ContentBlock.Text.fromString("You’ve just built your first calculator! You’re officially a programmer! 🎉")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -1398,8 +1398,8 @@ cout << 'Sum is: ' << sum;
                             id = "beginner_cpp8_sub5",
                             title = "Multiple Inputs: Getting Fancy 💁‍♂️",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Now, let’s get fancy with multiple inputs. Who said we can’t handle more than one request at a time? 🧑‍🎤"),
-                                ContentBlock.Text("You can ask the user for multiple inputs at once. Here’s how:"),
+                                ContentBlock.Text.fromString("Now, let’s get fancy with multiple inputs. Who said we can’t handle more than one request at a time? 🧑‍🎤"),
+                                ContentBlock.Text.fromString("You can ask the user for multiple inputs at once. Here’s how:"),
                                 ContentBlock.Code(
                                     code = """
 int x, y, z;
@@ -1408,7 +1408,7 @@ cin >> x >> y >> z;
 cout << 'You entered: ' << x << ', ' << y << ', ' << z;
                 """
                                 ),
-                                ContentBlock.Text("Boom! You just handled multiple inputs like a pro! 💁‍♂️")
+                                ContentBlock.Text.fromString("Boom! You just handled multiple inputs like a pro! 💁‍♂️")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -1492,7 +1492,7 @@ cout << 'You entered: ' << x << ', ' << y << ', ' << z;
                             id = "beginner_cpp9_sub1",
                             title = "The Right Container for Your Data!",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Just like packing your clothes into different bags for a trip, C++ requires you to store data in different types. You can store whole numbers in 'int', decimals in 'float' or 'double', and even characters or words in 'char' and 'string'. Each has its purpose! 🛠️")
+                                ContentBlock.Text.fromString("Just like packing your clothes into different bags for a trip, C++ requires you to store data in different types. You can store whole numbers in 'int', decimals in 'float' or 'double', and even characters or words in 'char' and 'string'. Each has its purpose! 🛠️")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -1502,7 +1502,7 @@ cout << 'You entered: ' << x << ', ' << y << ', ' << z;
                             id = "beginner_cpp9_sub2",
                             title = "Counting on 'int', 'float', and 'double'!",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Numbers come in all shapes and sizes, and C++ has the perfect containers for them: 'int' for whole numbers, 'float' for decimal numbers, and 'double' for high-precision numbers."),
+                                ContentBlock.Text.fromString("Numbers come in all shapes and sizes, and C++ has the perfect containers for them: 'int' for whole numbers, 'float' for decimal numbers, and 'double' for high-precision numbers."),
                                 ContentBlock.Code(
                                     code = """
 int age = 25;
@@ -1510,7 +1510,7 @@ float height = 5.9;
 double pi = 3.1415926535;
             """
                                 ),
-                                ContentBlock.Text("In this example, we use 'int' for the age, 'float' for the height, and 'double' for Pi's precise value.")
+                                ContentBlock.Text.fromString("In this example, we use 'int' for the age, 'float' for the height, and 'double' for Pi's precise value.")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -1520,14 +1520,14 @@ double pi = 3.1415926535;
                             id = "beginner_cpp9_sub3",
                             title = "Booleans ('bool'): True or False?",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Booleans store one of two values: 'true' or 'false'. They are perfect for making decisions. Let’s use a 'bool' to check if it's sunny! 🌞"),
+                                ContentBlock.Text.fromString("Booleans store one of two values: 'true' or 'false'. They are perfect for making decisions. Let’s use a 'bool' to check if it's sunny! 🌞"),
                                 ContentBlock.Code(
                                     code = """
 bool isSunny = true;
 cout << 'Is it sunny? ' << isSunny;
         """
                                 ),
-                                ContentBlock.Text("In this example, 'isSunny' is set to 'true', so the program will print 'Is it sunny? 1'. In C++, 'true' is represented by 1, and 'false' is represented by 0.")
+                                ContentBlock.Text.fromString("In this example, 'isSunny' is set to 'true', so the program will print 'Is it sunny? 1'. In C++, 'true' is represented by 1, and 'false' is represented by 0.")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -1537,7 +1537,7 @@ cout << 'Is it sunny? ' << isSunny;
                             id = "beginner_cpp9_sub4",
                             title = "Characters ('char'): The Alphabet's Little Helper!",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Need to store a single letter or character? Use 'char'! It's perfect for representing things like grades, initials, or even emoji!"),
+                                ContentBlock.Text.fromString("Need to store a single letter or character? Use 'char'! It's perfect for representing things like grades, initials, or even emoji!"),
                                 ContentBlock.Code(
                                     code = """
 char grade = 'A';
@@ -1545,7 +1545,7 @@ char symbol = '#';
 cout << 'Grade: ' << grade << ', Symbol: ' << symbol;
             """
                                 ),
-                                ContentBlock.Text("In this example, 'grade' stores a single character ('A'), and 'symbol' stores the '#' symbol.")
+                                ContentBlock.Text.fromString("In this example, 'grade' stores a single character ('A'), and 'symbol' stores the '#' symbol.")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -1555,14 +1555,14 @@ cout << 'Grade: ' << grade << ', Symbol: ' << symbol;
                             id = "beginner_cpp9_sub5",
                             title = "Strings ('string'): Words Are Important!📝",
                             contentBlocks = listOf(
-                                ContentBlock.Text("When you need to store a sequence of characters (like a name or sentence), use 'string'."),
+                                ContentBlock.Text.fromString("When you need to store a sequence of characters (like a name or sentence), use 'string'."),
                                 ContentBlock.Code(
                                     code = """
 string greeting = 'Hello, world!';
 cout << 'Greeting: ' << greeting;
             """
                                 ),
-                                ContentBlock.Text("In this example, we store a full sentence in 'string'. It's like having a word processor for your program!")
+                                ContentBlock.Text.fromString("In this example, we store a full sentence in 'string'. It's like having a word processor for your program!")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -1647,7 +1647,7 @@ cout << 'Greeting: ' << greeting;
                             id = "beginner_cpp10_sub1",
                             title = "Strings: The Basics 💬",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Strings are used to store text. Here's how we can store and display a simple string:"),
+                                ContentBlock.Text.fromString("Strings are used to store text. Here's how we can store and display a simple string:"),
 
                                 ContentBlock.Code(
                                     code = """
@@ -1656,7 +1656,7 @@ cout << greeting;
             """
                                 ),
 
-                                ContentBlock.Text("This prints: 'Hello, World!'")
+                                ContentBlock.Text.fromString("This prints: 'Hello, World!'")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -1666,7 +1666,7 @@ cout << greeting;
                             id = "beginner_cpp10_sub2",
                             title = "String Concatenation 🎭",
                             contentBlocks = listOf(
-                                ContentBlock.Text("You can combine strings and numbers using concatenation:"),
+                                ContentBlock.Text.fromString("You can combine strings and numbers using concatenation:"),
 
                                 ContentBlock.Code(
                                     code = """
@@ -1676,7 +1676,7 @@ cout << "Hello, " << name << ". You are " << age << " years old.";
             """
                                 ),
 
-                                ContentBlock.Text("This will output: 'Hello, Alice. You are 30 years old.'")
+                                ContentBlock.Text.fromString("This will output: 'Hello, Alice. You are 30 years old.'")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -1686,7 +1686,7 @@ cout << "Hello, " << name << ". You are " << age << " years old.";
                             id = "beginner_cpp10_sub3",
                             title = "User Input with Strings 🧑‍💻",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Get user input and store it in a string:"),
+                                ContentBlock.Text.fromString("Get user input and store it in a string:"),
 
                                 ContentBlock.Code(
                                     code = """
@@ -1696,7 +1696,7 @@ cout << "Hello, " << name << "!";
             """
                                 ),
 
-                                ContentBlock.Text("This asks for a name, and when you enter it, it prints: 'Hello, [your name]!'")
+                                ContentBlock.Text.fromString("This asks for a name, and when you enter it, it prints: 'Hello, [your name]!'")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -1706,7 +1706,7 @@ cout << "Hello, " << name << "!";
                             id = "beginner_cpp10_sub4",
                             title = "Measuring String Length 📏",
                             contentBlocks = listOf(
-                                ContentBlock.Text("To find the length of a string, use the 'length()' function:"),
+                                ContentBlock.Text.fromString("To find the length of a string, use the 'length()' function:"),
 
                                 ContentBlock.Code(
                                     code = """
@@ -1715,7 +1715,7 @@ cout << message.length();
             """
                                 ),
 
-                                ContentBlock.Text("This will print '15', the number of characters in the string.")
+                                ContentBlock.Text.fromString("This will print '15', the number of characters in the string.")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -1725,7 +1725,7 @@ cout << message.length();
                             id = "beginner_cpp10_sub5",
                             title = "Using String Functions 🧪",
                             contentBlocks = listOf(
-                                ContentBlock.Text("You can use various functions to manipulate strings. For example, 'substr()' extracts a part of the string:"),
+                                ContentBlock.Text.fromString("You can use various functions to manipulate strings. For example, 'substr()' extracts a part of the string:"),
 
                                 ContentBlock.Code(
                                     code = """
@@ -1735,7 +1735,7 @@ cout << part;
             """
                                 ),
 
-                                ContentBlock.Text("This will print 'Hello'.")
+                                ContentBlock.Text.fromString("This will print 'Hello'.")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -1804,15 +1804,15 @@ cout << part;
                             id = "beginner_cpp11_sub1",
                             title = "Booleans: Yes or No?",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Ever been asked if you want to go to school and you said 'no'? But your mother said 'Yes!'"),
-                                ContentBlock.Text("\uD83D\uDE44 That's how it feels when we deal with booleans in C++. A boolean can be either 'true' or 'false', and that's all!"),
+                                ContentBlock.Text.fromString("Ever been asked if you want to go to school and you said 'no'? But your mother said 'Yes!'"),
+                                ContentBlock.Text.fromString("\uD83D\uDE44 That's how it feels when we deal with booleans in C++. A boolean can be either 'true' or 'false', and that's all!"),
 
                                 ContentBlock.Code(code = """
 bool isSchoolToday = false;
 cout << isSchoolToday;
                 """),
 
-                                ContentBlock.Text("This will output: '0' because 'false' is represented as 0' in C++. If it were 'true', it would output '1'!")
+                                ContentBlock.Text.fromString("This will output: '0' because 'false' is represented as 0' in C++. If it were 'true', it would output '1'!")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -1822,14 +1822,14 @@ cout << isSchoolToday;
                             id = "beginner_cpp11_sub2",
                             title = "Booleans for Decisions",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Let’s use booleans to make decisions. You might want to check if it’s the weekend and whether to relax or do homework. 😂"),
+                                ContentBlock.Text.fromString("Let’s use booleans to make decisions. You might want to check if it’s the weekend and whether to relax or do homework. 😂"),
 
                                 ContentBlock.Code(code = """
 bool isWeekend = true;
 cout << "Is it the weekend? " << isWeekend;
                 """),
 
-                                ContentBlock.Text("This will output '1' because 'true' is represented as '1' in C++, and if it were 'false', it would print '0'.")
+                                ContentBlock.Text.fromString("This will output '1' because 'true' is represented as '1' in C++, and if it were 'false', it would print '0'.")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -1839,14 +1839,14 @@ cout << "Is it the weekend? " << isWeekend;
                             id = "beginner_cpp11_sub3",
                             title = "Boolean Variables in Action",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Booleans can be used to check conditions and represent different states. Let’s try a scenario where we check if a student has passed their exam."),
+                                ContentBlock.Text.fromString("Booleans can be used to check conditions and represent different states. Let’s try a scenario where we check if a student has passed their exam."),
 
                                 ContentBlock.Code(code = """
 bool hasPassedExam = true;
 cout << "Has the student passed the exam? " << hasPassedExam;
                 """),
 
-                                ContentBlock.Text("Here, if 'hasPassedExam' is 'true', it will print '1' (passed), and 'false' will print '0' (not passed). This helps us track true or false scenarios! 😎")
+                                ContentBlock.Text.fromString("Here, if 'hasPassedExam' is 'true', it will print '1' (passed), and 'false' will print '0' (not passed). This helps us track true or false scenarios! 😎")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -1936,8 +1936,8 @@ cout << "Has the student passed the exam? " << hasPassedExam;
                             id = "beginner_cpp12_sub1",
                             title = "What is If-Else?",
                             contentBlocks = listOf(
-                                ContentBlock.Text("If-Else is like making a choice: if something is true, do one thing; if not, do something else. It’s all about making decisions. 💭"),
-                                ContentBlock.Text("Think about it like deciding whether to stay in bed or get up. If you’re feeling lazy, you stay in bed. If you’re energetic, you get up! That’s the power of If-Else. 😴➡️🏃‍♂️")
+                                ContentBlock.Text.fromString("If-Else is like making a choice: if something is true, do one thing; if not, do something else. It’s all about making decisions. 💭"),
+                                ContentBlock.Text.fromString("Think about it like deciding whether to stay in bed or get up. If you’re feeling lazy, you stay in bed. If you’re energetic, you get up! That’s the power of If-Else. 😴➡️🏃‍♂️")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -1947,8 +1947,8 @@ cout << "Has the student passed the exam? " << hasPassedExam;
                             id = "beginner_cpp12_sub2",
                             title = "The Ultimate Decision: Should I Eat or Not?",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Imagine you’ve just woken up. The big question: should I eat pizza or not? The answer depends on one condition – are you hungry? 🍕🤤"),
-                                ContentBlock.Text("If you’re hungry, you get pizza. If not, maybe salad or nothing. That’s the magic of If-Else decisions! 🤔🥗")
+                                ContentBlock.Text.fromString("Imagine you’ve just woken up. The big question: should I eat pizza or not? The answer depends on one condition – are you hungry? 🍕🤤"),
+                                ContentBlock.Text.fromString("If you’re hungry, you get pizza. If not, maybe salad or nothing. That’s the magic of If-Else decisions! 🤔🥗")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -1958,7 +1958,7 @@ cout << "Has the student passed the exam? " << hasPassedExam;
                             id = "beginner_cpp12_sub3",
                             title = "If-Else: The Code Behind the Decision",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Here’s how you can express this decision in code:"),
+                                ContentBlock.Text.fromString("Here’s how you can express this decision in code:"),
                                 ContentBlock.Code(code = """
 bool isHungry = true;
 if (isHungry) {
@@ -1967,7 +1967,7 @@ if (isHungry) {
     cout << "Maybe salad or nothing!";
 }
                 """),
-                                ContentBlock.Text("This code checks if you're hungry. If `true`, you get pizza. If `false`, you get salad or nothing. Simple, right? 🍕🥗")
+                                ContentBlock.Text.fromString("This code checks if you're hungry. If `true`, you get pizza. If `false`, you get salad or nothing. Simple, right? 🍕🥗")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -1977,9 +1977,9 @@ if (isHungry) {
                             id = "beginner_cpp12_sub4",
                             title = "A Simple Decision: Should I Get Up or Not?",
                             contentBlocks = listOf(
-                                ContentBlock.Text("You’ve woken up and the question is: should I get up or stay in bed? 🛏️😴"),
-                                ContentBlock.Text("If you’re feeling lazy, you stay in bed. If you’re feeling productive, you get up and make coffee. ☕️"),
-                                ContentBlock.Text("Let’s put this into code! 🖥️")
+                                ContentBlock.Text.fromString("You’ve woken up and the question is: should I get up or stay in bed? 🛏️😴"),
+                                ContentBlock.Text.fromString("If you’re feeling lazy, you stay in bed. If you’re feeling productive, you get up and make coffee. ☕️"),
+                                ContentBlock.Text.fromString("Let’s put this into code! 🖥️")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -1989,7 +1989,7 @@ if (isHungry) {
                             id = "beginner_cpp12_sub5",
                             title = "Else-If and Else: More Choices!",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Here’s where we level up! With `else if`, we can handle more conditions. It’s like saying:"),
+                                ContentBlock.Text.fromString("Here’s where we level up! With `else if`, we can handle more conditions. It’s like saying:"),
                                 ContentBlock.Code(code = """
 bool isHungry = false;
 bool isCravingPizza = true;
@@ -2001,7 +2001,7 @@ if (isHungry) {
     cout << "Maybe a snack later!";
 }
                 """),
-                                ContentBlock.Text("This code checks if you’re hungry. If not, it checks if you’re craving pizza. If neither is true, the `else` statement takes over. 🎉")
+                                ContentBlock.Text.fromString("This code checks if you’re hungry. If not, it checks if you’re craving pizza. If neither is true, the `else` statement takes over. 🎉")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -2107,8 +2107,8 @@ if (isHungry) {
                             id = "beginner_cpp13_sub1",
                             title = "What is Nested If-Else?",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Nested if-else is like asking a series of questions. For example, if it's sunny, then check if you have time to go outside. If both are true, you go outside! 🌞🚶‍♂️"),
-                                ContentBlock.Text("It’s like a chain of decisions, where each condition can depend on the result of the previous one.")
+                                ContentBlock.Text.fromString("Nested if-else is like asking a series of questions. For example, if it's sunny, then check if you have time to go outside. If both are true, you go outside! 🌞🚶‍♂️"),
+                                ContentBlock.Text.fromString("It’s like a chain of decisions, where each condition can depend on the result of the previous one.")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -2118,8 +2118,8 @@ if (isHungry) {
                             id = "beginner_cpp13_sub2",
                             title = "Should I Go Outside or Stay In?",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Let’s say you want to decide whether to go outside or not. First, check if it’s sunny. If yes, check if you have time. If both are true, you go outside!"),
-                                ContentBlock.Text("Here’s the code that makes this decision:"),
+                                ContentBlock.Text.fromString("Let’s say you want to decide whether to go outside or not. First, check if it’s sunny. If yes, check if you have time. If both are true, you go outside!"),
+                                ContentBlock.Text.fromString("Here’s the code that makes this decision:"),
                                 ContentBlock.Code(code = """
 int isSunny = 1;  // 1 means it's sunny
 int hasTime = 0;  // 0 means you don't have time
@@ -2143,8 +2143,8 @@ if (isSunny) {
                             id = "beginner_cpp13_sub3",
                             title = "The AND Operator (&&)",
                             contentBlocks = listOf(
-                                ContentBlock.Text("With the AND operator (`&&`), both conditions must be true for the action to happen."),
-                                ContentBlock.Text("For example, 'I’ll go to the park if it’s sunny AND I have time.' If one of these is false, you stay in!"),
+                                ContentBlock.Text.fromString("With the AND operator (`&&`), both conditions must be true for the action to happen."),
+                                ContentBlock.Text.fromString("For example, 'I’ll go to the park if it’s sunny AND I have time.' If one of these is false, you stay in!"),
                                 ContentBlock.Code(code = """
 int isSunny = 1;
 int hasTime = 1;
@@ -2164,8 +2164,8 @@ if (isSunny && hasTime) {
                             id = "beginner_cpp13_sub4",
                             title = "The OR Operator (||)",
                             contentBlocks = listOf(
-                                ContentBlock.Text("With the OR operator (`||`), only one condition needs to be true for the action to happen."),
-                                ContentBlock.Text("For example, 'I’ll go outside if it’s sunny OR if I have time.' Either one is enough to make the decision."),
+                                ContentBlock.Text.fromString("With the OR operator (`||`), only one condition needs to be true for the action to happen."),
+                                ContentBlock.Text.fromString("For example, 'I’ll go outside if it’s sunny OR if I have time.' Either one is enough to make the decision."),
                                 ContentBlock.Code(code = """
 int isSunny = 0;
 int hasTime = 1;
@@ -2185,7 +2185,7 @@ if (isSunny || hasTime) {
                             id = "beginner_cpp13_sub5",
                             title = "Nested If-Else with AND (&&)",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Let’s put the AND operator into nested if-else. First, check if it’s sunny. Then check if you have time. Both must be true to go outside."),
+                                ContentBlock.Text.fromString("Let’s put the AND operator into nested if-else. First, check if it’s sunny. Then check if you have time. Both must be true to go outside."),
                                 ContentBlock.Code(code = """
 int isSunny = 1; 
 int hasTime = 1; 
@@ -2209,7 +2209,7 @@ if (isSunny) {
                             id = "beginner_cpp13_sub6",
                             title = "Nested If-Else with OR (||)",
                             contentBlocks = listOf(
-                                ContentBlock.Text("Now, let’s use OR to check if it’s sunny OR if you have time to go outside."),
+                                ContentBlock.Text.fromString("Now, let’s use OR to check if it’s sunny OR if you have time to go outside."),
                                 ContentBlock.Code(code = """
 int isSunny = 0;
 int hasTime = 1;
@@ -2281,7 +2281,7 @@ if (isSunny || hasTime) {
                             id = "beginner_c1_sub1",
                             title = "Overview of C Programming",
                             contentBlocks = listOf(
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "C is one of the most popular and widely used programming languages, " +
                                             "especially for system-level programming. Developed in the 1970s by Dennis Ritchie, C has influenced" +
                                             " many modern programming languages. It is fast, efficient, and allows direct manipulation of memory, " +
@@ -2295,7 +2295,7 @@ if (isSunny || hasTime) {
                             id = "beginner_c1_sub2",
                             title = "Basic Syntax",
                             contentBlocks = listOf(
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "A basic C program has a clear structure: it includes functions, declarations, and statements." +
                                             " All C programs start execution from the 'main()' function. The structure is simple but powerful."
                                 ),
@@ -2310,16 +2310,16 @@ if (isSunny || hasTime) {
                             id = "beginner_c1_sub3",
                             title = "Printing Output in C",
                             contentBlocks = listOf(
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "In C, we use the 'printf()' function to display output. The 'printf' function prints text or other data types to the console."
                                 ),
                                 ContentBlock.Code(
                                     "/* Simple printing example */\n#include <stdio.h>\nint main() {\n    printf(\"Hello, World!\\n\");\n    return 0;\n}"
                                 ),
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "In the example above, the '\\n' is used to add a newline after the printed message."
                                 ),
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "To print variables, we use placeholders (format specifiers) like '%d' for integers or '%s' for strings."
                                 ),
                                 ContentBlock.Code(
@@ -2370,7 +2370,7 @@ if (isSunny || hasTime) {
                             id = "beginner_c1_sub1",
                             title = "Overview of C Programming",
                             contentBlocks = listOf(
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "C is one of the most popular and widely used programming languages, " +
                                             "especially for system-level programming. Developed in the 1970s by Dennis Ritchie, C has influenced" +
                                             " many modern programming languages. It is fast, efficient, and allows direct manipulation of memory, " +
@@ -2384,7 +2384,7 @@ if (isSunny || hasTime) {
                             id = "beginner_c1_sub2",
                             title = "Basic Syntax",
                             contentBlocks = listOf(
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "A basic C program has a clear structure: it includes functions, declarations, and statements." +
                                             " All C programs start execution from the 'main()' function. The structure is simple but powerful."
                                 ),
@@ -2399,16 +2399,16 @@ if (isSunny || hasTime) {
                             id = "beginner_c1_sub3",
                             title = "Printing Output in C",
                             contentBlocks = listOf(
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "In C, we use the 'printf()' function to display output. The 'printf' function prints text or other data types to the console."
                                 ),
                                 ContentBlock.Code(
                                     "/* Simple printing example */\n#include <stdio.h>\nint main() {\n    printf(\"Hello, World!\\n\");\n    return 0;\n}"
                                 ),
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "In the example above, the '\\n' is used to add a newline after the printed message."
                                 ),
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "To print variables, we use placeholders (format specifiers) like '%d' for integers or '%s' for strings."
                                 ),
                                 ContentBlock.Code(
@@ -2444,10 +2444,10 @@ if (isSunny || hasTime) {
                             id = "beginner_c2_sub1",
                             title = "Understanding Data Types",
                             contentBlocks = listOf(
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "In C, you use different data types to store values of different kinds, such as integers, floating-point numbers, or characters. Here are some of the most commonly used data types:"
                                 ),
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "1. 'int': Stores integers (whole numbers). Example: 'int a = 5;'\n" +
                                             "2. 'char': Stores a single character. Example: 'char letter = 'A';'\n" +
                                             "3. 'float': Stores floating-point numbers (numbers with decimals). Example: 'float pi = 3.14f;'\n" +
@@ -2460,13 +2460,13 @@ if (isSunny || hasTime) {
                             id = "beginner_c2_sub2",
                             title = "Declaring and Using Variables",
                             contentBlocks = listOf(
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "To declare a variable in C, you specify the data type, followed by the variable name. You can also assign a value when declaring it."
                                 ),
                                 ContentBlock.Code(
                                     "/* Declaring and using variables example */\n#include <stdio.h>\nint main() {\n    int age = 25;  // Declaring an integer variable\n    char grade = 'A';  // Declaring a character variable\n    printf(\"Age: %d, Grade: %c\\n\", age, grade);\n    return 0;\n}"
                                 ),
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "In this example, we declare two variables: 'age' of type 'int', and 'grade' of type 'char'. We then print them using 'printf'."
                                 )
                             ),
@@ -2514,7 +2514,7 @@ if (isSunny || hasTime) {
                             id = "beginner_c1_sub1",
                             title = "Overview of C Programming",
                             contentBlocks = listOf(
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "C is one of the most popular and widely used programming languages, " +
                                             "especially for system-level programming. Developed in the 1970s by Dennis Ritchie, C has influenced" +
                                             " many modern programming languages. It is fast, efficient, and allows direct manipulation of memory, " +
@@ -2528,7 +2528,7 @@ if (isSunny || hasTime) {
                             id = "beginner_c1_sub2",
                             title = "Basic Syntax",
                             contentBlocks = listOf(
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "A basic C program has a clear structure: it includes functions, declarations, and statements." +
                                             " All C programs start execution from the 'main()' function. The structure is simple but powerful."
                                 ),
@@ -2543,16 +2543,16 @@ if (isSunny || hasTime) {
                             id = "beginner_c1_sub3",
                             title = "Printing Output in C",
                             contentBlocks = listOf(
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "In C, we use the 'printf()' function to display output. The 'printf' function prints text or other data types to the console."
                                 ),
                                 ContentBlock.Code(
                                     "/* Simple printing example */\n#include <stdio.h>\nint main() {\n    printf(\"Hello, World!\\n\");\n    return 0;\n}"
                                 ),
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "In the example above, the '\\n' is used to add a newline after the printed message."
                                 ),
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "To print variables, we use placeholders (format specifiers) like '%d' for integers or '%s' for strings."
                                 ),
                                 ContentBlock.Code(
@@ -2588,10 +2588,10 @@ if (isSunny || hasTime) {
                             id = "beginner_c2_sub1",
                             title = "Understanding Data Types",
                             contentBlocks = listOf(
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "In C, you use different data types to store values of different kinds, such as integers, floating-point numbers, or characters. Here are some of the most commonly used data types:"
                                 ),
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "1. 'int': Stores integers (whole numbers). Example: 'int a = 5;'\n" +
                                             "2. 'char': Stores a single character. Example: 'char letter = 'A';'\n" +
                                             "3. 'float': Stores floating-point numbers (numbers with decimals). Example: 'float pi = 3.14f;'\n" +
@@ -2604,13 +2604,13 @@ if (isSunny || hasTime) {
                             id = "beginner_c2_sub2",
                             title = "Declaring and Using Variables",
                             contentBlocks = listOf(
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "To declare a variable in C, you specify the data type, followed by the variable name. You can also assign a value when declaring it."
                                 ),
                                 ContentBlock.Code(
                                     "/* Declaring and using variables example */\n#include <stdio.h>\nint main() {\n    int age = 25;  // Declaring an integer variable\n    char grade = 'A';  // Declaring a character variable\n    printf(\"Age: %d, Grade: %c\\n\", age, grade);\n    return 0;\n}"
                                 ),
-                                ContentBlock.Text(
+                                ContentBlock.Text.fromString(
                                     "In this example, we declare two variables: 'age' of type 'int', and 'grade' of type 'char'. We then print them using 'printf'."
                                 )
                             ),

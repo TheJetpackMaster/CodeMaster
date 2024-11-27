@@ -1,5 +1,7 @@
 package com.codemaster.codemasterapp.main.data;
 
+import androidx.compose.ui.text.AnnotatedString
+
 
 // Represents a course (e.g., "English" with stages like "Beginner", "Intermediate")
 data class Course(
@@ -34,7 +36,15 @@ enum class LessonStatus {
 
 // Represents a content block (could be text, image, code, or interactive code)
 sealed class ContentBlock {
-    data class Text(val text: String) : ContentBlock() // Plain text content
+    //    data class Text(val text: String) : ContentBlock() // Plain text content
+    data class Text(val text: AnnotatedString) : ContentBlock() {
+        companion object {
+            // Helper function to create Text from a plain String
+            fun fromString(string: String): Text {
+                return Text(AnnotatedString(string))
+            }
+        }
+    }
     data class Image(val imageRes: Int) : ContentBlock() // Image content
     data class Code(val code: String) : ContentBlock() // Code content
     data class InteractiveCodeBlock(
