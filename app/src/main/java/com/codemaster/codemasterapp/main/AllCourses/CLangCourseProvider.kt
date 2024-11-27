@@ -29,7 +29,7 @@ class CLangCourseProvider() {
 
     fun CBeginnerCourse(): Stage {
         return Stage(
-            id = "beginner_stage",
+            id = "c_beginner_stage",
             title = "Beginner",
             lessons = listOf(
                 Lesson(
@@ -1356,7 +1356,7 @@ class CLangCourseProvider() {
 
     fun CIntermediateCourse(): Stage {
         return Stage(
-            id = "intermediate_stage",
+            id = "c_intermediate_stage",
             title = "Intermediate",
             lessons = listOf(
 
@@ -2825,7 +2825,7 @@ class CLangCourseProvider() {
 
     fun CAdvancedCourse(): Stage {
         return Stage(
-            id = "advanced_stage",
+            id = "c_advanced_stage",
             title = "Advanced",
             lessons = listOf(
                 Lesson(
@@ -4265,7 +4265,7 @@ int main() {
 
     fun CExpertCourse(): Stage {
         return Stage(
-            id = "expert_stage",
+            id = "c_expert_stage",
             title = "expert",
             lessons = listOf(
                 Lesson(
