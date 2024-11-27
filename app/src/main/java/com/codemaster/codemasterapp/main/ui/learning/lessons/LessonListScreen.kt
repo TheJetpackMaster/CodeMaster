@@ -304,7 +304,7 @@ fun LessonListScreen(
                                         Column {
                                             LessonItem(
                                                 title = lesson.title,
-                                                description = "6 Lessons",
+                                                description = "${lesson.subLessons.size} Lessons",
                                                 status = lessonStatus,
                                                 onArrowClick = {
                                                     // Toggle expansion of this lesson's sub-lessons

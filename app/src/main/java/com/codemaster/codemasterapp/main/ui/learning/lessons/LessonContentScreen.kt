@@ -229,7 +229,7 @@ fun LessonContentScreen(
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Text(
-                    text = selectedLesson?.subLessons?.getOrNull(pagerState.currentPage)?.title
+                    text = selectedLesson?.title
                         ?: "Default Title",
                     style = TextStyle(
                         fontSize = 26.sp,
@@ -702,8 +702,7 @@ fun LessonContentView(
                     ) {
                         Row(
                             modifier = Modifier
-                                .fillMaxWidth()
-                                .heightIn(min = 100.dp),
+                                .fillMaxWidth(),
                             verticalAlignment = Alignment.Top
                         ) {
                             // Column for Line Numbers

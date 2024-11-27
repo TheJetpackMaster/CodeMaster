@@ -18,7 +18,7 @@ fun NavGraphBuilder.mainNavHost(
     noteViewModel: NoteViewModel
 ) {
     navigation(
-        startDestination = MainRoutes.LevelSelectionScreen.route,
+        startDestination = MainRoutes.LessonListScreen.route,
         route = MainRoutes.MAIN_ROOT.route
     ) {
         composable(MainRoutes.LevelSelectionScreen.route) {
