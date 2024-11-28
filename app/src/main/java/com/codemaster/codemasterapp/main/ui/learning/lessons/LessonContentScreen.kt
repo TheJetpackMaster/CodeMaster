@@ -33,6 +33,7 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
@@ -882,7 +883,7 @@ fun LessonContentView(
 
 @Composable
 fun CodeBlockWithScrolling(contentBlock: String) {
-    val keywords = listOf("int", "return", "printf", "endl", "void", "if", "else", "while", "for", "#include", "#define")
+    val keywords = listOf("int", "return", "cout", "endl", "void", "if", "else", "while", "for", "#include", "#define")
     val braces = listOf("{", "}", "(", ")", "[", "]")
     val codeLines = contentBlock.split("\n")
 
@@ -909,7 +910,6 @@ fun CodeBlockWithScrolling(contentBlock: String) {
         // Code content with scrolling
         Column(
             modifier = Modifier
-                .fillMaxHeight()
                 .padding(horizontal = 12.dp)
                 .verticalScroll(scrollState) // Make the code block scrollable
         ) {
@@ -936,7 +936,7 @@ fun CodeBlockWithScrolling(contentBlock: String) {
 
                     // Column for Code content
                     Column(
-                        modifier = Modifier.weight(1f)
+                        modifier = Modifier.wrapContentHeight()
                     ) {
                         // Display code with styled syntax
                         Text(
@@ -995,7 +995,6 @@ fun CodeBlockWithScrolling(contentBlock: String) {
         Box(
             modifier = Modifier
                 .align(Alignment.CenterEnd)
-                .fillMaxHeight()
                 .width(4.dp)
                 .background(Color.Gray.copy(alpha = 0.5f), shape = RoundedCornerShape(topEnd = 124.dp, bottomEnd = 124.dp)) // Background for the scroll indicator
 
