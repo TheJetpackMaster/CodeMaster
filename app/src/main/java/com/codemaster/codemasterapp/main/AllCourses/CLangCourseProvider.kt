@@ -41,42 +41,42 @@ class CLangCourseProvider() {
                 Lesson(
                     id = "beginner_c1",
                     title = "Introduction to C Programming",
-                    description = "In this lesson, we will cover the basics of programming and introduce the origins, purpose, and structure of the C language.",
+                    description = "In this lesson, we’ll cover the basics of programming, exploring the origins, purpose, and structure of the C language.",
                     subLessons = listOf(
                         Lesson(
                             id = "beginner_c1_sub1",
                             title = "What is Programming?",
-                            description = "Learn what programming is, why it’s important, and how computers understand and execute instructions.",
+                            description = "Understand programming, why it matters, and how it lets computers execute your instructions.",
                             status = LessonStatus.ACTIVE
                         ),
                         Lesson(
                             id = "beginner_c1_sub2",
                             title = "Understanding Code and How It Works",
-                            description = "Dive deeper into what code is, its structure, and how instructions are written and processed in a program.",
+                            description = "Peek behind the scenes to see how code tells computers what to do.",
                             status = LessonStatus.LOCKED
                         ),
                         Lesson(
                             id = "beginner_c1_sub3",
                             title = "Introduction to the C Language",
-                            description = "Discover the origins of the C programming language, its role in modern programming, and its core syntax.",
+                            description = "Meet C: the foundation of many modern programming languages.",
                             status = LessonStatus.LOCKED
                         ),
                         Lesson(
                             id = "beginner_c1_sub4",
                             title = "Applications of C Programming",
-                            description = "Explore where the C language is applied in real-world scenarios like operating systems, embedded systems, and game development.",
+                            description = "Discover where C is used in real-world scenarios like operating systems and embedded systems.",
                             status = LessonStatus.LOCKED
                         ),
                         Lesson(
                             id = "beginner_c1_sub5",
                             title = "Why Learn C?",
-                            description = "Understand the benefits of learning C programming, including its foundational role in understanding other programming languages.",
+                            description = "Explore the benefits of learning C, including its role as a foundation for other programming languages.",
                             status = LessonStatus.LOCKED
                         ),
                         Lesson(
                             id = "beginner_c1_sub6",
                             title = "What’s Next?",
-                            description = "Get an overview of the upcoming lessons and the path you will take in learning C programming basics.",
+                            description = "Preview the journey ahead as we dive into loops, arrays, and advanced concepts.",
                             status = LessonStatus.LOCKED
                         )
                     ),
@@ -86,39 +86,14 @@ class CLangCourseProvider() {
                             title = "What is Programming?",
                             contentBlocks = listOf(
                                 ContentBlock.Text.fromString("Programming creates instructions for computers to automate tasks, solve problems, and build software."),
-                                ContentBlock.Image(R.drawable.c_intro),
-
-
-                                // Create an AnnotatedString for the text
                                 ContentBlock.Text(
                                     buildAnnotatedString {
-                                        withStyle(
-                                            style = SpanStyle(
-                                                color = Color(0xFFADD8E6), // Light blue
-                                                fontWeight = FontWeight.Bold
-                                            )
-                                        ) {
-                                            append("Programming languages")
-                                        }
-                                        append(" help bridge human communication with machines, enabling the creation of games, websites, and systems.")
-                                    }
-                                )
-
-                            ),
-                            type = LessonContentType.NON_INTERACTIVE
-                        ),
-                        LessonContent(
-                            id = "beginner_c1_sub2",
-                            title = "Introduction to the C Language",
-                            contentBlocks = listOf(
-                                ContentBlock.Text.fromString("C, developed in the 1970s, is a powerful, efficient, and portable language used for operating systems like UNIX."),
-                                ContentBlock.Image(R.drawable.c_intro),
-                                ContentBlock.Text(
-                                    buildAnnotatedString {
-                                        val text = "C combines low-level power with ease of use and has influenced many languages like C++, Java, and Python."
+                                        val text =
+                                            "Programming languages like C, Python, or Java help us communicate instructions to machines."
                                         append(text)
 
-                                        val wordsToStyle = listOf("low-level", "C++, Java")
+                                        val wordsToStyle =
+                                            listOf("Programming languages", "C, Python, or Java")
                                         for (word in wordsToStyle) {
                                             val startIndex = text.indexOf(word)
                                             if (startIndex != -1) {
@@ -133,48 +108,144 @@ class CLangCourseProvider() {
                                             }
                                         }
                                     }
-                                )
+                                ),
+                                ContentBlock.Text.fromString("Without programming, your favorite apps and systems wouldn’t exist. 🚀")
+                            ),
+                            type = LessonContentType.NON_INTERACTIVE
+                        ),
+                        LessonContent(
+                            id = "beginner_c1_sub2",
+                            title = "Understanding Code and How It Works",
+                            contentBlocks = listOf(
+                                ContentBlock.Text.fromString("Code is like a recipe—a series of step-by-step instructions for computers."),
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "C code translates directly into machine language, making it powerful and efficient."
+                                        append(text)
 
+                                        val wordsToStyle = listOf("C code", "machine language")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6), // Light blue
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
+                                ContentBlock.Text.fromString("Think of it as giving directions versus driving the car yourself.")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
                         LessonContent(
                             id = "beginner_c1_sub3",
-                            title = "Applications of C Programming",
+                            title = "Introduction to the C Language",
                             contentBlocks = listOf(
-                                ContentBlock.Text.fromString("C is widely used in operating systems, embedded systems, game development, and system software."),
-                                ContentBlock.Image(R.drawable.c_intro),
-                                ContentBlock.Text.fromString("C’s direct hardware access and memory management make it ideal for resource-constrained environments.")
+                                ContentBlock.Text.fromString("C was created in the 1970s by Dennis Ritchie for building UNIX."),
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "C combines low-level power with ease of use and has influenced many languages like C++, Java, and Python."
+                                        append(text)
+
+                                        val wordsToStyle =
+                                            listOf("low-level", "C++, Java, and Python")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6), // Light blue
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
+                                ContentBlock.Text.fromString("Languages like Python and Java owe their roots to C.")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
                         LessonContent(
                             id = "beginner_c1_sub4",
-                            title = "Benefits of Learning C Language",
+                            title = "Applications of C Programming",
                             contentBlocks = listOf(
-                                ContentBlock.Text.fromString("Learning C builds a strong foundation in core programming concepts and computational thinking."),
-                                ContentBlock.Image(R.drawable.c_intro),
-                                ContentBlock.Text.fromString("It opens career opportunities and prepares you for advanced programming topics and languages influenced by C.")
+                                ContentBlock.Text.fromString("C is widely used in operating systems, embedded systems, and gaming."),
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "It’s essential for gaming, robotics, and embedded systems where precision is key."
+                                        append(text)
+
+                                        val wordsToStyle =
+                                            listOf("gaming", "robotics", "embedded systems")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6), // Light blue
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
+                                ContentBlock.Text.fromString("Imagine your gaming console and smartwatch running thanks to C! 🎮")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
                         LessonContent(
                             id = "beginner_c1_sub5",
-                            title = "What's Next?",
+                            title = "Why Learn C?",
                             contentBlocks = listOf(
-                                ContentBlock.Text.fromString("Congrats! You now have a foundation in C programming and its importance."),
-                                ContentBlock.Image(R.drawable.c_intro),
-                                ContentBlock.Text.fromString("Upcoming lessons will cover loops, arrays, functions, and advanced topics like pointers and algorithms.")
+                                ContentBlock.Text.fromString("Learning C builds a solid foundation in core programming concepts."),
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "C teaches the principles of programming, making it easier to master other languages."
+                                        append(text)
+
+                                        val wordsToStyle = listOf("principles of programming")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6), // Light blue
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
+                                ContentBlock.Text.fromString("Plus, it’s a valuable skill for software development roles.")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
                         LessonContent(
                             id = "beginner_c1_sub6",
-                            title = "What's Next?",
+                            title = "What’s Next?",
                             contentBlocks = listOf(
-                                ContentBlock.Text.fromString("You're ready for more! Dive into loops, arrays, functions, and advanced topics like memory management."),
-                                ContentBlock.Image(R.drawable.c_intro),
-                                ContentBlock.Text.fromString("Hands-on projects will strengthen your skills and build your confidence as a programmer.")
+                                ContentBlock.Text.fromString("You’re now ready for the next steps in your programming journey."),
+                                ContentBlock.Text.fromString("Upcoming lessons will cover essential concepts like loops, arrays, and memory management."),
+                                ContentBlock.Text.fromString("Hands-on projects will help solidify your understanding. 🛠️")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         )
@@ -186,24 +257,24 @@ class CLangCourseProvider() {
                 Lesson(
                     id = "beginner_c2",
                     title = "Setting Up Your Programming Environment",
-                    description = "Learn to set up your programming environment, write your first C program, and run it.",
+                    description = "Learn to set up your programming environment, write your first C program, and run it. It’s like assembling a robot to do your homework.",
                     subLessons = listOf(
                         Lesson(
                             id = "beginner_c2_sub1",
                             title = "Installing a C Compiler",
-                            description = "Install a C compiler (e.g., GCC, MinGW) or an IDE (Code::Blocks, VS Code).",
+                            description = "Equip yourself with a powerful compiler like GCC or a slick IDE like Code::Blocks. Let’s start your coding adventure!",
                             status = LessonStatus.LOCKED
                         ),
                         Lesson(
                             id = "beginner_c2_sub2",
                             title = "Writing Your First Program",
-                            description = "Write a simple C program using your compiler or IDE.",
+                            description = "Write a program that tells the world 'Hello!' (because politeness matters).",
                             status = LessonStatus.LOCKED
                         ),
                         Lesson(
                             id = "beginner_c2_sub3",
                             title = "Running the Program",
-                            description = "Learn how to compile and run your C program.",
+                            description = "See your program come alive by compiling and running it. It’s like lighting up a bulb for the first time!",
                             status = LessonStatus.LOCKED
                         )
                     ),
@@ -212,7 +283,35 @@ class CLangCourseProvider() {
                             id = "beginner_c2_sub1",
                             title = "Installing a C Compiler",
                             contentBlocks = listOf(
-                                ContentBlock.Text.fromString("Install a C compiler like GCC or an IDE like Code::Blocks. Follow the setup instructions for your tool.")
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "To start programming, you'll need a C compiler (like GCC) or an IDE (like Code::Blocks or VS Code)."
+                                        append(text)
+
+                                        val wordsToStyle = listOf(
+                                            "C compiler",
+                                            "GCC",
+                                            "IDE",
+                                            "Code::Blocks",
+                                            "VS Code"
+                                        )
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
+                                ContentBlock.Text.fromString("Think of a compiler as a translator between you and your computer. Without it, your computer will stare blankly at your code like a tourist without Google Translate.")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -220,9 +319,59 @@ class CLangCourseProvider() {
                             id = "beginner_c2_sub2",
                             title = "Writing Your First Program",
                             contentBlocks = listOf(
-                                ContentBlock.Text.fromString("Write your first C program with the following code:"),
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "Now, let’s write your first C program. Don’t worry—it’s as simple as saying 'Hi' (but to a computer)."
+                                        append(text)
+
+                                        val wordsToStyle =
+                                            listOf("Hi")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
                                 ContentBlock.Code("#include <stdio.h>\n\nint main() {\n    printf(\"Hello, World!\\n\");\n    return 0;\n}"),
-                                ContentBlock.Text.fromString("Explanation: `#include <stdio.h>` includes I/O functions, `int main()` is the main function, `printf()` prints the message.")
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text = """
+                            Here's what this does:
+                            '#include <stdio.h>' tells your program it can use functions like printf().
+                            'int main()' is the starting point—like the ignition in your car.
+                            'printf()' displays the message 'Hello, World!' on your screen. Neat, right?""".trimIndent()
+                                        append(text)
+
+                                        val wordsToStyle = listOf(
+                                            "'printf()'",
+                                            "#include <stdio.h>",
+                                            "int main()"
+                                        )
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                )
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -230,7 +379,32 @@ class CLangCourseProvider() {
                             id = "beginner_c2_sub3",
                             title = "Running the Program",
                             contentBlocks = listOf(
-                                ContentBlock.Text.fromString("To compile, use `gcc hello_world.c -o hello_world` and run with `./hello_world` to display `Hello, World!`.")
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "Now it’s time to see your creation in action! First, compile your program with the command: `gcc hello_world.c -o hello_world`. Then, run it with: `./hello_world`."
+                                        append(text)
+
+                                        val wordsToStyle = listOf(
+                                            "`gcc hello_world.c -o hello_world`",
+                                            "`./hello_world`"
+                                        )
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
+                                ContentBlock.Text.fromString("Congratulations! Your computer just said 'Hello, World!' Talk about making new friends. 🎉")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         )
@@ -242,36 +416,36 @@ class CLangCourseProvider() {
                 Lesson(
                     id = "beginner_c3",
                     title = "C Syntax & Statements",
-                    description = "Understand the structure of a C program and learn to write statements effectively.",
+                    description = "Master the rules of C and write error-free code that won't make your robot self-destruct.",
                     subLessons = listOf(
                         Lesson(
                             id = "beginner_c3_sub1",
                             title = "What is Syntax in C?",
-                            description = "Learn the rules for writing C programs.",
+                            description = "Discover the golden rules for writing C programs. Think of it as grammar for robots.",
                             status = LessonStatus.LOCKED
                         ),
                         Lesson(
                             id = "beginner_c3_sub2",
                             title = "Core Elements of Syntax",
-                            description = "Explore essential syntax elements in C.",
+                            description = "Peek under the hood to understand the building blocks of C syntax. It's like learning how to read your robot's wiring diagram.",
                             status = LessonStatus.LOCKED
                         ),
                         Lesson(
                             id = "beginner_c3_sub3",
                             title = "What is a Statement in C?",
-                            description = "Understand and use statements in C.",
+                            description = "Learn the language of robot commands. Teach your robot to say 'Hello!' instead of '404: Emotion Not Found.'",
                             status = LessonStatus.LOCKED
                         ),
                         Lesson(
                             id = "beginner_c3_sub4",
                             title = "Types of Statements in C",
-                            description = "Learn about different types of statements.",
+                            description = "Explore different types of instructions that power your programs, from 'turn left' to 'don’t dance in public.'",
                             status = LessonStatus.LOCKED
                         ),
                         Lesson(
                             id = "beginner_c3_sub5",
                             title = "Combining Multiple Statements",
-                            description = "Organize and execute multiple statements.",
+                            description = "Make your program work like a well-oiled machine. No more 'robot dropped coffee on cat' incidents.",
                             status = LessonStatus.LOCKED
                         )
                     ),
@@ -280,20 +454,98 @@ class CLangCourseProvider() {
                             id = "beginner_c3_sub1",
                             title = "What is Syntax in C?",
                             contentBlocks = listOf(
-                                ContentBlock.Text.fromString("Syntax defines rules for writing understandable and executable code."),
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "Syntax is like the traffic rules for C code. No skipping red lights, or your program crashes!"
+                                        append(text)
+                                        val wordsToStyle = listOf("")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
                                 ContentBlock.Code(
                                     """
                     #include <stdio.h>
                     
                     int main() {
-                        printf("Hello, World!\\n");
+                        printf("Syntax rules? Check!\\n");
                         return 0;
                     }
-                """.trimIndent()
+                    """.trimIndent()
                                 ),
-                                ContentBlock.Text.fromString("- `#include <stdio.h>` enables input/output functions."),
-                                ContentBlock.Text.fromString("- `int main()` is the entry point."),
-                                ContentBlock.Text.fromString("- Statements like `printf(...)` must follow syntax rules.")
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "#include <stdio.h>: Think of this as activating your robot's speech module."
+                                        append(text)
+                                        val wordsToStyle = listOf("#include <stdio.h>")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text = "int main(): The brain of your program."
+                                        append(text)
+                                        val wordsToStyle = listOf("int main()")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text = "printf: Makes your robot talk!"
+                                        append(text)
+                                        val wordsToStyle = listOf("printf")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                )
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -301,18 +553,98 @@ class CLangCourseProvider() {
                             id = "beginner_c3_sub2",
                             title = "Core Elements of Syntax",
                             contentBlocks = listOf(
-                                ContentBlock.Text.fromString("Key syntax elements:"),
-                                ContentBlock.Text.fromString("1. **Keywords**: Reserved words like `int`, `return`."),
-                                ContentBlock.Text.fromString("2. **Identifiers**: User-defined names (e.g., `int num;`)."),
-                                ContentBlock.Text.fromString("3. **Operators**: Symbols for operations (e.g., `+`, `-`)."),
+                                ContentBlock.Text.fromString("Here's your syntax survival kit:"),
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "1.Keywords: Pre-programmed magic words like 'int', 'return'. They’re like robot commands—strictly followed."
+                                        append(text)
+                                        val wordsToStyle = listOf("Keywords", "int", "return")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "2.Identifiers: Custom names you give, like naming your robot 'RoboBob'."
+                                        append(text)
+                                        val wordsToStyle = listOf("Identifiers")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "3.Operators: Tools for your robot, like '+' for adding parts."
+                                        append(text)
+                                        val wordsToStyle = listOf("Operators", "+")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
                                 ContentBlock.Code(
                                     """
                     int x = 5, y = 10;
                     int sum = x + y;
                     printf("Sum: %d\\n", sum);
-                """.trimIndent()
+                    """.trimIndent()
                                 ),
-                                ContentBlock.Text.fromString("4. **Delimiters**: Structure code (e.g., `;`, `{}`).")
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "4.Delimiters: The punctuation of programming. Miss one, and your robot may explode (not really)."
+                                        append(text)
+                                        val wordsToStyle = listOf("Delimiters")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -320,14 +652,34 @@ class CLangCourseProvider() {
                             id = "beginner_c3_sub3",
                             title = "What is a Statement in C?",
                             contentBlocks = listOf(
-                                ContentBlock.Text.fromString("A statement is an instruction to perform a task."),
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "Statements are the orders you give your robot. Example: 'Start cleaning!'"
+                                        append(text)
+                                        val wordsToStyle = listOf("Start cleaning!")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
                                 ContentBlock.Code(
                                     """
                     int x = 10;
-                    printf("x: %d\\n", x);
-                """.trimIndent()
+                    printf("Robot battery: %d%%\\n", x);
+                    """.trimIndent()
                                 ),
-                                ContentBlock.Text.fromString("Statements must end with `;` and are executed sequentially.")
+                                ContentBlock.Text.fromString("Statements always end with a semicolon. It's like the period in a sentence.")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -335,18 +687,95 @@ class CLangCourseProvider() {
                             id = "beginner_c3_sub4",
                             title = "Types of Statements in C",
                             contentBlocks = listOf(
-                                ContentBlock.Text.fromString("Types of statements:"),
-                                ContentBlock.Text.fromString("1. **Declaration**: `int x = 5;`."),
-                                ContentBlock.Text.fromString("2. **Expression**: `x = x + 1;`."),
-                                ContentBlock.Text.fromString("3. **Control**: Direct execution flow (e.g., `if`, `while`)."),
+                                ContentBlock.Text.fromString("C statements can be broadly categorized into the following types:"),
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "1.Expression Statements: These evaluate expressions, like assignments or function calls."
+                                        append(text)
+                                        val wordsToStyle = listOf("Expression Statements")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
+
                                 ContentBlock.Code(
                                     """
-                    if (x > 0) {
-                        printf("Positive\\n");
-                    }
-                """.trimIndent()
+int a = 5; // Assignment statement
+printf("Hello, World!\\n"); // Function call statement
+                    """.trimIndent()
                                 ),
-                                ContentBlock.Text.fromString("4. **Compound**: Grouped in `{}`.")
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "2.Control Statements: These alter the flow of execution."
+                                        append(text)
+                                        val wordsToStyle = listOf("Control Statements")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
+                                ContentBlock.Code(
+                                    """
+if (a > 0) {
+    printf("Positive\\n");
+} else {
+    printf("Non-positive\\n");
+}
+                    """.trimIndent()
+                                ),
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "3.Compound Statements: A group of statements enclosed in curly braces."
+                                        append(text)
+                                        val wordsToStyle = listOf("Compound Statements")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
+                                ContentBlock.Code(
+                                    """
+{
+    int a = 10;
+    printf("%d\\n", a);
+}
+                    """.trimIndent()
+                                ),
+                                ContentBlock.Text.fromString("Understanding these types helps you construct better programs.")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -354,25 +783,103 @@ class CLangCourseProvider() {
                             id = "beginner_c3_sub5",
                             title = "Combining Multiple Statements",
                             contentBlocks = listOf(
-                                ContentBlock.Text.fromString("Programs use sequential statements."),
+                                ContentBlock.Text.fromString("When building complex programs, combining multiple statements effectively is crucial."),
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "1.Using Blocks: Group statements into blocks for clarity and scope."
+                                        append(text)
+                                        val wordsToStyle = listOf("Using Blocks")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
                                 ContentBlock.Code(
                                     """
-                    #include <stdio.h>
-                    
-                    int main() {
-                        int a = 5, b = 10, sum = a + b;
-                        printf("Sum: %d\\n", sum);
-                        return 0;
-                    }
-                """.trimIndent()
+if (x > 0) {
+    int y = x + 1;
+    printf("Value: %d\\n", y);
+}
+                    """.trimIndent()
                                 ),
-                                ContentBlock.Text.fromString("- Initialize variables."),
-                                ContentBlock.Text.fromString("- Calculate results."),
-                                ContentBlock.Text.fromString("- Print output.")
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "2.Using Functions: Encapsulate multiple related statements in functions."
+                                        append(text)
+                                        val wordsToStyle = listOf("Using Functions")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
+                                ContentBlock.Code(
+                                    """
+void greet() {
+    printf("Hello, ");
+    printf("World!\\n");
+}
+int main() {
+    greet();
+    return 0;
+}
+                    """.trimIndent()
+                                ),
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "3.Chaining Statements: Execute sequential operations for logical flow."
+                                        append(text)
+                                        val wordsToStyle = listOf("Chaining Statements")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
+                                ContentBlock.Code(
+                                    """
+int a = 5, b = 10;
+int sum = a + b;
+printf("Sum: %d\\n", sum);
+                    """.trimIndent()
+                                ),
+                                ContentBlock.Text.fromString("Effective combination leads to maintainable and error-free code.")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         )
                     ),
+
                     status = LessonStatus.LOCKED
                 ),
 
@@ -380,42 +887,42 @@ class CLangCourseProvider() {
                 Lesson(
                     id = "beginner_c4",
                     title = "C Output",
-                    description = "Master how to display text and handle output in C programs, with a splash of fun! 😄",
+                    description = "Learn to talk to your computer with `printf()` and make it answer back—with style and humor! 😄",
                     subLessons = listOf(
                         Lesson(
                             id = "beginner_c4_sub1",
                             title = "Printing Text in C",
-                            description = "Learn how to display text output using `printf()`.",
+                            description = "Use `printf()` to make your computer say anything you want. 🎉",
                             status = LessonStatus.LOCKED
                         ),
                         Lesson(
                             id = "beginner_c4_sub2",
                             title = "New Lines in Output",
-                            description = "Understand how to manage output with new lines.",
+                            description = "Keep your output clean with `\\n`—because messy outputs are so last year.",
                             status = LessonStatus.LOCKED
                         ),
                         Lesson(
                             id = "beginner_c4_sub3",
                             title = "Special Characters in Output",
-                            description = "Explore special characters like tabs and quotes.",
+                            description = "Learn escape sequences like `\\t` to format text or `\\\"` to make it fancy!",
                             status = LessonStatus.LOCKED
                         ),
                         Lesson(
                             id = "beginner_c4_sub4",
                             title = "Printing Variables",
-                            description = "Learn to print values stored in variables using format specifiers.",
+                            description = "Ever wanted to show off your variables? `printf()` + format specifiers = magic. 🪄",
                             status = LessonStatus.LOCKED
                         ),
                         Lesson(
                             id = "beginner_c4_sub5",
                             title = "Printing Multiple Values",
-                            description = "Learn how to print more than one value at once.",
+                            description = "Print multiple values like a pro with `printf()` arguments. 🚀",
                             status = LessonStatus.LOCKED
                         ),
                         Lesson(
                             id = "beginner_c4_sub6",
                             title = "Formatted Output",
-                            description = "Understand how to format your output nicely.",
+                            description = "Use formatting tricks to impress even the most organized output fans. ✨",
                             status = LessonStatus.LOCKED
                         )
                     ),
@@ -424,24 +931,57 @@ class CLangCourseProvider() {
                             id = "beginner_c4_sub1",
                             title = "Printing Text in C",
                             contentBlocks = listOf(
-                                ContentBlock.Text.fromString("In C, we use `printf()` to print messages to the console. It's like talking to your computer! 🖥️"),
-                                ContentBlock.Code(
-                                    """
-                    #include <stdio.h>
-                    
-                    int main() {
-                        printf("Hello, C World!");
-                        return 0;
-                    }
-                """.trimIndent()
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "printf() is like a microphone for your computer—use it to shout out messages!"
+                                        append(text)
+                                        val wordsToStyle = listOf("printf()")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
                                 ),
-                                ContentBlock.Text.fromString("- Wrap your message in double quotes (\"...\"). 🎁"),
-                                ContentBlock.Text.fromString("- `printf()` prints exactly what's inside the quotes."),
-                                ContentBlock.Text.fromString("Example:"),
                                 ContentBlock.Code(
                                     """
-                    printf("Coding is fun! 🎉");
-                """.trimIndent()
+#include <stdio.h>
+
+int main() {
+    printf("Hello, World!"); // Your first computer hello!
+    return 0;
+}
+                    """.trimIndent()
+                                ),
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "Wrap your message in \"...\", just like wrapping a gift. 🎁"
+                                        append(text)
+                                        val wordsToStyle = listOf("\"...\"")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
                                 )
                             ),
                             type = LessonContentType.NON_INTERACTIVE
@@ -450,25 +990,37 @@ class CLangCourseProvider() {
                             id = "beginner_c4_sub2",
                             title = "New Lines in Output",
                             contentBlocks = listOf(
-                                ContentBlock.Text.fromString("Want neat output? Use `\\n` to start a new line. 📜"),
-                                ContentBlock.Code(
-                                    """
-                    #include <stdio.h>
-                    
-                    int main() {
-                        printf("Hello, World!\\n");
-                        printf("Welcome to C programming!\\n");
-                        return 0;
-                    }
-                """.trimIndent()
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "\n is your best friend when you want things on different lines!"
+                                        append(text)
+                                        val wordsToStyle = listOf("\n")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
                                 ),
-                                ContentBlock.Text.fromString("- `\\n` is like pressing 'Enter' on your keyboard. ⌨️"),
-                                ContentBlock.Text.fromString("Output:"),
                                 ContentBlock.Code(
                                     """
-                    Hello, World!
-                    Welcome to C programming!
-                """.trimIndent()
+#include <stdio.h>
+
+int main() {
+    printf("Line 1\n");
+    printf("Line 2\n");
+    return 0;
+}
+                    """.trimIndent()
                                 )
                             ),
                             type = LessonContentType.NON_INTERACTIVE
@@ -477,26 +1029,22 @@ class CLangCourseProvider() {
                             id = "beginner_c4_sub3",
                             title = "Special Characters in Output",
                             contentBlocks = listOf(
-                                ContentBlock.Text.fromString("Add cool characters using escape sequences! 🚀"),
-                                ContentBlock.Text.fromString("- `\\t`: Adds a tab space."),
-                                ContentBlock.Text.fromString("- `\\\"`: Prints double quotes."),
-                                ContentBlock.Code(
-                                    """
-                    #include <stdio.h>
-                    
-                    int main() {
-                        printf("Tabs\\tare\\tfun!\\n");
-                        printf("She said, \\\"Hello!\\\"\\n");
-                        return 0;
-                    }
-                """.trimIndent()
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text = "Jazz up your output with escape sequences!"
+                                        append(text)
+                                    }
                                 ),
-                                ContentBlock.Text.fromString("Output:"),
                                 ContentBlock.Code(
                                     """
-                    Tabs    are    fun!
-                    She said, "Hello!"
-                """.trimIndent()
+#include <stdio.h>
+
+int main() {
+    printf("Tabs\\tare\\tawesome!\\n");
+    printf("Quotes: \\\"Wow!\\\"\\n");
+    return 0;
+}
+                    """.trimIndent()
                                 )
                             ),
                             type = LessonContentType.NON_INTERACTIVE
@@ -505,82 +1053,80 @@ class CLangCourseProvider() {
                             id = "beginner_c4_sub4",
                             title = "Printing Variables",
                             contentBlocks = listOf(
-                                ContentBlock.Text.fromString("Display variable values with format specifiers. 🎯"),
-                                ContentBlock.Text.fromString("- `%d`: For integers"),
-                                ContentBlock.Text.fromString("- `%f`: For floats"),
-                                ContentBlock.Text.fromString("- `%s`: For strings"),
-                                ContentBlock.Code(
-                                    """
-                    #include <stdio.h>
-                    
-                    int main() {
-                        int age = 25;
-                        float height = 5.9;
-                        printf("Age: %d\\n", age);
-                        printf("Height: %.1f\\n", height);
-                        return 0;
-                    }
-                """.trimIndent()
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "Use format specifiers to spill the beans about your variables. 🎯"
+                                        append(text)
+                                    }
                                 ),
-                                ContentBlock.Text.fromString("Output:"),
                                 ContentBlock.Code(
                                     """
-                    Age: 25
-                    Height: 5.9
-                """.trimIndent()
+#include <stdio.h>
+
+int main() {
+    int age = 20;
+    printf("Age: %d", age); // %d for integers
+    return 0;
+}
+                    """.trimIndent()
                                 )
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
                         LessonContent(
                             id = "beginner_c4_sub5",
-                            title = "Printing Multiple Values",
+                            title = "Printing Variables",
                             contentBlocks = listOf(
-                                ContentBlock.Text.fromString("Print multiple values in one `printf()`! 🤹‍♂️"),
-                                ContentBlock.Code(
-                                    """
-                    #include <stdio.h>
-                    
-                    int main() {
-                        int age = 25;
-                        float height = 5.9;
-                        printf("Age: %d, Height: %.1f\\n", age, height);
-                        return 0;
-                    }
-                """.trimIndent()
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "Use printf() with multiple format specifiers to print several values in one statement. It's like ordering coffee and a croissant in one go! ☕🥐"
+                                        append(text)
+                                        val wordsToStyle = listOf("printf()", "format specifiers")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
                                 ),
-                                ContentBlock.Text.fromString("Output:"),
-                                ContentBlock.Code(
-                                    """
-                    Age: 25, Height: 5.9
-                """.trimIndent()
-                                )
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
                         LessonContent(
                             id = "beginner_c4_sub6",
-                            title = "Formatted Output",
+                            title = "Printing Variables",
                             contentBlocks = listOf(
-                                ContentBlock.Text.fromString("Want to format your output? Use precision and width! 🎨"),
-                                ContentBlock.Text.fromString("- Control decimal places with `.2f` for 2 decimals."),
-                                ContentBlock.Text.fromString("- Align text using width formatting like `%10s`."),
-                                ContentBlock.Code(
-                                    """
-                    #include <stdio.h>
-                    
-                    int main() {
-                        float pi = 3.14159;
-                        printf("Pi to 2 decimals: %.2f\\n", pi);
-                        return 0;
-                    }
-                """.trimIndent()
-                                ),
-                                ContentBlock.Text.fromString("Output:"),
-                                ContentBlock.Code(
-                                    """
-                    Pi to 2 decimals: 3.14
-                """.trimIndent()
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "Formatting output in C is like dressing up for a party—precision and style matter! Use format specifiers with width and precision settings for a polished look. 🎩✨"
+                                        append(text)
+                                        val wordsToStyle =
+                                            listOf("")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
                                 )
                             ),
                             type = LessonContentType.NON_INTERACTIVE
@@ -631,11 +1177,9 @@ class CLangCourseProvider() {
                             id = "beginner_c5_sub1",
                             title = "Introduction to Comments",
                             contentBlocks = listOf(
-                                ContentBlock.Text.fromString("Comments are non-executable lines that explain code, improving readability. 📖"),
-                                ContentBlock.Text.fromString("They’re ignored by the compiler, ideal for documentation and clarifying logic."),
-                                ContentBlock.Text.fromString("Why use comments?"),
-                                ContentBlock.Text.fromString("- Explain code to others (or future you). 💬"),
-                                ContentBlock.Text.fromString("- Improve code maintenance. 🔧")
+                                ContentBlock.Text.fromString("Comments are notes for humans, ignored by the compiler."),
+                                ContentBlock.Text.fromString("Think of comments as reminders for why your code does what it does."),
+                                ContentBlock.Text.fromString("Without comments, you might forget the logic behind your code later.")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -643,25 +1187,40 @@ class CLangCourseProvider() {
                             id = "beginner_c5_sub2",
                             title = "Single-Line Comments",
                             contentBlocks = listOf(
-                                ContentBlock.Text.fromString("Single-line comments begin with `//` and continue until the end of the line. 🎯"),
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "Single-line comments start with '//' and last until the end of the line."
+                                        append(text)
+                                        val wordsToStyle = listOf("//")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
+                                ContentBlock.Text.fromString("Use single-line comments for quick notes."),
                                 ContentBlock.Code(
                                     """
-                    #include <stdio.h>
-                    
-                    int main() {
-                        // Single-line comment
-                        printf("Hello, World!\\n");
-                        return 0;
-                    }
+                #include <stdio.h>
+                
+                int main() {
+                    // Print a greeting
+                    printf("Hello, World!\n");
+                    return 0;
+                }
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text.fromString("- Use for quick notes or explanations."),
-                                ContentBlock.Text.fromString("Example output:"),
-                                ContentBlock.Code(
-                                    """
-                    Hello, World!
-                """.trimIndent()
-                                )
+                                ContentBlock.Text.fromString("Think of them as short post-it notes for your code.")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -669,26 +1228,41 @@ class CLangCourseProvider() {
                             id = "beginner_c5_sub3",
                             title = "Multi-Line Comments",
                             contentBlocks = listOf(
-                                ContentBlock.Text.fromString("Multi-line comments start with `/*` and end with `*/`, spanning multiple lines. 📄"),
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "Multi-line comments start with '/*' and end with '*/', spanning multiple lines."
+                                        append(text)
+                                        val wordsToStyle = listOf("/*", "*/")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
+                                ContentBlock.Text.fromString("Use them for detailed explanations spanning multiple lines."),
                                 ContentBlock.Code(
                                     """
-                    #include <stdio.h>
-                    
-                    int main() {
-                        /* This comment spans
-                           multiple lines to explain code in detail */
-                        printf("Hello, World!\\n");
-                        return 0;
-                    }
+                #include <stdio.h>
+                
+                int main() {
+                    /* This code prints "Hello, World!" 
+                       It’s part of the beginner’s guide */
+                    printf("Hello, World!\n");
+                    return 0;
+                }
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text.fromString("- Use for detailed explanations or large comment blocks."),
-                                ContentBlock.Text.fromString("Example output:"),
-                                ContentBlock.Code(
-                                    """
-                    Hello, World!
-                """.trimIndent()
-                                )
+                                ContentBlock.Text.fromString("Don’t overuse multi-line comments, keep them concise.")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -696,22 +1270,42 @@ class CLangCourseProvider() {
                             id = "beginner_c5_sub4",
                             title = "Nested Comments",
                             contentBlocks = listOf(
-                                ContentBlock.Text.fromString("C doesn’t support nested multi-line comments. For example, `/* /* ... */ */` doesn’t work. 🚫"),
-                                ContentBlock.Text.fromString("Use single-line comments for nested comments within multi-line ones."),
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "C doesn’t support nested multi-line comments ('/* /* ... */ */')."
+                                        append(text)
+                                        val wordsToStyle = listOf("/* /* ... */ */")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
+                                ContentBlock.Text.fromString("Use single-line comments inside multi-line blocks if needed."),
                                 ContentBlock.Code(
                                     """
-                    #include <stdio.h>
-                    
-                    int main() {
-                        /* This is a multi-line comment
-                           // This is a single-line comment inside it
-                           */
-                        printf("Hello, World!\\n");
-                        return 0;
-                    }
+                #include <stdio.h>
+                
+                int main() {
+                    /* Multi-line comment
+                       // Single-line comment inside it
+                       Explaining comments */
+                    printf("Hello, World!\n");
+                    return 0;
+                }
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text.fromString("- Be careful with nested comments; combine single-line and multi-line for best results.")
+                                ContentBlock.Text.fromString("Stick to simple comment structures for clarity.")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -719,23 +1313,42 @@ class CLangCourseProvider() {
                             id = "beginner_c5_sub5",
                             title = "Commenting Best Practices",
                             contentBlocks = listOf(
-                                ContentBlock.Text.fromString("Effective comments improve code clarity and maintenance. Follow these practices: 🔑"),
-                                ContentBlock.Text.fromString("- Explain *why*, not *what*. Example: why bubble sort is used, not just what it does."),
-                                ContentBlock.Text.fromString("- Keep comments concise. Avoid over-explaining simple code."),
-                                ContentBlock.Text.fromString("- Clarify complex or tricky logic."),
-                                ContentBlock.Text.fromString("- Remove outdated comments."),
+                                ContentBlock.Text.fromString("Good comments clarify why, bad comments state the obvious."),
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "Explain the purpose (why), not what the code does."
+                                        append(text)
+                                        val wordsToStyle = listOf("why")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
+                                ContentBlock.Text.fromString("Avoid comments that repeat the code."),
+                                ContentBlock.Text.fromString("Update comments to stay relevant."),
                                 ContentBlock.Text.fromString("Good Example:"),
                                 ContentBlock.Code(
                                     """
-                    // Using bubble sort for small arrays
-                    bubbleSort(arr, n);
+                // Bubble sort is used because the input is small
+                bubbleSort(arr, n);
                 """.trimIndent()
                                 ),
                                 ContentBlock.Text.fromString("Bad Example:"),
                                 ContentBlock.Code(
                                     """
-                    // Sorting the array
-                    bubbleSort(arr, n);
+                // Sorting the array
+                bubbleSort(arr, n);
                 """.trimIndent()
                                 )
                             ),
@@ -744,6 +1357,7 @@ class CLangCourseProvider() {
                     ),
                     status = LessonStatus.LOCKED
                 ),
+
                 // lesson 6
                 Lesson(
                     id = "beginner_c6",
@@ -792,12 +1406,36 @@ class CLangCourseProvider() {
                             id = "beginner_c6_sub1",
                             title = "Creating Variables",
                             contentBlocks = listOf(
-                                ContentBlock.Text.fromString("Variables store data that can be used throughout a program. Declare variables with a type and a name. 🖥️"),
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "Variables are like your digital storage bins. 🗄️ They store data to use later in the program."
+                                        append(text)
+                                        val wordsToStyle = listOf(
+                                            "Variables",
+                                            "digital storage bins",
+                                            "store data"
+                                        )
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
                                 ContentBlock.Code(
                                     """
-                    int age = 25;  // Declaring an integer variable with an initial value
-                    float temperature = 36.5;  // Declaring a float
-                """.trimIndent()
+                int age = 25;  // Declaring an integer variable with an initial value
+                float temperature = 36.5;  // Declaring a float
+            """.trimIndent()
                                 )
                             ),
                             type = LessonContentType.NON_INTERACTIVE
@@ -806,14 +1444,34 @@ class CLangCourseProvider() {
                             id = "beginner_c6_sub2",
                             title = "Format Specifiers",
                             contentBlocks = listOf(
-                                ContentBlock.Text.fromString("Format specifiers are used to display different data types correctly. 🎯"),
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "Format specifiers are like wardrobe labels for your variables. They ensure things like integers and floats don’t get mixed up! 👚🎯"
+                                        append(text)
+                                        val wordsToStyle = listOf("Format specifiers", "variables")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
                                 ContentBlock.Code(
                                     """
-                    int x = 10;
-                    printf("The value of x is: %d", x);  // %d for integer
-                    float pi = 3.14;
-                    printf("Pi is approximately: %.2f", pi);  // %.2f for float
-                """.trimIndent()
+                int x = 10;
+                printf("The value of x is: %d", x);  // %d for integer
+                float pi = 3.14;
+                printf("Pi is approximately: %.2f", pi);  // %.2f for float
+            """.trimIndent()
                                 )
                             ),
                             type = LessonContentType.NON_INTERACTIVE
@@ -822,12 +1480,12 @@ class CLangCourseProvider() {
                             id = "beginner_c6_sub3",
                             title = "Change Variable Values",
                             contentBlocks = listOf(
-                                ContentBlock.Text.fromString("You can update a variable's value at any point in the program. 🔄"),
+                                ContentBlock.Text.fromString("You can swap the value in a variable whenever you want! It’s like updating your shopping list: 'Oh, I need eggs instead of milk! 🥚'"),
                                 ContentBlock.Code(
                                     """
-                    int age = 25;
-                    age = 30;  // Changing the value of age
-                """.trimIndent()
+                int age = 25;
+                age = 30;  // Changing the value of age
+            """.trimIndent()
                                 )
                             ),
                             type = LessonContentType.NON_INTERACTIVE
@@ -836,11 +1494,31 @@ class CLangCourseProvider() {
                             id = "beginner_c6_sub4",
                             title = "Declare Multiple Variables",
                             contentBlocks = listOf(
-                                ContentBlock.Text.fromString("You can declare multiple variables of the same type in a single line. 🖋️"),
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "Want to save time? Declare multiple variables in one line! It’s like putting all your shopping items in one cart instead of grabbing each one individually. 🛒"
+                                        append(text)
+                                        val wordsToStyle = listOf("Declare multiple variables")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
                                 ContentBlock.Code(
                                     """
-                    int x = 10, y = 20, z = 30;  // Declaring multiple integers
-                """.trimIndent()
+                int x = 10, y = 20, z = 30;  // Declaring multiple integers
+            """.trimIndent()
                                 )
                             ),
                             type = LessonContentType.NON_INTERACTIVE
@@ -849,10 +1527,55 @@ class CLangCourseProvider() {
                             id = "beginner_c6_sub5",
                             title = "Variable Names",
                             contentBlocks = listOf(
-                                ContentBlock.Text.fromString("Variable names must start with a letter or an underscore, followed by letters, numbers, or underscores. 🚫"),
-                                ContentBlock.Text.fromString("Example of valid names: `age`, `_count`, `temperature1`"),
-                                ContentBlock.Text.fromString("Example of invalid names: `1age`, `@count`"),
-                                ContentBlock.Text.fromString("Naming should be meaningful and follow conventions (e.g., `snake_case`).")
+                                ContentBlock.Text.fromString("Naming variables is like naming your pets—make it meaningful and easy to remember. 🐶🚫"),
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "Valid names: 'age', '_count', 'temperature1'. Invalid names: '1age', '@count'."
+                                        append(text)
+                                        val wordsToStyle = listOf(
+                                            "age",
+                                            "temperature1",
+                                            "_count",
+                                            "1age",
+                                            "@count"
+                                        )
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "Stick to conventions like 'snake_case' for clarity."
+                                        append(text)
+                                        val wordsToStyle = listOf("snake_case")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -860,22 +1583,22 @@ class CLangCourseProvider() {
                             id = "beginner_c6_sub6",
                             title = "Real-Life Example",
                             contentBlocks = listOf(
-                                ContentBlock.Text.fromString("Here's an example using variables in a simple program:"),
+                                ContentBlock.Text.fromString("Here’s how you use variables in a program, like tracking your height and age in your diary:"),
                                 ContentBlock.Code(
                                     """
-                    #include <stdio.h>
+                #include <stdio.h>
+                
+                int main() {
+                    int age = 25;
+                    float height = 5.9;
                     
-                    int main() {
-                        int age = 25;
-                        float height = 5.9;
-                        
-                        printf("Age: %d, Height: %.2f", age, height);
-                        
-                        return 0;
-                    }
-                """.trimIndent()
+                    printf("Age: %d, Height: %.2f", age, height);
+                    
+                    return 0;
+                }
+            """.trimIndent()
                                 ),
-                                ContentBlock.Text.fromString("This program uses integer and float variables to store age and height, then prints them out.")
+                                ContentBlock.Text.fromString("This program uses variables to store your age and height, then prints them out like a mini bio!")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         )
@@ -883,52 +1606,53 @@ class CLangCourseProvider() {
                     status = LessonStatus.LOCKED
                 ),
 
+
                 // lesson 7
                 Lesson(
                     id = "beginner_c7",
                     title = "C Data Types",
-                    description = "Learn about data types in C: understanding the different types, precision, memory size, and type conversion! 🎯",
+                    description = "Explore the different data types in C: what they are, how they work, and how to convert between them! 🧮🎯",
                     subLessons = listOf(
                         Lesson(
                             id = "beginner_c7_sub1",
                             title = "Data Types",
-                            description = "Understand the different data types in C.",
+                            description = "Get to know the essential data types in C and their purposes.",
                             status = LessonStatus.LOCKED
                         ),
                         Lesson(
                             id = "beginner_c7_sub2",
                             title = "The `char` Type",
-                            description = "Learn about the `char` data type and its usage.",
+                            description = "Learn about the `char` type for characters.",
                             status = LessonStatus.LOCKED
                         ),
                         Lesson(
                             id = "beginner_c7_sub3",
                             title = "Numeric Types",
-                            description = "Explore integer and floating-point numeric types.",
+                            description = "Understand how to handle integer and floating-point numbers.",
                             status = LessonStatus.LOCKED
                         ),
                         Lesson(
                             id = "beginner_c7_sub4",
                             title = "Set Decimal Precision",
-                            description = "Control decimal precision with format specifiers.",
+                            description = "Control decimal precision when displaying numbers.",
                             status = LessonStatus.LOCKED
                         ),
                         Lesson(
                             id = "beginner_c7_sub5",
                             title = "Get the Memory Size",
-                            description = "Learn how to check the memory size of data types.",
+                            description = "Find out how much memory each data type uses.",
                             status = LessonStatus.LOCKED
                         ),
                         Lesson(
                             id = "beginner_c7_sub6",
                             title = "Real-Life Example",
-                            description = "See a practical example using various data types.",
+                            description = "See a real-world example using C data types.",
                             status = LessonStatus.LOCKED
                         ),
                         Lesson(
                             id = "beginner_c7_sub7",
                             title = "Type Conversion",
-                            description = "Learn how to convert between data types.",
+                            description = "Learn how to convert between different data types.",
                             status = LessonStatus.LOCKED
                         )
                     ),
@@ -937,25 +1661,146 @@ class CLangCourseProvider() {
                             id = "beginner_c7_sub1",
                             title = "Data Types",
                             contentBlocks = listOf(
-                                ContentBlock.Text.fromString("C provides several data types for storing different kinds of values. 🧮"),
-                                ContentBlock.Text.fromString("Common types:"),
-                                ContentBlock.Text.fromString("- `int` for integers"),
-                                ContentBlock.Text.fromString("- `float` and `double` for floating-point numbers"),
-                                ContentBlock.Text.fromString("- `char` for characters"),
-                                ContentBlock.Text.fromString("- `void` for functions that don’t return a value")
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "In C, you can store numbers, characters, and more. 🧮🎯"
+                                        append(text)
+                                        val wordsToStyle = listOf("C")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
+                                ContentBlock.Text.fromString("Key types include:"),
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "int for whole numbers (like your age)"
+                                        append(text)
+                                        val wordsToStyle = listOf("int")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "float/double for numbers with decimals (like the price of your coffee)"
+                                        append(text)
+                                        val wordsToStyle = listOf("float", "double")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "char for characters (like the letter 'A' on your keyboard)"
+                                        append(text)
+                                        val wordsToStyle = listOf("char")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "void when a function doesn't return anything"
+                                        append(text)
+                                        val wordsToStyle = listOf("void")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
+                                ContentBlock.Text.fromString("Choosing the right type is like choosing the right tool for the job! 🛠️")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
                         LessonContent(
                             id = "beginner_c7_sub2",
-                            title = "The `char` Type",
+                            title = "The 'char' Type",
                             contentBlocks = listOf(
-                                ContentBlock.Text.fromString("The `char` type stores a single character or small integer value. 🅰️"),
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "The 'char' type stores a single character. It’s like storing a letter on your keyboard. 🅰️"
+                                        append(text)
+                                        val wordsToStyle = listOf("char")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
                                 ContentBlock.Code(
                                     """
                     char letter = 'A';  // A character
                     printf("Character: %c", letter);  // Prints A
-                """.trimIndent()
+                    """.trimIndent()
                                 )
                             ),
                             type = LessonContentType.NON_INTERACTIVE
@@ -964,13 +1809,33 @@ class CLangCourseProvider() {
                             id = "beginner_c7_sub3",
                             title = "Numeric Types",
                             contentBlocks = listOf(
-                                ContentBlock.Text.fromString("Numeric types store numbers. C supports integers (`int`) and floating-point numbers (`float`, `double`). 🔢"),
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "In C, numbers are handled with different types: integers and floating-point numbers. 🔢"
+                                        append(text)
+                                        val wordsToStyle = listOf("integers", "floating-point")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
                                 ContentBlock.Code(
                                     """
-                    int age = 25;  // Integer
-                    float weight = 65.5;  // Float
-                    double pi = 3.14159;  // Double (higher precision)
-                """.trimIndent()
+                    int age = 25;  // Integer (whole number)
+                    float weight = 65.5;  // Float (decimal number)
+                    double pi = 3.14159;  // Double (higher precision decimal)
+                    """.trimIndent()
                                 )
                             ),
                             type = LessonContentType.NON_INTERACTIVE
@@ -979,12 +1844,12 @@ class CLangCourseProvider() {
                             id = "beginner_c7_sub4",
                             title = "Set Decimal Precision",
                             contentBlocks = listOf(
-                                ContentBlock.Text.fromString("Use format specifiers to control the number of decimal places when printing floating-point numbers. 🎯"),
+                                ContentBlock.Text.fromString("You can control how many decimals are displayed using format specifiers. 🎯"),
                                 ContentBlock.Code(
                                     """
                     float price = 10.12345;
-                    printf("Price: %.2f", price);  // Prints 10.12
-                """.trimIndent()
+                    printf("Price: %.2f", price);  // Prints 10.12 (rounded to 2 decimals)
+                    """.trimIndent()
                                 )
                             ),
                             type = LessonContentType.NON_INTERACTIVE
@@ -993,12 +1858,32 @@ class CLangCourseProvider() {
                             id = "beginner_c7_sub5",
                             title = "Get the Memory Size",
                             contentBlocks = listOf(
-                                ContentBlock.Text.fromString("Use `sizeof()` to get the memory size of a data type. 📏"),
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "Use 'sizeof()' to check how much memory a data type occupies. 📏"
+                                        append(text)
+                                        val wordsToStyle = listOf("sizeof()")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
                                 ContentBlock.Code(
                                     """
-                    printf("Size of int: %zu bytes", sizeof(int));
-                    printf("Size of char: %zu bytes", sizeof(char));
-                """.trimIndent()
+                    printf("Size of int: %zu bytes", sizeof(int));  // Check memory size of int
+                    printf("Size of char: %zu bytes", sizeof(char));  // Check memory size of char
+                    """.trimIndent()
                                 )
                             ),
                             type = LessonContentType.NON_INTERACTIVE
@@ -1021,9 +1906,29 @@ class CLangCourseProvider() {
                         
                         return 0;
                     }
-                """.trimIndent()
+                    """.trimIndent()
                                 ),
-                                ContentBlock.Text.fromString("This program combines integers, floats, and characters to store and display personal information.")
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "This example demonstrates how to use integers, floats, and chars to store and display data."
+                                        append(text)
+                                        val wordsToStyle = listOf("integers", "floats", "chars")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -1031,22 +1936,62 @@ class CLangCourseProvider() {
                             id = "beginner_c7_sub7",
                             title = "Type Conversion",
                             contentBlocks = listOf(
-                                ContentBlock.Text.fromString("Sometimes you may need to convert one type to another. C supports implicit and explicit conversions. 🔄"),
-                                ContentBlock.Text.fromString("Example of implicit conversion (automatic):"),
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "Sometimes, you need to convert types – like turning a floating-point number into an integer. 🔄"
+                                        append(text)
+                                        val wordsToStyle = listOf("integer", "floating-point")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "For example, adding an integer to a float results in automatic conversion (implicit conversion)."
+                                        append(text)
+                                        val wordsToStyle = listOf("integer", "float")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
                                 ContentBlock.Code(
                                     """
                     int num = 5;
-                    float result = num + 5.5;  // int to float
-                    printf("Result: %.2f", result);  // 10.50
-                """.trimIndent()
+                    float result = num + 5.5;  // Implicitly converts int to float
+                    printf("Result: %.2f", result);  // Prints 10.50
+                    """.trimIndent()
                                 ),
-                                ContentBlock.Text.fromString("Example of explicit conversion (manual):"),
+                                ContentBlock.Text.fromString("Or you can manually convert (explicit conversion) using a cast:"),
                                 ContentBlock.Code(
                                     """
                     float pi = 3.14;
-                    int intPi = (int)pi;  // Convert float to int
-                    printf("Integer Pi: %d", intPi);  // 3
-                """.trimIndent()
+                    int intPi = (int)pi;  // Explicit conversion from float to int
+                    printf("Integer Pi: %d", intPi);  // Prints 3
+                    """.trimIndent()
                                 )
                             ),
                             type = LessonContentType.NON_INTERACTIVE
@@ -1091,7 +2036,27 @@ class CLangCourseProvider() {
                             title = "Introduction to Constants",
                             contentBlocks = listOf(
                                 ContentBlock.Text.fromString("Constants are fixed values that cannot be changed during the execution of a program. 🔒"),
-                                ContentBlock.Text.fromString("They make code more readable and maintainable by using meaningful names instead of hard-coded numbers.")
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "They make code more readable and maintainable by using meaningful names instead of hard-coded numbers."
+                                        append(text)
+                                        val wordsToStyle = listOf("hard-coded")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -1100,14 +2065,54 @@ class CLangCourseProvider() {
                             title = "Defining Constants",
                             contentBlocks = listOf(
                                 ContentBlock.Text.fromString("There are two common ways to define constants in C:"),
-                                ContentBlock.Text.fromString("1. Using `#define`:"),
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "1.Using #define:"
+                                        append(text)
+                                        val wordsToStyle = listOf("#define")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
                                 ContentBlock.Code(
                                     """
                     #define PI 3.14159
                     printf("PI value: %f", PI);  // Output: 3.14159
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text.fromString("2. Using `const` keyword:"),
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "2.Using const keyword:"
+                                        append(text)
+                                        val wordsToStyle = listOf("const")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
                                 ContentBlock.Code(
                                     """
                     const int maxLimit = 100;
@@ -1121,8 +2126,48 @@ class CLangCourseProvider() {
                             id = "beginner_c8_sub3",
                             title = "Constant Naming",
                             contentBlocks = listOf(
-                                ContentBlock.Text.fromString("Naming constants follows the same rules as variables but is often written in uppercase to distinguish them. 📛"),
-                                ContentBlock.Text.fromString("Example: `const int MAX_SPEED = 120;`"),
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "Naming constants follows the same rules as variables but is often written in uppercase to distinguish them. 📛"
+                                        append(text)
+                                        val wordsToStyle = listOf("uppercase")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "Example: const int MAX_SPEED = 120;"
+                                        append(text)
+                                        val wordsToStyle = listOf("MAX_SPEED")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
                                 ContentBlock.Text.fromString("Using uppercase letters makes constants easy to identify in code.")
                             ),
                             type = LessonContentType.NON_INTERACTIVE
@@ -1131,21 +2176,42 @@ class CLangCourseProvider() {
                             id = "beginner_c8_sub4",
                             title = "Real-Life Example",
                             contentBlocks = listOf(
-                                ContentBlock.Text.fromString("A practical example of using constants in a program:"),
+                                ContentBlock.Text.fromString("Imagine trying to set a limit on how many times you can hit snooze on your alarm. 😴"),
+                                ContentBlock.Text.fromString("You wouldn’t want to change that limit every day, right? So, use a constant!"),
                                 ContentBlock.Code(
                                     """
                     #include <stdio.h>
-                    #define MAX_ATTEMPTS 5
+                    #define MAX_SNOOZES 3
                     
                     int main() {
-                        for(int i = 0; i < MAX_ATTEMPTS; i++) {
-                            printf("Attempt %d of %d\\n", i + 1, MAX_ATTEMPTS);
+                        for(int i = 0; i < MAX_SNOOZES; i++) {
+                            printf("Snooze #%d of %d\n", i + 1, MAX_SNOOZES);
                         }
                         return 0;
                     }
                 """.trimIndent()
                                 ),
-                                ContentBlock.Text.fromString("This program uses a constant `MAX_ATTEMPTS` to control the number of attempts in the loop.")
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "This program uses a constant MAX_SNOOZES to limit how many times you can press snooze. No more endless snoozing! ⏰"
+                                        append(text)
+                                        val wordsToStyle = listOf("MAX_SNOOZES")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         )
@@ -1194,8 +2260,28 @@ class CLangCourseProvider() {
                             id = "beginner_c9_sub1",
                             title = "Introduction to Operators",
                             contentBlocks = listOf(
-                                ContentBlock.Text.fromString("Operators are symbols that perform operations on variables and values. They are essential in performing computations and comparisons. 🔧"),
-                                ContentBlock.Text.fromString("Examples: `+`, `-`, `*`, `/`, `%`.")
+                                ContentBlock.Text.fromString("Operators are like the tools in your toolbox. Without them, you can't build anything in your program! 🔧"),
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "Examples: '+', '-', '*', '/', '%'. Simple but powerful!"
+                                        append(text)
+                                        val wordsToStyle = listOf("+", "-", "*", "/", "%")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -1203,7 +2289,28 @@ class CLangCourseProvider() {
                             id = "beginner_c9_sub2",
                             title = "Arithmetic Operators",
                             contentBlocks = listOf(
-                                ContentBlock.Text.fromString("Arithmetic operators perform basic math operations:"),
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "Arithmetic operators are your math buddies. They help you add, subtract, multiply, and divide like a pro:"
+                                        append(text)
+                                        val wordsToStyle =
+                                            listOf("add", "subtract", "multiply", "divide", "%")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
                                 ContentBlock.Code(
                                     """
                     int a = 5, b = 3;
@@ -1221,13 +2328,36 @@ class CLangCourseProvider() {
                             id = "beginner_c9_sub3",
                             title = "Relational Operators",
                             contentBlocks = listOf(
-                                ContentBlock.Text.fromString("Relational operators compare two values and return a boolean result:"),
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "Relational operators '>', '<', '==', '!=', '>=', and '<=' compare things, just like deciding whether your pizza is bigger than your friend's, or if you're both on the same level. 🍕"
+                                        append(text)
+                                        val wordsToStyle = listOf(">", "<", "==", "!=", ">=", "<=")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
                                 ContentBlock.Code(
                                     """
-                    int x = 10, y = 20;
-                    bool result = (x > y);   // false
-                    result = (x == y);       // false
-                    result = (x != y);       // true
+            int x = 10, y = 20;
+            bool result = (x > y);   // false (Is x greater than y?)
+            result = (x < y);        // true  (Is x less than y?)
+            result = (x == y);       // false (Are x and y equal?)
+            result = (x != y);       // true  (Are x and y not equal?)
+            result = (x >= y);       // false (Is x greater than or equal to y?)
+            result = (x <= y);       // true  (Is x less than or equal to y?)
                 """.trimIndent()
                                 )
                             ),
@@ -1237,13 +2367,33 @@ class CLangCourseProvider() {
                             id = "beginner_c9_sub4",
                             title = "Logical Operators",
                             contentBlocks = listOf(
-                                ContentBlock.Text.fromString("Logical operators are used to combine multiple conditions:"),
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "Logical operators '&&', '||', and '!' combine conditions, like deciding whether you want to go out if it's sunny AND warm:"
+                                        append(text)
+                                        val wordsToStyle = listOf("&&", "||", "!")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
                                 ContentBlock.Code(
                                     """
-                    int a = 1, b = 0;
-                    bool result = (a && b);  // false (AND)
-                    result = (a || b);       // true (OR)
-                    result = !a;             // false (NOT)
+            int a = 1, b = 0;
+            bool result = (a && b);  // false (Both conditions must be true)
+            result = (a || b);       // true  (At least one condition must be true)
+            result = !a;             // false (Negates the condition)
                 """.trimIndent()
                                 )
                             ),
@@ -1253,7 +2403,27 @@ class CLangCourseProvider() {
                             id = "beginner_c9_sub5",
                             title = "Assignment and Increment/Decrement Operators",
                             contentBlocks = listOf(
-                                ContentBlock.Text.fromString("Assignment (`=`) stores a value in a variable. Increment (`++`) and Decrement (`--`) increase or decrease a variable's value by 1:"),
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "Assignment stores a value, increment and decrement change it. Like adjusting the volume up or down:"
+                                        append(text)
+                                        val wordsToStyle = listOf("increment", "decrement")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
                                 ContentBlock.Code(
                                     """
                     int a = 5;
@@ -1270,6 +2440,7 @@ class CLangCourseProvider() {
                     ),
                     status = LessonStatus.LOCKED
                 ),
+
 
                 // lesson 10
 
@@ -1314,8 +2485,37 @@ class CLangCourseProvider() {
                             id = "beginner_c10_sub1",
                             title = "Introduction to Booleans",
                             contentBlocks = listOf(
-                                ContentBlock.Text.fromString("A boolean is a binary value that represents either `true` (1) or `false` (0)."),
-                                ContentBlock.Text.fromString("In C, booleans are often implemented using integers, where `0` represents `false` and any non-zero value represents `true`. This binary representation is fundamental for decision making and logical operations in programs.")
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "A boolean is like a yes/no decision. It's either 'true' (1) or 'false' (0), like deciding whether you want pizza: Yes = True, No = False. 🍕❌"
+                                        append(text)
+                                        val wordsToStyle = listOf(
+                                            "yes",
+                                            "no",
+                                            "true",
+                                            "(1)",
+                                            "false",
+                                            "(0)",
+                                            "Yes",
+                                            "True",
+                                            "No",
+                                            "False"
+                                        )
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }),
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -1323,13 +2523,33 @@ class CLangCourseProvider() {
                             id = "beginner_c10_sub2",
                             title = "Basic Boolean Representation",
                             contentBlocks = listOf(
-                                ContentBlock.Text.fromString("In C, boolean values are represented using integers, where `0` represents `false` and `1` (or any non-zero integer) represents `true`."),
-                                ContentBlock.Text.fromString("Example:"),
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "In C, booleans are represented as '0' for false and '1' for true. It's like having a light switch that only knows on (1) or off (0). 💡"
+                                        append(text)
+                                        val wordsToStyle =
+                                            listOf("0", "false", "true", "1", "(1)", "(0)")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
                                 ContentBlock.Code(
                                     """
                     int flag = 1;  // true
                     int isZero = 0;  // false
-                """.trimIndent()
+                    """.trimIndent()
                                 )
                             ),
                             type = LessonContentType.NON_INTERACTIVE
@@ -1338,14 +2558,35 @@ class CLangCourseProvider() {
                             id = "beginner_c10_sub3",
                             title = "Boolean Values",
                             contentBlocks = listOf(
-                                ContentBlock.Text.fromString("The `stdbool.h` library in C defines the `bool` type. It provides the constants `true` (1) and `false` (0) for better readability."),
+                                ContentBlock.Text(
+                                    buildAnnotatedString {
+                                        val text =
+                                            "The 'stdbool.h' library in C gives us bool type. It’s like making your conditions more readable, like using 'true' for yes and 'false' for no."
+                                        append(text)
+                                        val wordsToStyle =
+                                            listOf("stdbool.h", "bool", "false", "true")
+                                        for (word in wordsToStyle) {
+                                            val startIndex = text.indexOf(word)
+                                            if (startIndex != -1) {
+                                                addStyle(
+                                                    style = SpanStyle(
+                                                        color = Color(0xFFADD8E6),
+                                                        fontWeight = FontWeight.Bold
+                                                    ),
+                                                    start = startIndex,
+                                                    end = startIndex + word.length
+                                                )
+                                            }
+                                        }
+                                    }
+                                ),
                                 ContentBlock.Code(
                                     """
                     #include <stdbool.h>
                     
                     bool isEven = true;   // true (1)
                     bool isOdd = false;   // false (0)
-                """.trimIndent()
+                    """.trimIndent()
                                 )
                             ),
                             type = LessonContentType.NON_INTERACTIVE
@@ -1354,14 +2595,14 @@ class CLangCourseProvider() {
                             id = "beginner_c10_sub4",
                             title = "Boolean Operations",
                             contentBlocks = listOf(
-                                ContentBlock.Text.fromString("Boolean operations use logical operators (`&&`, `||`, `!`) to combine or negate conditions:"),
+                                ContentBlock.Text.fromString("Logical operations combine conditions, like deciding whether to go out if it's sunny AND warm:"),
                                 ContentBlock.Code(
                                     """
                     bool a = true, b = false;
                     bool result = a && b;  // false (AND)
                     result = a || b;       // true (OR)
                     result = !a;           // false (NOT)
-                """.trimIndent()
+                    """.trimIndent()
                                 )
                             ),
                             type = LessonContentType.NON_INTERACTIVE
@@ -1370,7 +2611,7 @@ class CLangCourseProvider() {
                             id = "beginner_c10_sub5",
                             title = "Boolean in Conditional Statements",
                             contentBlocks = listOf(
-                                ContentBlock.Text.fromString("Booleans are often used in `if` and `while` statements to control program flow:"),
+                                ContentBlock.Text.fromString("Booleans control your program's flow. Like asking, 'Should I go out? If true, I’ll go!' 🤔"),
                                 ContentBlock.Code(
                                     """
                     if (isEven) {
@@ -1383,7 +2624,7 @@ class CLangCourseProvider() {
                         printf("Still not odd\n");
                         isOdd = true; // Update condition
                     }
-                """.trimIndent()
+                    """.trimIndent()
                                 )
                             ),
                             type = LessonContentType.NON_INTERACTIVE
@@ -1391,6 +2632,7 @@ class CLangCourseProvider() {
                     ),
                     status = LessonStatus.LOCKED
                 ),
+
                 // continue from here to add more lessons
 
             )
@@ -4636,11 +5878,36 @@ int main() {
                     title = "C Memory Management",
                     description = "Master memory management in C, including dynamic memory allocation, deallocation, and handling memory efficiently.",
                     subLessons = listOf(
-                        Lesson(id = "expert_c3_sub1", title = "Memory in C", description = "Understand the concept of memory in C, including stack and heap memory.", status = LessonStatus.LOCKED),
-                        Lesson(id = "expert_c3_sub2", title = "Dynamic Memory Allocation", description = "Learn how to allocate memory dynamically using malloc, calloc, and realloc.", status = LessonStatus.LOCKED),
-                        Lesson(id = "expert_c3_sub3", title = "Memory Deallocation", description = "Learn the importance of deallocating memory using free.", status = LessonStatus.LOCKED),
-                        Lesson(id = "expert_c3_sub4", title = "Memory Leaks and Optimization", description = "Understand how to prevent memory leaks and optimize memory usage.", status = LessonStatus.LOCKED),
-                        Lesson(id = "expert_c3_sub5", title = "Advanced Memory Management Techniques", description = "Explore advanced techniques like memory pools and garbage collection.", status = LessonStatus.LOCKED)
+                        Lesson(
+                            id = "expert_c3_sub1",
+                            title = "Memory in C",
+                            description = "Understand the concept of memory in C, including stack and heap memory.",
+                            status = LessonStatus.LOCKED
+                        ),
+                        Lesson(
+                            id = "expert_c3_sub2",
+                            title = "Dynamic Memory Allocation",
+                            description = "Learn how to allocate memory dynamically using malloc, calloc, and realloc.",
+                            status = LessonStatus.LOCKED
+                        ),
+                        Lesson(
+                            id = "expert_c3_sub3",
+                            title = "Memory Deallocation",
+                            description = "Learn the importance of deallocating memory using free.",
+                            status = LessonStatus.LOCKED
+                        ),
+                        Lesson(
+                            id = "expert_c3_sub4",
+                            title = "Memory Leaks and Optimization",
+                            description = "Understand how to prevent memory leaks and optimize memory usage.",
+                            status = LessonStatus.LOCKED
+                        ),
+                        Lesson(
+                            id = "expert_c3_sub5",
+                            title = "Advanced Memory Management Techniques",
+                            description = "Explore advanced techniques like memory pools and garbage collection.",
+                            status = LessonStatus.LOCKED
+                        )
                     ),
                     lessonContents = listOf(
                         LessonContent(
@@ -4664,7 +5931,8 @@ int main() {
                                 ContentBlock.Text.fromString("2. **calloc()**: Allocates zero-initialized memory."),
                                 ContentBlock.Text.fromString("3. **realloc()**: Resizes previously allocated memory."),
                                 ContentBlock.Text.fromString("Example:"),
-                                ContentBlock.Code("""#include <stdio.h>
+                                ContentBlock.Code(
+                                    """#include <stdio.h>
 #include <stdlib.h>
 
 int main() {
@@ -4688,7 +5956,8 @@ int main() {
 
     free(arr);  // Free memory
     return 0;
-}""")
+}"""
+                                )
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -4699,7 +5968,8 @@ int main() {
                                 ContentBlock.Text.fromString("Memory allocated dynamically using malloc, calloc, or realloc should be deallocated using **free()**."),
                                 ContentBlock.Text.fromString("Failure to free memory can cause memory leaks, leading to resource wastage."),
                                 ContentBlock.Text.fromString("Example:"),
-                                ContentBlock.Code("""#include <stdio.h>
+                                ContentBlock.Code(
+                                    """#include <stdio.h>
 #include <stdlib.h>
 
 int main() {
@@ -4709,7 +5979,8 @@ int main() {
     
     free(ptr);  // Always free dynamically allocated memory
     return 0;
-}""")
+}"""
+                                )
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -4723,14 +5994,16 @@ int main() {
                                 ContentBlock.Text.fromString("2. Use tools like **Valgrind** to detect memory leaks."),
                                 ContentBlock.Text.fromString("3. Consider using **smart pointers** in C++ to automate memory management."),
                                 ContentBlock.Text.fromString("Example of a memory leak:"),
-                                ContentBlock.Code("""#include <stdio.h>
+                                ContentBlock.Code(
+                                    """#include <stdio.h>
 #include <stdlib.h>
 
 int main() {
     int *arr = (int*)malloc(5 * sizeof(int));
     // Memory is not freed, causing a memory leak
     return 0;
-}""")
+}"""
+                                )
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -4742,7 +6015,8 @@ int main() {
                                 ContentBlock.Text.fromString("1. **Memory Pools**: Pre-allocate a fixed amount of memory and distribute it to components as needed."),
                                 ContentBlock.Text.fromString("2. **Garbage Collection**: Though C doesn't have built-in garbage collection, you can implement custom memory management strategies."),
                                 ContentBlock.Text.fromString("Example of a basic memory pool (conceptual):"),
-                                ContentBlock.Code("""// A simple memory pool would allocate a chunk of memory and return pointers to sections of it.
+                                ContentBlock.Code(
+                                    """// A simple memory pool would allocate a chunk of memory and return pointers to sections of it.
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -4763,7 +6037,8 @@ int main() {
         printf("Memory pool exhausted\\n");
     }
     return 0;
-}""")
+}"""
+                                )
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         )
@@ -4776,9 +6051,24 @@ int main() {
                     title = "C Allocate Memory",
                     description = "Learn how to allocate memory in C, both statically and dynamically, and understand their differences and use cases.",
                     subLessons = listOf(
-                        Lesson(id = "expert_c4_sub1", title = "Static Memory Allocation", description = "Learn how memory is allocated at compile-time using static memory allocation.", status = LessonStatus.LOCKED),
-                        Lesson(id = "expert_c4_sub2", title = "Dynamic Memory Allocation", description = "Understand how to allocate memory at runtime using dynamic memory allocation.", status = LessonStatus.LOCKED),
-                        Lesson(id = "expert_c4_sub3", title = "Differences Between Static and Dynamic Memory", description = "Compare static and dynamic memory allocation in C.", status = LessonStatus.LOCKED)
+                        Lesson(
+                            id = "expert_c4_sub1",
+                            title = "Static Memory Allocation",
+                            description = "Learn how memory is allocated at compile-time using static memory allocation.",
+                            status = LessonStatus.LOCKED
+                        ),
+                        Lesson(
+                            id = "expert_c4_sub2",
+                            title = "Dynamic Memory Allocation",
+                            description = "Understand how to allocate memory at runtime using dynamic memory allocation.",
+                            status = LessonStatus.LOCKED
+                        ),
+                        Lesson(
+                            id = "expert_c4_sub3",
+                            title = "Differences Between Static and Dynamic Memory",
+                            description = "Compare static and dynamic memory allocation in C.",
+                            status = LessonStatus.LOCKED
+                        )
                     ),
                     lessonContents = listOf(
                         LessonContent(
@@ -4788,14 +6078,16 @@ int main() {
                                 ContentBlock.Text.fromString("Static memory allocation is done at compile time, and the memory is reserved for the entire lifetime of the program."),
                                 ContentBlock.Text.fromString("Variables allocated statically have a fixed size and are stored on the stack or in the data segment."),
                                 ContentBlock.Text.fromString("Example:"),
-                                ContentBlock.Code("""#include <stdio.h>
+                                ContentBlock.Code(
+                                    """#include <stdio.h>
 
 int main() {
     int arr[5];  // Static array with 5 integers
     arr[0] = 10;
     printf("arr[0]: %d\\n", arr[0]);
     return 0;
-}""")
+}"""
+                                )
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -4810,7 +6102,8 @@ int main() {
                                 ContentBlock.Text.fromString("2. **calloc()**: Allocates memory and initializes it to zero."),
                                 ContentBlock.Text.fromString("3. **realloc()**: Changes the size of previously allocated memory."),
                                 ContentBlock.Text.fromString("Example:"),
-                                ContentBlock.Code("""#include <stdio.h>
+                                ContentBlock.Code(
+                                    """#include <stdio.h>
 #include <stdlib.h>
 
 int main() {
@@ -4829,7 +6122,8 @@ int main() {
     }
     free(arr);  // Free dynamically allocated memory
     return 0;
-}""")
+}"""
+                                )
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -4854,9 +6148,24 @@ int main() {
                     title = "C Access Memory",
                     description = "Learn how to access and manage dynamic memory in C after allocation.",
                     subLessons = listOf(
-                        Lesson(id = "expert_c5_sub1", title = "Accessing Dynamically Allocated Memory", description = "Learn how to access elements in dynamically allocated memory.", status = LessonStatus.LOCKED),
-                        Lesson(id = "expert_c5_sub2", title = "Using Pointers with Dynamic Memory", description = "Understand the role of pointers when working with dynamic memory.", status = LessonStatus.LOCKED),
-                        Lesson(id = "expert_c5_sub3", title = "Freeing Dynamically Allocated Memory", description = "Learn the importance of freeing dynamically allocated memory to avoid memory leaks.", status = LessonStatus.LOCKED)
+                        Lesson(
+                            id = "expert_c5_sub1",
+                            title = "Accessing Dynamically Allocated Memory",
+                            description = "Learn how to access elements in dynamically allocated memory.",
+                            status = LessonStatus.LOCKED
+                        ),
+                        Lesson(
+                            id = "expert_c5_sub2",
+                            title = "Using Pointers with Dynamic Memory",
+                            description = "Understand the role of pointers when working with dynamic memory.",
+                            status = LessonStatus.LOCKED
+                        ),
+                        Lesson(
+                            id = "expert_c5_sub3",
+                            title = "Freeing Dynamically Allocated Memory",
+                            description = "Learn the importance of freeing dynamically allocated memory to avoid memory leaks.",
+                            status = LessonStatus.LOCKED
+                        )
                     ),
                     lessonContents = listOf(
                         LessonContent(
@@ -4865,7 +6174,8 @@ int main() {
                             contentBlocks = listOf(
                                 ContentBlock.Text.fromString("Once memory is allocated dynamically, you access it just like static memory, using pointers and array indexing."),
                                 ContentBlock.Text.fromString("Example:"),
-                                ContentBlock.Code("""#include <stdio.h>
+                                ContentBlock.Code(
+                                    """#include <stdio.h>
 #include <stdlib.h>
 
 int main() {
@@ -4884,7 +6194,8 @@ int main() {
 
     free(arr);  // Free memory
     return 0;
-}""")
+}"""
+                                )
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -4895,7 +6206,8 @@ int main() {
                                 ContentBlock.Text.fromString("Dynamic memory allocation returns a pointer to the allocated memory block."),
                                 ContentBlock.Text.fromString("You can access memory using the pointer directly or through pointer arithmetic."),
                                 ContentBlock.Text.fromString("Example:"),
-                                ContentBlock.Code("""#include <stdio.h>
+                                ContentBlock.Code(
+                                    """#include <stdio.h>
 #include <stdlib.h>
 
 int main() {
@@ -4914,7 +6226,8 @@ int main() {
 
     free(arr);  // Free memory
     return 0;
-}""")
+}"""
+                                )
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -4925,7 +6238,8 @@ int main() {
                                 ContentBlock.Text.fromString("It's important to free dynamically allocated memory using `free()` to prevent memory leaks."),
                                 ContentBlock.Text.fromString("Once you free the memory, the pointer still holds the address, but it's no longer valid."),
                                 ContentBlock.Text.fromString("Example:"),
-                                ContentBlock.Code("""#include <stdio.h>
+                                ContentBlock.Code(
+                                    """#include <stdio.h>
 #include <stdlib.h>
 
 int main() {
@@ -4945,7 +6259,8 @@ int main() {
     // printf("arr[0]: %d\\n", arr[0]);  // Dangerous
 
     return 0;
-}""")
+}"""
+                                )
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         )
@@ -4958,8 +6273,18 @@ int main() {
                     title = "C Reallocate Memory",
                     description = "Learn how to reallocate memory dynamically and handle NULL pointers and error checking in C.",
                     subLessons = listOf(
-                        Lesson(id = "expert_c6_sub1", title = "Reallocating Memory in C", description = "Learn how to change the size of dynamically allocated memory.", status = LessonStatus.LOCKED),
-                        Lesson(id = "expert_c6_sub2", title = "NULL Pointer & Error Checking", description = "Understand how to handle NULL pointers and check for allocation errors.", status = LessonStatus.LOCKED)
+                        Lesson(
+                            id = "expert_c6_sub1",
+                            title = "Reallocating Memory in C",
+                            description = "Learn how to change the size of dynamically allocated memory.",
+                            status = LessonStatus.LOCKED
+                        ),
+                        Lesson(
+                            id = "expert_c6_sub2",
+                            title = "NULL Pointer & Error Checking",
+                            description = "Understand how to handle NULL pointers and check for allocation errors.",
+                            status = LessonStatus.LOCKED
+                        )
                     ),
                     lessonContents = listOf(
                         LessonContent(
@@ -4970,7 +6295,8 @@ int main() {
                                 ContentBlock.Text.fromString("Syntax: `ptr = realloc(ptr, new_size);`"),
                                 ContentBlock.Text.fromString("If `realloc()` fails, it returns `NULL` and the original memory is untouched."),
                                 ContentBlock.Text.fromString("Example:"),
-                                ContentBlock.Code("""#include <stdio.h>
+                                ContentBlock.Code(
+                                    """#include <stdio.h>
 #include <stdlib.h>
 
 int main() {
@@ -5001,7 +6327,8 @@ int main() {
 
     free(arr);  // Free memory
     return 0;
-}""")
+}"""
+                                )
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -5012,7 +6339,8 @@ int main() {
                                 ContentBlock.Text.fromString("When reallocating memory, it's crucial to check for `NULL` to prevent memory corruption or loss."),
                                 ContentBlock.Text.fromString("If `realloc()` fails, it returns `NULL`. Always assign the result to a temporary pointer to avoid memory leaks."),
                                 ContentBlock.Text.fromString("Example:"),
-                                ContentBlock.Code("""#include <stdio.h>
+                                ContentBlock.Code(
+                                    """#include <stdio.h>
 #include <stdlib.h>
 
 int main() {
@@ -5045,7 +6373,8 @@ int main() {
 
     free(arr);  // Free memory
     return 0;
-}""")
+}"""
+                                )
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         )
@@ -5058,8 +6387,18 @@ int main() {
                     title = "C Deallocate Memory",
                     description = "Learn how to deallocate memory using `free()` and prevent memory leaks in C.",
                     subLessons = listOf(
-                        Lesson(id = "expert_c7_sub1", title = "Deallocate (Free) Memory", description = "Learn how to use `free()` to release dynamically allocated memory.", status = LessonStatus.LOCKED),
-                        Lesson(id = "expert_c7_sub2", title = "Memory Leaks", description = "Understand the importance of proper memory deallocation to avoid memory leaks.", status = LessonStatus.LOCKED)
+                        Lesson(
+                            id = "expert_c7_sub1",
+                            title = "Deallocate (Free) Memory",
+                            description = "Learn how to use `free()` to release dynamically allocated memory.",
+                            status = LessonStatus.LOCKED
+                        ),
+                        Lesson(
+                            id = "expert_c7_sub2",
+                            title = "Memory Leaks",
+                            description = "Understand the importance of proper memory deallocation to avoid memory leaks.",
+                            status = LessonStatus.LOCKED
+                        )
                     ),
                     lessonContents = listOf(
                         LessonContent(
@@ -5070,7 +6409,8 @@ int main() {
                                 ContentBlock.Text.fromString("Syntax: `free(ptr);`"),
                                 ContentBlock.Text.fromString("Always ensure that you deallocate memory after you’re done using it to prevent memory leaks."),
                                 ContentBlock.Text.fromString("Example:"),
-                                ContentBlock.Code("""#include <stdio.h>
+                                ContentBlock.Code(
+                                    """#include <stdio.h>
 #include <stdlib.h>
 
 int main() {
@@ -5092,7 +6432,8 @@ int main() {
     // Free memory when done
     free(arr);  // Deallocating memory
     return 0;
-}""")
+}"""
+                                )
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         ),
@@ -5104,7 +6445,8 @@ int main() {
                                 ContentBlock.Text.fromString("Memory leaks can slow down or crash programs, especially when dealing with large amounts of data."),
                                 ContentBlock.Text.fromString("To avoid memory leaks, always ensure that every `malloc()`, `calloc()`, or `realloc()` has a corresponding `free()` call."),
                                 ContentBlock.Text.fromString("Example of memory leak:"),
-                                ContentBlock.Code("""#include <stdio.h>
+                                ContentBlock.Code(
+                                    """#include <stdio.h>
 #include <stdlib.h>
 
 int main() {
@@ -5121,7 +6463,8 @@ int main() {
 
     // Program exits without freeing memory (memory leak)
     return 0;
-}""")
+}"""
+                                )
                             ),
                             type = LessonContentType.NON_INTERACTIVE
                         )
@@ -5129,9 +6472,6 @@ int main() {
                     status = LessonStatus.LOCKED
                 ),
                 // lesson 8
-
-
-
 
 
             )
