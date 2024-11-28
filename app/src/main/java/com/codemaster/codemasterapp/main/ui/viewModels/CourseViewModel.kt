@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import com.codemaster.codemasterapp.main.AllCourses.CLangCourseProvider
-import com.codemaster.codemasterapp.main.AllCourses.CPPCourseProvider
+import com.codemaster.codemasterapp.main.AllCourses.CppCourse.CPPCourseProvider
 import com.codemaster.codemasterapp.main.data.Course
 import com.codemaster.codemasterapp.main.data.Lesson
 import com.codemaster.codemasterapp.main.data.LessonStatus
