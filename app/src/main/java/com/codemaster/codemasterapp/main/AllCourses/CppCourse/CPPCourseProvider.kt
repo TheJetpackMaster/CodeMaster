@@ -22,7 +22,7 @@ class CPPCourseProvider {
             id = "cpp_course",
             language = "C++",
             stages = listOf(
-                CPPBeginnerCourse(),
+                cPPBeginnerCourse(),
 //                CPPIntermediateCourse(),
 //                CPPAdvancedCourse(),
 //                CPPExpertCourse()

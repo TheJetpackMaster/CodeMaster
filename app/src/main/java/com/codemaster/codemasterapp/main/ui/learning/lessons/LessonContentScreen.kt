@@ -22,8 +22,11 @@ import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -33,12 +36,15 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -65,8 +71,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion
 import androidx.compose.ui.draw.blur
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
@@ -699,112 +707,6 @@ fun LessonContentView(
                 is ContentBlock.Code -> {
 
                     CodeBlockWithScrolling(contentBlock.code)
-//
-//                    val keywords = listOf("int", "return", "printf", "endl", "void", "if", "else", "while", "for", "#include", "#define")
-//                    val braces = listOf("{", "}", "(", ")", "[", "]")
-//
-//                    val codeLines = contentBlock.code.split("\n")
-//
-//                    Box(
-//                        modifier = Modifier
-//                            .fillMaxWidth()
-//                            .background(Color.Black, shape = RoundedCornerShape(8.dp))
-//                            .padding(16.dp)
-//                    ) {
-//                        Row(
-//                            modifier = Modifier.fillMaxWidth(),
-//                            verticalAlignment = Alignment.Top
-//                        ) {
-//                            // Column for Line Numbers
-//                            Column(
-//                                modifier = Modifier
-//                                    .padding(end = 8.dp)
-//                                    .fillMaxHeight(),
-//                                horizontalAlignment = Alignment.CenterHorizontally
-//                            ) {
-//                                codeLines.forEachIndexed { index, _ ->
-//                                    Text(
-//                                        text = "${index + 1}",
-//                                        style = TextStyle(fontSize = 16.sp, color = Color.Gray)
-//                                    )
-//                                    Spacer(modifier = Modifier.height(4.dp)) // Ensure spacing between numbers
-//                                }
-//                            }
-//
-//                            // Divider
-//                            Box(
-//                                modifier = Modifier
-//                                    .width(12.dp)
-//                                    .fillMaxHeight()
-//                            )
-//
-//                            // Column for Code
-//                            Column(
-//                                modifier = Modifier
-//                                    .weight(1f)
-//                                    .fillMaxHeight()
-//                            ) {
-//                                codeLines.forEach { line ->
-//                                    Text(
-//                                        text = buildAnnotatedString {
-//                                            var tempLine = line // A temporary line to handle cases like `printf(`
-//
-//                                            // Handle cases where keywords are adjacent to parentheses like `printf(`
-//                                            keywords.forEach { keyword ->
-//                                                if (tempLine.contains("$keyword(")) {
-//                                                    tempLine = tempLine.replace("$keyword(", "$keyword (") // Adding space between keyword and parentheses
-//                                                }
-//                                            }
-//
-//                                            // Updated regex to handle keywords with # and other symbols like . (period) and _ (underscore)
-//                                            val regex = Regex("([#a-zA-Z_][a-zA-Z0-9_]*|\"[^\"]*\")|([0-9])|([(){}\\[\\]><])|(\\.)|(\\s+)")
-//                                            val matches = regex.findAll(tempLine)
-//
-//                                            var previousWasSpace = false // To track if the previous token was space
-//
-//                                            // Process each match
-//                                            matches.forEach { matchResult ->
-//                                                val word = matchResult.value
-//                                                when {
-//                                                    word in keywords -> {
-//                                                        if (previousWasSpace) append(" ")
-//                                                        withStyle(
-//                                                            style = SpanStyle(color = Color(0xFF49D9C8)) // Keyword color for all keywords including #include
-//                                                        ) { append(word) }
-//                                                        previousWasSpace = false
-//                                                    }
-//                                                    word in braces -> {
-//                                                        if (previousWasSpace) append(" ")
-//                                                        withStyle(
-//                                                            style = SpanStyle(color = Color(0XFFFFFFFF)) // Braces color
-//                                                        ) { append(word) }
-//                                                        previousWasSpace = false
-//                                                    }
-//                                                    word.startsWith("\"") && word.endsWith("\"") -> {
-//                                                        if (previousWasSpace) append(" ")
-//                                                        withStyle(
-//                                                            style = SpanStyle(color = Color.Red) // String literal color
-//                                                        ) { append(word) }
-//                                                        previousWasSpace = false
-//                                                    }
-//                                                    word.isNotBlank() -> {
-//                                                        if (previousWasSpace) append(" ") // Ensure space between words
-//                                                        append(word) // Default text color
-//                                                        previousWasSpace = false
-//                                                    }
-//                                                    else -> {
-//                                                        // Handle spaces carefully
-//                                                        previousWasSpace = true
-//                                                    }
-//                                                }
-//                                            }
-//                                        },
-//                                        style = TextStyle(fontSize = 16.sp, color = Color.White) // Font size for code text
-//                                    )
-//                                }
-//                            }
-//                        }
-//                    }
                 }
 
 
@@ -825,6 +727,14 @@ fun LessonContentView(
 
                 is ContentBlock.QuizContentBlock -> {
                     QuizContentBlock(
+                        contentBlock = contentBlock,
+                        isAnswerGiven = isAnswerGiven,
+                        answerFeedbackText = answerFeedbackText
+                    )
+                }
+
+                is ContentBlock.InteractiveInputBlock -> {
+                    InteractiveInputBlockView(
                         contentBlock = contentBlock,
                         isAnswerGiven = isAnswerGiven,
                         answerFeedbackText = answerFeedbackText
@@ -1014,128 +924,6 @@ fun CodeBlockWithScrolling(contentBlock: String) {
         }
     }
 }
-
-//@Composable
-//fun CodeBlockWithScrolling(contentBlock: String) {
-//    val keywords = listOf("int", "return", "printf", "endl", "void", "if", "else", "while", "for", "#include", "#define")
-//    val braces = listOf("{", "}", "(", ")", "[", "]")
-//    val codeLines = contentBlock.split("\n")
-//
-//    // Create a scroll state for tracking scroll position
-//    val scrollState = rememberScrollState()
-//
-//    // Define a fixed height for the code block container
-//    val containerHeight = 50.dp
-//
-//    // Get the current Density for converting Dp to Pixels
-//    val density = LocalDensity.current.density
-//
-//    Column(
-//        modifier = Modifier
-//            .fillMaxWidth()
-//            .background(Color.Black, shape = RoundedCornerShape(8.dp))
-//            .padding(horizontal = 12.dp)
-//            .heightIn(max = containerHeight)
-//            .verticalScroll(scrollState) // Make the code block scrollable
-//    ) {
-//        Spacer(Modifier.height(12.dp))
-//
-//        // Loop through each line of code
-//        codeLines.forEachIndexed { index, line ->
-//            Row(
-//                modifier = Modifier
-//                    .fillMaxWidth()
-//                    .padding(vertical = 2.dp)
-//            ) {
-//                // Column for Line Numbers
-//                Column(
-//                    modifier = Modifier
-//                        .padding(end = 8.dp),
-//                    horizontalAlignment = Alignment.CenterHorizontally
-//                ) {
-//                    Text(
-//                        text = "${index + 1}",
-//                        style = TextStyle(fontSize = 16.sp, color = Color.Gray)
-//                    )
-//                }
-//
-//                // Column for Code content
-//                Column(
-//                    modifier = Modifier.weight(1f)
-//                ) {
-//                    // Display code with styled syntax
-//                    Text(
-//                        text = buildAnnotatedString {
-//                            var tempLine = line // A temporary line to handle cases like `printf(`
-//
-//                            // Updated regex to handle spaces and syntax components more precisely
-//                            val regex = Regex(
-//                                "([#a-zA-Z_][a-zA-Z0-9_]*|\"[^\"]*\")|" +      // Keywords, identifiers, strings
-//                                        "([0-9]+(?:\\.[0-9]+)?)|" +                     // Numbers (integer and floating point)
-//                                        "([+\\-*/%=<>!&|^,;:._?])|" +                   // Operators and punctuation
-//                                        "([(){}\\[\\]])|"                                // Parentheses, braces, and brackets
-//                            )
-//
-//                            val matches = regex.findAll(tempLine)
-//
-//                            // Process each match
-//                            matches.forEach { matchResult ->
-//                                val word = matchResult.value
-//                                when {
-//                                    word in keywords -> {
-//                                        withStyle(
-//                                            style = SpanStyle(color = Color(0xFF49D9C8)) // Keyword color
-//                                        ) { append(word) }
-//                                    }
-//                                    word in braces -> {
-//                                        withStyle(
-//                                            style = SpanStyle(color = Color(0XFFFFFFFF)) // Braces color
-//                                        ) { append(word) }
-//                                    }
-//                                    word.startsWith("\"") && word.endsWith("\"") -> {
-//                                        // Ensure strings inside parentheses or anywhere else are colored red
-//                                        withStyle(
-//                                            style = SpanStyle(color = Color.Red) // String literal color
-//                                        ) { append(word) }
-//                                    }
-//                                    word.isNotBlank() -> {
-//                                        append(word) // Default text color for regular tokens
-//                                    }
-//                                    else -> {
-//                                        append(" ") // Preserve spaces exactly as they are
-//                                    }
-//                                }
-//                            }
-//                        },
-//                        style = TextStyle(fontSize = 16.sp, color = Color.White) // Font size for code text
-//                    )
-//                }
-//            }
-//        }
-//
-//        Spacer(Modifier.height(12.dp))
-//    }
-//
-//    // Scroll Indicator
-//    Box(
-//        modifier = Modifier
-//            .fillMaxHeight()
-//            .width(4.dp)
-//            .background(Color.Gray.copy(alpha = 0.5f)) // Background for the scroll indicator
-//    ) {
-//        // Scroll indicator height calculation
-//        val scrollPercentage = scrollState.value.toFloat() / scrollState.maxValue.toFloat()
-//        val scrollIndicatorHeight = (containerHeight.value * scrollPercentage).coerceIn(0f, containerHeight.value)
-//
-//        Box(
-//            modifier = Modifier
-//                .align(Alignment.TopStart)
-//                .fillMaxWidth()
-//                .height(scrollIndicatorHeight.dp) // Use Dp value directly for height
-//                .background(Color.White) // Scroll indicator color
-//        )
-//    }
-//}
 
 
 
@@ -1333,6 +1121,145 @@ fun InteractiveCodeBlockView(
         }
     }
 }
+
+
+@OptIn(ExperimentalLayoutApi::class)
+@Composable
+fun InteractiveInputBlockView(
+    contentBlock: ContentBlock.InteractiveInputBlock,
+    isAnswerGiven: MutableState<Boolean>,
+    answerFeedbackText: MutableState<String>
+) {
+    // State variables for user input and feedback
+    var userInput by remember { mutableStateOf("") }
+    var feedback by remember { mutableStateOf("") }
+    var isCodeCorrect by remember { mutableStateOf(false) }
+
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(16.dp),
+        verticalArrangement = Arrangement.spacedBy(10.dp)
+    ) {
+        // Question
+        Text(
+            text = contentBlock.question,
+            style = TextStyle(fontSize = 18.sp, color = Color.White),
+            modifier = Modifier.padding(bottom = 8.dp)
+        )
+
+        // Code Block with inline input field
+        FlowRow(
+            modifier = Modifier
+                .wrapContentWidth()
+                .background(Color.Black, shape = RoundedCornerShape(8.dp))
+                .padding(16.dp)
+                .fillMaxWidth(), // Ensure it takes up available width
+        ) {
+            contentBlock.incompleteCode.split("___").forEachIndexed { index, part ->
+                Text(
+                    text = part,
+                    style = TextStyle(fontSize = 16.sp, color = Color.White),
+                )
+                if (index < contentBlock.incompleteCode.split("___").size - 1) {
+                    // Inline input field styled like text
+                    Box(
+                        modifier = Modifier
+                            .padding(horizontal = 2.dp)
+                            .drawUnderline() // Optional underline effect for input
+                    ) {
+                        // Calculate the width based on the placeholder size or user input
+                        val fieldWidth = if (userInput.isEmpty()) {
+                            // If no input, use a minimal width (like the ? mark size)
+                            16.dp // Set it to match the ? placeholder size
+                        } else {
+                            // When user starts typing, allow the field to expand up to the correct code's length
+                            val maxWidth = with(LocalDensity.current) {
+                                (userInput.length * 10.sp.toPx()).toDp()
+                            }
+                            maxWidth.coerceAtMost(200.dp) // Max size for the input field
+                        }
+
+                        BasicTextField(
+                            readOnly = isCodeCorrect && isAnswerGiven.value,
+                            value = userInput,
+                            onValueChange = { userInput = it },
+                            textStyle = TextStyle(fontSize = 16.sp, color = Color.White),
+                            singleLine = true,
+                            cursorBrush = SolidColor(Color.White), // Set blinking cursor to white
+                            modifier = Modifier
+                                .padding(0.dp) // Remove additional padding from text field
+                                .width(fieldWidth) // Set the width dynamically based on input or placeholder
+                        )
+
+                        // Placeholder when input is empty
+                        if (userInput.isEmpty()) {
+                            Text(
+                                text = "?",
+                                style = TextStyle(fontSize = 16.sp, color = Color.Gray),
+                                modifier = Modifier
+                                    .align(Alignment.CenterStart) // Align placeholder at the start
+                                    .padding(horizontal = 4.dp) // Add some space around the placeholder
+                            )
+                        }
+                    }
+                }
+            }
+        }
+
+
+        // Submit Button
+        Button(
+            onClick = {
+                // Validate user input against the correct code (ignore spaces)
+                val trimmedUserInput = userInput.replace("\\s".toRegex(), "")
+                val trimmedCorrectCode = contentBlock.correctCode.replace("\\s".toRegex(), "")
+
+                isCodeCorrect = (trimmedUserInput == trimmedCorrectCode)
+                feedback = if (isCodeCorrect) "Correct!" else "Try Again!"
+                contentBlock.isCodeCorrect = isCodeCorrect
+                contentBlock.userInput = userInput
+                answerFeedbackText.value = if (isCodeCorrect) "T" else "F"
+                isAnswerGiven.value = true
+            },
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color(0xFF66116E),
+                disabledContainerColor = Color(0xFF242734)
+            ),
+            shape = RoundedCornerShape(8.dp),
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text(text = "Submit", style = TextStyle(fontSize = 16.sp, color = Color.White))
+        }
+
+        // Feedback
+        if (isAnswerGiven.value) {
+            Text(
+                text = feedback,
+                style = TextStyle(
+                    fontSize = 18.sp,
+                    color = if (isCodeCorrect) Color.Green else Color.Red
+                ),
+                modifier = Modifier.padding(top = 16.dp)
+            )
+        }
+    }
+}
+
+// Extension to draw an underline below the Box
+fun Modifier.drawUnderline(): Modifier = this.then(
+    Modifier.drawBehind {
+        val strokeWidth = 2.dp.toPx()
+        val y = size.height
+        drawLine(
+            color = Color.White,
+            start = Offset(0f, y),
+            end = Offset(size.width, y),
+            strokeWidth = strokeWidth
+        )
+    }
+)
+
 
 @Composable
 fun QuizContentBlock(

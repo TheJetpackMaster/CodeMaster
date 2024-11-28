@@ -55,6 +55,15 @@ sealed class ContentBlock {
         var userAnswer: String? = null
     ) : ContentBlock() // Interactive code block with options and user input
 
+    // For user-input-based interactive questions
+    data class InteractiveInputBlock(
+        val question: String, // The question prompt
+        val incompleteCode: String, // The code snippet with missing parts (e.g., "return ___;")
+        val correctCode: String, // The correct completed code
+        var userInput: String? = null, // User's provided input for the placeholder
+        var isCodeCorrect: Boolean = false // Whether the userInput matches the correctCode
+    ) : ContentBlock()
+
     data class QuizContentBlock(
         val question: String, // The quiz question
         val options: List<String>, // List of answer options

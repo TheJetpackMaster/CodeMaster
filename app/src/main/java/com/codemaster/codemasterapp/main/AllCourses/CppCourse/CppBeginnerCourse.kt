@@ -12,7 +12,7 @@ import com.codemaster.codemasterapp.main.data.LessonContentType
 import com.codemaster.codemasterapp.main.data.LessonStatus
 import com.codemaster.codemasterapp.main.data.Stage
 
-fun CPPBeginnerCourse(): Stage {
+fun cPPBeginnerCourse(): Stage {
     return Stage(
         id = "cpp_beginner_stage",
         title = "Beginner",
@@ -73,39 +73,49 @@ fun CPPBeginnerCourse(): Stage {
                     LessonContent(
                         id = "beginner_c1_sub1_content",
                         title = "What is C++?",
-                        contentBlocks = listOf(
-                            ContentBlock.Text.fromString(
-                                "C++ is a powerful, high-performance programming language that is widely used in software development." +
-                                        " It was created by Bjarne Stroustrup in 1979 and has evolved to support both object-oriented and procedural programming."
-                            ),
-                            ContentBlock.Text.fromString(
-                                "Its ability to give programmers fine control over system resources is one of the reasons it’s still popular today."
-                            ),
-                            ContentBlock.Text(
-                                buildAnnotatedString {
-                                    val text =
-                                        "C++ supports object-oriented programming, allowing for more modular and scalable code."
-                                    append(text)
 
-                                    // Highlight "object-oriented" with a distinct color
-                                    val wordsToStyle = listOf("object-oriented")
-                                    for (word in wordsToStyle) {
-                                        val startIndex = text.indexOf(word)
-                                        if (startIndex != -1) {
-                                            addStyle(
-                                                style = SpanStyle(
-                                                    color = Color(0xFF05B3E7), // Tomato red
-                                                    fontWeight = FontWeight.SemiBold
-                                                ),
-                                                start = startIndex,
-                                                end = startIndex + word.length
-                                            )
-                                        }
-                                    }
-                                }
+                        contentBlocks = listOf(
+                            ContentBlock.InteractiveInputBlock(
+                                question = "Complete the function to return the square of a number.",
+                                incompleteCode = "fun square(x: Int): Int { return ___ }",
+                                correctCode = "x * x"
+
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+//
+//                        contentBlocks = listOf(
+//                            ContentBlock.Text.fromString(
+//                                "C++ is a powerful, high-performance programming language that is widely used in software development." +
+//                                        " It was created by Bjarne Stroustrup in 1979 and has evolved to support both object-oriented and procedural programming."
+//                            ),
+//                            ContentBlock.Text.fromString(
+//                                "Its ability to give programmers fine control over system resources is one of the reasons it’s still popular today."
+//                            ),
+//                            ContentBlock.Text(
+//                                buildAnnotatedString {
+//                                    val text =
+//                                        "C++ supports object-oriented programming, allowing for more modular and scalable code."
+//                                    append(text)
+//
+//                                    // Highlight "object-oriented" with a distinct color
+//                                    val wordsToStyle = listOf("object-oriented")
+//                                    for (word in wordsToStyle) {
+//                                        val startIndex = text.indexOf(word)
+//                                        if (startIndex != -1) {
+//                                            addStyle(
+//                                                style = SpanStyle(
+//                                                    color = Color(0xFF05B3E7), // Tomato red
+//                                                    fontWeight = FontWeight.SemiBold
+//                                                ),
+//                                                start = startIndex,
+//                                                end = startIndex + word.length
+//                                            )
+//                                        }
+//                                    }
+//                                }
+//                            )
+//                        ),
+                        type = LessonContentType.INTERACTIVE
                     ),
                     // Content 2: Why C++?
                     LessonContent(
