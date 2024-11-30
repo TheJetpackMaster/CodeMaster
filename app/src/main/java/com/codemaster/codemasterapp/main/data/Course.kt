@@ -85,9 +85,11 @@ enum class LessonContentType {
 data class LessonContent(
     val id: String,
     val title: String, // Title of the content (e.g., "Introduction", "Quiz 1")
+    val description: String = "",
     val contentBlocks: List<ContentBlock>, // List of content blocks (Text, Image, Code, etc.)
     val type: LessonContentType, // Whether the content is interactive or non-interactive
-    var isCompleted: Boolean = false // Whether the content has been completed (for progress tracking)
+    var isCompleted: Boolean = false, // Whether the content has been completed (for progress tracking)
+    var status: LessonStatus = LessonStatus.ACTIVE
 )
 
 

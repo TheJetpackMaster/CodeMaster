@@ -1,11 +1,6 @@
 package com.codemaster.codemasterapp.main.AllCourses.CppCourse
 
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.AnnotatedString
-import androidx.compose.ui.text.SpanStyle
-import androidx.compose.ui.text.buildAnnotatedString
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.sp
+
 import com.codemaster.codemasterapp.main.data.ContentBlock
 import com.codemaster.codemasterapp.main.data.Course
 import com.codemaster.codemasterapp.main.data.Lesson
@@ -22,7 +17,7 @@ class CPPCourseProvider {
             id = "cpp_course",
             language = "C++",
             stages = listOf(
-                cPPBeginnerCourse(),
+                cppBeginnerCourse(),
 //                CPPIntermediateCourse(),
 //                CPPAdvancedCourse(),
 //                CPPExpertCourse()

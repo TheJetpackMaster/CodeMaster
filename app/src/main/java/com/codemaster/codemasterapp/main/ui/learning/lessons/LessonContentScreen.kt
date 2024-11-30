@@ -389,7 +389,7 @@ fun LessonContentScreen(
                             lessonContent = lessons[pagerState.currentPage],  // Pass the current lesson content
                             onNext = {
                                 courseViewModel.markSubLessonAsCompleted(
-                                    selectedLesson?.subLessons[pagerState.currentPage]?.id ?: "",
+                                    selectedLesson?.lessonContents[pagerState.currentPage]?.id ?: "",
                                     selectedLesson?.id ?: ""
                                 )
                                 courseViewModel.updateLessonCompletionStatus()
@@ -793,7 +793,8 @@ fun LessonContentView(
 
 @Composable
 fun CodeBlockWithScrolling(contentBlock: String) {
-    val keywords = listOf("int", "return", "cout", "endl", "void", "if", "else", "while", "for", "#include", "#define")
+    val keywords = listOf("int", "return", "cout", "endl", "void", "if", "else", "while", "for", "#include", "#define","++","--",
+        "bool","cin","float","char","double")
     val braces = listOf("{", "}", "(", ")", "[", "]")
     val codeLines = contentBlock.split("\n")
 
@@ -924,17 +925,6 @@ fun CodeBlockWithScrolling(contentBlock: String) {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 @Composable

@@ -73,6 +73,7 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.sp
 import com.codemaster.codemasterapp.main.DataBase.NoteViewModel
 import com.codemaster.codemasterapp.main.data.Lesson
+import com.codemaster.codemasterapp.main.data.LessonContent
 import com.codemaster.codemasterapp.main.data.LessonStatus
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.MainRoutes
 import com.codemaster.codemasterapp.main.ui.viewModels.CourseViewModel
@@ -304,7 +305,7 @@ fun LessonListScreen(
                                         Column {
                                             LessonItem(
                                                 title = lesson.title,
-                                                description = "${lesson.subLessons.size} Lessons",
+                                                description = "${lesson.lessonContents.size} Lessons",
                                                 status = lessonStatus,
                                                 onArrowClick = {
                                                     // Toggle expansion of this lesson's sub-lessons
@@ -335,7 +336,7 @@ fun LessonListScreen(
 
                                             if (isExpanded) {
                                                 // Display sub-lessons if the lesson is expanded
-                                                lesson.subLessons.forEachIndexed { subIndex, subLesson ->
+                                                lesson.lessonContents.forEachIndexed { subIndex, subLesson ->
                                                     // Check if the sub-lesson is completed
                                                     val subLessonStatus =
                                                         lessonCompletionStatus.value[subLesson.id]
@@ -406,7 +407,7 @@ fun LessonListScreen(
 
 @Composable
 fun SubLessonItem(
-    subLesson: Lesson,
+    subLesson: LessonContent,
     onSubLessonComplete: () -> Unit,
     isLastSubLesson: Boolean,
     onLessonClick: () -> Unit,

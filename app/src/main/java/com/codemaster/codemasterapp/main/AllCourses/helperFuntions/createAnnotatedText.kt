@@ -7,7 +7,7 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 
-fun createAnnotatedText(text: String, styledText: List<String>): AnnotatedString {
+fun createAnnotatedText(text: String, styledText: List<String> = emptyList()): AnnotatedString {
     return buildAnnotatedString {
         val text =
             text
