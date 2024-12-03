@@ -21,8 +21,8 @@ fun createAnnotatedText(text: String, styledText: List<String> = emptyList()): A
                 addStyle(
                     style = SpanStyle(
                         fontSize = 16.sp,
-                        color = Color(0xFF05B3E7),
-                        fontWeight = FontWeight.Bold
+                        color = Color(0xFF77EEFC),
+                        fontWeight = FontWeight.Medium
                     ),
                     start = start,
                     end = start + word.length

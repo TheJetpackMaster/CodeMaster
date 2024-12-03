@@ -344,7 +344,7 @@ fun LessonListScreen(
 
                                                     // Check if it's the last sub-lesson in the list
                                                     val isLastSubLesson =
-                                                        subIndex == lesson.subLessons.size - 1
+                                                        subIndex == lesson.lessonContents.size - 1
 
                                                     SubLessonItem(
                                                         subLesson = subLesson,

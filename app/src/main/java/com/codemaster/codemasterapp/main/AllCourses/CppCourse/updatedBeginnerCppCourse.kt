@@ -9,7 +9,7 @@ import com.codemaster.codemasterapp.main.data.LessonContentType
 import com.codemaster.codemasterapp.main.data.LessonStatus
 import com.codemaster.codemasterapp.main.data.Stage
 
-fun updatedBeginnerCpp(): Stage{
+fun updatedBeginnerCpp(): Stage {
     return Stage(
         id = "cpp_beginner_stage",
         title = "Beginner",
@@ -27,10 +27,19 @@ fun updatedBeginnerCpp(): Stage{
                         title = "What is C++?",
                         description = "In this lesson, we'll briefly talk about the C++ programming language, where it came from, and why it's still awesome today.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("C++ is a powerful, high-performance programming language that is widely used in software development." +
-                                    " It was created by Bjarne Stroustrup in 1979 and has evolved to support both object-oriented and procedural programming.")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "C++ is a powerful, high-performance programming language that is widely used in software development." +
+                                            " It was created by Bjarne Stroustrup in 1979 and has evolved to support both object-oriented and procedural programming."
+                                )
+                            ),
                             ContentBlock.Text(createSimpleText("Its ability to give programmers fine control over system resources is one of the reasons it’s still popular today.")),
-                            ContentBlock.Text(createAnnotatedText(text = "C++ supports object-oriented programming, allowing for more modular and scalable code.", styledText = listOf("object-oriented")))
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "C++ supports object-oriented programming, allowing for more modular and scalable code.",
+                                    styledText = listOf("object-oriented")
+                                )
+                            )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.COMPLETED
@@ -42,9 +51,18 @@ fun updatedBeginnerCpp(): Stage{
                         title = "Why C++?",
                         description = "C++ isn't just any language. Let's explore why it's so powerful, and why you should care.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("C++ is not just about writing code. It's about writing efficient, powerful code that can do anything from games to operating systems." +
-                                    " The language's versatility, performance, and wide usage in high-performance applications make it a must-learn for programmers.")),
-                            ContentBlock.Text(createAnnotatedText(text = "C++ is a perfect choice for performance-critical applications such as games, operating systems, and real-time software.", styledText = listOf("performance-critical")))
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "C++ is not just about writing code. It's about writing efficient, powerful code that can do anything from games to operating systems." +
+                                            " The language's versatility, performance, and wide usage in high-performance applications make it a must-learn for programmers."
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "C++ is a perfect choice for performance-critical applications such as games, operating systems, and real-time software.",
+                                    styledText = listOf("performance-critical")
+                                )
+                            )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.COMPLETED
@@ -56,9 +74,18 @@ fun updatedBeginnerCpp(): Stage{
                         title = "History of C++",
                         description = "We’ll look back to the early 1980s when C++ was born and how it grew up to be the language it is today.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("C++ originated as an extension of the C programming language in the early 1980s. C++, as its name suggests, is 'C with classes,' " +
-                                    "introducing object-oriented concepts to the language.")),
-                            ContentBlock.Text(createAnnotatedText(text = "Since then, C++ has evolved and remained a go-to language for applications where performance and efficiency are crucial.", styledText = listOf("performance", "efficiency")))
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "C++ originated as an extension of the C programming language in the early 1980s. C++, as its name suggests, is 'C with classes,' " +
+                                            "introducing object-oriented concepts to the language."
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "Since then, C++ has evolved and remained a go-to language for applications where performance and efficiency are crucial.",
+                                    styledText = listOf("performance", "efficiency")
+                                )
+                            )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.COMPLETED
@@ -70,8 +97,18 @@ fun updatedBeginnerCpp(): Stage{
                         title = "What's Next in Course?",
                         description = "Now that you've got the basics, we will move on to variables, data types, and how to manipulate them in upcoming lessons!",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText(text = "In the next lessons, we will dive into variables, data types, and how to use them effectively in your programs. The real fun starts here!", styledText = listOf("variables", "data types"))),
-                            ContentBlock.Text(createAnnotatedText(text = "We’ll explore how to work with numbers, strings, and different data structures, preparing you to write more complex programs.", styledText = listOf("numbers", "strings")))
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "In the next lessons, we will dive into variables, data types, and how to use them effectively in your programs. The real fun starts here!",
+                                    styledText = listOf("variables", "data types")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "We’ll explore how to work with numbers, strings, and different data structures, preparing you to write more complex programs.",
+                                    styledText = listOf("numbers", "strings")
+                                )
+                            )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.COMPLETED
@@ -84,7 +121,12 @@ fun updatedBeginnerCpp(): Stage{
                         description = "Get ready to start coding! In the next lesson, you'll create your first interactive program and learn how to handle user input.",
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("Now it's time to roll up your sleeves! In upcoming lessons, you'll create a fully interactive program and learn how to take user input.")),
-                            ContentBlock.Text(createAnnotatedText(text = "We'll also introduce you to loops and conditions, which will allow you to make your programs more dynamic and responsive!", styledText = listOf("loops", "conditions")))
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "We'll also introduce you to loops and conditions, which will allow you to make your programs more dynamic and responsive!",
+                                    styledText = listOf("loops", "conditions")
+                                )
+                            )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.COMPLETED
@@ -98,7 +140,11 @@ fun updatedBeginnerCpp(): Stage{
                         contentBlocks = listOf(
                             ContentBlock.QuizContentBlock(
                                 question = "What is C++ used for?",
-                                options = listOf("System Programming", "Web Development", "Mobile App Development"),
+                                options = listOf(
+                                    "System Programming",
+                                    "Web Development",
+                                    "Mobile App Development"
+                                ),
                                 correctAnswer = "System Programming",
                                 userAnswer = null,
                                 isCorrect = false
@@ -124,8 +170,18 @@ fun updatedBeginnerCpp(): Stage{
                         description = "In this lesson, you'll learn how to install an IDE (Integrated Development Environment) to start writing C++ code. We’ll walk you through popular choices like Visual Studio (Windows), Code::Blocks (Cross-platform), or CLion (Cross-platform).",
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("To start writing C++ code, you need an IDE (Integrated Development Environment) where you can write, compile, and run your programs. There are several popular IDEs for C++ programming, such as:")),
-                            ContentBlock.Text(createAnnotatedText(text = "for Android: Coding C++ (PlayStore)\nfor IOS: C++ Compiler", styledText = listOf("for Android", "for IOS"))),
-                            ContentBlock.Text(createAnnotatedText(text = "for Windows: Visual Studio, Code Blocks\nfor Mac or Linux: CodeBlocks, Clion", styledText = listOf("for Windows", "for Mac", "for Linux")))
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "for Android: Coding C++ (PlayStore)\nfor IOS: C++ Compiler",
+                                    styledText = listOf("for Android", "for IOS")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "for Windows: Visual Studio, Code Blocks\nfor Mac or Linux: CodeBlocks, Clion",
+                                    styledText = listOf("for Windows", "for Mac", "for Linux")
+                                )
+                            )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.COMPLETED
@@ -137,9 +193,24 @@ fun updatedBeginnerCpp(): Stage{
                         title = "Installing a C++ Compiler",
                         description = "A C++ compiler is essential to compile and run your C++ programs. We will show you how to install GCC, MinGW, or Clang, depending on your operating system.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText(text = "A C++ compiler is necessary for converting the C++ code you write into an executable program. On Windows, we recommend installing MinGW or the Cygwin environment to get GCC (GNU Compiler Collection).", styledText = listOf("C++ compiler"))),
-                            ContentBlock.Text(createAnnotatedText(text = "If you are on macOS or Linux, you likely already have Clang or GCC installed, but if not, we’ll show you how to install it using a package manager.", styledText = listOf("macOS", "Linux"))),
-                            ContentBlock.Text(createAnnotatedText(text = "To install MinGW on Windows, download and install it from the official website, then add it to your system’s PATH variable to allow the compiler to be accessed from the command line.", styledText = listOf("MinGW", "Windows")))
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "A C++ compiler is necessary for converting the C++ code you write into an executable program. On Windows, we recommend installing MinGW or the Cygwin environment to get GCC (GNU Compiler Collection).",
+                                    styledText = listOf("C++ compiler")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "If you are on macOS or Linux, you likely already have Clang or GCC installed, but if not, we’ll show you how to install it using a package manager.",
+                                    styledText = listOf("macOS", "Linux")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "To install MinGW on Windows, download and install it from the official website, then add it to your system’s PATH variable to allow the compiler to be accessed from the command line.",
+                                    styledText = listOf("MinGW", "Windows")
+                                )
+                            )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.COMPLETED
@@ -152,14 +223,16 @@ fun updatedBeginnerCpp(): Stage{
                         description = "Now that your environment is set up, let’s write your first C++ program: a simple 'Hello, World!' that you can compile and run.",
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("Now that your IDE and compiler are set up, let’s write your first program. This program will display 'Hello, World!' on the screen.")),
-                            ContentBlock.Code(code = """
+                            ContentBlock.Code(
+                                code = """
                     #include <iostream>
 
                     int main() {
                         cout << "Hello, World!" <<endl;
                         return 0;
                     }
-                """.trimIndent()),
+                """.trimIndent()
+                            ),
                             ContentBlock.Code(code = "Output : Hello, World!"),
                             ContentBlock.Text(createSimpleText("After writing the code, click 'Build' or 'Run' in your IDE to compile and execute it. You should see 'Hello, World!' printed on the screen."))
                         ),
@@ -231,7 +304,8 @@ fun updatedBeginnerCpp(): Stage{
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Sub-Lesson 2: The '#include' Directive
@@ -258,7 +332,8 @@ fun updatedBeginnerCpp(): Stage{
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Sub-Lesson 3: Understanding the 'main()' Function
@@ -289,7 +364,8 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Sub-Lesson 4: C++ Statements
@@ -318,7 +394,8 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Sub-Lesson 5: C++ Single Statement
@@ -341,7 +418,8 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Sub-Lesson 6: C++ Multiple Statements
@@ -374,7 +452,8 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Sub-Lesson 7: More on Statements
@@ -390,7 +469,8 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Sub-Lesson 8: Code Block Structure
@@ -425,7 +505,8 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Sub-Lesson 9: Quiz
@@ -441,7 +522,8 @@ int main() {
                                 "Answer the questions and see how much you've learned so far!"
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     )
                 ),
                 status = LessonStatus.COMPLETED
@@ -474,7 +556,8 @@ int main() {
                                 code = """// This is a single-line comment!"""
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
                     // Content 2: Single-Line Comments
                     LessonContent(
@@ -501,7 +584,8 @@ int main() {
                     """.trimIndent()
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
                     // Content 3: Multi-Line Comments
                     LessonContent(
@@ -533,7 +617,8 @@ int main() {
                     """.trimIndent()
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
                     // Content 4: Why Use Comments?
                     LessonContent(
@@ -549,7 +634,8 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
                     // Content 5: Commenting Best Practices
                     LessonContent(
@@ -570,7 +656,8 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
                     // Content 6: Quiz!
                     LessonContent(
@@ -623,7 +710,8 @@ int main() {
                                 )
                             ),
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Lesson Content 2: Introducing cout
@@ -656,7 +744,8 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Lesson Content 3: Printing Text
@@ -691,7 +780,8 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Lesson Content 4: Printing Numbers
@@ -724,7 +814,8 @@ int main() {
                                 )
                             ),
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Lesson Content 5: Adding New Lines with \n
@@ -758,7 +849,8 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Lesson Content 6: Using endl
@@ -789,7 +881,8 @@ cout << "Line 1" << endl << "Line 2";
                                 )
                             ),
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Lesson Content 7: Quiz Time!
@@ -811,7 +904,8 @@ cout << "Line 1" << endl << "Line 2";
                                 isCorrect = false
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     )
                 ),
                 status = LessonStatus.COMPLETED
@@ -837,7 +931,8 @@ cout << "Line 1" << endl << "Line 2";
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for "What Are Variables?"
@@ -872,7 +967,8 @@ cout << "Line 1" << endl << "Line 2";
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for "Declaring Variables"
@@ -896,7 +992,8 @@ cout << "Line 1" << endl << "Line 2";
                                 )
                             ),
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for "Initializing Variables"
@@ -919,7 +1016,8 @@ cout << "Line 1" << endl << "Line 2";
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for "Declaring Multiple Variables"
@@ -943,7 +1041,8 @@ cout << "Line 1" << endl << "Line 2";
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for "Variable Types"
@@ -973,7 +1072,8 @@ cout << "Line 1" << endl << "Line 2";
 
                             ContentBlock.Text(createSimpleText("In next lesson we have  breakdown of common C++ variable types and how they work!"))
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Data Types Overview
@@ -1017,7 +1117,8 @@ cout << "Line 1" << endl << "Line 2";
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for "Quiz Time!"
@@ -1073,7 +1174,8 @@ cout << "Line 1" << endl << "Line 2";
 
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for "Outputting Variables"
@@ -1113,7 +1215,8 @@ cout << "Line 1" << endl << "Line 2";
 
                             ),
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for "Naming Variables"
@@ -1150,7 +1253,8 @@ cout << "Line 1" << endl << "Line 2";
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for "Constants"
@@ -1178,7 +1282,8 @@ cout << "Line 1" << endl << "Line 2";
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for "Naming Conventions"
@@ -1204,7 +1309,8 @@ cout << "Line 1" << endl << "Line 2";
                             ),
                             ContentBlock.Text.fromString("Pick a style and stick to it throughout your codebase.")
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for "Quiz"
@@ -1261,7 +1367,8 @@ cout << "Line 1" << endl << "Line 2";
 
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for "Getting Input with cin"
@@ -1298,7 +1405,8 @@ cout << "Line 1" << endl << "Line 2";
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for "Get a Number from the User"
@@ -1326,7 +1434,8 @@ cout << "Line 1" << endl << "Line 2";
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for "Creating a Simple Calculator"
@@ -1365,7 +1474,8 @@ cout << 'Sum is: ' << sum;
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
 //                  Content for "Multiple Inputs"
@@ -1401,7 +1511,8 @@ cout << 'You entered: '<< x <<','<< y <<','<< z;
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for Quiz Block
@@ -1446,7 +1557,8 @@ cout << 'You entered: '<< x <<','<< y <<','<< z;
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for "Working with Numbers ('int', 'float', 'double')"
@@ -1483,8 +1595,10 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
+
 
                     // Content for "Booleans ('bool')"
                     LessonContent(
@@ -1520,7 +1634,8 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for "Characters ('char')"
@@ -1550,7 +1665,8 @@ cout << 'Grade: ' << grade << ', Symbol: ' << symbol;
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for "Strings ('string')"
@@ -1589,7 +1705,8 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for "Quiz Block"
@@ -1653,7 +1770,8 @@ int main() {
                                 "Output: Hey,what's up"
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for "String Concatenation"
@@ -1694,7 +1812,8 @@ int main() {
 //                                """.trimIndent()
 //                            )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
                     // Content for "User Input with Strings"
                     LessonContent(
@@ -1722,7 +1841,8 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
                     // Content for "Measuring String Length"
                     LessonContent(
@@ -1748,7 +1868,8 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for "Using String Functions"
@@ -1813,7 +1934,8 @@ int main() {
                             )
 
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
                     // Content for "String Quiz"
                     LessonContent(
@@ -1833,6 +1955,885 @@ int main() {
                 status = LessonStatus.COMPLETED
             ),
 
+
+            // Lesson 11: Booleans
+            Lesson(
+                id = "beginner_cpp11",
+                title = "Booleans: True or False?",
+                description = "Time to learn about Booleans in C++! Let’s play with true or false!",
+                lessonContents = listOf(
+                    // Content for "Booleans: Yes or No?"
+                    LessonContent(
+                        id = "beginner_cpp11_sub1",
+                        title = "Booleans: Yes or No?",
+                        description = "Let’s start with a boolean variable that checks if something is true or false.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "Ever been asked if you want to go to school and you said 'no'? But your mother said 'Yes!'",
+                                    styledText = listOf()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "That's how it feels when we deal with booleans in C++. A boolean can be either 'true' or 'false', and that's all, A boolean is declared using bool keyword.",
+                                    styledText = listOf("booleans", "bool keyword")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                code = """
+                    bool isSchoolToday = false;
+                    cout << isSchoolToday;
+                    """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "This will output: '0' because 'false' is represented as '0' in C++. If it were 'true', it would output '1'!",
+                                    styledText = listOf()
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Content for "Booleans for Decisions"
+                    LessonContent(
+                        id = "beginner_cpp11_sub2",
+                        title = "Booleans for Decisions",
+                        description = "Booleans help make decisions. We’ll see how to use 'true' or 'false' for making choices.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "Let’s use booleans to make decisions. You might want to check if it’s the weekend and whether to relax or do homework.",
+                                    styledText = listOf("make decisions")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                code = """
+                    bool isWeekend = true;
+                    cout << "Is it the weekend? " << isWeekend;
+                    """.trimIndent()
+                            ),
+
+                            ContentBlock.Code(
+                                code =
+                                "Output: Is it the weekend? 1"
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "true is represented as 1 in C++, and if it were false, it would print 0.",
+                                    styledText = listOf("1", "true", "false", "0")
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Content for "Boolean Variables in Action"
+                    LessonContent(
+                        id = "beginner_cpp11_sub3",
+                        title = "Boolean Variables in Action",
+                        description = "In this lesson, we’ll use boolean variables in different scenarios.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "Booleans can be used to check conditions and represent different states. Let’s try a scenario where we check if a student has passed their exam.",
+                                    styledText = listOf()
+                                )
+                            ),
+                            ContentBlock.Code(
+                                code = """
+                    bool hasPassedExam = true;
+                    cout << "Has the student passed the exam? " << hasPassedExam;
+                    """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "Here, if 'hasPassedExam' is 'true', it will print '1' (passed), and 'false' will print '0' (not passed). This helps us track true or false scenarios!",
+                                    styledText = listOf()
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Content for "Boolean Quiz"
+                    LessonContent(
+                        id = "beginner_cpp11_sub4",
+                        title = "Boolean Quiz",
+                        description = "Test your knowledge with a fun quiz about booleans!",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "What is the value of a boolean 'false' in C++?",
+                                options = listOf("1", "0", "true"),
+                                correctAnswer = "0"
+                            )
+                        ),
+                        type = LessonContentType.INTERACTIVE
+                    )
+                ),
+                status = LessonStatus.COMPLETED
+            ),
+
+
+            //Lesson 12: C++ operators
+            Lesson(
+                id = "beginner_cpp12",
+                title = "Understanding C++ Operators",
+                description = "Learn about operators and how to use them effectively in your programs.",
+                lessonContents = listOf(
+                    // Content for "What Are Operators?"
+                    LessonContent(
+                        id = "beginner_cpp12_sub1",
+                        title = "What Are Operators?",
+                        description = "Operators are symbols that perform operations on variables or values.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "In C++, operators are symbols that perform operations on variables or values. They are used for tasks like calculations or comparing values.",
+                                    styledText = listOf("operators", "C++")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "Operators allow us to perform various actions in a program, from adding numbers to comparing whether one value is greater than another. There are different types of operators, and each serves a specific purpose.",
+                                    styledText = listOf("add", "compare", "operators")
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Content for "Assignment Operators"
+                    LessonContent(
+                        id = "beginner_cpp12_sub2",
+                        title = "Assignment Operators",
+                        description = "Assign values to variables using the `=` operator.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "Assignment operators are used to assign values to variables. The most common assignment operator is '=', which stores a value in a variable.",
+                                    styledText = listOf("assignment operator", "=")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                code = """
+                    int x = 5;
+                    int y = 10;
+                    x = y;  // Now x will be equal to y
+                """.trimIndent()
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Content for "Arithmetic Operators"
+                    LessonContent(
+                        id = "beginner_cpp12_sub3",
+                        title = "Arithmetic Operators",
+                        description = "Perform mathematical operations with the arithmetic operators.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "Arithmetic operators are used to perform mathematical operations like addition, subtraction, multiplication, and division.",
+                                    styledText = listOf(
+                                        "arithmetic operators",
+                                        "addition",
+                                        "subtraction"
+                                    )
+                                )
+                            ),
+                            ContentBlock.Code(
+                                code = """
+                    int a = 5;
+                    int b = 3;
+                    int sum = a + b;      // Addition
+                    int difference = a - b;  // Subtraction
+                    int product = a * b;     // Multiplication
+                    int quotient = a / b;    // Division
+                """.trimIndent()
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Content for "Comparison Operators"
+                    LessonContent(
+                        id = "beginner_cpp12_sub4",
+                        title = "Comparison Operators",
+                        description = "Compare values using the comparison operators.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "Comparison operators are used to compare two values. They return a true or false result, helping make decisions based on conditions.",
+                                    styledText = listOf("comparison operators", "true", "false")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                code = """
+                    int a = 5;
+                    int b = 3;
+                    bool isEqual = (a == b);  // Checks if a equals b
+                    bool isGreater = (a > b); // Checks if a is greater than b
+                """.trimIndent()
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Content for "Logical Operators"
+                    LessonContent(
+                        id = "beginner_cpp12_sub5",
+                        title = "Logical Operators",
+                        description = "Combine multiple conditions with the logical operators.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "Logical operators are used to combine multiple conditions. They help evaluate more complex situations, like checking if multiple conditions are true.",
+                                    styledText = listOf("logical operators", "combine conditions")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                code = """
+                    bool isWeekend = true;
+                    bool isHoliday = false;
+                    bool canRelax = isWeekend && isHoliday; // True if both are true
+                    bool canWork = isWeekend || isHoliday; // True if either is true
+                """.trimIndent()
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Content for "Increment and Decrement Operators"
+                    LessonContent(
+                        id = "beginner_cpp12_sub6",
+                        title = "Increment and Decrement Operators",
+                        description = "Use the shorthand operators to modify variables.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "Increment and decrement operators are shorthand for adding or subtracting 1 from a variable. These operators are commonly used in loops or counters.",
+                                    styledText = listOf("increment", "decrement", "shorthand")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                code = """
+                    int a = 5;
+                    
+                    // Increments a by 1 (a becomes 6)
+                    a++;
+                    
+                    // Decrements a by 1 (a becomes 5)
+                    a--;
+                """.trimIndent()
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Content for "Combining Operators in Expressions"
+                    LessonContent(
+                        id = "beginner_cpp12_sub7",
+                        title = "Combining Operators in Expressions",
+                        description = "Combine operators for more complex calculations.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "You can combine operators in expressions to create more complex calculations. This allows you to perform multiple operations in one step.",
+                                    styledText = listOf("combine operators", "expressions")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                code = """
+                    int a = 5;
+                    int b = 3;
+                    
+                    // First multiplication, then addition (result = 11)
+                    int result = a + b * 2;
+                """.trimIndent()
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Content for "Operator Quiz"
+                    LessonContent(
+                        id = "beginner_cpp12_sub8",
+                        title = "Operator Quiz",
+                        description = "Test your knowledge with a fun quiz about operators!",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "What is the result of '5 + 3 * 2' in C++?",
+                                options = listOf("16", "11", "13"),
+                                correctAnswer = "11"
+                            )
+                        ),
+                        type = LessonContentType.INTERACTIVE
+                    )
+                ),
+                status = LessonStatus.COMPLETED
+            ),
+
+
+            //Lesson 13 : Else if
+            Lesson(
+                id = "beginner_cpp12",
+                title = "If-Else – Make Choices!",
+                description = "Time to make decisions in your code! With If-Else, you can choose what happens next in your program. Let’s get started!",
+                lessonContents = listOf(
+
+                    // Sub-lesson 1: What is If-Else?
+                    LessonContent(
+                        id = "beginner_cpp12_sub1",
+                        title = "What is If-Else?",
+                        description = "Learn how If-Else helps make decisions in code.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "If-Else is like making a choice: if something is true, do one thing; if not, do something else. " +
+                                            "It’s all about making decisions.",
+                                    styledText = listOf("making decisions")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "Think about it like deciding whether to stay in bed or get up. " +
+                                            "If you’re feeling lazy, you stay in bed. If you’re energetic, you get up! That’s the power of If-Else."
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Sub-lesson 2 : The Ultimate Decision: Should I Eat or Not?
+                    LessonContent(
+                        id = "beginner_cpp12_sub2",
+                        title = "The Ultimate Decision: Should I Eat or Not?",
+                        description = "Explore decision-making with a pizza or no food choice.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "Imagine you’ve just woken up. The big question: should I eat pizza or not? The answer depends on one condition – are you hungry?"
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "If you’re hungry, you get pizza. If not, maybe salad or nothing. That’s the magic of If-Else decisions!",
+                                    styledText = listOf("If-else decisions!")
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Sub-lesson 3: If-Else: The Code Behind the Decision
+                    LessonContent(
+                        id = "beginner_cpp12_sub3",
+                        title = "If-Else: The Code Behind the Decision",
+                        description = "Turn a decision into code: hungry for pizza or salad?",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "Here’s how you can express this decision in code:"
+                                )
+                            ),
+                            ContentBlock.Code(
+                                code = """
+                                bool isHungry = true;
+                                if (isHungry) {
+                                    cout << "Pizza time!";
+                                } else {
+                                    cout << "Maybe salad or nothing!";
+                                }
+                    """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "This code checks if you're hungry. If true, you get pizza. If false, you get salad or nothing. Simple, right?",
+                                    styledText = listOf("true", "false")
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
+                    ),
+                    LessonContent(
+                        id = "beginner_cpp12_sub4",
+                        title = "A Simple Decision: Should I Get Up or Not?",
+                        description = "Decide whether to stay in bed or get up and conquer the day!",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "You’ve woken up and the question is: should I get up or stay in bed?"
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "If you’re feeling lazy, you stay in bed. If you’re feeling productive, you get up and make coffee."
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "Let’s put this into code!"
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
+                    ),
+                    LessonContent(
+                        id = "beginner_cpp12_sub5",
+                        title = "Else-If and Else: More Choices!",
+                        description = "Level up with `else if` and `else` for multiple choices.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "Here’s where we level up! With else if, we can handle more conditions. It’s like saying:",
+                                    styledText = listOf("else if")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                code = """
+bool isHungry = false;
+bool isCravingPizza = true;
+if (isHungry) {
+    cout << "Let’s eat!";
+} else if (isCravingPizza) {
+    cout << "Pizza time!";
+} else {
+    cout << "Maybe a snack later!";
+}
+                    """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "This code checks if you’re hungry. If not, it checks if you’re craving pizza. If neither is true, the else statement takes over.",
+                                    styledText = listOf("else statement")
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
+                    ),
+                    LessonContent(
+                        id = "beginner_cpp12_sub6",
+                        title = "Else-If Quiz",
+                        description = "Test your knowledge of `else if` and `else` with a quiz!",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "What will this code print?\n\nbool isHungry = false;\nbool isCravingPizza = true;\nif (isHungry) {\n    cout << \"Let’s eat!\";\n} else if (isCravingPizza) {\n    cout << \"Pizza time!\";\n} else {\n    cout << \"Maybe a snack later!\";\n}",
+                                options = listOf(
+                                    "Let’s eat!",
+                                    "Pizza time!",
+                                    "Maybe a snack later!"
+                                ),
+                                correctAnswer = "Pizza time!"
+                            )
+                        ),
+                        type = LessonContentType.INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = "beginner_cpp12_sub7",
+                        title = "Final Quiz: Conditionals Recap!",
+                        description = "Recap everything about `if`, `else`, and `else if` in a quiz!",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "Which of the following is true about `else if` statements?\n\n1. `else if` checks an additional condition if the previous condition was false.\n2. `else if` is the last choice after all other conditions.\n3. You should use `else` instead of `else if` if you have multiple conditions.",
+                                options = listOf("Option 1", "Option 2", "Option 3"),
+                                correctAnswer = "Option 1"
+                            )
+                        ),
+                        type = LessonContentType.INTERACTIVE
+                    )
+                ),
+                status = LessonStatus.COMPLETED
+            ),
+
+            // Lesson 14 :Nested else if
+            Lesson(
+                id = "beginner_cpp13",
+                title = "Nested if-else: Decisions!",
+                description = "Ready to level up your decision-making skills? In this lesson, we’ll explore Nested If-Else statements.",
+                lessonContents = listOf(
+                    // Content for "What is Nested If-Else?"
+                    LessonContent(
+                        id = "beginner_cpp13_sub1",
+                        title = "What is Nested If-Else?",
+                        description = "Learn how nested if-else makes multiple decisions in a sequence.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "Nested if-else is like asking a series of questions. For example, if it's sunny, then check if you have time to go outside. " +
+                                            "If both are true, you go outside! 🌞🚶‍♂️",
+                                    styledText = listOf("")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "It’s like a chain of decisions, where each condition can depend on the result of the previous one.",
+                                    styledText = listOf("chain of decisions")
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Content for "Should I Go Outside or Stay In?"
+                    LessonContent(
+                        id = "beginner_cpp13_sub2",
+                        title = "Should I Go Outside or Stay In?",
+                        description = "Understand how to check multiple conditions before making a decision.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "Let’s say you want to decide whether to go outside or not. First, check if it’s sunny." +
+                                            " If yes, check if you have time. If both are true, you go outside!",
+                                    styledText = listOf("If both are true")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Here’s the code that makes this decision:"
+                                )
+                            ),
+                            ContentBlock.Code(
+                                code = """
+int isSunny = 1;  // 1 means it's sunny
+int hasTime = 0;  // 0 means you don't have time
+
+if (isSunny) {
+    if (hasTime) {
+        printf("Go outside!");
+    } else {
+        printf("Stay inside and relax.");
+    }
+} else {
+    printf("Stay inside.");
+}
+                    """.trimIndent()
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Content for "Understanding Nested If-Else"
+                    LessonContent(
+                        id = "beginner_cpp13_sub3",
+                        title = "Understanding Nested If-Else",
+                        description = "Explore how nested if-else works with multiple conditions.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "Nested if-else statements allow decisions to depend on multiple conditions, evaluated one after the other. " +
+                                            "This is useful for scenarios where logic needs to be layered step by step.",
+                                    styledText = listOf("multiple conditions")
+                                )
+
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "However, too many nested levels can make the code harder to read. In such situations," +
+                                            "logical operators like && (AND) or || (OR) can often simplify the conditions into a single statement.",
+                                    styledText = listOf("&&", "||", "simplify")
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Content for "Quiz on Nested If-Else"
+                    LessonContent(
+                        id = "beginner_cpp13_sub4",
+                        title = "Quiz on Nested If-Else",
+                        description = "Test your knowledge of nested if-else logic in a quiz!",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "What will this code print?\n\n`int isSunny = 1;\nint hasTime = 0;\nif (isSunny) {\n    if (hasTime) {\n        printf(\"Go outside!\");\n    } else {\n        printf(\"Stay inside.\");\n    }\n} else {\n    printf(\"Stay inside.\");\n}`",
+                                options = listOf(
+                                    "Go outside!",
+                                    "Stay inside.",
+                                    "It depends on the weather."
+                                ),
+                                correctAnswer = "Stay inside."
+                            )
+                        ),
+                        type = LessonContentType.INTERACTIVE
+                    )
+                ),
+                status = LessonStatus.COMPLETED
+            ),
+
+
+            // Lesson 15 : Switch Case
+            Lesson(
+                id = "beginner_cpp_switch_case",
+                title = "Switch-Case: Simplifying Multiple Choices",
+                description = "Time to take decision-making to the next level! With Switch-Case.",
+                lessonContents = listOf(
+
+                    // Content for Introduction to Switch-Case
+                    LessonContent(
+                        id = "beginner_cpp_switch_case_sub1",
+                        title = "Introduction to Switch-Case",
+                        description = "Learn how Switch-Case simplifies decision-making with multiple conditions.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "Switch-Case is a control structure that allows you to execute one of many code blocks based on a condition. Think of it as a more organized version of multiple if-else statements.",
+                                    styledText = listOf(
+                                        "Switch-Case",
+                                        "organized version",
+                                        "if-else"
+                                    )
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "Instead of checking each condition one by one,switch-case checks the condition and jumps directly to the relevant block of code, making your code cleaner and faster to process.",
+                                    styledText = listOf("switch-case", "")
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Content for If-Else vs. Switch-Case
+                    LessonContent(
+                        id = "beginner_cpp_switch_case_sub2",
+                        title = "If-Else vs. Switch-Case",
+                        description = "Compare `if-else` and `switch-case` for handling multiple choices.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "Let’s compare both decision-making structures:\n\nIf-Else: You have to check each condition one by one. It’s flexible but can get messy with a lot of conditions.\nSwitch-Case: The switch checks your variable against several values (cases) and jumps to the correct one. It’s cleaner and more efficient when you have many conditions.",
+                                    styledText = listOf("If-Else:", "Switch-Case:")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "So, if you have a small number of conditions, if-else works fine, but for many options, switch-case is preferred for better readability and efficiency.",
+                                    styledText = listOf("if-else", "switch-case")
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Content for The Basic Switch-Case Syntax
+                    LessonContent(
+                        id = "beginner_cpp_switch_case_sub3",
+                        title = "The Basic Switch-Case Syntax",
+                        description = "Learn the basic syntax for Switch-Case, using `case` and `default`.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "Here’s how you write a basic Switch-Case in C++:",
+                                    styledText = listOf()
+                                )
+                            ),
+                            ContentBlock.Code(
+                                code = """
+int number = 2;
+switch (number) {
+    case 1:
+        cout << "One";
+        break;
+    case 2:
+        cout << "Two";
+        break;
+    case 3:
+        cout << "Three";
+        break;
+    default:
+        cout << "Not 1, 2, or 3";
+}
+                    """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "In this example, the switch checks the value of number. If it matches case 2, the program prints Two. If none of the cases match, it goes to the default case.",
+                                    styledText = listOf("case 2", "two", "default case")
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Content for Understanding break and default in Switch-Case
+                    LessonContent(
+                        id = "beginner_cpp_switch_case_sub4",
+                        title = "Understanding break and default in Switch-Case",
+                        description = "Explore the role of `break` and `default` in controlling flow in Switch-Case.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "In C++, the switch-case statement can be used to check different conditions. " +
+                                            "Two important parts of it are break and default:\n\n" +
+                                            "1.break: This stops the switch-case from checking further cases. If you forget to use 'break', the program will continue checking the next case even if it doesn’t match.\n\n" +
+                                            "2.default: This is used when none of the cases match. It's like a 'catch-all' option, similar to the 'else' in an 'if-else' statement.",
+                                    styledText = listOf(
+                                        "switch-case",
+                                        "default",
+                                        "break",
+                                        "1.break:",
+                                        "2.default:"
+                                    )
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "For example, if the value doesn’t match any case, the program will jump to the `default` section and run that code.",
+                                    styledText = listOf()
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+
+                    // Content for Switch-Case with Multiple Conditions
+                    LessonContent(
+                        id = "beginner_cpp_switch_case_sub5",
+                        title = "Switch-Case with Multiple Conditions",
+                        description = "Discover how to handle multiple `case` labels in a Switch-Case.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "Sometimes, you may want different case labels to perform the same action. Instead of writing the same code for each 'case', you can group them together.",
+                                    styledText = listOf("case labels")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                code = """
+int number = 2;
+switch (number) {
+    case 1:
+    case 2:
+    case 3:
+        cout << "Small number!";
+        break;
+    case 4:
+    case 5:
+        cout << "Big number!";
+        break;
+    default:
+        cout << "Unknown number";
+}
+            """.trimIndent()
+                            ),
+
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "In this example, case 1, case 2, and case 3 are grouped together and print 'Small number!'. This is a simple way to handle multiple conditions with the same result.",
+                                    styledText = listOf("case 1", "case 2", "case 3")
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Content for Switch-Case with Ranges and Expressions
+                    LessonContent(
+                        id = "beginner_cpp_switch_case_sub6",
+                        title = "Switch-Case with Ranges and Expressions",
+                        description = "Learn to handle ranges and expressions within Switch-Case statements.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "Modern C++ allows you to check ranges in a switch-case, making your code cleaner and easier to read. Instead of writing separate cases for each value, you can group them into a range.",
+                                    styledText = listOf("switch-case", "ranges")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                code = """
+int number = 8;
+switch (number) {
+    case 1 ... 5:
+        cout << "Between 1 and 5";
+        break;
+    case 6 ... 10:
+        cout << "Between 6 and 10";
+        break;
+    default:
+        cout << "Out of range";
+}
+            """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "In this example, if number is between 1 and 5, it prints 'Between 1 and 5'. If it’s between 6 and 10, it prints 'Between 6 and 10'. Any other value will fall into the 'default' case and print 'Out of range'.",
+                                    styledText = listOf("'Between 1 and 5'", "'Between 6 and 10'")
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Content for Common Mistakes in Switch-Case
+                    LessonContent(
+                        id = "beginner_cpp_switch_case_sub7",
+                        title = "Common Mistakes in Switch-Case",
+                        description = "Identify common mistakes, like missing `break` statements and fall-through issues.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = " Be careful of these common mistakes when using a 'switch-case':\n\n" +
+                                            "1. Missing 'break': If you forget break, the program will continue into the next case.\n\n" +
+                                            "2. No 'default': Always add a default case to handle unexpected values.\n\n" +
+                                            "3. Unsupported Data Types: switch works with integers and characters, but not with float or strings.\n\n" +
+                                            "4. Missing Braces: Always include braces around multiple lines of code in a case.",
+                                    styledText = listOf(
+                                        "1. Missing 'break':", "2. No 'default':",
+                                        "3. Unsupported Data Types:", "4. Missing Braces:"
+                                    )
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Content for Final Quiz: Mastering Switch-Case
+                    LessonContent(
+                        id = "beginner_cpp_switch_case_sub8",
+                        title = "Final Quiz: Mastering Switch-Case",
+                        description = "Test your knowledge of Switch-Case with a final quiz!",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "Ready to test your knowledge? Let's tackle a quiz where you’ll write and debug Switch-Case code to prove you're ready to make decisions more efficiently in C++!",
+                                    styledText = listOf()
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
+                    )
+                ),
+                status = LessonStatus.COMPLETED
             )
+        )
     )
 }
