@@ -802,7 +802,7 @@ fun CodeBlockWithScrolling(contentBlock: String) {
     val scrollState = rememberScrollState()
 
     // Define a fixed height for the code block container
-    val containerHeight = 200.dp
+    val containerHeight = 400.dp
     val scrollIndicatorHeight = 30.dp  // Fixed height for the scroll indicator line
 
     // Get the LocalDensity to convert Dp to pixels
@@ -815,14 +815,13 @@ fun CodeBlockWithScrolling(contentBlock: String) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .heightIn(max = containerHeight) // Limit the height of the code block container
             .background(Color.Black, shape = RoundedCornerShape(8.dp)) // Background color of the code block
     ) {
         // Code content with scrolling
         Column(
             modifier = Modifier
                 .padding(horizontal = 12.dp)
-                .verticalScroll(scrollState) // Make the code block scrollable
+//                .verticalScroll(scrollState) // Make the code block scrollable
         ) {
             Spacer(Modifier.height(12.dp))
 
@@ -841,7 +840,7 @@ fun CodeBlockWithScrolling(contentBlock: String) {
                     ) {
                         Text(
                             text = "${index + 1}",
-                            style = TextStyle(fontSize = 16.sp, color = Color.Gray)
+                            style = TextStyle(fontSize = 12.sp, color = Color.Gray)
                         )
                     }
 
@@ -893,7 +892,7 @@ fun CodeBlockWithScrolling(contentBlock: String) {
                                     }
                                 }
                             },
-                            style = TextStyle(fontSize = 16.sp, color = Color.White) // Font size for code text
+                            style = TextStyle(fontSize = 12.sp, color = Color.White) // Font size for code text
                         )
                     }
                 }

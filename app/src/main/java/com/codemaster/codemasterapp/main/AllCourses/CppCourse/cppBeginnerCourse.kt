@@ -2773,7 +2773,7 @@ int main() {
             ),
 
 
-            //Lesson 12 : Else if
+            //Lesson 13 : Else if
             Lesson(
                 id = "beginner_cpp12",
                 title = "If-Else – Make Choices!",
@@ -2976,7 +2976,7 @@ if (isHungry) {
             ),
 
 
-            // Lesson13 :Nested else if
+            // Lesson 14 :Nested else if
             Lesson(
                 id = "beginner_cpp13",
                 title = "Nested if-else: Decisions!",
@@ -3119,7 +3119,7 @@ if (isSunny) {
                 status = LessonStatus.COMPLETED
             ),
 
-            // Lesson 14 : Switch Case
+            // Lesson 15 : Switch Case
             Lesson(
                 id = "beginner_cpp_switch_case",
                 title = "Switch-Case: Simplifying Multiple Choices",
