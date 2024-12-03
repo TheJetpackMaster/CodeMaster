@@ -73,6 +73,7 @@ fun CBeginnerCourse(): Stage {
                     LessonContent(
                         id = "beginner_c1_sub1",
                         title = "What is Programming?",
+                        description = "Understand programming, why it matters, and how it lets computers execute your instructions.",
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("Programming creates instructions for computers to automate tasks, solve problems, and build software.")),
                             ContentBlock.Text(
@@ -88,6 +89,7 @@ fun CBeginnerCourse(): Stage {
                     LessonContent(
                         id = "beginner_c1_sub2",
                         title = "Understanding Code and How It Works",
+                        description = "Peek behind the scenes to see how code tells computers what to do.",
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("Code is like a recipe—a series of step-by-step instructions for computers.")),
                             ContentBlock.Text(
@@ -103,6 +105,7 @@ fun CBeginnerCourse(): Stage {
                     LessonContent(
                         id = "beginner_c1_sub3",
                         title = "Introduction to the C Language",
+                        description = "Meet C: the foundation of many modern programming languages.",
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("C was created in the 1970s by Dennis Ritchie for building UNIX.")),
                             ContentBlock.Text(
@@ -118,6 +121,7 @@ fun CBeginnerCourse(): Stage {
                     LessonContent(
                         id = "beginner_c1_sub4",
                         title = "Applications of C Programming",
+                        description = "Discover where C is used in real-world scenarios like operating systems and embedded systems.",
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("C is widely used in operating systems, embedded systems, and gaming.")),
                             ContentBlock.Text(
@@ -133,6 +137,7 @@ fun CBeginnerCourse(): Stage {
                     LessonContent(
                         id = "beginner_c1_sub5",
                         title = "Why Learn C?",
+                        description = "Explore the benefits of learning C, including its role as a foundation for other programming languages.",
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("Learning C builds a solid foundation in core programming concepts.")),
                             ContentBlock.Text(
@@ -148,6 +153,7 @@ fun CBeginnerCourse(): Stage {
                     LessonContent(
                         id = "beginner_c1_sub6",
                         title = "Quiz",
+                        description = "Quiz",
                         contentBlocks = listOf(
                             QuizContentBlock(
                                 question = "What makes programming essential for modern technology?",
@@ -167,6 +173,7 @@ fun CBeginnerCourse(): Stage {
                     LessonContent(
                         id = "beginner_c1_sub7",
                         title = "What’s Next?",
+                        description = "Preview the journey ahead as we dive into loops, arrays, and advanced concepts.",
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("Get ready to unlock the core building blocks of programming! 🚀")),
                             ContentBlock.Text(createSimpleText("In the next lessons, you’ll master input/output, variables, and data types—skills that power every program you’ll ever write. 💡")),
@@ -220,6 +227,7 @@ fun CBeginnerCourse(): Stage {
                     LessonContent(
                         id = "beginner_c2_sub1",
                         title = "Installing a C Compiler",
+                        description = "Equip yourself with a powerful compiler like GCC or a slick IDE like Code::Blocks. Let’s start your coding adventure!",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -234,6 +242,7 @@ fun CBeginnerCourse(): Stage {
                     LessonContent(
                         id = "beginner_c2_sub2",
                         title = "What is an IDE?",
+                        description = "Learn to set up your programming environment, write your first C program, and run it. It’s like assembling a robot to do your homework.",
                         contentBlocks = listOf(
                             QuizContentBlock(
                                 question = "Which of the following is an IDE (Integrated Development Environment)?",
@@ -254,6 +263,7 @@ fun CBeginnerCourse(): Stage {
                     LessonContent(
                         id = "beginner_c2_sub3",
                         title = "Writing Your First Program",
+                        description = "Write a program that tells the world 'Hello!' (because politeness matters).",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -281,6 +291,7 @@ fun CBeginnerCourse(): Stage {
                     LessonContent(
                         id = "beginner_c2_sub4",
                         title = "Running the Program with User Input",
+                        description = "Write a program that tells the world 'Hello!' (because politeness matters).",
                         contentBlocks = listOf(
                             InteractiveCodeBlock(
                                 question = "Complete the following C program by fixing the syntax error (missing semicolon).",
@@ -307,6 +318,7 @@ fun CBeginnerCourse(): Stage {
                     LessonContent(
                         id = "beginner_c2_sub5",
                         title = "Running the Program",
+                        description = "See your program come alive by compiling and running it. It’s like lighting up a bulb for the first time!",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -369,6 +381,7 @@ fun CBeginnerCourse(): Stage {
                     LessonContent(
                         id = "beginner_c3_sub1",
                         title = "What is Syntax in C?",
+                        description = "Discover the golden rules for writing C programs. Think of it as grammar for robots.",
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("Syntax is like the traffic rules for C code. No skipping red lights, or your program crashes!")),
                             ContentBlock.Code(
@@ -405,6 +418,7 @@ fun CBeginnerCourse(): Stage {
                     LessonContent(
                         id = "beginner_c3_sub2",
                         title = "Core Elements of Syntax",
+                        description = "Peek under the hood to understand the building blocks of C syntax. It's like learning how to read your robot's wiring diagram.",
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("Here's your syntax survival kit:")),
                             ContentBlock.Text(
@@ -443,7 +457,8 @@ fun CBeginnerCourse(): Stage {
                     ),
                     LessonContent(
                         id = "beginner_c3_sub3",
-                        title = "Test Your Knowledge: What is Syntax in C?",
+                        title = "Quiz",
+                        description = "Quiz",
                         contentBlocks = listOf(
                             QuizContentBlock(
                                 question = "Which of the following is NOT a key element of syntax in C?",
@@ -464,6 +479,7 @@ fun CBeginnerCourse(): Stage {
                     LessonContent(
                         id = "beginner_c3_sub4",
                         title = "What is a Statement in C?",
+                        description = "Learn the language of robot commands. Teach your robot to say 'Hello!' instead of '404: Emotion Not Found.'",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -484,6 +500,7 @@ fun CBeginnerCourse(): Stage {
                     LessonContent(
                         id = "beginner_c3_sub5",
                         title = "Types of Statements in C",
+                        description = "Explore different types of instructions that power your programs, from 'turn left' to 'don’t dance in public.'",
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("C statements can be broadly categorized into the following types:")),
                             ContentBlock.Text(
@@ -534,6 +551,7 @@ if (a > 0) {
                     LessonContent(
                         id = "beginner_c3_sub6",
                         title = "Combining Multiple Statements",
+                        description = "Make your program work like a well-oiled machine. No more 'robot dropped coffee on cat' incidents.",
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("When building complex programs, combining multiple statements effectively is crucial.")),
                             ContentBlock.Text(
@@ -643,6 +661,7 @@ printf("Sum: %d\\n", sum);
                     LessonContent(
                         id = "beginner_c4_sub1",
                         title = "Printing Text in C",
+                        description = "Use `printf()` to make your computer say anything you want. 🎉",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -672,6 +691,7 @@ int main() {
                     LessonContent(
                         id = "beginner_c4_sub2",
                         title = "New Lines in Output",
+                        description = "Keep your output clean with `\\n`—because messy outputs are so last year.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -696,6 +716,7 @@ int main() {
                     LessonContent(
                         id = "beginner_c4_sub3",
                         title = "Special Characters in Output",
+                        description = "Learn escape sequences like `\\t` to format text or `\\\"` to make it fancy!",
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText(text = "Jazz up your output with escape sequences!")),
                             ContentBlock.Code(
@@ -715,6 +736,7 @@ int main() {
                     LessonContent(
                         id = "beginner_c4_sub4",
                         title = "Printing Variables",
+                        description = "Ever wanted to show off your variables? `printf()` + format specifiers = magic. 🪄",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -739,7 +761,8 @@ int main() {
 
                     LessonContent(
                         id = "beginner_c4_sub5",
-                        title = "Printing Variables",
+                        title = "Quiz",
+                        description = "Quiz",
                         contentBlocks = listOf(
                             InteractiveInputBlock(
                                 question = "Complete the `printf` statement to display the value of the variable 'age'. What format specifier should you use?",
@@ -764,6 +787,7 @@ int main() {
                     LessonContent(
                         id = "beginner_c4_sub6",
                         title = "Printing Multiple Values",
+                        description = "Print multiple values like a pro with `printf()` arguments. 🚀",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -801,6 +825,7 @@ int main() {
                     LessonContent(
                         id = "beginner_c4_sub7",
                         title = "Formatting Output",
+                        description = "Use formatting tricks to impress even the most organized output fans. ✨",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -869,6 +894,7 @@ int main() {
                     LessonContent(
                         id = "beginner_c5_sub1",
                         title = "Introduction to Comments",
+                        description = "What are comments and why they’re important.",
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("Comments are notes for humans, ignored by the compiler.")),
                             ContentBlock.Text(createSimpleText("Think of comments as reminders for why your code does what it does.")),
@@ -879,6 +905,7 @@ int main() {
                     LessonContent(
                         id = "beginner_c5_sub2",
                         title = "Single-Line Comments",
+                        description = "How to use single-line comments in C.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -905,6 +932,7 @@ int main() {
                     LessonContent(
                         id = "beginner_c5_sub3",
                         title = "Single-Line Comments",
+                        description = "How to use single-line comments in C.",
                         contentBlocks = listOf(
                             InteractiveInputBlock(
                                 question = "Fill in the missing code to add a single-line comment.",
@@ -927,6 +955,7 @@ int main() {
                     LessonContent(
                         id = "beginner_c5_sub4",
                         title = "Multi-Line Comments",
+                        description = "How to write multi-line comments.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -954,6 +983,7 @@ int main() {
                     LessonContent(
                         id = "beginner_c5_sub5",
                         title = "Nested Comments",
+                        description = "Handling comments inside other comments.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -982,6 +1012,7 @@ int main() {
                     LessonContent(
                         id = "beginner_c5_sub6",
                         title = "Commenting Best Practices",
+                        description = "Best practices for effective commenting.",
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("Good comments clarify why, bad comments state the obvious.")),
                             ContentBlock.Text(
@@ -1012,6 +1043,7 @@ bubbleSort(arr, n);
                     LessonContent(
                         id = "beginner_c5_sub7",
                         title = "Quiz",
+                        description = "Quiz",
                         contentBlocks = listOf(
                             QuizContentBlock(
                                 question = "Why do we use comments in code?",
@@ -1091,6 +1123,7 @@ bubbleSort(arr, n);
                     LessonContent(
                         id = "beginner_c6_sub1",
                         title = "Creating Variables",
+                        description = "Learn how to declare and initialize variables.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -1114,6 +1147,7 @@ bubbleSort(arr, n);
                     LessonContent(
                         id = "beginner_c6_sub2",
                         title = "Format Specifiers",
+                        description = "Understand format specifiers for different data types.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -1135,6 +1169,7 @@ bubbleSort(arr, n);
                     LessonContent(
                         id = "beginner_c6_sub3",
                         title = "Change Variable Values",
+                        description = "Learn how to update the values of variables.",
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("You can swap the value in a variable whenever you want! It’s like updating your shopping list: 'Oh, I need eggs instead of milk! 🥚'")),
                             ContentBlock.Code(
@@ -1149,6 +1184,7 @@ bubbleSort(arr, n);
                     LessonContent(
                         id = "beginner_c6_sub4",
                         title = "Change Variable Values",
+                        description = "Learn how to update the values of variables.",
                         contentBlocks = listOf(
                             InteractiveInputBlock(
                                 question = "Fill in the missing code to reuse the variable 'age' for updating its value.",
@@ -1166,6 +1202,7 @@ bubbleSort(arr, n);
                     LessonContent(
                         id = "beginner_c6_sub5",
                         title = "Declare Multiple Variables",
+                        description = "Learn how to declare multiple variables in one line.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -1184,6 +1221,7 @@ bubbleSort(arr, n);
                     LessonContent(
                         id = "beginner_c6_sub6",
                         title = "Variable Names",
+                        description = "Understand the rules for naming variables.",
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("Naming variables is like naming your pets—make it meaningful and easy to remember. 🐶🚫")),
                             ContentBlock.Text(
@@ -1210,6 +1248,7 @@ bubbleSort(arr, n);
                     LessonContent(
                         id = "beginner_c6_sub7",
                         title = "Real-Life Example",
+                        description = "A practical example using variables in a program.",
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("Here’s how you use variables in a program, like tracking your height and age in your diary:")),
                             ContentBlock.Code(
@@ -1233,6 +1272,7 @@ bubbleSort(arr, n);
                     LessonContent(
                         id = "beginner_c6_sub8",
                         title = "Quiz",
+                        description = "Quiz",
                         contentBlocks = listOf(
                             QuizContentBlock(
                                 question = "How can you declare multiple variables in a single line?",
@@ -1318,6 +1358,7 @@ bubbleSort(arr, n);
                     LessonContent(
                         id = "beginner_c7_sub1",
                         title = "Data Types",
+                        description = "Explore the essential data types in C.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -1357,6 +1398,7 @@ bubbleSort(arr, n);
                     LessonContent(
                         id = "beginner_c7_sub2",
                         title = "The 'char' Type",
+                        description = "Learn about the 'char' type for characters.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -1376,6 +1418,7 @@ bubbleSort(arr, n);
                     LessonContent(
                         id = "beginner_c7_sub3",
                         title = "Numeric Types",
+                        description = "Understand how to handle integer and floating-point numbers.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -1396,6 +1439,7 @@ bubbleSort(arr, n);
                     LessonContent(
                         id = "beginner_c7_sub4",
                         title = "Quiz",
+                        description = "Quiz",
                         contentBlocks = listOf(
                             InteractiveInputBlock(
                                 question = "Complete the code to declare a floating-point variable to store weight with one decimal.",
@@ -1412,6 +1456,7 @@ bubbleSort(arr, n);
                     LessonContent(
                         id = "beginner_c7_sub5",
                         title = "Set Decimal Precision",
+                        description = "Control decimal precision when displaying numbers.",
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("You can control how many decimals are displayed using format specifiers. 🎯")),
                             ContentBlock.Code(
@@ -1426,6 +1471,7 @@ bubbleSort(arr, n);
                     LessonContent(
                         id = "beginner_c7_sub6",
                         title = "Get the Memory Size",
+                        description = "Find out how much memory each data type uses.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -1445,6 +1491,7 @@ bubbleSort(arr, n);
                     LessonContent(
                         id = "beginner_c7_sub7",
                         title = "Real-Life Example",
+                        description = "See a real-world example using C data types.",
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("Here’s an example using various data types in a simple program:")),
                             ContentBlock.Code(
@@ -1474,6 +1521,7 @@ bubbleSort(arr, n);
                     LessonContent(
                         id = "beginner_c7_sub8",
                         title = "Type Conversion",
+                        description = "Learn how to convert between different data types.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -1508,6 +1556,7 @@ bubbleSort(arr, n);
                     LessonContent(
                         id = "beginner_c7_sub9",
                         title = "Quiz",
+                        description = "Quiz",
                         contentBlocks = listOf(
                             QuizContentBlock(
                                 question = "What is the result of the following operation?\n\nint num = 5;\nfloat result = num + 5.5;\n\nOptions: ",
@@ -1569,6 +1618,7 @@ bubbleSort(arr, n);
                     LessonContent(
                         id = "beginner_c8_sub1",
                         title = "Introduction to Constants",
+                        description = "Learn what constants are and why to use them.",
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("Constants are fixed values that cannot be changed during the execution of a program. 🔒")),
                             ContentBlock.Text(
@@ -1583,6 +1633,7 @@ bubbleSort(arr, n);
                     LessonContent(
                         id = "beginner_c8_sub2",
                         title = "Defining Constants",
+                        description = "Learn how to define constants in C using `#define` and `const`.",
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("There are two common ways to define constants in C:")),
                             ContentBlock.Text(
@@ -1615,6 +1666,7 @@ bubbleSort(arr, n);
                     LessonContent(
                         id = "beginner_c8_sub3",
                         title = "Defining Constants",
+                        description = "Learn how to define constants in C using `#define` and `const`.",
                         contentBlocks = listOf(
                             InteractiveInputBlock(
                                 question = "Complete the code to define a constant for Pi using the #define directive:",
@@ -1631,6 +1683,7 @@ bubbleSort(arr, n);
                     LessonContent(
                         id = "beginner_c8_sub4",
                         title = "Constant Naming",
+                        description = "Understand naming conventions for constants.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -1651,6 +1704,7 @@ bubbleSort(arr, n);
                     LessonContent(
                         id = "beginner_c8_sub5",
                         title = "Real-Life Example",
+                        description = "See a practical example of using constants in a program.",
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("Imagine trying to set a limit on how many times you can hit snooze on your alarm. 😴")),
                             ContentBlock.Text(createSimpleText("You wouldn’t want to change that limit every day, right? So, use a constant!")),
@@ -1679,6 +1733,7 @@ bubbleSort(arr, n);
                     LessonContent(
                         id = "beginner_c8_sub6",
                         title = "Quiz",
+                        description = "Quiz",
                         contentBlocks = listOf(
                             QuizContentBlock(
                                 question = "Which of the following is used to define a constant value that cannot be changed during the program execution in C?",
@@ -1763,6 +1818,7 @@ bubbleSort(arr, n);
                     LessonContent(
                         id = "beginner_c9_sub1",
                         title = "Introduction to Operators",
+                        description = "Understand what operators are and why they're used.",
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("Operators are like the tools in your toolbox. Without them, you can't build anything in your program! 🔧")),
                             ContentBlock.Text(
@@ -1777,6 +1833,7 @@ bubbleSort(arr, n);
                     LessonContent(
                         id = "beginner_c9_sub2",
                         title = "Arithmetic Operators",
+                        description = "Learn about the basic arithmetic operators in C.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -1800,6 +1857,7 @@ bubbleSort(arr, n);
                     LessonContent(
                         id = "beginner_c9_sub3",
                         title = "Quiz",
+                        description = "Quiz",
                         contentBlocks = listOf(
                             InteractiveCodeBlock(
                                 question = "Complete the code to calculate the sum of a and b using the appropriate arithmetic operator:",
@@ -1822,6 +1880,7 @@ bubbleSort(arr, n);
                     LessonContent(
                         id = "beginner_c9_sub4",
                         title = "Relational Operators",
+                        description = "Learn how to compare values using relational operators.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -1846,6 +1905,7 @@ bubbleSort(arr, n);
                     LessonContent(
                         id = "beginner_c9_sub5",
                         title = "Quiz",
+                        description = "Quiz",
                         contentBlocks = listOf(
                             InteractiveCodeBlock(
                                 question = "Complete the code to check if x is greater than y using the correct relational operator:",
@@ -1869,6 +1929,7 @@ bubbleSort(arr, n);
                     LessonContent(
                         id = "beginner_c9_sub6",
                         title = "Logical Operators",
+                        description = "Explore logical operators for combining conditions.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -1890,6 +1951,7 @@ bubbleSort(arr, n);
                     LessonContent(
                         id = "beginner_c9_sub7",
                         title = "Quiz",
+                        description = "Quiz",
                         contentBlocks = listOf(
                             InteractiveCodeBlock(
                                 question = "Complete the code to check if both a and b are true using the correct logical operator:",
@@ -1911,6 +1973,7 @@ bubbleSort(arr, n);
                     LessonContent(
                         id = "beginner_c9_sub8",
                         title = "Assignment and Increment/Decrement Operators",
+                        description = "Understand assignment and increment/decrement operations.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -1934,6 +1997,7 @@ bubbleSort(arr, n);
                     LessonContent(
                         id = "beginner_c9_sub9",
                         title = "Quiz",
+                        description = "Quiz",
                         contentBlocks = listOf(
                             QuizContentBlock(
                                 question = "What will the value of `a` be after executing 'a += 5;' where 'a = 3'?",
@@ -2004,6 +2068,7 @@ bubbleSort(arr, n);
                     LessonContent(
                         id = "beginner_c10_sub1",
                         title = "Introduction to Booleans",
+                        description = "Understand what booleans are and how they work in C.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -2028,6 +2093,7 @@ bubbleSort(arr, n);
                     LessonContent(
                         id = "beginner_c10_sub2",
                         title = "Basic Boolean Representation",
+                        description = "Learn how boolean values are represented as `0` and `1` in C.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -2047,6 +2113,7 @@ bubbleSort(arr, n);
                     LessonContent(
                         id = "beginner_c10_sub3",
                         title = "Quiz",
+                        description = "Quiz",
                         contentBlocks = listOf(
                             InteractiveCodeBlock(
                                 question = "Which of the following is the correct representation of a false boolean value in C?",
@@ -2063,6 +2130,7 @@ bubbleSort(arr, n);
                     LessonContent(
                         id = "beginner_c10_sub4",
                         title = "Boolean Values",
+                        description = "Learn how to use `true` and `false` values with the `stdbool.h` library.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -2084,6 +2152,7 @@ bubbleSort(arr, n);
                     LessonContent(
                         id = "beginner_c10_sub5",
                         title = "Boolean Operations",
+                        description = "Use booleans in logical expressions.",
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("Logical operations combine conditions, like deciding whether to go out if it's sunny AND warm:")),
                             ContentBlock.Code(
@@ -2100,6 +2169,7 @@ bubbleSort(arr, n);
                     LessonContent(
                         id = "beginner_c10_sub6",
                         title = "Boolean in Conditional Statements",
+                        description = "How to use booleans in `if` and `while` statements.",
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("Booleans control your program's flow. Like asking, 'Should I go out? If true, I’ll go!' 🤔")),
                             ContentBlock.Code(
@@ -2122,6 +2192,7 @@ bubbleSort(arr, n);
                     LessonContent(
                         id = "beginner_c10_sub7",
                         title = "Boolean in Conditional Statements",
+                        description = "How to use booleans in `if` and `while` statements.",
                         contentBlocks = listOf(
                             QuizContentBlock(
                                 question = "What is the result of '!true' in boolean logic?",
