@@ -1832,6 +1832,529 @@ int main() {
                 ),
                 status = LessonStatus.LOCKED
             ),
+            Lesson(
+                id = "expert_c7",
+                title = "Text Editor",
+                description = "A simple text editor that allows the user to create, save, and open files. It will require handling file operations and memory management for dynamic text manipulation.",
+                subLessons = listOf(
+                    Lesson(
+                        id = "expert_c6_sub1",
+                        title = "Introduction to Contact Management System",
+                        description = "Learn how to create a contact management system in Kotlin with add, view, search, update, and delete functionalities.",
+                        status = LessonStatus.LOCKED
+                    ),
+                    Lesson(
+                        id = "expert_c6_sub2",
+                        title = "Defining the Contact Structure",
+                        description = "Learn to define a Contact structure to store name and phone details, using constants for limits on contacts and field lengths.",
+                        status = LessonStatus.LOCKED
+                    ),
+                    Lesson(
+                        id = "expert_c6_sub3",
+                        title = "Adding a Contact",
+                        description = "Implement the functionality to add a new contact to the contact book.",
+                        status = LessonStatus.LOCKED
+                    ),
+                    Lesson(
+                        id = "expert_c6_sub4",
+                        title = "Viewing Contacts",
+                        description = "Display the list of all contacts stored in the contact book.",
+                        status = LessonStatus.LOCKED
+                    ),
+                    Lesson(
+                        id = "expert_c6_sub5",
+                        title = "Searching for a Contact",
+                        description = "Search for a contact by name in the contact book.",
+                        status = LessonStatus.LOCKED
+                    ),
+
+                    ),
+                lessonContents = listOf(
+
+                    LessonContent(
+                        id = "expert_c7_sub1",
+                        title = "Introduction to Text Editor Project",
+                        description = "This project teaches how to create a simple text-based text editor in C, allowing users to create, edit, view, and manage text files dynamically using memory allocation, file handling, and string manipulation.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "In this project, you will develop a text editor in C that enables users to create new files, edit existing files, and read file content. Users can input text dynamically, append or edit file content, and save changes as needed. The program makes use of dynamic memory allocation to handle variable-length content, file handling for managing text files, and string manipulation techniques to process user input and file data.",
+                                    listOf("memory allocation", "file handling", "string manipulation")
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+
+                    LessonContent(
+                        id = "expert_c7_sub2",
+                        title = "Initializing the Text Editor in C",
+                        description = "Learn to set up a text editor in C with dynamic memory and file handling.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "This lesson demonstrates the initialization of a text editor in C, using key libraries like <stdio.h> for input/output, <stdlib.h> for dynamic memory allocation, and <string.h> for string manipulation. Constants such as MAX_LINE_LENGTH and INITIAL_BUFFER_SIZE are defined to manage input length and buffer size efficiently, enabling robust text and file handling.",
+                                    listOf("dynamic memory", "file handling")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define MAX_LINE_LENGTH 256
+#define INITIAL_BUFFER_SIZE 1024
+""".trimIndent()
+                            ),
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+
+                    LessonContent(
+                        id = "expert_c7_sub3",
+                        title = "Creating and Saving a New File in C",
+                        description = "Learn how to create, edit, and save a new file in C using dynamic memory and user input handling.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "This lesson demonstrates how to create a function to manage file creation and editing in C. It uses dynamic memory allocation to handle content, checks for existing files to avoid overwrites, and allows users to input and save text. Key concepts include file handling, memory management, and user interaction.",
+                                    listOf("dynamic memory", "file handling", "user input")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+void createNewFile(char **buffer, size_t *bufferSize, char *filename) {
+    FILE *file = fopen(filename, "r");
+    if (file != NULL) {
+        fclose(file);
+        printf("Error: File with name '%s' already exists. Choose a different name.\n", filename);
+        return;
+    }
+
+    free(*buffer); // Free any existing buffer
+    *buffer = (char *)malloc(INITIAL_BUFFER_SIZE * sizeof(char));
+    if (*buffer == NULL) {
+        perror("Failed to allocate memory");
+        exit(EXIT_FAILURE);
+    }
+    (*buffer)[0] = '\0'; // Start with an empty buffer
+    *bufferSize = INITIAL_BUFFER_SIZE;
+
+    printf("New file '%s' created.\n", filename);
+    printf("Enter content for the file (type END on a new line to finish):\n");
+
+    char input[MAX_LINE_LENGTH];
+    while (1) {
+        fgets(input, MAX_LINE_LENGTH, stdin);
+        input[strcspn(input, "\n")] = '\0'; // Remove trailing newline
+
+        if (strcmp(input, "END") == 0)
+            break;
+
+        size_t currentLength = strlen(*buffer);
+        size_t additionalLength = strlen(input) + 1; // Include newline character
+
+        if (currentLength + additionalLength >= *bufferSize) {
+            *bufferSize = (currentLength + additionalLength) * 2;
+            *buffer = realloc(*buffer, *bufferSize * sizeof(char));
+            if (*buffer == NULL) {
+                perror("Failed to reallocate memory");
+                exit(EXIT_FAILURE);
+            }
+        }
+
+        strcat(*buffer, input);
+        strcat(*buffer, "\n");
+    }
+
+    printf("Do you want to save the file? (y/n): ");
+    char choice;
+    scanf(" %c", &choice);
+    getchar(); // Consume newline
+    if (choice == 'y' || choice == 'Y') {
+        FILE *outFile = fopen(filename, "w");
+        if (outFile == NULL) {
+            perror("Failed to save file");
+            return;
+        }
+        fprintf(outFile, "%s", *buffer);
+        fclose(outFile);
+        printf("File saved successfully as '%s'.\n", filename);
+    } else {
+        printf("File not saved.\n");
+    }
+}
+""".trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "The function ensures efficient memory usage and user-friendly file creation, making it easy to edit and save text content dynamically.",
+                                    listOf("memory management", "file handling")
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+
+                    LessonContent(
+                        id = "expert_c7_sub4",
+                        title = "Editing and Appending Content to a File in C",
+                        description = "Learn how to edit and append content to an existing file in C using dynamic memory and file handling techniques.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "This lesson explains how to edit and append content to a file in C. The function dynamically allocates memory to read the file's current content and allows users to append new text interactively. Key operations include reading, resizing memory, and saving changes.",
+                                    listOf("dynamic memory", "file handling", "append content")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+void editFile(char **buffer, size_t *bufferSize, const char *filename) {
+    FILE *file = fopen(filename, "r");
+    if (file == NULL) {
+        printf("Error: File '%s' does not exist.\n", filename);
+        return;
+    }
+
+    fseek(file, 0, SEEK_END);
+    long fileSize = ftell(file);
+    rewind(file);
+
+    if (fileSize > *bufferSize) {
+        *buffer = realloc(*buffer, (fileSize + 1) * sizeof(char));
+        if (*buffer == NULL) {
+            perror("Failed to allocate memory");
+            fclose(file);
+            exit(EXIT_FAILURE);
+        }
+        *bufferSize = fileSize + 1;
+    }
+
+    fread(*buffer, sizeof(char), fileSize, file);
+    (*buffer)[fileSize] = '\0'; // Null-terminate the buffer
+    fclose(file);
+
+    printf("Current content of '%s':\n%s\n", filename, *buffer);
+    printf("Enter new content to append (type END on a new line to finish):\n");
+
+    char input[MAX_LINE_LENGTH];
+    while (1) {
+        fgets(input, MAX_LINE_LENGTH, stdin);
+        input[strcspn(input, "\n")] = '\0'; // Remove trailing newline
+
+        if (strcmp(input, "END") == 0)
+            break;
+
+        size_t currentLength = strlen(*buffer);
+        size_t additionalLength = strlen(input) + 1; // Include newline character
+
+        if (currentLength + additionalLength >= *bufferSize) {
+            *bufferSize = (currentLength + additionalLength) * 2;
+            *buffer = realloc(*buffer, *bufferSize * sizeof(char));
+            if (*buffer == NULL) {
+                perror("Failed to reallocate memory");
+                exit(EXIT_FAILURE);
+            }
+        }
+
+        strcat(*buffer, input);
+        strcat(*buffer, "\n");
+    }
+
+    printf("Do you want to save the changes? (y/n): ");
+    char choice;
+    scanf(" %c", &choice);
+    getchar(); // Consume newline
+    if (choice == 'y' || choice == 'Y') {
+        FILE *outFile = fopen(filename, "w");
+        if (outFile == NULL) {
+            perror("Failed to save file");
+            return;
+        }
+        fprintf(outFile, "%s", *buffer);
+        fclose(outFile);
+        printf("Changes saved successfully to '%s'.\n", filename);
+    } else {
+        printf("Changes not saved.\n");
+    }
+}
+""".trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "The function dynamically adjusts buffer size to accommodate new content, ensuring smooth editing and appending operations.",
+                                    listOf("buffer size", "dynamic allocation")
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+
+                    LessonContent(
+                        id = "expert_c7_sub5",
+                        title = "Opening and Reading File Content in C",
+                        description = "This lesson covers how to open and read the contents of a file line by line in C using file handling techniques.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "This lesson explains how to open a file and display its contents line by line. The function ensures the file exists and handles errors gracefully if it cannot be opened.",
+                                    listOf("open a file", "display contents", "handle errors")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+void openFile(const char *filename) {
+    FILE *file = fopen(filename, "r");
+    if (file == NULL) {
+        printf("Error: File '%s' does not exist or cannot be opened.\n", filename);
+        return;
+    }
+
+    printf("Contents of '%s':\n", filename);
+    char line[MAX_LINE_LENGTH];
+    while (fgets(line, MAX_LINE_LENGTH, file) != NULL) {
+        printf("%s", line);
+    }
+    fclose(file);
+}
+""".trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "The openFile function reads the file line by line using fgets and prints each line to the console. If the file cannot be opened, an error message is displayed.",
+                                    listOf("fgets", "console output")
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+
+                    LessonContent(
+                        id = "expert_c7_sub6",
+                        title = "Complete Text Editor Project",
+                        description = "Below is the complete code for a text editor program in C. This project allows users to create, edit, and view text files, showcasing essential file handling operations in C.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "This is the full implementation of a text editor written in C. The program includes functionalities for creating a new file, editing an existing file, and viewing the content of a file. It ensures memory safety and handles various file operations like reading, writing, and appending content. The user interacts with a menu-driven interface to perform these actions.",
+                                    listOf("text editor", "file operations", "memory safety")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define MAX_LINE_LENGTH 256
+#define INITIAL_BUFFER_SIZE 1024
+
+void createNewFile(char **buffer, size_t *bufferSize, char *filename) {
+    FILE *file = fopen(filename, "r");
+    if (file != NULL) {
+        fclose(file);
+        printf("Error: File with name '%s' already exists. Choose a different name.\n", filename);
+        return;
+    }
+
+    free(*buffer); // Free any existing buffer
+    *buffer = (char *)malloc(INITIAL_BUFFER_SIZE * sizeof(char));
+    if (*buffer == NULL) {
+        perror("Failed to allocate memory");
+        exit(EXIT_FAILURE);
+    }
+    (*buffer)[0] = '\0'; // Start with an empty buffer
+    *bufferSize = INITIAL_BUFFER_SIZE;
+
+    printf("New file '%s' created.\n", filename);
+    printf("Enter content for the file (type END on a new line to finish):\n");
+
+    char input[MAX_LINE_LENGTH];
+    while (1) {
+        fgets(input, MAX_LINE_LENGTH, stdin);
+        input[strcspn(input, "\n")] = '\0'; // Remove trailing newline
+
+        if (strcmp(input, "END") == 0)
+            break;
+
+        size_t currentLength = strlen(*buffer);
+        size_t additionalLength = strlen(input) + 1; // Include newline character
+
+        if (currentLength + additionalLength >= *bufferSize) {
+            *bufferSize = (currentLength + additionalLength) * 2;
+            *buffer = realloc(*buffer, *bufferSize * sizeof(char));
+            if (*buffer == NULL) {
+                perror("Failed to reallocate memory");
+                exit(EXIT_FAILURE);
+            }
+        }
+
+        strcat(*buffer, input);
+        strcat(*buffer, "\n");
+    }
+
+    printf("Do you want to save the file? (y/n): ");
+    char choice;
+    scanf(" %c", &choice);
+    getchar(); // Consume newline
+    if (choice == 'y' || choice == 'Y') {
+        FILE *outFile = fopen(filename, "w");
+        if (outFile == NULL) {
+            perror("Failed to save file");
+            return;
+        }
+        fprintf(outFile, "%s", *buffer);
+        fclose(outFile);
+        printf("File saved successfully as '%s'.\n", filename);
+    } else {
+        printf("File not saved.\n");
+    }
+}
+
+void editFile(char **buffer, size_t *bufferSize, const char *filename) {
+    FILE *file = fopen(filename, "r");
+    if (file == NULL) {
+        printf("Error: File '%s' does not exist.\n", filename);
+        return;
+    }
+
+    fseek(file, 0, SEEK_END);
+    long fileSize = ftell(file);
+    rewind(file);
+
+    if (fileSize > *bufferSize) {
+        *buffer = realloc(*buffer, (fileSize + 1) * sizeof(char));
+        if (*buffer == NULL) {
+            perror("Failed to allocate memory");
+            fclose(file);
+            exit(EXIT_FAILURE);
+        }
+        *bufferSize = fileSize + 1;
+    }
+
+    fread(*buffer, sizeof(char), fileSize, file);
+    (*buffer)[fileSize] = '\0'; // Null-terminate the buffer
+    fclose(file);
+
+    printf("Current content of '%s':\n%s\n", filename, *buffer);
+    printf("Enter new content to append (type END on a new line to finish):\n");
+
+    char input[MAX_LINE_LENGTH];
+    while (1) {
+        fgets(input, MAX_LINE_LENGTH, stdin);
+        input[strcspn(input, "\n")] = '\0'; // Remove trailing newline
+
+        if (strcmp(input, "END") == 0)
+            break;
+
+        size_t currentLength = strlen(*buffer);
+        size_t additionalLength = strlen(input) + 1; // Include newline character
+
+        if (currentLength + additionalLength >= *bufferSize) {
+            *bufferSize = (currentLength + additionalLength) * 2;
+            *buffer = realloc(*buffer, *bufferSize * sizeof(char));
+            if (*buffer == NULL) {
+                perror("Failed to reallocate memory");
+                exit(EXIT_FAILURE);
+            }
+        }
+
+        strcat(*buffer, input);
+        strcat(*buffer, "\n");
+    }
+
+    printf("Do you want to save the changes? (y/n): ");
+    char choice;
+    scanf(" %c", &choice);
+    getchar(); // Consume newline
+    if (choice == 'y' || choice == 'Y') {
+        FILE *outFile = fopen(filename, "w");
+        if (outFile == NULL) {
+            perror("Failed to save file");
+            return;
+        }
+        fprintf(outFile, "%s", *buffer);
+        fclose(outFile);
+        printf("Changes saved successfully to '%s'.\n", filename);
+    } else {
+        printf("Changes not saved.\n");
+    }
+}
+
+void openFile(const char *filename) {
+    FILE *file = fopen(filename, "r");
+    if (file == NULL) {
+        printf("Error: File '%s' does not exist or cannot be opened.\n", filename);
+        return;
+    }
+
+    printf("Contents of '%s':\n", filename);
+    char line[MAX_LINE_LENGTH];
+    while (fgets(line, MAX_LINE_LENGTH, file) != NULL) {
+        printf("%s", line);
+    }
+    fclose(file);
+}
+
+int main() {
+    char *buffer = NULL;
+    size_t bufferSize = 0;
+    int command;
+    char filename[100];
+
+    printf("Welcome to the Text Editor!\n");
+
+    while (1) {
+        printf("\nMenu:\n");
+        printf("1. Create New File\n");
+        printf("2. Edit File\n");
+        printf("3. Open File\n");
+        printf("4. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &command);
+        getchar(); // Consume newline
+
+        if (command == 1) {
+            printf("Enter new file name: ");
+            scanf("%s", filename);
+            getchar(); // Consume newline
+            createNewFile(&buffer, &bufferSize, filename);
+        } else if (command == 2) {
+            printf("Enter filename to edit: ");
+            scanf("%s", filename);
+            getchar(); // Consume newline
+            editFile(&buffer, &bufferSize, filename);
+        } else if (command == 3) {
+            printf("Enter filename to open: ");
+            scanf("%s", filename);
+            getchar(); // Consume newline
+            openFile(filename);
+        } else if (command == 4) {
+            printf("Exiting program.\n");
+            break;
+        } else {
+            printf("Invalid choice. Try again.\n");
+        }
+    }
+
+    free(buffer); // Free allocated memory
+    return 0;
+}
+"""
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "This project demonstrates practical use of file handling in C, including dynamic memory management and user interaction via a menu. It is a foundational project for learning C programming and understanding file I/O operations.",
+                                    listOf("file handling", "dynamic memory", "menu-driven interface")
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    )
+                ),
+                status = LessonStatus.LOCKED
+            )
         )
     )
 }
