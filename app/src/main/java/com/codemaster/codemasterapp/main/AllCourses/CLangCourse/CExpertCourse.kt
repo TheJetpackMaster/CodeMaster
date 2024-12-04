@@ -1452,6 +1452,8 @@ float convertTemperature(float value, int fromUnit, int toUnit) {
                 ),
                 status = LessonStatus.LOCKED
             ),
+
+            // lesson 6
             Lesson(
                 id = "expert_c6",
                 title = "Tic-Tac-Toe Game",
@@ -1835,6 +1837,8 @@ int main() {
                 ),
                 status = LessonStatus.LOCKED
             ),
+
+            // lesson 7
             Lesson(
                 id = "expert_c7",
                 title = "Text Editor",
