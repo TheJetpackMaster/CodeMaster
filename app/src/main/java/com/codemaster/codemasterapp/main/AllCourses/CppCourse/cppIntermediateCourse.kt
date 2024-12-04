@@ -3789,7 +3789,9 @@ fun cppIntermediateCourse(): Stage {
 
                 ),
                 status = LessonStatus.COMPLETED
-            )
+            ),
+
+
         )
     )
 }

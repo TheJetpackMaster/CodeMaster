@@ -1127,7 +1127,7 @@ fun InteractiveInputBlockView(
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(16.dp),
+            .padding(0.dp),
         verticalArrangement = Arrangement.spacedBy(10.dp)
     ) {
         // Question

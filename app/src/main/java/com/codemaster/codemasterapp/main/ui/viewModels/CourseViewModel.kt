@@ -10,7 +10,6 @@ import com.codemaster.codemasterapp.main.AllCourses.CppCourse.CPPCourseProvider
 import com.codemaster.codemasterapp.main.AllCourses.CppCourse.cppAdvancedCourse
 import com.codemaster.codemasterapp.main.AllCourses.CppCourse.cppBeginnerCourse
 import com.codemaster.codemasterapp.main.AllCourses.CppCourse.cppIntermediateCourse
-import com.codemaster.codemasterapp.main.AllCourses.CppCourse.updatedBeginnerCpp
 import com.codemaster.codemasterapp.main.data.Course
 import com.codemaster.codemasterapp.main.data.Lesson
 import com.codemaster.codemasterapp.main.data.LessonStatus
@@ -61,7 +60,7 @@ class CourseViewModel @Inject constructor(
             id = "cpp_course",
             language = "C++",
             stages = listOf(
-                updatedBeginnerCpp(),
+                cppBeginnerCourse(),
                 cppIntermediateCourse(),
                 cppAdvancedCourse(),
                 cPPCourseProvider.CPPExpertCourse()
@@ -70,9 +69,9 @@ class CourseViewModel @Inject constructor(
     )
     private val _selectedStage = MutableStateFlow<Stage?>(
         Stage(
-            id = "cpp_advanced_stage",
-            title = "Advanced",
-            lessons = cppAdvancedCourse().lessons,
+            id = "cpp_beginner_stage",
+            title = "Beginner",
+            lessons = cppBeginnerCourse().lessons,
         )
     )
 //

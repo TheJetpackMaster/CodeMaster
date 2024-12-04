@@ -15,105 +15,41 @@ fun cppBeginnerCourse(): Stage {
         title = "Beginner",
         lessons = listOf(
 
-
             // Lesson 1: Introduction to C++ Programming
             Lesson(
                 id = "beginner_cpp1",
                 title = "Introduction to C++ Programming",
                 description = "In this lesson, we will cover the basics of C++ programming. Don't worry, no complicated stuff yet!",
-                subLessons = listOf(
-                    // Sub-lesson 1: What is C++?
-                    Lesson(
-                        id = "beginner_c1_sub1",
-                        title = "What is C++?",
-                        description = "In this lesson, we'll briefly talk about the C++ programming language, where it came from, and why it's still awesome today.",
-                        status = LessonStatus.COMPLETED
-                    ),
-                    // Sub-lesson 2: Why C++?
-                    Lesson(
-                        id = "beginner_c1_sub2",
-                        title = "Why C++?",
-                        description = "C++ isn't just any language. Let's explore why it's so powerful, and why you should care.",
-                        status = LessonStatus.COMPLETED
-                    ),
-                    // Sub-lesson 3: History of C++
-                    Lesson(
-                        id = "beginner_c1_sub3",
-                        title = "History of C++",
-                        description = "We’ll look back to the early 1980s when C++ was born and how it grew up to be the language it is today.",
-                        status = LessonStatus.COMPLETED
-                    ),
-                    // Sub-lesson 4: What's Next in C++?
-                    Lesson(
-                        id = "beginner_c1_sub4",
-                        title = "What's Next in Course?",
-                        description = "Now that you've got the basics, we will move on to variables, data types, and how to manipulate them in upcoming lessons!",
-                        status = LessonStatus.COMPLETED
-                    ),
-                    // Sub-lesson 5: Get Ready for Action!
-                    Lesson(
-                        id = "beginner_c1_sub5",
-                        title = "Get Ready for Action!",
-                        description = "Get ready to start coding! In the next lesson, you'll create your first interactive program and learn how to handle user input.",
-                        status = LessonStatus.COMPLETED
-                    ),
-                    // Sub-lesson 6: QUIZ!
-                    Lesson(
-                        id = "beginner_c1_sub6",
-                        title = "Quiz!",
-                        description = "Basic quiz to test your simple knowledge about what is C++.",
-                        status = LessonStatus.COMPLETED
-                    )
-                ),
                 lessonContents = listOf(
-                    // Content 1: What is C++?
+                    // Sub-lesson 1: What is C++?
                     LessonContent(
                         id = "beginner_c1_sub1_content",
                         title = "What is C++?",
-
+                        description = "In this lesson, we'll briefly talk about the C++ programming language, where it came from, and why it's still awesome today.",
                         contentBlocks = listOf(
-                            ContentBlock.InteractiveInputBlock(
-                                question = "Complete the function to add tow integers",
-                                incompleteCode = """"
-int main() {
-    int num1 = 25;
-    int num2 = 5;
-    int sum = num1 ___ num2;
-    cout<<sum;
-    return 0;
-}    
-                                    """.trimIndent(),
-                                correctCode = "+"
-
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "C++ is a powerful, high-performance programming language that is widely used in software development." +
+                                            " It was created by Bjarne Stroustrup in 1979 and has evolved to support both object-oriented and procedural programming."
+                                )
+                            ),
+                            ContentBlock.Text(createSimpleText("Its ability to give programmers fine control over system resources is one of the reasons it’s still popular today.")),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    text = "C++ supports object-oriented programming, allowing for more modular and scalable code.",
+                                    styledText = listOf("object-oriented")
+                                )
                             )
                         ),
-//
-//                        contentBlocks = listOf(
-//                            ContentBlock.Text(
-//                                createSimpleText(
-//                                    "C++ is a powerful, high-performance programming language that is widely used in software development." +
-//                                            " It was created by Bjarne Stroustrup in 1979 and has evolved to support both object-oriented and procedural programming."
-//                                )
-//                            ),
-//                            ContentBlock.Text(
-//                                createSimpleText(
-//                                    "Its ability to give programmers fine control over system resources is one of the reasons it’s still popular today."
-//                                )
-//                            ),
-//                            ContentBlock.Text(
-//                                createAnnotatedText(
-//                                    text = "C++ supports object-oriented programming, allowing for more modular and scalable code.",
-//                                    styledText = listOf("object-oriented")
-//                                )
-//                            )
-//                        ),
-                        type = LessonContentType.INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
-                    // Content 2: Why C++?
+                    // Sub-lesson 2: Why C++?
                     LessonContent(
                         id = "beginner_c1_sub2_content",
                         title = "Why C++?",
+                        description = "C++ isn't just any language. Let's explore why it's so powerful, and why you should care.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createSimpleText(
@@ -128,13 +64,15 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
-                    // Content 3: History of C++
+                    // Sub-lesson 3: History of C++
                     LessonContent(
                         id = "beginner_c1_sub3_content",
                         title = "History of C++",
+                        description = "We’ll look back to the early 1980s when C++ was born and how it grew up to be the language it is today.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createSimpleText(
@@ -149,13 +87,15 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
-                    // Content 4: What's Next in C++?
+                    // Sub-lesson 4: What's Next in C++?
                     LessonContent(
                         id = "beginner_c1_sub4_content",
                         title = "What's Next in Course?",
+                        description = "Now that you've got the basics, we will move on to variables, data types, and how to manipulate them in upcoming lessons!",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -170,19 +110,17 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
-                    // Content 5: Get Ready for Action!
+                    // Sub-lesson 5: Get Ready for Action!
                     LessonContent(
                         id = "beginner_c1_sub5_content",
                         title = "Get Ready for Action!",
+                        description = "Get ready to start coding! In the next lesson, you'll create your first interactive program and learn how to handle user input.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    "Now it's time to roll up your sleeves! In upcoming lessons, you'll create a fully interactive program and learn how to take user input."
-                                )
-                            ),
+                            ContentBlock.Text(createSimpleText("Now it's time to roll up your sleeves! In upcoming lessons, you'll create a fully interactive program and learn how to take user input.")),
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     text = "We'll also introduce you to loops and conditions, which will allow you to make your programs more dynamic and responsive!",
@@ -190,13 +128,15 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
-                    // Content 6: Quiz
+                    // Sub-lesson 6: QUIZ!
                     LessonContent(
                         id = "beginner_cpp_sub6",
                         title = "Quiz!",
+                        description = "Test your knowledge with a basic quiz on what C++ is.",
                         contentBlocks = listOf(
                             ContentBlock.QuizContentBlock(
                                 question = "What is C++ used for?",
@@ -206,70 +146,30 @@ int main() {
                                     "Mobile App Development"
                                 ),
                                 correctAnswer = "System Programming",
-                                userAnswer = null, // Initially, no answer is selected
-                                isCorrect = false // Initially, answer is incorrect until the user answers
+                                userAnswer = null,
+                                isCorrect = false
                             )
                         ),
-                        type = LessonContentType.QUIZ
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.COMPLETED
                     )
                 ),
-                status = LessonStatus.COMPLETED
+                status = LessonStatus.COMPLETED,
             ),
-
 
             // Lesson 2: Getting Started with C++
             Lesson(
                 id = "beginner_cpp2",
                 title = "Getting Started with C++",
                 description = "In this lesson, we'll guide you through setting up the C++ development environment, installing IDEs and compilers, and writing your first C++ program.",
-                subLessons = listOf(
-                    // Sub-lesson 1: Setting Up an IDE
-                    Lesson(
-                        id = "beginner_c2_sub1",
-                        title = "Setting Up an IDE",
-                        description = "In this lesson, you'll learn how to install an IDE (Integrated Development Environment) to start writing C++ code. We’ll walk you through popular choices like Visual Studio (Windows), Code::Blocks (Cross-platform), or CLion (Cross-platform).",
-                        status = LessonStatus.COMPLETED
-                    ),
-                    // Sub-lesson 2: Installing a C++ Compiler
-                    Lesson(
-                        id = "beginner_c2_sub2",
-                        title = "Installing a C++ Compiler",
-                        description = "A C++ compiler is essential to compile and run your C++ programs. We will show you how to install GCC, MinGW, or Clang, depending on your operating system.",
-                        status = LessonStatus.COMPLETED
-                    ),
-                    // Sub-lesson 3: Your First C++ Program
-                    Lesson(
-                        id = "beginner_c2_sub3",
-                        title = "Your First C++ Program",
-                        description = "Now that your environment is set up, let’s write your first C++ program: a simple 'Hello, World!' that you can compile and run.",
-                        status = LessonStatus.COMPLETED
-                    ),
-                    // Sub-lesson 4: Setting Up Debugging Tools
-                    Lesson(
-                        id = "beginner_c2_sub4",
-                        title = "Setting Up Debugging Tools",
-                        description = "Debugging is an essential part of programming. In this sub-lesson, you’ll learn how to use debugging tools within your IDE to step through your code and catch bugs early.",
-                        status = LessonStatus.COMPLETED
-                    ),
-                    // Sub-lesson 5: Quiz
-                    Lesson(
-                        id = "beginner_c2_sub5",
-                        title = "Quiz!",
-                        description = "At the end of this lesson, test your knowledge with a quiz about IDEs, compilers, and your first program.",
-                        status = LessonStatus.COMPLETED
-                    )
-                ),
                 lessonContents = listOf(
-                    // Content 1: Setting Up an IDE
+                    // Sub-lesson 1: Setting Up an IDE
                     LessonContent(
                         id = "beginner_c2_sub1_content",
                         title = "Setting Up an IDE",
+                        description = "In this lesson, you'll learn how to install an IDE (Integrated Development Environment) to start writing C++ code. We’ll walk you through popular choices like Visual Studio (Windows), Code::Blocks (Cross-platform), or CLion (Cross-platform).",
                         contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    "To start writing C++ code, you need an IDE (Integrated Development Environment) where you can write, compile, and run your programs. There are several popular IDEs for C++ programming, such as:"
-                                )
-                            ),
+                            ContentBlock.Text(createSimpleText("To start writing C++ code, you need an IDE (Integrated Development Environment) where you can write, compile, and run your programs. There are several popular IDEs for C++ programming, such as:")),
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     text = "for Android: Coding C++ (PlayStore)\nfor IOS: C++ Compiler",
@@ -283,13 +183,15 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
-                    // Content 2: Installing a C++ Compiler
+                    // Sub-lesson 2: Installing a C++ Compiler
                     LessonContent(
                         id = "beginner_c2_sub2_content",
                         title = "Installing a C++ Compiler",
+                        description = "A C++ compiler is essential to compile and run your C++ programs. We will show you how to install GCC, MinGW, or Clang, depending on your operating system.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -310,171 +212,80 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
-                    // Content 3: Your First C++ Program
+                    // Sub-lesson 3: Your First C++ Program
                     LessonContent(
                         id = "beginner_c2_sub3_content",
                         title = "Your First C++ Program",
+                        description = "Now that your environment is set up, let’s write your first C++ program: a simple 'Hello, World!' that you can compile and run.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    "Now that your IDE and compiler are set up, let’s write your first program. This program will display 'Hello, World!' on the screen."
-                                )
-                            ),
+                            ContentBlock.Text(createSimpleText("Now that your IDE and compiler are set up, let’s write your first program. This program will display 'Hello, World!' on the screen.")),
                             ContentBlock.Code(
                                 code = """
-                            #include <iostream>
+                    #include <iostream>
 
-                            int main() {
-                                cout << "Hello, World!" <<endl;
-                                return 0;
-                            }
-                        """.trimIndent()
+                    int main() {
+                        cout << "Hello, World!" <<endl;
+                        return 0;
+                    }
+                """.trimIndent()
                             ),
-                            ContentBlock.Code(
-                                code = "Output : Hello, World!"
-                            ),
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    "After writing the code, click 'Build' or 'Run' in your IDE to compile and execute it. You should see 'Hello, World!' printed on the screen."
-                                )
-                            )
+                            ContentBlock.Code(code = "Output : Hello, World!"),
+                            ContentBlock.Text(createSimpleText("After writing the code, click 'Build' or 'Run' in your IDE to compile and execute it. You should see 'Hello, World!' printed on the screen."))
                         ),
-
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
-                    // Content 4: Setting Up Debugging Tools
+
+                    // Sub-lesson 4: Setting Up Debugging Tools
                     LessonContent(
                         id = "beginner_c2_sub4_content",
                         title = "Setting Up Debugging Tools",
+                        description = "Debugging is an essential part of programming. In this sub-lesson, you’ll learn how to use debugging tools within your IDE to step through your code and catch bugs early.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    "Debugging is essential for finding and fixing errors in your programs. IDEs like Visual Studio, Code::Blocks, and CLion come with built-in debuggers."
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    "You can use breakpoints to pause your program’s execution at specific points, allowing you to examine the state of variables and track down bugs."
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    "In this sub-lesson, you’ll learn how to set breakpoints in your IDE and step through your code to understand how it executes."
-                                )
-                            )
+                            ContentBlock.Text(createSimpleText("Debugging is essential for finding and fixing errors in your programs. IDEs like Visual Studio, Code::Blocks, and CLion come with built-in debuggers.")),
+                            ContentBlock.Text(createSimpleText("You can use breakpoints to pause your program’s execution at specific points, allowing you to examine the state of variables and track down bugs.")),
+                            ContentBlock.Text(createSimpleText("In this sub-lesson, you’ll learn how to set breakpoints in your IDE and step through your code to understand how it executes."))
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
-                    // Content 5: Quiz
+
+                    // Sub-lesson 5: Quiz!
                     LessonContent(
-                        id = "beginner_c2_sub5",
+                        id = "beginner_c2_sub5_content",
                         title = "Quiz!",
+                        description = "At the end of this lesson, test your knowledge with a quiz about IDEs, compilers, and your first program.",
                         contentBlocks = listOf(
                             ContentBlock.QuizContentBlock(
                                 question = "What does an IDE do?",
-                                options = listOf(
-                                    "Compiles code",
-                                    "Runs code",
-                                    "Both of the above"
-                                ),
+                                options = listOf("Compiles code", "Runs code", "Both of the above"),
                                 correctAnswer = "Both of the above",
                                 userAnswer = null,
                                 isCorrect = false
                             )
                         ),
-                        type = LessonContentType.QUIZ
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.COMPLETED
                     )
                 ),
                 status = LessonStatus.COMPLETED
             ),
 
-
-            // Lesson 3: Basic Syntax
+            // Lesson 3: C++ Basic Syntax
             Lesson(
                 id = "beginner_cpp3",
                 title = "C++ Basic Syntax",
                 description = "Ready to dive into C++ syntax? We'll cover essentials like '#include', the all-important 'main()' function, and more. Buckle up, because it's time to code like a pro!",
-                subLessons = listOf(
-                    // Sub-lesson 1: Why Syntax is Important
-                    Lesson(
-                        id = "beginner_c3_sub0",
-                        title = "Why Syntax is Important",
-                        description = "Learn why syntax is your program's BFF. It's like the grammar of programming—skip it, and things just won’t make sense!",
-                        status = LessonStatus.COMPLETED
-                    ),
-
-                    // Sub-lesson 2: The '#include' Directive
-                    Lesson(
-                        id = "beginner_c3_sub1",
-                        title = "The '#include' Directive",
-                        description = "What's the deal with '#include'? It's how you invite external libraries to your C++ party. Think of it like your program's shopping list!",
-                        status = LessonStatus.COMPLETED
-                    ),
-
-                    // Sub-lesson 3: Understanding the 'main()' Function
-                    Lesson(
-                        id = "beginner_c3_sub2",
-                        title = """Understanding the "main()" Function""",
-                        description = "The 'main()' function: where every C++ program starts its journey. It's the ‘start’ button for your code!",
-                        status = LessonStatus.COMPLETED
-                    ),
-
-                    // Sub-lesson 4: C++ Statements
-                    Lesson(
-                        id = "beginner_c3_sub3",
-                        title = "C++ Statements",
-                        description = "C++ statements: small but mighty! These are the building blocks of your code. Like LEGO for grown-ups.",
-                        status = LessonStatus.COMPLETED
-                    ),
-
-                    // Sub-lesson 5: C++ Single Statement
-                    Lesson(
-                        id = "beginner_c3_sub4",
-                        title = "C++ Single Statement",
-                        description = "Single statement = one action. Think of it as a solo performance—straight to the point!",
-                        status = LessonStatus.COMPLETED
-                    ),
-
-                    // Sub-lesson 6: C++ Multiple Statements
-                    Lesson(
-                        id = "beginner_c3_sub5",
-                        title = "C++ Multiple Statements",
-                        description = "Multiple statements? It's like a team working together to get things done. Teamwork makes the code work!",
-                        status = LessonStatus.COMPLETED
-                    ),
-
-                    // Sub-lesson 7: More on Statements
-                    Lesson(
-                        id = "beginner_c3_sub6",
-                        title = "More on Statements!",
-                        description = "Let's dig deeper! Think of statements as the tiny gears in the machine of your program.",
-                        status = LessonStatus.COMPLETED
-                    ),
-
-                    // Sub-lesson 8: Code Block Structure
-                    Lesson(
-                        id = "beginner_c3_sub8",
-                        title = "Code Block Structure",
-                        description = "Curly braces, baby! Code blocks group statements like a VIP club, making sure everything runs smoothly.",
-                        status = LessonStatus.COMPLETED
-                    ),
-
-                    // Sub-lesson 9: Quiz
-                    Lesson(
-                        id = "beginner_c3_sub9",
-                        title = "Quiz",
-                        description = "Test your C++ syntax knowledge. Will you ace it? Or will your code need a little more TLC?",
-                        status = LessonStatus.COMPLETED
-                    )
-                ),
                 lessonContents = listOf(
-                    // Content 1: Why Syntax is Important
+                    // Sub-Lesson 1: Why Syntax is Important
                     LessonContent(
                         id = "beginner_c3_sub0",
                         title = "Why Syntax is Important",
+                        description = "Learn why syntax is your program's BFF. It's like the grammar of programming—skip it, and things just won’t make sense!",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -493,13 +304,15 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
-                    // Content 2: The '#include' Directive
+                    // Sub-Lesson 2: The '#include' Directive
                     LessonContent(
                         id = "beginner_c3_sub1",
                         title = "The '#include' Directive",
+                        description = "What's the deal with '#include'? It's how you invite external libraries to your C++ party. Think of it like your program's shopping list!",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -519,13 +332,15 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
-                    // Content 3: Understanding the 'main()' Function
+                    // Sub-Lesson 3: Understanding the 'main()' Function
                     LessonContent(
                         id = "beginner_c3_sub2",
                         title = "Understanding the 'main()' Function",
+                        description = "The 'main()' function: where every C++ program starts its journey. It's the ‘start’ button for your code!",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -549,13 +364,15 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
-                    // Content 4: C++ Statements
+                    // Sub-Lesson 4: C++ Statements
                     LessonContent(
                         id = "beginner_c3_sub3",
                         title = "C++ Statements",
+                        description = "C++ statements: small but mighty! These are the building blocks of your code. Like LEGO for grown-ups.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -577,13 +394,15 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
-                    // Content 5: C++ Single Statement
+                    // Sub-Lesson 5: C++ Single Statement
                     LessonContent(
                         id = "beginner_c3_sub4",
                         title = "Single Statements",
+                        description = "Single statement = one action. Think of it as a solo performance—straight to the point!",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createSimpleText(
@@ -599,13 +418,15 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
-                    // Content 6: C++ Multiple Statements
+                    // Sub-Lesson 6: C++ Multiple Statements
                     LessonContent(
                         id = "beginner_c3_sub5",
                         title = "Multiple Statements",
+                        description = "Multiple statements? It's like a team working together to get things done. Teamwork makes the code work!",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createSimpleText(
@@ -614,16 +435,16 @@ int main() {
                             ),
                             ContentBlock.Code(
                                 code = """
-                                    #include <iostream>
-                                    using namespace std;
+                        #include <iostream>
+                        using namespace std;
 
-                                    int main() {
-                                        cout << "Hello, ";
-                                        cout << "World!";
-                                        return 0;
-                                    }
+                        int main() {
+                            cout << "Hello, ";
+                            cout << "World!";
+                            return 0;
+                        }
 
-                                """.trimIndent()
+                    """.trimIndent()
                             ),
                             ContentBlock.Text(
                                 createSimpleText(
@@ -631,29 +452,32 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
-                    // Content 7: More on Statements
+                    // Sub-Lesson 7: More on Statements
                     LessonContent(
                         id = "beginner_c3_sub6",
                         title = "More on Statements!",
+                        description = "Let's dig deeper! Think of statements as the tiny gears in the machine of your program.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     text = "Think of statements as tiny gears in a well-oiled machine. The more you have, the more your program can do!",
                                     styledText = listOf("program")
-
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
-                    // Content 8: Code Block Structure
+                    // Sub-Lesson 8: Code Block Structure
                     LessonContent(
                         id = "beginner_c3_sub8",
                         title = "Code Block Structure",
+                        description = "Curly braces, baby! Code blocks group statements like a VIP club, making sure everything runs smoothly.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -668,11 +492,11 @@ int main() {
                             ),
                             ContentBlock.Code(
                                 code = """
-                                    int main() {
-                                        cout << "Hello!";
-                                        return 0;
-                                    }
-                                """.trimIndent()
+                        int main() {
+                            cout << "Hello!";
+                            return 0;
+                        }
+                    """.trimIndent()
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -681,76 +505,42 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
-                    // Content 9: Quiz
+                    // Sub-Lesson 9: Quiz
                     LessonContent(
-                        id = "beginner_c3_sub9",
-                        title = "Quiz",
+                        id = "beginner_c2_sub5_content",
+                        title = "Quiz!",
+                        description = "Basic quiz to check you lesson knowledge.",
                         contentBlocks = listOf(
-                            ContentBlock.Text.fromString(
-                                "Time to test your knowledge! Can you handle this quiz?"
-                            ),
-                            ContentBlock.Text.fromString(
-                                "Answer the questions and see how much you've learned so far!"
+                            ContentBlock.QuizContentBlock(
+                                question = "What is a statement in a program?.",
+                                options = listOf("command", "nothing", "a worker"),
+                                correctAnswer = "command",
+                                userAnswer = null,
+                                isCorrect = false
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.COMPLETED
                     )
                 ),
                 status = LessonStatus.COMPLETED
             ),
-
 
             // Lesson 4: C++ Comments
             Lesson(
                 id = "beginner_cpp4",
                 title = "C++ Comments",
                 description = "Learn how to use comments to make your code more readable and maintainable.",
-                subLessons = listOf(
-                    Lesson(
-                        id = "beginner_cpp4_sub1",
-                        title = "What Are Comments?",
-                        description = "Understand the concept of comments and their purpose in programming.",
-                        status = LessonStatus.COMPLETED
-                    ),
-                    Lesson(
-                        id = "beginner_cpp4_sub2",
-                        title = "Single-Line Comments",
-                        description = "Learn how to write single-line comments in C++.",
-                        status = LessonStatus.COMPLETED
-                    ),
-                    Lesson(
-                        id = "beginner_cpp4_sub3",
-                        title = "Multi-Line Comments",
-                        description = "Explore the use of multi-line comments for more detailed explanations.",
-                        status = LessonStatus.COMPLETED
-                    ),
-                    Lesson(
-                        id = "beginner_cpp4_sub4",
-                        title = "Why Use Comments?",
-                        description = "Discover why comments are essential for writing clear and maintainable code.",
-                        status = LessonStatus.COMPLETED
-                    ),
-                    Lesson(
-                        id = "beginner_cpp4_sub5",
-                        title = "Commenting Best Practices",
-                        description = "Master the art of writing effective and meaningful comments.",
-                        status = LessonStatus.COMPLETED
-                    ),
-                    Lesson(
-                        id = "beginner_cpp4_sub6",
-                        title = "Quiz!",
-                        description = "Test your knowledge with a quiz on C++ comments.",
-                        status = LessonStatus.COMPLETED
-                    )
-                ),
                 lessonContents = listOf(
                     // Content 1: What Are Comments?
                     LessonContent(
-                        id = "beginner_cpp4_sub1",
+                        id = "beginner_cpp4_content1",
                         title = "What Are Comments? 📝",
+                        description = "Understand the concept of comments and their purpose in programming.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -767,12 +557,14 @@ int main() {
                                 code = """// This is a single-line comment!"""
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
                     // Content 2: Single-Line Comments
                     LessonContent(
-                        id = "beginner_cpp4_sub2",
+                        id = "beginner_cpp4_content2",
                         title = "Single-Line Comments",
+                        description = "Learn how to write single-line comments in C++.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -782,33 +574,36 @@ int main() {
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    text = "Perfect for quick notes.Use single line comments for simple notes.",
+                                    text = "Perfect for quick notes. Use single-line comments for simple notes.",
                                     styledText = listOf("quick notes")
                                 )
                             ),
                             ContentBlock.Code(
                                 code = """
-                                    // Print a friendly message
-                                    cout << "Hello, World!";
-                                 """.trimIndent()
+                        // Print a friendly message
+                        cout << "Hello, World!";
+                    """.trimIndent()
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
+
                     // Content 3: Multi-Line Comments
                     LessonContent(
-                        id = "beginner_cpp4_sub3",
+                        id = "beginner_cpp4_content3",
                         title = "Multi-Line Comments",
+                        description = "Explore the use of multi-line comments for more detailed explanations.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createSimpleText(
-                                    "Use multi-line comments For longer explanations, " +
-                                            "for example explaining a whole logic related to a funtion or class etc.."
+                                    "Use multi-line comments for longer explanations, " +
+                                            "for example explaining a whole logic related to a function or class, etc."
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    text = "Multiline comments start with '/*' and end with '*/'",
+                                    text = "Multi-line comments start with '/*' and end with '*/'",
                                     styledText = listOf(
                                         "'/*'", "'*/'"
                                     )
@@ -816,21 +611,47 @@ int main() {
                             ),
                             ContentBlock.Code(
                                 code = """
-                                    /*
-                                    This is a multi-line comment.
-                                    It spans multiple lines.
-                                    Perfect for detailed notes!
-                                    */
-                                    """.trimIndent()
+                        /*
+                        This is a multi-line comment.
+                        It spans multiple lines.
+                        Perfect for detailed notes!
+                        */
+                    """.trimIndent()
                             )
-
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
-                    // Content 4: Why Use Comments?
+
+                    // Content 4: Interactive Input Block
                     LessonContent(
-                        id = "beginner_cpp4_sub4",
+                        id = "beginner_cpp4_content4",
+                        title = "Try Writing Comments! 🖊️",
+                        description = "Now it's time to try writing comments in C++! Complete the missing part of the code to add a single-line comment.",
+                        contentBlocks = listOf(
+                            ContentBlock.InteractiveInputBlock(
+                                question = "Complete the code with an appropriate single-line comment.",
+                                incompleteCode = """
+int main () { 
+    ___ this is a comment.
+    cout << "Hello, C++!";
+    return 0;
+}
+""".trimIndent(),
+                                correctCode = "//",
+                                userInput = null,
+                                isCodeCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.INTERACTIVE,
+                        status = LessonStatus.ACTIVE
+                    ),
+
+                    // Content 5: Why Use Comments?
+                    LessonContent(
+                        id = "beginner_cpp4_content5",
                         title = "Why Use Comments? 🤔",
+                        description = "Discover why comments are essential for writing clear and maintainable code.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createSimpleText(
@@ -840,12 +661,14 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
-                    // Content 5: Commenting Best Practices
+                    // Content 6: Commenting Best Practices
                     LessonContent(
-                        id = "beginner_cpp4_sub5",
+                        id = "beginner_cpp4_content6",
                         title = "Commenting Best Practices 🧹",
+                        description = "Master the art of writing effective and meaningful comments.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -860,12 +683,40 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
-                    // Content 6: Quiz!
+
+                    // Content 7: Interactive Code Block
                     LessonContent(
-                        id = "beginner_cpp4_sub6",
-                        title = "Quiz!",
+                        id = "beginner_cpp4_content7",
+                        title = "Complete the Multi-Line Comment Code",
+                        description = "Now it's time to practice writing multi-line comments. Complete the code by adding a multi-line comment.",
+                        contentBlocks = listOf(
+                            ContentBlock.InteractiveCodeBlock(
+                                question = "Complete the code to write a multi-line comment.",
+                                options = listOf("//", "/*", "?"),
+                                incompleteCode = """
+int main () { 
+    ___ this is a comment and 
+    it spans across multiple lines. */
+    cout << "I love coding!";
+    return 0;
+}
+""".trimIndent(),
+                                correctAnswer = "/*",
+                                userAnswer = null,
+                            )
+                        ),
+                        type = LessonContentType.INTERACTIVE,
+                        status = LessonStatus.ACTIVE
+                    ),
+
+                    // Content 8: Quiz!
+                    LessonContent(
+                        id = "beginner_cpp4_content8",
+                        title = "Quiz! 🧠",
+                        description = "Test your knowledge on C++ comments with the following quiz.",
                         contentBlocks = listOf(
                             ContentBlock.QuizContentBlock(
                                 question = "Which symbol starts a single-line comment in C++?",
@@ -875,67 +726,24 @@ int main() {
                                 isCorrect = false
                             )
                         ),
-                        type = LessonContentType.QUIZ
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.COMPLETED
                     )
                 ),
                 status = LessonStatus.COMPLETED
             ),
-
 
             // Lesson 5: C++ Output
             Lesson(
                 id = "beginner_cpp5",
                 title = "C++ Output",
                 description = "Learn how to make your C++ program talk to you (okay, not literally). From printing text to numbers, let’s see how to show some cool stuff on the screen.",
-                subLessons = listOf(
-                    Lesson(
-                        id = "beginner_cpp5_sub1",
-                        title = "What is Output?",
-                        description = "What’s the point of a program if it stays silent? Let’s learn what output is all about.",
-                        status = LessonStatus.COMPLETED
-                    ),
-                    Lesson(
-                        id = "beginner_cpp5_sub2",
-                        title = "Introducing cout",
-                        description = "Meet 'cout', your program’s microphone for talking to the screen.",
-                        status = LessonStatus.COMPLETED
-                    ),
-                    Lesson(
-                        id = "beginner_cpp5_sub3",
-                        title = "Printing Text",
-                        description = "Learn how to make your program say, \"Hello, World!\" (because that’s tradition).",
-                        status = LessonStatus.COMPLETED
-                    ),
-                    Lesson(
-                        id = "beginner_cpp5_sub4",
-                        title = "Printing Numbers",
-                        description = "Find out how to display numbers, like showing off your favorite ones.",
-                        status = LessonStatus.COMPLETED
-                    ),
-                    Lesson(
-                        id = "beginner_cpp5_sub5",
-                        title = "Adding New Lines with \\n",
-                        description = "Let’s learn how to neatly move text to a new line. Nobody likes a messy program.",
-                        status = LessonStatus.COMPLETED
-                    ),
-                    Lesson(
-                        id = "beginner_cpp5_sub6",
-                        title = "Using endl",
-                        description = "Another way to break lines – because options are nice!",
-                        status = LessonStatus.COMPLETED
-                    ),
-                    Lesson(
-                        id = "beginner_cpp5_sub7",
-                        title = "Quiz Time!",
-                        description = "Time to show off what you learned – don’t worry, there’s no grade.",
-                        status = LessonStatus.COMPLETED
-                    )
-                ),
                 lessonContents = listOf(
                     // Lesson Content 1: What is Output?
                     LessonContent(
                         id = "beginner_cpp5_sub1",
                         title = "What is Output?",
+                        description = "What’s the point of a program if it stays silent? Let’s learn what output is all about.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -956,13 +764,15 @@ int main() {
                                 )
                             ),
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Lesson Content 2: Introducing cout
                     LessonContent(
                         id = "beginner_cpp5_sub2",
                         title = "Introducing cout",
+                        description = "Meet 'cout', your program’s microphone for talking to the screen.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createSimpleText(
@@ -971,12 +781,12 @@ int main() {
                             ),
                             ContentBlock.Code(
                                 code = """
-                        #include <iostream>
-                        
-                        int main() {
-                            cout << "Hello, World!";
-                            return 0;
-                        }
+#include <iostream>
+
+int main() {
+    cout << "Hello, World!";
+    return 0;
+}
                     """.trimIndent()
                             ),
                             ContentBlock.Code(
@@ -988,13 +798,15 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Lesson Content 3: Printing Text
                     LessonContent(
                         id = "beginner_cpp5_sub3",
                         title = "Printing Text",
+                        description = "Learn how to make your program say, \"Hello, World!\" (because that’s tradition).",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -1005,12 +817,12 @@ int main() {
                             ),
                             ContentBlock.Code(
                                 code = """
-                        #include <iostream>
-                        
-                        int main() {
-                            cout << "Coding is fun!";
-                            return 0;
-                        }
+#include <iostream>
+
+int main() {
+    cout << "Coding is fun!";
+    return 0;
+}
                     """.trimIndent()
                             ),
                             ContentBlock.Code(
@@ -1022,13 +834,15 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Lesson Content 4: Printing Numbers
                     LessonContent(
                         id = "beginner_cpp5_sub4",
                         title = "Printing Numbers",
+                        description = "Find out how to display numbers, like showing off your favorite ones.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createSimpleText(
@@ -1037,31 +851,55 @@ int main() {
                             ),
                             ContentBlock.Code(
                                 code = """
-                        #include <iostream>
-                        
-                        int main() {
-                            cout << 42;
-                            return 0;
-                        }
+#include <iostream>
+
+int main() {
+    cout << 42;
+    return 0;
+}
                     """.trimIndent()
                             ),
                             ContentBlock.Code(
                                 "Output: 42"
                             ),
-
                             ContentBlock.Text(
                                 createSimpleText(
-                                    "Simple right?,"
+                                    "Simple right?"
                                 )
                             ),
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Content 4: Interactive Input Block
+                    LessonContent(
+                        id = "beginner_cpp4_content4",
+                        title = "Complete the code",
+                        description = "Ok so now try to write a number on screen.",
+                        contentBlocks = listOf(
+                            ContentBlock.InteractiveInputBlock(
+                                question = "show output on screen by completing code.",
+                                incompleteCode = """
+int main () { 
+    ___ << "Your are too good." ;
+    return 0;
+}
+""".trimIndent(),
+                                correctCode = "cout",
+                                userInput = null,
+                                isCodeCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.INTERACTIVE,
+                        status = LessonStatus.ACTIVE
                     ),
 
                     // Lesson Content 5: Adding New Lines with \n
                     LessonContent(
                         id = "beginner_cpp5_sub5",
                         title = "Adding New Lines with \\n",
+                        description = "Let’s learn how to neatly move text to a new line. Nobody likes a messy program.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -1071,12 +909,12 @@ int main() {
                             ),
                             ContentBlock.Code(
                                 code = """
-                        #include <iostream>
-                        
-                        int main() {
-                            cout << "Line 1\nLine 2";
-                            return 0;
-                        }
+#include <iostream>
+
+int main() {
+    cout << "Line 1\nLine 2";
+    return 0;
+}
                     """.trimIndent()
                             ),
                             ContentBlock.Code(
@@ -1088,13 +926,15 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Lesson Content 6: Using endl
                     LessonContent(
                         id = "beginner_cpp5_sub6",
                         title = "Using endl",
+                        description = "Another way to break lines – because options are nice!",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -1104,7 +944,7 @@ int main() {
                             ),
                             ContentBlock.Code(
                                 code = """
-                        cout << "Line 1" << endl << "Line 2";
+cout << "Line 1" << endl << "Line 2";
                     """.trimIndent()
                             ),
                             ContentBlock.Code(
@@ -1118,13 +958,15 @@ int main() {
                                 )
                             ),
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Lesson Content 7: Quiz Time!
                     LessonContent(
                         id = "beginner_cpp5_sub7",
                         title = "Quiz Time!",
+                        description = "Time to show off what you learned – don’t worry, there’s no grade.",
                         contentBlocks = listOf(
                             ContentBlock.QuizContentBlock(
                                 question = "Which statement correctly prints 'Hello, World!' to the screen in C++?",
@@ -1139,88 +981,24 @@ int main() {
                                 isCorrect = false
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     )
                 ),
                 status = LessonStatus.COMPLETED
             ),
-
 
             // Lesson 6 : Variables
             Lesson(
                 id = "beginner_cpp6",
                 title = "Variables in C++",
                 description = "Learn about variables – the containers of your program’s data. From declaring to initializing and using them, let’s dive into the world of variables!",
-                subLessons = listOf(
-                    // Sub-lesson 1: Practice Previous Lessons
-                    Lesson(
-                        id = "beginner_cpp6_sub1",
-                        title = "Practice Previous Lessons! 🔄",
-                        description = "Before diving into variables, take a moment to practice what you've learned in the previous lessons! This will help you build a strong foundation for the next concepts.",
-                        status = LessonStatus.COMPLETED
-                    ),
-
-                    // Sub-lesson 2: What Are Variables?
-                    Lesson(
-                        id = "beginner_cpp6_sub2",
-                        title = "What Are Variables?",
-                        description = "Variables are like storage boxes in your code. You put data inside them, and later on, you can retrieve it. 🎁 Let’s explore how to declare them!",
-                        status = LessonStatus.COMPLETED
-                    ),
-
-                    // Sub-lesson 3: Declaring Variables
-                    Lesson(
-                        id = "beginner_cpp6_sub3",
-                        title = "Declaring Variables",
-                        description = "Before you can use a variable, you need to declare it. 🏷️ This tells the program what type of data the variable will hold.",
-                        status = LessonStatus.COMPLETED
-                    ),
-
-                    // Sub-lesson 4: Initializing Variables
-                    Lesson(
-                        id = "beginner_cpp6_sub4",
-                        title = "Initializing Variables",
-                        description = "Once declared, you can initialize variables with values. You can assign data right away, or leave them empty. Let's see how!",
-                        status = LessonStatus.COMPLETED
-                    ),
-
-                    // Sub-lesson 5: Declaring Multiple Variables
-                    Lesson(
-                        id = "beginner_cpp6_sub5",
-                        title = "Declaring Multiple Variables",
-                        description = "You can declare multiple variables of the same type in one line.  Let's see how to make the most of this shortcut!",
-                        status = LessonStatus.COMPLETED
-                    ),
-
-                    // Sub-lesson 6: Variable Types
-                    Lesson(
-                        id = "beginner_cpp6_sub6",
-                        title = "Variable Types",
-                        description = "C++ offers different data types for variables like 'int', 'float', and 'char'. Let’s learn how to choose the right type!",
-                        status = LessonStatus.COMPLETED
-                    ),
-
-                    // Sub-lesson 7: Variable Types overview
-                    Lesson(
-                        id = "beginner_cpp6_sub7",
-                        title = "data Types overview",
-                        description = "C++ offers different data types for variables like 'int', 'float', and 'char'. Let’s learn how to choose the right type!",
-                        status = LessonStatus.COMPLETED
-                    ),
-
-                    // Sub-lesson 8: Quiz
-                    Lesson(
-                        id = "beginner_cpp6_sub8",
-                        title = "Quiz Time! 🧠",
-                        description = "Test your knowledge of variables and their declaration in C++! Let’s see if you’re ready to move forward.",
-                        status = LessonStatus.COMPLETED
-                    )
-                ),
                 lessonContents = listOf(
                     // Content for "Practice Previous Lessons"
                     LessonContent(
                         id = "beginner_cpp6_sub1",
                         title = "Practice Previous Lessons! 🔄",
+                        description = "Before diving into variables, take a moment to practice what you've learned in the previous lessons!",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -1230,13 +1008,15 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for "What Are Variables?"
                     LessonContent(
                         id = "beginner_cpp6_sub2",
                         title = "What Are Variables?",
+                        description = "Variables are like storage boxes in your code. Let’s explore how to declare them!",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -1264,13 +1044,15 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for "Declaring Variables"
                     LessonContent(
                         id = "beginner_cpp6_sub3",
                         title = "Declaring Variables",
+                        description = "Before you can use a variable, you need to declare it.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createSimpleText(
@@ -1287,13 +1069,15 @@ int main() {
                                 )
                             ),
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for "Initializing Variables"
                     LessonContent(
                         id = "beginner_cpp6_sub4",
                         title = "Initializing Variables",
+                        description = "Once declared, you can initialize variables with values.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createSimpleText(
@@ -1309,13 +1093,15 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for "Declaring Multiple Variables"
                     LessonContent(
                         id = "beginner_cpp6_sub5",
                         title = "Declaring Multiple Variables",
+                        description = "You can declare multiple variables of the same type in one line.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createSimpleText(
@@ -1332,13 +1118,38 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Content 6: Interactive Input Block
+                    LessonContent(
+                        id = "beginner_cpp_content6",
+                        title = "Complete the code",
+                        description = "Complete code to declare a variable",
+                        contentBlocks = listOf(
+                            ContentBlock.InteractiveInputBlock(
+                                question = "complete the following code by declaring appropriate variable for storing age.",
+                                incompleteCode = """
+int main () { 
+    ___ age = 25; ;
+    return 0;
+}
+""".trimIndent(),
+                                correctCode = "int",
+                                userInput = null,
+                                isCodeCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.INTERACTIVE,
+                        status = LessonStatus.ACTIVE
                     ),
 
                     // Content for "Variable Types"
                     LessonContent(
                         id = "beginner_cpp6_sub6",
                         title = "Variable Types",
+                        description = "C++ offers different data types for variables like 'int', 'float', and 'char'.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -1361,13 +1172,15 @@ int main() {
 
                             ContentBlock.Text(createSimpleText("In next lesson we have  breakdown of common C++ variable types and how they work!"))
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Data Types Overview
                     LessonContent(
                         id = "beginner_cpp6_sub6_data_types",
                         title = "Data Types in C++",
+                        description = "C++ offers different data types for variables like 'int', 'float', and 'char'.",
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("In C++, variables are containers for storing different types of data. Here's a look at common data types: 🎉")),
 
@@ -1404,13 +1217,15 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for "Quiz Time!"
                     LessonContent(
                         id = "beginner_cpp6_sub8",
                         title = "Quiz Time! 🧠",
+                        description = "Test your knowledge of variables and their declaration in C++! Let’s see if you’re ready to move forward.",
                         contentBlocks = listOf(
                             ContentBlock.QuizContentBlock(
                                 question = "Which of these is the correct syntax to declare a variable in C++? 🧐",
@@ -1443,55 +1258,12 @@ int main() {
                 id = "beginner_cpp7",
                 title = "More on Variables",
                 description = "Now that you know the basics, let’s explore variables further. This lesson covers naming conventions, constants, and outputting variable values.",
-                subLessons = listOf(
-                    // Sub-lesson 1: Review Previous Lessons
-                    Lesson(
-                        id = "beginner_cpp7_sub1",
-                        title = "Review Your Variables",
-                        description = "Before diving deeper, take a moment to review what you’ve learned so far. Revisiting basics ensures a solid foundation.",
-                        status = LessonStatus.COMPLETED
-                    ),
-                    // Sub-lesson 2: Outputting Variables
-                    Lesson(
-                        id = "beginner_cpp7_sub2",
-                        title = "Outputting Variables",
-                        description = "Learn how to display variable values using `cout`. Understanding how to work with output is essential for debugging and communicating results.",
-                        status = LessonStatus.COMPLETED
-                    ),
-                    // Sub-lesson 3: Naming Variables
-                    Lesson(
-                        id = "beginner_cpp7_sub3",
-                        title = "Naming Variables",
-                        description = "Learn the best practices for naming your variables. Descriptive names make your code easier to understand and maintain.",
-                        status = LessonStatus.COMPLETED
-                    ),
-                    // Sub-lesson 4: Constants
-                    Lesson(
-                        id = "beginner_cpp7_sub4",
-                        title = "Constants",
-                        description = "Discover how to use constants in your programs. They ensure important values remain unchanged.",
-                        status = LessonStatus.COMPLETED
-                    ),
-                    // Sub-lesson 5: Naming Conventions
-                    Lesson(
-                        id = "beginner_cpp7_sub5",
-                        title = "Naming Conventions",
-                        description = "Explore common naming conventions in C++ and learn why consistency is key for clean, maintainable code.",
-                        status = LessonStatus.COMPLETED
-                    ),
-                    // Sub-lesson 6: Quiz
-                    Lesson(
-                        id = "beginner_cpp7_sub6",
-                        title = "Quiz: Naming & Constants",
-                        description = "Test your knowledge on naming conventions and constants in this quiz.",
-                        status = LessonStatus.COMPLETED
-                    )
-                ),
                 lessonContents = listOf(
                     // Content for "Review Your Variables"
                     LessonContent(
                         id = "beginner_cpp7_sub1",
                         title = "Review Your Variables",
+                        description = "Before diving into variables, take a moment to review what you've learned in the previous lessons.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -1502,13 +1274,15 @@ int main() {
 
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for "Outputting Variables"
                     LessonContent(
                         id = "beginner_cpp7_sub2",
                         title = "Outputting Variables",
+                        description = "Learn how to display variable values using 'cout'.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -1541,13 +1315,16 @@ int main() {
 
                             ),
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
+
 
                     // Content for "Naming Variables"
                     LessonContent(
                         id = "beginner_cpp7_sub3",
                         title = "Naming Variables",
+                        description = "Learn the best practices for naming your variables.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -1577,13 +1354,37 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Content 6: Interactive Input Block
+                    LessonContent(
+                        id = "beginner_cpp_content6",
+                        title = "Complete the Code:)",
+                        description = "Complete code to declare a variable",
+                        contentBlocks = listOf(
+                            ContentBlock.InteractiveCodeBlock(
+                                question = "Choose correct option for description variable name.",
+                                options = listOf("x","user","userName"),
+                                incompleteCode = """
+int main () { 
+    string ___ = "zain";
+    return 0;
+}
+""".trimIndent(),
+                                correctAnswer = "userName",
+                            )
+                        ),
+                        type = LessonContentType.INTERACTIVE,
+                        status = LessonStatus.ACTIVE
                     ),
 
                     // Content for "Constants"
                     LessonContent(
                         id = "beginner_cpp7_sub4",
                         title = "Constants",
+                        description = "Discover how to use constants in your programs.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -1604,13 +1405,15 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for "Naming Conventions"
                     LessonContent(
                         id = "beginner_cpp7_sub5",
                         title = "Naming Conventions",
+                        description = "Explore common naming conventions in C++ and learn why consistency is key for clean, maintainable code.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -1629,13 +1432,15 @@ int main() {
                             ),
                             ContentBlock.Text.fromString("Pick a style and stick to it throughout your codebase.")
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for "Quiz"
                     LessonContent(
                         id = "beginner_cpp7_sub6",
                         title = "Quiz: Naming & Constants",
+                        description = "Test your knowledge on naming conventions and constants in this quiz.",
                         contentBlocks = listOf(
                             ContentBlock.QuizContentBlock(
                                 question = "Which of the following is a valid constant declaration in C++?",
@@ -1660,60 +1465,12 @@ int main() {
                 id = "beginner_cpp8",
                 title = "C++ User Input",
                 description = "We’re moving from showing things on the screen to interacting with the user. Ready to let the user speak to your program? Let’s do this!",
-                subLessons = listOf(
-                    // Sub-lesson 1: Fun Introduction to User Input
-                    Lesson(
-                        id = "beginner_cpp8_sub1",
-                        title = "User Input: Let’s Hear It!",
-                        description = "Welcome to the world of User Input! Instead of just talking at the user (with cout), now you’ll let them talk back using cin. Let’s explore how we can get the user’s input with ease.",
-                        status = LessonStatus.COMPLETED
-                    ),
-
-                    // Sub-lesson 2: Getting Simple Input with cin 🎮
-                    Lesson(
-                        id = "beginner_cpp8_sub2",
-                        title = "Getting Input with cin: Ready, Set, Go! ",
-                        description = "So, you've learned how to display things. But can your program listen? That’s where cin comes in. It’s like inviting the user to the party and letting them choose the playlist!",
-                        status = LessonStatus.COMPLETED
-                    ),
-
-                    // Sub-lesson 3: Example - Get a Number from the User
-                    Lesson(
-                        id = "beginner_cpp8_sub3",
-                        title = "Get a Number: Your First Input ",
-                        description = "Here’s where we’ll ask the user for a number. They type it in, and voilà, you’ve got their answer! Let’s make it happen!",
-                        status = LessonStatus.COMPLETED
-                    ),
-
-                    // Sub-lesson 4: Creating a Simple Calculator
-                    Lesson(
-                        id = "beginner_cpp8_sub4",
-                        title = "Creating a Simple Calculator: Math Magic!‍♂",
-                        description = "Are you ready to make math fun? Now, let’s build a simple calculator where the user gives you two numbers and you perform the magic (or math) to get the sum.",
-                        status = LessonStatus.COMPLETED
-                    ),
-
-                    // Sub-lesson 5: Fun with Multiple Inputs
-                    Lesson(
-                        id = "beginner_cpp8_sub5",
-                        title = "Multiple Inputs: Getting Fancy",
-                        description = "Why settle for one input when you can have more? Let’s spice things up and get multiple inputs from the user. You’re the DJ now, let’s create a party! ",
-                        status = LessonStatus.COMPLETED
-                    ),
-
-                    // Sub-lesson 6: Quiz Block – Testing Your Input Skills 📝
-                    Lesson(
-                        id = "beginner_cpp8_sub6",
-                        title = "Quiz Time: Test Your User Input Knowledge! ",
-                        description = "You’ve learned a lot about user input, so let's see if you can remember what you’ve learned. Ready to put your thinking cap on? ",
-                        status = LessonStatus.COMPLETED
-                    )
-                ),
                 lessonContents = listOf(
                     // Content for "Fun Introduction to User Input"
                     LessonContent(
                         id = "beginner_cpp8_sub1",
                         title = "User Input: Let’s Hear It! 🎤",
+                        description = "Welcome to the world of User Input!",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -1733,13 +1490,15 @@ int main() {
 
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for "Getting Input with cin"
                     LessonContent(
                         id = "beginner_cpp8_sub2",
                         title = "Getting Input with cin: Ready, Set, Go!",
+                        description = "So, you've learned how to display things. But can your program listen? That’s where cin comes in.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -1769,13 +1528,15 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for "Get a Number from the User"
                     LessonContent(
                         id = "beginner_cpp8_sub3",
                         title = "Your First Input",
+                        description = "Here’s where we’ll ask the user for a number. They type it in, and voilà, you’ve got their answer!",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -1796,13 +1557,15 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for "Creating a Simple Calculator"
                     LessonContent(
                         id = "beginner_cpp8_sub4",
                         title = "Creating a Simple Calculator: Math Magic!️",
+                        description = "Are you ready to make math fun? Now, let’s build a simple calculator.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -1834,13 +1597,15 @@ cout << 'Sum is: ' << sum;
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
 //                  Content for "Multiple Inputs"
                     LessonContent(
                         id = "beginner_cpp8_sub5",
                         title = "Multiple Inputs: Getting Fancy ️",
+                        description = "Why settle for one input when you can have more?  ",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -1869,13 +1634,15 @@ cout << 'You entered: '<< x <<','<< y <<','<< z;
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for Quiz Block
                     LessonContent(
                         id = "beginner_cpp8_sub6",
                         title = "Quiz Time: Test Your User Input Knowledge! 🧠",
+                        description = "You’ve learned a lot about user input, so let's see if you can remember what you’ve learned.",
                         contentBlocks = listOf(
                             ContentBlock.QuizContentBlock(
                                 question = "Which keyword is used to get user input in C++?",
@@ -1895,61 +1662,13 @@ cout << 'You entered: '<< x <<','<< y <<','<< z;
             Lesson(
                 id = "beginner_cpp9",
                 title = "C++ Data Types",
-                description = "We’ve learned how to get input from the user, but now it’s time to store that data in the right container! Ready to choose the right data type for the job?",
-                subLessons = listOf(
-                    // Sub-lesson 1: Fun Introduction to Data Types
-                    Lesson(
-                        id = "beginner_cpp9_sub1",
-                        title = "The Right Container for Your Data!",
-                        description = "In the world of programming, there are many types of data, and just like we pack things in different bags, we store data in different types. Let's get to know them!",
-                        status = LessonStatus.COMPLETED
-                    ),
-
-                    // Sub-lesson 2: Working with Numbers ('int', 'float', 'double')
-                    Lesson(
-                        id = "beginner_cpp9_sub2",
-                        title = "Counting on 'int', 'float', and 'double'!",
-                        description = "When you need to store numbers, you have several choices. Use 'int' for whole numbers, 'float' for numbers with decimals, and 'double' when you need more precision. It’s like choosing between a pencil, a marker, and a fine-tipped pen!",
-                        status = LessonStatus.COMPLETED
-                    ),
-
-                    // Sub-lesson 3: Booleans ('bool') – True or False?
-                    Lesson(
-                        id = "beginner_cpp9_sub3",
-                        title = "Booleans ('bool'): True or False?",
-                        description = "Booleans can store only two values: 'true' or 'false'. It's like flipping a coin! Will it be heads or tails? You decide.",
-                        status = LessonStatus.COMPLETED
-                    ),
-
-                    // Sub-lesson 4: Characters ('char') – The Alphabet's Little Helper!
-                    Lesson(
-                        id = "beginner_cpp9_sub4",
-                        title = "Characters ('char'): The Alphabet's Little Helper!",
-                        description = "Need to store a single letter? Use 'char'! It’s like putting one letter into a tiny pocket. Need more letters? Use 'string' for the whole word!",
-                        status = LessonStatus.COMPLETED
-                    ),
-
-                    // Sub-lesson 5: Strings ('string') – Words Are Important!
-                    Lesson(
-                        id = "beginner_cpp9_sub5",
-                        title = "Strings ('string'): Words Are Important!",
-                        description = "When you need to store more than one letter, use 'string'. It’s like writing a sentence in your notebook!",
-                        status = LessonStatus.COMPLETED
-                    ),
-
-                    // Sub-lesson 6: Quiz Block – Testing Your Data Types Knowledge
-                    Lesson(
-                        id = "beginner_cpp9_sub6",
-                        title = "Quiz Time: Test Your Data Types Knowledge!",
-                        description = "Now that you’ve learned the data types, let’s test your knowledge. Ready to show what you’ve got?",
-                        status = LessonStatus.COMPLETED
-                    )
-                ),
+                description = "We’ve learned how to get input from the user, but now it’s time to store that data in the right container!",
                 lessonContents = listOf(
                     // Content for "Fun Introduction to Data Types"
                     LessonContent(
                         id = "beginner_cpp9_sub1",
                         title = "The Right Container for Your Data!",
+                        description = "In the world of programming, there are many types of data, and just like we pack things in different bags.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -1961,13 +1680,15 @@ cout << 'You entered: '<< x <<','<< y <<','<< z;
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for "Working with Numbers ('int', 'float', 'double')"
                     LessonContent(
                         id = "beginner_cpp9_sub2",
                         title = "Counting on 'int', 'float', and 'double'!",
+                        description = "When you need to store numbers, you have several choices. Use 'int' for whole numbers, 'float' for numbers with decimals, and 'double' when you need more precision.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -1997,13 +1718,16 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
+
 
                     // Content for "Booleans ('bool')"
                     LessonContent(
                         id = "beginner_cpp9_sub3",
                         title = "Booleans ('bool'): True or False?",
+                        description = "Booleans can store only two values: 'true' or 'false'.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -2033,13 +1757,15 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for "Characters ('char')"
                     LessonContent(
                         id = "beginner_cpp9_sub4",
                         title = "Characters ('char'): The Alphabet's Little Helper!",
+                        description = "Need to store a single letter or character? Use 'char'! It's like putting one letter into a tiny pocket.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -2062,13 +1788,15 @@ cout << 'Grade: ' << grade << ', Symbol: ' << symbol;
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for "Strings ('string')"
                     LessonContent(
                         id = "beginner_cpp9_sub5",
                         title = "Strings ('string'): Words Are Important!",
+                        description = "When you need to store more than one letter, use 'string'. It's like writing a sentence in your notebook!",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -2100,13 +1828,15 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for "Quiz Block"
                     LessonContent(
                         id = "beginner_cpp9_sub6",
                         title = "Quiz Time: Test Your Data Types Knowledge!",
+                        description = "Now that you've learned the data types, let's test your knowledge. Ready to show what you've got?",
                         contentBlocks = listOf(
                             ContentBlock.QuizContentBlock(
                                 question = "Which data type would you use to store the number 3.14?",
@@ -2127,55 +1857,12 @@ int main() {
                 id = "beginner_cpp10",
                 title = "C++ Strings: The Word Wizards!",
                 description = "Time to play with strings! Let's learn how to handle words, numbers, and user input in C++!",
-                subLessons = listOf(
-                    // Sub-lesson 1: Introduction to Strings
-                    Lesson(
-                        id = "beginner_cpp10_sub1",
-                        title = "Strings: The Basics",
-                        description = "Strings hold words and sentences! Let’s create a simple string and display it.",
-                        status = LessonStatus.COMPLETED
-                    ),
-                    // Sub-lesson 2: String Concatenation
-                    Lesson(
-                        id = "beginner_cpp10_sub2",
-                        title = "String Concatenation",
-                        description = "Combine strings and numbers together with concatenation. It’s like making a message!",
-                        status = LessonStatus.COMPLETED
-                    ),
-                    // Sub-lesson 3: String Input
-                    Lesson(
-                        id = "beginner_cpp10_sub3",
-                        title = "User Input with Strings",
-                        description = "Take input from the user and store it in a string.",
-                        status = LessonStatus.COMPLETED
-                    ),
-                    // Sub-lesson 4: String Length
-                    Lesson(
-                        id = "beginner_cpp10_sub4",
-                        title = "Measuring String Length",
-                        description = "Find out how many characters are in your string.",
-                        status = LessonStatus.COMPLETED
-                    ),
-                    // Sub-lesson 5: String Functions
-                    Lesson(
-                        id = "beginner_cpp10_sub5",
-                        title = "Using String Functions",
-                        description = "Learn some fun functions like 'substr()' and 'find()' to manipulate strings.",
-                        status = LessonStatus.COMPLETED
-                    ),
-                    // Sub-lesson 6: String Quiz
-                    Lesson(
-                        id = "beginner_cpp10_sub6",
-                        title = "String Quiz",
-                        description = "Test your string knowledge with a fun quiz!",
-                        status = LessonStatus.COMPLETED
-                    )
-                ),
                 lessonContents = listOf(
                     // Content for "Strings: The Basics"
                     LessonContent(
                         id = "beginner_cpp10_sub1",
                         title = "Strings: The Basics",
+                        description = "Let's create a simple string and display it.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -2206,13 +1893,15 @@ int main() {
                                 "Output: Hey,what's up"
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for "String Concatenation"
                     LessonContent(
                         id = "beginner_cpp10_sub2",
                         title = "String Concatenation",
+                        description = "Combine strings and numbers together with concatenation.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -2246,12 +1935,14 @@ int main() {
 //                                """.trimIndent()
 //                            )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
                     // Content for "User Input with Strings"
                     LessonContent(
                         id = "beginner_cpp10_sub3",
                         title = "User Input with Strings",
+                        description = "Take input from the user and store it in a string.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -2273,7 +1964,8 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
                     // Content for "Measuring String Length"
                     LessonContent(
@@ -2299,13 +1991,15 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for "Using String Functions"
                     LessonContent(
                         id = "beginner_cpp10_sub5",
                         title = "Using String Functions",
+                        description = "Learn some fun functions like 'substr()' and 'find()' to manipulate strings.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -2363,12 +2057,14 @@ int main() {
                             )
 
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
                     // Content for "String Quiz"
                     LessonContent(
                         id = "beginner_cpp10_sub6",
                         title = "String Quiz",
+                        description = "Test your string knowledge with a fun quiz!",
                         contentBlocks = listOf(
                             ContentBlock.QuizContentBlock(
                                 question = "What function is used to get the length of a string?",
@@ -2382,49 +2078,18 @@ int main() {
                 status = LessonStatus.COMPLETED
             ),
 
+
             // Lesson 11: Booleans
             Lesson(
                 id = "beginner_cpp11",
                 title = "Booleans: True or False?",
                 description = "Time to learn about Booleans in C++! Let’s play with true or false!",
-                subLessons = listOf(
-                    // Sub-lesson 1: Introduction to Booleans
-                    Lesson(
-                        id = "beginner_cpp11_sub1",
-                        title = "Booleans: Yes or No?",
-                        description = "Let's start with a boolean variable that checks if something is true or false.",
-                        status = LessonStatus.COMPLETED
-                    ),
-
-                    // Sub-lesson 2: Using Booleans in Decisions
-                    Lesson(
-                        id = "beginner_cpp11_sub2",
-                        title = "Booleans for Decisions",
-                        description = "Booleans help make decisions. We’ll see how to use 'true' or 'false' for making choices.",
-                        status = LessonStatus.COMPLETED
-                    ),
-
-                    // Sub-lesson 3: Boolean Variables in Action
-                    Lesson(
-                        id = "beginner_cpp11_sub3",
-                        title = "Boolean Variables in Action",
-                        description = "In this lesson, we’ll use boolean variables in different scenarios. Don’t worry about using 'if-else' for now, we’ll cover that in the next lesson!",
-                        status = LessonStatus.COMPLETED
-                    ),
-
-                    // Sub-lesson 4: Boolean Quiz
-                    Lesson(
-                        id = "beginner_cpp11_sub4",
-                        title = "Boolean Quiz",
-                        description = "Test your knowledge with a fun quiz about booleans!",
-                        status = LessonStatus.COMPLETED
-                    )
-                ),
                 lessonContents = listOf(
                     // Content for "Booleans: Yes or No?"
                     LessonContent(
                         id = "beginner_cpp11_sub1",
                         title = "Booleans: Yes or No?",
+                        description = "Let’s start with a boolean variable that checks if something is true or false.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -2451,13 +2116,15 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for "Booleans for Decisions"
                     LessonContent(
                         id = "beginner_cpp11_sub2",
                         title = "Booleans for Decisions",
+                        description = "Booleans help make decisions. We’ll see how to use 'true' or 'false' for making choices.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -2483,13 +2150,15 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for "Boolean Variables in Action"
                     LessonContent(
                         id = "beginner_cpp11_sub3",
                         title = "Boolean Variables in Action",
+                        description = "In this lesson, we’ll use boolean variables in different scenarios.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -2510,13 +2179,15 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for "Boolean Quiz"
                     LessonContent(
                         id = "beginner_cpp11_sub4",
                         title = "Boolean Quiz",
+                        description = "Test your knowledge with a fun quiz about booleans!",
                         contentBlocks = listOf(
                             ContentBlock.QuizContentBlock(
                                 question = "What is the value of a boolean 'false' in C++?",
@@ -2536,61 +2207,12 @@ int main() {
                 id = "beginner_cpp12",
                 title = "Understanding C++ Operators",
                 description = "Learn about operators and how to use them effectively in your programs.",
-                subLessons = listOf(
-                    Lesson(
-                        id = "beginner_cpp12_sub1",
-                        title = "What Are Operators?",
-                        description = "Discover the role of operators in C++.",
-                        status = LessonStatus.COMPLETED
-                    ),
-                    Lesson(
-                        id = "beginner_cpp12_sub2",
-                        title = "Assignment Operators",
-                        description = "Understand the basics of assigning values with `=`.",
-                        status = LessonStatus.COMPLETED
-                    ),
-                    Lesson(
-                        id = "beginner_cpp12_sub3",
-                        title = "Arithmetic Operators",
-                        description = "Perform math operations with `+`, `-`, and more.",
-                        status = LessonStatus.COMPLETED
-                    ),
-                    Lesson(
-                        id = "beginner_cpp12_sub4",
-                        title = "Comparison Operators",
-                        description = "Learn how to compare values using `==`, `!=`, and others.",
-                        status = LessonStatus.COMPLETED
-                    ),
-                    Lesson(
-                        id = "beginner_cpp12_sub5",
-                        title = "Logical Operators",
-                        description = "Combine multiple conditions with `&&` and `||`.",
-                        status = LessonStatus.COMPLETED
-                    ),
-                    Lesson(
-                        id = "beginner_cpp12_sub6",
-                        title = "Increment and Decrement Operators",
-                        description = "Use `++` and `--` to modify variables.",
-                        status = LessonStatus.COMPLETED
-                    ),
-                    Lesson(
-                        id = "beginner_cpp12_sub7",
-                        title = "Combining Operators in Expressions",
-                        description = "Combine operators for more powerful expressions.",
-                        status = LessonStatus.COMPLETED
-                    ),
-                    Lesson(
-                        id = "beginner_cpp12_sub8",
-                        title = "Quiz Time!",
-                        description = "Test your knowledge of operators!",
-                        status = LessonStatus.COMPLETED
-                    )
-                ),
                 lessonContents = listOf(
                     // Content for "What Are Operators?"
                     LessonContent(
                         id = "beginner_cpp12_sub1",
                         title = "What Are Operators?",
+                        description = "Operators are symbols that perform operations on variables or values.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -2605,13 +2227,15 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for "Assignment Operators"
                     LessonContent(
                         id = "beginner_cpp12_sub2",
                         title = "Assignment Operators",
+                        description = "Assign values to variables using the `=` operator.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -2627,13 +2251,15 @@ int main() {
                 """.trimIndent()
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for "Arithmetic Operators"
                     LessonContent(
                         id = "beginner_cpp12_sub3",
                         title = "Arithmetic Operators",
+                        description = "Perform mathematical operations with the arithmetic operators.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -2656,13 +2282,15 @@ int main() {
                 """.trimIndent()
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for "Comparison Operators"
                     LessonContent(
                         id = "beginner_cpp12_sub4",
                         title = "Comparison Operators",
+                        description = "Compare values using the comparison operators.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -2679,13 +2307,15 @@ int main() {
                 """.trimIndent()
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for "Logical Operators"
                     LessonContent(
                         id = "beginner_cpp12_sub5",
                         title = "Logical Operators",
+                        description = "Combine multiple conditions with the logical operators.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -2702,13 +2332,15 @@ int main() {
                 """.trimIndent()
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for "Increment and Decrement Operators"
                     LessonContent(
                         id = "beginner_cpp12_sub6",
                         title = "Increment and Decrement Operators",
+                        description = "Use the shorthand operators to modify variables.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -2728,13 +2360,15 @@ int main() {
                 """.trimIndent()
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for "Combining Operators in Expressions"
                     LessonContent(
                         id = "beginner_cpp12_sub7",
                         title = "Combining Operators in Expressions",
+                        description = "Combine operators for more complex calculations.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -2752,13 +2386,15 @@ int main() {
                 """.trimIndent()
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for "Operator Quiz"
                     LessonContent(
                         id = "beginner_cpp12_sub8",
                         title = "Operator Quiz",
+                        description = "Test your knowledge with a fun quiz about operators!",
                         contentBlocks = listOf(
                             ContentBlock.QuizContentBlock(
                                 question = "What is the result of '5 + 3 * 2' in C++?",
@@ -2778,54 +2414,13 @@ int main() {
                 id = "beginner_cpp12",
                 title = "If-Else – Make Choices!",
                 description = "Time to make decisions in your code! With If-Else, you can choose what happens next in your program. Let’s get started!",
-                subLessons = listOf(
-                    Lesson(
-                        id = "beginner_cpp12_sub1",
-                        title = "What is If-Else?",
-                        description = "Let’s explore what If-Else does in the world of code. It’s like making decisions every day: should I stay in bed or get up? We’ll figure that out with If-Else.",
-                        status = LessonStatus.COMPLETED
-                    ),
-                    Lesson(
-                        id = "beginner_cpp12_sub2",
-                        title = "The Ultimate Decision: Should I Eat or Not?",
-                        description = "Imagine deciding whether to eat lunch. Should I eat pizza, or am I okay without food? That’s what If-Else is about – making choices based on a condition.",
-                        status = LessonStatus.COMPLETED
-                    ),
-                    Lesson(
-                        id = "beginner_cpp12_sub3",
-                        title = "If-Else: The Code Behind the Decision",
-                        description = "Now let’s turn our decision-making into code. If you’re hungry, you eat pizza. If not, maybe salad. Let's see it in action!",
-                        status = LessonStatus.COMPLETED
-                    ),
-                    Lesson(
-                        id = "beginner_cpp12_sub4",
-                        title = "A Simple Decision: Should I Get Up or Not?",
-                        description = "Let’s make a simple decision before we dive deeper. Imagine you’re lying in bed, and the big question is: Should I get up or not? If you’re lazy, you stay in bed; otherwise, you get up and conquer the day!",
-                        status = LessonStatus.COMPLETED
-                    ),
-                    Lesson(
-                        id = "beginner_cpp12_sub5",
-                        title = "Else-If and Else: More Choices!",
-                        description = "Now, let’s level up! With `else if`, we can check multiple conditions, and with `else`, we have a default choice. Think of it like deciding if you want pizza, burger, or salad – the options just keep getting better!",
-                        status = LessonStatus.COMPLETED
-                    ),
-                    Lesson(
-                        id = "beginner_cpp12_sub6",
-                        title = "Else-If Quiz",
-                        description = "Test your knowledge of `else if` and `else` with a fun quiz!",
-                        status = LessonStatus.COMPLETED
-                    ),
-                    Lesson(
-                        id = "beginner_cpp12_sub7",
-                        title = "Final Quiz: Conditionals Recap!",
-                        description = "Let's test everything we've learned so far about `if`, `else`, and `else if` in one big quiz!",
-                        status = LessonStatus.COMPLETED
-                    )
-                ),
                 lessonContents = listOf(
+
+                    // Sub-lesson 1: What is If-Else?
                     LessonContent(
                         id = "beginner_cpp12_sub1",
                         title = "What is If-Else?",
+                        description = "Learn how If-Else helps make decisions in code.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -2841,11 +2436,15 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
+
+                    // Sub-lesson 2 : The Ultimate Decision: Should I Eat or Not?
                     LessonContent(
                         id = "beginner_cpp12_sub2",
                         title = "The Ultimate Decision: Should I Eat or Not?",
+                        description = "Explore decision-making with a pizza or no food choice.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -2859,11 +2458,15 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
+
+                    // Sub-lesson 3: If-Else: The Code Behind the Decision
                     LessonContent(
                         id = "beginner_cpp12_sub3",
                         title = "If-Else: The Code Behind the Decision",
+                        description = "Turn a decision into code: hungry for pizza or salad?",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -2887,11 +2490,13 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
                     LessonContent(
                         id = "beginner_cpp12_sub4",
                         title = "A Simple Decision: Should I Get Up or Not?",
+                        description = "Decide whether to stay in bed or get up and conquer the day!",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -2909,11 +2514,13 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
                     LessonContent(
                         id = "beginner_cpp12_sub5",
                         title = "Else-If and Else: More Choices!",
+                        description = "Level up with `else if` and `else` for multiple choices.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -2941,11 +2548,13 @@ if (isHungry) {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
                     LessonContent(
                         id = "beginner_cpp12_sub6",
                         title = "Else-If Quiz",
+                        description = "Test your knowledge of `else if` and `else` with a quiz!",
                         contentBlocks = listOf(
                             ContentBlock.QuizContentBlock(
                                 question = "What will this code print?\n\nbool isHungry = false;\nbool isCravingPizza = true;\nif (isHungry) {\n    cout << \"Let’s eat!\";\n} else if (isCravingPizza) {\n    cout << \"Pizza time!\";\n} else {\n    cout << \"Maybe a snack later!\";\n}",
@@ -2962,6 +2571,7 @@ if (isHungry) {
                     LessonContent(
                         id = "beginner_cpp12_sub7",
                         title = "Final Quiz: Conditionals Recap!",
+                        description = "Recap everything about `if`, `else`, and `else if` in a quiz!",
                         contentBlocks = listOf(
                             ContentBlock.QuizContentBlock(
                                 question = "Which of the following is true about `else if` statements?\n\n1. `else if` checks an additional condition if the previous condition was false.\n2. `else if` is the last choice after all other conditions.\n3. You should use `else` instead of `else if` if you have multiple conditions.",
@@ -2975,50 +2585,17 @@ if (isHungry) {
                 status = LessonStatus.COMPLETED
             ),
 
-
             // Lesson 14 :Nested else if
             Lesson(
                 id = "beginner_cpp13",
                 title = "Nested if-else: Decisions!",
-                description = "Ready to level up your decision-making skills? In this lesson, we’ll explore Nested If-Else statements, where you’ll make decisions based on multiple conditions, one inside another. Think of it as deciding what to eat based on your hunger, time, and mood! 🍕🤔",
-                subLessons = listOf(
-                    // Sub-lesson 1: What is Nested If-Else?
-                    Lesson(
-                        id = "beginner_cpp13_sub1",
-                        title = "What is Nested If-Else?",
-                        description = "Nested if-else is like making multiple decisions one after another. For example, if it's sunny, check if you have time for a walk! 🌞🚶‍♂️",
-                        status = LessonStatus.COMPLETED
-                    ),
-
-                    // Sub-lesson 2: Nested Decisions: Should I Go Outside or Stay In?
-                    Lesson(
-                        id = "beginner_cpp13_sub2",
-                        title = "Nested Decisions: Should I Go Outside or Stay In?",
-                        description = "Imagine deciding whether to go outside or not. First, you check if it's sunny, then you check if you have time. If both are true, you go outside!",
-                        status = LessonStatus.COMPLETED
-                    ),
-
-                    //Sub-Lesson 3: Understanding Nested If-Else
-                    Lesson(
-                        id = "beginner_cpp13_sub3",
-                        title = "Understanding Nested If-Else",
-                        description = "Nested if-else statements are useful when decisions depend on multiple conditions.",
-                        status = LessonStatus.COMPLETED
-                    ),
-
-                    // Sub-lesson 4: Quiz on Nested If-Else
-                    Lesson(
-                        id = "beginner_cpp13_sub4",
-                        title = "Quiz on Nested If-Else",
-                        description = "Test your understanding of nested if-else logic with a fun quiz!",
-                        status = LessonStatus.COMPLETED
-                    )
-                ),
+                description = "Ready to level up your decision-making skills? In this lesson, we’ll explore Nested If-Else statements.",
                 lessonContents = listOf(
                     // Content for "What is Nested If-Else?"
                     LessonContent(
                         id = "beginner_cpp13_sub1",
                         title = "What is Nested If-Else?",
+                        description = "Learn how nested if-else makes multiple decisions in a sequence.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -3034,13 +2611,15 @@ if (isHungry) {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for "Should I Go Outside or Stay In?"
                     LessonContent(
                         id = "beginner_cpp13_sub2",
                         title = "Should I Go Outside or Stay In?",
+                        description = "Understand how to check multiple conditions before making a decision.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -3071,13 +2650,15 @@ if (isSunny) {
                     """.trimIndent()
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for "Understanding Nested If-Else"
                     LessonContent(
                         id = "beginner_cpp13_sub3",
                         title = "Understanding Nested If-Else",
+                        description = "Explore how nested if-else works with multiple conditions.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -3095,13 +2676,15 @@ if (isSunny) {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for "Quiz on Nested If-Else"
                     LessonContent(
                         id = "beginner_cpp13_sub4",
                         title = "Quiz on Nested If-Else",
+                        description = "Test your knowledge of nested if-else logic in a quiz!",
                         contentBlocks = listOf(
                             ContentBlock.QuizContentBlock(
                                 question = "What will this code print?\n\n`int isSunny = 1;\nint hasTime = 0;\nif (isSunny) {\n    if (hasTime) {\n        printf(\"Go outside!\");\n    } else {\n        printf(\"Stay inside.\");\n    }\n} else {\n    printf(\"Stay inside.\");\n}`",
@@ -3119,67 +2702,19 @@ if (isSunny) {
                 status = LessonStatus.COMPLETED
             ),
 
+
             // Lesson 15 : Switch Case
             Lesson(
                 id = "beginner_cpp_switch_case",
                 title = "Switch-Case: Simplifying Multiple Choices",
-                description = "Time to take decision-making to the next level! With Switch-Case, we can simplify multiple condition checks in a clean and readable way. Let’s dive into it!",
-                subLessons = listOf(
-                    Lesson(
-                        id = "beginner_cpp_switch_case_sub1",
-                        title = "Introduction to Switch-Case",
-                        description = "In this sub-lesson, we'll understand the Switch-Case structure and how it works. Instead of multiple if-else statements, Switch-Case helps to check multiple conditions at once with ease.",
-                        status = LessonStatus.COMPLETED
-                    ),
-                    Lesson(
-                        id = "beginner_cpp_switch_case_sub2",
-                        title = "If-Else vs. Switch-Case",
-                        description = "Let’s compare `if-else` and `switch-case`. Both help in decision-making, but one is more efficient when handling multiple choices. We’ll see the differences in practice!",
-                        status = LessonStatus.COMPLETED
-                    ),
-                    Lesson(
-                        id = "beginner_cpp_switch_case_sub3",
-                        title = "The Basic Switch-Case Syntax",
-                        description = "Let’s start with the basic syntax of Switch-Case. How to declare a switch statement, use `case` labels, and handle a `default` case.",
-                        status = LessonStatus.COMPLETED
-                    ),
-                    Lesson(
-                        id = "beginner_cpp_switch_case_sub4",
-                        title = "Understanding `break` and `default` in Switch-Case",
-                        description = "Now that we know the basic syntax, let’s learn about the `break` statement and `default` case. These are essential for controlling the flow inside a switch-case.",
-                        status = LessonStatus.COMPLETED
-                    ),
-                    Lesson(
-                        id = "beginner_cpp_switch_case_sub5",
-                        title = "Switch-Case with Multiple Conditions",
-                        description = "Explore using multiple cases in a Switch-Case. What happens if multiple `case` labels point to the same action? Let’s find out!",
-                        status = LessonStatus.COMPLETED
-                    ),
-                    Lesson(
-                        id = "beginner_cpp_switch_case_sub6",
-                        title = "Switch-Case with Ranges and Expressions",
-                        description = "Learn how to handle ranges or more complex expressions within a Switch-Case. This is a step up from simple values!",
-                        status = LessonStatus.COMPLETED
-                    ),
-                    Lesson(
-                        id = "beginner_cpp_switch_case_sub7",
-                        title = "Common Mistakes in Switch-Case",
-                        description = "Understand some of the common pitfalls developers face when using Switch-Case, such as missing `break` statements or fall-through issues.",
-                        status = LessonStatus.COMPLETED
-                    ),
-                    Lesson(
-                        id = "beginner_cpp_switch_case_sub8",
-                        title = "Final Quiz: Mastering Switch-Case",
-                        description = "Test your understanding of Switch-Case with a final quiz! Let’s see if you’re ready to handle decision-making in a more efficient way.",
-                        status = LessonStatus.COMPLETED
-                    )
-                ),
+                description = "Time to take decision-making to the next level! With Switch-Case.",
                 lessonContents = listOf(
 
                     // Content for Introduction to Switch-Case
                     LessonContent(
                         id = "beginner_cpp_switch_case_sub1",
                         title = "Introduction to Switch-Case",
+                        description = "Learn how Switch-Case simplifies decision-making with multiple conditions.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -3198,13 +2733,15 @@ if (isSunny) {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for If-Else vs. Switch-Case
                     LessonContent(
                         id = "beginner_cpp_switch_case_sub2",
                         title = "If-Else vs. Switch-Case",
+                        description = "Compare `if-else` and `switch-case` for handling multiple choices.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -3219,13 +2756,15 @@ if (isSunny) {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for The Basic Switch-Case Syntax
                     LessonContent(
                         id = "beginner_cpp_switch_case_sub3",
                         title = "The Basic Switch-Case Syntax",
+                        description = "Learn the basic syntax for Switch-Case, using `case` and `default`.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -3258,13 +2797,15 @@ switch (number) {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for Understanding break and default in Switch-Case
                     LessonContent(
                         id = "beginner_cpp_switch_case_sub4",
                         title = "Understanding break and default in Switch-Case",
+                        description = "Explore the role of `break` and `default` in controlling flow in Switch-Case.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -3288,14 +2829,16 @@ switch (number) {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
 
-// Content for Switch-Case with Multiple Conditions
+                    // Content for Switch-Case with Multiple Conditions
                     LessonContent(
                         id = "beginner_cpp_switch_case_sub5",
                         title = "Switch-Case with Multiple Conditions",
+                        description = "Discover how to handle multiple `case` labels in a Switch-Case.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -3329,13 +2872,15 @@ switch (number) {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for Switch-Case with Ranges and Expressions
                     LessonContent(
                         id = "beginner_cpp_switch_case_sub6",
                         title = "Switch-Case with Ranges and Expressions",
+                        description = "Learn to handle ranges and expressions within Switch-Case statements.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -3365,13 +2910,15 @@ switch (number) {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
 
                     // Content for Common Mistakes in Switch-Case
                     LessonContent(
                         id = "beginner_cpp_switch_case_sub7",
                         title = "Common Mistakes in Switch-Case",
+                        description = "Identify common mistakes, like missing `break` statements and fall-through issues.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -3380,18 +2927,22 @@ switch (number) {
                                             "2. No 'default': Always add a default case to handle unexpected values.\n\n" +
                                             "3. Unsupported Data Types: switch works with integers and characters, but not with float or strings.\n\n" +
                                             "4. Missing Braces: Always include braces around multiple lines of code in a case.",
-                                    styledText = listOf("1. Missing 'break':","2. No 'default':",
+                                    styledText = listOf(
+                                        "1. Missing 'break':", "2. No 'default':",
                                         "3. Unsupported Data Types:", "4. Missing Braces:"
                                     )
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     ),
+
                     // Content for Final Quiz: Mastering Switch-Case
                     LessonContent(
                         id = "beginner_cpp_switch_case_sub8",
                         title = "Final Quiz: Mastering Switch-Case",
+                        description = "Test your knowledge of Switch-Case with a final quiz!",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -3400,12 +2951,342 @@ switch (number) {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.COMPLETED
                     )
                 ),
                 status = LessonStatus.COMPLETED
-            )
+            ),
 
+            // Final Quiz Lesson for Beginner C++ Stage
+            Lesson(
+                id = "final_quiz_cplusplus",
+                title = "C++ Final Quiz - Beginner Level",
+                description = "Test your knowledge on everything you've learned about C++ in this final quiz!",
+                lessonContents = listOf(
+                    // Sub-Lesson 1: C++ Syntax Quiz
+                    LessonContent(
+                        id = "final_quiz_syntax",
+                        title = "C++ Syntax Quiz",
+                        description = "What do you know about C++ syntax and its basic structure?",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "How do you include a library in C++?",
+                                options = listOf(
+                                    "#include <iostream>",
+                                    "import <iostream>",
+                                    "use <iostream>",
+                                    "include <iostream>"
+                                ),
+                                correctAnswer = "#include <iostream>",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Sub-Lesson 2: C++ Comments Quiz
+                    LessonContent(
+                        id = "final_quiz_comments",
+                        title = "C++ Comments Quiz",
+                        description = "Test your knowledge of C++ comment syntax.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "Which is the correct syntax for multi-line comments?",
+                                options = listOf(
+                                    "// Comment",
+                                    "/* Comment */",
+                                    "### Comment ###",
+                                    "# Comment"
+                                ),
+                                correctAnswer = "/* Comment */",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Sub-Lesson 3: C++ Output Quiz
+                    LessonContent(
+                        id = "final_quiz_output",
+                        title = "C++ Output Quiz",
+                        description = "Test your understanding of output in C++.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "How do you output a string in C++?",
+                                options = listOf(
+                                    "cout << 'Hello';",
+                                    "print('Hello');",
+                                    "echo 'Hello';",
+                                    "System.out.println('Hello');"
+                                ),
+                                correctAnswer = "cout << 'Hello';",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Sub-Lesson 4: C++ Variables Quiz 1
+                    LessonContent(
+                        id = "final_quiz_variables_1",
+                        title = "C++ Variables Quiz 1",
+                        description = "Test your knowledge of variables in C++.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "How do you declare an integer variable?",
+                                options = listOf(
+                                    "int num = 10;",
+                                    "integer num = 10;",
+                                    "num int = 10;",
+                                    "num = 10;"
+                                ),
+                                correctAnswer = "int num = 10;",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Sub-Lesson 5: C++ Variables Quiz 2
+                    LessonContent(
+                        id = "final_quiz_variables_2",
+                        title = "C++ Variables Quiz 2",
+                        description = "Check your knowledge of variable initialization.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "Which is the correct way to initialize a variable?",
+                                options = listOf(
+                                    "int num = 5;",
+                                    "num = 5 int;",
+                                    "int 5 = num;",
+                                    "initialize num = 5;"
+                                ),
+                                correctAnswer = "int num = 5;",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Sub-Lesson 6: C++ Variables Quiz 3
+                    LessonContent(
+                        id = "final_quiz_variables_3",
+                        title = "C++ Variables Quiz 3",
+                        description = "Test your knowledge of variable types.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "Which of the following is a valid variable type?",
+                                options = listOf(
+                                    "int",
+                                    "integer",
+                                    "num",
+                                    "value"
+                                ),
+                                correctAnswer = "int",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Sub-Lesson 7: C++ User Input Quiz
+                    LessonContent(
+                        id = "final_quiz_input",
+                        title = "C++ User Input Quiz",
+                        description = "Test your knowledge on handling user input.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "How do you take user input?",
+                                options = listOf(
+                                    "cin >> input;",
+                                    "get(input);",
+                                    "input = cin;",
+                                    "read(input);"
+                                ),
+                                correctAnswer = "cin >> input;",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Sub-Lesson 8: C++ Data Types Quiz
+                    LessonContent(
+                        id = "final_quiz_data_types",
+                        title = "C++ Data Types Quiz",
+                        description = "Test your knowledge on the data types in C++.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "Which is a valid C++ data type?",
+                                options = listOf(
+                                    "int",
+                                    "float64",
+                                    "bool",
+                                    "stringLiteral"
+                                ),
+                                correctAnswer = "bool",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Sub-Lesson 9: C++ Strings Quiz
+                    LessonContent(
+                        id = "final_quiz_strings",
+                        title = "C++ Strings Quiz",
+                        description = "Check your knowledge on strings in C++.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "How do you declare a string?",
+                                options = listOf(
+                                    "string str = 'Hello';",
+                                    "String str = 'Hello';",
+                                    "char str = 'Hello';",
+                                    "str = 'Hello';"
+                                ),
+                                correctAnswer = "string str = 'Hello';",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Sub-Lesson 10: C++ Booleans Quiz
+                    LessonContent(
+                        id = "final_quiz_booleans",
+                        title = "C++ Booleans Quiz",
+                        description = "Test your understanding of booleans.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "What are the two values of a boolean?",
+                                options = listOf(
+                                    "True and False",
+                                    "Yes and No",
+                                    "1 and 0",
+                                    "On and Off"
+                                ),
+                                correctAnswer = "True and False",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Sub-Lesson 11: C++ Operators Quiz
+                    LessonContent(
+                        id = "final_quiz_operators",
+                        title = "C++ Operators Quiz",
+                        description = "Test your knowledge of operators in C++.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "Which is a logical operator?",
+                                options = listOf(
+                                    "&&",
+                                    "++",
+                                    "-",
+                                    "/"
+                                ),
+                                correctAnswer = "&&",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Sub-Lesson 12: Else If Quiz
+                    LessonContent(
+                        id = "final_quiz_else_if",
+                        title = "C++ Else If Quiz",
+                        description = "Test your knowledge of `else if` statements.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "What is the syntax for using `else if`?",
+                                options = listOf(
+                                    "if (condition) else if (condition) { }",
+                                    "if (condition) { } else if (condition) { }",
+                                    "else if (condition) { }",
+                                    "else { if (condition) { } }"
+                                ),
+                                correctAnswer = "if (condition) { } else if (condition) { }",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Sub-Lesson 13: Nested Else If Quiz
+                    LessonContent(
+                        id = "final_quiz_nested_else_if",
+                        title = "C++ Nested Else If Quiz",
+                        description = "Test your understanding of nested `else if` statements.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "Which is the correct way to use nested `else if`?",
+                                options = listOf(
+                                    "if (condition) { if (condition) { } } else { }",
+                                    "if (condition) { else if (condition) { } else { } }",
+                                    "else { if (condition) { } } else if (condition) { }",
+                                    "if (condition) { if (condition) { } else { } }"
+                                ),
+                                correctAnswer = "if (condition) { if (condition) { } } else { }",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Sub-Lesson 14: C++ Switch Case Quiz
+                    LessonContent(
+                        id = "final_quiz_switch_case",
+                        title = "C++ Switch Case Quiz",
+                        description = "Test your knowledge of `switch` and `case` statements.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "What is the correct syntax for a switch case?",
+                                options = listOf(
+                                    "switch (x) { case 1: break; }",
+                                    "case 1: switch (x) break;",
+                                    "switch case (x) { break 1; }",
+                                    "if (x) { case 1: }"
+                                ),
+                                correctAnswer = "switch (x) { case 1: break; }",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.COMPLETED
+                    )
+                )
+            )
         )
     )
 }
