@@ -2370,6 +2370,8 @@ int main() {
                 ),
                 status = LessonStatus.LOCKED
             ),
+
+            // lesson 8
             Lesson(
                 id = "expert_c8",
                 title = "Student Grading System",
