@@ -2947,6 +2947,107 @@ int main() {
                 ),
                 status = LessonStatus.LOCKED
             ),
+
+            // lesson 9
+            // lesson 9
+            Lesson(
+                id = "expert_c9",
+                title = "End of C Language Lessons",
+                description = "Congratulations! You have completed the C programming lessons.",
+                lessonContents = listOf(
+                    LessonContent(
+                        id = "expert_c9_sub1",
+                        title = "Conclusion of C Language Learning",
+                        description = "This marks the end of your C programming journey. You've covered the fundamentals and advanced topics in C, including control structures, functions, arrays, pointers, memory management, and more.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "You have now learned the essential concepts in C programming, including syntax, control structures, functions, pointers, file handling, and memory management. These skills will help you solve real-world problems and form the foundation for learning more advanced programming topics in the future.",
+                                    listOf(
+                                        "C fundamentals",
+                                        "memory management",
+                                        "control structures"
+                                    )
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+
+                    LessonContent(
+                        id = "expert_c9_sub2",
+                        title = "Farewell to C: Embracing New Beginnings",
+                        description = "It's time to say goodbye to C programming. While it's bittersweet, you are now equipped with valuable skills for the next phase of your learning journey.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Though you're leaving the C language behind, the lessons and skills you've learned will continue to shape your growth as a programmer. As you step into real-world projects, remember that C has given you a solid foundation in understanding the inner workings of programming languages.",
+                                    listOf(
+                                        "programming foundation",
+                                        "real-world applications"
+                                    )
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+
+                    LessonContent(
+                        id = "expert_c9_sub3",
+                        title = "The Journey Ahead: Real-World Projects Await",
+                        description = "You're ready to take on real-world projects now! With your C language skills, you have the tools to tackle complex challenges and build powerful applications.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "As you transition to building real-world projects, you'll find that the concepts you've learned in C are everywhere. Whether you're working on applications, embedded systems, or even starting with a new language, your understanding of C will be invaluable. Keep building, keep creating, and never stop learning!",
+                                    listOf(
+                                        "real-world projects",
+                                        "continuous learning"
+                                    )
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+
+                    LessonContent(
+                        id = "expert_c9_sub4",
+                        title = "Embrace the Challenge: You're Ready",
+                        description = "With determination and the knowledge you've gained, you're more than ready for the next chapter in your programming journey.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Programming is an ongoing adventure, and you've just completed an important chapter. Take pride in how far you've come, and always remember that every new challenge is an opportunity to grow even more. The best is yet to come, and you're fully prepared for it!",
+                                    listOf(
+                                        "embracing challenges",
+                                        "growth and learning"
+                                    )
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+
+                    LessonContent(
+                        id = "expert_c9_sub5",
+                        title = "Best Wishes for Your Future Projects",
+                        description = "The road ahead is bright. Best of luck in your future programming endeavors!",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "You’ve come so far, and now you're ready to make a real impact in the programming world. Whether you're diving into app development, game design, or systems programming, the journey ahead is full of exciting possibilities. Best of luck with your future projects. May your code always compile successfully!",
+                                    listOf(
+                                        "future projects",
+                                        "success and impact"
+                                    )
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    )
+                ),
+                status = LessonStatus.LOCKED
+            ),
         )
     )
 }
