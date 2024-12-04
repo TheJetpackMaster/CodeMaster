@@ -634,7 +634,7 @@ double getUserInput() {
                 status = LessonStatus.LOCKED
             ),
 
-            // lesson 3
+            // lesson 4
             Lesson(
                 id = "expert_c4",
                 title = "Contact Management System",
@@ -1083,6 +1083,8 @@ int main() {
                 ),
                 status = LessonStatus.LOCKED
             ),
+
+            // lesson 5
             Lesson(
                 id = "expert_c5",
                 title = "Unit Converter",
