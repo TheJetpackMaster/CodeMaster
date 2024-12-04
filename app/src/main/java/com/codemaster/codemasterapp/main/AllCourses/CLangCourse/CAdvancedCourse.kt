@@ -1,6 +1,7 @@
 package com.codemaster.codemasterapp.main.AllCourses.CLangCourse
 
 import com.codemaster.codemasterapp.main.AllCourses.helperFuntions.createAnnotatedText
+import com.codemaster.codemasterapp.main.AllCourses.helperFuntions.createSimpleText
 import com.codemaster.codemasterapp.main.data.ContentBlock
 import com.codemaster.codemasterapp.main.data.ContentBlock.InteractiveInputBlock
 import com.codemaster.codemasterapp.main.data.ContentBlock.QuizContentBlock
@@ -19,59 +20,132 @@ fun CAdvancedCourse(): Stage {
             // lesson 1
             Lesson(
                 id = "advanced_c1",
+                title = "Welcome to Advanced Programming",
+                description = "Take your programming skills to the next level by mastering functions, memory management, pointers, and more.",
+                subLessons = listOf(
+                    Lesson(
+                        id = "advanced_c1_sub1",
+                        title = "Introduction to the Advanced Stage",
+                        description = "Understand the advanced concepts you will learn in this stage and how they enhance your programming abilities.",
+                        status = LessonStatus.ACTIVE,
+                    ),
+                    Lesson(
+                        id = "advanced_c1_sub2",
+                        title = "Motivation",
+                        description = "Stay motivated as you dive into complex topics like pointers, memory management, and file handling.",
+                        status = LessonStatus.ACTIVE,
+                    ),
+                    Lesson(
+                        id = "advanced_c1_sub3",
+                        title = "Tips for Success",
+                        description = "Essential strategies to help you navigate complex concepts and continue to grow as a programmer.",
+                        status = LessonStatus.ACTIVE,
+                    ),
+                    Lesson(
+                        id = "advanced_c1_sub4",
+                        title = "Next Steps",
+                        description = "What you can expect in the upcoming lessons as you explore more advanced topics.",
+                        status = LessonStatus.ACTIVE,
+                    )
+                ),
+                lessonContents = listOf(
+                    LessonContent(
+                        id = "advanced_c1_sub1",
+                        title = "Overview",
+                        description = "Explore the key advanced topics that will shape your programming expertise.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(createSimpleText("In this lesson, you'll learn about the power of functions, memory addresses, pointers, file operations, enums, and memory management. Mastering these concepts will help you write more efficient, modular, and scalable programs.")),
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = "advanced_c1_sub2",
+                        title = "Stay Inspired",
+                        description = "Encouragement to keep you motivated as you tackle complex programming challenges.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(createSimpleText("By mastering advanced concepts like memory management and pointers, you unlock the ability to write efficient and high-performance programs. Embrace the complexity, as each challenge is an opportunity to deepen your understanding of how computers work.")),
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = "advanced_c1_sub3",
+                        title = "Effective Learning Strategies",
+                        description = "Tips for mastering challenging advanced topics and becoming a better programmer.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(createSimpleText("Practice writing and testing functions, manipulating pointers, and managing memory. Break complex problems into smaller steps, and don’t be afraid to revisit concepts as you deepen your understanding. Debugging and optimizing code is crucial at this stage.")),
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = "advanced_c1_sub4",
+                        title = "Ready to Begin",
+                        description = "Prepare yourself for diving deep into advanced topics in the upcoming lessons.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(createSimpleText("As you advance, focus on writing programs that utilize pointers, manage memory effectively, and work with files. Learning how to manipulate memory and handle resources properly is essential to becoming a skilled programmer.")),
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    )
+                ),
+                status = LessonStatus.ACTIVE
+            ),
+
+
+            // lesson 2
+            Lesson(
+                id = "advanced_c2",
                 title = "C Functions",
                 description = "Learn how functions in C improve code reusability and modularity! 🧑‍💻",
                 subLessons = listOf(
                     Lesson(
-                        id = "advanced_c1_sub1",
+                        id = "advanced_c2_sub1",
                         title = "Introduction to Functions",
                         description = "Understand functions, their syntax, and how they modularize code.",
                         status = LessonStatus.ACTIVE
                     ),
                     Lesson(
-                        id = "advanced_c1_sub2",
+                        id = "advanced_c2_sub2",
                         title = "Predefined Functions",
                         description = "Explore built-in functions like `printf` and `scanf`.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c1_sub3",
+                        id = "advanced_c2_sub3",
                         title = "Create a Function",
                         description = "Learn to define custom functions.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c1_sub4",
+                        id = "advanced_c2_sub4",
                         title = "Quiz",
                         description = "Quiz",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c1_sub5",
+                        id = "advanced_c2_sub5",
                         title = "Call a Function (Way 1)",
                         description = "Learn how to call a function by defining it at the top and calling it in `main()`.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c1_sub6",
+                        id = "advanced_c2_sub6",
                         title = "Call a Function (Way 2)",
                         description = "Learn how to define a function within `main()` and call it in `main()`.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c1_sub7",
+                        id = "advanced_c2_sub7",
                         title = "Quiz",
                         description = "Quiz",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c1_sub6",
+                        id = "advanced_c2_sub6",
                         title = "Real-Life Example of Functions",
                         description = "See how functions solve real-world problems.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c1_sub9",
+                        id = "advanced_c2_sub9",
                         title = "Quiz",
                         description = "Quiz",
                         status = LessonStatus.LOCKED
@@ -79,7 +153,7 @@ fun CAdvancedCourse(): Stage {
                 ),
                 lessonContents = listOf(
                     LessonContent(
-                        id = "advanced_c1_sub1",
+                        id = "advanced_c2_sub1",
                         title = "Introduction to Functions",
                         description = "Understand functions, their syntax, and how they modularize code.",
                         contentBlocks = listOf(
@@ -106,7 +180,7 @@ fun CAdvancedCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c1_sub2",
+                        id = "advanced_c2_sub2",
                         title = "Predefined Functions",
                         description = "Explore built-in functions like printf and scanf.",
                         contentBlocks = listOf(
@@ -135,7 +209,7 @@ fun CAdvancedCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c1_sub3",
+                        id = "advanced_c2_sub3",
                         title = "Create a Function",
                         description = "Learn to define custom functions.",
                         contentBlocks = listOf(
@@ -156,7 +230,7 @@ fun CAdvancedCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c1_sub4",
+                        id = "advanced_c2_sub4",
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -175,7 +249,7 @@ fun CAdvancedCourse(): Stage {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c1_sub5",
+                        id = "advanced_c2_sub5",
                         title = "Call a Function (Way 1)",
                         description = "Learn how to call a function by defining it at the top and calling it in main().",
                         contentBlocks = listOf(
@@ -204,7 +278,7 @@ fun CAdvancedCourse(): Stage {
                     ),
 
                     LessonContent(
-                        id = "advanced_c1_sub6",
+                        id = "advanced_c2_sub6",
                         title = "Call a Function (Way 2)",
                         description = "Learn how to define a function within main() and call it in main().",
                         contentBlocks = listOf(
@@ -233,7 +307,7 @@ fun CAdvancedCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c1_sub7",
+                        id = "advanced_c2_sub7",
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -260,7 +334,7 @@ fun CAdvancedCourse(): Stage {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c1_sub8",
+                        id = "advanced_c2_sub8",
                         title = "Real-Life Example of Functions",
                         description = "See how functions can be used in real-world scenarios.",
                         contentBlocks = listOf(
@@ -298,7 +372,7 @@ fun CAdvancedCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c1_sub9",
+                        id = "advanced_c2_sub9",
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -320,45 +394,46 @@ fun CAdvancedCourse(): Stage {
                 ),
                 status = LessonStatus.ACTIVE
             ),
+            
 
-            // lesson 2
+            // lesson 3
             Lesson(
-                id = "advanced_c2",
+                id = "advanced_c3",
                 title = "C Functions: Data Types",
                 description = "Learn how different data types are used in C functions! 🧑‍💻",
                 subLessons = listOf(
                     Lesson(
-                        id = "advanced_c2_sub1",
+                        id = "advanced_c3_sub1",
                         title = "Function Data Types Overview",
                         description = "Learn about the role of data types in functions and how they define the return value.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c2_sub2",
+                        id = "advanced_c3_sub2",
                         title = "int Data Type",
                         description = "Learn how the `int` data type is used in functions.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c2_sub3",
+                        id = "advanced_c3_sub3",
                         title = "float Data Type",
                         description = "Understand the use of the `float` data type in functions.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c2_sub4",
+                        id = "advanced_c3_sub4",
                         title = "char Data Type",
                         description = "Explore how the `char` data type is used in functions.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c2_sub5",
+                        id = "advanced_c3_sub5",
                         title = "void Data Type",
                         description = "Learn how the `void` data type works for functions that don't return a value.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c2_sub6",
+                        id = "advanced_c3_sub6",
                         title = "Real-Life Example of Function Data Types",
                         description = "See how different function data types can be used in a practical, real-world scenario.",
                         status = LessonStatus.LOCKED
@@ -366,7 +441,7 @@ fun CAdvancedCourse(): Stage {
                 ),
                 lessonContents = listOf(
                     LessonContent(
-                        id = "advanced_c2_sub1",
+                        id = "advanced_c3_sub1",
                         title = "Function Data Types Overview",
                         description = "Learn about the role of data types in functions and how they define the return value.",
                         contentBlocks = listOf(
@@ -386,7 +461,7 @@ fun CAdvancedCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c2_sub2",
+                        id = "advanced_c3_sub2",
                         title = "int Data Type",
                         description = "Learn how the int data type is used in functions.",
                         contentBlocks = listOf(
@@ -413,7 +488,7 @@ fun CAdvancedCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c2_sub3",
+                        id = "advanced_c3_sub3",
                         title = "float Data Type",
                         description = "Understand the use of the float data type in functions.",
                         contentBlocks = listOf(
@@ -440,7 +515,7 @@ fun CAdvancedCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c2_sub4",
+                        id = "advanced_c3_sub4",
                         title = "char Data Type",
                         description = "Explore how the char data type is used in functions.",
                         contentBlocks = listOf(
@@ -469,7 +544,7 @@ fun CAdvancedCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c2_sub5",
+                        id = "advanced_c3_sub5",
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -488,7 +563,7 @@ fun CAdvancedCourse(): Stage {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c2_sub6",
+                        id = "advanced_c3_sub6",
                         title = "void Data Type",
                         description = "Learn how the void data type works for functions that don't return a value.",
                         contentBlocks = listOf(
@@ -515,7 +590,7 @@ fun CAdvancedCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c2_sub7",
+                        id = "advanced_c3_sub7",
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -534,7 +609,7 @@ fun CAdvancedCourse(): Stage {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c2_sub8",
+                        id = "advanced_c3_sub8",
                         title = "Real-Life Example of Function Data Types",
                         description = "See how different function data types can be used in a practical, real-world scenario.",
                         contentBlocks = listOf(
@@ -591,7 +666,7 @@ fun CAdvancedCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c2_sub9",
+                        id = "advanced_c3_sub9",
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -614,69 +689,69 @@ fun CAdvancedCourse(): Stage {
                 status = LessonStatus.LOCKED
             ),
 
-            // lesson 3
+            // lesson 4
             Lesson(
-                id = "advanced_c3",
+                id = "advanced_c4",
                 title = "C Function Parameters",
                 description = "Learn about function parameters and how they work in C functions! 🧑‍💻",
                 subLessons = listOf(
                     Lesson(
-                        id = "advanced_c3_sub1",
+                        id = "advanced_c4_sub1",
                         title = "Introduction to Parameters",
                         description = "Get introduced to function parameters and understand their importance in C.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c3_sub2",
+                        id = "advanced_c4_sub2",
                         title = "Multiple Parameters",
                         description = "Understand how to pass multiple parameters to a function.",
                         status = LessonStatus.LOCKED
                     ),
 
                     Lesson(
-                        id = "advanced_c3_sub3",
+                        id = "advanced_c4_sub3",
                         title = "Non-Parameter Functions",
                         description = "Learn about functions that do not take any parameters.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c3_sub4",
+                        id = "advanced_c4_sub4",
                         title = "Arguments in Functions",
                         description = "Understand the difference between parameters and arguments, and how arguments are passed to functions during a function call in C.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c3_sub5",
+                        id = "advanced_c4_sub5",
                         title = "Quiz",
                         description = "Quiz",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c3_sub6",
+                        id = "advanced_c4_sub6",
                         title = "Pass Arrays as Function Parameters",
                         description = "Learn how to pass arrays to functions in C.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c3_sub7",
+                        id = "advanced_c4_sub7",
                         title = "Return Values from Functions",
                         description = "Learn how functions return values to the caller.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c3_sub8",
+                        id = "advanced_c4_sub8",
                         title = "Quiz",
                         description = "Quiz",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c3_sub9",
+                        id = "advanced_c4_sub9",
                         title = "Real-Life Example of Function Parameters",
                         description = "Understand the use of function parameters with a real-life example.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c3_sub9",
+                        id = "advanced_c4_sub9",
                         title = "Quiz",
                         description = "Quiz",
                         status = LessonStatus.LOCKED
@@ -684,7 +759,7 @@ fun CAdvancedCourse(): Stage {
                 ),
                 lessonContents = listOf(
                     LessonContent(
-                        id = "advanced_c3_sub1",
+                        id = "advanced_c4_sub1",
                         title = "Introduction to Parameters",
                         description = "Get introduced to function parameters and understand their importance in C.",
                         contentBlocks = listOf(
@@ -715,7 +790,7 @@ fun CAdvancedCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c3_sub2",
+                        id = "advanced_c4_sub2",
                         title = "Multiple Parameters",
                         description = "Understand how to pass multiple parameters to a function.",
                         contentBlocks = listOf(
@@ -748,7 +823,7 @@ fun CAdvancedCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c3_sub3",
+                        id = "advanced_c4_sub3",
                         title = "Non-Parameter Functions",
                         description = "Learn about functions that do not take any parameters.",
                         contentBlocks = listOf(
@@ -779,7 +854,7 @@ fun CAdvancedCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c3_sub4",
+                        id = "advanced_c4_sub4",
                         title = "Arguments in Functions",
                         description = "Understand the difference between parameters and arguments, and how arguments are passed to functions during a function call in C.",
                         contentBlocks = listOf(
@@ -817,7 +892,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c3_sub5",
+                        id = "advanced_c4_sub5",
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -839,7 +914,7 @@ int main() {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c3_sub6",
+                        id = "advanced_c4_sub6",
                         title = "Pass Arrays as Function Parameters",
                         description = "Learn how to pass arrays to functions in C.",
                         contentBlocks = listOf(
@@ -881,7 +956,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c3_sub7",
+                        id = "advanced_c4_sub7",
                         title = "Return Values from Functions",
                         description = "Learn how functions return values to the caller.",
                         contentBlocks = listOf(
@@ -920,7 +995,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c3_sub8",
+                        id = "advanced_c4_sub8",
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -942,7 +1017,7 @@ int main() {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c3_sub9",
+                        id = "advanced_c4_sub9",
                         title = "Real-Life Example of Function Parameters",
                         description = "Understand the use of function parameters with a real-life example.",
                         contentBlocks = listOf(
@@ -980,7 +1055,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c3_sub10",
+                        id = "advanced_c4_sub10",
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -1001,56 +1076,56 @@ int main() {
                 status = LessonStatus.LOCKED
             ),
 
-            // lesson 4
+            // lesson 5
             Lesson(
-                id = "advanced_c4",
+                id = "advanced_c5",
                 title = "C Variable Scope",
                 description = "Understand how variables behave inside and outside functions in C.",
                 subLessons = listOf(
                     Lesson(
-                        id = "advanced_c4_sub1",
+                        id = "advanced_c5_sub1",
                         title = "Introduction to Variable Scope",
                         description = "Get a fundamental understanding of variable scope and its significance in C programming.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c4_sub2",
+                        id = "advanced_c5_sub2",
                         title = "Local Scope",
                         description = "Learn how local variables are restricted to the function they're declared in.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c4_sub3",
+                        id = "advanced_c5_sub3",
                         title = "Global Scope",
                         description = "Understand the accessibility of global variables across functions.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c4_sub4",
+                        id = "advanced_c5_sub4",
                         title = "Quiz",
                         description = "Quiz",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c4_sub5",
+                        id = "advanced_c5_sub5",
                         title = "Naming Variables",
                         description = "Explore how naming works and the impact of scope in C.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c4_sub6",
+                        id = "advanced_c5_sub6",
                         title = "Quiz",
                         description = "Quiz",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c4_sub7",
+                        id = "advanced_c5_sub7",
                         title = "Real-Life Example",
                         description = "See practical examples of variable scope.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c4_sub8",
+                        id = "advanced_c5_sub8",
                         title = "Quiz",
                         description = "Quiz",
                         status = LessonStatus.LOCKED
@@ -1058,7 +1133,7 @@ int main() {
                 ),
                 lessonContents = listOf(
                     LessonContent(
-                        id = "advanced_c4_sub1",
+                        id = "advanced_c5_sub1",
                         title = "Introduction to Variable Scope",
                         description = "Get a fundamental understanding of variable scope and its significance in C programming.",
                         contentBlocks = listOf(
@@ -1078,7 +1153,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c4_sub2",
+                        id = "advanced_c5_sub2",
                         title = "Local Scope",
                         description = "Learn how local variables are restricted to the function they're declared in.",
                         contentBlocks = listOf(
@@ -1105,7 +1180,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c4_sub3",
+                        id = "advanced_c5_sub3",
                         title = "Global Scope",
                         description = "Understand the accessibility of global variables across functions.",
                         contentBlocks = listOf(
@@ -1132,7 +1207,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c4_sub4",
+                        id = "advanced_c5_sub4",
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -1156,7 +1231,7 @@ int main() {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c4_sub5",
+                        id = "advanced_c5_sub5",
                         title = "Naming Variables",
                         description = "Explore how naming works and the impact of scope in C.",
                         contentBlocks = listOf(
@@ -1190,7 +1265,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c4_sub6",
+                        id = "advanced_c5_sub6",
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -1210,7 +1285,7 @@ int main() {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c4_sub7",
+                        id = "advanced_c5_sub7",
                         title = "Real-Life Example",
                         description = "See practical examples of variable scope.",
                         contentBlocks = listOf(
@@ -1241,7 +1316,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c4_sub8",
+                        id = "advanced_c5_sub8",
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -1264,56 +1339,56 @@ int main() {
                 status = LessonStatus.LOCKED
             ),
 
-            // lesson 5
+            // lesson 6
             Lesson(
-                id = "advanced_c5",
+                id = "advanced_c6",
                 title = "C Recursion",
                 description = "Understand recursion in C and use it effectively.",
                 subLessons = listOf(
                     Lesson(
-                        id = "advanced_c5_sub1",
+                        id = "advanced_c6_sub1",
                         title = "Introduction to Recursion",
                         description = "Learn the definition of recursion in C.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c5_sub2",
+                        id = "advanced_c6_sub2",
                         title = "Base Case in Recursion",
                         description = "Understand the base case's importance.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c5_sub3",
+                        id = "advanced_c6_sub3",
                         title = "Recursive Case in Recursion",
                         description = "See a recursive function in action.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c5_sub4",
+                        id = "advanced_c6_sub4",
                         title = "Quiz",
                         description = "Quiz",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c5_sub5",
+                        id = "advanced_c6_sub5",
                         title = "Recursive vs Iterative Solutions",
                         description = "Compare recursion and iteration.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c5_sub6",
+                        id = "advanced_c6_sub6",
                         title = "Quiz",
                         description = "Quiz",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c5_sub7",
+                        id = "advanced_c6_sub7",
                         title = "Real-Life Example of Recursion",
                         description = "Apply recursion in real-world scenarios.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c5_sub8",
+                        id = "advanced_c6_sub8",
                         title = "Quiz",
                         description = "Quiz",
                         status = LessonStatus.LOCKED
@@ -1321,7 +1396,7 @@ int main() {
                 ),
                 lessonContents = listOf(
                     LessonContent(
-                        id = "advanced_c5_sub1",
+                        id = "advanced_c6_sub1",
                         title = "Introduction to Recursion",
                         description = "Learn the definition of recursion in C.",
                         contentBlocks = listOf(
@@ -1369,7 +1444,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c5_sub2",
+                        id = "advanced_c6_sub2",
                         title = "Base Case in Recursion",
                         description = "Understand the base case's importance.",
                         contentBlocks = listOf(
@@ -1404,7 +1479,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c5_sub3",
+                        id = "advanced_c6_sub3",
                         title = "Recursive Case in Recursion",
                         description = "See a recursive function in action.",
                         contentBlocks = listOf(
@@ -1448,7 +1523,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c5_sub4",
+                        id = "advanced_c6_sub4",
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -1470,7 +1545,7 @@ int main() {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c5_sub5",
+                        id = "advanced_c6_sub5",
                         title = "Recursive vs Iterative Solutions",
                         description = "Compare recursion and iteration.",
                         contentBlocks = listOf(
@@ -1521,7 +1596,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c5_sub6",
+                        id = "advanced_c6_sub6",
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -1544,7 +1619,7 @@ int main() {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c5_sub7",
+                        id = "advanced_c6_sub7",
                         title = "Real-Life Example of Recursion",
                         description = "Apply recursion in real-world scenarios.",
                         contentBlocks = listOf(
@@ -1590,7 +1665,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c5_sub8",
+                        id = "advanced_c6_sub8",
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -1611,50 +1686,50 @@ int main() {
                 status = LessonStatus.LOCKED
             ),
 
-            // lesson 6
+            // lesson 7
             Lesson(
-                id = "advanced_c6",
+                id = "advanced_c7",
                 title = "C Math Functions",
                 description = "Learn basic math functions in C.",
                 subLessons = listOf(
                     Lesson(
-                        id = "advanced_c6_sub1",
+                        id = "advanced_c7_sub1",
                         title = "Intro to C Math Functions",
                         description = "Understand the math.h library.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c6_sub2",
+                        id = "advanced_c7_sub2",
                         title = "Common Math Functions",
                         description = "Learn basic functions like sqrt(), pow(), and abs().",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c6_sub3",
+                        id = "advanced_c7_sub3",
                         title = "Trigonometric Functions",
                         description = "Use functions like sin(), cos(), and tan().",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c6_sub4",
+                        id = "advanced_c7_sub4",
                         title = "Logarithmic & Exponential",
                         description = "Learn log(), log10(), and exp().",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c6_sub5",
+                        id = "advanced_c7_sub5",
                         title = "Rounding Functions",
                         description = "Explore round(), floor(), and ceil().",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c6_sub6",
+                        id = "advanced_c7_sub6",
                         title = "Real Life Example",
                         description = "See how C math functions are used in real-world applications.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c6_sub7",
+                        id = "advanced_c7_sub7",
                         title = "Quiz",
                         description = "Quiz",
                         status = LessonStatus.LOCKED
@@ -1662,7 +1737,7 @@ int main() {
                 ),
                 lessonContents = listOf(
                     LessonContent(
-                        id = "advanced_c6_sub1",
+                        id = "advanced_c7_sub1",
                         title = "Intro to C Math Functions",
                         description = "Understand the math.h library.",
                         contentBlocks = listOf(
@@ -1672,7 +1747,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c6_sub2",
+                        id = "advanced_c7_sub2",
                         title = "Common Math Functions",
                         description = "Learn basic functions like sqrt(), pow(), and abs().",
                         contentBlocks = listOf(
@@ -1693,7 +1768,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c6_sub3",
+                        id = "advanced_c7_sub3",
                         title = "Trigonometric Functions",
                         description = "Use functions like sin(), cos(), and tan().",
                         contentBlocks = listOf(
@@ -1711,7 +1786,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c6_sub4",
+                        id = "advanced_c7_sub4",
                         title = "Logarithmic & Exponential",
                         description = "Learn log(), log10(), and exp().",
                         contentBlocks = listOf(
@@ -1728,7 +1803,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c6_sub5",
+                        id = "advanced_c7_sub5",
                         title = "Rounding Functions",
                         description = "Explore round(), floor(), and ceil().",
                         contentBlocks = listOf(
@@ -1748,7 +1823,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c6_sub6",
+                        id = "advanced_c7_sub6",
                         title = "Real Life Example",
                         description = "See how C math functions are used in real-world applications.",
                         contentBlocks = listOf(
@@ -1768,7 +1843,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c6_sub7",
+                        id = "advanced_c7_sub7",
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -1785,50 +1860,50 @@ int main() {
             ),
 
 
-            // lesson 7
+            // lesson 8
             Lesson(
-                id = "advanced_c7",
+                id = "advanced_c8",
                 title = "C Memory Address",
                 description = "Dive into memory addresses in C and understand how variables are stored in memory! 🧠",
                 subLessons = listOf(
                     Lesson(
-                        id = "advanced_c7_sub1",
+                        id = "advanced_c8_sub1",
                         title = "Introduction to Memory Addresses",
                         description = "Introduction to memory addresses and how variables are stored in memory.",
                         status = LessonStatus.ACTIVE
                     ),
                     Lesson(
-                        id = "advanced_c7_sub2",
+                        id = "advanced_c8_sub2",
                         title = "What is a Memory Address?",
                         description = "Learn what a memory address is and how it relates to variable storage.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c7_sub3",
+                        id = "advanced_c8_sub3",
                         title = "Variables and Their Memory Locations",
                         description = "Understand how variables are stored at specific memory locations.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c7_sub4",
+                        id = "advanced_c8_sub4",
                         title = "How Variables are Stored in Memory",
                         description = "Learn how variables are physically stored in memory and allocated.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c7_sub5",
+                        id = "advanced_c8_sub5",
                         title = "Basic Use of the & (Address-of) Operator",
                         description = "Understand how to use the `&` operator to access the memory address.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c7_sub6",
+                        id = "advanced_c8_sub6",
                         title = "Real-life Example of Dynamic Memory Usage",
                         description = "Understand dynamic memory allocation in real applications.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c7_sub7",
+                        id = "advanced_c8_sub7",
                         title = "Quiz",
                         description = "Quiz",
                         status = LessonStatus.LOCKED
@@ -1836,7 +1911,7 @@ int main() {
                 ),
                 lessonContents = listOf(
                     LessonContent(
-                        id = "advanced_c7_sub1",
+                        id = "advanced_c8_sub1",
                         title = "Introduction to Memory Addresses",
                         description = "Introduction to memory addresses and how variables are stored in memory.",
                         contentBlocks = listOf(
@@ -1853,7 +1928,7 @@ printf("Memory address of num: %p\n", &num);
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c7_sub2",
+                        id = "advanced_c8_sub2",
                         title = "What is a Memory Address?",
                         description = "Learn what a memory address is and how it relates to variable storage.",
                         contentBlocks = listOf(
@@ -1870,7 +1945,7 @@ printf("Address of num: %p\n", &num);
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c7_sub3",
+                        id = "advanced_c8_sub3",
                         title = "Variables and Their Memory Locations",
                         description = "Understand how variables are stored at specific memory locations.",
                         contentBlocks = listOf(
@@ -1887,7 +1962,7 @@ printf("%p", &num);
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c7_sub4",
+                        id = "advanced_c8_sub4",
                         title = "How Variables are Stored in Memory",
                         description = "Learn how variables are physically stored in memory and allocated.",
                         contentBlocks = listOf(
@@ -1903,7 +1978,7 @@ int num = 10;  // Stored on the stack
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c7_sub5",
+                        id = "advanced_c8_sub5",
                         title = "Basic Use of the & (Address-of) Operator",
                         description = "Understand how to use the & operator to access the memory address.",
                         contentBlocks = listOf(
@@ -1920,7 +1995,7 @@ printf("Memory address of num: %p\n", &num);
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c7_sub6",
+                        id = "advanced_c8_sub6",
                         title = "Real-life Example of Dynamic Memory Usage",
                         description = "Understand dynamic memory allocation in real applications.",
                         contentBlocks = listOf(
@@ -1942,7 +2017,7 @@ if (imageData != NULL) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c7_sub7",
+                        id = "advanced_c8_sub7",
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -1958,74 +2033,74 @@ if (imageData != NULL) {
                 status = LessonStatus.LOCKED
             ),
 
-            // Lesson 8
+            // Lesson 9
             Lesson(
-                id = "advanced_c8",
+                id = "advanced_c9",
                 title = "C Pointers",
                 description = "Master pointers in C, including creating pointers and their relationship with arrays! 🔑",
                 subLessons = listOf(
                     Lesson(
-                        id = "advanced_c8_sub1",
+                        id = "advanced_c9_sub1",
                         title = "Introduction to Pointers",
                         description = "An introduction to what pointers are and why they are important in C programming.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c8_sub2",
+                        id = "advanced_c9_sub2",
                         title = "Creating Pointers",
                         description = "Learn how to create pointers and assign them to variables. This is the fundamental step in understanding pointers.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c8_sub3",
+                        id = "advanced_c9_sub3",
                         title = "Quiz",
                         description = "Quiz",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c8_sub4",
+                        id = "advanced_c9_sub4",
                         title = "Pointers & Arrays",
                         description = "Learn how pointers and arrays are closely related in C.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c8_sub5",
+                        id = "advanced_c9_sub5",
                         title = "Quiz",
                         description = "Quiz",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c8_sub6",
+                        id = "advanced_c9_sub6",
                         title = "Pointer Arithmetic",
                         description = "Explore pointer arithmetic and how to manipulate pointer values.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c8_sub7",
+                        id = "advanced_c9_sub7",
                         title = "Pointers to Pointers",
                         description = "Understand pointers that point to other pointers and how to work with them.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c8_sub8",
+                        id = "advanced_c9_sub8",
                         title = "Quiz",
                         description = "Quiz",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c8_sub9",
+                        id = "advanced_c9_sub9",
                         title = "Pointer & Function Arguments",
                         description = "Learn how to pass pointers to functions and manipulate data through them.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c8_sub10",
+                        id = "advanced_c9_sub10",
                         title = "Real-Life Example of Pointers",
                         description = "Learn how pointers can be used in real-world applications, such as dynamic memory management or handling large data.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c8_sub11",
+                        id = "advanced_c9_sub11",
                         title = "Quiz",
                         description = "Quiz",
                         status = LessonStatus.LOCKED
@@ -2033,7 +2108,7 @@ if (imageData != NULL) {
                 ),
                 lessonContents = listOf(
                     LessonContent(
-                        id = "advanced_c8_sub1",
+                        id = "advanced_c9_sub1",
                         title = "Introduction to Pointers",
                         description = "An introduction to what pointers are and why they are important in C programming.",
                         contentBlocks = listOf(
@@ -2055,7 +2130,7 @@ printf("Value of num using pointer: %d\n", *ptr);
 
                     // Creating Pointers
                     LessonContent(
-                        id = "advanced_c8_sub2",
+                        id = "advanced_c9_sub2",
                         title = "Creating Pointers",
                         description = "Learn how to create pointers and assign them to variables. This is the fundamental step in understanding pointers.",
                         contentBlocks = listOf(
@@ -2078,7 +2153,7 @@ printf("Value at the address: %d\n", *ptr);  // Dereferencing the pointer to get
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c8_sub3",
+                        id = "advanced_c9_sub3",
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -2093,7 +2168,7 @@ printf("Value at the address: %d\n", *ptr);  // Dereferencing the pointer to get
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c8_sub4",
+                        id = "advanced_c9_sub4",
                         title = "Pointers & Arrays",
                         description = "Learn how pointers and arrays are closely related in C.",
                         contentBlocks = listOf(
@@ -2110,7 +2185,7 @@ printf("%d\n", *(ptr + 1));  // Prints the second element of the array
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c8_sub5",
+                        id = "advanced_c9_sub5",
                         title = "Pointer Arithmetic",
                         description = "Explore pointer arithmetic and how to manipulate pointer values.",
                         contentBlocks = listOf(
@@ -2128,7 +2203,7 @@ printf("%d\n", *ptr);  // Prints the second element of the array
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c8_sub6",
+                        id = "advanced_c9_sub6",
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -2147,7 +2222,7 @@ printf("%d\n", *(ptr + ___));  // Fill in the blank
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c8_sub7",
+                        id = "advanced_c9_sub7",
                         title = "Pointers to Pointers",
                         description = "Understand pointers that point to other pointers and how to work with them.",
                         contentBlocks = listOf(
@@ -2165,7 +2240,7 @@ printf("%d\n", **ptr2);  // Dereferencing twice to access num's value
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c8_sub8",
+                        id = "advanced_c9_sub8",
                         title = "Pointer & Function Arguments",
                         description = "Learn how to pass pointers to functions and manipulate data through them.",
                         contentBlocks = listOf(
@@ -2188,7 +2263,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c8_sub9",
+                        id = "advanced_c9_sub9",
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -2208,7 +2283,7 @@ printf("%d\n", ___);  // Fill in the blank to access 'num' using pointer to poin
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c8_sub10",
+                        id = "advanced_c9_sub10",
                         title = "Real-Life Example of Pointers",
                         description = "Learn how pointers can be used in real-world applications, such as dynamic memory management or handling large data.",
                         contentBlocks = listOf(
@@ -2240,7 +2315,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c8_sub11",
+                        id = "advanced_c9_sub11",
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -2263,62 +2338,62 @@ int main() {
                 status = LessonStatus.LOCKED
             ),
 
-            // lesson 9
+            // lesson 10
             Lesson(
-                id = "advanced_c9",
+                id = "advanced_c10",
                 title = "C Structures",
                 description = "Learn how to use structures (structs) in C to group different types of data.",
                 subLessons = listOf(
                     Lesson(
-                        id = "advanced_c9_sub1",
+                        id = "advanced_c10_sub1",
                         title = "Introduction to Structures",
                         description = "Understand the basics of structures in C.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c9_sub2",
+                        id = "advanced_c10_sub2",
                         title = "Creating a Structure",
                         description = "Learn how to define and initialize a structure.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c9_sub3",
+                        id = "advanced_c10_sub3",
                         title = "Accessing Structure Members",
                         description = "Learn how to access and modify structure members.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c9_sub4",
+                        id = "advanced_c10_sub4",
                         title = "Quiz",
                         description = "Quiz",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c9_sub5",
+                        id = "advanced_c10_sub5",
                         title = "Nested Structures",
                         description = "Learn how to define structures within structures.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c9_sub6",
+                        id = "advanced_c10_sub6",
                         title = "Pointers to Structures",
                         description = "Understand how to use pointers with structures.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c9_sub7",
+                        id = "advanced_c10_sub7",
                         title = "Accessing Structure Members",
                         description = "Learn how to access and modify structure members.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c9_sub8",
+                        id = "advanced_c10_sub8",
                         title = "Real-Life Example of Structures",
                         description = "An advanced example of structures with arrays and functions.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c9_sub9",
+                        id = "advanced_c10_sub9",
                         title = "Quiz",
                         description = "Quiz",
                         status = LessonStatus.LOCKED
@@ -2326,7 +2401,7 @@ int main() {
                 ),
                 lessonContents = listOf(
                     LessonContent(
-                        id = "advanced_c9_sub1",
+                        id = "advanced_c10_sub1",
                         title = "Introduction to Structures",
                         description = "Understand the basics of structures in C.",
                         contentBlocks = listOf(
@@ -2343,7 +2418,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c9_sub2",
+                        id = "advanced_c10_sub2",
                         title = "Creating a Structure",
                         description = "Learn how to define and initialize a structure.",
                         contentBlocks = listOf(
@@ -2366,7 +2441,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c9_sub3",
+                        id = "advanced_c10_sub3",
                         title = "Accessing Structure Members",
                         description = "Learn how to access and modify structure members.",
                         contentBlocks = listOf(
@@ -2388,7 +2463,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c9_sub4",
+                        id = "advanced_c10_sub4",
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -2406,7 +2481,7 @@ int main() {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c9_sub5",
+                        id = "advanced_c10_sub5",
                         title = "Nested Structures",
                         description = "Learn how to define structures within structures.",
                         contentBlocks = listOf(
@@ -2437,7 +2512,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c9_sub6",
+                        id = "advanced_c10_sub6",
                         title = "Pointers to Structures",
                         description = "Understand how to use pointers with structures.",
                         contentBlocks = listOf(
@@ -2460,7 +2535,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c9_sub7",
+                        id = "advanced_c10_sub7",
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -2480,7 +2555,7 @@ struct Person {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c9_sub8",
+                        id = "advanced_c10_sub8",
                         title = "Real-Life Example of Structures",
                         description = "An advanced example of structures with arrays and functions.",
                         contentBlocks = listOf(
@@ -2513,7 +2588,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c9_sub9",
+                        id = "advanced_c10_sub9",
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -2535,50 +2610,51 @@ int main() {
                 ),
                 status = LessonStatus.LOCKED
             ),
-            // lesson 10
+            
+            // lesson 11
             Lesson(
-                id = "advanced_c10",
+                id = "advanced_c11",
                 title = "C Files",
                 description = "Learn advanced file handling techniques in C, including creating, reading, writing, and closing files.",
                 subLessons = listOf(
                     Lesson(
-                        id = "advanced_c10_sub1",
+                        id = "advanced_c11_sub1",
                         title = "Introduction to File Handling",
                         description = "Understand the basics of file handling in C.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c10_sub2",
+                        id = "advanced_c11_sub2",
                         title = "Creating a File",
                         description = "Learn how to create and open files in C.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c10_sub3",
+                        id = "advanced_c11_sub3",
                         title = "Reading from a File",
                         description = "Learn how to read data from a file.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c10_sub4",
+                        id = "advanced_c11_sub4",
                         title = "Writing to a File",
                         description = "Learn how to write data to a file.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c10_sub5",
+                        id = "advanced_c11_sub5",
                         title = "Closing a File",
                         description = "Learn how to close a file safely.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c10_sub6",
+                        id = "advanced_c11_sub6",
                         title = "File Error Handling",
                         description = "Understand how to handle file errors in C.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c10_sub7",
+                        id = "advanced_c11_sub7",
                         title = "Real-Life Example of File Handling",
                         description = "Learn a practical application of file handling in C.",
                         status = LessonStatus.LOCKED
@@ -2586,7 +2662,7 @@ int main() {
                 ),
                 lessonContents = listOf(
                     LessonContent(
-                        id = "advanced_c10_sub1",
+                        id = "advanced_c11_sub1",
                         title = "Introduction to File Handling",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -2606,7 +2682,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c10_sub2",
+                        id = "advanced_c11_sub2",
                         title = "Creating a File",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -2639,7 +2715,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c10_sub3",
+                        id = "advanced_c11_sub3",
                         title = "Reading from a File",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -2674,7 +2750,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c10_sub4",
+                        id = "advanced_c11_sub4",
                         title = "Quiz",
                         contentBlocks = listOf(
                             InteractiveInputBlock(
@@ -2694,7 +2770,7 @@ if (file == NULL) {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c10_sub5",
+                        id = "advanced_c11_sub5",
                         title = "Writing to a File",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -2727,7 +2803,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c10_sub6",
+                        id = "advanced_c11_sub6",
                         title = "Closing a File",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -2760,7 +2836,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c10_sub7",
+                        id = "advanced_c11_sub7",
                         title = "File Error Handling",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -2792,7 +2868,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c10_sub8",
+                        id = "advanced_c11_sub8",
                         title = "Quiz",
                         contentBlocks = listOf(
                             InteractiveInputBlock(
@@ -2806,7 +2882,7 @@ int main() {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c10_sub9",
+                        id = "advanced_c11_sub9",
                         title = "Real-Life Example of File Handling",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -2879,7 +2955,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c10_sub10",
+                        id = "advanced_c11_sub10",
                         title = "Quiz",
                         contentBlocks = listOf(
                             QuizContentBlock(
@@ -2901,56 +2977,56 @@ int main() {
                 status = LessonStatus.ACTIVE
             ),
 
-            // Lesson 11
+            // Lesson 12
             Lesson(
-                id = "advanced_c11",
+                id = "advanced_c12",
                 title = "C Enumeration (enum)",
                 description = "Learn advanced techniques for using enums in C, including defining enums, changing their values, and using them in switch statements.",
                 subLessons = listOf(
                     Lesson(
-                        id = "advanced_c11_sub1",
+                        id = "advanced_c12_sub1",
                         title = "Introduction to Enums",
                         description = "Learn the basics of defining and using enums in C.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c11_sub2",
+                        id = "advanced_c12_sub2",
                         title = "Changing Enum Values",
                         description = "Understand how to assign and change values of enums.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c11_sub3",
+                        id = "advanced_c12_sub3",
                         title = "Quiz",
                         description = "Quiz",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c11_sub4",
+                        id = "advanced_c12_sub4",
                         title = "Enum in Switch Statement",
                         description = "Learn how to use enums with switch-case statements.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c11_sub5",
+                        id = "advanced_c12_sub5",
                         title = "Enum with Bit Flags",
                         description = "Learn how to use enums with bit flags for more efficient storage.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c11_sub6",
+                        id = "advanced_c12_sub6",
                         title = "Quiz",
                         description = "Quiz",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c11_sub6",
+                        id = "advanced_c12_sub6",
                         title = "Real-life Example of Enums",
                         description = "Learn how enums can be used to represent real-world concepts such as user roles in a system.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c11_sub7",
+                        id = "advanced_c12_sub7",
                         title = "Quiz",
                         description = "Quiz",
                         status = LessonStatus.LOCKED
@@ -2958,7 +3034,7 @@ int main() {
                 ),
                 lessonContents = listOf(
                     LessonContent(
-                        id = "advanced_c11_sub1",
+                        id = "advanced_c12_sub1",
                         title = "Introduction to Enums",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -2991,7 +3067,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c11_sub2",
+                        id = "advanced_c12_sub2",
                         title = "Changing Enum Values",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -3022,7 +3098,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c11_sub3",
+                        id = "advanced_c12_sub3",
                         title = "Quiz",
                         contentBlocks = listOf(
                             InteractiveInputBlock(
@@ -3042,7 +3118,7 @@ int main() {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c11_sub4",
+                        id = "advanced_c12_sub4",
                         title = "Enum in Switch Statement",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -3077,7 +3153,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c11_sub4",
+                        id = "advanced_c12_sub4",
                         title = "Enum with Bit Flags",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -3119,7 +3195,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c11_sub5",
+                        id = "advanced_c12_sub5",
                         title = "Quiz",
                         contentBlocks = listOf(
                             InteractiveInputBlock(
@@ -3147,7 +3223,7 @@ int main() {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c11_sub6",
+                        id = "advanced_c12_sub6",
                         title = "Real-life Example of Enums",
                         contentBlocks = listOf(
                             ContentBlock.Text(createAnnotatedText("Enums can represent user roles in a system, improving clarity and managing permissions efficiently.")),
@@ -3189,7 +3265,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c11_sub7",
+                        id = "advanced_c12_sub7",
                         title = "Quiz",
                         contentBlocks = listOf(
                             QuizContentBlock(
@@ -3209,56 +3285,56 @@ int main() {
                 status = LessonStatus.LOCKED
             ),
 
-            // lesson 12
+            // lesson 13
             Lesson(
-                id = "advanced_c12",
+                id = "advanced_c13",
                 title = "C Memory Management",
                 description = "Master memory management in C, including dynamic memory allocation, deallocation, and handling memory efficiently.",
                 subLessons = listOf(
                     Lesson(
-                        id = "advanced_c12_sub1",
+                        id = "advanced_c13_sub1",
                         title = "Introduction to Memory Management",
                         description = "Understand the concept of memory management in C, including stack and heap memory.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c12_sub2",
+                        id = "advanced_c13_sub2",
                         title = "Dynamic Memory Allocation",
                         description = "Learn how to allocate memory dynamically using malloc, calloc, and realloc.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c12_sub3",
+                        id = "advanced_c13_sub3",
                         title = "Quiz",
                         description = "Quiz",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c12_sub4",
+                        id = "advanced_c13_sub4",
                         title = "Memory Deallocation",
                         description = "Learn the importance of deallocating memory using free.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c12_sub5",
+                        id = "advanced_c13_sub5",
                         title = "Memory Leaks and Optimization",
                         description = "Understand how to prevent memory leaks and optimize memory usage.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c12_sub6",
+                        id = "advanced_c13_sub6",
                         title = "Quiz",
                         description = "Quiz",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c12_sub7",
+                        id = "advanced_c13_sub7",
                         title = "Advanced Memory Management Techniques",
                         description = "Explore advanced techniques like memory pools, garbage collection, and real-life memory management strategies.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advanced_c12_sub8",
+                        id = "advanced_c13_sub8",
                         title = "Quiz",
                         description = "Quiz",
                         status = LessonStatus.LOCKED
@@ -3266,7 +3342,7 @@ int main() {
                 ),
                 lessonContents = listOf(
                     LessonContent(
-                        id = "advanced_c12_sub1",
+                        id = "advanced_c13_sub1",
                         title = "Introduction to Memory Management",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -3305,7 +3381,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c12_sub2",
+                        id = "advanced_c13_sub2",
                         title = "Dynamic Memory Allocation",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -3370,7 +3446,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c12_sub3",
+                        id = "advanced_c13_sub3",
                         title = "Quiz",
                         contentBlocks = listOf(
                             InteractiveInputBlock(
@@ -3384,7 +3460,7 @@ int main() {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c12_sub4",
+                        id = "advanced_c13_sub4",
                         title = "Memory Deallocation",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -3419,7 +3495,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c12_sub5",
+                        id = "advanced_c13_sub5",
                         title = "Memory Leaks and Optimization",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -3474,7 +3550,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c12_sub6",
+                        id = "advanced_c13_sub6",
                         title = "Quiz",
                         contentBlocks = listOf(
                             InteractiveInputBlock(
@@ -3488,7 +3564,7 @@ int main() {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c12_sub7",
+                        id = "advanced_c13_sub7",
                         title = "Real-Life Memory Management Examples",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -3550,7 +3626,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c12_sub8",
+                        id = "advanced_c13_sub8",
                         title = "Quiz",
                         contentBlocks = listOf(
                             QuizContentBlock(
@@ -3566,6 +3642,217 @@ int main() {
                 ),
                 status = LessonStatus.LOCKED
             ),
+
+
+            // lesson 14
+            Lesson(
+                id = "advanced_c14",
+                title = "Advanced Recap",
+                description = "A brief recap of advanced programming concepts in C, focusing on memory management, pointers, and other complex topics.",
+                lessonContents = listOf(
+                    LessonContent(
+                        id = "advanced_c14_sub1",
+                        title = "Introduction and Encouragement",
+                        description = "Let's revisit advanced concepts that will solidify your skills in C programming. These topics are the building blocks of efficient, high-performance applications.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "You're now venturing into more intricate areas of programming. Pointers, memory management, and file handling are not just concepts but essential tools that will allow you to write efficient, scalable, and performant code. Keep pushing forward, the mastery of these topics will elevate your programming to the next level.",
+                                    listOf("efficiency", "scalable", "performance")
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = "advanced_c14_sub2",
+                        title = "Pointers and Memory Management",
+                        description = "Understanding pointers and memory management is critical for writing optimized code. Pointers give you direct access to memory, and mastering memory allocation and deallocation allows for efficient resource usage.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Pointers are powerful tools that allow direct manipulation of memory. Mastering pointers, along with dynamic memory allocation (`malloc`, `calloc`) and deallocation (`free`), is essential for handling resources efficiently. Proper memory management ensures that your programs are not only functional but optimized for performance and reliability.",
+                                    listOf("pointers", "memory allocation", "dynamic memory")
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = "advanced_c14_sub3",
+                        title = "Enums and Advanced Data Structures",
+                        description = "Enums allow you to work with sets of named constants, while advanced data structures like structs and linked lists enable you to manage complex data efficiently.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Enums improve code readability by associating names with constant values, making your programs easier to understand and maintain. Pairing enums with structs and linked lists further enhances your ability to manage and process complex datasets efficiently.",
+                                    listOf("enums", "structs", "linked lists")
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = "advanced_c14_sub4",
+                        title = "Keep Going! Your Next Challenge Awaits",
+                        description = "You’ve gained mastery over advanced topics like pointers and memory management. These concepts will support the most complex tasks you’ll encounter. As you continue, your ability to write efficient and scalable code will grow exponentially.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "You're well-equipped to tackle larger projects and more challenging problems. Keep pushing forward—advanced topics like multithreading, system-level programming, and optimization are next on your journey. Stay focused and continue growing as a programmer.",
+                                    listOf("next challenge", "growth")
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    )
+                ),
+                status = LessonStatus.LOCKED
+            ),
+            
+            // lesson 15
+            Lesson(
+                id = "advanced_c15",
+                title = "Advanced Quiz",
+                description = "Test your advanced knowledge of C programming concepts such as memory management, pointers, structs, and file I/O! 🧠💻",
+                subLessons = listOf(
+                    Lesson(
+                        id = "advanced_c15_sub1",
+                        title = "Quiz: Pointers and Memory Management",
+                        description = "Test your understanding of pointers, dynamic memory allocation, and memory management techniques in C.",
+                        status = LessonStatus.LOCKED
+                    ),
+                    Lesson(
+                        id = "advanced_c15_sub2",
+                        title = "Quiz: Structs and Enums",
+                        description = "Quiz on structs, enums, and their usage in C.",
+                        status = LessonStatus.LOCKED
+                    ),
+                    Lesson(
+                        id = "advanced_c15_sub3",
+                        title = "Quiz: File I/O and Error Handling",
+                        description = "Test your knowledge of file input/output and error handling in C.",
+                        status = LessonStatus.LOCKED
+                    ),
+                    Lesson(
+                        id = "advanced_c15_sub4",
+                        title = "Quiz: Advanced Data Structures",
+                        description = "Test your understanding of linked lists, trees, and other advanced data structures in C.",
+                        status = LessonStatus.LOCKED
+                    ),
+                    Lesson(
+                        id = "advanced_c15_sub5",
+                        title = "Quiz: Multithreading and Concurrency",
+                        description = "Quiz on multithreading, synchronization, and concurrency concepts in C.",
+                        status = LessonStatus.LOCKED
+                    )
+                ),
+                lessonContents = listOf(
+                    LessonContent(
+                        id = "advanced_c15_sub1",
+                        title = "Quiz: Pointers and Memory Management",
+                        description = "Answer questions about pointers, dynamic memory allocation, and memory management techniques in C.",
+                        contentBlocks = listOf(
+                            QuizContentBlock(
+                                question = "What is the purpose of malloc() in C?",
+                                options = listOf(
+                                    "Allocates memory dynamically",
+                                    "Frees dynamically allocated memory",
+                                    "Returns a pointer to a string",
+                                    "Creates an array of fixed size"
+                                ),
+                                correctAnswer = "Allocates memory dynamically"
+                            ),
+                        ),
+                        type = LessonContentType.QUIZ
+                    ),
+                    LessonContent(
+                        id = "advanced_c15_sub2",
+                        title = "Quiz: Structs and Enums",
+                        description = "Test your understanding of structs, enums, and their applications in C.",
+                        contentBlocks = listOf(
+                            QuizContentBlock(
+                                question = "How do you define a struct in C?",
+                                options = listOf(
+                                    "struct name { int x; float y; };",
+                                    "struct { int x, float y; } name;",
+                                    "struct { int x, float y; };",
+                                    "int struct name { x; y; };"
+                                ),
+                                correctAnswer = "struct name { int x; float y; };"
+                            ),
+                        ),
+                        type = LessonContentType.QUIZ
+                    ),
+                    LessonContent(
+                        id = "advanced_c15_sub3",
+                        title = "Quiz: File I/O and Error Handling",
+                        description = "Answer questions about file input/output and error handling in C.",
+                        contentBlocks = listOf(
+                            QuizContentBlock(
+                                question = "What does fopen() return if it fails to open a file?",
+                                options = listOf(
+                                    "NULL",
+                                    "0",
+                                    "An error message",
+                                    "File pointer"
+                                ),
+                                correctAnswer = "NULL"
+                            ),
+
+                        ),
+                        type = LessonContentType.QUIZ
+                    ),
+                    LessonContent(
+                        id = "advanced_c15_sub4",
+                        title = "Quiz: Advanced Data Structures",
+                        description = "Test your understanding of advanced data structures like linked lists and trees.",
+                        contentBlocks = listOf(
+                            QuizContentBlock(
+                                question = "Which of the following is the correct way to define a node in a singly linked list?",
+                                options = listOf(
+                                    "struct node { int data; struct node *next; };",
+                                    "struct node { int data; node *next; };",
+                                    "struct { int data, struct node *next; };",
+                                    "int node { data; next; };"
+                                ),
+                                correctAnswer = "struct node { int data; struct node *next; };"
+                            ),
+
+                        ),
+                        type = LessonContentType.QUIZ
+                    ),
+                    LessonContent(
+                        id = "advanced_c15_sub5",
+                        title = "Quiz: Multithreading and Concurrency",
+                        description = "Test your knowledge of multithreading and concurrency concepts in C.",
+                        contentBlocks = listOf(
+                            QuizContentBlock(
+                                question = "Which function is used to create a thread in C?",
+                                options = listOf(
+                                    "pthread_create()",
+                                    "thread_create()",
+                                    "create_thread()",
+                                    "create_task()"
+                                ),
+                                correctAnswer = "pthread_create()"
+                            ),
+
+                        ),
+                        type = LessonContentType.QUIZ
+                    ),
+                    LessonContent(
+                        id = "advanced_c15_sub6",
+                        title = "Stage Completed",
+                        description = "You’ve completed this stage, now prepare for the next one!",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(createSimpleText("Fantastic! You've successfully completed this stage. Continue practicing and get ready for the next stage to master advanced C programming concepts. 🚀"))
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    )
+                ),
+                status = LessonStatus.LOCKED
+            )
 
 
             // continue from here
