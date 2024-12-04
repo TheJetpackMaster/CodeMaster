@@ -18,18 +18,18 @@ fun CExpertCourse(): Stage {
 
             // lesson 1
             Lesson(
-                id = "expert_c1",
+                id = "expert_c2",
                 title = "Introduction to Expert Projects",
                 description = "Get an overview of what you'll learn in the expert-level projects, focusing on logic building and advanced programming concepts.",
                 subLessons = listOf(
                     Lesson(
-                        id = "expert_c1_sub1",
+                        id = "expert_c2_sub1",
                         title = "Introduction to the Expert Stage",
                         description = "Understand what the expert-level projects entail and what you'll achieve by the end.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "expert_c1_sub2",
+                        id = "expert_c2_sub2",
                         title = "Overview of Projects and Goals",
                         description = "Explore the structure of projects, categories, and the skills you'll gain.",
                         status = LessonStatus.LOCKED
@@ -37,7 +37,7 @@ fun CExpertCourse(): Stage {
                 ),
                 lessonContents = listOf(
                     LessonContent(
-                        id = "expert_c1_sub1",
+                        id = "expert_c2_sub1",
                         title = "Introduction to the Expert Stage",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -60,7 +60,7 @@ fun CExpertCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "expert_c1_sub2",
+                        id = "expert_c2_sub2",
                         title = "Overview of Projects and Goals",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -95,36 +95,36 @@ fun CExpertCourse(): Stage {
 
             // lesson 2
             Lesson(
-                id = "advance_c2",
+                id = "expert_c3",
                 title = "Mastering Logic Building and Project Execution",
                 description = "Learn the essential strategies to build projects, solve problems, escape tutorial hell, and become a great programmer using the tools provided in this app.",
                 subLessons = listOf(
                     Lesson(
-                        id = "advance_c2_sub1",
+                        id = "expert_c3_sub1",
                         title = "Key Strategies for Logic Building",
                         description = "Discover the essential techniques to enhance your logic-building skills for advanced programming tasks.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advance_c2_sub2",
+                        id = "expert_c3_sub2",
                         title = "Project Execution Framework",
                         description = "Understand how to approach, plan, and execute projects effectively for optimal learning and problem-solving.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advance_c2_sub3",
+                        id = "expert_c3_sub3",
                         title = "Escaping Tutorial Hell",
                         description = "Learn how to break free from relying solely on tutorials and transition to independent problem-solving.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advance_c2_sub4",
+                        id = "expert_c3_sub4",
                         title = "Becoming a Great Programmer",
                         description = "Leverage the resources in this app to build expertise and confidence as a programmer.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "advance_c2_sub5",
+                        id = "expert_c3_sub5",
                         title = "Problem-Solving Techniques",
                         description = "Master the art of breaking down, analyzing, and solving complex programming problems efficiently.",
                         status = LessonStatus.LOCKED
@@ -132,7 +132,7 @@ fun CExpertCourse(): Stage {
                 ),
                 lessonContents = listOf(
                     LessonContent(
-                        id = "advance_c2_sub1",
+                        id = "expert_c3_sub1",
                         title = "Key Strategies for Logic Building",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -145,7 +145,7 @@ fun CExpertCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advance_c2_sub2",
+                        id = "expert_c3_sub2",
                         title = "Project Execution Framework",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -170,7 +170,7 @@ fun CExpertCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advance_c2_sub3",
+                        id = "expert_c3_sub3",
                         title = "Escaping Tutorial Hell",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -195,7 +195,7 @@ fun CExpertCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advance_c2_sub4",
+                        id = "expert_c3_sub4",
                         title = "Becoming a Great Programmer",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -220,7 +220,7 @@ fun CExpertCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advance_c2_sub5",
+                        id = "expert_c3_sub5",
                         title = "Problem-Solving Techniques",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -255,48 +255,48 @@ fun CExpertCourse(): Stage {
 
             // lesson 3
             Lesson(
-                id = "expert_c3",
+                id = "expert_c4",
                 title = "Personalized Calculator",
                 description = "Build a personalized calculator with custom functions, UI, and logic.",
                 subLessons = listOf(
                     Lesson(
-                        id = "expert_c3_sub1",
+                        id = "expert_c4_sub1",
                         title = "Introduction to Personalized Calculator",
                         description = "Learn how to create a personalized calculator with custom operations and design.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "expert_c3_sub2",
+                        id = "expert_c4_sub2",
                         title = "Basic Operations",
                         description = "Implement basic operations like addition, subtraction, multiplication, and division.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "expert_c3_sub3",
+                        id = "expert_c4_sub3",
                         title = "Custom Functions",
                         description = "Add custom mathematical functions like square root, power, and logarithms.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "expert_c3_sub4",
+                        id = "expert_c4_sub4",
                         title = "User Interface Design",
                         description = "Design the user interface with buttons, text fields, and a display area.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "expert_c3_sub5",
+                        id = "expert_c4_sub5",
                         title = "Handling User Input",
                         description = "Handle user input, including numeric values and operator buttons.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "expert_c3_sub6",
+                        id = "expert_c4_sub6",
                         title = "Error Handling",
                         description = "Implement error handling for invalid inputs, division by zero, and other edge cases.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "expert_c3_sub7",
+                        id = "expert_c4_sub7",
                         title = "Complete Project Code",
                         description = "Integrate all previous lessons into one complete personalized calculator project.",
                         status = LessonStatus.LOCKED
@@ -304,7 +304,7 @@ fun CExpertCourse(): Stage {
                 ),
                 lessonContents = listOf(
                     LessonContent(
-                        id = "expert_c3_sub1",
+                        id = "expert_c4_sub1",
                         title = "Introduction to Personalized Calculator",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -323,7 +323,7 @@ fun CExpertCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "expert_c3_sub2",
+                        id = "expert_c4_sub2",
                         title = "Basic Operations",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -359,7 +359,7 @@ double divide(double a, double b) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "expert_c3_sub3",
+                        id = "expert_c4_sub3",
                         title = "Custom Functions",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -398,7 +398,7 @@ double logarithm(double a, double base) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "expert_c3_sub4",
+                        id = "expert_c4_sub4",
                         title = "User Interface Design",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -426,7 +426,7 @@ void displayCalculator() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "expert_c3_sub5",
+                        id = "expert_c4_sub5",
                         title = "Handling User Input",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -484,7 +484,7 @@ double getUserInput() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "expert_c3_sub6",
+                        id = "expert_c4_sub6",
                         title = "Error Handling",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -508,7 +508,7 @@ double divide(double a, double b) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "expert_c3_sub7",
+                        id = "expert_c4_sub7",
                         title = "Complete Project Code",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -636,54 +636,54 @@ double getUserInput() {
 
             // lesson 3
             Lesson(
-                id = "expert_c4",
+                id = "expert_c5",
                 title = "Contact Management System",
                 description = "Create an advanced contact management system with features like adding, viewing, searching, updating, and deleting contacts.",
                 subLessons = listOf(
                     Lesson(
-                        id = "expert_c4_sub1",
+                        id = "expert_c5_sub1",
                         title = "Introduction to Contact Management System",
                         description = "Learn how to create a contact management system in Kotlin with add, view, search, update, and delete functionalities.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "expert_c4_sub2",
+                        id = "expert_c5_sub2",
                         title = "Defining the Contact Structure",
                         description = "Learn to define a Contact structure to store name and phone details, using constants for limits on contacts and field lengths.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "expert_c4_sub3",
+                        id = "expert_c5_sub3",
                         title = "Adding a Contact",
                         description = "Implement the functionality to add a new contact to the contact book.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "expert_c4_sub4",
+                        id = "expert_c5_sub4",
                         title = "Viewing Contacts",
                         description = "Display the list of all contacts stored in the contact book.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "expert_c4_sub5",
+                        id = "expert_c5_sub5",
                         title = "Searching for a Contact",
                         description = "Search for a contact by name in the contact book.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "expert_c4_sub6",
+                        id = "expert_c5_sub6",
                         title = "Updating a Contact",
                         description = "Allow the user to update the contact information, like phone number.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "expert_c4_sub7",
+                        id = "expert_c5_sub7",
                         title = "Deleting a Contact",
                         description = "Implement the functionality to delete a contact from the contact book.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "expert_c4_sub8",
+                        id = "expert_c5_sub8",
                         title = "Complete Project Code",
                         description = "Integrate all previous lessons into one complete advanced contact management system.",
                         status = LessonStatus.LOCKED
@@ -692,7 +692,7 @@ double getUserInput() {
                 lessonContents = listOf(
 
                     LessonContent(
-                        id = "expert_c4_sub1",
+                        id = "expert_c5_sub1",
                         title = "Introduction to Contact Management System",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -711,7 +711,7 @@ double getUserInput() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "expert_c4_sub2",
+                        id = "expert_c5_sub2",
                         title = "Defining the Contact Structure",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -752,7 +752,7 @@ typedef struct {
 
                     // Sublesson: Adding a Contact
                     LessonContent(
-                        id = "expert_c4_sub3",
+                        id = "expert_c5_sub3",
                         title = "Adding a Contact",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -786,7 +786,7 @@ void addContact() {
 
                     // Sublesson: Viewing Contacts
                     LessonContent(
-                        id = "expert_c4_sub4",
+                        id = "expert_c5_sub4",
                         title = "Viewing Contacts",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -816,7 +816,7 @@ void viewContacts() {
 
                     // Sublesson: Searching for a Contact
                     LessonContent(
-                        id = "expert_c4_sub5",
+                        id = "expert_c5_sub5",
                         title = "Searching for a Contact",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -852,7 +852,7 @@ void searchContact() {
 
                     // Sublesson: Updating a Contact
                     LessonContent(
-                        id = "expert_c4_sub6",
+                        id = "expert_c5_sub6",
                         title = "Updating a Contact",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -887,7 +887,7 @@ void updateContact() {
 
                     // Sublesson: Deleting a Contact
                     LessonContent(
-                        id = "expert_c4_sub7",
+                        id = "expert_c5_sub7",
                         title = "Deleting a Contact",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -923,7 +923,7 @@ void deleteContact() {
                     ),
 
                     LessonContent(
-                        id = "expert_c4_sub8",
+                        id = "expert_c5_sub8",
                         title = "Complete Project Code",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -1084,36 +1084,36 @@ int main() {
                 status = LessonStatus.LOCKED
             ),
             Lesson(
-                id = "expert_c5",
+                id = "expert_c6",
                 title = "Unit Converter",
                 description = "A comprehensive unit converter system for converting between different units such as length, weight, temperature, and more.",
                 subLessons = listOf(
                     Lesson(
-                        id = "expert_c5_sub1",
+                        id = "expert_c6_sub1",
                         title = "Introduction to Contact Management System",
                         description = "Learn how to create a contact management system in Kotlin with add, view, search, update, and delete functionalities.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "expert_c5_sub2",
+                        id = "expert_c6_sub2",
                         title = "Defining the Contact Structure",
                         description = "Learn to define a Contact structure to store name and phone details, using constants for limits on contacts and field lengths.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "expert_c5_sub3",
+                        id = "expert_c6_sub3",
                         title = "Adding a Contact",
                         description = "Implement the functionality to add a new contact to the contact book.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "expert_c5_sub4",
+                        id = "expert_c6_sub4",
                         title = "Viewing Contacts",
                         description = "Display the list of all contacts stored in the contact book.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "expert_c5_sub5",
+                        id = "expert_c6_sub5",
                         title = "Searching for a Contact",
                         description = "Search for a contact by name in the contact book.",
                         status = LessonStatus.LOCKED
@@ -1123,7 +1123,7 @@ int main() {
                 lessonContents = listOf(
 
                     LessonContent(
-                        id = "expert_c5_sub1",
+                        id = "expert_c6_sub1",
                         title = "Introduction to Unit Converter Program",
                         description = "This project teaches how to create a unit converter program in C, allowing users to convert between categories like length, weight, and temperature using modularized functions and conditionals.",
                         contentBlocks = listOf(
@@ -1138,7 +1138,7 @@ int main() {
                     ),
 
                     LessonContent(
-                        id = "expert_c5_sub2",
+                        id = "expert_c6_sub2",
                         title = "Converting Length Units with a Function",
                         description = "This lesson explains how to create a function that converts between various length units such as meters, kilometers, miles, and centimeters.",
                         contentBlocks = listOf(
@@ -1189,7 +1189,7 @@ float convertLength(float value, int fromUnit, int toUnit) {
                     ),
 
                     LessonContent(
-                        id = "expert_c5_sub3",
+                        id = "expert_c6_sub3",
                         title = "Converting Weight Units with a Function",
                         description = "This lesson demonstrates how to create a function to convert between various weight units such as kilograms, pounds, grams, and ounces.",
                         contentBlocks = listOf(
@@ -1242,7 +1242,7 @@ float convertWeight(float value, int fromUnit, int toUnit) {
 
                     // Sublesson: Viewing Contacts
                     LessonContent(
-                        id = "expert_c5_sub4",
+                        id = "expert_c6_sub4",
                         title = "Converting Temperature Units",
                         description = "In this lesson, we will implement a function to convert between temperature units such as Celsius, Fahrenheit, and Kelvin.",
                         contentBlocks = listOf(
@@ -1284,7 +1284,7 @@ float convertTemperature(float value, int fromUnit, int toUnit) {
                     ),
 
                     LessonContent(
-                        id = "expert_c5_sub5",
+                        id = "expert_c6_sub5",
                         title = "Complete Project Code",
                         description = "Below is the complete code for the Unit Converter program, which supports converting between different units of length, weight, and temperature.",
                         contentBlocks = listOf(
@@ -1451,36 +1451,36 @@ float convertTemperature(float value, int fromUnit, int toUnit) {
                 status = LessonStatus.LOCKED
             ),
             Lesson(
-                id = "expert_c6",
+                id = "expert_c7",
                 title = "Tic-Tac-Toe Game",
                 description = "Create a text-based Tic-Tac-Toe game that allows two players to take turns marking spaces on a 3x3 grid. The game will check for winning conditions, handle user input, and display the board after each move.",
                 subLessons = listOf(
                     Lesson(
-                        id = "expert_c6_sub1",
+                        id = "expert_c7_sub1",
                         title = "Introduction to Contact Management System",
                         description = "Learn how to create a contact management system in Kotlin with add, view, search, update, and delete functionalities.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "expert_c6_sub2",
+                        id = "expert_c7_sub2",
                         title = "Defining the Contact Structure",
                         description = "Learn to define a Contact structure to store name and phone details, using constants for limits on contacts and field lengths.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "expert_c6_sub3",
+                        id = "expert_c7_sub3",
                         title = "Adding a Contact",
                         description = "Implement the functionality to add a new contact to the contact book.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "expert_c6_sub4",
+                        id = "expert_c7_sub4",
                         title = "Viewing Contacts",
                         description = "Display the list of all contacts stored in the contact book.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "expert_c6_sub5",
+                        id = "expert_c7_sub5",
                         title = "Searching for a Contact",
                         description = "Search for a contact by name in the contact book.",
                         status = LessonStatus.LOCKED
@@ -1490,7 +1490,7 @@ float convertTemperature(float value, int fromUnit, int toUnit) {
                 lessonContents = listOf(
 
                     LessonContent(
-                        id = "expert_c6_sub1",
+                        id = "expert_c7_sub1",
                         title = "Introduction to Tic-Tac-Toe Game",
                         description = "This project teaches how to create a text-based Tic-Tac-Toe game in C, where players can take turns to make moves and check for winning conditions or a draw using arrays, loops, and conditional statements.",
                         contentBlocks = listOf(
@@ -1505,7 +1505,7 @@ float convertTemperature(float value, int fromUnit, int toUnit) {
                     ),
 
                     LessonContent(
-                        id = "expert_c6_sub2",
+                        id = "expert_c7_sub2",
                         title = "Initializing a Tic-Tac-Toe Board in C",
                         description = "Learn how to initialize a 3x3 Tic-Tac-Toe board with numbers 1 to 9 in C.",
                         contentBlocks = listOf(
@@ -1537,7 +1537,7 @@ void initializeBoard() {
                     ),
 
                     LessonContent(
-                        id = "expert_c6_sub3",
+                        id = "expert_c7_sub3",
                         title = "Displaying the Tic-Tac-Toe Board in C",
                         description = "This lesson demonstrates how to create a function to display a Tic-Tac-Toe board in C using loops and conditional statements. The board is displayed with a grid format, and the cells are separated by pipes ('|') for clarity.",
                         contentBlocks = listOf(
@@ -1573,7 +1573,7 @@ void displayBoard() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "expert_c6_sub4",
+                        id = "expert_c7_sub4",
                         title = "Checking for a Winner in Tic-Tac-Toe",
                         description = "In this lesson, we will implement a function to check if a player has won the game in Tic-Tac-Toe by evaluating rows, columns, and diagonals for a winning condition.",
                         contentBlocks = listOf(
@@ -1614,7 +1614,7 @@ int checkWin(char player) {
                     ),
 
                     LessonContent(
-                        id = "expert_c6_sub5",
+                        id = "expert_c7_sub5",
                         title = "Checking for a Draw in Tic-Tac-Toe",
                         description = "In this lesson, we will implement a function to check if the game has ended in a draw, meaning all cells are filled without a winner.",
                         contentBlocks = listOf(
@@ -1650,7 +1650,7 @@ int checkDraw() {
                     ),
 
                     LessonContent(
-                        id = "expert_c6_sub6",
+                        id = "expert_c7_sub6",
                         title = "Handling Player Moves in Tic-Tac-Toe",
                         description = "In this lesson, we will implement a function to take input from the player and make their move on the Tic-Tac-Toe board.",
                         contentBlocks = listOf(
@@ -1700,7 +1700,7 @@ void playerMove(char player) {
                     ),
 
                     LessonContent(
-                        id = "expert_c6_sub7",
+                        id = "expert_c7_sub7",
                         title = "Complete Project Code",
                         description = "Below is the complete code for the Tic-Tac-Toe game, which allows two players to take turns and play the game on a 3x3 grid.",
                         contentBlocks = listOf(
@@ -1834,36 +1834,36 @@ int main() {
                 status = LessonStatus.LOCKED
             ),
             Lesson(
-                id = "expert_c7",
+                id = "expert_c8",
                 title = "Text Editor",
                 description = "A simple text editor that allows the user to create, save, and open files. It will require handling file operations and memory management for dynamic text manipulation.",
                 subLessons = listOf(
                     Lesson(
-                        id = "expert_c6_sub1",
+                        id = "expert_c7_sub1",
                         title = "Introduction to Contact Management System",
                         description = "Learn how to create a contact management system in Kotlin with add, view, search, update, and delete functionalities.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "expert_c6_sub2",
+                        id = "expert_c7_sub2",
                         title = "Defining the Contact Structure",
                         description = "Learn to define a Contact structure to store name and phone details, using constants for limits on contacts and field lengths.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "expert_c6_sub3",
+                        id = "expert_c7_sub3",
                         title = "Adding a Contact",
                         description = "Implement the functionality to add a new contact to the contact book.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "expert_c6_sub4",
+                        id = "expert_c7_sub4",
                         title = "Viewing Contacts",
                         description = "Display the list of all contacts stored in the contact book.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "expert_c6_sub5",
+                        id = "expert_c7_sub5",
                         title = "Searching for a Contact",
                         description = "Search for a contact by name in the contact book.",
                         status = LessonStatus.LOCKED
@@ -1873,7 +1873,7 @@ int main() {
                 lessonContents = listOf(
 
                     LessonContent(
-                        id = "expert_c7_sub1",
+                        id = "expert_c8_sub1",
                         title = "Introduction to Text Editor Project",
                         description = "This project teaches how to create a simple text-based text editor in C, allowing users to create, edit, view, and manage text files dynamically using memory allocation, file handling, and string manipulation.",
                         contentBlocks = listOf(
@@ -1892,7 +1892,7 @@ int main() {
                     ),
 
                     LessonContent(
-                        id = "expert_c7_sub2",
+                        id = "expert_c8_sub2",
                         title = "Initializing the Text Editor in C",
                         description = "Learn to set up a text editor in C with dynamic memory and file handling.",
                         contentBlocks = listOf(
@@ -1917,7 +1917,7 @@ int main() {
                     ),
 
                     LessonContent(
-                        id = "expert_c7_sub3",
+                        id = "expert_c8_sub3",
                         title = "Creating and Saving a New File in C",
                         description = "Learn how to create, edit, and save a new file in C using dynamic memory and user input handling.",
                         contentBlocks = listOf(
@@ -2003,7 +2003,7 @@ void createNewFile(char **buffer, size_t *bufferSize, char *filename) {
                     ),
 
                     LessonContent(
-                        id = "expert_c7_sub4",
+                        id = "expert_c8_sub4",
                         title = "Editing and Appending Content to a File in C",
                         description = "Learn how to edit and append content to an existing file in C using dynamic memory and file handling techniques.",
                         contentBlocks = listOf(
@@ -2097,7 +2097,7 @@ void editFile(char **buffer, size_t *bufferSize, const char *filename) {
                     ),
 
                     LessonContent(
-                        id = "expert_c7_sub5",
+                        id = "expert_c8_sub5",
                         title = "Opening and Reading File Content in C",
                         description = "This lesson covers how to open and read the contents of a file line by line in C using file handling techniques.",
                         contentBlocks = listOf(
@@ -2136,7 +2136,7 @@ void openFile(const char *filename) {
                     ),
 
                     LessonContent(
-                        id = "expert_c7_sub6",
+                        id = "expert_c8_sub6",
                         title = "Complete Text Editor Project",
                         description = "Below is the complete code for a text editor program in C. This project allows users to create, edit, and view text files, showcasing essential file handling operations in C.",
                         contentBlocks = listOf(
@@ -2364,37 +2364,38 @@ int main() {
                 ),
                 status = LessonStatus.LOCKED
             ),
+            
             Lesson(
-                id = "expert_c8",
+                id = "expert_c9",
                 title = "Student Grading System",
                 description = " Build a system to manage student grades, calculate averages, and display results. This project will involve basic data structures and file handling.",
                 subLessons = listOf(
                     Lesson(
-                        id = "expert_c6_sub1",
+                        id = "expert_c7_sub1",
                         title = "Introduction to Contact Management System",
                         description = "Learn how to create a contact management system in Kotlin with add, view, search, update, and delete functionalities.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "expert_c6_sub2",
+                        id = "expert_c7_sub2",
                         title = "Defining the Contact Structure",
                         description = "Learn to define a Contact structure to store name and phone details, using constants for limits on contacts and field lengths.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "expert_c6_sub3",
+                        id = "expert_c7_sub3",
                         title = "Adding a Contact",
                         description = "Implement the functionality to add a new contact to the contact book.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "expert_c6_sub4",
+                        id = "expert_c7_sub4",
                         title = "Viewing Contacts",
                         description = "Display the list of all contacts stored in the contact book.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "expert_c6_sub5",
+                        id = "expert_c7_sub5",
                         title = "Searching for a Contact",
                         description = "Search for a contact by name in the contact book.",
                         status = LessonStatus.LOCKED
@@ -2403,7 +2404,7 @@ int main() {
                     ),
                 lessonContents = listOf(
                     LessonContent(
-                        id = "expert_c8_sub1",
+                        id = "expert_c9_sub1",
                         title = "Student Grading System in C",
                         description = "This project teaches how to build a robust student grading system in C, allowing users to add, view, and manage student records. The system ensures uniqueness of roll numbers and includes features like grade computation, file storage, and record retrieval.",
                         contentBlocks = listOf(
@@ -2422,7 +2423,7 @@ int main() {
                     ),
 
                     LessonContent(
-                        id = "expert_c8_sub2",
+                        id = "expert_c9_sub2",
                         title = "Building a Student Grading System in C",
                         description = "Learn how to build a student grading system in C with features like unique roll number validation, grade calculation, and persistent file storage.",
                         contentBlocks = listOf(
@@ -2463,7 +2464,7 @@ int studentCount = 0;
                     ),
 
                     LessonContent(
-                        id = "expert_c8_sub3",
+                        id = "expert_c9_sub3",
                         title = "Adding and Validating Student Records in C",
                         description = "Learn how to implement a function for adding student records in C while ensuring validation, accurate grade calculation, and options for saving the records persistently.",
                         contentBlocks = listOf(
@@ -2495,7 +2496,7 @@ char getGrade(float average) {
                     ),
 
                     LessonContent(
-                        id = "expert_c8_sub4",
+                        id = "expert_c9_sub4",
                         title = "Adding New Student Records with Validation in C",
                         description = "Learn how to add new student records with validation, calculate averages, and provide options to save records in C.",
                         contentBlocks = listOf(
@@ -2571,7 +2572,7 @@ void addStudent() {
                     ),
 
                     LessonContent(
-                        id = "expert_c8_sub5",
+                        id = "expert_c9_sub5",
                         title = "Viewing Student Records by Roll Number in C",
                         description = "Learn how to search and display student records by roll number in C.",
                         contentBlocks = listOf(
@@ -2631,7 +2632,7 @@ void viewRecordByRollNumber() {
                     ),
 
                     LessonContent(
-                        id = "expert_c8_sub6",
+                        id = "expert_c9_sub6",
                         title = "Saving Student Records in C",
                         description = "Learn how to save student records to a file in C.",
                         contentBlocks = listOf(
@@ -2673,7 +2674,7 @@ void saveRecord(int studentIndex) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "expert_c8_sub7",
+                        id = "expert_c9_sub7",
                         title = "Loading Student Records in C",
                         description = "Learn how to load student records from a file in C.",
                         contentBlocks = listOf(
@@ -2726,7 +2727,7 @@ void loadRecords() {
                     ),
 
                     LessonContent(
-                        id = "expert_c8_sub8",
+                        id = "expert_c9_sub8",
                         title = "Student Grading System in C",
                         description = "Complete implementation of a student grading system in C, showcasing file handling, data management, and a menu-driven interface.",
                         contentBlocks = listOf(
