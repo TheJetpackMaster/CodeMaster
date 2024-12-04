@@ -21,47 +21,120 @@ fun CIntermediateCourse(): Stage {
             // lesson 1
             Lesson(
                 id = "intermediate_c1",
+                title = "Welcome to Intermediate",
+                description = "An essential step to advance your programming skills with logic and control structures.",
+                subLessons = listOf(
+                    Lesson(
+                        id = "intermediate_c1_sub1",
+                        title = "Introduction to the Intermediate Stage",
+                        description = "Understand what you will learn in this stage and why it is important.",
+                        status = LessonStatus.ACTIVE,
+                    ),
+                    Lesson(
+                        id = "intermediate_c1_sub2",
+                        title = "Motivation",
+                        description = "Encouragement to help you stay committed and inspired.",
+                        status = LessonStatus.ACTIVE,
+                    ),
+                    Lesson(
+                        id = "intermediate_c1_sub3",
+                        title = "Tips for Success",
+                        description = "Practical advice to help you make the most of this stage.",
+                        status = LessonStatus.ACTIVE,
+                    ),
+                    Lesson(
+                        id = "intermediate_c1_sub4",
+                        title = "Next Steps",
+                        description = "What to expect in the upcoming lessons.",
+                        status = LessonStatus.ACTIVE,
+                    )
+                ),
+                lessonContents = listOf(
+                    LessonContent(
+                        id = "intermediate_c1_sub1",
+                        title = "Overview",
+                        description = "Learn the key topics and goals of this stage.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(createSimpleText("In this lesson, you'll explore key programming concepts like If-Else Statements, Switch Cases, Loops, Arrays, Strings, and more. These are essential tools for developing efficient code and making dynamic decisions in your programs.")),
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = "intermediate_c1_sub2",
+                        title = "Stay Inspired",
+                        description = "Encouraging words to keep you motivated.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(createSimpleText("Every line of code brings you closer to becoming a proficient programmer. Embrace each challenge as an opportunity to learn and grow, and celebrate the progress you make along the way."))
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = "intermediate_c1_sub3",
+                        title = "Effective Learning Strategies",
+                        description = "Tips for improving your skills and staying on track.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(createSimpleText("Persistence and practice are key to success in programming. Write small programs to test your concepts, embrace debugging as a learning tool, and practice consistently to strengthen your skills."))
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = "intermediate_c1_sub4",
+                        title = "Ready to Begin",
+                        description = "Learn what comes next in your journey.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(createSimpleText("Start by testing each concept with small programs, debug your code to understand how it works, and practice regularly. Stay curious and ask questions—learning is a continuous journey that evolves with every challenge you face."))
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    )
+                ),
+                status = LessonStatus.ACTIVE
+            ),
+
+
+            // lesson 2
+            Lesson(
+                id = "intermediate_c2",
                 title = "C If ... Else",
                 description = "Learn how to use if, else, and else if statements in C to control program flow and make decisions! 💡",
                 subLessons = listOf(
                     Lesson(
-                        id = "intermediate_c1_sub1",
+                        id = "intermediate_c2_sub1",
                         title = "If Statements",
                         description = "Learn how to use if statements to make decisions.",
                         status = LessonStatus.ACTIVE
                     ),
                     Lesson(
-                        id = "intermediate_c1_sub2",
+                        id = "intermediate_c2_sub2",
                         title = "Else Statement",
                         description = "Learn how to use the `else` statement to handle the opposite condition.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c1_sub3",
+                        id = "intermediate_c2_sub3",
                         title = "Else If Statement",
                         description = "Learn how to handle multiple conditions with `else if` statements.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c1_sub4",
+                        id = "intermediate_c2_sub4",
                         title = "Quiz",
                         description = "Quiz",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c1_sub5",
+                        id = "intermediate_c2_sub5",
                         title = "Short Hand If...Else (Ternary Operator)",
                         description = "Learn how to use the ternary operator as a shorthand for `if...else` statements.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c1_sub6",
+                        id = "intermediate_c2_sub6",
                         title = "Real-Life Examples",
                         description = "See how `if`, `else`, and `else if` statements are used in real-world scenarios.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c1_sub7",
+                        id = "intermediate_c2_sub7",
                         title = "Quiz",
                         description = "Quiz",
                         status = LessonStatus.LOCKED
@@ -69,7 +142,7 @@ fun CIntermediateCourse(): Stage {
                 ),
                 lessonContents = listOf(
                     LessonContent(
-                        id = "intermediate_c1_sub1",
+                        id = "intermediate_c2_sub1",
                         title = "If Statements",
                         description = "Learn how to use if statements to make decisions.",
                         contentBlocks = listOf(
@@ -100,7 +173,7 @@ fun CIntermediateCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c1_sub2",
+                        id = "intermediate_c2_sub2",
                         title = "Else Statement",
                         description = "Learn how to use the `else` statement to handle the opposite condition.",
                         contentBlocks = listOf(
@@ -135,7 +208,7 @@ fun CIntermediateCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c1_sub3",
+                        id = "intermediate_c2_sub3",
                         title = "Else If Statement",
                         description = "Learn how to handle multiple conditions with `else if` statements.",
                         contentBlocks = listOf(
@@ -174,7 +247,7 @@ fun CIntermediateCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c1_sub4",
+                        id = "intermediate_c2_sub4",
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -194,7 +267,7 @@ fun CIntermediateCourse(): Stage {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c1_sub5",
+                        id = "intermediate_c2_sub5",
                         title = "Short Hand If...Else (Ternary Operator)",
                         description = "Learn how to use the ternary operator as a shorthand for `if...else` statements.",
                         contentBlocks = listOf(
@@ -221,7 +294,7 @@ fun CIntermediateCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c1_sub6",
+                        id = "intermediate_c2_sub6",
                         title = "Real-Life Examples",
                         description = "See how `if`, `else`, and `else if` statements are used in real-world scenarios.",
                         contentBlocks = listOf(
@@ -259,7 +332,7 @@ fun CIntermediateCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c1_sub7",
+                        id = "intermediate_c2_sub7",
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -289,38 +362,38 @@ fun CIntermediateCourse(): Stage {
                 status = LessonStatus.ACTIVE
             ),
 
-            // Lesson 2
+            // Lesson 3
             Lesson(
-                id = "intermediate_c2",
+                id = "intermediate_c3",
                 title = "C If ... Else Nested",
                 description = "Learn how to nest `if...else` statements to create more complex decision-making structures in C! 🧩",
                 subLessons = listOf(
                     Lesson(
-                        id = "intermediate_c2_sub1",
+                        id = "intermediate_c3_sub1",
                         title = "Introduction to Nested If...Else",
                         description = "Learn the basics of nesting `if...else` statements.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c2_sub2",
+                        id = "intermediate_c3_sub2",
                         title = "Nesting Multiple If...Else",
                         description = "Learn how to nest multiple `if...else` statements within each other.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c2_sub3",
+                        id = "intermediate_c3_sub3",
                         title = "Quiz",
                         description = "Quiz",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c2_sub4",
+                        id = "intermediate_c3_sub4",
                         title = "Real-Life Example",
                         description = "See how nested `if...else` statements are used in practical scenarios.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c2_sub5",
+                        id = "intermediate_c3_sub5",
                         title = "Quiz",
                         description = "Quiz",
                         status = LessonStatus.LOCKED
@@ -328,7 +401,7 @@ fun CIntermediateCourse(): Stage {
                 ),
                 lessonContents = listOf(
                     LessonContent(
-                        id = "intermediate_c2_sub1",
+                        id = "intermediate_c3_sub1",
                         title = "Introduction to Nested If...Else",
                         description = "Learn the basics of nesting if...else statements.",
                         contentBlocks = listOf(
@@ -356,7 +429,7 @@ fun CIntermediateCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c2_sub2",
+                        id = "intermediate_c3_sub2",
                         title = "Nesting Multiple If...Else",
                         description = "Learn how to nest multiple if...else statements within each other.",
                         contentBlocks = listOf(
@@ -391,7 +464,7 @@ fun CIntermediateCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c2_sub3",
+                        id = "intermediate_c3_sub3",
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -414,7 +487,7 @@ fun CIntermediateCourse(): Stage {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c2_sub4",
+                        id = "intermediate_c3_sub4",
                         title = "Real-Life Example",
                         description = "See how nested if...else statements are used in practical scenarios.",
                         contentBlocks = listOf(
@@ -450,7 +523,7 @@ fun CIntermediateCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c2_sub5",
+                        id = "intermediate_c3_sub5",
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -474,44 +547,44 @@ fun CIntermediateCourse(): Stage {
                 status = LessonStatus.LOCKED
             ),
 
-            // lesson 3
+            // lesson 4
             Lesson(
-                id = "intermediate_c3",
+                id = "intermediate_c4",
                 title = "C Switch Statement",
                 description = "Learn how to use the switch statement to simplify multiple conditional branches in C! 🔄",
                 subLessons = listOf(
                     Lesson(
-                        id = "intermediate_c3_sub1",
+                        id = "intermediate_c4_sub1",
                         title = "Introduction to Switch Statement",
                         description = "Understand the syntax and purpose of the switch statement.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c3_sub2",
+                        id = "intermediate_c4_sub2",
                         title = "Switch Case and Default",
                         description = "Learn how to use case and default in a switch statement.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c3_sub3",
+                        id = "intermediate_c4_sub3",
                         title = "Switch Case and Break",
                         description = "Learn why the break keyword is used in a switch statement to prevent fall-through.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c3_sub4",
+                        id = "intermediate_c4_sub4",
                         title = "Quiz",
                         description = "Quiz",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c3_sub5",
+                        id = "intermediate_c4_sub5",
                         title = "Real-Life Example",
                         description = "See how the switch statement is used in practical applications.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c3_sub6",
+                        id = "intermediate_c4_sub6",
                         title = "Quiz",
                         description = "Quiz",
                         status = LessonStatus.LOCKED
@@ -519,7 +592,7 @@ fun CIntermediateCourse(): Stage {
                 ),
                 lessonContents = listOf(
                     LessonContent(
-                        id = "intermediate_c3_sub1",
+                        id = "intermediate_c4_sub1",
                         title = "Introduction to Switch Statement",
                         description = "Understand the syntax and purpose of the switch statement.",
                         contentBlocks = listOf(
@@ -548,7 +621,7 @@ fun CIntermediateCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c3_sub2",
+                        id = "intermediate_c4_sub2",
                         title = "Switch Case and Default",
                         description = "Learn how to use case and default in a switch statement.",
                         contentBlocks = listOf(
@@ -576,7 +649,7 @@ fun CIntermediateCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c3_sub3",
+                        id = "intermediate_c4_sub3",
                         title = "Switch Case and Break",
                         description = "Learn why the break keyword is used in a switch statement to prevent fall-through.",
                         contentBlocks = listOf(
@@ -637,7 +710,7 @@ fun CIntermediateCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c3_sub4",
+                        id = "intermediate_c4_sub4",
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -658,7 +731,7 @@ fun CIntermediateCourse(): Stage {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c3_sub5",
+                        id = "intermediate_c4_sub5",
                         title = "Real-Life Example",
                         description = "See how the switch statement is used in practical applications.",
                         contentBlocks = listOf(
@@ -696,7 +769,7 @@ fun CIntermediateCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c3_sub6",
+                        id = "intermediate_c4_sub6",
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -716,44 +789,45 @@ fun CIntermediateCourse(): Stage {
                 ),
                 status = LessonStatus.LOCKED
             ),
-            // lesson 4
+            
+            // lesson 5
             Lesson(
-                id = "intermediate_c4",
+                id = "intermediate_c5",
                 title = "C Loops",
                 description = "Master the while, do-while, and for loops to control repetitive tasks in C! 🔄",
                 subLessons = listOf(
                     Lesson(
-                        id = "intermediate_c4_sub1",
+                        id = "intermediate_c5_sub1",
                         title = "While Loop",
                         description = "Learn how to use the while loop to repeat code as long as a condition is true.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c4_sub2",
+                        id = "intermediate_c5_sub2",
                         title = "The Do/While Loop",
                         description = "Understand the do-while loop where the code runs at least once.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c4_sub3",
+                        id = "intermediate_c5_sub3",
                         title = "The For Loop",
                         description = "Learn how the for loop provides a compact way to write loops with initialization, condition, and increment in a single line.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c4_sub4",
+                        id = "intermediate_c5_sub4",
                         title = "Quiz",
                         description = "Quiz",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c4_sub5",
+                        id = "intermediate_c5_sub5",
                         title = "Real-Life Examples",
                         description = "See practical applications of while, do-while, and for loops.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c4_sub6",
+                        id = "intermediate_c5_sub6",
                         title = "Quiz",
                         description = "Quiz",
                         status = LessonStatus.LOCKED
@@ -761,7 +835,7 @@ fun CIntermediateCourse(): Stage {
                 ),
                 lessonContents = listOf(
                     LessonContent(
-                        id = "intermediate_c4_sub1",
+                        id = "intermediate_c5_sub1",
                         title = "While Loop",
                         description = "Learn how to use the while loop to repeat code as long as a condition is true.",
                         contentBlocks = listOf(
@@ -783,7 +857,7 @@ fun CIntermediateCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c4_sub2",
+                        id = "intermediate_c5_sub2",
                         title = "The Do/While Loop",
                         description = "Understand the do-while loop where the code runs at least once.",
                         contentBlocks = listOf(
@@ -805,7 +879,7 @@ fun CIntermediateCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c4_sub3",
+                        id = "intermediate_c5_sub3",
                         title = "The For Loop",
                         description = "Learn how the for loop provides a compact way to write loops with initialization, condition, and increment in a single line.",
                         contentBlocks = listOf(
@@ -827,7 +901,7 @@ fun CIntermediateCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c4_sub4",
+                        id = "intermediate_c5_sub4",
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -846,7 +920,7 @@ fun CIntermediateCourse(): Stage {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c4_sub5",
+                        id = "intermediate_c5_sub5",
                         title = "Real-Life Examples",
                         description = "See practical applications of while, do-while, and for loops.",
                         contentBlocks = listOf(
@@ -903,7 +977,7 @@ fun CIntermediateCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c4_sub6",
+                        id = "intermediate_c5_sub6",
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -926,50 +1000,51 @@ fun CIntermediateCourse(): Stage {
                     ),
                 status = LessonStatus.LOCKED
             ),
-            // lesson 5
+            
+            // lesson 6
             Lesson(
-                id = "intermediate_c5",
+                id = "intermediate_c6",
                 title = "C Nested Loops",
                 description = "Learn how to use nested loops in C for complex tasks and control flows! 🔄🔄",
                 subLessons = listOf(
                     Lesson(
-                        id = "intermediate_c5_sub1",
+                        id = "intermediate_c6_sub1",
                         title = "Nested For Loops",
                         description = "Learn how to use a for loop inside another for loop.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c5_sub2",
+                        id = "intermediate_c6_sub2",
                         title = "Nested While Loops",
                         description = "Learn how to use a while loop inside another while loop.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c5_sub3",
+                        id = "intermediate_c6_sub3",
                         title = "For in While Loops",
                         description = "Learn how to nest a for loop inside a while loop.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c5_sub4",
+                        id = "intermediate_c6_sub4",
                         title = "While in For Loops",
                         description = "Learn how to nest a while loop inside a for loop.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c5_sub5",
+                        id = "intermediate_c6_sub5",
                         title = "Nested Do-While Loops",
                         description = "Learn how to use a do-while loop inside another do-while loop.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c5_sub6",
+                        id = "intermediate_c6_sub6",
                         title = "Real-Life Examples",
                         description = "See practical examples of nested loops in action.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c5_sub7",
+                        id = "intermediate_c6_sub7",
                         title = "Quiz",
                         description = "Quiz",
                         status = LessonStatus.LOCKED
@@ -977,7 +1052,7 @@ fun CIntermediateCourse(): Stage {
                 ),
                 lessonContents = listOf(
                     LessonContent(
-                        id = "intermediate_c5_sub1",
+                        id = "intermediate_c6_sub1",
                         title = "Nested For Loops",
                         description = "Learn how to use a for loop inside another for loop.",
                         contentBlocks = listOf(
@@ -1001,7 +1076,7 @@ for (int i = 0; i < tables; i++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c5_sub2",
+                        id = "intermediate_c6_sub2",
                         title = "Nested While Loops",
                         description = "Learn how to use a while loop inside another while loop.",
                         contentBlocks = listOf(
@@ -1025,7 +1100,7 @@ while (level < maxLevel) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c5_sub3",
+                        id = "intermediate_c6_sub3",
                         title = "For in While Loops",
                         description = "Learn how to nest a for loop inside a while loop.",
                         contentBlocks = listOf(
@@ -1049,7 +1124,7 @@ while (gameOn) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c5_sub4",
+                        id = "intermediate_c6_sub4",
                         title = "While in For Loops",
                         description = "Learn how to nest a while loop inside a for loop.",
                         contentBlocks = listOf(
@@ -1073,7 +1148,7 @@ for (int i = 0; i < rooms; i++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c5_sub5",
+                        id = "intermediate_c6_sub5",
                         title = "Nested Do-While Loops",
                         description = "Learn how to use a do-while loop inside another do-while loop.",
                         contentBlocks = listOf(
@@ -1097,7 +1172,7 @@ do {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c5_sub6",
+                        id = "intermediate_c6_sub6",
                         title = "Real-Life Examples",
                         description = "See practical examples of nested loops in action.",
                         contentBlocks = listOf(
@@ -1192,7 +1267,7 @@ do {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c5_sub7",
+                        id = "intermediate_c6_sub7",
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -1212,56 +1287,57 @@ do {
                 ),
                 status = LessonStatus.LOCKED
             ),
-            // lesson 6
+            
+            // lesson 7
             Lesson(
-                id = "intermediate_c6",
+                id = "intermediate_c7",
                 title = "C Break and Continue",
                 description = "Master the break and continue statements to control loop flow in C! 🛑➡️",
                 subLessons = listOf(
                     Lesson(
-                        id = "intermediate_c6_sub1",
+                        id = "intermediate_c7_sub1",
                         title = "Basic Break Statement",
                         description = "Learn the simple use of the break statement in loops.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c6_sub2",
+                        id = "intermediate_c7_sub2",
                         title = "Basic Continue Statement",
                         description = "Understand the basic usage of continue to skip loop iterations.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c6_sub3",
+                        id = "intermediate_c7_sub3",
                         title = "Break in Nested Loops",
                         description = "Learn how to use break in nested loops.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c6_sub4",
+                        id = "intermediate_c7_sub4",
                         title = "Quiz",
                         description = "Quiz",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c6_sub5",
+                        id = "intermediate_c7_sub5",
                         title = "Continue in Nested Loops",
                         description = "See how to use continue in nested loops to skip iterations.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c6_sub6",
+                        id = "intermediate_c7_sub6",
                         title = "Quiz",
                         description = "Quiz",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c6_sub7",
+                        id = "intermediate_c7_sub7",
                         title = "Real-Life Examples",
                         description = "Check out practical examples of break and continue in loops.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c6_sub8",
+                        id = "intermediate_c7_sub8",
                         title = "Quiz",
                         description = "Quiz",
                         status = LessonStatus.LOCKED
@@ -1269,7 +1345,7 @@ do {
                 ),
                 lessonContents = listOf(
                     LessonContent(
-                        id = "intermediate_c6_sub1",
+                        id = "intermediate_c7_sub1",
                         title = "Basic Break Statement",
                         description = "Learn the simple use of the break statement in loops.",
                         contentBlocks = listOf(
@@ -1293,7 +1369,7 @@ while (isPartyOn) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c6_sub2",
+                        id = "intermediate_c7_sub2",
                         title = "Basic Continue Statement",
                         description = "Understand the basic usage of continue to skip loop iterations.",
                         contentBlocks = listOf(
@@ -1317,7 +1393,7 @@ for (int dish = 0; dish < buffetSize; dish++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c6_sub3",
+                        id = "intermediate_c7_sub3",
                         title = "Break in Nested Loops",
                         description = "Learn how to use break in nested loops.",
                         contentBlocks = listOf(
@@ -1342,7 +1418,7 @@ for (int section = 0; section < 5; section++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c6_sub4",
+                        id = "intermediate_c7_sub4",
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -1365,7 +1441,7 @@ for (int section = 0; section < 5; section++) {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c6_sub5",
+                        id = "intermediate_c7_sub5",
                         title = "Continue in Nested Loops",
                         description = "See how to use continue in nested loops to skip iterations.",
                         contentBlocks = listOf(
@@ -1391,7 +1467,7 @@ for (int street = 0; street < 5; street++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c6_sub6",
+                        id = "intermediate_c7_sub6",
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -1415,7 +1491,7 @@ for (int street = 0; street < 5; street++) {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c6_sub7",
+                        id = "intermediate_c7_sub7",
                         title = "Real-Life Examples",
                         description = "Check out practical examples of break and continue in loops.",
                         contentBlocks = listOf(
@@ -1446,7 +1522,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c6_sub8",
+                        id = "intermediate_c7_sub8",
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -1468,68 +1544,69 @@ for (int location = 0; location < 10; location++) {
                 ),
                 status = LessonStatus.LOCKED
             ),
-            // lesson 7
+            
+            // lesson 8
             Lesson(
-                id = "intermediate_c7",
+                id = "intermediate_c8",
                 title = "C Arrays",
                 description = "Master arrays in C for efficient data storage and access! 🗃️",
                 subLessons = listOf(
                     Lesson(
-                        id = "intermediate_c7_sub1",
+                        id = "intermediate_c8_sub1",
                         title = "Introduction to Arrays",
                         description = "Understand what arrays are and how they are used in C.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c7_sub2",
+                        id = "intermediate_c8_sub2",
                         title = "Array Declaration and Initialization",
                         description = "Learn how to declare and initialize arrays.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c7_sub3",
+                        id = "intermediate_c8_sub3",
                         title = "Accessing Array Elements",
                         description = "Learn how to access and modify array elements.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c7_sub4",
+                        id = "intermediate_c8_sub4",
                         title = "Quiz",
                         description = "Quiz",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c7_sub5",
+                        id = "intermediate_c8_sub5",
                         title = "Array Size or Length",
                         description = "Understand how to get the size of an array.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c7_sub6",
+                        id = "intermediate_c8_sub6",
                         title = "Multidimensional Arrays",
                         description = "Explore how to work with 2D and multi-dimensional arrays.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c7_sub7",
+                        id = "intermediate_c8_sub7",
                         title = "Array Operations",
                         description = "Perform operations like sorting, searching, and more on arrays.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c7_sub8",
+                        id = "intermediate_c8_sub8",
                         title = "Quiz",
                         description = "Quiz",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c7_sub9",
+                        id = "intermediate_c8_sub9",
                         title = "Real-Life Example with Arrays",
                         description = "See how arrays are used in practical scenarios.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c7_sub10",
+                        id = "intermediate_c8_sub10",
                         title = "Quiz",
                         description = "Quiz",
                         status = LessonStatus.LOCKED
@@ -1537,7 +1614,7 @@ for (int location = 0; location < 10; location++) {
                 ),
                 lessonContents = listOf(
                     LessonContent(
-                        id = "intermediate_c7_sub1",
+                        id = "intermediate_c8_sub1",
                         title = "Introduction to Arrays",
                         description = "Learn how arrays store similar data in sequence.",
                         contentBlocks = listOf(
@@ -1552,7 +1629,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c7_sub2",
+                        id = "intermediate_c8_sub2",
                         title = "Array Declaration and Initialization",
                         description = "Learn how to create and fill arrays.",
                         contentBlocks = listOf(
@@ -1572,7 +1649,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c7_sub3",
+                        id = "intermediate_c8_sub3",
                         title = "Accessing Array Elements",
                         description = "How to get or change array elements using their index.",
                         contentBlocks = listOf(
@@ -1593,7 +1670,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c7_sub4",
+                        id = "intermediate_c8_sub4",
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -1606,7 +1683,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c7_sub5",
+                        id = "intermediate_c8_sub5",
                         title = "Array Size",
                         description = "Find out how many elements an array can hold.",
                         contentBlocks = listOf(
@@ -1627,7 +1704,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c7_sub6",
+                        id = "intermediate_c8_sub6",
                         title = "Multidimensional Arrays",
                         description = "Organize data in rows and columns.",
                         contentBlocks = listOf(
@@ -1649,7 +1726,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c7_sub7",
+                        id = "intermediate_c8_sub7",
                         title = "Array Operations",
                         description = "Sort or search elements in arrays.",
                         contentBlocks = listOf(
@@ -1682,7 +1759,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c7_sub8",
+                        id = "intermediate_c8_sub8",
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -1695,7 +1772,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c7_sub9",
+                        id = "intermediate_c8_sub9",
                         title = "Real-Life Example with Arrays",
                         description = "Track and analyze data using arrays.",
                         contentBlocks = listOf(
@@ -1717,7 +1794,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c7_sub9",
+                        id = "intermediate_c8_sub9",
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -1737,80 +1814,81 @@ for (int location = 0; location < 10; location++) {
                 ),
                 status = LessonStatus.LOCKED
             ),
-            // lesson 8
+            
+            // lesson 9
             Lesson(
-                id = "intermediate_c8",
+                id = "intermediate_c9",
                 title = "C Strings",
                 description = "Learn how to work with strings in C and perform string manipulations. 📝",
                 subLessons = listOf(
                     Lesson(
-                        id = "intermediate_c8_sub1",
+                        id = "intermediate_c9_sub1",
                         title = "Introduction to Strings in C",
                         description = "Understand the basics of strings in C.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c8_sub2",
+                        id = "intermediate_c9_sub2",
                         title = "Declaring and Initializing Strings",
                         description = "Learn how to declare and initialize strings in C.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c8_sub3",
+                        id = "intermediate_c9_sub3",
                         title = "Accessing String Elements",
                         description = "Learn how to access individual characters in a string.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c8_sub4",
+                        id = "intermediate_c9_sub4",
                         title = "Quiz",
                         description = "Quiz",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c8_sub5",
+                        id = "intermediate_c9_sub5",
                         title = "String Length and Size",
                         description = "Understand how to calculate the length of a string.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c8_sub6",
+                        id = "intermediate_c9_sub6",
                         title = "Common String Functions",
                         description = "Explore commonly used functions for string manipulation.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c8_sub7",
+                        id = "intermediate_c9_sub7",
                         title = "String Comparison",
                         description = "Learn how to compare strings.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c8_sub8",
+                        id = "intermediate_c9_sub8",
                         title = "String Copying and Concatenation",
                         description = "Learn how to copy and concatenate strings.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c8_sub9",
+                        id = "intermediate_c9_sub9",
                         title = "String Input and Output",
                         description = "Understand how to handle input and output with strings.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c8_sub10",
+                        id = "intermediate_c9_sub10",
                         title = "Quiz",
                         description = "Quiz",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c8_sub11",
+                        id = "intermediate_c9_sub11",
                         title = "Real-Life Example with Strings",
                         description = "See how strings are used in real applications.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c8_sub12",
+                        id = "intermediate_c9_sub12",
                         title = "Quiz",
                         description = "Quiz",
                         status = LessonStatus.LOCKED
@@ -1818,7 +1896,7 @@ for (int location = 0; location < 10; location++) {
                 ),
                 lessonContents = listOf(
                     LessonContent(
-                        id = "intermediate_c8_sub1",
+                        id = "intermediate_c9_sub1",
                         title = "Introduction to Strings in C",
                         description = "Understand the basics of strings in C.",
                         contentBlocks = listOf(
@@ -1849,7 +1927,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c8_sub2",
+                        id = "intermediate_c9_sub2",
                         title = "Declaring and Initializing Strings",
                         description = "Learn how to declare and initialize strings in C.",
                         contentBlocks = listOf(
@@ -1886,7 +1964,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c8_sub3",
+                        id = "intermediate_c9_sub3",
                         title = "Accessing String Elements",
                         description = "Learn how to access individual characters in a string.",
                         contentBlocks = listOf(
@@ -1919,7 +1997,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c8_sub4",
+                        id = "intermediate_c9_sub4",
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -1934,7 +2012,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c8_sub5",
+                        id = "intermediate_c9_sub5",
                         title = "String Length and Size",
                         description = "Understand how to calculate the length of a string.",
                         contentBlocks = listOf(
@@ -1967,7 +2045,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c8_sub6",
+                        id = "intermediate_c9_sub6",
                         title = "Common String Functions",
                         description = "Explore commonly used functions for string manipulation.",
                         contentBlocks = listOf(
@@ -2007,7 +2085,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c8_sub7",
+                        id = "intermediate_c9_sub7",
                         title = "String Comparison",
                         description = "Learn how to compare strings.",
                         contentBlocks = listOf(
@@ -2031,7 +2109,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c8_sub8",
+                        id = "intermediate_c9_sub8",
                         title = "String Copying and Concatenation",
                         description = "Learn how to copy and concatenate strings.",
                         contentBlocks = listOf(
@@ -2071,7 +2149,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c8_sub9",
+                        id = "intermediate_c9_sub9",
                         title = "String Input and Output",
                         description = "Understand how to handle input and output with strings.",
                         contentBlocks = listOf(
@@ -2094,7 +2172,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c8_sub10",
+                        id = "intermediate_c9_sub10",
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -2114,7 +2192,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c8_sub11",
+                        id = "intermediate_c9_sub11",
                         title = "Real-Life Example with Strings",
                         description = "See how strings are used in real applications.",
                         contentBlocks = listOf(
@@ -2142,7 +2220,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c8_sub12",
+                        id = "intermediate_c9_sub12",
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -2159,149 +2237,213 @@ for (int location = 0; location < 10; location++) {
                 ),
                 status = LessonStatus.LOCKED
             ),
-            // lesson 9
+            
+            // lesson 10
             Lesson(
-                id = "intermediate_c9",
-                title = "C User Input",
-                description = "Learn how to accept user input in C using various input functions! ⌨️",
+                id = "intermediate_c10",
+                title = "Recap",
+                description = "A brief recap of key programming concepts in C.",
+                lessonContents = listOf(
+                    LessonContent(
+                        id = "intermediate_c10_sub1",
+                        title = "Introduction and Encouragement",
+                        description = "Let's begin by revisiting some essential concepts in C programming. These foundations will help you grow your coding skills and tackle more complex problems.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Keep practicing and pushing forward. Each challenge you overcome brings you closer to mastering C programming. As you progress, these concepts will become more intuitive, and the complexity will feel less daunting. Keep embracing the challenges ahead—you’re capable of mastering them.",
+                                    listOf("practice", "growth")
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = "intermediate_c10_sub2",
+                        title = "Loops (For, While, Do-While)",
+                        description = "Loops are essential for repeating tasks. The `for`, `while`, and `do-while` loops help execute code multiple times, making them crucial for handling repetitive tasks efficiently.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Loops let you repeat actions based on conditions. Mastering loops will make you more efficient in solving problems and help streamline your code. They’re used in nearly every program you write and are key to managing repetitive tasks effectively.",
+                                    listOf("for", "while", "do-while")
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = "intermediate_c10_sub3",
+                        title = "Arrays",
+                        description = "Arrays are essential for storing multiple values of the same type. They’re crucial for managing large datasets and implementing efficient algorithms.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Arrays store multiple elements of the same type in consecutive memory locations. Understanding arrays allows you to handle large data more efficiently and supports building more complex algorithms.",
+                                    listOf("arrays")
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = "intermediate_c10_sub4",
+                        title = "Keep Going! Your Next Challenge Awaits",
+                        description = "You’ve made excellent progress so far. Completing the sections on loops and arrays has built a strong foundation for you. These core concepts will support more advanced topics ahead. Keep practicing, and the clarity will come. Remember, learning programming is a journey, not a sprint. Stay focused, keep pushing forward, and the next challenge is yours to conquer!",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Your foundation is solid. The next challenge is just ahead—keep the momentum going! With each step, you’ll improve and grow as a programmer. Trust the process and continue making progress.",
+                                    listOf("momentum", "next challenge")
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    )
+                ),
+                status = LessonStatus.LOCKED
+            ),
+
+            Lesson(
+                id = "intermediate_c11",
+                title = "Quiz",
+                description = "Test your knowledge of the topics covered in this stage! 🧠💻",
                 subLessons = listOf(
                     Lesson(
-                        id = "intermediate_c9_sub1",
-                        title = "Using scanf for Input",
-                        description = "Understand how to use scanf to accept formatted input.",
+                        id = "intermediate_c11_sub1",
+                        title = "Quiz: Loops and Arrays",
+                        description = "Quiz on loops, arrays, and related concepts in C.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c9_sub2",
-                        title = "Using getchar for Single Character Input",
-                        description = "Learn how to use `getchar` to read a single character.",
+                        id = "intermediate_c11_sub2",
+                        title = "Quiz: If-Else and Nested Statements",
+                        description = "Test your understanding of if-else statements and nested conditions in C.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c9_sub3",
-                        title = "Using fgets for String Input",
-                        description = "See how to use fgets to accept strings, including spaces.",
+                        id = "intermediate_c11_sub3",
+                        title = "Quiz: Strings and Arrays",
+                        description = "Quiz on strings and array manipulation in C.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c9_sub4",
-                        title = "Input Validation",
-                        description = "Learn how to validate user input for accuracy.",
+                        id = "intermediate_c11_sub4",
+                        title = "Quiz: Break and Continue",
+                        description = "Test your understanding of break and continue in loops.",
                         status = LessonStatus.LOCKED
                     ),
                     Lesson(
-                        id = "intermediate_c9_sub5",
-                        title = "Quiz",
-                        description = "Quiz",
+                        id = "intermediate_c11_sub5",
+                        title = "Quiz: Input Handling",
+                        description = "Quiz on taking and handling user input in C.",
                         status = LessonStatus.LOCKED
                     )
                 ),
                 lessonContents = listOf(
                     LessonContent(
-                        id = "intermediate_c9_sub1",
-                        title = "Using scanf for Input",
-                        description = "Understand how to use scanf to accept formatted input.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "scanf is used to accept formatted input from the user.",
-                                    listOf("scanf")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-                    int age;
-                    scanf("%d", &age);  // Reads an integer input
-                """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = "intermediate_c9_sub2",
-                        title = "Using getchar for Single Character Input",
-                        description = "Learn how to use getchar to read a single character.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "getchar reads a single character entered by the user.",
-                                    listOf("getchar")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-                    char letter;
-                    letter = getchar();  // Reads a single character
-                """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = "intermediate_c9_sub3",
-                        title = "Using fgets for String Input",
-                        description = "See how to use fgets to accept strings, including spaces.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "fgets allows reading a full line of input, including spaces.",
-                                    listOf("fgets")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-                    char name[50];
-                    fgets(name, sizeof(name), stdin);  // Reads a string with spaces
-                """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = "intermediate_c9_sub4",
-                        title = "Input Validation",
-                        description = "Learn how to validate user input for accuracy.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "It's important to validate user input to ensure it's correct.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-                    int num;
-                    if (scanf("%d", &num) != 1) {
-                        printf("Invalid input.\n");
-                    }
-                """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = "intermediate_c9_sub4",
-                        title = "Quiz",
-                        description = "Quiz",
+                        id = "intermediate_c11_sub1",
+                        title = "Quiz: Loops and Arrays",
+                        description = "Answer questions about loops and arrays in C.",
                         contentBlocks = listOf(
                             QuizContentBlock(
-                                question = "What does the getchar function do in C?",
-                                options = listOf(
-                                    "Reads a full line of input including spaces",
-                                    "Reads a single character input",
-                                    "Scans an integer input",
-                                    "Prints a formatted output"
-                                ),
-                                correctAnswer = "Reads a single character input",
-                                userAnswer = null,
-                                isCorrect = false
-                            )
+                                question = "Which loop guarantees that the loop body will execute at least once?",
+                                options = listOf("for", "while", "do-while", "switch"),
+                                correctAnswer = "do-while"
+                            ),
                         ),
                         type = LessonContentType.QUIZ
+                    ),
+                    LessonContent(
+                        id = "intermediate_c11_sub2",
+                        title = "Quiz: If-Else and Nested Statements",
+                        description = "Test your knowledge of if-else and nested conditional statements.",
+                        contentBlocks = listOf(
+                            QuizContentBlock(
+                                question = "Which of the following is the correct syntax for an if-else statement in C?",
+                                options = listOf(
+                                    "if (condition) { // code } else { // code }",
+                                    "if condition { // code } else { // code }",
+                                    "if (condition) then { // code } else { // code }",
+                                    "if condition: { // code } else { // code }"
+                                ),
+                                correctAnswer = "if (condition) { // code } else { // code }"
+                            ),
+
+                        ),
+                        type = LessonContentType.QUIZ
+                    ),
+                    LessonContent(
+                        id = "intermediate_c11_sub3",
+                        title = "Quiz: Strings and Arrays",
+                        description = "Answer questions about strings and arrays in C.",
+                        contentBlocks = listOf(
+                            QuizContentBlock(
+                                question = "How do you declare a string in C?",
+                                options = listOf(
+                                    "char string[];",
+                                    "char string[10];",
+                                    "string char[10];",
+                                    "string[] char;"
+                                ),
+                                correctAnswer = "char string[10];"
+                            ),
+                        ),
+                        type = LessonContentType.QUIZ
+                    ),
+                    LessonContent(
+                        id = "intermediate_c11_sub4",
+                        title = "Quiz: Break and Continue",
+                        description = "Test your understanding of break and continue in loops.",
+                        contentBlocks = listOf(
+                            QuizContentBlock(
+                                question = "What does the 'break' statement do in a loop?",
+                                options = listOf(
+                                    "Exits the loop",
+                                    "Continues the loop",
+                                    "Does nothing",
+                                    "Ends the program"
+                                ),
+                                correctAnswer = "Exits the loop"
+                            ),
+
+
+                        ),
+                        type = LessonContentType.QUIZ
+                    ),
+                    LessonContent(
+                        id = "intermediate_c11_sub5",
+                        title = "Quiz: Input Handling",
+                        description = "Quiz on handling user input in C.",
+                        contentBlocks = listOf(
+                            QuizContentBlock(
+                                question = "Which function is used to take user input in C?",
+                                options = listOf(
+                                    "scanf()",
+                                    "printf()",
+                                    "gets()",
+                                    "input()"
+                                ),
+                                correctAnswer = "scanf()"
+                            ),
+
+                        ),
+                        type = LessonContentType.QUIZ
+                    ),
+                    LessonContent(
+                        id = "intermediate_c11_sub6",
+                        title = "Stage Completed",
+                        description = "You’ve completed this stage, now prepare for the next one!",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(createSimpleText("Great job completing this stage! Keep practicing and move on to the next stage to further improve your C programming skills. 🚀"))
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
                     )
                 ),
                 status = LessonStatus.LOCKED
-            ),
+            )
+            ,
+            
             // continue to add here
 
 
