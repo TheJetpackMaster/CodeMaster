@@ -3791,7 +3791,335 @@ fun cppIntermediateCourse(): Stage {
                 status = LessonStatus.COMPLETED
             ),
 
+            // Final Quiz Lesson for Beginner C++ Stage
+            Lesson(
+                id = "final_quiz_cpp",
+                title = "C++ Final Quiz - Intermediate Level",
+                description = "Test your knowledge on everything you've learned about C++ in this final quiz!",
+                lessonContents = listOf(
+                    // Sub-Lesson 1: C++ Syntax Quiz
+                    LessonContent(
+                        id = "final_quiz_syntax",
+                        title = "C++ Syntax Quiz",
+                        description = "What do you know about C++ syntax and its basic structure?",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "How do you include a library in C++?",
+                                options = listOf(
+                                    "#include <iostream>",
+                                    "import <iostream>",
+                                    "use <iostream>",
+                                    "include <iostream>"
+                                ),
+                                correctAnswer = "#include <iostream>",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.COMPLETED
+                    ),
 
+                    // Sub-Lesson 2: C++ Comments Quiz
+                    LessonContent(
+                        id = "final_quiz_comments",
+                        title = "C++ Comments Quiz",
+                        description = "Test your knowledge of C++ comment syntax.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "Which is the correct syntax for multi-line comments?",
+                                options = listOf(
+                                    "// Comment",
+                                    "/* Comment */",
+                                    "### Comment ###",
+                                    "# Comment"
+                                ),
+                                correctAnswer = "/* Comment */",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Sub-Lesson 3: C++ Output Quiz
+                    LessonContent(
+                        id = "final_quiz_output",
+                        title = "C++ Output Quiz",
+                        description = "Test your understanding of output in C++.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "How do you output a string in C++?",
+                                options = listOf(
+                                    "cout << 'Hello';",
+                                    "print('Hello');",
+                                    "echo 'Hello';",
+                                    "System.out.println('Hello');"
+                                ),
+                                correctAnswer = "cout << 'Hello';",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Sub-Lesson 4: C++ Variables Quiz 1
+                    LessonContent(
+                        id = "final_quiz_variables_1",
+                        title = "C++ Variables Quiz 1",
+                        description = "Test your knowledge of variables in C++.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "How do you declare an integer variable?",
+                                options = listOf(
+                                    "int num = 10;",
+                                    "integer num = 10;",
+                                    "num int = 10;",
+                                    "num = 10;"
+                                ),
+                                correctAnswer = "int num = 10;",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Sub-Lesson 5: C++ Variables Quiz 2
+                    LessonContent(
+                        id = "final_quiz_variables_2",
+                        title = "C++ Variables Quiz 2",
+                        description = "Check your knowledge of variable initialization.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "Which is the correct way to initialize a variable?",
+                                options = listOf(
+                                    "int num = 5;",
+                                    "num = 5 int;",
+                                    "int 5 = num;",
+                                    "initialize num = 5;"
+                                ),
+                                correctAnswer = "int num = 5;",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Sub-Lesson 6: C++ Variables Quiz 3
+                    LessonContent(
+                        id = "final_quiz_variables_3",
+                        title = "C++ Variables Quiz 3",
+                        description = "Test your knowledge of variable types.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "Which of the following is a valid variable type?",
+                                options = listOf(
+                                    "int",
+                                    "integer",
+                                    "num",
+                                    "value"
+                                ),
+                                correctAnswer = "int",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Sub-Lesson 7: C++ User Input Quiz
+                    LessonContent(
+                        id = "final_quiz_input",
+                        title = "C++ User Input Quiz",
+                        description = "Test your knowledge on handling user input.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "How do you take user input?",
+                                options = listOf(
+                                    "cin >> input;",
+                                    "get(input);",
+                                    "input = cin;",
+                                    "read(input);"
+                                ),
+                                correctAnswer = "cin >> input;",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Sub-Lesson 8: C++ Data Types Quiz
+                    LessonContent(
+                        id = "final_quiz_data_types",
+                        title = "C++ Data Types Quiz",
+                        description = "Test your knowledge on the data types in C++.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "Which is a valid C++ data type?",
+                                options = listOf(
+                                    "int",
+                                    "float64",
+                                    "bool",
+                                    "stringLiteral"
+                                ),
+                                correctAnswer = "bool",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Sub-Lesson 9: C++ Strings Quiz
+                    LessonContent(
+                        id = "final_quiz_strings",
+                        title = "C++ Strings Quiz",
+                        description = "Check your knowledge on strings in C++.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "How do you declare a string?",
+                                options = listOf(
+                                    "string str = 'Hello';",
+                                    "String str = 'Hello';",
+                                    "char str = 'Hello';",
+                                    "str = 'Hello';"
+                                ),
+                                correctAnswer = "string str = 'Hello';",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Sub-Lesson 10: C++ Booleans Quiz
+                    LessonContent(
+                        id = "final_quiz_booleans",
+                        title = "C++ Booleans Quiz",
+                        description = "Test your understanding of booleans.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "What are the two values of a boolean?",
+                                options = listOf(
+                                    "True and False",
+                                    "Yes and No",
+                                    "1 and 0",
+                                    "On and Off"
+                                ),
+                                correctAnswer = "True and False",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Sub-Lesson 11: C++ Operators Quiz
+                    LessonContent(
+                        id = "final_quiz_operators",
+                        title = "C++ Operators Quiz",
+                        description = "Test your knowledge of operators in C++.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "Which is a logical operator?",
+                                options = listOf(
+                                    "&&",
+                                    "++",
+                                    "-",
+                                    "/"
+                                ),
+                                correctAnswer = "&&",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Sub-Lesson 12: Else If Quiz
+                    LessonContent(
+                        id = "final_quiz_else_if",
+                        title = "C++ Else If Quiz",
+                        description = "Test your knowledge of `else if` statements.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "What is the syntax for using `else if`?",
+                                options = listOf(
+                                    "if (condition) else if (condition) { }",
+                                    "if (condition) { } else if (condition) { }",
+                                    "else if (condition) { }",
+                                    "else { if (condition) { } }"
+                                ),
+                                correctAnswer = "if (condition) { } else if (condition) { }",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Sub-Lesson 13: Nested Else If Quiz
+                    LessonContent(
+                        id = "final_quiz_nested_else_if",
+                        title = "C++ Nested Else If Quiz",
+                        description = "Test your understanding of nested `else if` statements.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "Which is the correct way to use nested `else if`?",
+                                options = listOf(
+                                    "if (condition) { if (condition) { } } else { }",
+                                    "if (condition) { else if (condition) { } else { } }",
+                                    "else { if (condition) { } } else if (condition) { }",
+                                    "if (condition) { if (condition) { } else { } }"
+                                ),
+                                correctAnswer = "if (condition) { if (condition) { } } else { }",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Sub-Lesson 14: C++ Switch Case Quiz
+                    LessonContent(
+                        id = "final_quiz_switch_case",
+                        title = "C++ Switch Case Quiz",
+                        description = "Test your knowledge of `switch` and `case` statements.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "What is the correct syntax for a switch case?",
+                                options = listOf(
+                                    "switch (x) { case 1: break; }",
+                                    "case 1: switch (x) break;",
+                                    "switch case (x) { break 1; }",
+                                    "if (x) { case 1: }"
+                                ),
+                                correctAnswer = "switch (x) { case 1: break; }",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.COMPLETED
+                    )
+                )
+            )
         )
     )
 }
