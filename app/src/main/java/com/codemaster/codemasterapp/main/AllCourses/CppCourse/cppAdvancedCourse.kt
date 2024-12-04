@@ -2885,6 +2885,314 @@ int main() {
 
                 ),
                 status = LessonStatus.COMPLETED
+            ),
+
+            // Advanced Quiz Lesson for C++
+            Lesson(
+                id = "advanced_quiz_cplusplus",
+                title = "C++ Advanced Quiz",
+                description = "Test your knowledge of advanced C++ concepts and OOP principles with these quizzes!",
+                lessonContents = listOf(
+                    // Sub-Lesson 1: Introduction to OOP
+                    LessonContent(
+                        id = "quiz_intro_oop",
+                        title = "Introduction to OOP in C++",
+                        description = "Test your understanding of Object-Oriented Programming principles in C++.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "Which of the following is not one of the four main principles of OOP?",
+                                options = listOf(
+                                    "Encapsulation",
+                                    "Inheritance",
+                                    "Abstraction",
+                                    "Polymorphism",
+                                    "Optimization"
+                                ),
+                                correctAnswer = "Optimization",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Sub-Lesson 2: Classes & Objects in C++
+                    LessonContent(
+                        id = "quiz_classes_objects",
+                        title = "Classes & Objects in C++",
+                        description = "Test your understanding of classes and objects in C++.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "Which of the following is used to create an object of a class in C++?",
+                                options = listOf(
+                                    "class MyClass;",
+                                    "MyClass obj;",
+                                    "obj.MyClass;",
+                                    "create MyClass obj;"
+                                ),
+                                correctAnswer = "MyClass obj;",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Sub-Lesson 3: Class Methods in C++
+                    LessonContent(
+                        id = "quiz_class_methods",
+                        title = "Class Methods in C++",
+                        description = "Test your knowledge of class methods in C++.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "What is the correct way to declare a class method in C++?",
+                                options = listOf(
+                                    "void method() { }",
+                                    "method void() { }",
+                                    "void method(): { }",
+                                    "void { method(); }"
+                                ),
+                                correctAnswer = "void method() { }",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Sub-Lesson 4: Constructors in C++
+                    LessonContent(
+                        id = "quiz_constructors",
+                        title = "Constructors in C++",
+                        description = "Test your understanding of constructors in C++.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "What is the main purpose of a constructor in C++?",
+                                options = listOf(
+                                    "To initialize the object",
+                                    "To clean up resources",
+                                    "To define methods",
+                                    "To declare the class"
+                                ),
+                                correctAnswer = "To initialize the object",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Sub-Lesson 5: C++ Access Specifiers
+                    LessonContent(
+                        id = "quiz_access_specifiers",
+                        title = "C++ Access Specifiers",
+                        description = "Test your knowledge of access specifiers in C++.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "Which access specifier allows access to members within the same class and derived classes?",
+                                options = listOf(
+                                    "private",
+                                    "protected",
+                                    "public",
+                                    "internal"
+                                ),
+                                correctAnswer = "protected",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Sub-Lesson 6: Setters and Getters in C++
+                    LessonContent(
+                        id = "quiz_setters_getters",
+                        title = "Setters and Getters in C++",
+                        description = "Test your knowledge of setter and getter methods in C++.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "What is the main purpose of setter and getter methods?",
+                                options = listOf(
+                                    "To encapsulate data and provide controlled access",
+                                    "To modify the class's methods",
+                                    "To handle memory allocation",
+                                    "To create objects"
+                                ),
+                                correctAnswer = "To encapsulate data and provide controlled access",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Sub-Lesson 7: C++ Inheritance
+                    LessonContent(
+                        id = "quiz_inheritance",
+                        title = "C++ Inheritance",
+                        description = "Test your understanding of inheritance in C++.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "Which keyword is used to implement inheritance in C++?",
+                                options = listOf(
+                                    "extends",
+                                    "inherits",
+                                    "base",
+                                    "public"
+                                ),
+                                correctAnswer = "public",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Sub-Lesson 8: C++ Multilevel Inheritance
+                    LessonContent(
+                        id = "quiz_multilevel_inheritance",
+                        title = "C++ Multilevel Inheritance",
+                        description = "Test your understanding of multilevel inheritance in C++.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "In multilevel inheritance, how many levels of inheritance are involved?",
+                                options = listOf(
+                                    "One",
+                                    "Two",
+                                    "Three or more",
+                                    "No levels"
+                                ),
+                                correctAnswer = "Three or more",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Sub-Lesson 9: C++ Multiple Inheritance
+                    LessonContent(
+                        id = "quiz_multiple_inheritance",
+                        title = "C++ Multiple Inheritance",
+                        description = "Test your understanding of multiple inheritance in C++.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "What is multiple inheritance in C++?",
+                                options = listOf(
+                                    "A class inheriting from more than one base class",
+                                    "A class inheriting from a single class multiple times",
+                                    "A class inheriting from another class with multiple levels",
+                                    "A class inheriting data members only"
+                                ),
+                                correctAnswer = "A class inheriting from more than one base class",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Sub-Lesson 10: Encapsulation in C++
+                    LessonContent(
+                        id = "quiz_encapsulation",
+                        title = "Encapsulation in C++",
+                        description = "Test your knowledge of encapsulation in C++.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "What is encapsulation in C++?",
+                                options = listOf(
+                                    "The concept of hiding implementation details",
+                                    "The process of inheriting from a class",
+                                    "The ability to call methods from another class",
+                                    "The act of creating multiple classes"
+                                ),
+                                correctAnswer = "The concept of hiding implementation details",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Sub-Lesson 11: Polymorphism in C++
+                    LessonContent(
+                        id = "quiz_polymorphism",
+                        title = "Polymorphism in C++",
+                        description = "Test your understanding of polymorphism in C++.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "What is the purpose of polymorphism in C++?",
+                                options = listOf(
+                                    "To allow objects to take multiple forms",
+                                    "To make a class inherit from multiple classes",
+                                    "To create methods with the same name",
+                                    "To access class methods"
+                                ),
+                                correctAnswer = "To allow objects to take multiple forms",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Sub-Lesson 12: Practice C++ OOP
+                    LessonContent(
+                        id = "quiz_practice_oop",
+                        title = "Practice C++ OOP",
+                        description = "Test your overall OOP knowledge with practice questions.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "What is the output of the following code snippet?\n`class Base { public: virtual void display() { cout << 'Base'; } }; class Derived : public Base { public: void display() override { cout << 'Derived'; } }; Derived obj; obj.display();`",
+                                options = listOf(
+                                    "Base",
+                                    "Derived",
+                                    "Compilation Error",
+                                    "Runtime Error"
+                                ),
+                                correctAnswer = "Derived",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.COMPLETED
+                    ),
+
+                    // Sub-Lesson 13: Advanced C++ Concepts Recap
+                    LessonContent(
+                        id = "quiz_advanced_cpp",
+                        title = "Advanced C++ Concepts Recap",
+                        description = "Test your overall understanding of advanced C++ concepts.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "Which of the following C++ features is used to ensure that an object cannot be modified?",
+                                options = listOf(
+                                    "const keyword",
+                                    "mutable keyword",
+                                    "static keyword",
+                                    "inline functions"
+                                ),
+                                correctAnswer = "const keyword",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.COMPLETED
+                    )
+                )
             )
 
         )
