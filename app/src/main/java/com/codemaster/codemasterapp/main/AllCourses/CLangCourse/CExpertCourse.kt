@@ -252,6 +252,7 @@ fun CExpertCourse(): Stage {
                     )
                 )
             ),
+
             // lesson 3
             Lesson(
                 id = "expert_c3",
@@ -632,8 +633,8 @@ double getUserInput() {
                 ),
                 status = LessonStatus.LOCKED
             ),
-            // Lesson: Advanced Contact Management System
 
+            // lesson 3
             Lesson(
                 id = "expert_c4",
                 title = "Contact Management System",
@@ -1543,7 +1544,7 @@ void initializeBoard() {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     "This lesson shows how to create a function that displays the Tic-Tac-Toe board with values in a grid format. Pipes '|' separate the cells, and dashes ('---|---|---') separate rows for clarity.",
-                                    listOf("display board","'|'","'---|---|---'")
+                                    listOf("display board", "'|'", "'---|---|---'")
                                 )
                             ),
                             ContentBlock.Code(
@@ -1579,7 +1580,7 @@ void displayBoard() {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     "This lesson demonstrates how to check if a player has won by evaluating the rows, columns, and diagonals of the game board.",
-                                    listOf("",)
+                                    listOf("")
                                 )
                             ),
                             ContentBlock.Code(
@@ -1620,7 +1621,7 @@ int checkWin(char player) {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     "This lesson demonstrates how to check for a draw by verifying if all board cells are filled with 'X' or 'O'.",
-                                    listOf("'X'","'O'")
+                                    listOf("'X'", "'O'")
                                 )
                             ),
                             ContentBlock.Code(
@@ -1656,7 +1657,7 @@ int checkDraw() {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     "This lesson explains how to take player input and validate the move, ensuring the chosen cell is available.",
-                                    listOf("player input ","validate")
+                                    listOf("player input ", "validate")
                                 )
                             ),
                             ContentBlock.Code(
@@ -1706,7 +1707,7 @@ void playerMove(char player) {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     "Below is the complete code for the Tic-Tac-Toe game. This program allows two players, X and O, to take turns and make moves on a 3x3 grid. The game checks for a winner after every move and also checks for a draw when all the cells are filled. The user inputs a number between 1 and 9 to choose the cell for their move, and the game displays the updated board after each move.",
-                                    listOf("X "," O")
+                                    listOf("X ", " O")
                                 )
                             ),
                             ContentBlock.Code(
@@ -1879,7 +1880,11 @@ int main() {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     "In this project, you will develop a text editor in C that enables users to create new files, edit existing files, and read file content. Users can input text dynamically, append or edit file content, and save changes as needed. The program makes use of dynamic memory allocation to handle variable-length content, file handling for managing text files, and string manipulation techniques to process user input and file data.",
-                                    listOf("memory allocation", "file handling", "string manipulation")
+                                    listOf(
+                                        "memory allocation",
+                                        "file handling",
+                                        "string manipulation"
+                                    )
                                 )
                             )
                         ),
@@ -2346,7 +2351,11 @@ int main() {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     "This project demonstrates practical use of file handling in C, including dynamic memory management and user interaction via a menu. It is a foundational project for learning C programming and understanding file I/O operations.",
-                                    listOf("file handling", "dynamic memory", "menu-driven interface")
+                                    listOf(
+                                        "file handling",
+                                        "dynamic memory",
+                                        "menu-driven interface"
+                                    )
                                 )
                             )
                         ),
@@ -2354,7 +2363,582 @@ int main() {
                     )
                 ),
                 status = LessonStatus.LOCKED
-            )
+            ),
+            Lesson(
+                id = "expert_c8",
+                title = "Student Grading System",
+                description = " Build a system to manage student grades, calculate averages, and display results. This project will involve basic data structures and file handling.",
+                subLessons = listOf(
+                    Lesson(
+                        id = "expert_c6_sub1",
+                        title = "Introduction to Contact Management System",
+                        description = "Learn how to create a contact management system in Kotlin with add, view, search, update, and delete functionalities.",
+                        status = LessonStatus.LOCKED
+                    ),
+                    Lesson(
+                        id = "expert_c6_sub2",
+                        title = "Defining the Contact Structure",
+                        description = "Learn to define a Contact structure to store name and phone details, using constants for limits on contacts and field lengths.",
+                        status = LessonStatus.LOCKED
+                    ),
+                    Lesson(
+                        id = "expert_c6_sub3",
+                        title = "Adding a Contact",
+                        description = "Implement the functionality to add a new contact to the contact book.",
+                        status = LessonStatus.LOCKED
+                    ),
+                    Lesson(
+                        id = "expert_c6_sub4",
+                        title = "Viewing Contacts",
+                        description = "Display the list of all contacts stored in the contact book.",
+                        status = LessonStatus.LOCKED
+                    ),
+                    Lesson(
+                        id = "expert_c6_sub5",
+                        title = "Searching for a Contact",
+                        description = "Search for a contact by name in the contact book.",
+                        status = LessonStatus.LOCKED
+                    ),
+
+                    ),
+                lessonContents = listOf(
+                    LessonContent(
+                        id = "expert_c8_sub1",
+                        title = "Student Grading System in C",
+                        description = "This project teaches how to build a robust student grading system in C, allowing users to add, view, and manage student records. The system ensures uniqueness of roll numbers and includes features like grade computation, file storage, and record retrieval.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "In this project, you will develop a student grading system in C that allows users to add and manage student records. The system enforces unique roll numbers to maintain data integrity. It supports dynamic input of student names, roll numbers, and marks for multiple subjects, computes averages, assigns grades, and saves records to a file for persistence. The project demonstrates practical usage of concepts like array management, file handling, and logical validations to build a functional and user-friendly application.",
+                                    listOf(
+                                        "array management",
+                                        "file handling",
+                                        "logical validations"
+                                    )
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+
+                    LessonContent(
+                        id = "expert_c8_sub2",
+                        title = "Building a Student Grading System in C",
+                        description = "Learn how to build a student grading system in C with features like unique roll number validation, grade calculation, and persistent file storage.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "This lesson guides you through the implementation of a student grading system in C. Key features include enforcing unique roll numbers, calculating averages and grades, and saving records to a file for persistence. You will use essential libraries like <stdio.h> for input/output, <stdlib.h> for memory management, and <string.h> for string operations. Constants such as MAX_STUDENTS and MAX_SUBJECTS are defined to manage data efficiently, ensuring robust record handling and validation.",
+                                    listOf(
+                                        "unique roll numbers",
+                                        "file storage",
+                                        "grade calculation"
+                                    )
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define MAX_STUDENTS 100
+#define MAX_NAME_LENGTH 50
+#define MAX_SUBJECTS 5
+
+typedef struct {
+    char name[MAX_NAME_LENGTH];
+    int rollNumber;
+    float numbers[MAX_SUBJECTS];
+    float average;
+    int isSaved;
+} Student;
+
+Student students[MAX_STUDENTS];
+int studentCount = 0;
+""".trimIndent()
+                            ),
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+
+                    LessonContent(
+                        id = "expert_c8_sub3",
+                        title = "Adding and Validating Student Records in C",
+                        description = "Learn how to implement a function for adding student records in C while ensuring validation, accurate grade calculation, and options for saving the records persistently.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "This lesson covers a function that calculates grades based on averages and validates student records by ensuring unique roll numbers, making it easy to manage and save records effectively.",
+                                    listOf("data validation", "grade calculation", "file handling")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+char getGrade(float average) {
+    if (average >= 90) return 'A';
+    if (average >= 80) return 'B';
+    if (average >= 70) return 'C';
+    if (average >= 60) return 'D';
+    return 'F';
+}
+""".trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "This implementation ensures records are accurate, prevents duplicates, and supports saving for future access.",
+                                    listOf("data validation", "grade calculation", "file handling")
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+
+                    LessonContent(
+                        id = "expert_c8_sub4",
+                        title = "Adding New Student Records with Validation in C",
+                        description = "Learn how to add new student records with validation, calculate averages, and provide options to save records in C.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "This lesson demonstrates how to add new student records while validating roll numbers to ensure uniqueness. Users can input scores for multiple subjects, calculate averages, and optionally save the record to persistent storage. The function prevents duplicates, manages data efficiently, and provides a seamless user experience.",
+                                    listOf(
+                                        "data validation",
+                                        "average calculation",
+                                        "file handling"
+                                    )
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+void addStudent() {
+    if (studentCount >= MAX_STUDENTS) {
+        printf("Student limit reached!\n");
+        return;
+    }
+
+    Student newStudent;
+    printf("Enter student name: ");
+    scanf(" %[^\n]s", newStudent.name);
+    printf("Enter roll number: ");
+    scanf("%d", &newStudent.rollNumber);
+
+    // Check if the roll number already exists
+    for (int i = 0; i < studentCount; i++) {
+        if (students[i].rollNumber == newStudent.rollNumber) {
+            printf("Error: A student with roll number %d already exists.\n", newStudent.rollNumber);
+            return;
+        }
+    }
+
+    printf("Enter numbers for %d subjects:\n", MAX_SUBJECTS);
+    float total = 0;
+    for (int i = 0; i < MAX_SUBJECTS; i++) {
+        printf("Subject %d: ", i + 1);
+        if (scanf("%f", &newStudent.numbers[i]) != 1) {
+            printf("Invalid number input. Please enter a valid number.\n");
+            return;
+        }
+        total += newStudent.numbers[i];
+    }
+    newStudent.average = total / MAX_SUBJECTS;
+    newStudent.isSaved = 0;
+
+    students[studentCount++] = newStudent;
+    printf("Student record added successfully.\n");
+
+    char saveChoice;
+    printf("Do you want to save this record? (Y/N): ");
+    scanf(" %c", &saveChoice);
+    if (saveChoice == 'Y' || saveChoice == 'y') {
+        saveRecord(studentCount - 1);
+    }
+}
+""".trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "The function ensures robust data management by dynamically allocating memory for new records, validating inputs, and allowing users to save data for persistent access.",
+                                    listOf(
+                                        "dynamic allocation",
+                                        "data validation",
+                                        "persistent storage"
+                                    )
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+
+                    LessonContent(
+                        id = "expert_c8_sub5",
+                        title = "Viewing Student Records by Roll Number in C",
+                        description = "Learn how to search and display student records by roll number in C.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "This lesson demonstrates a function to search for and display a student's record by roll number. It validates input, checks if the record exists, and displays details like scores, averages, and grades, ensuring saved records are retrieved accurately.",
+                                    listOf("search records", "validate input", "display details")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+void viewRecordByRollNumber() {
+    if (studentCount == 0) {
+        printf("No student records available.\n");
+        return;
+    }
+
+    int rollNumberToSearch;
+    printf("Enter the roll number to search: ");
+    scanf("%d", &rollNumberToSearch);
+
+    int found = 0;
+    for (int i = 0; i < studentCount; i++) {
+        if (students[i].rollNumber == rollNumberToSearch && students[i].isSaved) {
+            printf("\nStudent Record:\n");
+            printf("Name: %s\n", students[i].name);
+            printf("Roll Number: %d\n", students[i].rollNumber);
+            printf("Subjects Scores: ");
+            for (int j = 0; j < MAX_SUBJECTS; j++) {
+                printf("%.2f ", students[i].numbers[j]);
+            }
+            printf("\nAverage: %.2f\n", students[i].average);
+            printf("Grade: %c\n", getGrade(students[i].average));
+            found = 1;
+            break;
+        }
+    }
+
+    if (!found) {
+        printf("No record found for roll number %d.\n", rollNumberToSearch);
+    }
+}
+""".trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "This function efficiently retrieves and displays student records by roll number, ensuring accurate data management and user-friendly output.",
+                                    listOf(
+                                        "search functionality",
+                                        "data retrieval",
+                                        "user-friendly output"
+                                    )
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+
+                    LessonContent(
+                        id = "expert_c8_sub6",
+                        title = "Saving Student Records in C",
+                        description = "Learn how to save student records to a file in C.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "This lesson demonstrates how to save a student's record to a file. The function writes data in a structured format, including the name, roll number, subject scores, and average, ensuring successful file persistence.",
+                                    listOf("save records", "file handling", "structured format")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+void saveRecord(int studentIndex) {
+    FILE *file = fopen("student_records.txt", "a");
+    if (file == NULL) {
+        printf("Error opening file for writing.\n");
+        return;
+    }
+
+    // Write the student record in a consistent format
+    fprintf(file, "%s\n", students[studentIndex].name);
+    fprintf(file, "%d\n", students[studentIndex].rollNumber);
+    for (int j = 0; j < MAX_SUBJECTS; j++) {
+        fprintf(file, "%.2f ", students[studentIndex].numbers[j]);
+    }
+    fprintf(file, "\n%.2f\n", students[studentIndex].average); // Save average
+    fclose(file);
+    students[studentIndex].isSaved = 1;
+    printf("Student record saved successfully.\n");
+}
+""".trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "This function writes student data to a file in an organized way, ensuring records are stored persistently and marked as saved.",
+                                    listOf("file persistence", "organized storage", "data saving")
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = "expert_c8_sub7",
+                        title = "Loading Student Records in C",
+                        description = "Learn how to load student records from a file in C.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "This lesson demonstrates how to load student records from a file. The function reads data line by line, calculates averages, and marks records as loaded successfully.",
+                                    listOf("load records", "file reading", "data initialization")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+void loadRecords() {
+    FILE *file = fopen("student_records.txt", "r");
+    if (file == NULL) {
+        printf("No previous records found.\n");
+        return;
+    }
+
+    // Read until the end of the file
+    while (fscanf(file, " %[^\n]s", students[studentCount].name) != EOF) {
+        fscanf(file, "%d", &students[studentCount].rollNumber);
+
+        // Read the scores for each subject
+        float total = 0;
+        for (int i = 0; i < MAX_SUBJECTS; i++) {
+            fscanf(file, "%f", &students[studentCount].numbers[i]);
+            total += students[studentCount].numbers[i];
+        }
+        students[studentCount].average = total / MAX_SUBJECTS;
+
+        // Set the record as saved
+        students[studentCount].isSaved = 1;
+
+        studentCount++;  // Increment the student count
+    }
+
+    fclose(file);
+    printf("Records loaded successfully.\n");
+}
+""".trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "The function efficiently reads student records, calculates averages, and updates the system with previously saved data.",
+                                    listOf("file reading", "data loading", "average calculation")
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+
+                    LessonContent(
+                        id = "expert_c8_sub8",
+                        title = "Student Grading System in C",
+                        description = "Complete implementation of a student grading system in C, showcasing file handling, data management, and a menu-driven interface.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "This program allows users to add, save, and view student records. It demonstrates file handling, structured data storage, and user interaction through a menu-driven interface.",
+                                    listOf("file handling", "data management", "menu interface")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define MAX_STUDENTS 100
+#define MAX_NAME_LENGTH 50
+#define MAX_SUBJECTS 5
+
+typedef struct {
+    char name[MAX_NAME_LENGTH];
+    int rollNumber;
+    float numbers[MAX_SUBJECTS];
+    float average;
+    int isSaved;
+} Student;
+
+Student students[MAX_STUDENTS];
+int studentCount = 0;
+
+// Function prototypes
+void saveRecord(int studentIndex);
+void addStudent();
+void viewRecordByRollNumber();
+char getGrade(float average);
+
+char getGrade(float average) {
+    if (average >= 90) return 'A';
+    if (average >= 80) return 'B';
+    if (average >= 70) return 'C';
+    if (average >= 60) return 'D';
+    return 'F';
+}
+
+void addStudent() {
+    if (studentCount >= MAX_STUDENTS) {
+        printf("Student limit reached!\n");
+        return;
+    }
+
+    Student newStudent;
+    printf("Enter student name: ");
+    scanf(" %[^\n]s", newStudent.name);
+    printf("Enter roll number: ");
+    scanf("%d", &newStudent.rollNumber);
+
+    // Check if the roll number already exists
+    for (int i = 0; i < studentCount; i++) {
+        if (students[i].rollNumber == newStudent.rollNumber) {
+            printf("Error: A student with roll number %d already exists.\n", newStudent.rollNumber);
+            return;
+        }
+    }
+
+    printf("Enter numbers for %d subjects:\n", MAX_SUBJECTS);
+    float total = 0;
+    for (int i = 0; i < MAX_SUBJECTS; i++) {
+        printf("Subject %d: ", i + 1);
+        if (scanf("%f", &newStudent.numbers[i]) != 1) {
+            printf("Invalid number input. Please enter a valid number.\n");
+            return;
+        }
+        total += newStudent.numbers[i];
+    }
+    newStudent.average = total / MAX_SUBJECTS;
+    newStudent.isSaved = 0;
+
+    students[studentCount++] = newStudent;
+    printf("Student record added successfully.\n");
+
+    char saveChoice;
+    printf("Do you want to save this record? (Y/N): ");
+    scanf(" %c", &saveChoice);
+    if (saveChoice == 'Y' || saveChoice == 'y') {
+        saveRecord(studentCount - 1);
+    }
+}
+
+
+void viewRecordByRollNumber() {
+    if (studentCount == 0) {
+        printf("No student records available.\n");
+        return;
+    }
+
+    int rollNumberToSearch;
+    printf("Enter the roll number to search: ");
+    scanf("%d", &rollNumberToSearch);
+
+    int found = 0;
+    for (int i = 0; i < studentCount; i++) {
+        if (students[i].rollNumber == rollNumberToSearch && students[i].isSaved) {
+            printf("\nStudent Record:\n");
+            printf("Name: %s\n", students[i].name);
+            printf("Roll Number: %d\n", students[i].rollNumber);
+            printf("Subjects Scores: ");
+            for (int j = 0; j < MAX_SUBJECTS; j++) {
+                printf("%.2f ", students[i].numbers[j]);
+            }
+            printf("\nAverage: %.2f\n", students[i].average);
+            printf("Grade: %c\n", getGrade(students[i].average));
+            found = 1;
+            break;
+        }
+    }
+
+    if (!found) {
+        printf("No record found for roll number %d.\n", rollNumberToSearch);
+    }
+}
+
+void saveRecord(int studentIndex) {
+    FILE *file = fopen("student_records.txt", "a");
+    if (file == NULL) {
+        printf("Error opening file for writing.\n");
+        return;
+    }
+
+    // Write the student record in a consistent format
+    fprintf(file, "%s\n", students[studentIndex].name);
+    fprintf(file, "%d\n", students[studentIndex].rollNumber);
+    for (int j = 0; j < MAX_SUBJECTS; j++) {
+        fprintf(file, "%.2f ", students[studentIndex].numbers[j]);
+    }
+    fprintf(file, "\n%.2f\n", students[studentIndex].average); // Save average
+    fclose(file);
+    students[studentIndex].isSaved = 1;
+    printf("Student record saved successfully.\n");
+}
+
+void loadRecords() {
+    FILE *file = fopen("student_records.txt", "r");
+    if (file == NULL) {
+        printf("No previous records found.\n");
+        return;
+    }
+
+    // Read until the end of the file
+    while (fscanf(file, " %[^\n]s", students[studentCount].name) != EOF) {
+        fscanf(file, "%d", &students[studentCount].rollNumber);
+
+        // Read the scores for each subject
+        float total = 0;
+        for (int i = 0; i < MAX_SUBJECTS; i++) {
+            fscanf(file, "%f", &students[studentCount].numbers[i]);
+            total += students[studentCount].numbers[i];
+        }
+        students[studentCount].average = total / MAX_SUBJECTS;
+
+        // Set the record as saved
+        students[studentCount].isSaved = 1;
+
+        studentCount++;  // Increment the student count
+    }
+
+    fclose(file);
+    printf("Records loaded successfully.\n");
+}
+
+int main() {
+    loadRecords();
+    int choice;
+
+    while (1) {
+        printf("\nStudent Grading System Menu:\n");
+        printf("1. Add Student Record\n");
+        printf("2. View Record by Roll Number\n");
+        printf("3. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                addStudent();
+                break;
+            case 2:
+                viewRecordByRollNumber();
+                break;
+            case 3:
+                printf("Exiting program.\n");
+                return 0;
+            default:
+                printf("Invalid choice. Please try again.\n");
+        }
+    }
+    return 0;
+}
+
+"""
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "This project demonstrates practical file handling in C, focusing on saving and retrieving structured data with user-friendly functionality.",
+                                    listOf("file handling", "menu interface", "data persistence")
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    )
+                ),
+                status = LessonStatus.LOCKED
+            ),
         )
     )
 }
