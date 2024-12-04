@@ -3797,6 +3797,7 @@ fun cppIntermediateCourse(): Stage {
                 title = "C++ Final Quiz - Intermediate Level",
                 description = "Test your knowledge on everything you've learned about C++ in this final quiz!",
                 lessonContents = listOf(
+
                     // Sub-Lesson 1: C++ Syntax Quiz
                     LessonContent(
                         id = "final_quiz_syntax",
