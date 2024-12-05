@@ -88,6 +88,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.IntOffset
+import androidx.compose.ui.unit.min
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.airbnb.lottie.compose.LottieAnimation
@@ -389,7 +390,8 @@ fun LessonContentScreen(
                             lessonContent = lessons[pagerState.currentPage],  // Pass the current lesson content
                             onNext = {
                                 courseViewModel.markSubLessonAsCompleted(
-                                    selectedLesson?.lessonContents[pagerState.currentPage]?.id ?: "",
+                                    selectedLesson?.lessonContents[pagerState.currentPage]?.id
+                                        ?: "",
                                     selectedLesson?.id ?: ""
                                 )
                                 courseViewModel.updateLessonCompletionStatus()
@@ -793,8 +795,26 @@ fun LessonContentView(
 
 @Composable
 fun CodeBlockWithScrolling(contentBlock: String) {
-    val keywords = listOf("int", "return", "cout", "endl", "void", "if", "else", "while", "for", "#include", "#define","++","--",
-        "bool","cin","float","char","double")
+    val keywords = listOf(
+        "int",
+        "return",
+        "cout",
+        "endl",
+        "void",
+        "if",
+        "else",
+        "while",
+        "for",
+        "#include",
+        "#define",
+        "++",
+        "--",
+        "bool",
+        "cin",
+        "float",
+        "char",
+        "double"
+    )
     val braces = listOf("{", "}", "(", ")", "[", "]")
     val codeLines = contentBlock.split("\n")
 
@@ -815,7 +835,10 @@ fun CodeBlockWithScrolling(contentBlock: String) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .background(Color.Black, shape = RoundedCornerShape(8.dp)) // Background color of the code block
+            .background(
+                Color.Black,
+                shape = RoundedCornerShape(8.dp)
+            ) // Background color of the code block
     ) {
         // Code content with scrolling
         Column(
@@ -851,7 +874,8 @@ fun CodeBlockWithScrolling(contentBlock: String) {
                         // Display code with styled syntax
                         Text(
                             text = buildAnnotatedString {
-                                var tempLine = line // A temporary line to handle cases like `printf(`
+                                var tempLine =
+                                    line // A temporary line to handle cases like `printf(`
 
                                 // Updated regex to handle spaces and syntax components more precisely
                                 val regex = Regex(
@@ -872,27 +896,34 @@ fun CodeBlockWithScrolling(contentBlock: String) {
                                                 style = SpanStyle(color = Color(0xFF49D9C8)) // Keyword color
                                             ) { append(word) }
                                         }
+
                                         word in braces -> {
                                             withStyle(
                                                 style = SpanStyle(color = Color(0XFFFFFFFF)) // Braces color
                                             ) { append(word) }
                                         }
+
                                         word.startsWith("\"") && word.endsWith("\"") -> {
                                             // Ensure strings inside parentheses or anywhere else are colored red
                                             withStyle(
                                                 style = SpanStyle(color = Color.Red) // String literal color
                                             ) { append(word) }
                                         }
+
                                         word.isNotBlank() -> {
                                             append(word) // Default text color for regular tokens
                                         }
+
                                         else -> {
                                             append(" ") // Preserve spaces exactly as they are
                                         }
                                     }
                                 }
                             },
-                            style = TextStyle(fontSize = 12.sp, color = Color.White) // Font size for code text
+                            style = TextStyle(
+                                fontSize = 12.sp,
+                                color = Color.White
+                            ) // Font size for code text
                         )
                     }
                 }
@@ -906,19 +937,26 @@ fun CodeBlockWithScrolling(contentBlock: String) {
             modifier = Modifier
                 .align(Alignment.CenterEnd)
                 .width(4.dp)
-                .background(Color.Gray.copy(alpha = 0.5f), shape = RoundedCornerShape(topEnd = 124.dp, bottomEnd = 124.dp)) // Background for the scroll indicator
+                .background(
+                    Color.Gray.copy(alpha = 0.5f),
+                    shape = RoundedCornerShape(topEnd = 124.dp, bottomEnd = 124.dp)
+                ) // Background for the scroll indicator
 
         ) {
             // Scroll indicator height calculation
             val scrollPercentage = scrollState.value.toFloat() / scrollState.maxValue.toFloat()
-            val scrollIndicatorHeight = (containerHeight.value * scrollPercentage).coerceIn(0f, containerHeight.value)
+            val scrollIndicatorHeight =
+                (containerHeight.value * scrollPercentage).coerceIn(0f, containerHeight.value)
 
             Box(
                 modifier = Modifier
                     .align(Alignment.TopStart)
                     .fillMaxWidth()
-                    .height(if(scrollIndicatorHeight.dp > 5.dp) scrollIndicatorHeight.dp else 5.dp) // Use Dp value directly for height
-                    .background(Color.White,shape = RoundedCornerShape(topEnd = 124.dp, bottomEnd = 124.dp)) // Scroll indicator color
+                    .height(if (scrollIndicatorHeight.dp > 5.dp) scrollIndicatorHeight.dp else 5.dp) // Use Dp value directly for height
+                    .background(
+                        Color.White,
+                        shape = RoundedCornerShape(topEnd = 124.dp, bottomEnd = 124.dp)
+                    ) // Scroll indicator color
 
             )
         }
@@ -1111,23 +1149,27 @@ fun InteractiveCodeBlockView(
     }
 }
 
-
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun InteractiveInputBlockView(
     contentBlock: ContentBlock.InteractiveInputBlock,
     isAnswerGiven: MutableState<Boolean>,
-    answerFeedbackText: MutableState<String>
+    answerFeedbackText: MutableState<String>,
 ) {
-    // State variables for user input and feedback
-    var userInput by remember { mutableStateOf("") }
+    // Manage user input for each blank separately
+    val userInputs = remember {
+        mutableStateListOf<String>().apply {
+            repeat(contentBlock.incompleteCode.split("___").size - 1) { add("") }
+        }
+    }
+
     var feedback by remember { mutableStateOf("") }
     var isCodeCorrect by remember { mutableStateOf(false) }
 
     Column(
         modifier = Modifier
-            .fillMaxWidth()
-            .padding(0.dp),
+            .fillMaxWidth(),
+            //.padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(10.dp)
     ) {
         // Question
@@ -1137,77 +1179,69 @@ fun InteractiveInputBlockView(
             modifier = Modifier.padding(bottom = 8.dp)
         )
 
-        // Code Block with inline input field
-        FlowRow(
+        // Display code block with placeholders
+        Column(
             modifier = Modifier
-                .wrapContentWidth()
                 .background(Color.Black, shape = RoundedCornerShape(8.dp))
                 .padding(16.dp)
-                .fillMaxWidth(), // Ensure it takes up available width
+                .fillMaxWidth()
         ) {
-            contentBlock.incompleteCode.split("___").forEachIndexed { index, part ->
-                Text(
-                    text = part,
-                    style = TextStyle(fontSize = 16.sp, color = Color.White),
-                )
-                if (index < contentBlock.incompleteCode.split("___").size - 1) {
-                    // Inline input field styled like text
-                    Box(
-                        modifier = Modifier
-                            .padding(horizontal = 2.dp)
-                            .drawUnderline() // Optional underline effect for input
-                    ) {
-                        // Calculate the width based on the placeholder size or user input
-                        val fieldWidth = if (userInput.isEmpty()) {
-                            // If no input, use a minimal width (like the ? mark size)
-                            16.dp // Set it to match the ? placeholder size
-                        } else {
-                            // When user starts typing, allow the field to expand up to the correct code's length
-                            val maxWidth = with(LocalDensity.current) {
-                                (userInput.length * 10.sp.toPx()).toDp()
-                            }
-                            maxWidth.coerceAtMost(200.dp) // Max size for the input field
-                        }
-
-                        BasicTextField(
-                            readOnly = isCodeCorrect && isAnswerGiven.value,
-                            value = userInput,
-                            onValueChange = { userInput = it },
-                            textStyle = TextStyle(fontSize = 16.sp, color = Color.White),
-                            singleLine = true,
-                            cursorBrush = SolidColor(Color.White), // Set blinking cursor to white
-                            modifier = Modifier
-                                .padding(0.dp) // Remove additional padding from text field
-                                .width(fieldWidth) // Set the width dynamically based on input or placeholder
+            // Process the incomplete code
+            contentBlock.incompleteCode.lines().forEach { line ->
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.Start
+                ) {
+                    val parts = line.split("___")
+                    parts.forEachIndexed { index, part ->
+                        // Add static text parts
+                        Text(
+                            text = part,
+                            style = TextStyle(fontSize = 16.sp, color = Color.White)
                         )
-
-                        // Placeholder when input is empty
-                        if (userInput.isEmpty()) {
-                            Text(
-                                text = "?",
-                                style = TextStyle(fontSize = 16.sp, color = Color.Gray),
+                        // Add input fields only where `___` exists
+                        if (index < parts.size - 1) {
+                            BasicTextField(
+                                value = userInputs[index],
+                                onValueChange = { userInputs[index] = it },
+                                textStyle = TextStyle(fontSize = 16.sp, color = Color.White),
+                                singleLine = true,
+                                cursorBrush = SolidColor(Color.White),
                                 modifier = Modifier
-                                    .align(Alignment.CenterStart) // Align placeholder at the start
-                                    .padding(horizontal = 4.dp) // Add some space around the placeholder
+                                    .width(30.dp)
+                                    .height(20.dp), // Adjusted height
+                                decorationBox = { innerTextField ->
+                                    if (userInputs[index].isEmpty()) {
+                                        Text(
+                                            text = "___",
+                                            style = TextStyle(
+                                                fontSize = 16.sp,
+                                                color = Color.White
+                                            ),
+                                        )
+                                    }
+                                    innerTextField()
+                                }
                             )
+                            //
                         }
                     }
+
                 }
             }
         }
 
-
         // Submit Button
         Button(
             onClick = {
-                // Validate user input against the correct code (ignore spaces)
-                val trimmedUserInput = userInput.replace("\\s".toRegex(), "")
+                val trimmedUserInputs = userInputs.map { it.replace("\\s".toRegex(), "") }
                 val trimmedCorrectCode = contentBlock.correctCode.replace("\\s".toRegex(), "")
 
-                isCodeCorrect = (trimmedUserInput == trimmedCorrectCode)
+                isCodeCorrect = (trimmedUserInputs.joinToString("") == trimmedCorrectCode)
                 feedback = if (isCodeCorrect) "Correct!" else "Try Again!"
                 contentBlock.isCodeCorrect = isCodeCorrect
-                contentBlock.userInput = userInput
+                contentBlock.userInput = trimmedUserInputs.joinToString(" ")
                 answerFeedbackText.value = if (isCodeCorrect) "T" else "F"
                 isAnswerGiven.value = true
             },
@@ -1234,6 +1268,130 @@ fun InteractiveInputBlockView(
         }
     }
 }
+
+
+//@OptIn(ExperimentalLayoutApi::class)
+//@Composable
+//fun InteractiveInputBlockView(
+//    contentBlock: ContentBlock.InteractiveInputBlock,
+//    isAnswerGiven: MutableState<Boolean>,
+//    answerFeedbackText: MutableState<String>
+//) {
+//    // State variables for user input and feedback
+//    var userInput by remember { mutableStateOf("") }
+//    var feedback by remember { mutableStateOf("") }
+//    var isCodeCorrect by remember { mutableStateOf(false) }
+//
+//    Column(
+//        modifier = Modifier
+//            .fillMaxWidth()
+//            .padding(16.dp),
+//        verticalArrangement = Arrangement.spacedBy(10.dp)
+//    ) {
+//        // Question
+//        Text(
+//            text = contentBlock.question,
+//            style = TextStyle(fontSize = 18.sp, color = Color.White),
+//            modifier = Modifier.padding(bottom = 8.dp)
+//        )
+//
+//        // Code Block with inline input field
+//        FlowRow(
+//            modifier = Modifier
+//                .wrapContentWidth()
+//                .background(Color.Black, shape = RoundedCornerShape(8.dp))
+//                .padding(16.dp)
+//                .fillMaxWidth(), // Ensure it takes up available width
+//        ) {
+//            contentBlock.incompleteCode.split("___").forEachIndexed { index, part ->
+//                Text(
+//                    text = part,
+//                    style = TextStyle(fontSize = 16.sp, color = Color.White),
+//                )
+//                if (index < contentBlock.incompleteCode.split("___").size - 1) {
+//                    // Inline input field styled like text
+//                    Box(
+//                        modifier = Modifier
+//                            .padding(horizontal = 2.dp)
+//                            .drawUnderline() // Optional underline effect for input
+//                    ) {
+//                        // Calculate the width based on the placeholder size or user input
+//                        val fieldWidth = if (userInput.isEmpty()) {
+//                            // If no input, use a minimal width (like the ? mark size)
+//                            16.dp // Set it to match the ? placeholder size
+//                        } else {
+//                            // When user starts typing, allow the field to expand up to the correct code's length
+//                            val maxWidth = with(LocalDensity.current) {
+//                                (userInput.length * 10.sp.toPx()).toDp()
+//                            }
+//                            maxWidth.coerceAtMost(200.dp) // Max size for the input field
+//                        }
+//
+//                        BasicTextField(
+//                            readOnly = isCodeCorrect && isAnswerGiven.value,
+//                            value = userInput,
+//                            onValueChange = { userInput = it },
+//                            textStyle = TextStyle(fontSize = 16.sp, color = Color.White),
+//                            singleLine = true,
+//                            cursorBrush = SolidColor(Color.White), // Set blinking cursor to white
+//                            modifier = Modifier
+//                                .padding(0.dp) // Remove additional padding from text field
+//                                .width(fieldWidth) // Set the width dynamically based on input or placeholder
+//                        )
+//
+//                        // Placeholder when input is empty
+//                        if (userInput.isEmpty()) {
+//                            Text(
+//                                text = "?",
+//                                style = TextStyle(fontSize = 16.sp, color = Color.Gray),
+//                                modifier = Modifier
+//                                    .align(Alignment.CenterStart) // Align placeholder at the start
+//                                    .padding(horizontal = 4.dp) // Add some space around the placeholder
+//                            )
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//
+//
+//        // Submit Button
+//        Button(
+//            onClick = {
+//                // Validate user input against the correct code (ignore spaces)
+//                val trimmedUserInput = userInput.replace("\\s".toRegex(), "")
+//                val trimmedCorrectCode = contentBlock.correctCode.replace("\\s".toRegex(), "")
+//
+//                isCodeCorrect = (trimmedUserInput == trimmedCorrectCode)
+//                feedback = if (isCodeCorrect) "Correct!" else "Try Again!"
+//                contentBlock.isCodeCorrect = isCodeCorrect
+//                contentBlock.userInput = userInput
+//                answerFeedbackText.value = if (isCodeCorrect) "T" else "F"
+//                isAnswerGiven.value = true
+//            },
+//            colors = ButtonDefaults.buttonColors(
+//                containerColor = Color(0xFF66116E),
+//                disabledContainerColor = Color(0xFF242734)
+//            ),
+//            shape = RoundedCornerShape(8.dp),
+//            modifier = Modifier.fillMaxWidth()
+//        ) {
+//            Text(text = "Submit", style = TextStyle(fontSize = 16.sp, color = Color.White))
+//        }
+//
+//        // Feedback
+//        if (isAnswerGiven.value) {
+//            Text(
+//                text = feedback,
+//                style = TextStyle(
+//                    fontSize = 18.sp,
+//                    color = if (isCodeCorrect) Color.Green else Color.Red
+//                ),
+//                modifier = Modifier.padding(top = 16.dp)
+//            )
+//        }
+//    }
+//}
 
 // Extension to draw an underline below the Box
 fun Modifier.drawUnderline(): Modifier = this.then(
