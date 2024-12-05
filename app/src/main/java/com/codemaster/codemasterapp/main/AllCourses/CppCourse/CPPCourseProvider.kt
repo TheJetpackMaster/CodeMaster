@@ -18,6 +18,8 @@ class CPPCourseProvider {
             language = "C++",
             stages = listOf(
                 cppBeginnerCourse(),
+                cppIntermediateCourse(),
+                cppAdvancedCourse()
 //                CPPIntermediateCourse(),
 //                CPPAdvancedCourse(),
 //                CPPExpertCourse()
@@ -404,8 +406,5 @@ class CPPCourseProvider {
             )
         )
     }
-
-
-
 
 }

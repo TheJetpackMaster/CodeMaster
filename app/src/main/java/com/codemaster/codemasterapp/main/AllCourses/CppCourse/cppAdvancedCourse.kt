@@ -266,7 +266,6 @@ fun cppAdvancedCourse(): Stage {
                 status = LessonStatus.COMPLETED
             ),
 
-
             //Lesson 3: Classes & Objects in C++
             Lesson(
                 id = "cpp_classes_1",
@@ -1746,7 +1745,6 @@ int main() {
                 status = LessonStatus.COMPLETED
             ),
 
-
             // Lesson 10 : C++ Multiple Inheritance
             Lesson(
                 id = "cpp_multiple_inheritance",
@@ -3196,7 +3194,6 @@ int main() {
                 status = LessonStatus.COMPLETED
             )
         )
-
     )
 }
 
