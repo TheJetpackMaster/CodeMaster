@@ -4119,7 +4119,8 @@ fun cppIntermediateCourse(): Stage {
                         type = LessonContentType.QUIZ,
                         status = LessonStatus.COMPLETED
                     )
-                )
+                ),
+                status = LessonStatus.COMPLETED
             )
         )
     )

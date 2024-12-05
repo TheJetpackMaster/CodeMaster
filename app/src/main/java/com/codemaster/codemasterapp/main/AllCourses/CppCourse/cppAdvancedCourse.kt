@@ -3192,10 +3192,11 @@ int main() {
                         type = LessonContentType.QUIZ,
                         status = LessonStatus.COMPLETED
                     )
-                )
+                ),
+                status = LessonStatus.COMPLETED
             )
-
         )
+
     )
 }
 
