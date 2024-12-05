@@ -2004,7 +2004,7 @@ for (int location = 0; location < 10; location++) {
                             InteractiveInputBlock(
                                 question = "What is the correct declaration of a string in C?",
                                 incompleteCode = """
-            ____ name[5] = "Hello";  // Complete the code to declare a string "Hello"
+            ___ name[5] = "Hello";  // Complete the code to declare a string "Hello"
         """.trimIndent(),
                                 correctCode = "char"
                             )
@@ -2181,7 +2181,7 @@ for (int location = 0; location < 10; location++) {
                                 incompleteCode = """
         char str1[] = "Hello, ";
         char str2[] = "world!";
-        ____(str1, str2);  // Complete this line with the correct function to concatenate
+        ___(str1, str2);  // Complete this line with the correct function to concatenate
         printf("%s", str1);  // Expected output: "Hello, world!"
     """.trimIndent(),
                                 correctCode = "strcat",
