@@ -1003,7 +1003,7 @@ int main() {
                                 question = "Fill in the missing  keyword in the 'multiply' function.",
                                 incompleteCode = """
                 int multiply(int a, int b) {  // Function definition
-                    _____ a * b;  // Missing return keyword
+                    ___ a * b;  // Missing return keyword
                 }
                 int main() {
                     int result = multiply(4, 5);
@@ -1608,7 +1608,7 @@ int main() {
                 for (int i = 1; i <= n; i++) {
                     result *= i;
                 }
-                return ____;
+                return ___;
             }
             """.trimIndent(),
                                 correctCode = "result", // The correct answer is 'result' to be returned in the iterative approach
@@ -2545,7 +2545,7 @@ int main() {
 struct Person {
     char name[50];
     int age;
-   struct ____;
+   struct ___;
 };""",
                                 correctCode = "address",
                                 userInput = null,
@@ -3103,7 +3103,7 @@ int main() {
                         contentBlocks = listOf(
                             InteractiveInputBlock(
                                 question = "Complete the missing part in code.",
-                                incompleteCode = """____ Day {
+                                incompleteCode = """___ Day {
     Sunday, 
     Monday, 
     Tuesday, 
@@ -3203,7 +3203,7 @@ int main() {
                                 incompleteCode = """enum Day { Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday };
 
 int main() {
-    enum ____ today = Wednesday;
+    enum ___ today = Wednesday;
     
     switch(today) {
         case Sunday:
