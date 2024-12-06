@@ -131,7 +131,7 @@ fun cppIntermediateCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     text = "We’ll also dive into functions and recursions, preparing you to build programs that are elegant and efficient. Let’s begin the adventure!",
-                                    styledText = listOf("functions","recursions")
+                                    styledText = listOf("functions", "recursions")
                                 )
                             )
                         ),
@@ -290,15 +290,37 @@ fun cppIntermediateCourse(): Stage {
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.COMPLETED
-                    )
-                ),
+                    ),
+
+
+                    // Content for Basic Loop Quiz
+                    LessonContent(
+                        id = "beginner_cpp_loop_quiz",
+                        title = "Basic Loop Quiz 🧠",
+                        description = "Test your knowledge of loops in C++.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "What does a loop allow you to do?",
+                                options = listOf(
+                                    "Repeat tasks",
+                                    "Declare variables",
+                                    "Create functions",
+                                    "None of the above"
+                                ),
+                                correctAnswer = "Repeat tasks"
+                            )
+                        ),
+                        type = LessonContentType.QUIZ
+                    ),
+
+                    ),
                 status = LessonStatus.COMPLETED
             ),
 
             // Lesson 3: For Loops in C++
             Lesson(
                 id = "intermediate_cpp3",
-                title = "Mastering For Loops in C++",
+                title = "For Loops in C++",
                 description = "For Loops: Because repetition doesn't have to be painful!",
                 lessonContents = listOf(
 
@@ -339,10 +361,10 @@ fun cppIntermediateCourse(): Stage {
                             ),
                             ContentBlock.Code(
                                 code = """
-                                            for (int i = 0; i < 10; i++) {
-                                                cout << "Sorry, I messed up! :(" << endl;
-                                            }
-                                        """.trimIndent()
+                                                        for (int i = 0; i < 10; i++) {
+                                                            cout << "Sorry, I messed up! :(" << endl;
+                                                        }
+                                                    """.trimIndent()
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -383,10 +405,10 @@ fun cppIntermediateCourse(): Stage {
                             ),
                             ContentBlock.Code(
                                 code = """
-                                            for (int i = 0; i < 1000; i++) {
-                                                cout << "Sorry, I messed up! :(" << endl;
-                                            }
-                                        """.trimIndent()
+                                                        for (int i = 0; i < 1000; i++) {
+                                                            cout << "Sorry, I messed up! :(" << endl;
+                                                        }
+                                                    """.trimIndent()
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -398,6 +420,31 @@ fun cppIntermediateCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.COMPLETED
                     ),
+
+                    // Content 4: Interactive Input Block
+                    LessonContent(
+                        id = "beginner_cpp4_content4",
+                        title = "Complete the code",
+                        description = "Ok so now try to complete the program.",
+                        contentBlocks = listOf(
+                            ContentBlock.InteractiveInputBlock(
+                                question = "Complete the code to print 'I love coding!' 10 times.",
+                                incompleteCode = """
+            int main () {
+                 for (int i = 0; i < ___; i++) {
+                    cout << "Sorry, I messed up! :(" << endl;
+                 }
+            }
+            """.trimIndent(),
+                                correctCode = "10",
+                                userInput = null,
+                                isCodeCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.INTERACTIVE,
+                        status = LessonStatus.ACTIVE
+                    ),
+
 
                     // Sub-lesson 4: Practical Use of For Loops (Not Just Apologies!) 💡
                     LessonContent(
@@ -413,10 +460,10 @@ fun cppIntermediateCourse(): Stage {
                             ),
                             ContentBlock.Code(
                                 code = """
-                                            for (int i = 1; i <= 10; i++) {
-                                                cout << i << endl;
-                                            }
-                                        """.trimIndent()
+                                                        for (int i = 1; i <= 10; i++) {
+                                                            cout << i << endl;
+                                                        }
+                                                    """.trimIndent()
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -443,10 +490,10 @@ fun cppIntermediateCourse(): Stage {
                             ),
                             ContentBlock.Code(
                                 code = """
-                                            for (int i = 0; i < 10; ) {
-                                                cout << "Oops, I forgot condition!" << endl;
-                                            }
-                                        """.trimIndent()
+                                                        for (int i = 0; i < 10; ) {
+                                                            cout << "Oops, I forgot condition!" << endl;
+                                                        }
+                                                    """.trimIndent()
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -458,6 +505,28 @@ fun cppIntermediateCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.COMPLETED
                     ),
+
+
+                    // Content for For Loop Quiz
+                    LessonContent(
+                        id = "beginner_cpp_for_loop_quiz",
+                        title = "For Loop Quiz 🧠",
+                        description = "Test your understanding of the basic `for` loop in C++.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "What is the correct syntax for a basic `for` loop in C++?",
+                                options = listOf(
+                                    "for (int i = 0; i < 10; i++) { }",
+                                    "for (i = 0; i < 10; i++) { }",
+                                    "loop (int i = 0; i < 10; i++) { }",
+                                    "for (int i <= 10; i++) { }"
+                                ),
+                                correctAnswer = "for (int i = 0; i < 10; i++) { }"
+                            )
+                        ),
+                        type = LessonContentType.QUIZ
+                    ),
+
 
                     // Sub-lesson 6: Optimizing Loops for Speed ⚡
                     LessonContent(
@@ -473,11 +542,11 @@ fun cppIntermediateCourse(): Stage {
                             ),
                             ContentBlock.Code(
                                 code = """
-                                            // Bad: This does the same thing, but inefficiently.
-                                            for (int i = 0; i < 1000000; i++) {
-                                                cout << i * 2 << endl;
-                                            }
-                                        """.trimIndent()
+                                                        // Bad: This does the same thing, but inefficiently.
+                                                        for (int i = 0; i < 1000000; i++) {
+                                                            cout << i * 2 << endl;
+                                                        }
+                                                    """.trimIndent()
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -504,11 +573,11 @@ fun cppIntermediateCourse(): Stage {
                             ),
                             ContentBlock.Code(
                                 code = """
-                                            int numbers[] = {1, 2, 3, 4, 5};
-                                            for (int i = 0; i < 5; i++) {
-                                                cout << numbers[i] << endl;
-                                            }
-                                        """.trimIndent()
+                                                        int numbers[] = {1, 2, 3, 4, 5};
+                                                        for (int i = 0; i < 5; i++) {
+                                                            cout << numbers[i] << endl;
+                                                        }
+                                                    """.trimIndent()
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -525,7 +594,28 @@ fun cppIntermediateCourse(): Stage {
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.COMPLETED
+                    ),
+
+                    // Content for Infinite Loop Quiz
+                    LessonContent(
+                        id = "beginner_cpp_infinite_loop_quiz",
+                        title = "Infinite Loop Quiz 🧠",
+                        description = "Test your understanding of infinite loops in C++.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "What causes an infinite loop in C++?",
+                                options = listOf(
+                                    "A loop with a condition that is always true",
+                                    "A loop with no condition",
+                                    "A loop with no increment",
+                                    "A loop with a condition that is always false"
+                                ),
+                                correctAnswer = "A loop with a condition that is always true"
+                            )
+                        ),
+                        type = LessonContentType.QUIZ
                     )
+
                 ),
                 status = LessonStatus.COMPLETED
             ),
@@ -533,7 +623,7 @@ fun cppIntermediateCourse(): Stage {
             // Lesson 4 : While loops
             Lesson(
                 id = "intermediate_cpp_while",
-                title = "Mastering While Loops in C++",
+                title = "While Loops in C++",
                 description = "While Loops: The ultimate tool for endless repetition, without losing your mind!",
                 lessonContents = listOf(
 
@@ -568,12 +658,12 @@ fun cppIntermediateCourse(): Stage {
                         contentBlocks = listOf(
                             ContentBlock.Code(
                                 code = """
-                                int i = 0;
-                                while (i < 5) {
-                                    cout << "Learning C++" << endl;
-                                    i++;
-                                }
-                                """.trimIndent()
+                                            int i = 0;
+                                            while (i < 5) {
+                                                cout << "Learning C++" << endl;
+                                                i++;
+                                            }
+                                            """.trimIndent()
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -603,6 +693,32 @@ fun cppIntermediateCourse(): Stage {
                         status = LessonStatus.COMPLETED
                     ),
 
+                    // Content 4: Interactive Input Block
+                    LessonContent(
+                        id = "beginner_cpp4_content4",
+                        title = "Complete the code",
+                        description = "Ok so now try to complete the program.",
+                        contentBlocks = listOf(
+                            ContentBlock.InteractiveInputBlock(
+                                question = "Complete code for writing a while loop that counts down from 10 to 1.",
+                                incompleteCode = """
+            int main() {
+                int i = 10;
+                while (i >= ___) {
+                    cout << i << endl;
+                    i--;
+                }
+            }
+            """.trimIndent(),
+                                correctCode = "1",
+                                userInput = null,
+                                isCodeCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.INTERACTIVE,
+                        status = LessonStatus.ACTIVE
+                    ),
+
                     // Sub-lesson 4: The Infinite Loop Problem
                     LessonContent(
                         id = "intermediate_cpp_while_sub4",
@@ -617,11 +733,11 @@ fun cppIntermediateCourse(): Stage {
                             ),
                             ContentBlock.Code(
                                 code = """
-                                int i = 0;
-                                while (i < 5) {
-                                    cout << "Oops, I'm stuck!" << endl;
-                                }
-                               """.trimIndent()
+                                            int i = 0;
+                                            while (i < 5) {
+                                                cout << "Oops, I'm stuck!" << endl;
+                                            }
+                                           """.trimIndent()
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -648,12 +764,12 @@ fun cppIntermediateCourse(): Stage {
                             ),
                             ContentBlock.Code(
                                 code = """
-                                string response;
-                                while (response != "yes") {
-                                    cout << "Do you want to continue? (yes/no): ";
-                                    cin >> response;
-                                }
-                                """.trimIndent()
+                                            string response;
+                                            while (response != "yes") {
+                                                cout << "Do you want to continue? (yes/no): ";
+                                                cin >> response;
+                                            }
+                                            """.trimIndent()
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -664,6 +780,25 @@ fun cppIntermediateCourse(): Stage {
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.COMPLETED
+                    ),
+
+                    // Content for Basic while Loop Quiz 1
+                    LessonContent(
+                        id = "beginner_cpp_while_loop_quiz1",
+                        title = "Basic While Loop Quiz 🧠",
+                        description = "Test your understanding of basic while loops in C++.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "What will this code print?\nint i = 0;\nwhile (i < 3) {\n    cout << i << ;\n    i++;\n}",
+                                options = listOf(
+                                    "0 1 2",
+                                    "infinite loop",
+                                    "0 1 2 3",
+                                ),
+                                correctAnswer = "0 1 2"
+                            )
+                        ),
+                        type = LessonContentType.QUIZ
                     ),
 
                     // Sub-lesson 6: Using While Loop for Validation
@@ -680,14 +815,14 @@ fun cppIntermediateCourse(): Stage {
                             ),
                             ContentBlock.Code(
                                 code = """
-                                int age;
-                                cout << "Enter your age: ";
-                                cin >> age;
-                                while (age <= 0) {
-                                    cout << "Please enter a valid age (greater than 0): ";
-                                    cin >> age;
-                                }
-                                """.trimIndent()
+                                            int age;
+                                            cout << "Enter your age: ";
+                                            cin >> age;
+                                            while (age <= 0) {
+                                                cout << "Please enter a valid age (greater than 0): ";
+                                                cin >> age;
+                                            }
+                                            """.trimIndent()
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -714,12 +849,12 @@ fun cppIntermediateCourse(): Stage {
                             ),
                             ContentBlock.Code(
                                 code = """
-                                string input;
-                                while (input != "quit") {
-                                    cout << "Type 'quit' to exit: ";
-                                    cin >> input;
-                                }
-                                """.trimIndent()
+                                            string input;
+                                            while (input != "quit") {
+                                                cout << "Type 'quit' to exit: ";
+                                                cin >> input;
+                                            }
+                                            """.trimIndent()
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -730,7 +865,27 @@ fun cppIntermediateCourse(): Stage {
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.COMPLETED
+                    ),
+
+                    // Content for Infinite while Loop Quiz 2
+                    LessonContent(
+                        id = "beginner_cpp_while_loop_quiz2",
+                        title = "Infinite While Loop Quiz 🧠",
+                        description = "Test your knowledge about infinite while loops in C++.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "What will happen with the following code?\nint i = 0;\nwhile (i >= 0) {\n    cout << i << ' ';\n    i--;\n}",
+                                options = listOf(
+                                    "The loop will print numbers from 0 to -infinity",
+                                    "The loop will print 0 and stop",
+                                    "The loop will run indefinitely"
+                                ),
+                                correctAnswer = "The loop will print 0 and stop"
+                            )
+                        ),
+                        type = LessonContentType.QUIZ
                     )
+
                 ),
                 status = LessonStatus.COMPLETED
             ),
@@ -738,7 +893,7 @@ fun cppIntermediateCourse(): Stage {
             // Lesson 5: Understanding Do-While Loops
             Lesson(
                 id = "intermediate_cpp_do_while",
-                title = "Mastering Do-While Loops in C++",
+                title = "Do-While Loops in C++",
                 description = "Do-While Loops: The loop that always runs at least once!",
                 lessonContents = listOf(
 
@@ -779,13 +934,13 @@ fun cppIntermediateCourse(): Stage {
                             ),
                             ContentBlock.Code(
                                 code = """
-                        string response;
-                        do {
-                            cout << "Did you eat your vegetables? (yes/no): ";
-                            cin >> response;
-                        } while (response != "yes");
-                        cout << "Good job!" << endl;
-                        """.trimIndent()
+                                    string response;
+                                    do {
+                                        cout << "Did you eat your vegetables? (yes/no): ";
+                                        cin >> response;
+                                    } while (response != "yes");
+                                    cout << "Good job!" << endl;
+                                    """.trimIndent()
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -798,6 +953,29 @@ fun cppIntermediateCourse(): Stage {
                         status = LessonStatus.COMPLETED
                     ),
 
+                    // Content for "Quiz Time!"
+                    LessonContent(
+                        id = "beginner_cpp6_sub8",
+                        title = "Quiz Time! 🧠",
+                        description = "Test your knowledge of the lesson.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "A do-while loop is good for situations like?",
+                                options = listOf(
+                                    "to perform an action at least once",
+                                    "when you need to check the condition before the loop runs",
+                                    "to avoid infinite loops",
+                                    "to replace all for loops"
+                                ),
+                                correctAnswer = "to perform an action at least once",
+                                userAnswer = null,
+                                isCorrect = false
+                            ),
+                        ),
+                        type = LessonContentType.QUIZ
+                    ),
+
+
                     // Sub-lesson 3: Basic Syntax of a Do-While Loop
                     LessonContent(
                         id = "intermediate_cpp_do_while_sub3",
@@ -806,10 +984,10 @@ fun cppIntermediateCourse(): Stage {
                         contentBlocks = listOf(
                             ContentBlock.Code(
                                 code = """
-                        do {
-                            // Code to be executed at least once
-                        } while (condition);
-                        """.trimIndent()
+                                    do {
+                                        // Code to be executed at least once
+                                    } while (condition);
+                                    """.trimIndent()
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -845,6 +1023,7 @@ fun cppIntermediateCourse(): Stage {
                         status = LessonStatus.COMPLETED
                     ),
 
+
                     // Sub-lesson 5: Do-While vs. While Loop (Quick Comparison)
                     LessonContent(
                         id = "intermediate_cpp_do_while_sub5",
@@ -868,6 +1047,32 @@ fun cppIntermediateCourse(): Stage {
                         status = LessonStatus.COMPLETED
                     ),
 
+
+                    // Content 4: Interactive Input Block
+                    LessonContent(
+                        id = "beginner_cpp4_content4",
+                        title = "Complete the code",
+                        description = "Ok so now try to complete the program.",
+                        contentBlocks = listOf(
+                            ContentBlock.InteractiveInputBlock(
+                                question = "Complete the code for writing a correct do-while loop",
+                                incompleteCode = """
+            int main() {
+                int x = 1;
+                do {
+                    cout << "Executed";
+                } ___ (x > 1);
+            }
+            """.trimIndent(),
+                                correctCode = "while",
+                                userInput = null,
+                                isCodeCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.INTERACTIVE,
+                        status = LessonStatus.ACTIVE
+                    ),
+
                     // Sub-lesson 6: Another Practical Example
                     LessonContent(
                         id = "intermediate_cpp_do_while_sub6",
@@ -882,13 +1087,13 @@ fun cppIntermediateCourse(): Stage {
                             ),
                             ContentBlock.Code(
                                 code = """
-                        int choice;
-                        do {
-                            cout << "Menu: 1. Start 2. Exit";
-                            cin >> choice;
-                        } while (choice != 2);
-                        cout << "Goodbye!" << endl;
-                        """.trimIndent()
+                                    int choice;
+                                    do {
+                                        cout << "Menu: 1. Start 2. Exit";
+                                        cin >> choice;
+                                    } while (choice != 2);
+                                    cout << "Goodbye!" << endl;
+                                    """.trimIndent()
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -928,7 +1133,30 @@ fun cppIntermediateCourse(): Stage {
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.COMPLETED
+                    ),
+
+                    // Content for "Quiz Time: Do-While vs While"
+                    LessonContent(
+                        id = "beginner_cpp6_sub9",
+                        title = "Quiz Time: Do-While vs While 🧠",
+                        description = "Test your understanding of the difference between 'while' and 'do-while' loops.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "When is the condition checked in a 'do-while' loop?",
+                                options = listOf(
+                                    "Before Execution",
+                                    "After Execution",
+                                    "Never",
+                                    "Maybe on Monday"
+                                ),
+                                correctAnswer = "After Execution",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ
                     )
+
                 ),
                 status = LessonStatus.COMPLETED
             ),
@@ -1058,6 +1286,28 @@ fun cppIntermediateCourse(): Stage {
                         status = LessonStatus.COMPLETED
                     ),
 
+                    // Content for "Quiz Time!"
+                    LessonContent(
+                        id = "beginner_cpp6_sub8",
+                        title = "Quiz Time! 🧠",
+                        description = "Test your knowledge of lesson.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "What does continue do in a loop?",
+                                options = listOf(
+                                    "exits loop",
+                                    "apply brakes to slowdown speed",
+                                    "skips the current iteration",
+                                    "none"
+                                ),
+                                correctAnswer = "skips the current iteration",
+                                userAnswer = null,
+                                isCorrect = false
+                            ),
+                        ),
+                        type = LessonContentType.QUIZ
+                    ),
+
                     // Sub-lesson 3: Using Break in For Loops
                     LessonContent(
                         id = "intermediate_cpp_break_continue_sub3",
@@ -1066,14 +1316,14 @@ fun cppIntermediateCourse(): Stage {
                         contentBlocks = listOf(
                             ContentBlock.Code(
                                 code = """
-                                int main() {
-                                    for (int i = 1; i <= 10; i++) {
-                                        if (i == 5) break;  // Exit the loop when i is 5
-                                        cout << i << endl;  // Prints 1 to 4
-                                    }
-                                    return 0;
-                                }
-                                """.trimIndent()
+                                            int main() {
+                                                for (int i = 1; i <= 10; i++) {
+                                                    if (i == 5) break;  // Exit the loop when i is 5
+                                                    cout << i << endl;  // Prints 1 to 4
+                                                }
+                                                return 0;
+                                            }
+                                            """.trimIndent()
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -1094,16 +1344,16 @@ fun cppIntermediateCourse(): Stage {
                         contentBlocks = listOf(
                             ContentBlock.Code(
                                 code = """
-                                int main() {
-                                    int i = 1;
-                                    while (i <= 10) {
-                                        if (i == 6) break;  // Exit the loop when i is 6
-                                        cout << i << endl;
-                                        i++;
-                                    }
-                                    return 0;
-                                }
-                                """.trimIndent()
+                                            int main() {
+                                                int i = 1;
+                                                while (i <= 10) {
+                                                    if (i == 6) break;  // Exit the loop when i is 6
+                                                    cout << i << endl;
+                                                    i++;
+                                                }
+                                                return 0;
+                                            }
+                                            """.trimIndent()
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -1116,6 +1366,33 @@ fun cppIntermediateCourse(): Stage {
                         status = LessonStatus.COMPLETED
                     ),
 
+                    // Content for "Complete the code to exit loop at i = 50"
+                    LessonContent(
+                        id = "beginner_cpp4_content4",
+                        title = "Complete the code",
+                        description = "Try to complete the program so that the loop exits when 'i' reaches 50.",
+                        contentBlocks = listOf(
+                            ContentBlock.InteractiveInputBlock(
+                                question = "Complete the code to exit the loop when 'i' reaches 50.",
+                                incompleteCode = """
+            int main() {
+                for (int i = 1; i <= 100; i++) {
+                    if (i == 50) ___;
+                    cout << i << endl;
+                }
+                return 0;
+            }
+            """.trimIndent(),
+                                correctCode = "break",
+                                userInput = null,
+                                isCodeCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.INTERACTIVE,
+                        status = LessonStatus.ACTIVE
+                    ),
+
+
                     // Sub-lesson 5: Using Continue in For Loops
                     LessonContent(
                         id = "intermediate_cpp_break_continue_sub5",
@@ -1124,14 +1401,14 @@ fun cppIntermediateCourse(): Stage {
                         contentBlocks = listOf(
                             ContentBlock.Code(
                                 code = """
-                                int main() {
-                                    for (int i = 1; i <= 10; i++) {
-                                        if (i % 2 == 0) continue;  // Skip even numbers
-                                        cout << i << endl;  // Prints odd numbers
-                                    }
-                                    return 0;
-                                }
-                                """.trimIndent()
+                                            int main() {
+                                                for (int i = 1; i <= 10; i++) {
+                                                    if (i % 2 == 0) continue;  // Skip even numbers
+                                                    cout << i << endl;  // Prints odd numbers
+                                                }
+                                                return 0;
+                                            }
+                                            """.trimIndent()
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -1152,16 +1429,16 @@ fun cppIntermediateCourse(): Stage {
                         contentBlocks = listOf(
                             ContentBlock.Code(
                                 code = """
-                                int main() {
-                                    int i = 0;
-                                    while (i < 10) {
-                                        i++;
-                                        if (i % 3 == 0) continue;  // Skip multiples of 3
-                                        cout << i << endl;
-                                    }
-                                    return 0;
-                                }
-                                """.trimIndent()
+                                            int main() {
+                                                int i = 0;
+                                                while (i < 10) {
+                                                    i++;
+                                                    if (i % 3 == 0) continue;  // Skip multiples of 3
+                                                    cout << i << endl;
+                                                }
+                                                return 0;
+                                            }
+                                            """.trimIndent()
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -1172,6 +1449,34 @@ fun cppIntermediateCourse(): Stage {
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.COMPLETED
+                    ),
+
+                    // Content for "Complete the code to exit loop at i = 50"
+                    LessonContent(
+                        id = "beginner_cpp4_content4",
+                        title = "Complete the code",
+                        description = "Try to complete the program so that the loop exits when 'i' reaches 50.",
+                        contentBlocks = listOf(
+                            ContentBlock.InteractiveInputBlock(
+                                question = "Complete the code to skip the 5 in the loop.",
+                                incompleteCode = """
+            int main() {
+                int i = 0;
+                while (i < 10) {
+                    i++;
+                    if (i == 5) continue;
+                    cout << i << endl;
+                }
+                return 0;
+            }
+            """.trimIndent(),
+                                correctCode = "continue",
+                                userInput = null,
+                                isCodeCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.INTERACTIVE,
+                        status = LessonStatus.ACTIVE
                     ),
 
                     // Sub-lesson 7: When to Use Break and Continue
@@ -1201,6 +1506,26 @@ fun cppIntermediateCourse(): Stage {
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.COMPLETED
+                    ),
+
+                    // Content for "Break and Continue Quiz"
+                    LessonContent(
+                        id = "beginner_cpp6_sub9",
+                        title = "Quiz on Break and Continue",
+                        description = "Test your understanding of the `break` and `continue` statements.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "What does the 'break' statement do in a loop?",
+                                options = listOf(
+                                    "Exit the loop immediately",
+                                    "Skip the current iteration",
+                                    "Restart the loop from the beginning",
+                                    "Stop the program completely"
+                                ),
+                                correctAnswer = "Exit the loop immediately"
+                            )
+                        ),
+                        type = LessonContentType.QUIZ
                     )
                 ),
                 status = LessonStatus.COMPLETED
@@ -1258,6 +1583,25 @@ fun cppIntermediateCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.COMPLETED
                     ),
+                    // Content for "Array Quiz"
+                    LessonContent(
+                        id = "beginner_cpp7_sub1",
+                        title = "Quiz on Arrays",
+                        description = "Test your basic knowledge of arrays in C++.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "An array is a collection of what?",
+                                options = listOf(
+                                    "Variables",
+                                    "Functions",
+                                    "Objects",
+                                    "Similar data types"
+                                ),
+                                correctAnswer = "Similar data types"
+                            )
+                        ),
+                        type = LessonContentType.QUIZ
+                    ),
 
                     // Sub-lesson 3: Declaring an Array
                     LessonContent(
@@ -1273,10 +1617,10 @@ fun cppIntermediateCourse(): Stage {
                             ),
                             ContentBlock.Code(
                                 code = """
-                                // way of declaring arrays
+                                            // way of declaring arrays
 
-                                int numbers[5] = {1, 2, 3, 4, 5};
-                                """.trimIndent()
+                                            int numbers[5] = {1, 2, 3, 4, 5};
+                                            """.trimIndent()
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -1308,10 +1652,10 @@ fun cppIntermediateCourse(): Stage {
                             ),
                             ContentBlock.Code(
                                 code = """
-                            int numbers[5] = {1, 2, 3, 4, 5};
-                            int firstNumber = numbers[0];
-                            cout << firstNumber;
-                            """.trimIndent()
+                                        int numbers[5] = {1, 2, 3, 4, 5};
+                                        int firstNumber = numbers[0];
+                                        cout << firstNumber;
+                                        """.trimIndent()
                             ),
                             ContentBlock.Code(
                                 code =
@@ -1320,6 +1664,30 @@ fun cppIntermediateCourse(): Stage {
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.COMPLETED
+                    ),
+
+                    // Content 4: Interactive Input Block
+                    LessonContent(
+                        id = "beginner_cpp4_content4",
+                        title = "Complete the code",
+                        description = "Ok so now try to complete the program.",
+                        contentBlocks = listOf(
+                            ContentBlock.InteractiveInputBlock(
+                                question = "Complete the code to print first element of array (numbers).",
+                                incompleteCode = """
+            int main () {
+                 int numbers[5] = {1, 2, 3, 4, 5};
+                 int firstNumber = numbers[___];
+                 cout << firstNumber;
+            }
+            """.trimIndent(),
+                                correctCode = "0",
+                                userInput = null,
+                                isCodeCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.INTERACTIVE,
+                        status = LessonStatus.ACTIVE
                     ),
 
                     // Sub-lesson 5: Modifying Array Elements
@@ -1336,10 +1704,10 @@ fun cppIntermediateCourse(): Stage {
                             ),
                             ContentBlock.Code(
                                 code = """
-                            int numbers[5] = {4, 8, 16 , 32 , 64};
-                            numbers[2] = 10;
-                            cout << numbers[2];
-                            """.trimIndent()
+                                        int numbers[5] = {4, 8, 16 , 32 , 64};
+                                        numbers[2] = 10;
+                                        cout << numbers[2];
+                                        """.trimIndent()
                             ),
                             ContentBlock.Code(
                                 code =
@@ -1365,11 +1733,11 @@ fun cppIntermediateCourse(): Stage {
                         contentBlocks = listOf(
                             ContentBlock.Code(
                                 code = """
-                            int length = sizeof(numbers) / sizeof(numbers[0]);
-                            for (int i = 0; i < length; i++) {
-                                cout << numbers[i] << " ";
-                            }
-                            """.trimIndent()
+                                        int length = sizeof(numbers) / sizeof(numbers[0]);
+                                        for (int i = 0; i < length; i++) {
+                                            cout << numbers[i] << " ";
+                                        }
+                                        """.trimIndent()
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -1399,15 +1767,38 @@ fun cppIntermediateCourse(): Stage {
                             ),
                             ContentBlock.Code(
                                 code = """
-                            sort(numbers, numbers + 5);
-                            cout << numbers[0]; // Outputs: 1 (sorted array)
-                            cout << (find(numbers, numbers + 5, 3) != numbers + 5); // Outputs: 1 (true)
-                            """.trimIndent()
+                                        sort(numbers, numbers + 5);
+                                        cout << numbers[0]; // Outputs: 1 (sorted array)
+                                        cout << (find(numbers, numbers + 5, 3) != numbers + 5); // Outputs: 1 (true)
+                                        """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.COMPLETED
-                    )
+                    ),
+
+                    // Content 4: Interactive Input Block
+                    LessonContent(
+                        id = "beginner_cpp4_content4",
+                        title = "Complete the code",
+                        description = "Ok so now try to complete the program.",
+                        contentBlocks = listOf(
+                            ContentBlock.InteractiveInputBlock(
+                                question = "Complete the code to assign 10 to 2nd element or array (numbers).",
+                                incompleteCode = """
+            int main () {
+                 int numbers[5] = {4, 8, 16 , 32 , 64};
+                 numbers[___] = 10;
+            }
+            """.trimIndent(),
+                                correctCode = "1",
+                                userInput = null,
+                                isCodeCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.INTERACTIVE,
+                        status = LessonStatus.ACTIVE
+                    ),
                 ),
                 status = LessonStatus.COMPLETED
             ),
@@ -1473,6 +1864,29 @@ fun cppIntermediateCourse(): Stage {
                         status = LessonStatus.COMPLETED
                     ),
 
+                    // Content for "Quiz Time!"
+                    LessonContent(
+                        id = "beginner_cpp_multidim_array_quiz",
+                        title = "Quiz Time! 🧠",
+                        description = "Test your knowledge of multidimensional arrays.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "What is a multidimensional array?",
+                                options = listOf(
+                                    "Array of arrays",
+                                    "Single array",
+                                    "Pointer array",
+                                    "Linked array"
+                                ),
+                                correctAnswer = "Array of arrays",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ
+                    ),
+
+
                     // Sub-lesson 3: Declaring a 2D Array
                     LessonContent(
                         id = "beginner_cpp_multidimensional_arrays_sub3",
@@ -1487,8 +1901,8 @@ fun cppIntermediateCourse(): Stage {
                             ),
                             ContentBlock.Code(
                                 code = """
-                                int grid[2][3] = {{1, 2, 3}, {4, 5, 6}};
-                                """.trimIndent()
+                                            int grid[2][3] = {{1, 2, 3}, {4, 5, 6}};
+                                            """.trimIndent()
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -1515,9 +1929,9 @@ fun cppIntermediateCourse(): Stage {
                             ),
                             ContentBlock.Code(
                                 code = """
-                                int grid[2][3] = {{1, 2, 3}, {4, 5, 6}};
-                                cout << grid[0][1];  // Outputs: 2
-                                """.trimIndent()
+                                            int grid[2][3] = {{1, 2, 3}, {4, 5, 6}};
+                                            cout << grid[0][1];  // Outputs: 2
+                                            """.trimIndent()
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -1529,6 +1943,31 @@ fun cppIntermediateCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.COMPLETED
                     ),
+
+                    // Content 4: Interactive Input Block
+                    LessonContent(
+                        id = "beginner_cpp4_content4",
+                        title = "Complete the code",
+                        description = "Ok, now try to complete the program.",
+                        contentBlocks = listOf(
+                            ContentBlock.InteractiveInputBlock(
+                                question = "Complete the code to access the 2nd element of the first row in a 2D array (grid).",
+                                incompleteCode = """
+            int main() {
+                int grid[2][3] = {{1, 2, 3}, {4, 5, 6}};
+                cout << grid[0][1___;
+                return 0;
+            }
+            """.trimIndent(),
+                                correctCode = "]",
+                                userInput = null,
+                                isCodeCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.INTERACTIVE,
+                        status = LessonStatus.ACTIVE
+                    ),
+
 
                     // Sub-lesson 5: Modifying Elements in a 2D Array
                     LessonContent(
@@ -1544,10 +1983,10 @@ fun cppIntermediateCourse(): Stage {
                             ),
                             ContentBlock.Code(
                                 code = """
-                                int grid[2][3] = {{1, 2, 3}, {4, 5, 6}};
-                                grid[1][2] = 10;
-                                cout << grid[1][2];  // Outputs: 10
-                                """.trimIndent()
+                                            int grid[2][3] = {{1, 2, 3}, {4, 5, 6}};
+                                            grid[1][2] = 10;
+                                            cout << grid[1][2];  // Outputs: 10
+                                            """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
@@ -1568,17 +2007,17 @@ fun cppIntermediateCourse(): Stage {
                             ),
                             ContentBlock.Code(
                                 code = """
-                                int grid[2][3] = {{1, 2, 3}, {4, 5, 6}};
-                                for (int i = 0; i < 2; i++) {
-                                    for (int j = 0; j < 3; j++) {
-                                        cout << grid[i][j] << " ";
-                                    }
-                                    cout << endl;
-                                }
-                                // Outputs:
-                                // 1 2 3
-                                // 4 5 10
-                                """.trimIndent()
+                                            int grid[2][3] = {{1, 2, 3}, {4, 5, 6}};
+                                            for (int i = 0; i < 2; i++) {
+                                                for (int j = 0; j < 3; j++) {
+                                                    cout << grid[i][j] << " ";
+                                                }
+                                                cout << endl;
+                                            }
+                                            // Outputs:
+                                            // 1 2 3
+                                            // 4 5 10
+                                            """.trimIndent()
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -1590,6 +2029,29 @@ fun cppIntermediateCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.COMPLETED
                     ),
+
+                    // Content for "Quiz Time!"
+                    LessonContent(
+                        id = "beginner_cpp4_2d_array_quiz",
+                        title = "Quiz Time! 🧠",
+                        description = "Test your understanding of 2D arrays.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "How do you access the value in the second row and third column of a 2D array named 'matrix'?",
+                                options = listOf(
+                                    "matrix[2][3]",
+                                    "matrix[1][2]",
+                                    "matrix[3][2]",
+                                    "matrix[0][1]"
+                                ),
+                                correctAnswer = "matrix[1][2]",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ
+                    ),
+
 
                     // Sub-lesson 7: Multi-dimensional Arrays with More Dimensions
                     LessonContent(
@@ -1631,7 +2093,7 @@ fun cppIntermediateCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     text = "You might feel like a mess at first, but trust me, after some practice, you’ll be the array expert everyone turns to. Keep going, and soon you’ll be the ' Array Master '!",
-                                    styledText = listOf("mess" ,"Array Master")
+                                    styledText = listOf("mess", "Array Master")
                                 )
                             )
                         ),
@@ -1659,7 +2121,7 @@ fun cppIntermediateCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     text = "A structure in C++ is a way to group related variables of different types under a single name. Think of it like a family: each family member (variable) can have different characteristics (data types), but they all belong to the same family (structure).",
-                                    styledText = listOf("structure","family")
+                                    styledText = listOf("structure", "family")
                                 )
                             ),
                             ContentBlock.Text(
@@ -1698,7 +2160,6 @@ fun cppIntermediateCourse(): Stage {
             struct Person {
                 string name;
                 int age;
-                float height;
             };
             // Main function
             int main() {
@@ -1718,6 +2179,28 @@ fun cppIntermediateCourse(): Stage {
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.COMPLETED
+                    ),
+
+                    // Content for "Quiz Time!"
+                    LessonContent(
+                        id = "beginner_cpp_structure_quiz2",
+                        title = "Quiz Time! 🧠",
+                        description = "Test your understanding of why structures are used in C++.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "Why are structures used in C++?",
+                                options = listOf(
+                                    "To create custom data types",
+                                    "To perform arithmetic operations",
+                                    "To manage loops efficiently",
+                                    "To define built-in data types"
+                                ),
+                                correctAnswer = "To create custom data types",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ
                     ),
 
                     // Sub-lesson 3: Accessing and Modifying Structure Members
@@ -1798,6 +2281,35 @@ fun cppIntermediateCourse(): Stage {
                         status = LessonStatus.COMPLETED
                     ),
 
+                    // Content 4: Interactive Input Block
+                    LessonContent(
+                        id = "beginner_cpp4_content4",
+                        title = "Complete the code",
+                        description = "Ok so now try to complete the program.",
+                        contentBlocks = listOf(
+                            ContentBlock.InteractiveInputBlock(
+                                question = "Complete the code to create structure student with name and Reg_No.",
+                                incompleteCode = """
+                                    
+___ Student {
+    string name;
+    string Reg_No;
+};          
+                    
+int main () { 
+   return 0;
+}
+""".trimIndent(),
+                                correctCode = "struct",
+                                userInput = null,
+                                isCodeCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.INTERACTIVE,
+                        status = LessonStatus.ACTIVE
+                    ),
+
+
                     // Sub-lesson 5: Why Structures are Awesome
                     LessonContent(
                         id = "beginner_cpp_structures_sub5",
@@ -1807,7 +2319,7 @@ fun cppIntermediateCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     text = "Without structures, you'd be drowning in a sea of variables. Structures help you group related information together, making your code easier to understand and maintain. They're the unsung heroes of code organization!",
-                                    styledText = listOf("group","maintain")
+                                    styledText = listOf("group", "maintain")
                                 )
                             ),
                             ContentBlock.Text(
@@ -1821,21 +2333,26 @@ fun cppIntermediateCourse(): Stage {
                         status = LessonStatus.COMPLETED
                     ),
 
-                    // Transition to Functions
+                    // Content for "Final Quiz: Mastering Structures"
                     LessonContent(
-                        id = "beginner_cpp_structures_sub6",
-                        title = "A Fun Transition to Functions",
-                        description = "We’ve learned how to structure our data like pros, but guess what? There’s more to come! Don’t worry, we’ll get into functions soon. I know, I know, you’re dying to know what those are. Stay tuned and keep the fun going!",
+                        id = "beginner_cpp_structure_final_quiz",
+                        title = "Final Quiz: Mastering Structures",
+                        description = "Test your comprehensive understanding of structures in C++.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    text = "You might be wondering, 'What are functions, and why are they so awesome?' Well, don’t worry, we’ll dive into that in the next lesson! But trust me, they’re like the Swiss Army knife of programming. Functions will make your life a whole lot easier! 😎",
-                                    styledText = listOf("functions", "Swiss Army knife", "easier")
-                                )
-                            )
+                            ContentBlock.QuizContentBlock(
+                                question = "Which keyword is used to define a structure in C++?",
+                                options = listOf(
+                                    "class",
+                                    "struct",
+                                    "data",
+                                    "typedef"
+                                ),
+                                correctAnswer = "struct",
+                                userAnswer = null,
+                                isCorrect = false
+                            ),
                         ),
-                        type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        type = LessonContentType.QUIZ
                     )
                 ),
                 status = LessonStatus.COMPLETED
@@ -2013,7 +2530,7 @@ fun cppIntermediateCourse(): Stage {
                                 createAnnotatedText(
                                     text = "Enums group related constants. Instead of using raw numbers, you can name things like ' Low ', ' Medium ', ' High ' for clarity. " +
                                             "They make your code easier to understand. 🏆",
-                                    styledText = listOf("Enums","code easier")
+                                    styledText = listOf("Enums", "code easier")
                                 )
                             ),
                             ContentBlock.Text(
@@ -2048,6 +2565,30 @@ fun cppIntermediateCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.COMPLETED
                     ),
+
+
+                    // Content for "Quiz Time: Understanding Enums"
+                    LessonContent(
+                        id = "beginner_cpp_enum_quiz",
+                        title = "Quiz Time: Understanding Enums",
+                        description = "Test your knowledge of enums in C++.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "What is the primary use of enums in C++?",
+                                options = listOf(
+                                    "Storing multiple values",
+                                    "Defining a list of named constants",
+                                    "Performing arithmetic operations",
+                                    "Creating custom data types"
+                                ),
+                                correctAnswer = "Defining a list of named constants",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ
+                    ),
+
 
                     // Sub-lesson 3: Declaring Enums
                     LessonContent(
@@ -2123,6 +2664,35 @@ fun cppIntermediateCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.COMPLETED
                     ),
+
+                    // Content 4: Interactive Input Block
+                    LessonContent(
+                        id = "beginner_cpp4_content4",
+                        title = "Complete the code",
+                        description = "Ok so now try to complete the program.",
+                        contentBlocks = listOf(
+                            ContentBlock.InteractiveInputBlock(
+                                question = "Complete the code to create enum Level with three levels.",
+                                incompleteCode = """
+___ Level {
+    LOW = 10,
+    MEDIUM = 20,
+    HIGH = 30
+};
+
+int main () { 
+    return 0;
+}
+""".trimIndent(),
+                                correctCode = "enum",
+                                userInput = null,
+                                isCodeCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.INTERACTIVE,
+                        status = LessonStatus.ACTIVE
+                    ),
+
 
                     // Sub-lesson 5: Enums in Switch Statements
                     LessonContent(
@@ -2200,7 +2770,7 @@ fun cppIntermediateCourse(): Stage {
             // Lesson 13: Reference in C++
             Lesson(
                 id = "beginner_cpp_references",
-                title = "Understanding C++ References",
+                title = "C++ References",
                 description = "References are like giving a variable a nickname. Let’s see how they work!",
                 lessonContents = listOf(
 
@@ -2237,6 +2807,29 @@ fun cppIntermediateCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.COMPLETED
                     ),
+
+                    // Content for "Quiz Time!"
+                    LessonContent(
+                        id = "beginner_cpp6_sub8",
+                        title = "Quiz Time! 🧠",
+                        description = "Test your knowledge of lesson.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "References are best as they let you?",
+                                options = listOf(
+                                    "get you crush's address",
+                                    "work with original data without making copies",
+                                    "they are useless",
+                                    "just some random function"
+                                ),
+                                correctAnswer = "work with original data without making copies",
+                                userAnswer = null,
+                                isCorrect = false
+                            ),
+                        ),
+                        type = LessonContentType.QUIZ
+                    ),
+
 
                     // Sub-lesson 3: How to Create References
                     LessonContent(
@@ -2307,6 +2900,32 @@ fun cppIntermediateCourse(): Stage {
                         status = LessonStatus.COMPLETED
                     ),
 
+// Content 4: Interactive Input Block
+                    LessonContent(
+                        id = "beginner_cpp4_content4",
+                        title = "Complete the Code",
+                        description = "Learn how to use references in C++.",
+                        contentBlocks = listOf(
+                            ContentBlock.InteractiveInputBlock(
+                                question = "Complete the code to make 'meal' a reference to the 'food' variable.",
+                                incompleteCode = """
+int main() { 
+    string food = "Pizza";
+    string ___meal = food;
+    
+    cout << meal << endl; // Output: Pizza
+    return 0;
+}
+""".trimIndent(),
+                                correctCode = "&",
+                                userInput = null,
+                                isCodeCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.INTERACTIVE,
+                        status = LessonStatus.ACTIVE
+                    ),
+
                     // Sub-lesson 5: What is a Memory Address?
                     LessonContent(
                         id = "beginner_cpp_references_sub5",
@@ -2329,6 +2948,7 @@ fun cppIntermediateCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.COMPLETED
                     ),
+
 
                     // Sub-lesson 6: Code Example (Showing Memory Address)
                     LessonContent(
@@ -2402,7 +3022,7 @@ fun cppIntermediateCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     text = "A pointer is like a signpost that tells you the location of something. Instead of holding the actual value, it holds the address where the value is stored!",
-                                    styledText = listOf("pointer","address")
+                                    styledText = listOf("pointer", "address")
                                 )
                             ),
                             ContentBlock.Text(
@@ -2413,7 +3033,7 @@ fun cppIntermediateCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     text = "Pointers are declared using the ' * ' symbol, and you access the value using the ' * ' symbol when dereferencing the pointer.",
-                                    styledText = listOf("*","*")
+                                    styledText = listOf("*", "*")
                                 )
                             )
                         ),
@@ -2477,6 +3097,31 @@ fun cppIntermediateCourse(): Stage {
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.COMPLETED
+                    ),
+
+                    // Content 4: Interactive Input Block
+                    LessonContent(
+                        id = "beginner_cpp4_content4",
+                        title = "Complete the Code",
+                        description = "Learn how to use pointers in C++.",
+                        contentBlocks = listOf(
+                            ContentBlock.InteractiveInputBlock(
+                                question = "Complete the code to declare 'ptr' as a pointer to the variable 'number'.",
+                                incompleteCode = """
+int main() { 
+    int number = 10;
+    int ___ptr = &number;
+    
+    return 0;
+}
+""".trimIndent(),
+                                correctCode = "*",
+                                userInput = null,
+                                isCodeCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.INTERACTIVE,
+                        status = LessonStatus.ACTIVE
                     ),
 
                     // Sub-lesson 4: Benefits of Pointers
@@ -2586,7 +3231,7 @@ fun cppIntermediateCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     text = "Using pointers, you can allocate memory during runtime using ' new ' and free memory with ' delete '. This gives you control over how much memory your program uses!",
-                                    styledText = listOf("new","delete")
+                                    styledText = listOf("new", "delete")
                                 )
                             ),
                             ContentBlock.Text(
@@ -2607,6 +3252,29 @@ fun cppIntermediateCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.COMPLETED
                     ),
+
+                    // Content for "Quiz Time!"
+                    LessonContent(
+                        id = "beginner_cpp6_sub8",
+                        title = "Quiz Time! 🧠",
+                        description = "Test your knowledge of lesson.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "What does a pointer store in C++?",
+                                options = listOf(
+                                    "The value of another variable",
+                                    "The size of a variable",
+                                    "The memory address of another variable",
+                                    "The data type of another variable"
+                                ),
+                                correctAnswer = "The memory address of another variable",
+                                userAnswer = null,
+                                isCorrect = false
+                            ),
+                        ),
+                        type = LessonContentType.QUIZ
+                    ),
+
 
                     // Sub-lesson 8: Explore More and Practice
                     LessonContent(
@@ -2637,7 +3305,7 @@ fun cppIntermediateCourse(): Stage {
             // Lesson 15: Functions in C++
             Lesson(
                 id = "beginner_cpp_functions",
-                title = "Understanding C++ Functions",
+                title = "C++ Functions",
                 description = "Functions are like your own little helpers in the code! Let’s explore how they work.",
                 lessonContents = listOf(
 
@@ -2720,6 +3388,33 @@ fun cppIntermediateCourse(): Stage {
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.COMPLETED
+                    ),
+
+                    // Content 4: Interactive Input Block
+                    LessonContent(
+                        id = "beginner_cpp4_content4",
+                        title = "Complete the code",
+                        description = "Ok so now try to complete the program.",
+                        contentBlocks = listOf(
+                            ContentBlock.InteractiveInputBlock(
+                                question = "Complete the code to declare a  function 'sayHello'.",
+                                incompleteCode = """
+// Declaring a function
+___ sayHello() {
+    cout << "Hello, world!" << endl;
+}
+int main() { 
+    sayHello();
+    return 0; 
+}
+""".trimIndent(),
+                                correctCode = "void",
+                                userInput = null,
+                                isCodeCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.INTERACTIVE,
+                        status = LessonStatus.ACTIVE
                     ),
 
 
@@ -2838,8 +3533,29 @@ fun cppIntermediateCourse(): Stage {
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.COMPLETED
-                    )
+                    ),
 
+                    // Content for "Quiz Time!"
+                    LessonContent(
+                        id = "beginner_cpp6_sub8",
+                        title = "Quiz Time! 🧠",
+                        description = "Test your knowledge of lesson.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "What happens if you declare your function below 'main()' in C++?",
+                                options = listOf(
+                                    "Compilation error",
+                                    "Program runs fine",
+                                    "Function not recognized",
+                                    "Runtime error"
+                                ),
+                                correctAnswer = "Compilation error",
+                                userAnswer = null,
+                                isCorrect = false
+                            ),
+                        ),
+                        type = LessonContentType.QUIZ
+                    )
                 ),
                 status = LessonStatus.COMPLETED
             ),
@@ -2886,7 +3602,7 @@ fun cppIntermediateCourse(): Stage {
                             ContentBlock.Code(
                                 code = """
                                 void myFunction(string fname, int age) {
-
+                                    //Function block
                                 }
 
                                 int main() {
@@ -2937,6 +3653,33 @@ fun cppIntermediateCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.COMPLETED
                     ),
+
+                    // Content 4: Interactive Input Block
+                    LessonContent(
+                        id = "beginner_cpp4_content4",
+                        title = "Complete the code",
+                        description = "Complete the function declaration syntax.",
+                        contentBlocks = listOf(
+                            ContentBlock.InteractiveInputBlock(
+                                question = "Complete the code to fix the function declaration syntax.",
+                                incompleteCode = """
+void myFunction(string name,int age___{
+    //Function block
+}
+
+int main() {
+    return 0;
+}
+""".trimIndent(),
+                                correctCode = ")",
+                                userInput = null,
+                                isCodeCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.INTERACTIVE,
+                        status = LessonStatus.ACTIVE
+                    ),
+
 
                     // Sub-lesson 4: Calling Functions with Multiple Parameters
                     LessonContent(
@@ -3041,6 +3784,28 @@ fun cppIntermediateCourse(): Stage {
                         status = LessonStatus.COMPLETED
                     ),
 
+                    // Content for "Final Quiz: Function Parameters"
+                    LessonContent(
+                        id = "beginner_cpp_function_parameters_final_quiz",
+                        title = "Final Quiz: Function Parameters",
+                        description = "Test your knowledge on function parameters in C++.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "Which of the following is the correct way to define a function with parameters in C++?",
+                                options = listOf(
+                                    "void myFunction(int a, int b) {}",
+                                    "void myFunction(a, b) {}",
+                                    "function void myFunction(int a, int b) {}",
+                                    "int myFunction() { int a, b; }"
+                                ),
+                                correctAnswer = "void myFunction(int a, int b) {}",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ
+                    ),
+
                     // Final Sub-lesson 7: Keep It Clear and Simple!
                     LessonContent(
                         id = "beginner_cpp_function_parameters_sub7",
@@ -3065,6 +3830,7 @@ fun cppIntermediateCourse(): Stage {
                 ),
                 status = LessonStatus.COMPLETED
             ),
+
 
             // Lesson 17: function with return values
             Lesson(
@@ -3131,10 +3897,37 @@ fun cppIntermediateCourse(): Stage {
                         status = LessonStatus.COMPLETED
                     ),
 
+                    // Content 4: Interactive Input Block
+                    LessonContent(
+                        id = "beginner_cpp4_content4",
+                        title = "Complete the code",
+                        description = "Ok so now try to complete the program.",
+                        contentBlocks = listOf(
+                            ContentBlock.InteractiveInputBlock(
+                                question = "Complete the code so the function returns the parameter multiplied by 5.",
+                                incompleteCode = """
+int myFunction(int x) {
+    ___ 5 * x;
+}
+
+int main() {
+    cout << myFunction(3);
+    return 0;
+}
+""".trimIndent(),
+                                correctCode = "return",
+                                userInput = null,
+                                isCodeCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.INTERACTIVE,
+                        status = LessonStatus.ACTIVE
+                    ),
+
                     // Sub-lesson 3: Storing Return Values in Variables
                     LessonContent(
                         id = "beginner_cpp_return_keyword_sub3",
-                        title = "Keep the Goods: Storing Return Values",
+                        title = "Storing Return Values",
                         description = "You don’t just want to receive a value and forget about it, right? Store it, use it, make it work for you.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -3201,7 +3994,7 @@ fun cppIntermediateCourse(): Stage {
                     // Sub-Lesson 5:
                     LessonContent(
                         id = "beginner_cpp_return_keyword_sub5",
-                        title = "Returning Strings: When Functions Speak Back",
+                        title = "Returning Strings",
                         description = "Numbers are cool, but what about words? Let’s make your functions talk by returning strings!",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -3232,6 +4025,28 @@ fun cppIntermediateCourse(): Stage {
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.COMPLETED
+                    ),
+
+                    // Content for "Quiz Time!"
+                    LessonContent(
+                        id = "beginner_cpp6_sub8",
+                        title = "Quiz Time! 🧠",
+                        description = "Test your knowledge of functions.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "What does the 'void' keyword indicate in a function?",
+                                options = listOf(
+                                    "The function has no parameters",
+                                    "The function returns an integer",
+                                    "The function returns a string",
+                                    "The function does not return a value"
+                                ),
+                                correctAnswer = "The function does not return a value",
+                                userAnswer = null,
+                                isCorrect = false
+                            ),
+                        ),
+                        type = LessonContentType.QUIZ
                     ),
 
                     // Sub-lesson 6: Return Keyword Recap
@@ -3377,6 +4192,28 @@ fun cppIntermediateCourse(): Stage {
                         status = LessonStatus.COMPLETED
                     ),
 
+                    // Content for "Quiz Time!"
+                    LessonContent(
+                        id = "beginner_cpp6_sub11",
+                        title = "Quiz Time! 🧠",
+                        description = "Test your knowledge on passing arrays to functions.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "What is the correct way to pass an array to a function in C++?",
+                                options = listOf(
+                                    "void myFunction(int arr[5])",
+                                    "void myFunction(int *arr)",
+                                    "void myFunction(int arr[])",
+                                    "All of the above"
+                                ),
+                                correctAnswer = "All of the above",
+                                userAnswer = null,
+                                isCorrect = false
+                            ),
+                        ),
+                        type = LessonContentType.QUIZ
+                    ),
+
                     // Closing Thoughts
                     LessonContent(
                         id = "beginner_cpp_passing_arrays_sub5",
@@ -3501,6 +4338,28 @@ fun cppIntermediateCourse(): Stage {
                         status = LessonStatus.COMPLETED
                     ),
 
+                    // Content for "Quiz Time!"
+                    LessonContent(
+                        id = "beginner_cpp6_sub12",
+                        title = "Quiz Time! 🧠",
+                        description = "Test your knowledge on local variables in C++.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "What is a local variable in C++?",
+                                options = listOf(
+                                    "A variable that can be accessed from any function",
+                                    "A variable that stores local time",
+                                    "A variable that is created globally",
+                                    "A variable that can only be accessed within the function it was declared"
+                                ),
+                                correctAnswer = "A variable that can only be accessed within the function it was declared",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ
+                    ),
+
                     // Sub-lesson 4: Local vs Global Name Conflicts
                     LessonContent(
                         id = "beginner_cpp_scope_name_clash",
@@ -3573,7 +4432,30 @@ fun cppIntermediateCourse(): Stage {
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.COMPLETED
+                    ),
+
+                    // Content for "Quiz Time!"
+                    LessonContent(
+                        id = "beginner_cpp6_sub13",
+                        title = "Final Quiz! 🧠",
+                        description = "Test your understanding of local variables in C++.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "Why is it recommended to use local variables as much as possible in C++?",
+                                options = listOf(
+                                    "They can be accessed globally",
+                                    "They help save memory and reduce the chance of errors",
+                                    "They can be shared between functions",
+                                    "They are faster to execute than global variables"
+                                ),
+                                correctAnswer = "They help save memory and reduce the chance of errors",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ
                     )
+
                 ),
                 status = LessonStatus.COMPLETED
             ),
@@ -3670,6 +4552,29 @@ fun cppIntermediateCourse(): Stage {
                         status = LessonStatus.COMPLETED
                     ),
 
+                    // Content for "Quiz Time!"
+                    LessonContent(
+                        id = "beginner_cpp6_sub14",
+                        title = "Recursion Quiz! 🧠",
+                        description = "Test your understanding of recursion in C++.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "What is recursion in C++?",
+                                options = listOf(
+                                    "A function calling itself to solve a problem",
+                                    "A method of looping through an array",
+                                    "A technique to create random numbers",
+                                    "A way to store data in a list"
+                                ),
+                                correctAnswer = "A function calling itself to solve a problem",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ
+                    ),
+
+
                     // Sub-lesson 4: When to Use Recursion
                     LessonContent(
                         id = "beginner_cpp_recursion_use_cases",
@@ -3763,6 +4668,28 @@ fun cppIntermediateCourse(): Stage {
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.COMPLETED
+                    ),
+
+                    // Content for "Quiz Time!"
+                    LessonContent(
+                        id = "beginner_cpp6_sub14",
+                        title = "Recursion Quiz! 🧠",
+                        description = "Test your understanding of recursion in C++.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "Which of the following is a correct example of a recursive function?",
+                                options = listOf(
+                                    "int factorial(int n) { return n * factorial(n-1); }",
+                                    "int factorial(int n) { if (n == 0) return 1; else return n * factorial(n-1); }",
+                                    "int factorial(int n) { return n * n; }",
+                                    "int factorial(int n) { while(n > 0) { n--; } return n; }"
+                                ),
+                                correctAnswer = "int factorial(int n) { if (n == 0) return 1; else return n * factorial(n-1); }",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ
                     ),
 
                     // Sub-lesson 7: The Importance of Practice (And Not Just Scrolling)
