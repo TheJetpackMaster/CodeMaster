@@ -8,15 +8,18 @@ import com.codemaster.codemasterapp.main.data.LessonContentType
 import com.codemaster.codemasterapp.main.data.LessonStatus
 import com.codemaster.codemasterapp.main.data.Stage
 
+
+
 fun cppAdvancedCourse(): Stage {
+
     return Stage(
-        id = "cpp_advanced_stage",
+        id = cppAdvancedStageIds.stageId,
         title = "Advanced",
         lessons = listOf(
 
             // Lesson 1: Welcome to the Advanced Stage
             Lesson(
-                id = "advanced_cpp1",
+                id = cppAdvancedStageIds.lesson1,
                 title = "Welcome to the Advanced Stage",
                 description = "Congrats on leveling up! Ready for coding magic and challenges?",
                 lessonContents = listOf(
@@ -146,7 +149,7 @@ fun cppAdvancedCourse(): Stage {
 
             // Lesson 2: Introduction to OOP
             Lesson(
-                id = "advanced_cpp2",
+                id = cppAdvancedStageIds.lesson2,
                 title = "Introduction to OOP",
                 description = "Step into the world of OOP! Let’s unravel classes and objects.",
                 lessonContents = listOf(
@@ -268,7 +271,7 @@ fun cppAdvancedCourse(): Stage {
 
             //Lesson 3: Classes & Objects in C++
             Lesson(
-                id = "cpp_classes_1",
+                id = cppAdvancedStageIds.lesson3,
                 title = "Classes & Objects in C++",
                 description = "Discover how classes are the building blocks of Object-Oriented Programming!",
                 lessonContents = listOf(
@@ -492,7 +495,7 @@ int main() {
 
             //Lesson 4: Class Method in C++
             Lesson(
-                id = "cpp_class_methods_2",
+                id = cppAdvancedStageIds.lesson4,
                 title = "C++ Class Methods",
                 description = "Learn how to give your classes functionality using methods.",
                 lessonContents = listOf(
@@ -641,7 +644,7 @@ int main() {
 
             // Lesson 5: Constructors in C++
             Lesson(
-                id = "cpp_constructors_1",
+                id = cppAdvancedStageIds.lesson5,
                 title = "Constructors in C++",
                 description = "Learn the magic of constructors that automatically set up your class objects!",
                 lessonContents = listOf(
@@ -887,7 +890,7 @@ int main() {
 
             // Lesson 6: C++ Access Specifiers
             Lesson(
-                id = "cpp_access_specifiers_1",
+                id = cppAdvancedStageIds.lesson6,
                 title = "C++ Access Specifiers",
                 description = "Learn how to control access to the parts of your class with access specifiers!",
                 lessonContents = listOf(
@@ -1114,7 +1117,7 @@ int main () {
 
             // Lesson 7: C++ Setters and Getters
             Lesson(
-                id = "cpp_setters_getters_1",
+                id = cppAdvancedStageIds.lesson7,
                 title = "C++ Setters and Getters",
                 description = "Learn how to control access to private members using setters and getters!",
                 lessonContents = listOf(
@@ -1336,7 +1339,7 @@ int main() {
 
             // Lesson 8: C++ Inheritance
             Lesson(
-                id = "cpp_inheritance_intro",
+                id = cppAdvancedStageIds.lesson8,
                 title = "C++ Inheritance",
                 description = "Learn what inheritance is and why its super useful in C++.",
                 lessonContents = listOf(
@@ -1572,7 +1575,7 @@ int main() {
 
             // Lesson 9 : C++ Multilevel Inheritance
             Lesson(
-                id = "cpp_multilevel_inheritance",
+                id = cppAdvancedStageIds.lesson9,
                 title = "Multilevel Inheritance in C++",
                 description = "Learn about multilevel inheritance in C++ where a class can inherit from another class, which itself is inherited from a third class. Its like a family tree of classes!",
                 lessonContents = listOf(
@@ -1747,7 +1750,7 @@ int main() {
 
             // Lesson 10 : C++ Multiple Inheritance
             Lesson(
-                id = "cpp_multiple_inheritance",
+                id = cppAdvancedStageIds.lesson10,
                 title = "Multiple Inheritance in C++",
                 description = "Learn about multiple inheritance where a class can inherit from more than one class, getting properties and methods from all parent classes.",
                 lessonContents = listOf(
@@ -2022,7 +2025,7 @@ public:
 
             // Lesson 11: Encapsulation in C++
             Lesson(
-                id = "cpp_encapsulation",
+                id = cppAdvancedStageIds.lesson11,
                 title = "Encapsulation in C++",
                 description = "Learn how encapsulation helps bundle data and methods in C++ to protect sensitive information.",
                 lessonContents = listOf(
@@ -2180,7 +2183,7 @@ int main() {
 
             // Lesson 12: Polymorphism in C++
             Lesson(
-                id = "cpp_polymorphism",
+                id = cppAdvancedStageIds.lesson12,
                 title = "Polymorphism in C++",
                 description = "Learn how polymorphism allows objects to take on multiple forms and enables dynamic behavior in C++.",
                 lessonContents = listOf(
@@ -2376,7 +2379,7 @@ int main() {
 
             // Lesson 13: Practice C++ OOP
             Lesson(
-                id = "master_classes_inheritance_cpp",
+                id = cppAdvancedStageIds.lesson13,
                 title = "Best Way To Learn OOP",
                 description = "A step-by-step guide to mastering classes, inheritance, and more in C++.",
                 lessonContents = listOf(
@@ -2646,7 +2649,7 @@ int main() {
 
             // Lesson 14: Advanced C++ Concepts Recap
             Lesson(
-                id = "advanced_cpp_recap",
+                id = cppAdvancedStageIds.lesson14,
                 title = "Advanced Concepts Recap",
                 description = "A comprehensive review of key C++ concepts that lay the foundation for advanced programming skills.",
                 lessonContents = listOf(
