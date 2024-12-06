@@ -4238,7 +4238,6 @@ int main() {
                 status = LessonStatus.COMPLETED
             ),
 
-
             // Lesson 19: C++ Variable Scope
             Lesson(
                 id = "beginner_cpp_variable_scope",
