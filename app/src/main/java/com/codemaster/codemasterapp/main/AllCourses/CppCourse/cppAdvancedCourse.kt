@@ -9,7 +9,6 @@ import com.codemaster.codemasterapp.main.data.LessonStatus
 import com.codemaster.codemasterapp.main.data.Stage
 
 
-
 fun cppAdvancedCourse(): Stage {
 
     return Stage(
@@ -264,6 +263,28 @@ fun cppAdvancedCourse(): Stage {
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.COMPLETED
+                    ),
+
+                    // Content for "Quiz Time!"
+                    LessonContent(
+                        id = "beginner_cpp6_sub8",
+                        title = "Quiz Time! 🧠",
+                        description = "Test your knowledge of lesson.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "What does OOP stand for in C++?",
+                                options = listOf(
+                                    "Overloaded Operator Programming",
+                                    "Maybe a sudden reaction",
+                                    "Ordered Operation Procedure",
+                                    "Object-Oriented Programming"
+                                ),
+                                correctAnswer = "Object-Oriented Programming",
+                                userAnswer = null,
+                                isCorrect = false
+                            ),
+                        ),
+                        type = LessonContentType.QUIZ
                     )
                 ),
                 status = LessonStatus.COMPLETED
@@ -302,6 +323,28 @@ fun cppAdvancedCourse(): Stage {
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.COMPLETED
+                    ),
+
+                    // Content for "Quiz Time!"
+                    LessonContent(
+                        id = "beginner_cpp6_sub8",
+                        title = "Quiz Time! 🧠",
+                        description = "Test your knowledge of lesson.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "What is the role of a class in C++?",
+                                options = listOf(
+                                    "To perform calculations within a program",
+                                    "To handle file operations",
+                                    "To define a template or blueprint for creating objects",
+                                    "To act as an external library"
+                                ),
+                                correctAnswer = "To define a template or blueprint for creating objects",
+                                userAnswer = null,
+                                isCorrect = false
+                            ),
+                        ),
+                        type = LessonContentType.QUIZ
                     ),
 
                     // Sub-lesson 2: Creating a Class
@@ -357,6 +400,39 @@ int main() {
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.COMPLETED
+                    ),
+
+                    // Content 4: Interactive Input Block
+                    LessonContent(
+                        id = "beginner_cpp4_content4",
+                        title = "Complete the code",
+                        description = "Ok so now try to complete the program.",
+                        contentBlocks = listOf(
+                            ContentBlock.InteractiveInputBlock(
+                                question = "Complete the code create object of 'MyClass' ",
+                                incompleteCode = """
+#include <iostream>
+                                    
+class MyClass {
+  public:
+    int myNum;
+    string myString;
+};
+
+int main() {
+
+ // Creating an object of the class
+  ___ myObj;
+  return 0;
+}
+""".trimIndent(),
+                                correctCode = "MyClass",
+                                userInput = null,
+                                isCodeCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.INTERACTIVE,
+                        status = LessonStatus.ACTIVE
                     ),
 
                     // Sub-lesson 4: Accessing and Assigning Values to Class Members
@@ -467,6 +543,28 @@ int main() {
                         status = LessonStatus.COMPLETED
                     ),
 
+                    // Content for "Quiz Time!"
+                    LessonContent(
+                        id = "beginner_cpp6_sub8",
+                        title = "Quiz Time! 🧠",
+                        description = "Test your knowledge of lesson.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "How do you create an object of a class in C++?",
+                                options = listOf(
+                                    "By using the 'new' keyword",
+                                    "I will ask my friend for help.",
+                                    "By using the class name as the variable type",
+                                    "By defining a function"
+                                ),
+                                correctAnswer = "int age;",
+                                userAnswer = null,
+                                isCorrect = false
+                            ),
+                        ),
+                        type = LessonContentType.QUIZ
+                    ),
+
                     // Fun Practice Lesson: Lets Code!
                     LessonContent(
                         id = "cpp_classes_1_practice",
@@ -523,6 +621,29 @@ int main() {
                         status = LessonStatus.COMPLETED
                     ),
 
+                    // Content for "Quiz Time!"
+                    LessonContent(
+                        id = "beginner_cpp6_sub8",
+                        title = "Quiz Time! 🧠",
+                        description = "Test your knowledge of lesson.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "Difference between class members and class methods?",
+                                options = listOf(
+                                    "Members manipulate data",
+                                    "Methods are useless",
+                                    "Members hold data & methods manipulate data",
+                                    "Methods store data"
+                                ),
+                                correctAnswer = "Members hold data & methods manipulate data",
+                                userAnswer = null,
+                                isCorrect = false
+                            ),
+                        ),
+                        type = LessonContentType.QUIZ
+                    ),
+
+
                     // Sub-lesson 2: Creating a Class with Methods
                     LessonContent(
                         id = "cpp_class_methods_2_sub2",
@@ -558,7 +679,7 @@ class MyClass {
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    text = "To call a method, create an object of the class and use the dot operator to access the method. Its like telling the object to perform the methods action.",
+                                    text = "To call a method, create an object of the class and use the dot operator (.) to access the method. Its like telling the object to perform the methods action.",
                                     styledText = listOf("call", "method", "dot operator")
                                 )
                             ),
@@ -614,6 +735,37 @@ int main() {
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.COMPLETED
+                    ),
+
+                    // Content 4: Interactive Input Block
+                    LessonContent(
+                        id = "beginner_cpp4_content4",
+                        title = "Complete the code",
+                        description = "Now, try completing the program by calling the 'sayHello' method.",
+                        contentBlocks = listOf(
+                            ContentBlock.InteractiveInputBlock(
+                                question = "Complete the code to call the 'sayHello' method and print 'Hello, World'.",
+                                incompleteCode = """
+class MyClass {
+  public:
+    void sayHello() {
+      cout << "Hello, World" << endl;
+    }
+};
+
+int main() {
+  MyClass myObj;
+  myObj___sayHello();
+  return 0;
+}
+""".trimIndent(),
+                                correctCode = ".",
+                                userInput = null,
+                                isCodeCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.INTERACTIVE,
+                        status = LessonStatus.ACTIVE
                     ),
 
                     // Sub-lesson 5: Explore and Have Fun!
@@ -752,6 +904,38 @@ int main() {
                         status = LessonStatus.COMPLETED
                     ),
 
+                    // Content 4: Interactive Input Block
+                    LessonContent(
+                        id = "beginner_cpp4_content4",
+                        title = "Complete the code",
+                        description = "Ok so now try to complete the program.",
+                        contentBlocks = listOf(
+                            ContentBlock.InteractiveInputBlock(
+                                question = "Complete the code to create constructor for class 'Luawms'",
+                                incompleteCode = """
+class Luawms {       
+  public:
+    // Constructor
+    ___() {       
+      cout << "Object created!" << endl;
+    }
+};
+
+int main() {
+  Luawms myObj;      
+  return 0;
+}
+""".trimIndent(),
+                                correctCode = "Luawms",
+                                userInput = null,
+                                isCodeCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.INTERACTIVE,
+                        status = LessonStatus.ACTIVE
+                    ),
+
+
                     // Sub-lesson 4: Initializing Member Variables with Constructors
                     LessonContent(
                         id = "cpp_constructors_1_sub4",
@@ -867,6 +1051,29 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.COMPLETED
                     ),
+
+                    // Content for "Quiz Time!"
+                    LessonContent(
+                        id = "beginner_cpp6_sub9",
+                        title = "Quiz Time! 🧠",
+                        description = "Test your knowledge of constructors in C++.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "How do you define a constructor in C++?",
+                                options = listOf(
+                                    "By defining a function with the keyword 'constructor'",
+                                    "By declaring it as 'public constructor'",
+                                    "Using a function named 'init'",
+                                    "Using the class name followed by parentheses"
+                                ),
+                                correctAnswer = "Using the class name followed by parentheses",
+                                userAnswer = null,
+                                isCorrect = false
+                            ),
+                        ),
+                        type = LessonContentType.QUIZ
+                    ),
+
 
                     // Sub-lesson 7: Practice and Explore
                     LessonContent(
@@ -1076,6 +1283,37 @@ int main () {
                         status = LessonStatus.COMPLETED
                     ),
 
+                    // Content 4: Interactive Input Block
+                    LessonContent(
+                        id = "beginner_cpp4_content4",
+                        title = "Complete the Code",
+                        description = "Complete the class definition with appropriate access specifier.",
+                        contentBlocks = listOf(
+                            ContentBlock.InteractiveInputBlock(
+                                question = "Complete code with the correct access specifier to make the variables accessible outside the class.",
+                                incompleteCode = """
+class MyClass {
+    ___:
+    int x;
+    int y;
+};
+
+int main() {
+    MyClass obj;
+    obj.x = 10; //Accessed Outside
+    obj.y = 20; //Accessed Outside
+    return 0;
+}    
+""".trimIndent(),
+                                correctCode = "public",
+                                userInput = null,
+                                isCodeCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.INTERACTIVE,
+                        status = LessonStatus.ACTIVE
+                    ),
+
                     // Sub-lesson 6: Accessing Private Members
                     LessonContent(
                         id = "cpp_access_specifiers_1_sub6",
@@ -1144,6 +1382,29 @@ int main () {
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.COMPLETED
                     ),
+
+                    // Content for "Quiz Time!"
+                    LessonContent(
+                        id = "beginner_cpp6_sub8",
+                        title = "Quiz Time! 🧠",
+                        description = "Test your knowledge of lesson.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "Why setters and getters are used?",
+                                options = listOf(
+                                    "To manipulate private class members",
+                                    "just for fun",
+                                    "To manipulate public class members",
+                                    "they are not used"
+                                ),
+                                correctAnswer = "To manipulate private class members",
+                                userAnswer = null,
+                                isCorrect = false
+                            ),
+                        ),
+                        type = LessonContentType.QUIZ
+                    ),
+
 
                     // Sub-lesson 2: Using Setters and Getters
                     LessonContent(
@@ -1252,6 +1513,36 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.COMPLETED
                     ),
+
+                    // Content 4: Interactive Input Block
+                    LessonContent(
+                        id = "beginner_cpp4_content4",
+                        title = "Complete the code",
+                        description = "Ok so now try to complete the program.",
+                        contentBlocks = listOf(
+                            ContentBlock.InteractiveInputBlock(
+                                question = "Create setter method to setUser age.",
+                                incompleteCode = """
+class MyClass {
+private:
+    int age;  // Private member
+
+public:
+    // Setter method
+    void setAge(int newAge) {
+        age = ___;
+    }
+};
+""".trimIndent(),
+                                correctCode = "newAge",
+                                userInput = null,
+                                isCodeCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.INTERACTIVE,
+                        status = LessonStatus.ACTIVE
+                    ),
+
 
                     // Sub-lesson 4: Best Practices for Setters and Getters
                     LessonContent(
@@ -1388,6 +1679,28 @@ int main() {
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.COMPLETED
+                    ),
+
+                    // Content for "Quiz Time!"
+                    LessonContent(
+                        id = "beginner_cpp6_sub8",
+                        title = "Quiz Time! 🧠",
+                        description = "Test your knowledge of lesson.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "What happens in inheritance?",
+                                options = listOf(
+                                    "child class gets only data members of parent class",
+                                    "child class gets only methods of parent class",
+                                    "inheritance is useless",
+                                    "child class get all data members and methods of parent class",
+                                ),
+                                correctAnswer = "child class get all data members and methods of parent class",
+                                userAnswer = null,
+                                isCorrect = false
+                            ),
+                        ),
+                        type = LessonContentType.QUIZ
                     ),
 
                     // Sub-lesson 3: Basic Structure of Inheritance (without members yet)
@@ -1545,6 +1858,42 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.COMPLETED
                     ),
+
+
+                    // Content 4: Interactive Input Block
+                    LessonContent(
+                        id = "beginner_cpp4_content4",
+                        title = "Complete the code",
+                        description = "Ok so now try to complete the program.",
+                        contentBlocks = listOf(
+                            ContentBlock.InteractiveInputBlock(
+                                question = "Complete the code to let Car class inherit from Vehicle.",
+                                incompleteCode = """
+// Base class (parent)
+class Vehicle {
+  public:
+    string brand = "Ford"; 
+    void move() {
+      cout << "The vehicle is moving!" << endl;
+    }
+};
+
+// Derived class (child) inherits from Vehicle
+class Car ___ public Vehicle {
+  public:
+    string model = "Mustang"; // Car has its own attribute
+};
+
+""".trimIndent(),
+                                correctCode = ":",
+                                userInput = null,
+                                isCodeCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.INTERACTIVE,
+                        status = LessonStatus.ACTIVE
+                    ),
+
 
                     // Sub-lesson 6: Practice
                     LessonContent(
@@ -2045,7 +2394,12 @@ public:
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     text = "By using access modifiers like `private`, `public`, and `protected`, encapsulation ensures that only the intended parts of a class are accessible from the outside.",
-                                    styledText = listOf("access modifiers", "`private`", "`public`", "`protected`")
+                                    styledText = listOf(
+                                        "access modifiers",
+                                        "`private`",
+                                        "`public`",
+                                        "`protected`"
+                                    )
                                 )
                             )
                         ),
@@ -2062,7 +2416,12 @@ public:
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     text = "1. Access Modifiers control the visibility of class members: `private` hides them, `public` exposes them, and `protected` provides limited access.",
-                                    styledText = listOf("Access Modifiers", "`private`", "`public`", "`protected`")
+                                    styledText = listOf(
+                                        "Access Modifiers",
+                                        "`private`",
+                                        "`public`",
+                                        "`protected`"
+                                    )
                                 )
                             ),
                             ContentBlock.Text(
@@ -2147,7 +2506,11 @@ int main() {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     text = "Encapsulation improves your code by: \n1. Protecting sensitive data from unauthorized access. \n2. Making your code modular and easier to maintain. \n3. Allowing changes in implementation without affecting external code.",
-                                    styledText = listOf("Protecting sensitive data", "modular", "easier to maintain")
+                                    styledText = listOf(
+                                        "Protecting sensitive data",
+                                        "modular",
+                                        "easier to maintain"
+                                    )
                                 )
                             )
                         ),
@@ -2197,7 +2560,10 @@ int main() {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     text = "Polymorphism is a key concept in object-oriented programming that allows objects to be treated as instances of their parent class while exhibiting behavior specific to their actual class.",
-                                    styledText = listOf("Polymorphism", "object-oriented programming")
+                                    styledText = listOf(
+                                        "Polymorphism",
+                                        "object-oriented programming"
+                                    )
                                 )
                             ),
                             ContentBlock.Text(
@@ -2220,13 +2586,21 @@ int main() {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     text = "1. Compile-time Polymorphism: Achieved using function overloading and operator overloading. Behavior is determined at compile-time.",
-                                    styledText = listOf("Compile-time Polymorphism", "function overloading", "operator overloading")
+                                    styledText = listOf(
+                                        "Compile-time Polymorphism",
+                                        "function overloading",
+                                        "operator overloading"
+                                    )
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     text = "2. Runtime Polymorphism: Achieved using virtual functions and inheritance. Behavior is determined at runtime.",
-                                    styledText = listOf("Runtime Polymorphism", "virtual functions", "inheritance")
+                                    styledText = listOf(
+                                        "Runtime Polymorphism",
+                                        "virtual functions",
+                                        "inheritance"
+                                    )
                                 )
                             )
                         ),
@@ -2343,7 +2717,12 @@ int main() {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     text = "Polymorphism improves code by: \n1. Enabling code reusability and flexibility. \n2. Supporting dynamic behavior and late binding. \n3. Making code more modular and easier to maintain.",
-                                    styledText = listOf("code reusability", "flexibility", "dynamic behavior", "late binding")
+                                    styledText = listOf(
+                                        "code reusability",
+                                        "flexibility",
+                                        "dynamic behavior",
+                                        "late binding"
+                                    )
                                 )
                             )
                         ),
@@ -2360,7 +2739,12 @@ int main() {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     text = "Think of polymorphism as a performer who can play multiple roles. A base class is the script, and derived classes are the actors who bring different roles to life.",
-                                    styledText = listOf("performer", "roles", "base class", "derived classes")
+                                    styledText = listOf(
+                                        "performer",
+                                        "roles",
+                                        "base class",
+                                        "derived classes"
+                                    )
                                 )
                             ),
                             ContentBlock.Text(
@@ -2715,7 +3099,11 @@ int main() {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     text = "Default constructors, parameterized constructors, and copy constructors allow different ways of initializing an object.",
-                                    styledText = listOf("Default", "parameterized", "copy constructors")
+                                    styledText = listOf(
+                                        "Default",
+                                        "parameterized",
+                                        "copy constructors"
+                                    )
                                 )
                             )
                         ),
@@ -2778,7 +3166,11 @@ int main() {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     text = "Inheritance allows a class (child class) to inherit properties and methods from another class (parent class). This promotes code reuse and extension of existing functionality.",
-                                    styledText = listOf("Inheritance", "child class", "parent class")
+                                    styledText = listOf(
+                                        "Inheritance",
+                                        "child class",
+                                        "parent class"
+                                    )
                                 )
                             ),
                             ContentBlock.Text(

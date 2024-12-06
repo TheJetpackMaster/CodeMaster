@@ -37,7 +37,8 @@ object cppAdvancedStageIds {
         "advanced_cpp2_sub2",
         "advanced_cpp2_sub3",
         "advanced_cpp2_sub4",
-        "advanced_cpp2_sub5"
+        "advanced_cpp2_sub5",
+        "advanced_cpp2_sub6"
     )
 
     // Sub-lesson IDs for lesson 3 - Classes & Objects in C++
@@ -48,7 +49,10 @@ object cppAdvancedStageIds {
         "advanced_cpp3_sub4",
         "advanced_cpp3_sub5",
         "advanced_cpp3_sub6",
-        "advanced_cpp3_sub7"
+        "advanced_cpp3_sub7",
+        "advanced_cpp3_sub8",
+        "advanced_cpp3_sub9",
+        "advanced_cpp3_sub10"
     )
 
     // Sub-lesson IDs for lesson 4 - Classes & Methods
@@ -58,28 +62,57 @@ object cppAdvancedStageIds {
         "advanced_cpp4_sub3",
         "advanced_cpp4_sub4",
         "advanced_cpp4_sub5",
+        "advanced_cpp4_sub5",
+        "advanced_cpp4_sub6",
     )
 
     // Sub-lesson IDs for lesson 5 - Constructors in C++
     val lesson5_subs = listOf(
-        "advanced_cpp3_sub1",
-        "advanced_cpp3_sub2",
-        "advanced_cpp3_sub3",
-        "advanced_cpp3_sub4",
-        "advanced_cpp3_sub5",
-        "advanced_cpp3_sub6",
-        "advanced_cpp3_sub7"
+        "advanced_cpp5_sub1",
+        "advanced_cpp5_sub2",
+        "advanced_cpp5_sub3",
+        "advanced_cpp5_sub4",
+        "advanced_cpp5_sub5",
+        "advanced_cpp5_sub6",
+        "advanced_cpp5_sub7",
+        "advanced_cpp5_sub8",
+        "advanced_cpp5_sub9"
     )
 
     // Sub-lesson IDs for lesson 6 - Access Modifiers in C++
     val lesson6_subs = listOf(
-        "advanced_cpp3_sub1",
-        "advanced_cpp3_sub2",
-        "advanced_cpp3_sub3",
-        "advanced_cpp3_sub4",
-        "advanced_cpp3_sub5",
-        "advanced_cpp3_sub6",
-        "advanced_cpp3_sub7"
+        "advanced_cpp6_sub1",
+        "advanced_cpp6_sub2",
+        "advanced_cpp6_sub3",
+        "advanced_cpp6_sub4",
+        "advanced_cpp6_sub5",
+        "advanced_cpp6_sub6",
+        "advanced_cpp6_sub7",
+        "advanced_cpp6_sub8"
+    )
+
+    // Sub-lesson IDs for lesson 7 - Setters and Getters in C++
+    val lesson7_subs = listOf(
+        "advanced_cpp7_sub1",
+        "advanced_cpp7_sub2",
+        "advanced_cpp7_sub3",
+        "advanced_cpp7_sub4",
+        "advanced_cpp7_sub5",
+        "advanced_cpp7_sub6",
+        "advanced_cpp7_sub7",
+        "advanced_cpp7_sub8"
+    )
+
+    // Sub-lesson IDs for lesson 8 - Inheritance in C++
+    val lesson8_subs = listOf(
+        "advanced_cpp8_sub1",
+        "advanced_cpp8_sub2",
+        "advanced_cpp8_sub3",
+        "advanced_cpp8_sub4",
+        "advanced_cpp8_sub5",
+        "advanced_cpp8_sub6",
+        "advanced_cpp8_sub7",
+        "advanced_cpp8_sub8"
     )
             
 }
