@@ -21,54 +21,11 @@ fun CBeginnerCourse(): Stage {
         id = "c_beginner_stage",
         title = "Beginner",
         lessons = listOf(
+            // lesson 1
             Lesson(
                 id = "beginner_c1",
                 title = "Introduction to C Programming",
                 description = "In this lesson, we’ll cover the basics of programming, exploring the origins, purpose, and structure of the C language.",
-                subLessons = listOf(
-                    Lesson(
-                        id = "beginner_c1_sub1",
-                        title = "What is Programming?",
-                        description = "Understand programming, why it matters, and how it lets computers execute your instructions.",
-                        status = LessonStatus.ACTIVE
-                    ),
-                    Lesson(
-                        id = "beginner_c1_sub2",
-                        title = "Understanding Code and How It Works",
-                        description = "Peek behind the scenes to see how code tells computers what to do.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c1_sub3",
-                        title = "Introduction to the C Language",
-                        description = "Meet C: the foundation of many modern programming languages.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c1_sub4",
-                        title = "Applications of C Programming",
-                        description = "Discover where C is used in real-world scenarios like operating systems and embedded systems.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c1_sub5",
-                        title = "Why Learn C?",
-                        description = "Explore the benefits of learning C, including its role as a foundation for other programming languages.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c1_sub6",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c1_sub7",
-                        title = "What’s Next?",
-                        description = "Preview the journey ahead as we dive into loops, arrays, and advanced concepts.",
-                        status = LessonStatus.LOCKED
-                    )
-                ),
                 lessonContents = listOf(
                     LessonContent(
                         id = "beginner_c1_sub1",
@@ -79,10 +36,10 @@ fun CBeginnerCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     "Programming languages like C, Python, or Java help us communicate instructions to machines.",
-                                    listOf("Programming languages", "C, Python, or Java")
+                                    listOf("")
                                 )
                             ),
-                            ContentBlock.Text(createSimpleText("Without programming, your favorite apps and systems wouldn’t exist. 🚀"))
+                            ContentBlock.Text(createSimpleText("Without programming, your favorite apps and systems wouldn’t exist."))
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
@@ -95,7 +52,7 @@ fun CBeginnerCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     "C code translates directly into machine language, making it powerful and efficient.",
-                                    listOf("C code", "machine language")
+                                    listOf("")
                                 )
                             ),
                             ContentBlock.Text(createSimpleText("Think of it as giving directions versus driving the car yourself."))
@@ -111,7 +68,7 @@ fun CBeginnerCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     "C combines low-level power with ease of use and has influenced many languages like C++, Java, and Python.",
-                                    listOf("low-level", "C++, Java, and Python")
+                                    listOf("low-level")
                                 )
                             ),
                             ContentBlock.Text(createSimpleText("Languages like Python and Java owe their roots to C."))
@@ -127,10 +84,10 @@ fun CBeginnerCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     "It’s essential for gaming, robotics, and embedded systems where precision is key.",
-                                    listOf("gaming", "robotics", "embedded systems")
+                                    listOf()
                                 )
                             ),
-                            ContentBlock.Text(createSimpleText("Imagine your gaming console and smartwatch running thanks to C! 🎮"))
+                            ContentBlock.Text(createSimpleText("Imagine your gaming console and smartwatch running thanks to C!"))
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
@@ -175,9 +132,9 @@ fun CBeginnerCourse(): Stage {
                         title = "What’s Next?",
                         description = "Preview the journey ahead as we dive into loops, arrays, and advanced concepts.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Get ready to unlock the core building blocks of programming! 🚀")),
-                            ContentBlock.Text(createSimpleText("In the next lessons, you’ll master input/output, variables, and data types—skills that power every program you’ll ever write. 💡")),
-                            ContentBlock.Text(createSimpleText("With hands-on projects, you'll bring ideas to life and take your first big steps as a programmer. 🛠️"))
+                            ContentBlock.Text(createSimpleText("Get ready to unlock the core building blocks of programming!")),
+                            ContentBlock.Text(createSimpleText("In the next lessons, you’ll master input/output, variables, and data types—skills that power every program you’ll ever write.")),
+                            ContentBlock.Text(createSimpleText("With hands-on projects, you'll bring ideas to life and take your first big steps as a programmer."))
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     )
@@ -185,196 +142,11 @@ fun CBeginnerCourse(): Stage {
                 status = LessonStatus.ACTIVE
             ),
 
-            // Lesson 2
-//            Lesson(
-//                id = "beginner_c2",
-//                title = "Setting Up Your Programming Environment",
-//                description = "Learn to set up your programming environment, write your first C program, and run it. It’s like assembling a robot to do your homework.",
-//                subLessons = listOf(
-//                    Lesson(
-//                        id = "beginner_c2_sub1",
-//                        title = "Installing a C Compiler",
-//                        description = "Equip yourself with a powerful compiler like GCC or a slick IDE like Code::Blocks. Let’s start your coding adventure!",
-//                        status = LessonStatus.LOCKED
-//                    ),
-//                    Lesson(
-//                        id = "beginner_c2_sub2",
-//                        title = "Quiz",
-//                        description = "Quiz",
-//                        status = LessonStatus.LOCKED
-//                    ),
-//                    Lesson(
-//                        id = "beginner_c2_sub3",
-//                        title = "Writing Your First Program",
-//                        description = "Write a program that tells the world 'Hello!' (because politeness matters).",
-//                        status = LessonStatus.LOCKED
-//                    ),
-//                    Lesson(
-//                        id = "beginner_c2_sub4",
-//                        title = "Running the Program with User Input",
-//                        description = "Write a program that tells the world 'Hello!' (because politeness matters).",
-//                        status = LessonStatus.LOCKED
-//                    ),
-//                    Lesson(
-//                        id = "beginner_c2_sub5",
-//                        title = "Running the Program",
-//                        description = "See your program come alive by compiling and running it. It’s like lighting up a bulb for the first time!",
-//                        status = LessonStatus.LOCKED
-//                    )
-//                ),
-//                lessonContents = listOf(
-//                    LessonContent(
-//                        id = "beginner_c2_sub1",
-//                        title = "Installing a C Compiler",
-//                        description = "Equip yourself with a powerful compiler like GCC or a slick IDE like Code::Blocks. Let’s start your coding adventure!",
-//                        contentBlocks = listOf(
-//                            ContentBlock.Text(
-//                                createAnnotatedText(
-//                                    "To start programming, you'll need a C compiler (like GCC) or an IDE (like Code::Blocks or VS Code).",
-//                                    listOf("C compiler", "GCC", "IDE", "Code::Blocks", "VS Code")
-//                                )
-//                            ),
-//                            ContentBlock.Text(createSimpleText("Think of a compiler as a translator between you and your computer. Without it, your computer will stare blankly at your code like a tourist without Google Translate."))
-//                        ),
-//                        type = LessonContentType.NON_INTERACTIVE
-//                    ),
-//                    LessonContent(
-//                        id = "beginner_c2_sub2",
-//                        title = "What is an IDE?",
-//                        description = "Learn to set up your programming environment, write your first C program, and run it. It’s like assembling a robot to do your homework.",
-//                        contentBlocks = listOf(
-//                            QuizContentBlock(
-//                                question = "Which of the following is an IDE (Integrated Development Environment)?",
-//                                options = listOf(
-//                                    "Notepad",
-//                                    "VS Code",
-//                                    "GCC",
-//                                    "Python"
-//                                ),
-//                                correctAnswer = "VS Code",
-//                                userAnswer = null,
-//                                isCorrect = false
-//                            ),
-//                        ),
-//                        type = LessonContentType.QUIZ
-//                    ),
-//
-//                    LessonContent(
-//                        id = "beginner_c2_sub3",
-//                        title = "Writing Your First Program",
-//                        description = "Write a program that tells the world 'Hello!' (because politeness matters).",
-//                        contentBlocks = listOf(
-//                            ContentBlock.Text(
-//                                createAnnotatedText(
-//                                    "Now, let’s write your first C program. Don’t worry—it’s as simple as saying 'Hi' (but to a computer).",
-//                                    listOf("Hi")
-//                                )
-//                            ),
-//                            ContentBlock.Code(
-//                                "#include <stdio.h>\n\nint main() {\n    printf(\"Hello, World!\\n\");\n    return 0;\n}"
-//                            ),
-//                            ContentBlock.Text(
-//                                createAnnotatedText(
-//                                    """
-//                        Here's what this does:
-//                        '#include <stdio.h>' tells your program it can use functions like printf().
-//                        'int main()' is the starting point—like the ignition in your car.
-//                        'printf()' displays the message 'Hello, World!' on your screen. Neat, right?
-//                    """.trimIndent(),
-//                                    listOf("'printf()'", "#include <stdio.h>", "int main()")
-//                                )
-//                            )
-//                        ),
-//                        type = LessonContentType.NON_INTERACTIVE
-//                    ),
-//                    LessonContent(
-//                        id = "beginner_c2_sub4",
-//                        title = "Running the Program with User Input",
-//                        description = "Write a program that tells the world 'Hello!' (because politeness matters).",
-//                        contentBlocks = listOf(
-//                            InteractiveCodeBlock(
-//                                question = "Complete the following C program by fixing the syntax error (missing semicolon).",
-//                                options = listOf(
-//                                    ";",      // Correct option: adding the semicolon
-//                                    ",",      // Incorrect option: replacing semicolon with comma
-//                                    ":",      // Incorrect option: using colon instead of semicolon
-//                                    "."       // Incorrect option: using period instead of semicolon
-//                                ),
-//                                correctAnswer = ";",   // Correct answer is the semicolon
-//                                incompleteCode = """
-//                #include <stdio.h>
-//
-//                int main() {
-//                    printf("Hello, World!") // Missing semicolon
-//                    return 0;
-//                }
-//            """.trimIndent(),
-//                                userAnswer = null
-//                            )
-//                        ),
-//                        type = LessonContentType.INTERACTIVE
-//                    ),
-//                    LessonContent(
-//                        id = "beginner_c2_sub5",
-//                        title = "Running the Program",
-//                        description = "See your program come alive by compiling and running it. It’s like lighting up a bulb for the first time!",
-//                        contentBlocks = listOf(
-//                            ContentBlock.Text(
-//                                createAnnotatedText(
-//                                    "Now it’s time to see your creation in action! First, compile your program with the command: `gcc hello_world.c -o hello_world`. Then, run it with: `./hello_world`.",
-//                                    listOf("`gcc hello_world.c -o hello_world`", "`./hello_world`")
-//                                )
-//                            ),
-//                            ContentBlock.Text(createSimpleText("Congratulations! Your computer just said 'Hello, World!' Talk about making new friends. 🎉"))
-//                        ),
-//                        type = LessonContentType.NON_INTERACTIVE
-//                    )
-//                ),
-//                status = LessonStatus.LOCKED
-//            ),
-
+            // lesson 2
             Lesson(
                 id = "beginner_c2",
                 title = "Building a Winning Mindset for Programming",
                 description = "In this lesson, we focus on developing the right mindset to succeed in programming. Programming is more than just writing code—it's about resilience, learning from mistakes, and pushing through challenges. Let's cultivate a growth mindset to become a successful programmer.",
-                subLessons = listOf(
-                    Lesson(
-                        id = "beginner_c2_sub1",
-                        title = "The Power of Persistence",
-                        description = "Understand that failure is part of the learning process. Embrace mistakes as opportunities to improve.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c2_sub2",
-                        title = "Building Consistency",
-                        description = "Learn how to create a consistent programming routine that will help you progress every day.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c2_sub3",
-                        title = "Setting Realistic Goals",
-                        description = "Set achievable goals that help you stay motivated and focused on the journey.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c2_sub4",
-                        title = "Learning from Challenges",
-                        description = "View challenges as opportunities to grow. The best programmers are those who keep learning.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c2_sub5",
-                        title = "Staying Motivated Over Time",
-                        description = "Discover tips and strategies for staying motivated even when progress feels slow.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c2_sub6",
-                        title = "What’s Next?",
-                        description = "In this stage, you’ll learn the basics of C programming, including syntax, statements, output, comments, variables, data types, constants, operators, and booleans. These fundamental concepts will set you up for success in more complex projects ahead!",
-                        status = LessonStatus.LOCKED
-                    )
-                ),
                 lessonContents = listOf(
                     LessonContent(
                         id = "beginner_c2_sub1",
@@ -421,63 +193,15 @@ fun CBeginnerCourse(): Stage {
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
-                    LessonContent(
-                        id = "beginner_c2_sub6",
-                        title = "What’s Next?",
-                        description = "In this stage, you’ll start diving into the basics of C programming. You’ll learn the foundational concepts like syntax, statements, output, comments, variables, data types, constants, operators, and boolean values. These are essential skills for building more complex programs and moving towards mastery.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Next, we’ll explore the key building blocks of C programming. Understanding these concepts will prepare you for more advanced topics and help you become a confident coder. By mastering these fundamentals, you’ll set yourself up for tackling real-world coding challenges and developing more complex projects."))
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    )
                 ),
                 status = LessonStatus.LOCKED
             ),
-
 
             // lesson 3
             Lesson(
                 id = "beginner_c3",
                 title = "C Syntax & Statements",
                 description = "Master the rules of C and write error-free code that won't make your robot self-destruct.",
-                subLessons = listOf(
-                    Lesson(
-                        id = "beginner_c3_sub1",
-                        title = "What is Syntax in C?",
-                        description = "Discover the golden rules for writing C programs. Think of it as grammar for robots.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c3_sub2",
-                        title = "Core Elements of Syntax",
-                        description = "Peek under the hood to understand the building blocks of C syntax. It's like learning how to read your robot's wiring diagram.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c3_sub3",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c3_sub4",
-                        title = "What is a Statement in C?",
-                        description = "Learn the language of robot commands. Teach your robot to say 'Hello!' instead of '404: Emotion Not Found.'",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c3_sub5",
-                        title = "Types of Statements in C",
-                        description = "Explore different types of instructions that power your programs, from 'turn left' to 'don’t dance in public.'",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c3_sub6",
-                        title = "Combining Multiple Statements",
-                        description = "Make your program work like a well-oiled machine. No more 'robot dropped coffee on cat' incidents.",
-                        status = LessonStatus.LOCKED
-                    )
-                ),
                 lessonContents = listOf(
                     LessonContent(
                         id = "beginner_c3_sub1",
@@ -584,7 +308,7 @@ ___ main() {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     "A statement is a single line of code that performs an action, such as assigning a value or printing a message.",
-                                    listOf("statement")
+                                    listOf("")
                                 )
                             ),
                             ContentBlock.Code(
