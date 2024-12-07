@@ -104,6 +104,7 @@ import com.codemaster.codemasterapp.main.ui.viewModels.CourseViewModel
 import com.codemaster.codemasterapp.ui.theme.bluishPython
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlin.coroutines.EmptyCoroutineContext.get
 import kotlin.math.roundToInt
@@ -355,47 +356,107 @@ fun LessonContentScreen(
                         .fillMaxSize()
 
                 ) {
+//                    HorizontalPager(
+//                        state = pagerState,
+//                        modifier = Modifier
+//                            .weight(1f)
+//                            .pointerInput(Unit) {
+//                                detectHorizontalDragGestures { _, dragAmount ->
+//                                    // If swipe is to the right (backward swipe)
+//                                    if (dragAmount > 0) {
+//                                        // Allow backward swipe only if we're not at the first page
+//                                        if (pagerState.currentPage > 0) {
+//                                            // Allow swipe backward
+//                                            coroutineScope.launch {
+//                                                pagerState.animateScrollToPage(pagerState.currentPage - 1)
+//                                            }
+//
+//                                        } else {
+//                                            // If already at the first page, prevent further backward swipe
+//                                            coroutineScope.launch {
+//                                                pagerState.animateScrollToPage(pagerState.currentPage)
+//                                            }
+//                                        }
+//                                    }
+//
+//                                    // If swipe is to the left (forward swipe)
+//                                    else if (dragAmount < 0) {
+//
+//                                    }
+//                                }
+//                            },
+//                        userScrollEnabled = false
+//                    ) { page ->
+//                        LessonContentView(
+//                            lessonContent = lessons[pagerState.currentPage],  // Pass the current lesson content
+//                            onNext = {
+//                                courseViewModel.markSubLessonAsCompleted(
+//                                    selectedLesson?.lessonContents[pagerState.currentPage]?.id
+//                                        ?: "",
+//                                    selectedLesson?.id ?: ""
+//                                )
+//                                courseViewModel.updateLessonCompletionStatus()
+//
+//
+//                                if (pagerState.currentPage < lessons.size - 1) {
+//                                    coroutineScope.launch {
+//                                        pagerState.animateScrollToPage(pagerState.currentPage + 1)
+//                                    }
+//                                }
+//                            },
+//                            pagerState = pagerState,
+//                            coroutineScope = coroutineScope,
+//                            lessons = lessons,
+//                            onFinish = {
+//                                if (!isPointsCollected) {
+//                                    showPointsDialog.value = true
+//                                } else {
+//                                    navController.popBackStack()
+//                                }
+//
+//                            }
+//                        )
+//                    }
+
+
+                    val swipeThreshold = 300f // The distance required to swipe to the previous page
+                    var cumulativeDrag by remember { mutableStateOf(0f) }
+
                     HorizontalPager(
                         state = pagerState,
                         modifier = Modifier
                             .weight(1f)
                             .pointerInput(Unit) {
-                                detectHorizontalDragGestures { _, dragAmount ->
-                                    // If swipe is to the right (backward swipe)
-                                    if (dragAmount > 0) {
-                                        // Allow backward swipe only if we're not at the first page
-                                        if (pagerState.currentPage > 0) {
-                                            // Allow swipe backward
+                                detectHorizontalDragGestures(
+                                    onDragEnd = {
+                                        // Allow only backward navigation
+                                        if (cumulativeDrag > swipeThreshold && pagerState.currentPage > 0) {
+                                            // Swipe to the previous page
                                             coroutineScope.launch {
                                                 pagerState.animateScrollToPage(pagerState.currentPage - 1)
                                             }
-
-                                        } else {
-                                            // If already at the first page, prevent further backward swipe
-                                            coroutineScope.launch {
-                                                pagerState.animateScrollToPage(pagerState.currentPage)
-                                            }
+                                        }
+                                        // Reset the drag amount
+                                        cumulativeDrag = 0f
+                                    },
+                                    onHorizontalDrag = { _, dragAmount ->
+                                        // Accumulate drag amount only for left-to-right swipes
+                                        if (dragAmount > 0) {
+                                            cumulativeDrag += dragAmount
                                         }
                                     }
-
-                                    // If swipe is to the left (forward swipe)
-                                    else if (dragAmount < 0) {
-
-                                    }
-                                }
+                                )
                             },
-                        userScrollEnabled = false
+                        userScrollEnabled = false // Disable default scrolling behavior
                     ) { page ->
                         LessonContentView(
                             lessonContent = lessons[pagerState.currentPage],  // Pass the current lesson content
                             onNext = {
                                 courseViewModel.markSubLessonAsCompleted(
-                                    selectedLesson?.lessonContents[pagerState.currentPage]?.id
-                                        ?: "",
+                                    selectedLesson?.lessonContents[pagerState.currentPage]?.id ?: "",
                                     selectedLesson?.id ?: ""
                                 )
                                 courseViewModel.updateLessonCompletionStatus()
-
 
                                 if (pagerState.currentPage < lessons.size - 1) {
                                     coroutineScope.launch {
@@ -407,15 +468,16 @@ fun LessonContentScreen(
                             coroutineScope = coroutineScope,
                             lessons = lessons,
                             onFinish = {
-                                if (!isPointsCollected) {
-                                    showPointsDialog.value = true
-                                } else {
-                                    navController.popBackStack()
-                                }
-
+                                // Handle finish action
+                                navController.popBackStack()
                             }
                         )
                     }
+
+
+
+
+
 
                 }
 
@@ -792,6 +854,8 @@ fun LessonContentView(
         }
     }
 }
+
+
 
 @Composable
 fun CodeBlockWithScrolling(contentBlock: String) {
