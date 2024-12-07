@@ -5,6 +5,7 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.os.Build
+import android.provider.ContactsContract.CommonDataKinds.Note
 import android.util.Log
 import android.view.View
 import android.view.WindowInsets
@@ -39,6 +40,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentWidth
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
@@ -47,8 +49,11 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.TextFieldDefaults
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Clear
+import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Refresh
@@ -56,7 +61,11 @@ import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.RadioButtonDefaults
 import androidx.compose.material3.Text
@@ -86,6 +95,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.min
@@ -188,8 +198,6 @@ fun LessonContentScreen(
     val lessonNumber = selectedLessonIndex + 1
     val subLessonNumberCalculated = (pagerState.currentPage + 1).toFloat()
     val combinedLesson: Float = lessonNumber + subLessonNumberCalculated / 10f
-
-
 
 
     Log.d("selectedSub", selectedSubLesson.toString())
@@ -470,7 +478,8 @@ fun LessonContentScreen(
             languageName = languageName,
             stageName = stageName,
             lessonNumber = lessonNumber,
-            subLessonNumber = combinedLesson
+            subLessonNumber = combinedLesson,
+            subLessonTittle = lessons[pagerState.currentPage].title
         )
 
         // Show the Lottie dialog when collecting points
@@ -536,8 +545,8 @@ fun DraggableFloatingButton(onClick: (Boolean) -> Unit) {
                     y = offsetY.roundToInt()
                 )
             }
-            .padding(start = 4.dp)
-            .width(60.dp)
+            .padding(start = 24.dp)
+            .width(40.dp)
             .height(35.dp)
             .clip(RoundedCornerShape(topStart = 16.dp, bottomStart = 16.dp))
             .border(
@@ -576,39 +585,26 @@ fun AddSubLessonNoteDialog(
     stageName: String,
     lessonNumber: Int,
     subLessonNumber: Float,
+    subLessonTittle: String // Passing subLessonTittle as a parameter
 ) {
-    // State for title and description
-    var title by remember(showDialog) { mutableStateOf("") }
+    // States for title and description, initialized with subLessonTittle
+    var title by remember(showDialog) { mutableStateOf(subLessonTittle) }
     var description by remember(showDialog) { mutableStateOf("") }
 
-    // Fetch the sub-lesson data and update the state when the dialog is shown
+    // Fetch sub-lesson data when the dialog is shown
     LaunchedEffect(showDialog) {
-        Log.d("AddSubLessonNoteDialog", "LaunchedEffect triggered with showDialog: $showDialog")
         if (showDialog) {
-            title = "" // Reset the title
-            description = "" // Reset the description
-            Log.d("AddSubLessonNoteDialog", "Reset title and description to empty")
-
-            Log.d(
-                "AddSubLessonNoteDialog",
-                "Calling noteViewModel.getSubLessonByNames with languageName: $languageName, stageName: $stageName, lessonNumber: $lessonNumber, subLessonNumber: $subLessonNumber"
-            )
+            // Reset description but keep the title as the default value
+            description = ""
             noteViewModel.getSubLessonByNames(
                 languageName = languageName,
                 stageName = stageName,
                 lessonNumber = lessonNumber,
                 subLessonNumber = subLessonNumber
             ) { subLesson ->
-                if (subLesson != null) {
-                    title = subLesson.title ?: ""
-                    description = subLesson.description ?: ""
-                    Log.d(
-                        "AddSubLessonNoteDialog",
-                        "Fetched subLesson: title=${subLesson.title}, description=${subLesson.description}"
-                    )
-                } else {
-                    Log.d("AddSubLessonNoteDialog", "No subLesson found for the given parameters")
-                }
+                // Update title and description if the sub-lesson data is fetched
+                title = subLesson?.title ?: subLessonTittle // Default to subLessonTittle
+                description = subLesson?.description.orEmpty() // Set description
             }
         }
     }
@@ -617,82 +613,97 @@ fun AddSubLessonNoteDialog(
         AlertDialog(
             onDismissRequest = onDismiss,
             title = {
-                Text(text = "Add Sub-Lesson Note")
+                Text(
+                    text = "Add Note",
+                    color = bluishPython, // Updated to bluishPython color
+                    style = MaterialTheme.typography.h6
+                )
             },
             text = {
-                Column {
-                    TextField(
-                        value = languageName,
-                        onValueChange = { /* Do nothing, value comes from parameter */ },
-                        label = { Text("Language Name") },
-                        enabled = false // Disable editing
-                    )
-                    Spacer(modifier = Modifier.height(8.dp))
-                    TextField(
-                        value = stageName,
-                        onValueChange = { /* Do nothing, value comes from parameter */ },
-                        label = { Text("Stage Name") },
-                        enabled = false // Disable editing
-                    )
-                    Spacer(modifier = Modifier.height(8.dp))
-                    TextField(
-                        value = lessonNumber.toString(),
-                        onValueChange = { /* Do nothing, value comes from parameter */ },
-                        label = { Text("Lesson Number") },
-                        keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
-                        enabled = false // Disable editing
-                    )
-                    Spacer(modifier = Modifier.height(8.dp))
-                    TextField(
-                        value = subLessonNumber.toString(),
-                        onValueChange = { /* Do nothing, value comes from parameter */ },
-                        label = { Text("Sub-Lesson Number") },
-                        keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
-                        enabled = false // Disable editing
-                    )
-                    Spacer(modifier = Modifier.height(8.dp))
-                    TextField(
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(16.dp)
+                ) {
+                    // Title TextField with custom styling
+                    OutlinedTextField(
                         value = title,
-                        onValueChange = { title = it }, // Allow user to update the title
-                        label = { Text("Title") }
+                        onValueChange = { title = it }, // Allow user to change the title
+                        label = { Text("Title", color = bluishPython) }, // Updated label color
+                        singleLine = true,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(bottom = 16.dp),
+                        colors = OutlinedTextFieldDefaults.colors(
+                            focusedBorderColor = bluishPython, // Updated focused border color
+                            unfocusedBorderColor = Color.Gray
+                        ),
                     )
-                    Spacer(modifier = Modifier.height(8.dp))
-                    TextField(
+
+                    // Description TextField with custom styling
+                    OutlinedTextField(
                         value = description,
-                        onValueChange = {
-                            description = it
-                        }, // Allow user to update the description
-                        label = { Text("Description") }
+                        onValueChange = { description = it },
+                        label = { Text("Description", color = bluishPython) }, // Updated label color
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(bottom = 24.dp)
+                            .heightIn(min = 120.dp), // Ensures enough space for description
+                        colors = OutlinedTextFieldDefaults.colors(
+                            focusedBorderColor = bluishPython, // Updated focused border color
+                            unfocusedBorderColor = Color.Gray
+                        ),
+                        maxLines = 5,
+                        visualTransformation = VisualTransformation.None
                     )
                 }
             },
             confirmButton = {
                 Button(
                     onClick = {
-                        // Add or update the note via the ViewModel
+                        // Add or update the note via ViewModel
                         noteViewModel.addOrUpdateSubLesson(
                             languageName = languageName,
                             stageName = stageName,
                             lessonNumber = lessonNumber,
                             subLessonNumber = subLessonNumber,
                             title = title,
-                            description = description
+                            description = description // Save the title and description
                         )
-                        Log.d("AddSubLessonNoteDialog", "Note saved with title: $title and description: $description")
-                        onDismiss() // Close the dialog
-                    }
+                        onDismiss() // Close dialog
+                    },
+                    shape = MaterialTheme.shapes.medium,
+                    colors = ButtonDefaults.buttonColors(containerColor = bluishPython) // Updated button color
                 ) {
-                    Text("Save Note")
+                    // Conditionally change button text based on description
+                    Text(
+                        text = "Add Note",
+                        color = Color.White
+                    )
                 }
             },
             dismissButton = {
-                Button(onClick = onDismiss) {
-                    Text("Cancel")
+                Button(
+                    onClick = onDismiss,
+                    shape = MaterialTheme.shapes.medium,
+                    colors = ButtonDefaults.buttonColors(containerColor = Color.Gray)
+                ) {
+                    Text("Cancel", color = Color.White)
                 }
-            }
+            },
+            modifier = Modifier.padding(16.dp),
         )
     }
 }
+
+
+
+
+
+
+
+
+
 
 
 @Composable
