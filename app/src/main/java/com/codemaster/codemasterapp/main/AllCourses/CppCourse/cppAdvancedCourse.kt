@@ -2064,6 +2064,28 @@ int main() {
                         status = LessonStatus.COMPLETED
                     ),
 
+                    // Content for "Quiz Time!"
+                    LessonContent(
+                        id = "beginner_cpp6_sub8",
+                        title = "Quiz Time! 🧠",
+                        description = "Test your knowledge of lesson.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "What is multilevel inheritance in C++?",
+                                options = listOf(
+                                    "A class inheriting from multiple classes",
+                                    "A class that is derived from another derived class",
+                                    "A way to create private members",
+                                    "A method of accessing private data"
+                                ),
+                                correctAnswer = "A class that is derived from another derived class",
+                                userAnswer = null,
+                                isCorrect = false
+                            ),
+                        ),
+                        type = LessonContentType.QUIZ
+                    ),
+
                     // Sub-lesson 5: Practice Exercise
                     LessonContent(
                         id = "cpp_multilevel_inheritance_sub5",
@@ -2217,6 +2239,49 @@ int main() {
                         status = LessonStatus.COMPLETED
                     ),
 
+                    // Content 4: Interactive Input Block
+                    LessonContent(
+                        id = "beginner_cpp4_content4",
+                        title = "Complete the code",
+                        description = "Ok so now try to complete the program.",
+                        contentBlocks = listOf(
+                            ContentBlock.InteractiveInputBlock(
+                                question = "Complete the class declaration to correctly inherit from both Animal and Pet classes.",
+                                incompleteCode = """
+// Base class 1: Animal
+class Animal {
+public:
+    void eat() {
+        cout << "Animal eats!" << endl;
+    }
+};
+
+// Base class 2: Pet
+class Pet {
+public:
+    void play() {
+        cout << "Pet plays!" << endl;
+    }
+};
+
+// Derived class:Dog 
+class Dog : public Animal, public ___ {
+public:
+    void bark() {
+        cout << "Dog barks!" << endl;
+    }
+};
+""".trimIndent(),
+                                correctCode = "Pet",
+                                userInput = null,
+                                isCodeCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.INTERACTIVE,
+                        status = LessonStatus.ACTIVE
+                    ),
+
+
                     // Sub-lesson 4: The Diamond Problem in Multiple Inheritance
                     LessonContent(
                         id = "cpp_multiple_inheritance_sub4",
@@ -2337,6 +2402,30 @@ public:
                         status = LessonStatus.COMPLETED
                     ),
 
+                    // Content: Simple Quiz on Multiple Inheritance
+                    LessonContent(
+                        id = "beginner_cpp_multiple_inheritance_quiz",
+                        title = "Quiz: Multiple Inheritance 🧠",
+                        description = "Test your understanding of multiple inheritance in C++.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "What is multiple inheritance?",
+                                options = listOf(
+                                    "A class inheriting from a single base class",
+                                    "A class inheriting from multiple base classes",
+                                    "A single class having multiple methods",
+                                    "Inheritance without a derived class"
+                                ),
+                                correctAnswer = "A class inheriting from multiple base classes",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.ACTIVE
+                    ),
+
+
                     // Sub-lesson 6: Practice Exercise
                     LessonContent(
                         id = "cpp_multiple_inheritance_sub6",
@@ -2433,6 +2522,29 @@ public:
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.COMPLETED
+                    ),
+
+                    // Content: Simple Quiz on Encapsulation
+                    LessonContent(
+                        id = "beginner_cpp_encapsulation_quiz",
+                        title = "Quiz: Encapsulation 🧠",
+                        description = "Test your understanding of encapsulation in C++.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "What is encapsulation in C++?",
+                                options = listOf(
+                                    "Binding data and methods into a single unit",
+                                    "Dividing a program into multiple functions",
+                                    "Inheriting properties from a parent class",
+                                    "Executing multiple instructions simultaneously"
+                                ),
+                                correctAnswer = "Binding data and methods into a single unit",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.ACTIVE
                     ),
 
                     // Sub-lesson 3: Encapsulation Code Example
