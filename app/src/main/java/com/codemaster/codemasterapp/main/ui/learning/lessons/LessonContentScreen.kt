@@ -189,29 +189,7 @@ fun LessonContentScreen(
     val subLessonNumberCalculated = (pagerState.currentPage + 1).toFloat()
     val combinedLesson: Float = lessonNumber + subLessonNumberCalculated / 10f
 
-// Loading state
-    var isLoading by remember { mutableStateOf(true) }
 
-// Fetch and update UI when lesson changes
-    LaunchedEffect(lessonNumber, combinedLesson) {
-        isLoading = true // Start loading
-
-        // Fetch the note asynchronously
-        noteViewModel.getSubLessonByNames(
-            languageName = languageName,
-            stageName = stageName,
-            lessonNumber = lessonNumber,
-            subLessonNumber = combinedLesson
-        ) { subLesson ->
-            subLesson?.let {
-                // Update title and description if the sub-lesson is found
-                title = it.title
-                description = it.description
-                Log.d("UI", "Title: ${it.title}, Description: ${it.description}")
-            }
-            isLoading = false // Done loading
-        }
-    }
 
 
     Log.d("selectedSub", selectedSubLesson.toString())
@@ -453,7 +431,8 @@ fun LessonContentScreen(
                             lessonContent = lessons[pagerState.currentPage],  // Pass the current lesson content
                             onNext = {
                                 courseViewModel.markSubLessonAsCompleted(
-                                    selectedLesson?.lessonContents[pagerState.currentPage]?.id ?: "",
+                                    selectedLesson?.lessonContents[pagerState.currentPage]?.id
+                                        ?: "",
                                     selectedLesson?.id ?: ""
                                 )
                                 courseViewModel.updateLessonCompletionStatus()
@@ -475,10 +454,6 @@ fun LessonContentScreen(
                     }
 
 
-
-
-
-
                 }
 
             }
@@ -495,9 +470,7 @@ fun LessonContentScreen(
             languageName = languageName,
             stageName = stageName,
             lessonNumber = lessonNumber,
-            subLessonNumber = combinedLesson,
-            Title = title,
-            Description = description
+            subLessonNumber = combinedLesson
         )
 
         // Show the Lottie dialog when collecting points
@@ -603,12 +576,42 @@ fun AddSubLessonNoteDialog(
     stageName: String,
     lessonNumber: Int,
     subLessonNumber: Float,
-    Title: String,
-    Description: String,
 ) {
-    // State for title and description, initialized with provided values when the dialog is shown
-    var title by remember(showDialog) { mutableStateOf(Title) }
-    var description by remember(showDialog) { mutableStateOf(Description) }
+    // State for title and description
+    var title by remember(showDialog) { mutableStateOf("") }
+    var description by remember(showDialog) { mutableStateOf("") }
+
+    // Fetch the sub-lesson data and update the state when the dialog is shown
+    LaunchedEffect(showDialog) {
+        Log.d("AddSubLessonNoteDialog", "LaunchedEffect triggered with showDialog: $showDialog")
+        if (showDialog) {
+            title = "" // Reset the title
+            description = "" // Reset the description
+            Log.d("AddSubLessonNoteDialog", "Reset title and description to empty")
+
+            Log.d(
+                "AddSubLessonNoteDialog",
+                "Calling noteViewModel.getSubLessonByNames with languageName: $languageName, stageName: $stageName, lessonNumber: $lessonNumber, subLessonNumber: $subLessonNumber"
+            )
+            noteViewModel.getSubLessonByNames(
+                languageName = languageName,
+                stageName = stageName,
+                lessonNumber = lessonNumber,
+                subLessonNumber = subLessonNumber
+            ) { subLesson ->
+                if (subLesson != null) {
+                    title = subLesson.title ?: ""
+                    description = subLesson.description ?: ""
+                    Log.d(
+                        "AddSubLessonNoteDialog",
+                        "Fetched subLesson: title=${subLesson.title}, description=${subLesson.description}"
+                    )
+                } else {
+                    Log.d("AddSubLessonNoteDialog", "No subLesson found for the given parameters")
+                }
+            }
+        }
+    }
 
     if (showDialog) {
         AlertDialog(
@@ -675,6 +678,7 @@ fun AddSubLessonNoteDialog(
                             title = title,
                             description = description
                         )
+                        Log.d("AddSubLessonNoteDialog", "Note saved with title: $title and description: $description")
                         onDismiss() // Close the dialog
                     }
                 ) {
@@ -682,9 +686,7 @@ fun AddSubLessonNoteDialog(
                 }
             },
             dismissButton = {
-                Button(
-                    onClick = onDismiss
-                ) {
+                Button(onClick = onDismiss) {
                     Text("Cancel")
                 }
             }
@@ -854,7 +856,6 @@ fun LessonContentView(
         }
     }
 }
-
 
 
 @Composable
@@ -1233,7 +1234,7 @@ fun InteractiveInputBlockView(
     Column(
         modifier = Modifier
             .fillMaxWidth(),
-            //.padding(16.dp),
+        //.padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(10.dp)
     ) {
         // Question
