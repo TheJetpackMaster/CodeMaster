@@ -10,6 +10,7 @@ import com.codemaster.codemasterapp.main.data.Stage
 
 
 fun cppAdvancedCourse(): Stage {
+    printLessonsAndSubLessons()
 
     return Stage(
         id = cppAdvancedStageIds.stageId,
@@ -2630,6 +2631,30 @@ int main() {
                         status = LessonStatus.COMPLETED
                     ),
 
+                    // Content for "Quiz Time!"
+                    LessonContent(
+                        id = "beginner_cpp_encapsulation_quiz",
+                        title = "Quiz Time! 🧠",
+                        description = "Test your knowledge of encapsulation in C++.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "Which access specifier is primarily used for encapsulation?",
+                                options = listOf(
+                                    "public",
+                                    "private",
+                                    "protected",
+                                    "default"
+                                ),
+                                correctAnswer = "private",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.ACTIVE
+                    ),
+
+
                     // Sub-lesson 5: Encapsulation – A Simple Process
                     LessonContent(
                         id = "cpp_encapsulation_sub5",
@@ -2718,6 +2743,29 @@ int main() {
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.COMPLETED
+                    ),
+
+                    // Content for "Quiz Time!"
+                    LessonContent(
+                        id = "beginner_cpp_polymorphism_quiz",
+                        title = "Quiz Time! 🧠",
+                        description = "Test your knowledge of polymorphism in C++.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "How is runtime polymorphism implemented in C++?",
+                                options = listOf(
+                                    "Using function overloading",
+                                    "Using constructors",
+                                    "Using virtual functions",
+                                    "Using friend functions"
+                                ),
+                                correctAnswer = "Using virtual functions",
+                                userAnswer = null,
+                                isCorrect = false
+                            ),
+                        ),
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.ACTIVE
                     ),
 
                     // Sub-lesson 3: Compile-time Polymorphism Example
@@ -2840,6 +2888,29 @@ int main() {
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.COMPLETED
+                    ),
+
+                    // Content for "Quiz Time!"
+                    LessonContent(
+                        id = "beginner_cpp_polymorphism_quiz2",
+                        title = "Quiz Time! 🧠",
+                        description = "Test your understanding of polymorphism in C++.",
+                        contentBlocks = listOf(
+                            ContentBlock.QuizContentBlock(
+                                question = "Which keyword is used to implement runtime polymorphism in C++?",
+                                options = listOf(
+                                    "static",
+                                    "virtual",
+                                    "override",
+                                    "friend"
+                                ),
+                                correctAnswer = "virtual",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.ACTIVE
                     ),
 
                     // Sub-lesson 6: Polymorphism Simplified
@@ -3394,7 +3465,7 @@ int main() {
 
             // Advanced Quiz Lesson for C++
             Lesson(
-                id = "advanced_quiz_cplusplus",
+                id = cppAdvancedStageIds.lesson15,
                 title = "C++ Advanced Quiz",
                 description = "Test your knowledge of advanced C++ concepts and OOP principles with these quizzes!",
                 lessonContents = listOf(
