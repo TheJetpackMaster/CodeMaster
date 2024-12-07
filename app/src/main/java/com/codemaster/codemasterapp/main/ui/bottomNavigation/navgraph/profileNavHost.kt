@@ -17,7 +17,7 @@ fun NavGraphBuilder.profileNavHost(
     courseViewModel: CourseViewModel
 ) {
     navigation(
-        startDestination = ProfileRoutes.UserProfileScreen.route,
+        startDestination = ProfileRoutes.NoteScreen.route,
         route = ProfileRoutes.PROFILE_ROOT.route
     ) {
         composable(ProfileRoutes.UserProfileScreen.route) {

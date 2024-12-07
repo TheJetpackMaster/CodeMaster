@@ -114,6 +114,29 @@ class NoteRepository(
         return noteSubLessonDao.getSubLessonByNumber(lesson.id, subLessonNumber)
     }
 
+    suspend fun getAllSubLessons(): List<NoteSubLesson> {
+        // Fetch all languages
+        val allLanguages = noteLanguageDao.getAllLanguages()
+        val allSubLessons = mutableListOf<NoteSubLesson>()
+
+        for (language in allLanguages) {
+            // Fetch all stages for the language
+            val stages = noteStageDao.getStagesByLanguageId(language.id)
+            for (stage in stages) {
+                // Fetch all lessons for the stage
+                val lessons = noteLessonDao.getLessonsByStageId(stage.id)
+                for (lesson in lessons) {
+                    // Fetch all sub-lessons for the lesson
+                    val subLessons = noteSubLessonDao.getSubLessonsByLessonId(lesson.id)
+                    allSubLessons.addAll(subLessons) // Add sub-lessons to the result list
+                }
+            }
+        }
+
+        return allSubLessons
+    }
+
+
 
     // Insert language
     suspend fun insertLanguage(language: NoteLanguage): Long {
