@@ -10,7 +10,6 @@ import com.codemaster.codemasterapp.main.data.Stage
 
 
 fun cppAdvancedCourse(): Stage {
-    printLessonsAndSubLessons()
 
     return Stage(
         id = cppAdvancedStageIds.stageId,
