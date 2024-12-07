@@ -5,6 +5,7 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.os.Build
+import android.provider.ContactsContract.CommonDataKinds.Note
 import android.util.Log
 import android.view.View
 import android.view.WindowInsets
@@ -39,6 +40,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentWidth
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
@@ -47,8 +49,11 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.TextFieldDefaults
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Clear
+import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Refresh
@@ -56,7 +61,11 @@ import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.RadioButtonDefaults
 import androidx.compose.material3.Text
@@ -86,6 +95,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.min
@@ -104,6 +114,7 @@ import com.codemaster.codemasterapp.main.ui.viewModels.CourseViewModel
 import com.codemaster.codemasterapp.ui.theme.bluishPython
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlin.coroutines.EmptyCoroutineContext.get
 import kotlin.math.roundToInt
@@ -187,30 +198,6 @@ fun LessonContentScreen(
     val lessonNumber = selectedLessonIndex + 1
     val subLessonNumberCalculated = (pagerState.currentPage + 1).toFloat()
     val combinedLesson: Float = lessonNumber + subLessonNumberCalculated / 10f
-
-// Loading state
-    var isLoading by remember { mutableStateOf(true) }
-
-// Fetch and update UI when lesson changes
-    LaunchedEffect(lessonNumber, combinedLesson) {
-        isLoading = true // Start loading
-
-        // Fetch the note asynchronously
-        noteViewModel.getSubLessonByNames(
-            languageName = languageName,
-            stageName = stageName,
-            lessonNumber = lessonNumber,
-            subLessonNumber = combinedLesson
-        ) { subLesson ->
-            subLesson?.let {
-                // Update title and description if the sub-lesson is found
-                title = it.title
-                description = it.description
-                Log.d("UI", "Title: ${it.title}, Description: ${it.description}")
-            }
-            isLoading = false // Done loading
-        }
-    }
 
 
     Log.d("selectedSub", selectedSubLesson.toString())
@@ -355,36 +342,98 @@ fun LessonContentScreen(
                         .fillMaxSize()
 
                 ) {
+//                    HorizontalPager(
+//                        state = pagerState,
+//                        modifier = Modifier
+//                            .weight(1f)
+//                            .pointerInput(Unit) {
+//                                detectHorizontalDragGestures { _, dragAmount ->
+//                                    // If swipe is to the right (backward swipe)
+//                                    if (dragAmount > 0) {
+//                                        // Allow backward swipe only if we're not at the first page
+//                                        if (pagerState.currentPage > 0) {
+//                                            // Allow swipe backward
+//                                            coroutineScope.launch {
+//                                                pagerState.animateScrollToPage(pagerState.currentPage - 1)
+//                                            }
+//
+//                                        } else {
+//                                            // If already at the first page, prevent further backward swipe
+//                                            coroutineScope.launch {
+//                                                pagerState.animateScrollToPage(pagerState.currentPage)
+//                                            }
+//                                        }
+//                                    }
+//
+//                                    // If swipe is to the left (forward swipe)
+//                                    else if (dragAmount < 0) {
+//
+//                                    }
+//                                }
+//                            },
+//                        userScrollEnabled = false
+//                    ) { page ->
+//                        LessonContentView(
+//                            lessonContent = lessons[pagerState.currentPage],  // Pass the current lesson content
+//                            onNext = {
+//                                courseViewModel.markSubLessonAsCompleted(
+//                                    selectedLesson?.lessonContents[pagerState.currentPage]?.id
+//                                        ?: "",
+//                                    selectedLesson?.id ?: ""
+//                                )
+//                                courseViewModel.updateLessonCompletionStatus()
+//
+//
+//                                if (pagerState.currentPage < lessons.size - 1) {
+//                                    coroutineScope.launch {
+//                                        pagerState.animateScrollToPage(pagerState.currentPage + 1)
+//                                    }
+//                                }
+//                            },
+//                            pagerState = pagerState,
+//                            coroutineScope = coroutineScope,
+//                            lessons = lessons,
+//                            onFinish = {
+//                                if (!isPointsCollected) {
+//                                    showPointsDialog.value = true
+//                                } else {
+//                                    navController.popBackStack()
+//                                }
+//
+//                            }
+//                        )
+//                    }
+
+
+                    val swipeThreshold = 300f // The distance required to swipe to the previous page
+                    var cumulativeDrag by remember { mutableStateOf(0f) }
+
                     HorizontalPager(
                         state = pagerState,
                         modifier = Modifier
                             .weight(1f)
                             .pointerInput(Unit) {
-                                detectHorizontalDragGestures { _, dragAmount ->
-                                    // If swipe is to the right (backward swipe)
-                                    if (dragAmount > 0) {
-                                        // Allow backward swipe only if we're not at the first page
-                                        if (pagerState.currentPage > 0) {
-                                            // Allow swipe backward
+                                detectHorizontalDragGestures(
+                                    onDragEnd = {
+                                        // Allow only backward navigation
+                                        if (cumulativeDrag > swipeThreshold && pagerState.currentPage > 0) {
+                                            // Swipe to the previous page
                                             coroutineScope.launch {
                                                 pagerState.animateScrollToPage(pagerState.currentPage - 1)
                                             }
-
-                                        } else {
-                                            // If already at the first page, prevent further backward swipe
-                                            coroutineScope.launch {
-                                                pagerState.animateScrollToPage(pagerState.currentPage)
-                                            }
+                                        }
+                                        // Reset the drag amount
+                                        cumulativeDrag = 0f
+                                    },
+                                    onHorizontalDrag = { _, dragAmount ->
+                                        // Accumulate drag amount only for left-to-right swipes
+                                        if (dragAmount > 0) {
+                                            cumulativeDrag += dragAmount
                                         }
                                     }
-
-                                    // If swipe is to the left (forward swipe)
-                                    else if (dragAmount < 0) {
-
-                                    }
-                                }
+                                )
                             },
-                        userScrollEnabled = false
+                        userScrollEnabled = false // Disable default scrolling behavior
                     ) { page ->
                         LessonContentView(
                             lessonContent = lessons[pagerState.currentPage],  // Pass the current lesson content
@@ -396,7 +445,6 @@ fun LessonContentScreen(
                                 )
                                 courseViewModel.updateLessonCompletionStatus()
 
-
                                 if (pagerState.currentPage < lessons.size - 1) {
                                     coroutineScope.launch {
                                         pagerState.animateScrollToPage(pagerState.currentPage + 1)
@@ -407,15 +455,12 @@ fun LessonContentScreen(
                             coroutineScope = coroutineScope,
                             lessons = lessons,
                             onFinish = {
-                                if (!isPointsCollected) {
-                                    showPointsDialog.value = true
-                                } else {
-                                    navController.popBackStack()
-                                }
-
+                                // Handle finish action
+                                navController.popBackStack()
                             }
                         )
                     }
+
 
                 }
 
@@ -434,8 +479,7 @@ fun LessonContentScreen(
             stageName = stageName,
             lessonNumber = lessonNumber,
             subLessonNumber = combinedLesson,
-            Title = title,
-            Description = description
+            subLessonTittle = lessons[pagerState.currentPage].title
         )
 
         // Show the Lottie dialog when collecting points
@@ -501,8 +545,8 @@ fun DraggableFloatingButton(onClick: (Boolean) -> Unit) {
                     y = offsetY.roundToInt()
                 )
             }
-            .padding(start = 4.dp)
-            .width(60.dp)
+            .padding(start = 24.dp)
+            .width(40.dp)
             .height(35.dp)
             .clip(RoundedCornerShape(topStart = 16.dp, bottomStart = 16.dp))
             .border(
@@ -541,94 +585,125 @@ fun AddSubLessonNoteDialog(
     stageName: String,
     lessonNumber: Int,
     subLessonNumber: Float,
-    Title: String,
-    Description: String,
+    subLessonTittle: String // Passing subLessonTittle as a parameter
 ) {
-    // State for title and description, initialized with provided values when the dialog is shown
-    var title by remember(showDialog) { mutableStateOf(Title) }
-    var description by remember(showDialog) { mutableStateOf(Description) }
+    // States for title and description, initialized with subLessonTittle
+    var title by remember(showDialog) { mutableStateOf(subLessonTittle) }
+    var description by remember(showDialog) { mutableStateOf("") }
+
+    // Fetch sub-lesson data when the dialog is shown
+    LaunchedEffect(showDialog) {
+        if (showDialog) {
+            // Reset description but keep the title as the default value
+            description = ""
+            noteViewModel.getSubLessonByNames(
+                languageName = languageName,
+                stageName = stageName,
+                lessonNumber = lessonNumber,
+                subLessonNumber = subLessonNumber
+            ) { subLesson ->
+                // Update title and description if the sub-lesson data is fetched
+                title = subLesson?.title ?: subLessonTittle // Default to subLessonTittle
+                description = subLesson?.description.orEmpty() // Set description
+            }
+        }
+    }
 
     if (showDialog) {
         AlertDialog(
             onDismissRequest = onDismiss,
             title = {
-                Text(text = "Add Sub-Lesson Note")
+                Text(
+                    text = "Add Note",
+                    color = bluishPython, // Updated to bluishPython color
+                    style = MaterialTheme.typography.h6
+                )
             },
             text = {
-                Column {
-                    TextField(
-                        value = languageName,
-                        onValueChange = { /* Do nothing, value comes from parameter */ },
-                        label = { Text("Language Name") },
-                        enabled = false // Disable editing
-                    )
-                    Spacer(modifier = Modifier.height(8.dp))
-                    TextField(
-                        value = stageName,
-                        onValueChange = { /* Do nothing, value comes from parameter */ },
-                        label = { Text("Stage Name") },
-                        enabled = false // Disable editing
-                    )
-                    Spacer(modifier = Modifier.height(8.dp))
-                    TextField(
-                        value = lessonNumber.toString(),
-                        onValueChange = { /* Do nothing, value comes from parameter */ },
-                        label = { Text("Lesson Number") },
-                        keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
-                        enabled = false // Disable editing
-                    )
-                    Spacer(modifier = Modifier.height(8.dp))
-                    TextField(
-                        value = subLessonNumber.toString(),
-                        onValueChange = { /* Do nothing, value comes from parameter */ },
-                        label = { Text("Sub-Lesson Number") },
-                        keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
-                        enabled = false // Disable editing
-                    )
-                    Spacer(modifier = Modifier.height(8.dp))
-                    TextField(
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(16.dp)
+                ) {
+                    // Title TextField with custom styling
+                    OutlinedTextField(
                         value = title,
-                        onValueChange = { title = it }, // Allow user to update the title
-                        label = { Text("Title") }
+                        onValueChange = { title = it }, // Allow user to change the title
+                        label = { Text("Title", color = bluishPython) }, // Updated label color
+                        singleLine = true,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(bottom = 16.dp),
+                        colors = OutlinedTextFieldDefaults.colors(
+                            focusedBorderColor = bluishPython, // Updated focused border color
+                            unfocusedBorderColor = Color.Gray
+                        ),
                     )
-                    Spacer(modifier = Modifier.height(8.dp))
-                    TextField(
+
+                    // Description TextField with custom styling
+                    OutlinedTextField(
                         value = description,
-                        onValueChange = {
-                            description = it
-                        }, // Allow user to update the description
-                        label = { Text("Description") }
+                        onValueChange = { description = it },
+                        label = { Text("Description", color = bluishPython) }, // Updated label color
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(bottom = 24.dp)
+                            .heightIn(min = 120.dp), // Ensures enough space for description
+                        colors = OutlinedTextFieldDefaults.colors(
+                            focusedBorderColor = bluishPython, // Updated focused border color
+                            unfocusedBorderColor = Color.Gray
+                        ),
+                        maxLines = 5,
+                        visualTransformation = VisualTransformation.None
                     )
                 }
             },
             confirmButton = {
                 Button(
                     onClick = {
-                        // Add or update the note via the ViewModel
+                        // Add or update the note via ViewModel
                         noteViewModel.addOrUpdateSubLesson(
                             languageName = languageName,
                             stageName = stageName,
                             lessonNumber = lessonNumber,
                             subLessonNumber = subLessonNumber,
                             title = title,
-                            description = description
+                            description = description // Save the title and description
                         )
-                        onDismiss() // Close the dialog
-                    }
+                        onDismiss() // Close dialog
+                    },
+                    shape = MaterialTheme.shapes.medium,
+                    colors = ButtonDefaults.buttonColors(containerColor = bluishPython) // Updated button color
                 ) {
-                    Text("Save Note")
+                    // Conditionally change button text based on description
+                    Text(
+                        text = "Add Note",
+                        color = Color.White
+                    )
                 }
             },
             dismissButton = {
                 Button(
-                    onClick = onDismiss
+                    onClick = onDismiss,
+                    shape = MaterialTheme.shapes.medium,
+                    colors = ButtonDefaults.buttonColors(containerColor = Color.Gray)
                 ) {
-                    Text("Cancel")
+                    Text("Cancel", color = Color.White)
                 }
-            }
+            },
+            modifier = Modifier.padding(16.dp),
         )
     }
 }
+
+
+
+
+
+
+
+
+
 
 
 @Composable
@@ -792,6 +867,7 @@ fun LessonContentView(
         }
     }
 }
+
 
 @Composable
 fun CodeBlockWithScrolling(contentBlock: String) {
@@ -1169,7 +1245,7 @@ fun InteractiveInputBlockView(
     Column(
         modifier = Modifier
             .fillMaxWidth(),
-            //.padding(16.dp),
+        //.padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(10.dp)
     ) {
         // Question
