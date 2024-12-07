@@ -630,6 +630,7 @@ fun AddSubLessonNoteDialog(
                         value = title,
                         onValueChange = { title = it }, // Allow user to change the title
                         label = { Text("Title", color = bluishPython) }, // Updated label color
+                        enabled = false,
                         singleLine = true,
                         modifier = Modifier
                             .fillMaxWidth()
