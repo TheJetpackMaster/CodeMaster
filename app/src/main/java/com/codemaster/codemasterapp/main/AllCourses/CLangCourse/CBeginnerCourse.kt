@@ -503,61 +503,17 @@ int main() {
             Lesson(
                 id = "beginner_c4",
                 title = "C Output",
-                description = "Learn to talk to your computer with `printf()` and make it answer back—with style and humor! 😄",
-                subLessons = listOf(
-                    Lesson(
-                        id = "beginner_c4_sub1",
-                        title = "Printing Text in C",
-                        description = "Use `printf()` to make your computer say anything you want. 🎉",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c4_sub2",
-                        title = "New Lines in Output",
-                        description = "Keep your output clean with `\\n`—because messy outputs are so last year.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c4_sub3",
-                        title = "Special Characters in Output",
-                        description = "Learn escape sequences like `\\t` to format text or `\\\"` to make it fancy!",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c4_sub4",
-                        title = "Printing Variables",
-                        description = "Ever wanted to show off your variables? `printf()` + format specifiers = magic. 🪄",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c4_sub5",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c4_sub6",
-                        title = "Printing Multiple Values",
-                        description = "Print multiple values like a pro with `printf()` arguments. 🚀",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c4_sub7",
-                        title = "Formatted Output",
-                        description = "Use formatting tricks to impress even the most organized output fans. ✨",
-                        status = LessonStatus.LOCKED
-                    )
-                ),
+                description = "Learn to talk to your computer with printf() and make it answer back—with style and humor!",
                 lessonContents = listOf(
                     LessonContent(
                         id = "beginner_c4_sub1",
                         title = "Printing Text in C",
-                        description = "Learn to use `printf()` to output text in C. Output anything your program needs to communicate! 🎉",
+                        description = "Learn to use printf() to output text in C. Output anything your program needs to communicate! 🎉",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "`printf()` is the standard function for outputting data to the console in C.",
-                                    listOf("printf()")
+                                    "printf() is the standard function for outputting data to the console in C.",
+                                    listOf("")
                                 )
                             ),
                             ContentBlock.Code(
@@ -572,8 +528,8 @@ int main() {
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Strings in `printf()` need to be enclosed in double quotes, just like string literals in C.",
-                                    listOf("\"...\"")
+                                    "Strings in printf() need to be enclosed in double quotes, just like string literals in C.",
+                                    listOf()
                                 )
                             )
                         ),
@@ -583,11 +539,11 @@ int main() {
                     LessonContent(
                         id = "beginner_c4_sub2",
                         title = "New Lines in Output",
-                        description = "Learn to control your output layout using `\\n` for new lines.",
+                        description = "Learn to control your output layout using \\n for new lines.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "`\\n` is the escape sequence for a newline. It helps you format your output on separate lines.",
+                                    "\\n is the escape sequence for a newline. It helps you format your output on separate lines.",
                                     listOf("\\n")
                                 )
                             ),
@@ -609,7 +565,7 @@ int main() {
                     LessonContent(
                         id = "beginner_c4_sub3",
                         title = "Special Characters in Output",
-                        description = "Learn how to use escape sequences like `\\t` for tabbing and `\\\"` for quotes in your output.",
+                        description = "Learn how to use escape sequences like \\t for tabbing and \\\" for quotes in your output.",
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("Enhance your output with escape sequences for better formatting!")),
                             ContentBlock.Code(
@@ -617,8 +573,8 @@ int main() {
 #include <stdio.h>
 
 int main() {
-    printf("Tabs\\tare\\tawesome!\\n");
-    printf("Quotes: \\\"Wow!\\\"\\n");
+    printf("Tabs\\tare\\tawesome!\n");
+    printf("Quotes: \\\"Wow!\\\"\n");
     return 0;
 }
             """.trimIndent()
@@ -630,12 +586,12 @@ int main() {
                     LessonContent(
                         id = "beginner_c4_sub4",
                         title = "Printing Variables",
-                        description = "Display variable values dynamically with `printf()` using format specifiers.",
+                        description = "Display variable values dynamically with printf() using format specifiers.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "To print a variable's value, use `printf()` with format specifiers such as `%d` for integers. This allows you to output data stored in variables.",
-                                    listOf("printf()", "format specifiers")
+                                    "To print a variable's value, use printf() with format specifiers such as %d for integers. This allows you to output data stored in variables.",
+                                    listOf("")
                                 )
                             ),
                             ContentBlock.Code(
@@ -656,10 +612,10 @@ int main() {
                     LessonContent(
                         id = "beginner_c4_sub5",
                         title = "Quiz",
-                        description = "Quiz your understanding of `printf()` and format specifiers.",
+                        description = "Quiz",
                         contentBlocks = listOf(
                             InteractiveInputBlock(
-                                question = "What format specifier is required to print the integer value of the variable `age`?",
+                                question = "What format specifier is required to print the integer value of the variable age?",
                                 incompleteCode = """
 #include <stdio.h>
 
@@ -680,12 +636,12 @@ int main() {
                     LessonContent(
                         id = "beginner_c4_sub6",
                         title = "Printing Multiple Values",
-                        description = "Master printing multiple variables in one `printf()` statement using multiple format specifiers.",
+                        description = "Master printing multiple variables in one printf() statement using multiple format specifiers.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Use multiple format specifiers within `printf()` to output multiple variables in a single call.",
-                                    listOf("printf()", "format specifiers")
+                                    "Use multiple format specifiers within printf() to output multiple variables in a single call.",
+                                    listOf("")
                                 )
                             ),
                             ContentBlock.Code(
@@ -706,9 +662,9 @@ int main() {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     "In the code:\n" +
-                                            "%d : Used for integers (e.g., 'age').\n" +
-                                            "%.1f : Used for floating-point numbers with one decimal (e.g., 'height').\n" +
-                                            "%c : Used for single characters (e.g., 'initial').",
+                                            "%d : Used for integers (e.g., age).\n" +
+                                            "%.1f : Used for floating-point numbers with one decimal (e.g., height).\n" +
+                                            "%c : Used for single characters (e.g., initial).",
                                     listOf("%d", "%.1f", "%c")
                                 )
                             )
@@ -724,7 +680,7 @@ int main() {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     "Control the appearance of your output with format specifiers and precision settings. This can help make your printed results look cleaner and more organized.",
-                                    listOf("format specifiers", "precision settings")
+                                    listOf("")
                                 )
                             )
                         ),
@@ -739,52 +695,7 @@ int main() {
             Lesson(
                 id = "beginner_c5",
                 title = "C Comments",
-                description = "Master how to use comments in C for better code readability and documentation! 📚💡",
-                subLessons = listOf(
-                    Lesson(
-                        id = "beginner_c5_sub1",
-                        title = "Introduction to Comments",
-                        description = "What are comments and why they’re important.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c5_sub2",
-                        title = "Single-Line Comments",
-                        description = "How to use single-line comments in C.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c5_sub3",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c5_sub4",
-                        title = "Multi-Line Comments",
-                        description = "How to write multi-line comments.",
-                        status = LessonStatus.LOCKED
-                    ),
-
-                    Lesson(
-                        id = "beginner_c5_sub5",
-                        title = "Nested Comments",
-                        description = "Handling comments inside other comments.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c5_sub6",
-                        title = "Best Practices",
-                        description = "Best practices for effective commenting.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c5_sub7",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    )
-                ),
+                description = "Master how to use comments in C for better code readability and documentation!",
                 lessonContents = listOf(
                     LessonContent(
                         id = "beginner_c5_sub1",
@@ -804,7 +715,7 @@ int main() {
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Single-line comments start with '//' and extend to the end of the line.",
+                                    "Single-line comments start with // and extend to the end of the line.",
                                     listOf("//")
                                 )
                             ),
@@ -854,7 +765,7 @@ int main() {
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Multi-line comments start with '/*' and end with '*/', spanning multiple lines.",
+                                    "Multi-line comments start with /* and end with */, spanning multiple lines.",
                                     listOf("/*", "*/")
                                 )
                             ),
@@ -882,7 +793,7 @@ int main() {
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "C doesn’t support nested multi-line comments ('/* /* ... */ */').",
+                                    "C doesn’t support nested multi-line comments (/* /* ... */ */).",
                                     listOf("/* /* ... */ */")
                                 )
                             ),
@@ -964,56 +875,6 @@ bubbleSort(arr, n);
                 id = "beginner_c6",
                 title = "C Variables",
                 description = "Learn how to work with variables in C: declaring, formatting, changing values, and naming! 🎯",
-                subLessons = listOf(
-                    Lesson(
-                        id = "beginner_c6_sub1",
-                        title = "Creating Variables",
-                        description = "Learn how to declare and initialize variables.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c6_sub2",
-                        title = "Format Specifiers",
-                        description = "Understand format specifiers for different data types.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c6_sub3",
-                        title = "Change Variable Values",
-                        description = "Learn how to update the values of variables.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c6_sub4",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c6_sub5",
-                        title = "Declare Multiple Variables",
-                        description = "Learn how to declare multiple variables in one line.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c6_sub6",
-                        title = "Variable Names",
-                        description = "Understand the rules for naming variables.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c6_sub7",
-                        title = "Real-Life Example",
-                        description = "A practical example using variables in a program.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c6_sub7",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    )
-                ),
                 lessonContents = listOf(
                     LessonContent(
                         id = "beginner_c6_sub1",
@@ -1023,7 +884,7 @@ bubbleSort(arr, n);
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     "Variables store data for later use in the program.",
-                                    listOf("Variables", "store data")
+                                    listOf("")
                                 )
                             ),
                             ContentBlock.Code(
@@ -1043,7 +904,7 @@ float temperature = 36.5;  // Declaring a float
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     "Format specifiers ensure correct display of variable types (e.g., integer, float).",
-                                    listOf("Format specifiers", "variables")
+                                    listOf()
                                 )
                             ),
                             ContentBlock.Code(
@@ -1078,7 +939,7 @@ age = 30;  // Changing the value of age
                         description = "Learn how to update the values of variables.",
                         contentBlocks = listOf(
                             InteractiveInputBlock(
-                                question = "Fill in the missing code to reuse the variable 'age' for updating its value.",
+                                question = "Fill in the missing code to reuse the variable age for updating its value.",
                                 incompleteCode = """
 int age = 25;
 ___ = 30;  // Update the value of age
@@ -1098,7 +959,7 @@ ___ = 30;  // Update the value of age
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     "Declare multiple variables in one line to save space.",
-                                    listOf("Declare multiple variables")
+                                    listOf()
                                 )
                             ),
                             ContentBlock.Code(
@@ -1117,16 +978,21 @@ int x = 10, y = 20, z = 30;  // Declaring multiple integers
                             ContentBlock.Text(createSimpleText("Use meaningful names for variables.")),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Valid names: 'age', '_count', 'temperature1'. Invalid names: '1age', '@count'.",
-                                    listOf("age", "temperature1", "_count", "1age", "@count")
+                                    "Valid names: age, _count, temperature1. Invalid names: 1age, @count.",
+                                    listOf("")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Follow conventions like 'snake_case' for readability.",
+                                    "Follow conventions like snake_case for readability.",
                                     listOf("snake_case")
                                 )
                             ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Snake case is a naming convention where words are separated by underscores and all letters are lowercase. For example: user_name, total_score."
+                                )
+                            )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
@@ -1183,62 +1049,6 @@ int main() {
                 id = "beginner_c7",
                 title = "C Data Types",
                 description = "Explore the different data types in C: what they are, how they work, and how to convert between them! 🧮🎯",
-                subLessons = listOf(
-                    Lesson(
-                        id = "beginner_c7_sub1",
-                        title = "Data Types",
-                        description = "Get to know the essential data types in C and their purposes.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c7_sub2",
-                        title = "The `char` Type",
-                        description = "Learn about the `char` type for characters.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c7_sub3",
-                        title = "Numeric Types",
-                        description = "Understand how to handle integer and floating-point numbers.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c7_sub4",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c7_sub5",
-                        title = "Set Decimal Precision",
-                        description = "Control decimal precision when displaying numbers.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c7_sub6",
-                        title = "Get the Memory Size",
-                        description = "Find out how much memory each data type uses.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c7_sub7",
-                        title = "Real-Life Example",
-                        description = "See a real-world example using C data types.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c7_sub8",
-                        title = "Type Conversion",
-                        description = "Learn how to convert between different data types.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c7_sub9",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    )
-                ),
                 lessonContents = listOf(
                     LessonContent(
                         id = "beginner_c7_sub1",
@@ -1248,31 +1058,31 @@ int main() {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     "In C, you can store numbers, characters, and more.",
-                                    listOf("C")
+                                    listOf("")
                                 )
                             ),
                             ContentBlock.Text(createSimpleText("Key types include:")),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "int for whole numbers (like your age)",
+                                    "1.int: for whole numbers (like your age)",
                                     listOf("int")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "float/double for numbers with decimals (like the price of your coffee)",
+                                    "2.float/double: for numbers with decimals (like the price of your coffee)",
                                     listOf("float", "double")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "char for characters (like the letter 'A')",
+                                    "3.char: for characters (like the letter A)",
                                     listOf("char")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "void when a function doesn't return anything",
+                                    "4.void: when a function doesn't return anything",
                                     listOf("void")
                                 )
                             ),
@@ -1282,19 +1092,19 @@ int main() {
                     ),
                     LessonContent(
                         id = "beginner_c7_sub2",
-                        title = "The 'char' Type",
-                        description = "Learn about the 'char' type for characters.",
+                        title = "The char Type",
+                        description = "Learn about the char type for characters.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "The 'char' type stores a single character.",
-                                    listOf("char")
+                                    "The char type is used to store a single character such as a letter, digit, or symbol. It is enclosed in single quotes (' ') and occupies 1 byte of memory. Examples include 'A', 'z', and '@'.",
+                                    listOf("' '")
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-                char letter = 'A';  // A character
-                printf("Character: %c", letter);  // Prints A
+char letter = 'A';  // A character
+printf("Character: %c", letter);  // Prints A
             """.trimIndent()
                             )
                         ),
@@ -1306,16 +1116,15 @@ int main() {
                         description = "Learn how to handle integer and floating-point numbers.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "In C, numbers are handled with integers and floating-point types.",
-                                    listOf("integers", "floating-point")
+                                createSimpleText(
+                                    "In C, numeric types are used to store numbers. Integers (int) represent whole numbers such as 25 or -100. For numbers with decimal points, floating-point types like float and double are used, with double offering higher precision for calculations requiring more accuracy."
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-                int age = 25;  // Integer (whole number)
-                float weight = 65.5;  // Float (decimal number)
-                double pi = 3.14159;  // Double (higher precision decimal)
+int age = 25;         // Integer (whole number)
+float weight = 65.5;  // Float (decimal number)
+double pi = 3.14159;  // Double (higher precision decimal)
             """.trimIndent()
                             )
                         ),
@@ -1343,11 +1152,15 @@ int main() {
                         title = "Set Decimal Precision",
                         description = "Control decimal precision when displaying numbers.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("You can control decimal places using format specifiers.")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "In C, you can control the number of decimal places displayed for floating-point numbers using format specifiers. The %.2f specifier rounds the number to two decimal places when printing, ensuring that the output shows the desired precision without extra digits."
+                                )
+                            ),
                             ContentBlock.Code(
                                 """
-                float price = 10.12345;
-                printf("Price: %.2f", price);  // Prints 10.12 (rounded to 2 decimals)
+float price = 10.12345;
+printf("Price: %.2f", price);  // Prints 10.12 (rounded to 2 decimals)
             """.trimIndent()
                             )
                         ),
@@ -1360,14 +1173,14 @@ int main() {
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Use 'sizeof()' to check how much memory a data type occupies.",
+                                    "In C, you can use the sizeof() operator to determine the memory size of any data type. This is useful for understanding the memory usage of variables in your program.",
                                     listOf("sizeof()")
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-                printf("Size of int: %zu bytes", sizeof(int));  // Check memory size of int
-                printf("Size of char: %zu bytes", sizeof(char));  // Check memory size of char
+printf("Size of int: %zu bytes", sizeof(int));  // Check memory size of int
+printf("Size of char: %zu bytes", sizeof(char));  // Check memory size of char
             """.trimIndent()
                             )
                         ),
@@ -1411,13 +1224,13 @@ int main() {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     "Sometimes, you need to convert types – like turning a float into an integer.",
-                                    listOf("integer", "floating-point")
+                                    listOf("")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     "For example, adding an integer to a float results in automatic conversion.",
-                                    listOf("integer", "float")
+                                    listOf("")
                                 )
                             ),
                             ContentBlock.Code(
@@ -1455,50 +1268,11 @@ int main() {
                 status = LessonStatus.LOCKED
             ),
 
-
             // lesson 8
             Lesson(
                 id = "beginner_c8",
                 title = "C Constants",
                 description = "Understand how constants are used in C programs for fixed values that do not change! 🔒",
-                subLessons = listOf(
-                    Lesson(
-                        id = "beginner_c8_sub1",
-                        title = "Introduction to Constants",
-                        description = "Learn what constants are and why to use them.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c8_sub2",
-                        title = "Defining Constants",
-                        description = "Learn how to define constants in C using `#define` and `const`.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c8_sub3",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c8_sub4",
-                        title = "Constant Naming",
-                        description = "Understand naming conventions for constants.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c8_sub5",
-                        title = "Real-Life Example",
-                        description = "See a practical example of using constants in a program.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c8_sub6",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    )
-                ),
                 lessonContents = listOf(
                     LessonContent(
                         id = "beginner_c8_sub1",
@@ -1518,7 +1292,7 @@ int main() {
                     LessonContent(
                         id = "beginner_c8_sub2",
                         title = "Defining Constants",
-                        description = "Learn how to define constants in C using `#define` and `const`.",
+                        description = "Learn how to define constants in C using #define and const.",
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("There are two common ways to define constants in C:")),
                             ContentBlock.Text(
@@ -1545,7 +1319,7 @@ int main() {
                     LessonContent(
                         id = "beginner_c8_sub3",
                         title = "Defining Constants",
-                        description = "Learn how to define constants in C using `#define` and `const`.",
+                        description = "Learn how to define constants in C using #define and const.",
                         contentBlocks = listOf(
                             InteractiveInputBlock(
                                 question = "Complete the code to define a constant for Pi using the #define directive:",
@@ -1567,13 +1341,13 @@ int main() {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     "Constant names follow variable naming rules, but they are often written in uppercase for clarity.",
-                                    listOf("uppercase")
+                                    listOf("")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     "Example: const int MAX_SPEED = 120;",
-                                    listOf("MAX_SPEED")
+                                    listOf("")
                                 )
                             ),
                             ContentBlock.Text(createSimpleText("Uppercase helps identify constants in code easily.")),
@@ -1603,7 +1377,7 @@ int main() {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     "This program uses the constant MAX_SNOOZES to limit the number of snoozes.",
-                                    listOf("MAX_SNOOZES")
+                                    listOf("")
                                 )
                             ),
                         ),
@@ -1633,62 +1407,6 @@ int main() {
                 id = "beginner_c9",
                 title = "C Operators",
                 description = "Learn the different operators in C used for performing operations on variables and values! 🔧",
-                subLessons = listOf(
-                    Lesson(
-                        id = "beginner_c9_sub1",
-                        title = "Introduction to Operators",
-                        description = "Understand what operators are and why they're used.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c9_sub2",
-                        title = "Arithmetic Operators",
-                        description = "Learn about the basic arithmetic operators in C.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c9_sub3",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c9_sub4",
-                        title = "Relational Operators",
-                        description = "Learn how to compare values using relational operators.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c9_sub5",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c9_sub6",
-                        title = "Logical Operators",
-                        description = "Explore logical operators for combining conditions.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c9_sub7",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c9_sub8",
-                        title = "Assignment and Increment/Decrement Operators",
-                        description = "Understand assignment and increment/decrement operations.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c9_sub9",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    )
-                ),
                 lessonContents = listOf(
                     LessonContent(
                         id = "beginner_c9_sub1",
@@ -1698,7 +1416,13 @@ int main() {
                             ContentBlock.Text(createSimpleText("Operators are essential for performing operations in a program.")),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Examples: '+', '-', '*', '/', '%'. Basic yet powerful operators.",
+                                    "Operators allow you to perform operations on variables and values. They are crucial for calculations, comparisons, and logical operations in your code.",
+                                    listOf("")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Examples: +, -, *, /, %. Basic yet powerful operators.",
                                     listOf("+", "-", "*", "/", "%")
                                 )
                             ),
@@ -1713,13 +1437,13 @@ int main() {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     "Arithmetic operators perform mathematical operations like addition, subtraction, multiplication, and division:",
-                                    listOf(
-                                        "addition",
-                                        "subtraction",
-                                        "multiplication",
-                                        "division",
-                                        "%"
-                                    )
+                                    listOf()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "These operators are used to perform basic mathematical calculations on numeric values, such as adding, subtracting, multiplying, dividing, and finding remainders.",
+                                    listOf("")
                                 )
                             ),
                             ContentBlock.Code(
@@ -1730,7 +1454,7 @@ int main() {
                 int prod = a * b;   // 15
                 int quotient = a / b;  // 1
                 int mod = a % b;    // 2
-                """.trimIndent()
+            """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
@@ -1765,8 +1489,14 @@ int main() {
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Relational operators like '>', '<', '==', '!=', '>=', and '<=' are used to compare values.",
+                                    "Relational operators like >, <, ==, !=, >=, and <= are used to compare values.",
                                     listOf(">", "<", "==", "!=", ">=", "<=")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "These operators allow us to compare two values and return a boolean result. They help in decision-making processes, such as checking if one value is greater than or equal to another.",
+                                    listOf("")
                                 )
                             ),
                             ContentBlock.Code(
@@ -1778,7 +1508,7 @@ int main() {
                 result = (x != y);       // true
                 result = (x >= y);       // false
                 result = (x <= y);       // true
-                """.trimIndent()
+            """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
@@ -1814,8 +1544,14 @@ int main() {
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Logical operators '&&', '||', and '!' are used to combine or negate conditions.",
+                                    "Logical operators &&, ||, and ! are used to combine or negate conditions.",
                                     listOf("&&", "||", "!")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "These operators allow you to evaluate multiple conditions. The && (AND) operator checks if both conditions are true, || (OR) checks if at least one condition is true, and ! (NOT) negates a condition.",
+                                    listOf("")
                                 )
                             ),
                             ContentBlock.Code(
@@ -1824,7 +1560,7 @@ int main() {
                 bool result = (a && b);  // false
                 result = (a || b);       // true  
                 result = !a;             // false
-                """.trimIndent()
+            """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
@@ -1859,7 +1595,13 @@ int main() {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     "Assignment stores values, and increment/decrement changes values. These are fundamental operations:",
-                                    listOf("increment", "decrement")
+                                    listOf("")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "The assignment operator (=) stores a value into a variable. The increment (++) and decrement (--) operators increase or decrease a variable's value by one, respectively. Additionally, compound assignment operators (+=, -=, *=) modify variables by applying arithmetic operations and then storing the result.",
+                                    listOf("")
                                 )
                             ),
                             ContentBlock.Code(
@@ -1870,7 +1612,7 @@ int main() {
                 int b = 10;
                 b += 5;  // b becomes 15
                 b *= 2;  // b becomes 30
-                """.trimIndent()
+            """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
@@ -1881,7 +1623,7 @@ int main() {
                         description = "Quiz",
                         contentBlocks = listOf(
                             QuizContentBlock(
-                                question = "What will be the value of `a` after 'a += 5;' where 'a = 3'?",
+                                question = "What will be the value of a after a += 5; where a = 3?",
                                 options = listOf("3", "5", "8", "10"),
                                 correctAnswer = "8",
                                 userAnswer = null,
@@ -1900,50 +1642,6 @@ int main() {
                 id = "beginner_c10",
                 title = "C Booleans",
                 description = "Learn how to use booleans in C for conditional statements and logical operations! ✅❌",
-                subLessons = listOf(
-                    Lesson(
-                        id = "beginner_c10_sub1",
-                        title = "Introduction to Booleans",
-                        description = "Understand what booleans are and how they work in C.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c10_sub2",
-                        title = "Basic Boolean Representation",
-                        description = "Learn how boolean values are represented as `0` and `1` in C.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c10_sub3",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c10_sub4",
-                        title = "Boolean Values",
-                        description = "Learn how to use `true` and `false` values with the `stdbool.h` library.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c10_sub5",
-                        title = "Boolean Operations",
-                        description = "Use booleans in logical expressions.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c10_sub6",
-                        title = "Boolean in Conditional Statements",
-                        description = "How to use booleans in `if` and `while` statements.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c10_sub7",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    )
-                ),
                 lessonContents = listOf(
                     LessonContent(
                         id = "beginner_c10_sub1",
@@ -1952,8 +1650,14 @@ int main() {
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "A boolean is a binary value: either 'true' (1) or 'false' (0).",
-                                    listOf("true", "1", "false", "0")
+                                    "A boolean is a binary value: either true (1) or false (0).",
+                                    listOf()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Booleans are used to represent conditions in programming. True means a condition is met, and false means it isn't. They are essential for controlling program flow with conditionals like if and while.",
+                                    listOf("")
                                 )
                             )
                         ),
@@ -1962,19 +1666,19 @@ int main() {
                     LessonContent(
                         id = "beginner_c10_sub2",
                         title = "Basic Boolean Representation",
-                        description = "Learn how booleans are represented as `0` and `1` in C.",
+                        description = "Learn how booleans are represented as 0 and 1 in C.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "In C, booleans are represented as '0' for false and '1' for true.",
-                                    listOf("0", "false", "true", "1")
+                                    "In C, booleans are represented as 0 (false) and 1 (true), enabling binary logic operations. These values are fundamental in decision-making, helping to control the flow of programs using conditions like if-else statements and loops.",
+                                    listOf("")
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-                    int flag = 1;  // true
-                    int isZero = 0;  // false
-                """.trimIndent()
+                int flag = 1;  // true
+                int isZero = 0;  // false
+            """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
@@ -1999,12 +1703,12 @@ int main() {
                     LessonContent(
                         id = "beginner_c10_sub4",
                         title = "Boolean Values",
-                        description = "Learn how to use `true` and `false` with the `stdbool.h` library.",
+                        description = "Learn how to use true and false with the stdbool.h library.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "The 'stdbool.h' library defines the `bool` type for better readability.",
-                                    listOf("stdbool.h", "bool", "false", "true")
+                                    "The stdbool.h library defines the bool type for better readability.",
+                                    listOf("stdbool.h")
                                 )
                             ),
                             ContentBlock.Code(
@@ -2038,7 +1742,7 @@ int main() {
                     LessonContent(
                         id = "beginner_c10_sub6",
                         title = "Boolean in Conditional Statements",
-                        description = "Using booleans in `if` and `while` statements.",
+                        description = "Using booleans in if and while statements.",
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("Booleans control program flow, such as in conditionals:")),
                             ContentBlock.Code(
@@ -2060,11 +1764,11 @@ int main() {
                     ),
                     LessonContent(
                         id = "beginner_c10_sub7",
-                        title = "Boolean in Conditional Statements",
-                        description = "Using booleans in `if` and `while` statements.",
+                        title = "Quiz",
+                        description = "Quiz",
                         contentBlocks = listOf(
                             QuizContentBlock(
-                                question = "What is the result of '!true' in boolean logic?",
+                                question = "What is the result of !true in boolean logic?",
                                 options = listOf("true", "false", "undefined", "error"),
                                 correctAnswer = "false", // NOT true is false
                                 userAnswer = null, // User hasn't answered yet
@@ -2082,67 +1786,13 @@ int main() {
                 id = "beginner_c11",
                 title = "Recap",
                 description = "Review important topics from this stage and prepare for the next stage in your C programming journey! 🧠💻",
-                subLessons = listOf(
-                    Lesson(
-                        id = "beginner_c11_sub1",
-                        title = "C Syntax Overview",
-                        description = "Understand the basic syntax of C programs. This includes learning how to write a valid C program structure, the importance of semicolons, curly braces, and the main function.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c11_sub2",
-                        title = "Understanding Statements",
-                        description = "Learn about statements in C, which are the building blocks of any program. Statements can declare variables, perform operations, and control program flow.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c11_sub3",
-                        title = "Working with Variables and Data Types",
-                        description = "Review the use of variables in C, how to define them, and how to work with various data types such as integers, floating-point numbers, and characters.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c11_sub4",
-                        title = "Using Operators in C",
-                        description = "Refresh your understanding of operators in C, including arithmetic operators, comparison operators, and logical operators.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c11_sub5",
-                        title = "Booleans and Logical Operations",
-                        description = "Focus on using boolean values and logical operations in C to create more complex conditions and decision-making processes.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c11_sub6",
-                        title = "Conditional Statements",
-                        description = "Learn how conditional statements like `if`, `else if`, and `while` control the flow of the program based on specific conditions.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c11_sub7",
-                        title = "Your Next Step",
-                        description = "You’ve completed the recap! It’s time to move forward, continue practicing, and explore more advanced topics in C programming.",
-                        status = LessonStatus.LOCKED
-                    )
-                ),
                 lessonContents = listOf(
                     LessonContent(
                         id = "beginner_c11_sub1",
                         title = "C Syntax Overview",
                         description = "Review the basic syntax of C programming. Remember to focus on semicolons, curly braces, and the structure of main().",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("C programs begin with the `main` function, and statements are terminated with a semicolon. Curly braces are used to define code blocks.")),
-                            ContentBlock.Code(
-                                """
-#include <stdio.h>
-
-int main() {
-    printf("Hello, World!");
-    return 0;
-}
-                    """.trimIndent()
-                            )
+                            ContentBlock.Text(createSimpleText("C programs begin with the main function, and statements are terminated with a semicolon. Curly braces are used to define code blocks. In C, each function must be defined within these braces, and the program starts execution from the main function. The use of semicolons is essential to mark the end of statements, making the program syntactically correct.")),
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
@@ -2151,30 +1801,16 @@ int main() {
                         title = "Understanding Statements",
                         description = "Statements are the building blocks of your program. Each statement performs a task, like declaring variables or performing operations.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("In C, statements like variable declarations and expressions are used to perform tasks.")),
-                            ContentBlock.Code(
-                                """
-int a = 5;  // Variable declaration
-a = a + 10; // Expression
-printf("%d", a);  // Output statement
-                    """.trimIndent()
-                            )
+                            ContentBlock.Text(createSimpleText("In C, statements like variable declarations and expressions are used to perform tasks. Each statement can represent an action like assigning values, performing arithmetic operations, or calling functions. Statements must end with a semicolon to be syntactically correct. For example, declaring variables, performing assignments, or displaying results all count as statements in C.")),
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = "beginner_c11_sub3",
                         title = "Working with Variables and Data Types",
-                        description = "Variables store data values in a program. Review the common data types such as `int`, `char`, `float`, and `double`.",
+                        description = "Variables store data values in a program. Review the common data types such as int, char, float, and double.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("In C, variables are assigned specific data types, which determine the kind of data they can hold.")),
-                            ContentBlock.Code(
-                                """
-int age = 25;
-float height = 5.9;
-char grade = 'A';
-                    """.trimIndent()
-                            )
+                            ContentBlock.Text(createSimpleText("In C, variables are assigned specific data types, which determine the kind of data they can hold. For example, an int can store whole numbers, a char can store single characters, and float and double are used to store decimal numbers with varying precision. Properly choosing the data type ensures that data is stored efficiently and correctly.")),
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
@@ -2183,15 +1819,7 @@ char grade = 'A';
                         title = "Using Operators in C",
                         description = "Operators are used to perform operations on variables and values. Refresh your knowledge on arithmetic, comparison, and logical operators.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Operators in C help perform operations such as addition, subtraction, comparison, and logical operations.")),
-                            ContentBlock.Code(
-                                """
-int a = 5, b = 3;
-int sum = a + b; // Arithmetic operator
-bool isEqual = (a == b); // Comparison operator
-bool result = (a > b) && (b < 5); // Logical operator
-                    """.trimIndent()
-                            )
+                            ContentBlock.Text(createSimpleText("Operators in C help perform operations such as addition, subtraction, comparison, and logical operations. Arithmetic operators like +, -, *, and / perform basic mathematical calculations. Comparison operators like ==, !=, >, <, >=, and <= allow for value comparisons. Logical operators like && (AND), || (OR), and ! (NOT) help evaluate multiple conditions together.")),
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
@@ -2200,36 +1828,16 @@ bool result = (a > b) && (b < 5); // Logical operator
                         title = "Booleans and Logical Operations",
                         description = "Booleans represent true/false values. Logical operations help combine multiple conditions.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Booleans can be used in logical operations like AND, OR, and NOT to combine multiple conditions.")),
-                            ContentBlock.Code(
-                                """
-bool isEven = true, isOdd = false;
-bool result = isEven && !isOdd;  // AND and NOT operation
-                    """.trimIndent()
-                            )
+                            ContentBlock.Text(createSimpleText("Booleans can be used in logical operations like AND (&&), OR (||), and NOT (!) to combine multiple conditions. Logical operations help make decisions based on multiple criteria, for example, checking if both conditions are true or if at least one condition is true.")),
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = "beginner_c11_sub6",
                         title = "Conditional Statements",
-                        description = "Conditional statements such as `if`, `else if`, and `while` control program flow based on conditions.",
+                        description = "Conditional statements such as if, else if, and while control program flow based on conditions.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Conditionals control the flow of your program by deciding whether certain code should run.")),
-                            ContentBlock.Code(
-                                """
-if (isEven) {
-    printf("Even number\n");
-} else {
-    printf("Odd number\n");
-}
-
-while (!isOdd) {
-    printf("Still not odd\n");
-    isOdd = true;  // Update condition
-}
-                    """.trimIndent()
-                            )
+                            ContentBlock.Text(createSimpleText("Conditional statements are used to control the flow of the program by executing code based on whether certain conditions are true or false. For example, if statements allow you to run code when a condition is true, while else lets you run alternative code when the condition is false. The while loop repeatedly executes code as long as the given condition is true.")),
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
@@ -2246,56 +1854,12 @@ while (!isOdd) {
                 ),
                 status = LessonStatus.LOCKED
             ),
-            
+
             // lesson 12
             Lesson(
                 id = "beginner_c12",
                 title = "Quiz",
                 description = "Test your knowledge of the topics covered in this stage! 🧠💻",
-                subLessons = listOf(
-                    Lesson(
-                        id = "beginner_c12_sub1",
-                        title = "Quiz: C Syntax Overview",
-                        description = "Quiz on the basic syntax of C programs.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c12_sub2",
-                        title = "Quiz: Understanding Statements",
-                        description = "Test your understanding of statements in C.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c12_sub3",
-                        title = "Quiz: Working with Variables and Data Types",
-                        description = "Quiz on variables and data types in C.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c12_sub4",
-                        title = "Quiz: Using Operators in C",
-                        description = "Test your knowledge of operators in C.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c12_sub5",
-                        title = "Quiz: Booleans and Logical Operations",
-                        description = "Quiz on booleans and logical operations in C.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c12_sub6",
-                        title = "Quiz: Conditional Statements",
-                        description = "Test your understanding of conditional statements in C.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "beginner_c12_sub7",
-                        title = "Quiz: Your Next Step",
-                        description = "Motivate yourself for the next stage in C programming!",
-                        status = LessonStatus.LOCKED
-                    )
-                ),
                 lessonContents = listOf(
                     LessonContent(
                         id = "beginner_c12_sub1",

@@ -1267,7 +1267,7 @@ fun InteractiveInputBlockView(
             contentBlock.incompleteCode.lines().forEach { line ->
                 Row(
                     modifier = Modifier.fillMaxWidth(),
-                    verticalAlignment = Alignment.CenterVertically,
+                   // verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.Start
                 ) {
                     val parts = line.split("___")
@@ -1288,6 +1288,7 @@ fun InteractiveInputBlockView(
                                 modifier = Modifier
                                     .width(30.dp)
                                     .height(20.dp), // Adjusted height
+
                                 decorationBox = { innerTextField ->
                                     if (userInputs[index].isEmpty()) {
                                         Text(
