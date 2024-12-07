@@ -15,7 +15,8 @@ fun cppExpertCourse(): Stage {
         id = "cpp_expert_stage",
         title = "Expert",
         lessons = listOf(
-            // Lesson 1 : Welcome to the Intermediate Stage
+
+            // Lesson 1 : Welcome to the ExpertStage Stage
             Lesson(
                 id = "expert_cpp1",
                 title = "Welcome to Expert Stage",
@@ -33,8 +34,6 @@ fun cppExpertCourse(): Stage {
                                     text = "Welcome to the Expert Stage! You've mastered the basics and intermediate levels of C++ – now it's time to tackle more complex challenges. 🎉",
                                     styledText = listOf(
                                         "Expert Stage",
-                                        "mastered the basics",
-                                        "intermediate levels"
                                     )
                                 )
                             ),
@@ -43,8 +42,6 @@ fun cppExpertCourse(): Stage {
                                     text = "In this stage, you'll sharpen your problem-solving skills with pattern printing, loops, and fun programming puzzles. It's time to take your coding to the next level! 💪",
                                     styledText = listOf(
                                         "problem-solving skills",
-                                        "pattern printing",
-                                        "next level"
                                     )
                                 )
                             ),
