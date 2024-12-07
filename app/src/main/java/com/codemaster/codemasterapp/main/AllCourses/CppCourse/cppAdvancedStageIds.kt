@@ -3,58 +3,6 @@ package com.codemaster.codemasterapp.main.AllCourses.CppCourse
 import android.util.Log
 
 
-object CppAdvancedStageId {
-
-    const val stageId = "cpp_advanced_stage"
-
-    val lessons = mapOf(
-
-        // Lesson 1 : Welcome to the Advanced Stage
-        "advanced_cpp1" to generateSubLessonIds("advanced_cpp1", 6),
-        // Lesson 2 : Introduction to OOP
-        "advanced_cpp2" to generateSubLessonIds("advanced_cpp2", 6),
-        // Lesson 3 : Classes & Objects in C++
-        "advanced_cpp3" to generateSubLessonIds("advanced_cpp3", 10),
-        // Lesson 4 : Classes & Methods
-        "advanced_cpp4" to generateSubLessonIds("advanced_cpp4", 7),
-        // Lesson 5 : Constructors in C++
-        "advanced_cpp5" to generateSubLessonIds("advanced_cpp5", 9),
-        // Lesson 6 : Access Modifiers in C++
-        "advanced_cpp6" to generateSubLessonIds("advanced_cpp6", 8),
-        // Lesson 7 : Setters and Getters in C++
-        "advanced_cpp7" to generateSubLessonIds("advanced_cpp7", 8),
-        // Lesson 8 : Inheritance in C++
-        "advanced_cpp8" to generateSubLessonIds("advanced_cpp8", 8),
-        // Lesson 9 : MultiLevel Inheritance in C++
-        "advanced_cpp9" to generateSubLessonIds("advanced_cpp9", 6),
-        // Lesson 10 : Multiple Inheritance in C++
-        "advanced_cpp10" to generateSubLessonIds("advanced_cpp10", 8),
-        // Lesson 11 : Encapsulation in C++
-        "advanced_cpp11" to generateSubLessonIds("advanced_cpp11", 7),
-        // Lesson 12 : Polymorphism in C++
-        "advanced_cpp12" to generateSubLessonIds("advanced_cpp12", 8),
-        // Lesson 13 : Guidance Practice
-        "advanced_cpp13" to generateSubLessonIds("advanced_cpp13", 10),
-        // Lesson 14 : Recap
-        "advanced_cpp114" to generateSubLessonIds("advanced_cpp14", 10),
-        // Lesson 15 : Final Quiz
-        "advanced_cpp115" to generateSubLessonIds("advanced_cpp15", 13)
-    )
-
-    private fun generateSubLessonIds(lesson: String, count: Int): List<String> {
-        return (1..count).map { "${lesson}_sub$it" }
-    }
-}
-
-fun printLessonsAndSubLessons() {
-    CppAdvancedStageId.lessons.forEach { (lesson, subLessons) ->
-        Log.d("Lesson ID:", lesson)
-        subLessons.forEach { subLesson ->
-            Log.d("  Sub-lesson ID:", subLesson)
-        }
-    }
-}
-
 
 // Step 1: Create a class to store IDs
 object cppAdvancedStageIds {
@@ -172,4 +120,74 @@ object cppAdvancedStageIds {
         "${lesson8}_sub8"
     )
 
+    // Sub-lesson IDs for lesson 8 - Inheritance in C++
+    val lesson9_subs = listOf(
+        "${lesson9}_sub1",
+        "${lesson9}_sub2",
+        "${lesson9}_sub3",
+        "${lesson9}_sub4",
+        "${lesson9}_sub5",
+        "${lesson9}_sub6",
+        "${lesson9}_sub7",
+        "${lesson9}_sub8"
+    )
+
 }
+
+
+
+
+//
+//object CppAdvancedStageIds {
+//
+//    const val stageId = "cpp_advanced_stage"
+//
+//    val lessons = mapOf(
+//
+//        // Lesson 1 : Welcome to the Advanced Stage
+//        "advanced_cpp1" to generateSubLessonIds("advanced_cpp1", 6),
+//        // Lesson 2 : Introduction to OOP
+//        "advanced_cpp2" to generateSubLessonIds("advanced_cpp2", 6),
+//        // Lesson 3 : Classes & Objects in C++
+//        "advanced_cpp3" to generateSubLessonIds("advanced_cpp3", 10),
+//        // Lesson 4 : Classes & Methods
+//        "advanced_cpp4" to generateSubLessonIds("advanced_cpp4", 7),
+//        // Lesson 5 : Constructors in C++
+//        "advanced_cpp5" to generateSubLessonIds("advanced_cpp5", 9),
+//        // Lesson 6 : Access Modifiers in C++
+//        "advanced_cpp6" to generateSubLessonIds("advanced_cpp6", 8),
+//        // Lesson 7 : Setters and Getters in C++
+//        "advanced_cpp7" to generateSubLessonIds("advanced_cpp7", 8),
+//        // Lesson 8 : Inheritance in C++
+//        "advanced_cpp8" to generateSubLessonIds("advanced_cpp8", 8),
+//        // Lesson 9 : MultiLevel Inheritance in C++
+//        "advanced_cpp9" to generateSubLessonIds("advanced_cpp9", 6),
+//        // Lesson 10 : Multiple Inheritance in C++
+//        "advanced_cpp10" to generateSubLessonIds("advanced_cpp10", 8),
+//        // Lesson 11 : Encapsulation in C++
+//        "advanced_cpp11" to generateSubLessonIds("advanced_cpp11", 7),
+//        // Lesson 12 : Polymorphism in C++
+//        "advanced_cpp12" to generateSubLessonIds("advanced_cpp12", 8),
+//        // Lesson 13 : Guidance Practice
+//        "advanced_cpp13" to generateSubLessonIds("advanced_cpp13", 10),
+//        // Lesson 14 : Recap
+//        "advanced_cpp114" to generateSubLessonIds("advanced_cpp14", 10),
+//        // Lesson 15 : Final Quiz
+//        "advanced_cpp115" to generateSubLessonIds("advanced_cpp15", 13)
+//    )
+//
+//    private fun generateSubLessonIds(lesson: String, count: Int): List<String> {
+//        return (1..count).map { "${lesson}_sub$it" }
+//    }
+//}
+//
+//fun printLessonsAndSubLessons() {
+//    CppAdvancedStageIds.lessons.forEach { (lesson, subLessons) ->
+//        Log.d("Lesson ID:", lesson)
+//        subLessons.forEach { subLesson ->
+//            Log.d("  Sub-lesson ID:", subLesson)
+//        }
+//    }
+//}
+
+
