@@ -8,6 +8,7 @@ import com.codemaster.codemasterapp.main.DataBase.NoteViewModel
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.AuthRoutes
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.BottomNavRoutes
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.MainRoutes
+import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.ProfileRoutes
 import com.codemaster.codemasterapp.main.ui.viewModels.CourseViewModel
 
 @Composable
@@ -32,6 +33,10 @@ fun RootNavHost(
             courseViewModel = courseViewModel,
             noteViewModel = noteViewModel
         )
-        profileNavHost(navController = navController, noteViewModel = noteViewModel)
+        profileNavHost(
+            navController = navController,
+            noteViewModel = noteViewModel,
+            courseViewModel
+        )
     }
 }
