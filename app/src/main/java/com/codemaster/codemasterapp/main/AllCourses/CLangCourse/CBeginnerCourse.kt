@@ -41,7 +41,8 @@ fun CBeginnerCourse(): Stage {
                             ),
                             ContentBlock.Text(createSimpleText("Without programming, your favorite apps and systems wouldn’t exist."))
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.ACTIVE
                     ),
                     LessonContent(
                         id = "beginner_c1_sub2",
@@ -57,7 +58,8 @@ fun CBeginnerCourse(): Stage {
                             ),
                             ContentBlock.Text(createSimpleText("Think of it as giving directions versus driving the car yourself."))
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.LOCKED
                     ),
                     LessonContent(
                         id = "beginner_c1_sub3",
@@ -73,7 +75,8 @@ fun CBeginnerCourse(): Stage {
                             ),
                             ContentBlock.Text(createSimpleText("Languages like Python and Java owe their roots to C."))
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.LOCKED
                     ),
                     LessonContent(
                         id = "beginner_c1_sub4",
@@ -89,7 +92,8 @@ fun CBeginnerCourse(): Stage {
                             ),
                             ContentBlock.Text(createSimpleText("Imagine your gaming console and smartwatch running thanks to C!"))
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.LOCKED
                     ),
                     LessonContent(
                         id = "beginner_c1_sub5",
@@ -105,7 +109,8 @@ fun CBeginnerCourse(): Stage {
                             ),
                             ContentBlock.Text(createSimpleText("Plus, it’s a valuable skill for software development roles."))
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.LOCKED
                     ),
                     LessonContent(
                         id = "beginner_c1_sub6",
@@ -125,7 +130,8 @@ fun CBeginnerCourse(): Stage {
                                 isCorrect = false
                             )
                         ),
-                        type = LessonContentType.QUIZ
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.LOCKED
                     ),
                     LessonContent(
                         id = "beginner_c1_sub7",
@@ -136,7 +142,8 @@ fun CBeginnerCourse(): Stage {
                             ContentBlock.Text(createSimpleText("In the next lessons, you’ll master input/output, variables, and data types—skills that power every program you’ll ever write.")),
                             ContentBlock.Text(createSimpleText("With hands-on projects, you'll bring ideas to life and take your first big steps as a programmer."))
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.LOCKED
                     )
                 ),
                 status = LessonStatus.ACTIVE
@@ -155,7 +162,8 @@ fun CBeginnerCourse(): Stage {
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("Programming is a journey, not a destination. Every error you encounter is an opportunity to grow. Through persistence, you will unlock new skills, develop resilience, and eventually become a master of your craft."))
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.LOCKED
                     ),
                     LessonContent(
                         id = "beginner_c2_sub2",
@@ -164,7 +172,8 @@ fun CBeginnerCourse(): Stage {
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("The key to becoming a proficient programmer is consistency. It’s better to practice a little bit every day than to cram a lot of information once in a while. Consistency builds confidence and deepens understanding."))
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.LOCKED
                     ),
                     LessonContent(
                         id = "beginner_c2_sub3",
@@ -173,7 +182,8 @@ fun CBeginnerCourse(): Stage {
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("Set clear, realistic goals that you can measure. For example: 'I will write my first program by the end of the week.' By setting achievable goals, you ensure a steady path toward learning and growth. Each small victory boosts your motivation to keep moving forward."))
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.LOCKED
                     ),
                     LessonContent(
                         id = "beginner_c2_sub4",
@@ -182,7 +192,8 @@ fun CBeginnerCourse(): Stage {
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("When you face challenges, don't be afraid to ask for help, research, or try new approaches. The more you push through difficulties, the more you grow as a programmer. Challenges strengthen your problem-solving skills and open doors to new techniques."))
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.LOCKED
                     ),
                     LessonContent(
                         id = "beginner_c2_sub5",
@@ -191,7 +202,8 @@ fun CBeginnerCourse(): Stage {
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("Remember, motivation comes from within. When the going gets tough, remember why you started and visualize the success you'll achieve. Breaking your journey into smaller milestones makes the entire process more rewarding and less overwhelming."))
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.LOCKED
                     ),
                 ),
                 status = LessonStatus.LOCKED

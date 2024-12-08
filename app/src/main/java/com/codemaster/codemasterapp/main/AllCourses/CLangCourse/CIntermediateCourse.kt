@@ -31,7 +31,8 @@ fun CIntermediateCourse(): Stage {
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("In this lesson, you'll explore key programming concepts like If-Else Statements, Switch Cases, Loops, Arrays, Strings, and more. These are essential tools for developing efficient code and making dynamic decisions in your programs.")),
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.ACTIVE
                     ),
                     LessonContent(
                         id = "intermediate_c1_sub2",
@@ -288,7 +289,7 @@ fun CIntermediateCourse(): Stage {
                         type = LessonContentType.QUIZ
                     )
                 ),
-                status = LessonStatus.ACTIVE
+                status = LessonStatus.LOCKED
             ),
 
             // Lesson 3
@@ -1909,38 +1910,6 @@ for (int location = 0; location < 10; location++) {
                 id = "intermediate_c11",
                 title = "Quiz",
                 description = "Test your knowledge of the topics covered in this stage! 🧠💻",
-                subLessons = listOf(
-                    Lesson(
-                        id = "intermediate_c11_sub1",
-                        title = "Quiz: Loops and Arrays",
-                        description = "Quiz on loops, arrays, and related concepts in C.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c11_sub2",
-                        title = "Quiz: If-Else and Nested Statements",
-                        description = "Test your understanding of if-else statements and nested conditions in C.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c11_sub3",
-                        title = "Quiz: Strings and Arrays",
-                        description = "Quiz on strings and array manipulation in C.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c11_sub4",
-                        title = "Quiz: Break and Continue",
-                        description = "Test your understanding of break and continue in loops.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c11_sub5",
-                        title = "Quiz: Input Handling",
-                        description = "Quiz on taking and handling user input in C.",
-                        status = LessonStatus.LOCKED
-                    )
-                ),
                 lessonContents = listOf(
                     LessonContent(
                         id = "intermediate_c11_sub1",

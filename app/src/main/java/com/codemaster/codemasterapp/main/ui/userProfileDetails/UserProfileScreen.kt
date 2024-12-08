@@ -301,7 +301,7 @@ fun UserProfileScreen(
                         liveSupportButtonColors,
                         shape = RoundedCornerShape(12.dp)
                     )
-                    .clickable { /* Handle click */ }
+                    .clickable {  navController.navigate(ProfileRoutes.NoteScreen.route) }
                     .padding(vertical = 14.dp),
                 contentAlignment = Alignment.Center
             ) {

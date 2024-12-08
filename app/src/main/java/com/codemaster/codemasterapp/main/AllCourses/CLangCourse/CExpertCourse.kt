@@ -21,20 +21,6 @@ fun CExpertCourse(): Stage {
                 id = "expert_c1",
                 title = "Introduction to Expert Projects",
                 description = "Get an overview of what you'll learn in the expert-level projects, focusing on logic building and advanced programming concepts.",
-                subLessons = listOf(
-                    Lesson(
-                        id = "expert_c1_sub1",
-                        title = "Introduction to the Expert Stage",
-                        description = "Understand what the expert-level projects entail and what you'll achieve by the end.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c1_sub2",
-                        title = "Overview of Projects and Goals",
-                        description = "Explore the structure of projects, categories, and the skills you'll gain.",
-                        status = LessonStatus.LOCKED
-                    )
-                ),
                 lessonContents = listOf(
                     LessonContent(
                         id = "expert_c1_sub1",
@@ -57,7 +43,8 @@ fun CExpertCourse(): Stage {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.ACTIVE
                     ),
                     LessonContent(
                         id = "expert_c1_sub2",
@@ -98,38 +85,6 @@ fun CExpertCourse(): Stage {
                 id = "advance_c2",
                 title = "Mastering Logic Building and Project Execution",
                 description = "Learn the essential strategies to build projects, solve problems, escape tutorial hell, and become a great programmer using the tools provided in this app.",
-                subLessons = listOf(
-                    Lesson(
-                        id = "advance_c2_sub1",
-                        title = "Key Strategies for Logic Building",
-                        description = "Discover the essential techniques to enhance your logic-building skills for advanced programming tasks.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advance_c2_sub2",
-                        title = "Project Execution Framework",
-                        description = "Understand how to approach, plan, and execute projects effectively for optimal learning and problem-solving.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advance_c2_sub3",
-                        title = "Escaping Tutorial Hell",
-                        description = "Learn how to break free from relying solely on tutorials and transition to independent problem-solving.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advance_c2_sub4",
-                        title = "Becoming a Great Programmer",
-                        description = "Leverage the resources in this app to build expertise and confidence as a programmer.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advance_c2_sub5",
-                        title = "Problem-Solving Techniques",
-                        description = "Master the art of breaking down, analyzing, and solving complex programming problems efficiently.",
-                        status = LessonStatus.LOCKED
-                    )
-                ),
                 lessonContents = listOf(
                     LessonContent(
                         id = "advance_c2_sub1",
@@ -250,7 +205,8 @@ fun CExpertCourse(): Stage {
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     )
-                )
+                ),
+                status = LessonStatus.LOCKED
             ),
 
             // lesson 3
@@ -258,50 +214,6 @@ fun CExpertCourse(): Stage {
                 id = "expert_c3",
                 title = "Personalized Calculator",
                 description = "Build a personalized calculator with custom functions, UI, and logic.",
-                subLessons = listOf(
-                    Lesson(
-                        id = "expert_c3_sub1",
-                        title = "Introduction to Personalized Calculator",
-                        description = "Learn how to create a personalized calculator with custom operations and design.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c3_sub2",
-                        title = "Basic Operations",
-                        description = "Implement basic operations like addition, subtraction, multiplication, and division.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c3_sub3",
-                        title = "Custom Functions",
-                        description = "Add custom mathematical functions like square root, power, and logarithms.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c3_sub4",
-                        title = "User Interface Design",
-                        description = "Design the user interface with buttons, text fields, and a display area.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c3_sub5",
-                        title = "Handling User Input",
-                        description = "Handle user input, including numeric values and operator buttons.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c3_sub6",
-                        title = "Error Handling",
-                        description = "Implement error handling for invalid inputs, division by zero, and other edge cases.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c3_sub7",
-                        title = "Complete Project Code",
-                        description = "Integrate all previous lessons into one complete personalized calculator project.",
-                        status = LessonStatus.LOCKED
-                    )
-                ),
                 lessonContents = listOf(
                     LessonContent(
                         id = "expert_c3_sub1",
@@ -639,56 +551,6 @@ double getUserInput() {
                 id = "expert_c4",
                 title = "Contact Management System",
                 description = "Create an advanced contact management system with features like adding, viewing, searching, updating, and deleting contacts.",
-                subLessons = listOf(
-                    Lesson(
-                        id = "expert_c4_sub1",
-                        title = "Introduction to Contact Management System",
-                        description = "Learn how to create a contact management system in Kotlin with add, view, search, update, and delete functionalities.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c4_sub2",
-                        title = "Defining the Contact Structure",
-                        description = "Learn to define a Contact structure to store name and phone details, using constants for limits on contacts and field lengths.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c4_sub3",
-                        title = "Adding a Contact",
-                        description = "Implement the functionality to add a new contact to the contact book.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c4_sub4",
-                        title = "Viewing Contacts",
-                        description = "Display the list of all contacts stored in the contact book.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c4_sub5",
-                        title = "Searching for a Contact",
-                        description = "Search for a contact by name in the contact book.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c4_sub6",
-                        title = "Updating a Contact",
-                        description = "Allow the user to update the contact information, like phone number.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c4_sub7",
-                        title = "Deleting a Contact",
-                        description = "Implement the functionality to delete a contact from the contact book.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c4_sub8",
-                        title = "Complete Project Code",
-                        description = "Integrate all previous lessons into one complete advanced contact management system.",
-                        status = LessonStatus.LOCKED
-                    )
-                ),
                 lessonContents = listOf(
 
                     LessonContent(
@@ -1089,39 +951,6 @@ int main() {
                 id = "expert_c5",
                 title = "Unit Converter",
                 description = "A comprehensive unit converter system for converting between different units such as length, weight, temperature, and more.",
-                subLessons = listOf(
-                    Lesson(
-                        id = "expert_c5_sub1",
-                        title = "Introduction to Contact Management System",
-                        description = "Learn how to create a contact management system in Kotlin with add, view, search, update, and delete functionalities.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c5_sub2",
-                        title = "Defining the Contact Structure",
-                        description = "Learn to define a Contact structure to store name and phone details, using constants for limits on contacts and field lengths.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c5_sub3",
-                        title = "Adding a Contact",
-                        description = "Implement the functionality to add a new contact to the contact book.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c5_sub4",
-                        title = "Viewing Contacts",
-                        description = "Display the list of all contacts stored in the contact book.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c5_sub5",
-                        title = "Searching for a Contact",
-                        description = "Search for a contact by name in the contact book.",
-                        status = LessonStatus.LOCKED
-                    ),
-
-                    ),
                 lessonContents = listOf(
 
                     LessonContent(
@@ -1458,39 +1287,6 @@ float convertTemperature(float value, int fromUnit, int toUnit) {
                 id = "expert_c6",
                 title = "Tic-Tac-Toe Game",
                 description = "Create a text-based Tic-Tac-Toe game that allows two players to take turns marking spaces on a 3x3 grid. The game will check for winning conditions, handle user input, and display the board after each move.",
-                subLessons = listOf(
-                    Lesson(
-                        id = "expert_c6_sub1",
-                        title = "Introduction to Contact Management System",
-                        description = "Learn how to create a contact management system in Kotlin with add, view, search, update, and delete functionalities.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c6_sub2",
-                        title = "Defining the Contact Structure",
-                        description = "Learn to define a Contact structure to store name and phone details, using constants for limits on contacts and field lengths.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c6_sub3",
-                        title = "Adding a Contact",
-                        description = "Implement the functionality to add a new contact to the contact book.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c6_sub4",
-                        title = "Viewing Contacts",
-                        description = "Display the list of all contacts stored in the contact book.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c6_sub5",
-                        title = "Searching for a Contact",
-                        description = "Search for a contact by name in the contact book.",
-                        status = LessonStatus.LOCKED
-                    ),
-
-                    ),
                 lessonContents = listOf(
 
                     LessonContent(
@@ -1843,39 +1639,6 @@ int main() {
                 id = "expert_c7",
                 title = "Text Editor",
                 description = "A simple text editor that allows the user to create, save, and open files. It will require handling file operations and memory management for dynamic text manipulation.",
-                subLessons = listOf(
-                    Lesson(
-                        id = "expert_c6_sub1",
-                        title = "Introduction to Contact Management System",
-                        description = "Learn how to create a contact management system in Kotlin with add, view, search, update, and delete functionalities.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c6_sub2",
-                        title = "Defining the Contact Structure",
-                        description = "Learn to define a Contact structure to store name and phone details, using constants for limits on contacts and field lengths.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c6_sub3",
-                        title = "Adding a Contact",
-                        description = "Implement the functionality to add a new contact to the contact book.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c6_sub4",
-                        title = "Viewing Contacts",
-                        description = "Display the list of all contacts stored in the contact book.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c6_sub5",
-                        title = "Searching for a Contact",
-                        description = "Search for a contact by name in the contact book.",
-                        status = LessonStatus.LOCKED
-                    ),
-
-                    ),
                 lessonContents = listOf(
 
                     LessonContent(
@@ -2376,39 +2139,6 @@ int main() {
                 id = "expert_c8",
                 title = "Student Grading System",
                 description = " Build a system to manage student grades, calculate averages, and display results. This project will involve basic data structures and file handling.",
-                subLessons = listOf(
-                    Lesson(
-                        id = "expert_c6_sub1",
-                        title = "Introduction to Contact Management System",
-                        description = "Learn how to create a contact management system in Kotlin with add, view, search, update, and delete functionalities.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c6_sub2",
-                        title = "Defining the Contact Structure",
-                        description = "Learn to define a Contact structure to store name and phone details, using constants for limits on contacts and field lengths.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c6_sub3",
-                        title = "Adding a Contact",
-                        description = "Implement the functionality to add a new contact to the contact book.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c6_sub4",
-                        title = "Viewing Contacts",
-                        description = "Display the list of all contacts stored in the contact book.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c6_sub5",
-                        title = "Searching for a Contact",
-                        description = "Search for a contact by name in the contact book.",
-                        status = LessonStatus.LOCKED
-                    ),
-
-                    ),
                 lessonContents = listOf(
                     LessonContent(
                         id = "expert_c8_sub1",
@@ -2948,7 +2678,6 @@ int main() {
                 status = LessonStatus.LOCKED
             ),
 
-            // lesson 9
             // lesson 9
             Lesson(
                 id = "expert_c9",
