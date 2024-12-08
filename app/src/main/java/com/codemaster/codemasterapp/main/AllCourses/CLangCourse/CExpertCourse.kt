@@ -57,7 +57,8 @@ fun CExpertCourse(): Stage {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.ACTIVE
                     ),
                     LessonContent(
                         id = "expert_c1_sub2",
