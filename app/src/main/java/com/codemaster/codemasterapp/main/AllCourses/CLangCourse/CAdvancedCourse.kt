@@ -3077,38 +3077,6 @@ int main() {
                 id = "advanced_c15",
                 title = "Advanced Quiz",
                 description = "Test your advanced knowledge of C programming concepts such as memory management, pointers, structs, and file I/O! 🧠💻",
-                subLessons = listOf(
-                    Lesson(
-                        id = "advanced_c15_sub1",
-                        title = "Quiz: Pointers and Memory Management",
-                        description = "Test your understanding of pointers, dynamic memory allocation, and memory management techniques in C.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c15_sub2",
-                        title = "Quiz: Structs and Enums",
-                        description = "Quiz on structs, enums, and their usage in C.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c15_sub3",
-                        title = "Quiz: File I/O and Error Handling",
-                        description = "Test your knowledge of file input/output and error handling in C.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c15_sub4",
-                        title = "Quiz: Advanced Data Structures",
-                        description = "Test your understanding of linked lists, trees, and other advanced data structures in C.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c15_sub5",
-                        title = "Quiz: Multithreading and Concurrency",
-                        description = "Quiz on multithreading, synchronization, and concurrency concepts in C.",
-                        status = LessonStatus.LOCKED
-                    )
-                ),
                 lessonContents = listOf(
                     LessonContent(
                         id = "advanced_c15_sub1",
