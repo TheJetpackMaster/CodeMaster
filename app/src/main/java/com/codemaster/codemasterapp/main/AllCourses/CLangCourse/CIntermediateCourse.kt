@@ -31,7 +31,8 @@ fun CIntermediateCourse(): Stage {
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("In this lesson, you'll explore key programming concepts like If-Else Statements, Switch Cases, Loops, Arrays, Strings, and more. These are essential tools for developing efficient code and making dynamic decisions in your programs.")),
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.ACTIVE
                     ),
                     LessonContent(
                         id = "intermediate_c1_sub2",
