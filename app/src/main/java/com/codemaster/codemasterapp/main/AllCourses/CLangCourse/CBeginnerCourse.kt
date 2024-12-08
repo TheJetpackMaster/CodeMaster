@@ -172,7 +172,8 @@ fun CBeginnerCourse(): Stage {
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("The key to becoming a proficient programmer is consistency. It’s better to practice a little bit every day than to cram a lot of information once in a while. Consistency builds confidence and deepens understanding."))
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.LOCKED
                     ),
                     LessonContent(
                         id = "beginner_c2_sub3",
