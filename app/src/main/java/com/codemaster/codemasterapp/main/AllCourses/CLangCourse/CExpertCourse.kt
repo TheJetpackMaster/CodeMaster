@@ -85,38 +85,6 @@ fun CExpertCourse(): Stage {
                 id = "advance_c2",
                 title = "Mastering Logic Building and Project Execution",
                 description = "Learn the essential strategies to build projects, solve problems, escape tutorial hell, and become a great programmer using the tools provided in this app.",
-                subLessons = listOf(
-                    Lesson(
-                        id = "advance_c2_sub1",
-                        title = "Key Strategies for Logic Building",
-                        description = "Discover the essential techniques to enhance your logic-building skills for advanced programming tasks.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advance_c2_sub2",
-                        title = "Project Execution Framework",
-                        description = "Understand how to approach, plan, and execute projects effectively for optimal learning and problem-solving.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advance_c2_sub3",
-                        title = "Escaping Tutorial Hell",
-                        description = "Learn how to break free from relying solely on tutorials and transition to independent problem-solving.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advance_c2_sub4",
-                        title = "Becoming a Great Programmer",
-                        description = "Leverage the resources in this app to build expertise and confidence as a programmer.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advance_c2_sub5",
-                        title = "Problem-Solving Techniques",
-                        description = "Master the art of breaking down, analyzing, and solving complex programming problems efficiently.",
-                        status = LessonStatus.LOCKED
-                    )
-                ),
                 lessonContents = listOf(
                     LessonContent(
                         id = "advance_c2_sub1",
