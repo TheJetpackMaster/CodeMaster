@@ -575,69 +575,6 @@ fun CAdvancedCourse(): Stage {
                 id = "advanced_c4",
                 title = "C Function Parameters",
                 description = "Learn about function parameters and how they work in C functions! 🧑‍💻",
-                subLessons = listOf(
-                    Lesson(
-                        id = "advanced_c4_sub1",
-                        title = "Introduction to Parameters",
-                        description = "Get introduced to function parameters and understand their importance in C.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c4_sub2",
-                        title = "Multiple Parameters",
-                        description = "Understand how to pass multiple parameters to a function.",
-                        status = LessonStatus.LOCKED
-                    ),
-
-                    Lesson(
-                        id = "advanced_c4_sub3",
-                        title = "Non-Parameter Functions",
-                        description = "Learn about functions that do not take any parameters.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c4_sub4",
-                        title = "Arguments in Functions",
-                        description = "Understand the difference between parameters and arguments, and how arguments are passed to functions during a function call in C.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c4_sub5",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c4_sub6",
-                        title = "Pass Arrays as Function Parameters",
-                        description = "Learn how to pass arrays to functions in C.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c4_sub7",
-                        title = "Return Values from Functions",
-                        description = "Learn how functions return values to the caller.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c4_sub8",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c4_sub9",
-                        title = "Real-Life Example of Function Parameters",
-                        description = "Understand the use of function parameters with a real-life example.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c4_sub9",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    ),
-                ),
                 lessonContents = listOf(
                     LessonContent(
                         id = "advanced_c4_sub1",
