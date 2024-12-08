@@ -75,7 +75,8 @@ fun CBeginnerCourse(): Stage {
                             ),
                             ContentBlock.Text(createSimpleText("Languages like Python and Java owe their roots to C."))
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.LOCKED
                     ),
                     LessonContent(
                         id = "beginner_c1_sub4",
