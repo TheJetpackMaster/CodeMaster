@@ -1539,50 +1539,6 @@ int main() {
                 id = "advanced_c8",
                 title = "C Memory Address",
                 description = "Dive into memory addresses in C and understand how variables are stored in memory! 🧠",
-                subLessons = listOf(
-                    Lesson(
-                        id = "advanced_c8_sub1",
-                        title = "Introduction to Memory Addresses",
-                        description = "Introduction to memory addresses and how variables are stored in memory.",
-                        status = LessonStatus.ACTIVE
-                    ),
-                    Lesson(
-                        id = "advanced_c8_sub2",
-                        title = "What is a Memory Address?",
-                        description = "Learn what a memory address is and how it relates to variable storage.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c8_sub3",
-                        title = "Variables and Their Memory Locations",
-                        description = "Understand how variables are stored at specific memory locations.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c8_sub4",
-                        title = "How Variables are Stored in Memory",
-                        description = "Learn how variables are physically stored in memory and allocated.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c8_sub5",
-                        title = "Basic Use of the & (Address-of) Operator",
-                        description = "Understand how to use the `&` operator to access the memory address.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c8_sub6",
-                        title = "Real-life Example of Dynamic Memory Usage",
-                        description = "Understand dynamic memory allocation in real applications.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c8_sub7",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    )
-                ),
                 lessonContents = listOf(
                     LessonContent(
                         id = "advanced_c8_sub1",
