@@ -1639,39 +1639,6 @@ int main() {
                 id = "expert_c7",
                 title = "Text Editor",
                 description = "A simple text editor that allows the user to create, save, and open files. It will require handling file operations and memory management for dynamic text manipulation.",
-                subLessons = listOf(
-                    Lesson(
-                        id = "expert_c6_sub1",
-                        title = "Introduction to Contact Management System",
-                        description = "Learn how to create a contact management system in Kotlin with add, view, search, update, and delete functionalities.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c6_sub2",
-                        title = "Defining the Contact Structure",
-                        description = "Learn to define a Contact structure to store name and phone details, using constants for limits on contacts and field lengths.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c6_sub3",
-                        title = "Adding a Contact",
-                        description = "Implement the functionality to add a new contact to the contact book.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c6_sub4",
-                        title = "Viewing Contacts",
-                        description = "Display the list of all contacts stored in the contact book.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c6_sub5",
-                        title = "Searching for a Contact",
-                        description = "Search for a contact by name in the contact book.",
-                        status = LessonStatus.LOCKED
-                    ),
-
-                    ),
                 lessonContents = listOf(
 
                     LessonContent(
