@@ -2950,7 +2950,6 @@ int main() {
             ),
 
             // lesson 9
-            // lesson 9
             Lesson(
                 id = "expert_c9",
                 title = "End of C Language Lessons",
