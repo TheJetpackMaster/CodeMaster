@@ -214,50 +214,6 @@ fun CExpertCourse(): Stage {
                 id = "expert_c3",
                 title = "Personalized Calculator",
                 description = "Build a personalized calculator with custom functions, UI, and logic.",
-                subLessons = listOf(
-                    Lesson(
-                        id = "expert_c3_sub1",
-                        title = "Introduction to Personalized Calculator",
-                        description = "Learn how to create a personalized calculator with custom operations and design.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c3_sub2",
-                        title = "Basic Operations",
-                        description = "Implement basic operations like addition, subtraction, multiplication, and division.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c3_sub3",
-                        title = "Custom Functions",
-                        description = "Add custom mathematical functions like square root, power, and logarithms.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c3_sub4",
-                        title = "User Interface Design",
-                        description = "Design the user interface with buttons, text fields, and a display area.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c3_sub5",
-                        title = "Handling User Input",
-                        description = "Handle user input, including numeric values and operator buttons.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c3_sub6",
-                        title = "Error Handling",
-                        description = "Implement error handling for invalid inputs, division by zero, and other edge cases.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c3_sub7",
-                        title = "Complete Project Code",
-                        description = "Integrate all previous lessons into one complete personalized calculator project.",
-                        status = LessonStatus.LOCKED
-                    )
-                ),
                 lessonContents = listOf(
                     LessonContent(
                         id = "expert_c3_sub1",
