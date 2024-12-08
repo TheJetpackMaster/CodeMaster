@@ -2444,56 +2444,6 @@ int main() {
                 id = "advanced_c12",
                 title = "C Enumeration (enum)",
                 description = "Learn advanced techniques for using enums in C, including defining enums, changing their values, and using them in switch statements.",
-                subLessons = listOf(
-                    Lesson(
-                        id = "advanced_c12_sub1",
-                        title = "Introduction to Enums",
-                        description = "Learn the basics of defining and using enums in C.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c12_sub2",
-                        title = "Changing Enum Values",
-                        description = "Understand how to assign and change values of enums.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c12_sub3",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c12_sub4",
-                        title = "Enum in Switch Statement",
-                        description = "Learn how to use enums with switch-case statements.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c12_sub5",
-                        title = "Enum with Bit Flags",
-                        description = "Learn how to use enums with bit flags for more efficient storage.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c12_sub6",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c12_sub6",
-                        title = "Real-life Example of Enums",
-                        description = "Learn how enums can be used to represent real-world concepts such as user roles in a system.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c12_sub7",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    ),
-                ),
                 lessonContents = listOf(
                     LessonContent(
                         id = "advanced_c12_sub1",
