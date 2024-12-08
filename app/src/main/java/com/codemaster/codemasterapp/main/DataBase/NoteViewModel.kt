@@ -63,5 +63,16 @@ class NoteViewModel @Inject constructor(
         }
     }
 
+    // Function to get all sub-lessons
+    fun getAllSubLessons(onResult: (List<NoteSubLesson>) -> Unit) = viewModelScope.launch {
+        try {
+            val subLessons = repository.getAllSubLessons()
+            onResult(subLessons)
+        } catch (e: Exception) {
+            Log.e("NoteViewModel", "Error retrieving all sub-lessons: ${e.message}")
+            onResult(emptyList()) // Return an empty list in case of error
+        }
+    }
+
 }
 

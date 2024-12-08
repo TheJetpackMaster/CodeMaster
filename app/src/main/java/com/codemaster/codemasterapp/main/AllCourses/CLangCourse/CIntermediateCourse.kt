@@ -23,32 +23,6 @@ fun CIntermediateCourse(): Stage {
                 id = "intermediate_c1",
                 title = "Welcome to Intermediate",
                 description = "An essential step to advance your programming skills with logic and control structures.",
-                subLessons = listOf(
-                    Lesson(
-                        id = "intermediate_c1_sub1",
-                        title = "Introduction to the Intermediate Stage",
-                        description = "Understand what you will learn in this stage and why it is important.",
-                        status = LessonStatus.ACTIVE,
-                    ),
-                    Lesson(
-                        id = "intermediate_c1_sub2",
-                        title = "Motivation",
-                        description = "Encouragement to help you stay committed and inspired.",
-                        status = LessonStatus.ACTIVE,
-                    ),
-                    Lesson(
-                        id = "intermediate_c1_sub3",
-                        title = "Tips for Success",
-                        description = "Practical advice to help you make the most of this stage.",
-                        status = LessonStatus.ACTIVE,
-                    ),
-                    Lesson(
-                        id = "intermediate_c1_sub4",
-                        title = "Next Steps",
-                        description = "What to expect in the upcoming lessons.",
-                        status = LessonStatus.ACTIVE,
-                    )
-                ),
                 lessonContents = listOf(
                     LessonContent(
                         id = "intermediate_c1_sub1",
@@ -90,56 +64,11 @@ fun CIntermediateCourse(): Stage {
                 status = LessonStatus.ACTIVE
             ),
 
-
             // lesson 2
             Lesson(
                 id = "intermediate_c2",
                 title = "C If ... Else",
                 description = "Learn how to use if, else, and else if statements in C to control program flow and make decisions! 💡",
-                subLessons = listOf(
-                    Lesson(
-                        id = "intermediate_c2_sub1",
-                        title = "If Statements",
-                        description = "Learn how to use if statements to make decisions.",
-                        status = LessonStatus.ACTIVE
-                    ),
-                    Lesson(
-                        id = "intermediate_c2_sub2",
-                        title = "Else Statement",
-                        description = "Learn how to use the `else` statement to handle the opposite condition.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c2_sub3",
-                        title = "Else If Statement",
-                        description = "Learn how to handle multiple conditions with `else if` statements.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c2_sub4",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c2_sub5",
-                        title = "Short Hand If...Else (Ternary Operator)",
-                        description = "Learn how to use the ternary operator as a shorthand for `if...else` statements.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c2_sub6",
-                        title = "Real-Life Examples",
-                        description = "See how `if`, `else`, and `else if` statements are used in real-world scenarios.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c2_sub7",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    ),
-                ),
                 lessonContents = listOf(
                     LessonContent(
                         id = "intermediate_c2_sub1",
@@ -148,8 +77,8 @@ fun CIntermediateCourse(): Stage {
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "The if statement helps you make decisions, like deciding whether to take an umbrella if it’s raining. ☔",
-                                    listOf("if")
+                                    "The if statement is a conditional structure that evaluates a condition. If the condition is true, the code inside the block runs otherwise, it is skipped.",
+                                    listOf("")
                                 )
                             ),
                             ContentBlock.Text(createSimpleText("Syntax:")),
@@ -175,12 +104,12 @@ fun CIntermediateCourse(): Stage {
                     LessonContent(
                         id = "intermediate_c2_sub2",
                         title = "Else Statement",
-                        description = "Learn how to use the `else` statement to handle the opposite condition.",
+                        description = "Learn how to use the else statement to handle the opposite condition.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "The else statement handles the 'what if not?' Like deciding to order pizza if there’s no leftover food. 🍕",
-                                    listOf("else")
+                                    "The else statement specifies an alternative block of code to run if the condition in the if statement evaluates to false. It ensures the program handles scenarios where the initial condition isn't met.",
+                                    listOf("")
                                 )
                             ),
                             ContentBlock.Text(createSimpleText("Syntax:")),
@@ -210,11 +139,11 @@ fun CIntermediateCourse(): Stage {
                     LessonContent(
                         id = "intermediate_c2_sub3",
                         title = "Else If Statement",
-                        description = "Learn how to handle multiple conditions with `else if` statements.",
+                        description = "Learn how to handle multiple conditions with else if statements.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Else if handles multiple choices, like figuring out what to wear based on the weather. 🌞🌧️❄️",
+                                    "The else if statement allows checking additional conditions when the previous if condition is false, enabling multiple decision branches within a program.",
                                     listOf("Else if")
                                 )
                             ),
@@ -269,12 +198,12 @@ fun CIntermediateCourse(): Stage {
                     LessonContent(
                         id = "intermediate_c2_sub5",
                         title = "Short Hand If...Else (Ternary Operator)",
-                        description = "Learn how to use the ternary operator as a shorthand for `if...else` statements.",
+                        description = "Learn how to use the ternary operator as a shorthand for if...else statements.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "The ternary operator is a quick decision-maker, like flipping a coin for heads or tails. 🪙",
-                                    listOf("ternary operator")
+                                    "The ternary operator is a compact way to make decisions in code. It evaluates a condition and returns one value if true and another if false, all in a single line.",
+                                    listOf("")
                                 )
                             ),
                             ContentBlock.Text(createSimpleText("Syntax:")),
@@ -296,12 +225,12 @@ fun CIntermediateCourse(): Stage {
                     LessonContent(
                         id = "intermediate_c2_sub6",
                         title = "Real-Life Examples",
-                        description = "See how `if`, `else`, and `else if` statements are used in real-world scenarios.",
+                        description = "See how if, else, and else if statements are used in real-world scenarios.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     "Let’s see if, else, and else if in real action:",
-                                    listOf("if", "else", "else if")
+                                    listOf("")
                                 )
                             ),
                             ContentBlock.Text(createSimpleText("Example 1: Logging in.")),
@@ -366,39 +295,7 @@ fun CIntermediateCourse(): Stage {
             Lesson(
                 id = "intermediate_c3",
                 title = "C If ... Else Nested",
-                description = "Learn how to nest `if...else` statements to create more complex decision-making structures in C! 🧩",
-                subLessons = listOf(
-                    Lesson(
-                        id = "intermediate_c3_sub1",
-                        title = "Introduction to Nested If...Else",
-                        description = "Learn the basics of nesting `if...else` statements.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c3_sub2",
-                        title = "Nesting Multiple If...Else",
-                        description = "Learn how to nest multiple `if...else` statements within each other.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c3_sub3",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c3_sub4",
-                        title = "Real-Life Example",
-                        description = "See how nested `if...else` statements are used in practical scenarios.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c3_sub5",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    )
-                ),
+                description = "Learn how to nest if...else statements to create more complex decision-making structures in C! 🧩",
                 lessonContents = listOf(
                     LessonContent(
                         id = "intermediate_c3_sub1",
@@ -407,8 +304,8 @@ fun CIntermediateCourse(): Stage {
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "A nested if...else statement is like deciding what to do if it’s raining and you forgot your umbrella. More decisions within decisions!",
-                                    listOf("if...else")
+                                    "A nested if...else statement allows multiple layers of decision-making by placing one if...else block inside another, enabling more specific conditions to be handled.",
+                                    listOf("")
                                 )
                             ),
                             ContentBlock.Text(createAnnotatedText("Syntax:", listOf(""))),
@@ -435,8 +332,8 @@ fun CIntermediateCourse(): Stage {
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Nesting multiple if...else is like figuring out your evening plans based on weather, mood, and money.",
-                                    listOf("if...else")
+                                    "Nesting multiple if...else statements allows for complex decision-making. Each decision is evaluated based on a prior condition, enabling logic flow where one condition depends on the outcome of another.",
+                                    listOf("")
                                 )
                             ),
                             ContentBlock.Text(createAnnotatedText("Example:", listOf(""))),
@@ -494,7 +391,7 @@ fun CIntermediateCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     "Imagine using nested if...else to decide whether to let someone into a VIP party.",
-                                    listOf("if...else")
+                                    listOf("")
                                 )
                             ),
                             ContentBlock.Code(
@@ -552,44 +449,6 @@ fun CIntermediateCourse(): Stage {
                 id = "intermediate_c4",
                 title = "C Switch Statement",
                 description = "Learn how to use the switch statement to simplify multiple conditional branches in C! 🔄",
-                subLessons = listOf(
-                    Lesson(
-                        id = "intermediate_c4_sub1",
-                        title = "Introduction to Switch Statement",
-                        description = "Understand the syntax and purpose of the switch statement.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c4_sub2",
-                        title = "Switch Case and Default",
-                        description = "Learn how to use case and default in a switch statement.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c4_sub3",
-                        title = "Switch Case and Break",
-                        description = "Learn why the break keyword is used in a switch statement to prevent fall-through.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c4_sub4",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c4_sub5",
-                        title = "Real-Life Example",
-                        description = "See how the switch statement is used in practical applications.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c4_sub6",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    ),
-                ),
                 lessonContents = listOf(
                     LessonContent(
                         id = "intermediate_c4_sub1",
@@ -598,8 +457,8 @@ fun CIntermediateCourse(): Stage {
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Imagine you're deciding what to eat based on the day of the week. A switch statement helps you pick the right meal quickly based on conditions.",
-                                    listOf("switch")
+                                    "A switch statement simplifies decision-making by evaluating an expression and matching it against multiple possible conditions, making it easier to choose the correct path based on predefined values.",
+                                    listOf("")
                                 )
                             ),
                             ContentBlock.Text(createAnnotatedText("Syntax:", listOf(""))),
@@ -627,7 +486,7 @@ fun CIntermediateCourse(): Stage {
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Just like choosing food, if no match is found, you can have a default option, like 'Surprise me!'",
+                                    "The default case in a switch statement is used when no conditions match. It's a fallback option, ensuring that a value is always returned, similar to having a Surprise me! option if no specific choice is made.",
                                     listOf("default")
                                 )
                             ),
@@ -655,7 +514,7 @@ fun CIntermediateCourse(): Stage {
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "The break keyword is essential to prevent the switch statement from continuing into the next case when a match is found.",
+                                    "The break keyword is used to exit a switch statement after a matching case is found, preventing the execution from falling through to subsequent cases.",
                                     listOf("break")
                                 )
                             ),
@@ -677,8 +536,8 @@ fun CIntermediateCourse(): Stage {
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Without the break keyword, all case blocks below the matching case will execute, which is known as 'fall-through'. This may lead to unintended results.",
-                                    listOf("break", "fall-through")
+                                    "Without the break keyword, all case blocks below the matching case will execute, which is known as fall-through. This may lead to unintended results.",
+                                    listOf("")
                                 )
                             ),
                             ContentBlock.Text(createAnnotatedText("With break:", listOf(""))),
@@ -715,7 +574,7 @@ fun CIntermediateCourse(): Stage {
                         description = "Quiz",
                         contentBlocks = listOf(
                             InteractiveInputBlock(
-                                question = "Fill in the missing keyword to prevent 'fall-through' in the switch statement:",
+                                question = "Fill in the missing keyword to prevent fall-through in the switch statement:",
                                 incompleteCode = """
         switch (option) {
             case 1:
@@ -738,7 +597,7 @@ fun CIntermediateCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     "Picture a menu with options. The switch statement helps you handle each choice. Pick a meal, any meal!",
-                                    listOf("switch")
+                                    listOf("")
                                 )
                             ),
                             ContentBlock.Code(
@@ -762,7 +621,7 @@ fun CIntermediateCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     "The switch helps you easily handle menu choices without overcomplicating things.",
-                                    listOf("switch")
+                                    listOf()
                                 )
                             ),
                         ),
@@ -794,124 +653,107 @@ fun CIntermediateCourse(): Stage {
             Lesson(
                 id = "intermediate_c5",
                 title = "C Loops",
-                description = "Master the while, do-while, and for loops to control repetitive tasks in C! 🔄",
-                subLessons = listOf(
-                    Lesson(
-                        id = "intermediate_c5_sub1",
-                        title = "While Loop",
-                        description = "Learn how to use the while loop to repeat code as long as a condition is true.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c5_sub2",
-                        title = "The Do/While Loop",
-                        description = "Understand the do-while loop where the code runs at least once.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c5_sub3",
-                        title = "The For Loop",
-                        description = "Learn how the for loop provides a compact way to write loops with initialization, condition, and increment in a single line.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c5_sub4",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c5_sub5",
-                        title = "Real-Life Examples",
-                        description = "See practical applications of while, do-while, and for loops.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c5_sub6",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    ),
-                ),
+                description = "Master the while, do-while, and for loops to control repetitive tasks in C!",
                 lessonContents = listOf(
                     LessonContent(
                         id = "intermediate_c5_sub1",
+                        title = "Introduction to Loops",
+                        description = "Learn about the importance of loops and how they help to repeat tasks efficiently in programming.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Loops allow you to execute a block of code repeatedly based on certain conditions, saving time and effort in programming.",
+                                    listOf("")
+                                )
+                            ),
+                            ContentBlock.Text(createAnnotatedText("Types of loops:", listOf(""))),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "In this lesson, we will explore three types of loops: while, do-while, and for, each with its unique use case.",
+                                    listOf("while", "do-while", "for")
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = "intermediate_c5_sub2",
                         title = "While Loop",
                         description = "Learn how to use the while loop to repeat code as long as a condition is true.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Imagine you're trying to eat pizza, but you can only eat it while it's hot. A while loop lets you eat as long as the pizza is warm. Once it cools down, the loop stops!",
+                                    "A while loop continuously executes a block of code as long as a specified condition evaluates to true, controlling the flow of execution until the condition becomes false.",
                                     listOf("while")
                                 )
                             ),
                             ContentBlock.Text(createAnnotatedText("Syntax:", listOf(""))),
                             ContentBlock.Code(
                                 """ 
-                while (pizzaIsHot) {
-                    // eat the pizza
-                }
-                """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = "intermediate_c5_sub2",
-                        title = "The Do/While Loop",
-                        description = "Understand the do-while loop where the code runs at least once.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Now, imagine you’re deciding if you want a second slice of pizza. Even if the pizza is cold, you decide to eat it at least once, then check if it’s still good enough for another bite. That's a do-while loop!",
-                                    listOf("do-while")
-                                )
-                            ),
-                            ContentBlock.Text(createAnnotatedText("Syntax:", listOf(""))),
-                            ContentBlock.Code(
-                                """ 
-                do {
-                    // eat the pizza
-                } while (pizzaIsTasty);
-                """.trimIndent()
+                    while (pizzaIsHot) {
+                        // eat the pizza
+                    }
+                    """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = "intermediate_c5_sub3",
-                        title = "The For Loop",
-                        description = "Learn how the for loop provides a compact way to write loops with initialization, condition, and increment in a single line.",
+                        title = "The Do/While Loop",
+                        description = "Understand the do-while loop where the code runs at least once.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Imagine you’re running a race. You know exactly how many laps you have to complete. A for loop is like setting up the race with a clear start, check for completion, and increment for each lap.",
-                                    listOf("for")
+                                    "A do-while loop executes a block of code at least once and then continues to execute as long as a specified condition is true, ensuring the code runs before checking the condition.",
+                                    listOf("do-while")
                                 )
                             ),
                             ContentBlock.Text(createAnnotatedText("Syntax:", listOf(""))),
                             ContentBlock.Code(
                                 """ 
-                for (int lap = 0; lap < totalLaps; lap++) {
-                    // run the lap
-                }
-                """.trimIndent()
+                    do {
+                        // eat the pizza
+                    } while (pizzaIsTasty);
+                    """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = "intermediate_c5_sub4",
+                        title = "The For Loop",
+                        description = "Learn how the for loop provides a compact way to write loops with initialization, condition, and increment in a single line.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "A for loop is a control flow statement used for iteration, where the initialization, condition check, and increment are defined to repeat a block of code a specific number of times.",
+                                    listOf("for")
+                                )
+                            ),
+                            ContentBlock.Text(createAnnotatedText("Syntax:", listOf(""))),
+                            ContentBlock.Code(
+                                """ 
+                    for (int lap = 0; lap < totalLaps; lap++) {
+                        // run the lap
+                    }
+                    """.trimIndent()
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = "intermediate_c5_sub5",
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
                             InteractiveInputBlock(
                                 question = "Fill in the missing part of the code to make the loop run for a total of 10 laps in the race.",
                                 incompleteCode = """ 
-    for (int lap = ___; lap < 10; lap++) {
-        printf("Running lap %d\\n", lap + 1);
-    }
-    """.trimIndent(),
+                    for (int lap = ___; lap < 10; lap++) {
+                        printf("Running lap %d\\n", lap + 1);
+                    }
+                    """.trimIndent(),
                                 correctCode = "0",
                                 userInput = null,
                                 isCodeCorrect = false
@@ -920,14 +762,14 @@ fun CIntermediateCourse(): Stage {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c5_sub5",
+                        id = "intermediate_c5_sub6",
                         title = "Real-Life Examples",
                         description = "See practical applications of while, do-while, and for loops.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     "Here are practical examples of while, do-while, and for loops in C, but in a more real-world scenario!",
-                                    listOf("while", "do-while", "for")
+                                    listOf("")
                                 )
                             ),
                             ContentBlock.Text(
@@ -938,12 +780,12 @@ fun CIntermediateCourse(): Stage {
                             ),
                             ContentBlock.Code(
                                 """ 
-                int pizzaTemperature = 100;
-                while (pizzaTemperature > 50) {
-                    printf("Pizza is still hot! Eating...\\n");
-                    pizzaTemperature -= 5; // pizza cools down
-                }
-                """.trimIndent()
+                    int pizzaTemperature = 100;
+                    while (pizzaTemperature > 50) {
+                        printf("Pizza is still hot! Eating...\\n");
+                        pizzaTemperature -= 5; // pizza cools down
+                    }
+                    """.trimIndent()
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -953,12 +795,12 @@ fun CIntermediateCourse(): Stage {
                             ),
                             ContentBlock.Code(
                                 """ 
-                int pizzaTemperature = 30;
-                do {
-                    printf("Eating the pizza slice...\\n");
-                    pizzaTemperature -= 5; // pizza cools down
-                } while (pizzaTemperature > 20);
-                """.trimIndent()
+                    int pizzaTemperature = 30;
+                    do {
+                        printf("Eating the pizza slice...\\n");
+                        pizzaTemperature -= 5; // pizza cools down
+                    } while (pizzaTemperature > 20);
+                    """.trimIndent()
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -968,16 +810,16 @@ fun CIntermediateCourse(): Stage {
                             ),
                             ContentBlock.Code(
                                 """ 
-                for (int lap = 0; lap < 5; lap++) {
-                    printf("Running lap %d\\n", lap + 1);
-                }
-                """.trimIndent()
+                    for (int lap = 0; lap < 5; lap++) {
+                        printf("Running lap %d\\n", lap + 1);
+                    }
+                    """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c5_sub6",
+                        id = "intermediate_c5_sub7",
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -996,8 +838,7 @@ fun CIntermediateCourse(): Stage {
                         ),
                         type = LessonContentType.QUIZ
                     ),
-
-                    ),
+                ),
                 status = LessonStatus.LOCKED
             ),
             
@@ -1006,50 +847,6 @@ fun CIntermediateCourse(): Stage {
                 id = "intermediate_c6",
                 title = "C Nested Loops",
                 description = "Learn how to use nested loops in C for complex tasks and control flows! 🔄🔄",
-                subLessons = listOf(
-                    Lesson(
-                        id = "intermediate_c6_sub1",
-                        title = "Nested For Loops",
-                        description = "Learn how to use a for loop inside another for loop.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c6_sub2",
-                        title = "Nested While Loops",
-                        description = "Learn how to use a while loop inside another while loop.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c6_sub3",
-                        title = "For in While Loops",
-                        description = "Learn how to nest a for loop inside a while loop.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c6_sub4",
-                        title = "While in For Loops",
-                        description = "Learn how to nest a while loop inside a for loop.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c6_sub5",
-                        title = "Nested Do-While Loops",
-                        description = "Learn how to use a do-while loop inside another do-while loop.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c6_sub6",
-                        title = "Real-Life Examples",
-                        description = "See practical examples of nested loops in action.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c6_sub7",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    )
-                ),
                 lessonContents = listOf(
                     LessonContent(
                         id = "intermediate_c6_sub1",
@@ -1058,8 +855,7 @@ fun CIntermediateCourse(): Stage {
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Nested for loops are like checking every seat at multiple tables in a restaurant. The outer loop manages the tables, and the inner loop checks each seat.",
-                                    listOf("Nested for loops")
+                                    "Nested for loops involve an outer loop iterating through elements, and an inner loop iterating through a subset of elements, allowing for multi-level iteration over a collection or data structure.",
                                 )
                             ),
                             ContentBlock.Text(createAnnotatedText("Syntax:", listOf(""))),
@@ -1082,8 +878,8 @@ for (int i = 0; i < tables; i++) {
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Nested while loops are like managing a game with multiple levels. The outer loop ensures you're on the right level, and the inner loop completes the tasks within that level.",
-                                    listOf("Nested while loops")
+                                    "Nested while loops involve an outer loop controlling the higher-level iteration, and an inner loop performing repetitive tasks for each iteration of the outer loop, allowing for multi-level iteration and task execution.",
+                                    listOf("")
                                 )
                             ),
                             ContentBlock.Text(createAnnotatedText("Syntax:", listOf(""))),
@@ -1106,8 +902,8 @@ while (level < maxLevel) {
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "A while loop can manage ongoing conditions, while a for loop handles fixed tasks inside it. For example, a while loop keeps a game running, and a for loop updates players scores each round.",
-                                    listOf("for loop", "while loop")
+                                    "A while loop executes as long as a condition is true, whereas a for loop iterates a fixed number of times. The while loop is used for indefinite iteration, while the for loop is used for definite iteration, like incrementing a counter or iterating over a range.",
+                                    listOf("")
                                 )
                             ),
                             ContentBlock.Text(createAnnotatedText("Syntax:", listOf())),
@@ -1130,8 +926,8 @@ while (gameOn) {
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "A for loop iterates through items, and a while loop handles tasks within each item. For example, a for loop can go through different rooms, and a while loop cleans each room until it's spotless.",
-                                    listOf("while loop", "for loop")
+                                    "A for loop iterates over a collection or range, while a while loop continues execution as long as a condition is true. The for loop handles predefined iterations, and the while loop manages ongoing conditions within each iteration.",
+                                    listOf("")
                                 )
                             ),
                             ContentBlock.Text(createAnnotatedText("Syntax:", listOf())),
@@ -1154,8 +950,8 @@ for (int i = 0; i < rooms; i++) {
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Do-while loops ensure tasks happen at least once. For example, you check every coffee cup in a machine and refill them as needed.",
-                                    listOf("Do-while loops")
+                                    "Do-while loops guarantee that a block of code runs at least once, as the condition is checked after the first iteration. It ensures the task executes before the condition is evaluated for further iterations.",
+                                    listOf("")
                                 )
                             ),
                             ContentBlock.Text(createAnnotatedText("Syntax:", listOf())),
@@ -1272,18 +1068,19 @@ do {
                         description = "Quiz",
                         contentBlocks = listOf(
                             QuizContentBlock(
-                                question = "Which loop combination can be used to clean rooms in a hotel?",
+                                question = "Why would you use nested loops in programming?",
                                 options = listOf(
-                                    "while in for loop",
-                                    "for in while loop",
-                                    "nested for loop",
-                                    "nested do-while loop"
+                                    "To handle multiple levels of iteration where each level performs a task within the other.",
+                                    "To avoid the need for conditions in loops.",
+                                    "To improve the performance of a single loop.",
+                                    "To simplify the logic of a single loop."
                                 ),
-                                correctAnswer = "while in for loop"
+                                correctAnswer = "To handle multiple levels of iteration where each level performs a task within the other."
                             ),
                         ),
                         type = LessonContentType.QUIZ
                     )
+
                 ),
                 status = LessonStatus.LOCKED
             ),
@@ -1293,56 +1090,6 @@ do {
                 id = "intermediate_c7",
                 title = "C Break and Continue",
                 description = "Master the break and continue statements to control loop flow in C! 🛑➡️",
-                subLessons = listOf(
-                    Lesson(
-                        id = "intermediate_c7_sub1",
-                        title = "Basic Break Statement",
-                        description = "Learn the simple use of the break statement in loops.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c7_sub2",
-                        title = "Basic Continue Statement",
-                        description = "Understand the basic usage of continue to skip loop iterations.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c7_sub3",
-                        title = "Break in Nested Loops",
-                        description = "Learn how to use break in nested loops.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c7_sub4",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c7_sub5",
-                        title = "Continue in Nested Loops",
-                        description = "See how to use continue in nested loops to skip iterations.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c7_sub6",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c7_sub7",
-                        title = "Real-Life Examples",
-                        description = "Check out practical examples of break and continue in loops.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c7_sub8",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    ),
-                ),
                 lessonContents = listOf(
                     LessonContent(
                         id = "intermediate_c7_sub1",
@@ -1351,7 +1098,7 @@ do {
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "The break statement is like leaving a party early. If something happens (like your boss dancing), you can leave right away.",
+                                    "The break statement terminates the current loop or switch statement, similar to exiting a loop early when a certain condition is met, such as encountering a specific case.",
                                     listOf("break")
                                 )
                             ),
@@ -1375,7 +1122,7 @@ while (isPartyOn) {
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "The continue statement is like skipping a dish at a buffet. If you don’t like a dish, you move on to the next one.",
+                                    "The continue statement skips the current iteration of a loop and moves to the next iteration, similar to skipping a step in a sequence when a condition is met.",
                                     listOf("continue")
                                 )
                             ),
@@ -1399,7 +1146,7 @@ for (int dish = 0; dish < buffetSize; dish++) {
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "In nested loops, break is like stopping your search when you find your car key in one part of the parking lot.",
+                                    "In nested loops, the break statement terminates the innermost loop, similar to exiting a loop when a specific condition is met, such as finding the target element.",
                                     listOf("break")
                                 )
                             ),
@@ -1447,7 +1194,7 @@ for (int section = 0; section < 5; section++) {
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "In nested loops, continue is like skipping noisy houses during trick-or-treating.",
+                                    "In nested loops, the continue statement skips the current iteration of the innermost loop and proceeds to the next iteration, similar to skipping a condition and continuing the loop.",
                                     listOf("continue")
                                 )
                             ),
@@ -1498,7 +1245,7 @@ for (int street = 0; street < 5; street++) {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     "Imagine you're in a zombie apocalypse. Use break to escape when you find a safe house and continue to skip areas full of zombies.",
-                                    listOf("break", "continue")
+                                    listOf("")
                                 )
                             ),
                             ContentBlock.Code(
@@ -1550,68 +1297,6 @@ for (int location = 0; location < 10; location++) {
                 id = "intermediate_c8",
                 title = "C Arrays",
                 description = "Master arrays in C for efficient data storage and access! 🗃️",
-                subLessons = listOf(
-                    Lesson(
-                        id = "intermediate_c8_sub1",
-                        title = "Introduction to Arrays",
-                        description = "Understand what arrays are and how they are used in C.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c8_sub2",
-                        title = "Array Declaration and Initialization",
-                        description = "Learn how to declare and initialize arrays.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c8_sub3",
-                        title = "Accessing Array Elements",
-                        description = "Learn how to access and modify array elements.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c8_sub4",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c8_sub5",
-                        title = "Array Size or Length",
-                        description = "Understand how to get the size of an array.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c8_sub6",
-                        title = "Multidimensional Arrays",
-                        description = "Explore how to work with 2D and multi-dimensional arrays.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c8_sub7",
-                        title = "Array Operations",
-                        description = "Perform operations like sorting, searching, and more on arrays.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c8_sub8",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c8_sub9",
-                        title = "Real-Life Example with Arrays",
-                        description = "See how arrays are used in practical scenarios.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c8_sub10",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    )
-                ),
                 lessonContents = listOf(
                     LessonContent(
                         id = "intermediate_c8_sub1",
@@ -1620,8 +1305,8 @@ for (int location = 0; location < 10; location++) {
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Imagine you’re managing a bakery and need to track daily sales. Instead of writing each day’s sales in a separate notebook, you create one notebook where each page represents a day. This notebook is like an array, where each page (element) is in order and easy to find by its number (index).",
-                                    listOf("array", "element", "index")
+                                    "An array is a data structure that stores multiple elements in a sequential order, and each element can be accessed using its index, which identifies its position in the array.",
+                                    listOf("array")
                                 )
                             ),
                             ContentBlock.Code("int sales[7];  // An array to track sales for 7 days.")
@@ -1635,8 +1320,8 @@ for (int location = 0; location < 10; location++) {
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Imagine you bought 5 boxes of donuts. You can either leave them empty and fill them later (declare) or pack each with specific types of donuts right away (initialize). Once you decide the box size (array size), you can’t change it, but you can swap out the donuts inside.",
-                                    listOf("declare", "initialize", "array size")
+                                    "In programming, you can declare an array by specifying its type and size without initializing its values, or you can initialize it by assigning values immediately. The array size is fixed once defined, but the values (elements) within can be modified.",
+                                    listOf("")
                                 )
                             ),
                             ContentBlock.Code(
@@ -1655,9 +1340,10 @@ for (int location = 0; location < 10; location++) {
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Imagine you’ve labeled your donut boxes as Box 0, Box 1, and Box 2. If someone asks for the donuts in Box 1, you just open it. Similarly, if you want to add more donuts to Box 2, you open it and restock. Arrays work the same way!",
-                                    listOf("0", "1", "2")
+                                    "In an array, elements are accessed using indices (0, 1, 2), which determine the position of each element in the data structure. The index allows direct retrieval or modification of the value stored at that position.",
+                                    listOf("")
                                 )
+
                             ),
                             ContentBlock.Code(
                                 """
@@ -1689,8 +1375,8 @@ for (int location = 0; location < 10; location++) {
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Imagine you’re counting how many donut boxes fit on a shelf. Each box takes a fixed space. By measuring the shelf’s total space and dividing it by the space of one box, you can calculate how many boxes you can store. That’s how array size works!",
-                                    listOf("array size")
+                                    "The array size is determined by allocating a fixed amount of memory for a specific number of elements. By calculating the total memory available and dividing it by the memory required for each element, you can determine the array's capacity, just like calculating how many elements fit into a fixed memory space.",
+                                    listOf("")
                                 )
                             ),
                             ContentBlock.Code(
@@ -1705,12 +1391,13 @@ for (int location = 0; location < 10; location++) {
                     ),
                     LessonContent(
                         id = "intermediate_c8_sub6",
-                        title = "Multidimensional Arrays",
+                        title = "2D array",
                         description = "Organize data in rows and columns.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Imagine you’re organizing donuts by flavor and color in a display case. Rows represent flavors (e.g., chocolate, vanilla), and columns represent colors (e.g., pink, white). You can now point to a specific donut by saying, 'Second row, first column!'"
+                                    "An array of arrays (2D array) organizes data in a matrix-like structure. Rows represent one dimension (e.g., flavor), and columns represent another dimension (e.g., color). You can access a specific element by specifying its row and column indices, like 'array[1][0]!'",
+                                    listOf("2D array")
                                 )
                             ),
                             ContentBlock.Code(
@@ -1732,7 +1419,7 @@ for (int location = 0; location < 10; location++) {
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Imagine your donut boxes got shuffled, and now you need to organize them by the number of donuts (ascending order). Sorting helps you arrange the boxes, and searching is like asking, 'Where’s the box with 15 donuts?'"
+                                    "Sorting algorithms help organize data in a specific order, such as ascending or descending. Searching algorithms allow you to find specific elements in a sorted or unsorted data structure, like searching for a value in an array or list.",
                                 )
                             ),
                             ContentBlock.Code(
@@ -1820,80 +1507,6 @@ for (int location = 0; location < 10; location++) {
                 id = "intermediate_c9",
                 title = "C Strings",
                 description = "Learn how to work with strings in C and perform string manipulations. 📝",
-                subLessons = listOf(
-                    Lesson(
-                        id = "intermediate_c9_sub1",
-                        title = "Introduction to Strings in C",
-                        description = "Understand the basics of strings in C.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c9_sub2",
-                        title = "Declaring and Initializing Strings",
-                        description = "Learn how to declare and initialize strings in C.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c9_sub3",
-                        title = "Accessing String Elements",
-                        description = "Learn how to access individual characters in a string.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c9_sub4",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c9_sub5",
-                        title = "String Length and Size",
-                        description = "Understand how to calculate the length of a string.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c9_sub6",
-                        title = "Common String Functions",
-                        description = "Explore commonly used functions for string manipulation.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c9_sub7",
-                        title = "String Comparison",
-                        description = "Learn how to compare strings.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c9_sub8",
-                        title = "String Copying and Concatenation",
-                        description = "Learn how to copy and concatenate strings.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c9_sub9",
-                        title = "String Input and Output",
-                        description = "Understand how to handle input and output with strings.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c9_sub10",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c9_sub11",
-                        title = "Real-Life Example with Strings",
-                        description = "See how strings are used in real applications.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "intermediate_c9_sub12",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    ),
-                ),
                 lessonContents = listOf(
                     LessonContent(
                         id = "intermediate_c9_sub1",
@@ -1902,26 +1515,14 @@ for (int location = 0; location < 10; location++) {
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "A string in C is an array of characters, terminated by a null character (\\0).",
-                                    listOf("null", "\\0")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Strings in C are handled as arrays of characters with a special character (\\0) at the end.",
-                                    listOf("\\0")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Example of a string:",
-                                    listOf("")
+                                    "A string in C is an array of characters, terminated by a null character (\\0). Strings in C are handled as arrays of characters with a special character (\\0) at the end. Example of a string:",
+                                    listOf()
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-                    char name[] = "Hello";  // The string is "Hello" with an implicit null-terminator \0 at the end
-                """.trimIndent()
+    char name[] = "Hello";  // The string is "Hello" with an implicit null-terminator \0 at the end
+    """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
@@ -1971,7 +1572,7 @@ for (int location = 0; location < 10; location++) {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     "To access individual characters of a string, use the array indexing method.",
-                                    listOf("indexing")
+                                    listOf("")
                                 )
                             ),
                             ContentBlock.Text(
@@ -2261,7 +1862,7 @@ for (int location = 0; location < 10; location++) {
                     LessonContent(
                         id = "intermediate_c10_sub2",
                         title = "Loops (For, While, Do-While)",
-                        description = "Loops are essential for repeating tasks. The `for`, `while`, and `do-while` loops help execute code multiple times, making them crucial for handling repetitive tasks efficiently.",
+                        description = "Loops are essential for repeating tasks. The for, while, and do-while loops help execute code multiple times, making them crucial for handling repetitive tasks efficiently.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
