@@ -41,7 +41,8 @@ fun CBeginnerCourse(): Stage {
                             ),
                             ContentBlock.Text(createSimpleText("Without programming, your favorite apps and systems wouldn’t exist."))
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.ACTIVE
                     ),
                     LessonContent(
                         id = "beginner_c1_sub2",
