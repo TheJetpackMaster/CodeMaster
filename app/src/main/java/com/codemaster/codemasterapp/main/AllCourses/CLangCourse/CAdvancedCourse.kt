@@ -56,7 +56,8 @@ fun CAdvancedCourse(): Stage {
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("In this lesson, you'll learn about the power of functions, memory addresses, pointers, file operations, enums, and memory management. Mastering these concepts will help you write more efficient, modular, and scalable programs.")),
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.ACTIVE
                     ),
                     LessonContent(
                         id = "advanced_c1_sub2",
