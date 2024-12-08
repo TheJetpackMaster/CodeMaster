@@ -129,7 +129,8 @@ fun CBeginnerCourse(): Stage {
                                 isCorrect = false
                             )
                         ),
-                        type = LessonContentType.QUIZ
+                        type = LessonContentType.QUIZ,
+                        status = LessonStatus.LOCKED
                     ),
                     LessonContent(
                         id = "beginner_c1_sub7",
