@@ -77,7 +77,6 @@ class CourseViewModel @Inject constructor(
         _selectedLessonIndex.value = index
     }
 
-
     init {
         // Load all statuses initially when the ViewModel is created
         loadAllLessonStatuses()
