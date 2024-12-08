@@ -2702,56 +2702,6 @@ int main() {
                 id = "advanced_c13",
                 title = "C Memory Management",
                 description = "Master memory management in C, including dynamic memory allocation, deallocation, and handling memory efficiently.",
-                subLessons = listOf(
-                    Lesson(
-                        id = "advanced_c13_sub1",
-                        title = "Introduction to Memory Management",
-                        description = "Understand the concept of memory management in C, including stack and heap memory.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c13_sub2",
-                        title = "Dynamic Memory Allocation",
-                        description = "Learn how to allocate memory dynamically using malloc, calloc, and realloc.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c13_sub3",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c13_sub4",
-                        title = "Memory Deallocation",
-                        description = "Learn the importance of deallocating memory using free.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c13_sub5",
-                        title = "Memory Leaks and Optimization",
-                        description = "Understand how to prevent memory leaks and optimize memory usage.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c13_sub6",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c13_sub7",
-                        title = "Advanced Memory Management Techniques",
-                        description = "Explore advanced techniques like memory pools, garbage collection, and real-life memory management strategies.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c13_sub8",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    ),
-                ),
                 lessonContents = listOf(
                     LessonContent(
                         id = "advanced_c13_sub1",
