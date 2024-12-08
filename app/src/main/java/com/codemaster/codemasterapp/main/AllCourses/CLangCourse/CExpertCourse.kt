@@ -251,7 +251,8 @@ fun CExpertCourse(): Stage {
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     )
-                )
+                ),
+                status = LessonStatus.LOCKED
             ),
 
             // lesson 3
