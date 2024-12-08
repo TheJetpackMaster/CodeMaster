@@ -182,7 +182,8 @@ fun CBeginnerCourse(): Stage {
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("Set clear, realistic goals that you can measure. For example: 'I will write my first program by the end of the week.' By setting achievable goals, you ensure a steady path toward learning and growth. Each small victory boosts your motivation to keep moving forward."))
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.LOCKED
                     ),
                     LessonContent(
                         id = "beginner_c2_sub4",
@@ -191,7 +192,8 @@ fun CBeginnerCourse(): Stage {
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("When you face challenges, don't be afraid to ask for help, research, or try new approaches. The more you push through difficulties, the more you grow as a programmer. Challenges strengthen your problem-solving skills and open doors to new techniques."))
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.LOCKED
                     ),
                     LessonContent(
                         id = "beginner_c2_sub5",
@@ -200,7 +202,8 @@ fun CBeginnerCourse(): Stage {
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("Remember, motivation comes from within. When the going gets tough, remember why you started and visualize the success you'll achieve. Breaking your journey into smaller milestones makes the entire process more rewarding and less overwhelming."))
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.LOCKED
                     ),
                 ),
                 status = LessonStatus.LOCKED
