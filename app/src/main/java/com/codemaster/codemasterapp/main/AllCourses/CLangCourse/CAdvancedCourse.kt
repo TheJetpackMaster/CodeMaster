@@ -2122,50 +2122,6 @@ int main() {
                 id = "advanced_c11",
                 title = "C Files",
                 description = "Learn advanced file handling techniques in C, including creating, reading, writing, and closing files.",
-                subLessons = listOf(
-                    Lesson(
-                        id = "advanced_c11_sub1",
-                        title = "Introduction to File Handling",
-                        description = "Understand the basics of file handling in C.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c11_sub2",
-                        title = "Creating a File",
-                        description = "Learn how to create and open files in C.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c11_sub3",
-                        title = "Reading from a File",
-                        description = "Learn how to read data from a file.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c11_sub4",
-                        title = "Writing to a File",
-                        description = "Learn how to write data to a file.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c11_sub5",
-                        title = "Closing a File",
-                        description = "Learn how to close a file safely.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c11_sub6",
-                        title = "File Error Handling",
-                        description = "Understand how to handle file errors in C.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c11_sub7",
-                        title = "Real-Life Example of File Handling",
-                        description = "Learn a practical application of file handling in C.",
-                        status = LessonStatus.LOCKED
-                    )
-                ),
                 lessonContents = listOf(
                     LessonContent(
                         id = "advanced_c11_sub1",
