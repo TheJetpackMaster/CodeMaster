@@ -289,7 +289,7 @@ fun CIntermediateCourse(): Stage {
                         type = LessonContentType.QUIZ
                     )
                 ),
-                status = LessonStatus.ACTIVE
+                status = LessonStatus.LOCKED
             ),
 
             // Lesson 3
