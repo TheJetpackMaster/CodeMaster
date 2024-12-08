@@ -21,20 +21,6 @@ fun CExpertCourse(): Stage {
                 id = "expert_c1",
                 title = "Introduction to Expert Projects",
                 description = "Get an overview of what you'll learn in the expert-level projects, focusing on logic building and advanced programming concepts.",
-                subLessons = listOf(
-                    Lesson(
-                        id = "expert_c1_sub1",
-                        title = "Introduction to the Expert Stage",
-                        description = "Understand what the expert-level projects entail and what you'll achieve by the end.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c1_sub2",
-                        title = "Overview of Projects and Goals",
-                        description = "Explore the structure of projects, categories, and the skills you'll gain.",
-                        status = LessonStatus.LOCKED
-                    )
-                ),
                 lessonContents = listOf(
                     LessonContent(
                         id = "expert_c1_sub1",
