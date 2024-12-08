@@ -551,56 +551,6 @@ double getUserInput() {
                 id = "expert_c4",
                 title = "Contact Management System",
                 description = "Create an advanced contact management system with features like adding, viewing, searching, updating, and deleting contacts.",
-                subLessons = listOf(
-                    Lesson(
-                        id = "expert_c4_sub1",
-                        title = "Introduction to Contact Management System",
-                        description = "Learn how to create a contact management system in Kotlin with add, view, search, update, and delete functionalities.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c4_sub2",
-                        title = "Defining the Contact Structure",
-                        description = "Learn to define a Contact structure to store name and phone details, using constants for limits on contacts and field lengths.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c4_sub3",
-                        title = "Adding a Contact",
-                        description = "Implement the functionality to add a new contact to the contact book.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c4_sub4",
-                        title = "Viewing Contacts",
-                        description = "Display the list of all contacts stored in the contact book.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c4_sub5",
-                        title = "Searching for a Contact",
-                        description = "Search for a contact by name in the contact book.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c4_sub6",
-                        title = "Updating a Contact",
-                        description = "Allow the user to update the contact information, like phone number.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c4_sub7",
-                        title = "Deleting a Contact",
-                        description = "Implement the functionality to delete a contact from the contact book.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c4_sub8",
-                        title = "Complete Project Code",
-                        description = "Integrate all previous lessons into one complete advanced contact management system.",
-                        status = LessonStatus.LOCKED
-                    )
-                ),
                 lessonContents = listOf(
 
                     LessonContent(
