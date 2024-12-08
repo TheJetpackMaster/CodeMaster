@@ -7,9 +7,6 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import com.codemaster.codemasterapp.main.AllCourses.CLangCourseProvider
 import com.codemaster.codemasterapp.main.AllCourses.CppCourse.CPPCourseProvider
-import com.codemaster.codemasterapp.main.AllCourses.CppCourse.cppAdvancedCourse
-import com.codemaster.codemasterapp.main.AllCourses.CppCourse.cppBeginnerCourse
-import com.codemaster.codemasterapp.main.AllCourses.CppCourse.cppIntermediateCourse
 import com.codemaster.codemasterapp.main.data.Course
 import com.codemaster.codemasterapp.main.data.Lesson
 import com.codemaster.codemasterapp.main.data.LessonStatus
@@ -27,7 +24,7 @@ class CourseViewModel @Inject constructor(
 ) : ViewModel() {
 
     // List of courses to display
-    val courses: List<Course> = createBeginnerCProgrammingCourse()
+    val courses: List<Course> = AllCoursesProvider()
 
 //    val cCourseProvider = CLangCourseProvider()
 //    // Mutable state for selected course, stage, lesson, and sub-lesson
@@ -53,30 +50,30 @@ class CourseViewModel @Inject constructor(
 //        )
 //    )
 
-    val cPPCourseProvider = CPPCourseProvider()
-    // Mutable state for selected course, stage, lesson, and sub-lesson
-    private val _selectedCourse = MutableStateFlow<Course?>(
-        Course(
-            id = "cpp_course",
-            language = "C++",
-            stages = listOf(
-                cppBeginnerCourse(),
-                cppIntermediateCourse(),
-                cppAdvancedCourse(),
-                cPPCourseProvider.CPPExpertCourse()
-            )
-        )
-    )
-    private val _selectedStage = MutableStateFlow<Stage?>(
-        Stage(
-            id = "cpp_beginner_stage",
-            title = "Beginner",
-            lessons = cppBeginnerCourse().lessons,
-        )
-    )
+//    val cPPCourseProvider = CPPCourseProvider()
+//    // Mutable state for selected course, stage, lesson, and sub-lesson
+//    private val _selectedCourse = MutableStateFlow<Course?>(
+//        Course(
+//            id = "cpp_course",
+//            language = "C++",
+//            stages = listOf(
+//                cppBeginnerCourse(),
+//                cppIntermediateCourse(),
+//                cppAdvancedCourse(),
+//                cppExpertCourse()
+//            )
+//        )
+//    )
+//    private val _selectedStage = MutableStateFlow<Stage?>(
+//        Stage(
+//            id = "cpp_expert_stage",
+//            title = "Expert",
+//            lessons = cppExpertCourse().lessons,
+//        )
+//    )
 //
-//    private val _selectedCourse = MutableStateFlow<Course?>(null)
-//    private val _selectedStage = MutableStateFlow<Stage?>(null)
+    private val _selectedCourse = MutableStateFlow<Course?>(null)
+    private val _selectedStage = MutableStateFlow<Stage?>(null)
 
 
     private val _selectedLesson = MutableStateFlow<Lesson?>(null)
@@ -341,139 +338,8 @@ class CourseViewModel @Inject constructor(
     }
 
 
-//
-//    // Save completion status to SharedPreferences
-//    private fun saveLessonCompletionStatus() {
-//        val completionStatusJson = gson.toJson(_lessonCompletionStatus.value)
-//        sharedPreferences.edit().putString("lesson_completion_status", completionStatusJson).apply()
-//    }
-//
-//    // Load completion status from SharedPreferences
-//    private fun loadLessonCompletionStatus() {
-//        val completionStatusJson = sharedPreferences.getString("lesson_completion_status", null)
-//        val type = object : TypeToken<Map<String, LessonStatus>>() {}.type
-//        val loadedStatus =
-//            completionStatusJson?.let { gson.fromJson<Map<String, LessonStatus>>(it, type) }
-//
-//        _lessonCompletionStatus.value = loadedStatus ?: emptyMap()
-//    }
-//
-//
-//    // Function to mark a sub-lesson as completed and handle progression logic
-//    fun markSubLessonAsCompleted(subLessonId: String, lessonId: String) {
-//        val updatedCompletionStatus = _lessonCompletionStatus.value.toMutableMap()
-//
-//        // Mark the sub-lesson as completed if not already completed
-//        if (updatedCompletionStatus[subLessonId] != LessonStatus.COMPLETED) {
-//            updatedCompletionStatus[subLessonId] = LessonStatus.COMPLETED
-//            _lessonCompletionStatus.value = updatedCompletionStatus
-//            Log.d("SubLesson Completed", subLessonId)
-//        }
-//
-//        // Process lesson-level completion and unlocking logic
-//        val lesson = findLessonById(lessonId)
-//        lesson?.let {
-//            // Check if all sub-lessons are completed
-//            val allSubLessonsCompleted = it.subLessons.all { subLesson ->
-//                updatedCompletionStatus[subLesson.id] == LessonStatus.COMPLETED
-//            }
-//            if (allSubLessonsCompleted && updatedCompletionStatus[lesson.id] != LessonStatus.COMPLETED) {
-//                updatedCompletionStatus[lesson.id] = LessonStatus.COMPLETED
-//                _lessonCompletionStatus.value = updatedCompletionStatus
-//                Log.d("Lesson Completed", lesson.id)
-//                unlockNextLesson(it) // Unlock the next lesson if necessary
-//            }
-//
-//            // Unlock the next sub-lesson if applicable
-//            unlockNextSubLesson(it, subLessonId)
-//        }
-//
-//        // Save the updated state
-//        saveLessonCompletionStatus()
-//    }
-//
-//    // Function to unlock the next lesson and its first sub-lesson
-//    private fun unlockNextLesson(currentLesson: Lesson) {
-//        val stage = getCurrentStage()
-//        val currentLessonIndex = stage?.lessons?.indexOfFirst { it.id == currentLesson.id } ?: -1
-//
-//        if (currentLessonIndex >= 0 && currentLessonIndex < (stage?.lessons?.size ?: 0) - 1) {
-//            val nextLesson = stage?.lessons?.get(currentLessonIndex + 1)
-//            val updatedCompletionStatus = _lessonCompletionStatus.value.toMutableMap()
-//
-//            if (nextLesson != null && updatedCompletionStatus[nextLesson.id] != LessonStatus.ACTIVE) {
-//                updatedCompletionStatus[nextLesson.id] = LessonStatus.ACTIVE
-//                _lessonCompletionStatus.value = updatedCompletionStatus
-//                Log.d("Next Lesson Unlocked", nextLesson.id)
-//
-//                // Unlock the first sub-lesson
-//                nextLesson.subLessons.firstOrNull()?.let { firstSubLesson ->
-//                    if (updatedCompletionStatus[firstSubLesson.id] != LessonStatus.ACTIVE) {
-//                        updatedCompletionStatus[firstSubLesson.id] = LessonStatus.ACTIVE
-//                        _lessonCompletionStatus.value = updatedCompletionStatus
-//                        Log.d("First SubLesson Unlocked", firstSubLesson.id)
-//                    }
-//                }
-//            }
-//
-//            // Save the updated state
-//            saveLessonCompletionStatus()
-//        }
-//    }
-//
-//    // Function to unlock the next sub-lesson within the current lesson
-//    private fun unlockNextSubLesson(currentLesson: Lesson, currentSubLessonId: String) {
-//        val currentSubLessonIndex =
-//            currentLesson.subLessons.indexOfFirst { it.id == currentSubLessonId }
-//
-//        if (currentSubLessonIndex >= 0 && currentSubLessonIndex < currentLesson.subLessons.size - 1) {
-//            val nextSubLesson = currentLesson.subLessons[currentSubLessonIndex + 1]
-//            val updatedCompletionStatus = _lessonCompletionStatus.value.toMutableMap()
-//
-//            // Check the status of the next sub-lesson
-//            val nextSubLessonStatus = updatedCompletionStatus[nextSubLesson.id]
-//
-//            // Unlock the next sub-lesson if its status is null or LOCKED
-//            if (nextSubLessonStatus == null || nextSubLessonStatus == LessonStatus.LOCKED) {
-//                updatedCompletionStatus[nextSubLesson.id] = LessonStatus.ACTIVE
-//                _lessonCompletionStatus.value = updatedCompletionStatus
-//                Log.d("Next SubLesson Unlocked", nextSubLesson.id)
-//            } else {
-//                Log.d(
-//                    "Next SubLesson Skipped",
-//                    "Next SubLesson: ${nextSubLesson.id} - Already $nextSubLessonStatus"
-//                )
-//            }
-//
-//            // Save the updated state
-//            saveLessonCompletionStatus()
-//        }
-//    }
-//
-//    // Function to update lesson completion status
-//    fun updateLessonCompletionStatus() {
-//        val updatedCompletionStatus = _lessonCompletionStatus.value.toMutableMap()
-//        val lesson = getCurrentLesson()
-//
-//        lesson?.let {
-//            val allSubLessonsCompleted = it.subLessons.all { subLesson ->
-//                updatedCompletionStatus[subLesson.id] == LessonStatus.COMPLETED
-//            }
-//            if (allSubLessonsCompleted && updatedCompletionStatus[it.id] != LessonStatus.COMPLETED) {
-//                updatedCompletionStatus[it.id] = LessonStatus.COMPLETED
-//                _lessonCompletionStatus.value = updatedCompletionStatus
-//                Log.d("Lesson Updated", "Completed: ${it.id}")
-//
-//                // Save the updated state
-//                saveLessonCompletionStatus()
-//            }
-//        }
-//    }
-//
-
-
     //Sample course
-    fun createBeginnerCProgrammingCourse(): List<Course> {
+    fun AllCoursesProvider(): List<Course> {
         val cCourse = CLangCourseProvider()
         val cppCourse = CPPCourseProvider()
 

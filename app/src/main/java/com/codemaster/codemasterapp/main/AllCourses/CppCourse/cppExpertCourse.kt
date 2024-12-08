@@ -43,7 +43,7 @@ fun cppExpertCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 2: What is Problem-Solving?
@@ -66,7 +66,7 @@ fun cppExpertCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 3: Tips for Problem-Solving
@@ -100,7 +100,7 @@ fun cppExpertCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 4: What to Expect in the Expert Stage
@@ -123,7 +123,7 @@ fun cppExpertCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Quiz Time!"
@@ -148,7 +148,7 @@ fun cppExpertCourse(): Stage {
                         type = LessonContentType.QUIZ
                     )
                 ),
-                status = LessonStatus.COMPLETED
+               status = LessonStatus.ACTIVE
             ),
 
             // Lesson 2 : Easy Peasy - Problems
@@ -178,7 +178,7 @@ fun cppExpertCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 2: Hint for Solving Problem 1
@@ -195,7 +195,7 @@ fun cppExpertCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 3: Solution for Problem 1
@@ -225,7 +225,7 @@ fun cppExpertCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 4: Explanation of the Code for Problem
@@ -248,7 +248,7 @@ fun cppExpertCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Quiz Time!"
@@ -295,7 +295,7 @@ fun cppExpertCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 6: Hint for Solving Problem 2
@@ -312,7 +312,7 @@ fun cppExpertCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 7: Solution for Problem 2
@@ -343,7 +343,7 @@ fun cppExpertCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 8: Explanation of the Code for Problem 2
@@ -369,7 +369,7 @@ fun cppExpertCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
 
@@ -393,7 +393,7 @@ fun cppExpertCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
 
@@ -422,11 +422,11 @@ fun cppExpertCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     ),
-                status = LessonStatus.COMPLETED
+               status = LessonStatus.LOCKED
             ),
 
             // Lesson 3 : THE MATH
@@ -455,7 +455,7 @@ fun cppExpertCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 2: Hint for Solving Problem 1
@@ -472,7 +472,7 @@ fun cppExpertCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 3: Solution for Problem 1
@@ -502,7 +502,7 @@ fun cppExpertCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 4: Explanation of the Code for Problem 1
@@ -525,7 +525,7 @@ fun cppExpertCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 5: Quiz Time!
@@ -548,7 +548,7 @@ fun cppExpertCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 6: Problem 2 - Calculate the Average of Three Numbers
@@ -575,7 +575,7 @@ fun cppExpertCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 7: Hint for Solving Problem 2
@@ -592,7 +592,7 @@ fun cppExpertCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 8: Solution for Problem 2
@@ -621,7 +621,7 @@ fun cppExpertCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 9: Explanation of the Code for Problem 2
@@ -644,7 +644,7 @@ fun cppExpertCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 10: Quiz Time!
@@ -667,7 +667,7 @@ fun cppExpertCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 11: Practice Time!
@@ -690,10 +690,10 @@ fun cppExpertCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
                 ),
-                status = LessonStatus.COMPLETED
+               status = LessonStatus.LOCKED
             ),
 
 
@@ -718,7 +718,7 @@ fun cppExpertCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 2: Hint for Solving Problem
@@ -735,7 +735,7 @@ fun cppExpertCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 3: Solution for Problem
@@ -766,7 +766,7 @@ fun cppExpertCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 4: Explanation of the Code
@@ -789,7 +789,7 @@ fun cppExpertCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 5: Quiz Time!
@@ -812,7 +812,7 @@ fun cppExpertCourse(): Stage {
                             ),
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 6: Practice Time!
@@ -835,11 +835,11 @@ fun cppExpertCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     )
 
                 ),
-                status = LessonStatus.COMPLETED
+               status = LessonStatus.LOCKED
             ),
 
             // Lesson 5 : Grade Evaluation
@@ -867,7 +867,7 @@ fun cppExpertCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 2: Hint for Solving the Problem
@@ -884,7 +884,7 @@ fun cppExpertCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 3: Solution for the Problem
@@ -924,7 +924,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 4: Explanation of the Code
@@ -947,7 +947,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 5: Quiz Time!
@@ -970,7 +970,7 @@ int main() {
                             ),
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 6: Practice Time
@@ -993,10 +993,10 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
                 ),
-                status = LessonStatus.COMPLETED
+               status = LessonStatus.LOCKED
             ),
 
 
@@ -1027,7 +1027,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 2: Hint for Solving the Problem
@@ -1048,7 +1048,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 3: Solution for the Problem
@@ -1105,7 +1105,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 4: Explanation of the Code
@@ -1128,7 +1128,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 5: Quiz Time!
@@ -1151,7 +1151,7 @@ int main() {
                             ),
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 6: Practice Time
@@ -1174,10 +1174,10 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
                 ),
-                status = LessonStatus.COMPLETED
+               status = LessonStatus.LOCKED
             ),
 
             // Lesson 7 : Multiplication Table
@@ -1207,7 +1207,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 2: Hint for Solving the Problem
@@ -1224,7 +1224,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 3: Solution for the Problem
@@ -1249,7 +1249,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 4: Explanation of the Code
@@ -1273,7 +1273,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 5: Quiz Time!
@@ -1296,10 +1296,10 @@ int main() {
                             ),
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
                 ),
-                status = LessonStatus.COMPLETED
+               status = LessonStatus.LOCKED
             ),
 
             // Lesson 8: Sum of First 10 Numbers
@@ -1324,7 +1324,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 2: Hint for Solving the Problem
@@ -1341,7 +1341,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 3: Solution for the Problem
@@ -1371,7 +1371,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 4: Explanation of the Code
@@ -1394,7 +1394,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 5: Quiz Time!
@@ -1417,7 +1417,7 @@ int main() {
                             ),
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 6: Practice Time
@@ -1440,10 +1440,10 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
                 ),
-                status = LessonStatus.COMPLETED
+               status = LessonStatus.LOCKED
             ),
 
             // Lesson 9 : Triangle Star Pattern in C++
@@ -1473,7 +1473,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 2: Hint for Solving the Problem
@@ -1490,7 +1490,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 3: Solution for the Problem
@@ -1520,7 +1520,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 4: Explanation of the Code
@@ -1546,7 +1546,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 3: Solution for the Problem2
@@ -1585,7 +1585,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 3: Solution for the Problem2
@@ -1624,7 +1624,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
 
@@ -1648,7 +1648,7 @@ int main() {
                             ),
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 6: Practice Time
@@ -1671,10 +1671,10 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
                 ),
-                status = LessonStatus.COMPLETED
+               status = LessonStatus.LOCKED
             ),
 
             // Lesson 10 : Pyramid Star Pattern in C++
@@ -1704,7 +1704,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 2: Hint for Solving the Problem
@@ -1721,7 +1721,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 3: Solution for the Problem
@@ -1758,7 +1758,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 4: Explanation of the Code
@@ -1784,7 +1784,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
 
@@ -1832,7 +1832,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 5: Quiz Time!
@@ -1855,7 +1855,7 @@ int main() {
                             ),
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 6: Practice Time
@@ -1878,10 +1878,10 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
                 ),
-                status = LessonStatus.COMPLETED
+               status = LessonStatus.LOCKED
             )
 
         )

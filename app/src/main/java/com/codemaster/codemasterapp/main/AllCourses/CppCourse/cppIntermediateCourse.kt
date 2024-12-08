@@ -42,7 +42,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 2: Reflecting on the Journey So Far
@@ -65,7 +65,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 3: What to Expect in Intermediate
@@ -90,7 +90,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 4: Are You Ready for the Challenge?
@@ -113,7 +113,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 5: What’s Coming Up?
@@ -136,10 +136,10 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     )
                 ),
-                status = LessonStatus.COMPLETED
+                status = LessonStatus.ACTIVE
             ),
 
             // Lesson 2 : Loops in C++
@@ -168,7 +168,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 2: The Purpose of Loops (Why loop, though?)
@@ -191,7 +191,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 3: How Loops Make Life Easier (No more copying and pasting!)
@@ -214,7 +214,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 4: Types of Loops (The loop family!)
@@ -249,7 +249,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 5: Which Loop to Use? (Loop decision-making!)
@@ -272,7 +272,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 6: Bored Yet? (Spoiler: We’ll code it all soon!)
@@ -289,7 +289,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
 
@@ -314,7 +314,7 @@ fun cppIntermediateCourse(): Stage {
                     ),
 
                     ),
-                status = LessonStatus.COMPLETED
+                status = LessonStatus.LOCKED
             ),
 
             // Lesson 3: For Loops in C++
@@ -344,7 +344,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 2: Understanding For Loop Syntax
@@ -388,7 +388,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 3: Running the Loop 🤖
@@ -418,7 +418,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Content 4: Interactive Input Block
@@ -473,7 +473,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 5: Infinite Loops (Don’t Get Stuck!) ⚠️
@@ -503,7 +503,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
 
@@ -556,7 +556,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 7: Looping Through Arrays 🌐
@@ -593,7 +593,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Content for Infinite Loop Quiz
@@ -617,7 +617,7 @@ fun cppIntermediateCourse(): Stage {
                     )
 
                 ),
-                status = LessonStatus.COMPLETED
+                status = LessonStatus.LOCKED
             ),
 
             // Lesson 4 : While loops
@@ -647,7 +647,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 2: Basic Syntax of a While Loop
@@ -673,7 +673,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 3: Simple Practice Challenge!
@@ -690,7 +690,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Content 4: Interactive Input Block
@@ -747,7 +747,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 5: Using While Loop for User Input
@@ -779,7 +779,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Content for Basic while Loop Quiz 1
@@ -832,7 +832,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 7: Exit Condition in While Loops
@@ -864,7 +864,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Content for Infinite while Loop Quiz 2
@@ -887,7 +887,7 @@ fun cppIntermediateCourse(): Stage {
                     )
 
                 ),
-                status = LessonStatus.COMPLETED
+                status = LessonStatus.LOCKED
             ),
 
             // Lesson 5: Understanding Do-While Loops
@@ -917,7 +917,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 2: Funny Example of Do-While Loop
@@ -950,7 +950,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Quiz Time!"
@@ -997,7 +997,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 4: Common Use Cases for Do-While Loops
@@ -1020,7 +1020,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
 
@@ -1044,7 +1044,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
 
@@ -1103,7 +1103,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Final Comparison: Do-While, While, and For Loops (2 Lines Each)
@@ -1132,7 +1132,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Quiz Time: Do-While vs While"
@@ -1158,7 +1158,7 @@ fun cppIntermediateCourse(): Stage {
                     )
 
                 ),
-                status = LessonStatus.COMPLETED
+                status = LessonStatus.LOCKED
             ),
 
             // Additional Lesson 6: Practice Makes Perfect - Mastering Loops
@@ -1187,7 +1187,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 2: Keep It Going!
@@ -1210,7 +1210,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 3: Don't Rush It!
@@ -1233,10 +1233,10 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     )
                 ),
-                status = LessonStatus.COMPLETED
+                status = LessonStatus.LOCKED
             ),
 
             // Lesson 7: Understanding Break and Continue in Loops
@@ -1266,7 +1266,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 2: What are Break and Continue?
@@ -1283,7 +1283,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Quiz Time!"
@@ -1333,7 +1333,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 4: Using Break in While Loops
@@ -1363,7 +1363,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Complete the code to exit loop at i = 50"
@@ -1418,7 +1418,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 6: Using Continue in While Loops
@@ -1448,7 +1448,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Complete the code to exit loop at i = 50"
@@ -1505,7 +1505,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Break and Continue Quiz"
@@ -1528,7 +1528,7 @@ fun cppIntermediateCourse(): Stage {
                         type = LessonContentType.QUIZ
                     )
                 ),
-                status = LessonStatus.COMPLETED
+                status = LessonStatus.LOCKED
             ),
 
             // Lesson 8: Arrays
@@ -1558,7 +1558,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 2: Why Are Arrays Important?
@@ -1581,7 +1581,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
                     // Content for "Array Quiz"
                     LessonContent(
@@ -1633,7 +1633,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 4: Accessing Elements in an Array
@@ -1663,7 +1663,7 @@ fun cppIntermediateCourse(): Stage {
                             ),
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Content 4: Interactive Input Block
@@ -1722,7 +1722,7 @@ fun cppIntermediateCourse(): Stage {
                         ),
 
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 6: Array Length and Iteration
@@ -1750,7 +1750,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 7: Common Array Operations
@@ -1774,7 +1774,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Content 4: Interactive Input Block
@@ -1800,7 +1800,7 @@ fun cppIntermediateCourse(): Stage {
                         status = LessonStatus.ACTIVE
                     ),
                 ),
-                status = LessonStatus.COMPLETED
+                status = LessonStatus.LOCKED
             ),
 
             // Lesson 9: Multi dimensional Arrays
@@ -1834,7 +1834,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 2: What Are Multi-dimensional Arrays?
@@ -1861,7 +1861,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Quiz Time!"
@@ -1912,7 +1912,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 4: Accessing Elements in a 2D Array
@@ -1941,7 +1941,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Content 4: Interactive Input Block
@@ -1990,7 +1990,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 6: Iterating Through a 2D Array
@@ -2027,7 +2027,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Quiz Time!"
@@ -2069,7 +2069,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 8: Keep Practicing
@@ -2098,11 +2098,11 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     )
 
                 ),
-                status = LessonStatus.COMPLETED
+                status = LessonStatus.LOCKED
             ),
 
             // Lesson 10: Structures in c++
@@ -2134,7 +2134,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 2: Declaring and Using Structures
@@ -2178,7 +2178,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Quiz Time!"
@@ -2236,7 +2236,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 4: Structures in Action
@@ -2278,7 +2278,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Content 4: Interactive Input Block
@@ -2330,7 +2330,7 @@ int main () {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Final Quiz: Mastering Structures"
@@ -2355,7 +2355,7 @@ int main () {
                         type = LessonContentType.QUIZ
                     )
                 ),
-                status = LessonStatus.COMPLETED
+                status = LessonStatus.LOCKED
             ),
 
             // Lesson 11: Diving Deeper into Structures
@@ -2398,7 +2398,7 @@ int main () {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 2: Nested Structures
@@ -2440,7 +2440,7 @@ int main () {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 3: Arrays of Structures
@@ -2480,7 +2480,7 @@ int main () {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 4: Time to Practice and Prep for Enums!
@@ -2505,12 +2505,12 @@ int main () {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     )
 
 
                 ),
-                status = LessonStatus.COMPLETED
+                status = LessonStatus.LOCKED
             ),
 
             // Lesson 12: Enums - The Power of Constant Values
@@ -2541,7 +2541,7 @@ int main () {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 2: Why Use Enums?
@@ -2563,7 +2563,7 @@ int main () {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
 
@@ -2625,7 +2625,7 @@ int main () {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 4: Using Enums
@@ -2662,7 +2662,7 @@ int main () {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Content 4: Interactive Input Block
@@ -2738,7 +2738,7 @@ int main () {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 6: Practice Time!
@@ -2761,10 +2761,10 @@ int main () {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     )
                 ),
-                status = LessonStatus.COMPLETED
+                status = LessonStatus.LOCKED
             ),
 
             // Lesson 13: Reference in C++
@@ -2788,7 +2788,7 @@ int main () {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 2: Why References Matter
@@ -2805,7 +2805,7 @@ int main () {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Quiz Time!"
@@ -2862,7 +2862,7 @@ int main () {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 4: Changing Data Through References
@@ -2897,7 +2897,7 @@ int main () {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
 // Content 4: Interactive Input Block
@@ -2946,7 +2946,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
 
@@ -2978,7 +2978,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Final Sub-lesson 7: Pointers Are Coming!
@@ -3000,10 +3000,10 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
                 ),
-                status = LessonStatus.COMPLETED
+                status = LessonStatus.LOCKED
             ),
 
             // Lesson 14: Pointers in C++
@@ -3038,7 +3038,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 2: Declaring and Using Pointers
@@ -3068,7 +3068,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 3: Dereferencing Pointers
@@ -3096,7 +3096,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Content 4: Interactive Input Block
@@ -3150,7 +3150,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 5: Pointers and Arrays
@@ -3181,7 +3181,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 6: Modifying Pointer Values
@@ -3219,7 +3219,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 7: Pointers and Dynamic Memory Management
@@ -3250,7 +3250,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Quiz Time!"
@@ -3296,10 +3296,10 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
                 ),
-                status = LessonStatus.COMPLETED
+                status = LessonStatus.LOCKED
             ),
 
             // Lesson 15: Functions in C++
@@ -3327,7 +3327,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 2: Declaring a Simple Function
@@ -3358,7 +3358,7 @@ int main() {
                             ),
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 3: Calling Your Function
@@ -3387,7 +3387,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Content 4: Interactive Input Block
@@ -3447,7 +3447,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
 
@@ -3488,7 +3488,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
 
@@ -3510,7 +3510,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
 
@@ -3532,7 +3532,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Quiz Time!"
@@ -3557,7 +3557,7 @@ int main() {
                         type = LessonContentType.QUIZ
                     )
                 ),
-                status = LessonStatus.COMPLETED
+                status = LessonStatus.LOCKED
             ),
 
             // Lesson 16: Function Parameters in C++
@@ -3585,7 +3585,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 2: Basic Syntax of Function Parameters
@@ -3617,7 +3617,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 3: Parameters vs Arguments
@@ -3651,7 +3651,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Content 4: Interactive Input Block
@@ -3713,7 +3713,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 5: Using Parameters to Perform Tasks
@@ -3747,7 +3747,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 6: Using Default Parameters
@@ -3781,7 +3781,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Final Quiz: Function Parameters"
@@ -3824,11 +3824,11 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     )
 
                 ),
-                status = LessonStatus.COMPLETED
+                status = LessonStatus.LOCKED
             ),
 
 
@@ -3857,7 +3857,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 2: Basic Syntax of Return Functions
@@ -3894,7 +3894,7 @@ int main() {
                             ),
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Content 4: Interactive Input Block
@@ -3955,7 +3955,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 4: Using Return Functions with Multiple Parameters
@@ -3988,7 +3988,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-Lesson 5:
@@ -4024,7 +4024,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Quiz Time!"
@@ -4067,11 +4067,11 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     )
 
                 ),
-                status = LessonStatus.COMPLETED
+                status = LessonStatus.LOCKED
             ),
 
             // Lesson 18: Pass Array to a Function
@@ -4109,7 +4109,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 2: Call the Function with an Array
@@ -4137,7 +4137,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 3: Return a Specific Index from an Array
@@ -4160,7 +4160,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 4: Call the Function and Get the Returned Value
@@ -4189,7 +4189,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Quiz Time!"
@@ -4232,10 +4232,10 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     )
                 ),
-                status = LessonStatus.COMPLETED
+                status = LessonStatus.LOCKED
             ),
 
             // Lesson 19: C++ Variable Scope
@@ -4263,7 +4263,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 2: Local Scope
@@ -4298,7 +4298,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 3: Global Scope
@@ -4334,7 +4334,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Quiz Time!"
@@ -4393,7 +4393,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 5: Best Practices for Scope
@@ -4430,7 +4430,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Quiz Time!"
@@ -4456,7 +4456,7 @@ int main() {
                     )
 
                 ),
-                status = LessonStatus.COMPLETED
+                status = LessonStatus.LOCKED
             ),
 
 
@@ -4488,7 +4488,7 @@ int main() {
 
                             ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 2: Basic Example of Recursion
@@ -4526,7 +4526,7 @@ int main() {
                         ),
 
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 3: How Does Recursion Work?
@@ -4548,7 +4548,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Quiz Time!"
@@ -4598,7 +4598,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 5: Common Pitfalls of Recursion
@@ -4631,7 +4631,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 6: Debugging Recursion
@@ -4666,7 +4666,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Quiz Time!"
@@ -4710,11 +4710,11 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     )
 
                 ),
-                status = LessonStatus.COMPLETED
+                status = LessonStatus.LOCKED
             ),
 
             // Final Quiz Lesson for Beginner C++ Stage
@@ -4744,7 +4744,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-Lesson 2: C++ Comments Quiz
@@ -4767,7 +4767,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-Lesson 3: C++ Output Quiz
@@ -4790,7 +4790,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-Lesson 4: C++ Variables Quiz 1
@@ -4813,7 +4813,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-Lesson 5: C++ Variables Quiz 2
@@ -4836,7 +4836,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-Lesson 6: C++ Variables Quiz 3
@@ -4859,7 +4859,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-Lesson 7: C++ User Input Quiz
@@ -4882,7 +4882,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-Lesson 8: C++ Data Types Quiz
@@ -4905,7 +4905,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-Lesson 9: C++ Strings Quiz
@@ -4928,7 +4928,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-Lesson 10: C++ Booleans Quiz
@@ -4951,7 +4951,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-Lesson 11: C++ Operators Quiz
@@ -4974,7 +4974,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-Lesson 12: Else If Quiz
@@ -4997,7 +4997,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-Lesson 13: Nested Else If Quiz
@@ -5020,7 +5020,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-Lesson 14: C++ Switch Case Quiz
@@ -5043,10 +5043,10 @@ int main() {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                        status = LessonStatus.LOCKED
                     )
                 ),
-                status = LessonStatus.COMPLETED
+                status = LessonStatus.LOCKED
             )
         )
     )

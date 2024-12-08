@@ -103,9 +103,14 @@ fun LessonListScreen(
     // Fetch the selected stage using the stageId
     val selectedLanguage by courseViewModel.selectedCourse.collectAsState()
     val selectedStage by courseViewModel.selectedStage.collectAsState()
+    val currentStageAllLessons = remember{mutableStateOf(0)}
 
     //context
     val context = LocalContext.current
+
+    LaunchedEffect(Unit) {
+        currentStageAllLessons.value = selectedStage!!.lessons.sumOf { it.lessonContents.size }
+    }
 
     Scaffold(
         containerColor = Color.Transparent,
@@ -203,7 +208,7 @@ fun LessonListScreen(
                     ) {
                         // "28 lessons" Text with gray color
                         Text(
-                            text = "28 lessons",
+                            text = "${currentStageAllLessons.value} lessons",
                             style = MaterialTheme.typography.bodyMedium.copy(
                                 color = Color.Gray,
                             )

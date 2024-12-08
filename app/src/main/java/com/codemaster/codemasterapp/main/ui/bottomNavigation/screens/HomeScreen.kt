@@ -6,6 +6,8 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -14,6 +16,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.codemaster.codemasterapp.R
+import com.codemaster.codemasterapp.main.data.LessonStatus
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.screens.components.HomeScreenCustomTopBar
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.MainRoutes
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.ProfileRoutes
@@ -31,6 +34,11 @@ fun HomeScreen(
     courseViewModel: CourseViewModel
 ) {
     val scrollState = rememberScrollState()
+    val completedLessonCount = remember{ mutableStateOf(0) }
+
+
+
+
     Scaffold(
         containerColor = Color.Transparent,
         topBar = {
@@ -88,11 +96,14 @@ fun HomeScreen(
                     horizontalArrangement = Arrangement.spacedBy(10.dp)
                 ) {
                     courses.take(2).forEach { course ->
+                        completedLessonCount.value = course.stages.sumOf { stage ->
+                            stage.lessons.count { lesson -> lesson.status == LessonStatus.COMPLETED }
+                        }
                         LanguageCardDesign(
                             languageName = course.language,
                             difficulty = "Beginner",
-                            lessonCount = 40,
-                            completedLessonCount = 20,
+                            lessonCount = course.stages.sumOf{it.lessons.size},
+                            completedLessonCount = completedLessonCount.value,
                             gradientColors = listOf(purpleKt, yellowishKt),
                             languageImage = painterResource(id = R.drawable.kotlin),
                             onClick = {
@@ -129,7 +140,7 @@ fun HomeScreen(
                         LanguageCardDesign(
                             languageName = course.language,
                             difficulty = "Beginner",
-                            lessonCount = 40,
+                            lessonCount = course.stages.sumOf{it.lessons.size},
                             completedLessonCount = 30,
                             gradientColors = listOf(bluishPython, greenishPython),
                             languageImage = painterResource(id = R.drawable.pythonlogo),

@@ -49,7 +49,7 @@ fun cppAdvancedCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 2: The Importance of Practice
@@ -72,7 +72,7 @@ fun cppAdvancedCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 3: What’s Coming Up – A Glimpse of OOP
@@ -89,7 +89,7 @@ fun cppAdvancedCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 4: Your Journey So Far
@@ -106,7 +106,7 @@ fun cppAdvancedCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 5: Stay Consistent – Practice Makes Perfect
@@ -123,7 +123,7 @@ fun cppAdvancedCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 6: A Final Push – Your OOP Journey Begins
@@ -140,10 +140,10 @@ fun cppAdvancedCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     )
                 ),
-                status = LessonStatus.COMPLETED
+               status = LessonStatus.ACTIVE
             ),
 
             // Lesson 2: Introduction to OOP
@@ -176,7 +176,7 @@ fun cppAdvancedCourse(): Stage {
                             ),
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 2: What is a Class?
@@ -199,7 +199,7 @@ fun cppAdvancedCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 3: What is an Object?
@@ -222,7 +222,7 @@ fun cppAdvancedCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 4: Why Do We Need Classes and Objects?
@@ -245,7 +245,7 @@ fun cppAdvancedCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 5: Let’s Get Started with OOP!
@@ -262,7 +262,7 @@ fun cppAdvancedCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Quiz Time!"
@@ -287,7 +287,7 @@ fun cppAdvancedCourse(): Stage {
                         type = LessonContentType.QUIZ
                     )
                 ),
-                status = LessonStatus.COMPLETED
+               status = LessonStatus.LOCKED
             ),
 
             //Lesson 3: Classes & Objects in C++
@@ -322,7 +322,7 @@ fun cppAdvancedCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Quiz Time!"
@@ -372,7 +372,7 @@ class MyClass {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 3: Creating an Object
@@ -399,7 +399,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content 4: Interactive Input Block
@@ -461,7 +461,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 5: Creating Multiple Objects
@@ -497,7 +497,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 6: Printing Class Values
@@ -540,7 +540,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Quiz Time!"
@@ -585,10 +585,10 @@ int main() {
                             )
                         ),
                         type = LessonContentType.INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     )
                 ),
-                status = LessonStatus.COMPLETED
+               status = LessonStatus.LOCKED
             ),
 
             //Lesson 4: Class Method in C++
@@ -618,7 +618,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Quiz Time!"
@@ -668,7 +668,7 @@ class MyClass {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 3: Accessing Methods
@@ -694,7 +694,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 4: Full Example with Main Function
@@ -734,7 +734,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content 4: Interactive Input Block
@@ -788,10 +788,10 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     )
                 ),
-                status = LessonStatus.COMPLETED
+               status = LessonStatus.LOCKED
             ),
 
             // Lesson 5: Constructors in C++
@@ -824,7 +824,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 2: Creating a Constructor
@@ -863,7 +863,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 3: Parameterized Constructors
@@ -901,7 +901,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content 4: Interactive Input Block
@@ -972,7 +972,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 5: Using Multiple Constructors
@@ -1023,7 +1023,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 6: Why Use Multiple Constructors?
@@ -1049,7 +1049,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Quiz Time!"
@@ -1089,10 +1089,10 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     )
                 ),
-                status = LessonStatus.COMPLETED
+               status = LessonStatus.LOCKED
             ),
 
             // Lesson 6: C++ Access Specifiers
@@ -1126,7 +1126,7 @@ int main() {
                             ),
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 2: Public Access Specifier
@@ -1163,7 +1163,7 @@ int main () {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 3: Private Access Specifier
@@ -1205,7 +1205,7 @@ int main () {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 4: Protected Access Specifier
@@ -1243,7 +1243,7 @@ int main () {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 5: Default Access Specifier
@@ -1280,7 +1280,7 @@ int main () {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content 4: Interactive Input Block
@@ -1328,7 +1328,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
 
@@ -1346,11 +1346,11 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     )
 
                 ),
-                status = LessonStatus.COMPLETED
+               status = LessonStatus.LOCKED
             ),
 
             // Lesson 7: C++ Setters and Getters
@@ -1380,7 +1380,7 @@ int main() {
                             ),
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Quiz Time!"
@@ -1452,7 +1452,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 3: Why Use Setters and Getters?
@@ -1511,7 +1511,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content 4: Interactive Input Block
@@ -1564,7 +1564,7 @@ public:
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 6: Correct Structure with Access Specifiers
@@ -1604,7 +1604,7 @@ int main() {
                             ),
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 7: Quick Practice
@@ -1621,11 +1621,11 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     )
 
                 ),
-                status = LessonStatus.COMPLETED
+               status = LessonStatus.LOCKED
             ),
 
             // Lesson 8: C++ Inheritance
@@ -1655,7 +1655,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 2: Why is Inheritance Important?
@@ -1678,7 +1678,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Quiz Time!"
@@ -1740,7 +1740,7 @@ class Car : public Vehicle {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 4: Inheritance with Members and Methods
@@ -1789,7 +1789,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 5: Constructors and Using Them in Inheritance
@@ -1856,7 +1856,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
 
@@ -1915,11 +1915,11 @@ class Car ___ public Vehicle {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     )
 
                 ),
-                status = LessonStatus.COMPLETED
+               status = LessonStatus.LOCKED
             ),
 
             // Lesson 9 : C++ Multilevel Inheritance
@@ -1949,7 +1949,7 @@ class Car ___ public Vehicle {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 2: How Multilevel Inheritance Works
@@ -2007,7 +2007,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 3: Why Use Multilevel Inheritance?
@@ -2034,7 +2034,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 4: When Not to Use Multilevel Inheritance
@@ -2061,7 +2061,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Quiz Time!"
@@ -2112,11 +2112,11 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     )
 
                 ),
-                status = LessonStatus.COMPLETED
+               status = LessonStatus.LOCKED
             ),
 
             // Lesson 10 : C++ Multiple Inheritance
@@ -2151,7 +2151,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 2: How Multiple Inheritance Works
@@ -2213,7 +2213,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 3: Why Use Multiple Inheritance?
@@ -2236,7 +2236,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content 4: Interactive Input Block
@@ -2342,7 +2342,7 @@ public:
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 5: Virtual Inheritance to Solve the Diamond Problem
@@ -2399,7 +2399,7 @@ public:
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content: Simple Quiz on Multiple Inheritance
@@ -2454,11 +2454,11 @@ public:
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     )
 
                 ),
-                status = LessonStatus.COMPLETED
+               status = LessonStatus.LOCKED
             ),
 
             // Lesson 11: Encapsulation in C++
@@ -2493,7 +2493,7 @@ public:
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 2: Key Features of Encapsulation
@@ -2521,7 +2521,7 @@ public:
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content: Simple Quiz on Encapsulation
@@ -2606,7 +2606,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 4: Benefits of Encapsulation
@@ -2627,7 +2627,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Quiz Time!"
@@ -2674,10 +2674,10 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     )
                 ),
-                status = LessonStatus.COMPLETED
+               status = LessonStatus.LOCKED
             ),
 
             // Lesson 12: Polymorphism in C++
@@ -2710,7 +2710,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 2: Types of Polymorphism
@@ -2741,7 +2741,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Quiz Time!"
@@ -2806,7 +2806,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 4: Runtime Polymorphism Example
@@ -2864,7 +2864,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 5: Benefits of Polymorphism
@@ -2886,7 +2886,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Quiz Time!"
@@ -2937,10 +2937,10 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     )
                 ),
-                status = LessonStatus.COMPLETED
+               status = LessonStatus.LOCKED
             ),
 
             // Lesson 13: Practice C++ OOP
@@ -2974,7 +2974,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 2: Understanding Classes in C++
@@ -2997,7 +2997,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 3: Members and Methods in C++ Classes
@@ -3020,7 +3020,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 4: Constructors and Destructors
@@ -3046,7 +3046,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 5: Introduction to Inheritance in C++
@@ -3069,7 +3069,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
 //                    // Sub-lesson 5: Polymorphism and Overriding Methods
@@ -3092,7 +3092,7 @@ int main() {
 //                            )
 //                        ),
 //                        type = LessonContentType.NON_INTERACTIVE,
-//                        status = LessonStatus.COMPLETED
+//                       status = LessonStatus.LOCKED
 //                    ),
 
                     // Sub-lesson 6: Multi-Level Inheritance
@@ -3115,7 +3115,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 7: Multiple Inheritance and Virtual Inheritance
@@ -3138,7 +3138,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 8: Abstract Classes and Interfaces
@@ -3161,7 +3161,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 9: Putting It All Together: Building a Project
@@ -3184,7 +3184,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 10: Keep Practicing and Experimenting
@@ -3207,10 +3207,10 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     )
                 ),
-                status = LessonStatus.COMPLETED
+               status = LessonStatus.LOCKED
             ),
 
             // Lesson 14: Advanced C++ Concepts Recap
@@ -3240,7 +3240,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 2: Class Methods in C++
@@ -3263,7 +3263,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 3: Constructors in C++
@@ -3290,7 +3290,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 4: C++ Access Specifiers
@@ -3313,7 +3313,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 5: Setters and Getters in C++
@@ -3336,7 +3336,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 6: Inheritance in C++
@@ -3363,7 +3363,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 7: Multilevel Inheritance in C++
@@ -3386,7 +3386,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 8: Multiple Inheritance in C++
@@ -3409,7 +3409,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 9: Encapsulation in C++
@@ -3432,7 +3432,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 10: Polymorphism in C++
@@ -3455,11 +3455,11 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     )
 
                 ),
-                status = LessonStatus.COMPLETED
+               status = LessonStatus.LOCKED
             ),
 
             // Advanced Quiz Lesson for C++
@@ -3489,7 +3489,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-Lesson 2: Classes & Objects in C++
@@ -3512,7 +3512,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-Lesson 3: Class Methods in C++
@@ -3535,7 +3535,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-Lesson 4: Constructors in C++
@@ -3558,7 +3558,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-Lesson 5: C++ Access Specifiers
@@ -3581,7 +3581,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-Lesson 6: Setters and Getters in C++
@@ -3604,7 +3604,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-Lesson 7: C++ Inheritance
@@ -3627,7 +3627,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-Lesson 8: C++ Multilevel Inheritance
@@ -3650,7 +3650,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-Lesson 9: C++ Multiple Inheritance
@@ -3673,7 +3673,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-Lesson 10: Encapsulation in C++
@@ -3696,7 +3696,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-Lesson 11: Polymorphism in C++
@@ -3719,7 +3719,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-Lesson 12: Practice C++ OOP
@@ -3742,7 +3742,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-Lesson 13: Advanced C++ Concepts Recap
@@ -3765,10 +3765,10 @@ int main() {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     )
                 ),
-                status = LessonStatus.COMPLETED
+               status = LessonStatus.LOCKED
             )
         )
     )

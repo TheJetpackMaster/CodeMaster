@@ -42,7 +42,7 @@ fun cppBeginnerCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 2: Why C++?
@@ -65,7 +65,7 @@ fun cppBeginnerCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 3: History of C++
@@ -88,7 +88,7 @@ fun cppBeginnerCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 4: What's Next in C++?
@@ -111,7 +111,7 @@ fun cppBeginnerCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 5: Get Ready for Action!
@@ -129,7 +129,7 @@ fun cppBeginnerCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 6: QUIZ!
@@ -151,10 +151,10 @@ fun cppBeginnerCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     )
                 ),
-                status = LessonStatus.COMPLETED,
+               status = LessonStatus.ACTIVE,
             ),
 
             // Lesson 2: Getting Started with C++
@@ -184,7 +184,7 @@ fun cppBeginnerCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 2: Installing a C++ Compiler
@@ -213,7 +213,7 @@ fun cppBeginnerCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 3: Your First C++ Program
@@ -237,7 +237,7 @@ fun cppBeginnerCourse(): Stage {
                             ContentBlock.Text(createSimpleText("After writing the code, click 'Build' or 'Run' in your IDE to compile and execute it. You should see 'Hello, World!' printed on the screen."))
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 4: Setting Up Debugging Tools
@@ -251,7 +251,7 @@ fun cppBeginnerCourse(): Stage {
                             ContentBlock.Text(createSimpleText("In this sub-lesson, you’ll learn how to set breakpoints in your IDE and step through your code to understand how it executes."))
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 5: Quiz!
@@ -269,10 +269,10 @@ fun cppBeginnerCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     )
                 ),
-                status = LessonStatus.COMPLETED
+               status = LessonStatus.LOCKED
             ),
 
             // Lesson 3: C++ Basic Syntax
@@ -305,7 +305,7 @@ fun cppBeginnerCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-Lesson 2: The '#include' Directive
@@ -333,7 +333,7 @@ fun cppBeginnerCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-Lesson 3: Understanding the 'main()' Function
@@ -365,7 +365,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-Lesson 4: C++ Statements
@@ -395,7 +395,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-Lesson 5: C++ Single Statement
@@ -419,7 +419,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-Lesson 6: C++ Multiple Statements
@@ -453,7 +453,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
 
@@ -471,7 +471,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-Lesson 8: Quiz
@@ -489,7 +489,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-Lesson 9: Code Block Structure
@@ -525,7 +525,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-Lesson 9: Quiz
@@ -543,10 +543,10 @@ int main() {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     )
                 ),
-                status = LessonStatus.COMPLETED
+               status = LessonStatus.LOCKED
             ),
 
             // Lesson 4: C++ Comments
@@ -577,7 +577,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
                     // Content 2: Single-Line Comments
                     LessonContent(
@@ -605,7 +605,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content 3: Multi-Line Comments
@@ -639,7 +639,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content 4: Interactive Input Block
@@ -681,7 +681,7 @@ int main () {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content 6: Interactive Code Block
@@ -729,7 +729,7 @@ int main () {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-Lesson 8: Quiz
@@ -751,10 +751,10 @@ int main () {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
                 ),
-                status = LessonStatus.COMPLETED
+               status = LessonStatus.LOCKED
             ),
 
             // Lesson 5: C++ Output
@@ -789,7 +789,7 @@ int main () {
                             ),
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Lesson Content 2: Introducing cout
@@ -823,7 +823,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Lesson Content 3: Printing Text
@@ -859,7 +859,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content 4: Interactive Input Block
@@ -916,7 +916,7 @@ int main() {
                             ),
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
 
@@ -952,7 +952,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Lesson Content 6: Using endl
@@ -984,7 +984,7 @@ cout << "Line 1" << endl << "Line 2";
                             ),
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Lesson Content 7: Quiz Time!
@@ -1007,10 +1007,10 @@ cout << "Line 1" << endl << "Line 2";
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     )
                 ),
-                status = LessonStatus.COMPLETED
+               status = LessonStatus.LOCKED
             ),
 
             // Lesson 6 : Variables
@@ -1034,7 +1034,7 @@ cout << "Line 1" << endl << "Line 2";
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content for "What Are Variables?"
@@ -1070,7 +1070,7 @@ cout << "Line 1" << endl << "Line 2";
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Declaring Variables"
@@ -1095,7 +1095,7 @@ cout << "Line 1" << endl << "Line 2";
                             ),
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Initializing Variables"
@@ -1119,7 +1119,7 @@ cout << "Line 1" << endl << "Line 2";
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Quiz Time!"
@@ -1167,7 +1167,7 @@ cout << "Line 1" << endl << "Line 2";
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content 6: Interactive Input Block
@@ -1221,7 +1221,7 @@ int main () {
                             ContentBlock.Text(createSimpleText("In next lesson we have  breakdown of common C++ variable types and how they work!"))
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Data Types Overview
@@ -1266,7 +1266,7 @@ int main () {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Quiz Time!"
@@ -1298,7 +1298,7 @@ int main () {
                         type = LessonContentType.QUIZ
                     )
                 ),
-                status = LessonStatus.COMPLETED
+               status = LessonStatus.LOCKED
             ),
 
             // Lesson 7: More on Variables
@@ -1323,7 +1323,7 @@ int main () {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Outputting Variables"
@@ -1364,7 +1364,7 @@ int main () {
                             ),
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
 
@@ -1403,7 +1403,7 @@ int main () {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content 6: Interactive Input Block
@@ -1454,7 +1454,7 @@ int main () {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Naming Conventions"
@@ -1481,7 +1481,7 @@ int main () {
                             ContentBlock.Text.fromString("Pick a style and stick to it throughout your codebase.")
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Quiz"
@@ -1505,7 +1505,7 @@ int main () {
                         type = LessonContentType.QUIZ
                     )
                 ),
-                status = LessonStatus.COMPLETED
+               status = LessonStatus.LOCKED
             ),
 
             // Lesson 8 : C++ User Input
@@ -1539,7 +1539,7 @@ int main () {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Getting Input with cin"
@@ -1577,7 +1577,7 @@ int main () {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Get a Number from the User"
@@ -1606,7 +1606,7 @@ int main () {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
 
@@ -1671,7 +1671,7 @@ cout << 'Sum is: ' << sum;
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
 //                  Content for "Multiple Inputs"
@@ -1708,7 +1708,7 @@ cout << 'You entered: '<< x <<','<< y <<','<< z;
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content for Quiz Block
@@ -1728,7 +1728,7 @@ cout << 'You entered: '<< x <<','<< y <<','<< z;
                         type = LessonContentType.QUIZ
                     )
                 ),
-                status = LessonStatus.COMPLETED
+               status = LessonStatus.LOCKED
             ),
 
             // Lesson 9: C++ Data types
@@ -1754,7 +1754,7 @@ cout << 'You entered: '<< x <<','<< y <<','<< z;
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Working with Numbers ('int', 'float', 'double')"
@@ -1792,7 +1792,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Quiz Time!"
@@ -1853,7 +1853,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Characters ('char')"
@@ -1884,7 +1884,7 @@ cout << 'Grade: ' << grade << ', Symbol: ' << symbol;
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Strings ('string')"
@@ -1924,7 +1924,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Quiz Block"
@@ -1944,7 +1944,7 @@ int main() {
                         type = LessonContentType.QUIZ
                     )
                 ),
-                status = LessonStatus.COMPLETED
+               status = LessonStatus.LOCKED
             ),
 
             // Lesson 10: String in C++
@@ -1989,7 +1989,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content for "String Concatenation"
@@ -2031,7 +2031,7 @@ int main() {
 //                            )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content 4: Interactive Input Block
@@ -2089,7 +2089,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
                     // Content for "Measuring String Length"
                     LessonContent(
@@ -2116,7 +2116,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Using String Functions"
@@ -2182,7 +2182,7 @@ int main() {
 
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
                     // Content for "String Quiz"
                     LessonContent(
@@ -2199,7 +2199,7 @@ int main() {
                         type = LessonContentType.INTERACTIVE
                     )
                 ),
-                status = LessonStatus.COMPLETED
+               status = LessonStatus.LOCKED
             ),
 
 
@@ -2241,7 +2241,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Quiz Time!"
@@ -2298,7 +2298,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Boolean Variables in Action"
@@ -2327,7 +2327,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Boolean Quiz"
@@ -2345,7 +2345,7 @@ int main() {
                         type = LessonContentType.INTERACTIVE
                     )
                 ),
-                status = LessonStatus.COMPLETED
+               status = LessonStatus.LOCKED
             ),
 
 
@@ -2375,7 +2375,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Assignment Operators"
@@ -2399,7 +2399,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
 
@@ -2455,7 +2455,7 @@ int main () {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Comparison Operators"
@@ -2480,7 +2480,7 @@ int main () {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Quiz Time!"
@@ -2529,7 +2529,7 @@ int main () {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Increment and Decrement Operators"
@@ -2557,7 +2557,7 @@ int main () {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content 4: Interactive Input Block
@@ -2611,7 +2611,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Operator Quiz"
@@ -2634,7 +2634,7 @@ int main() {
                         type = LessonContentType.INTERACTIVE
                     )
                 ),
-                status = LessonStatus.COMPLETED
+               status = LessonStatus.LOCKED
             ),
 
 
@@ -2666,7 +2666,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 2 : The Ultimate Decision: Should I Eat or Not?
@@ -2688,7 +2688,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Quiz Time!"
@@ -2711,7 +2711,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
 
@@ -2744,7 +2744,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     //Content
@@ -2770,7 +2770,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content 4: Interactive Input Block
@@ -2833,7 +2833,7 @@ if (isHungry) {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Quiz on Else-If
@@ -2876,7 +2876,7 @@ if (isHungry) {
                     )
 
                 ),
-                status = LessonStatus.COMPLETED
+               status = LessonStatus.LOCKED
             ),
 
             // Lesson 14 :Nested else if
@@ -2906,7 +2906,7 @@ if (isHungry) {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Should I Go Outside or Stay In?"
@@ -2945,7 +2945,7 @@ if (isSunny) {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Understanding Nested If-Else"
@@ -2971,7 +2971,7 @@ if (isSunny) {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
 
@@ -3032,7 +3032,7 @@ int main() {
                     )
 
                 ),
-                status = LessonStatus.COMPLETED
+               status = LessonStatus.LOCKED
             ),
 
 
@@ -3067,7 +3067,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content for If-Else vs. Switch-Case
@@ -3090,7 +3090,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Quiz Time!"
@@ -3153,7 +3153,7 @@ switch (number) {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
 
@@ -3187,7 +3187,7 @@ switch (number) {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content 4: Interactive Input Block
@@ -3263,7 +3263,7 @@ switch (number) {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content for Switch-Case with Ranges and Expressions
@@ -3301,7 +3301,7 @@ switch (number) {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content for Common Mistakes in Switch-Case
@@ -3325,7 +3325,7 @@ switch (number) {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Content for Final Quiz: Mastering Switch-Case
@@ -3346,10 +3346,10 @@ switch (number) {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     )
                 ),
-                status = LessonStatus.COMPLETED
+               status = LessonStatus.LOCKED
             ),
 
             // Final Quiz Lesson for Beginner C++ Stage
@@ -3378,7 +3378,7 @@ switch (number) {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-Lesson 2: C++ Comments Quiz
@@ -3401,7 +3401,7 @@ switch (number) {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-Lesson 3: C++ Output Quiz
@@ -3424,7 +3424,7 @@ switch (number) {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-Lesson 4: C++ Variables Quiz 1
@@ -3447,7 +3447,7 @@ switch (number) {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-Lesson 5: C++ Variables Quiz 2
@@ -3470,7 +3470,7 @@ switch (number) {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-Lesson 6: C++ Variables Quiz 3
@@ -3493,7 +3493,7 @@ switch (number) {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-Lesson 7: C++ User Input Quiz
@@ -3516,7 +3516,7 @@ switch (number) {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-Lesson 8: C++ Data Types Quiz
@@ -3539,7 +3539,7 @@ switch (number) {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-Lesson 9: C++ Strings Quiz
@@ -3562,7 +3562,7 @@ switch (number) {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-Lesson 10: C++ Booleans Quiz
@@ -3585,7 +3585,7 @@ switch (number) {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-Lesson 11: C++ Operators Quiz
@@ -3608,7 +3608,7 @@ switch (number) {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-Lesson 12: Else If Quiz
@@ -3631,7 +3631,7 @@ switch (number) {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-Lesson 13: Nested Else If Quiz
@@ -3654,7 +3654,7 @@ switch (number) {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     ),
 
                     // Sub-Lesson 14: C++ Switch Case Quiz
@@ -3677,7 +3677,7 @@ switch (number) {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.COMPLETED
+                       status = LessonStatus.LOCKED
                     )
                 )
             )
