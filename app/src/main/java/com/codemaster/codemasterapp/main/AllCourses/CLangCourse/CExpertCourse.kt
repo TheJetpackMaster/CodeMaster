@@ -951,39 +951,6 @@ int main() {
                 id = "expert_c5",
                 title = "Unit Converter",
                 description = "A comprehensive unit converter system for converting between different units such as length, weight, temperature, and more.",
-                subLessons = listOf(
-                    Lesson(
-                        id = "expert_c5_sub1",
-                        title = "Introduction to Contact Management System",
-                        description = "Learn how to create a contact management system in Kotlin with add, view, search, update, and delete functionalities.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c5_sub2",
-                        title = "Defining the Contact Structure",
-                        description = "Learn to define a Contact structure to store name and phone details, using constants for limits on contacts and field lengths.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c5_sub3",
-                        title = "Adding a Contact",
-                        description = "Implement the functionality to add a new contact to the contact book.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c5_sub4",
-                        title = "Viewing Contacts",
-                        description = "Display the list of all contacts stored in the contact book.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c5_sub5",
-                        title = "Searching for a Contact",
-                        description = "Search for a contact by name in the contact book.",
-                        status = LessonStatus.LOCKED
-                    ),
-
-                    ),
                 lessonContents = listOf(
 
                     LessonContent(
