@@ -22,32 +22,6 @@ fun CAdvancedCourse(): Stage {
                 id = "advanced_c1",
                 title = "Welcome to Advanced Programming",
                 description = "Take your programming skills to the next level by mastering functions, memory management, pointers, and more.",
-                subLessons = listOf(
-                    Lesson(
-                        id = "advanced_c1_sub1",
-                        title = "Introduction to the Advanced Stage",
-                        description = "Understand the advanced concepts you will learn in this stage and how they enhance your programming abilities.",
-                        status = LessonStatus.ACTIVE,
-                    ),
-                    Lesson(
-                        id = "advanced_c1_sub2",
-                        title = "Motivation",
-                        description = "Stay motivated as you dive into complex topics like pointers, memory management, and file handling.",
-                        status = LessonStatus.ACTIVE,
-                    ),
-                    Lesson(
-                        id = "advanced_c1_sub3",
-                        title = "Tips for Success",
-                        description = "Essential strategies to help you navigate complex concepts and continue to grow as a programmer.",
-                        status = LessonStatus.ACTIVE,
-                    ),
-                    Lesson(
-                        id = "advanced_c1_sub4",
-                        title = "Next Steps",
-                        description = "What you can expect in the upcoming lessons as you explore more advanced topics.",
-                        status = LessonStatus.ACTIVE,
-                    )
-                ),
                 lessonContents = listOf(
                     LessonContent(
                         id = "advanced_c1_sub1",
