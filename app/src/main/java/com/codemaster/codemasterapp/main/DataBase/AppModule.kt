@@ -1,6 +1,10 @@
 package com.codemaster.codemasterapp.main.DataBase
 
 import android.content.Context
+import androidx.room.Room
+import com.codemaster.codemasterapp.main.DataBase.lessonStatusDB.LessonStatusDB
+import com.codemaster.codemasterapp.main.DataBase.lessonStatusDB.LessonStatusDao
+import com.codemaster.codemasterapp.main.DataBase.lessonStatusDB.LessonStatusRepo
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -40,5 +44,23 @@ object AppModule {
         noteSubLessonDao: NoteSubLessonDao
     ): NoteRepository {
         return NoteRepository(noteLanguageDao, noteStageDao, noteLessonDao, noteSubLessonDao)
+    }
+
+
+    @Provides
+    @Singleton
+    fun provideLessonStatusDatabase(@ApplicationContext context: Context): LessonStatusDB {
+        return LessonStatusDB.getDatabase(context)
+    }
+
+    @Provides
+    fun provideLessonStatusDao(database: LessonStatusDB): LessonStatusDao {
+        return database.lessonStatusDao()
+    }
+
+    @Provides
+    @Singleton
+    fun provideLessonStatusRepository(lessonStatusDao: LessonStatusDao): LessonStatusRepo {
+        return LessonStatusRepo(lessonStatusDao)
     }
 }

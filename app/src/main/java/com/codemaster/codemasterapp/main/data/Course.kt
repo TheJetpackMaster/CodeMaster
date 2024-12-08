@@ -89,7 +89,6 @@ data class LessonContent(
     val contentBlocks: List<ContentBlock>, // List of content blocks (Text, Image, Code, etc.)
     val type: LessonContentType, // Whether the content is interactive or non-interactive
     var isCompleted: Boolean = false, // Whether the content has been completed (for progress tracking)
-    var status: LessonStatus = LessonStatus.LOCKED
 )
 
 

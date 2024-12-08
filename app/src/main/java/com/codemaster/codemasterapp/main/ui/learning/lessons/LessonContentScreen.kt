@@ -110,6 +110,7 @@ import com.codemaster.codemasterapp.main.DataBase.NoteViewModel
 import com.codemaster.codemasterapp.main.data.ContentBlock
 import com.codemaster.codemasterapp.main.data.LessonContent
 import com.codemaster.codemasterapp.main.data.LessonContentType
+import com.codemaster.codemasterapp.main.data.LessonStatus
 import com.codemaster.codemasterapp.main.ui.viewModels.CourseViewModel
 import com.codemaster.codemasterapp.ui.theme.bluishPython
 import kotlinx.coroutines.CoroutineScope
@@ -443,7 +444,7 @@ fun LessonContentScreen(
                                         ?: "",
                                     selectedLesson?.id ?: ""
                                 )
-                                courseViewModel.updateLessonCompletionStatus()
+//                                courseViewModel.updateLessonCompletionStatus()
 
                                 if (pagerState.currentPage < lessons.size - 1) {
                                     coroutineScope.launch {
@@ -456,6 +457,10 @@ fun LessonContentScreen(
                             lessons = lessons,
                             onFinish = {
                                 // Handle finish action
+                                courseViewModel.addOrUpdateLessonStatus(
+                                    selectedLesson!!.id,
+                                    LessonStatus.COMPLETED
+                                )
                                 navController.popBackStack()
                             }
                         )
@@ -645,7 +650,12 @@ fun AddSubLessonNoteDialog(
                     OutlinedTextField(
                         value = description,
                         onValueChange = { description = it },
-                        label = { Text("Description", color = bluishPython) }, // Updated label color
+                        label = {
+                            Text(
+                                "Description",
+                                color = bluishPython
+                            )
+                        }, // Updated label color
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(bottom = 24.dp)
@@ -696,15 +706,6 @@ fun AddSubLessonNoteDialog(
         )
     }
 }
-
-
-
-
-
-
-
-
-
 
 
 @Composable
@@ -1267,7 +1268,7 @@ fun InteractiveInputBlockView(
             contentBlock.incompleteCode.lines().forEach { line ->
                 Row(
                     modifier = Modifier.fillMaxWidth(),
-                   // verticalAlignment = Alignment.CenterVertically,
+                    // verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.Start
                 ) {
                     val parts = line.split("___")

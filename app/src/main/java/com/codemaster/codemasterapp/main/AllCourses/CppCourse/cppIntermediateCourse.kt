@@ -42,7 +42,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.LOCKED
+                        status = LessonStatus.ACTIVE
                     ),
 
                     // Sub-lesson 2: Reflecting on the Journey So Far
