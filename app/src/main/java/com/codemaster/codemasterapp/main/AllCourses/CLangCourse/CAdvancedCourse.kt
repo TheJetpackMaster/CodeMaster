@@ -1905,62 +1905,6 @@ int main() {
                 id = "advanced_c10",
                 title = "C Structures",
                 description = "Learn how to use structures (structs) in C to group different types of data.",
-                subLessons = listOf(
-                    Lesson(
-                        id = "advanced_c10_sub1",
-                        title = "Introduction to Structures",
-                        description = "Understand the basics of structures in C.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c10_sub2",
-                        title = "Creating a Structure",
-                        description = "Learn how to define and initialize a structure.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c10_sub3",
-                        title = "Accessing Structure Members",
-                        description = "Learn how to access and modify structure members.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c10_sub4",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c10_sub5",
-                        title = "Nested Structures",
-                        description = "Learn how to define structures within structures.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c10_sub6",
-                        title = "Pointers to Structures",
-                        description = "Understand how to use pointers with structures.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c10_sub7",
-                        title = "Accessing Structure Members",
-                        description = "Learn how to access and modify structure members.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c10_sub8",
-                        title = "Real-Life Example of Structures",
-                        description = "An advanced example of structures with arrays and functions.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c10_sub9",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    )
-                ),
                 lessonContents = listOf(
                     LessonContent(
                         id = "advanced_c10_sub1",
