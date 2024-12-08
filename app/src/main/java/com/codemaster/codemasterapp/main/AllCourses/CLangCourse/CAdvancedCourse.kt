@@ -1409,50 +1409,6 @@ int main() {
                 id = "advanced_c7",
                 title = "C Math Functions",
                 description = "Learn basic math functions in C.",
-                subLessons = listOf(
-                    Lesson(
-                        id = "advanced_c7_sub1",
-                        title = "Intro to C Math Functions",
-                        description = "Understand the math.h library.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c7_sub2",
-                        title = "Common Math Functions",
-                        description = "Learn basic functions like sqrt(), pow(), and abs().",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c7_sub3",
-                        title = "Trigonometric Functions",
-                        description = "Use functions like sin(), cos(), and tan().",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c7_sub4",
-                        title = "Logarithmic & Exponential",
-                        description = "Learn log(), log10(), and exp().",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c7_sub5",
-                        title = "Rounding Functions",
-                        description = "Explore round(), floor(), and ceil().",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c7_sub6",
-                        title = "Real Life Example",
-                        description = "See how C math functions are used in real-world applications.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c7_sub7",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    )
-                ),
                 lessonContents = listOf(
                     LessonContent(
                         id = "advanced_c7_sub1",
