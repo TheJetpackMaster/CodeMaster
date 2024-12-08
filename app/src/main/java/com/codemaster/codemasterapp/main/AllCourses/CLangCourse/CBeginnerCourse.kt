@@ -162,7 +162,8 @@ fun CBeginnerCourse(): Stage {
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("Programming is a journey, not a destination. Every error you encounter is an opportunity to grow. Through persistence, you will unlock new skills, develop resilience, and eventually become a master of your craft."))
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.LOCKED
                     ),
                     LessonContent(
                         id = "beginner_c2_sub2",
