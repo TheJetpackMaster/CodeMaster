@@ -26,52 +26,7 @@ class CourseViewModel @Inject constructor(
     // List of courses to display
     val courses: List<Course> = AllCoursesProvider()
 
-//    val cCourseProvider = CLangCourseProvider()
-//    // Mutable state for selected course, stage, lesson, and sub-lesson
-//    private val _selectedCourse = MutableStateFlow<Course?>(
-//        Course(
-//            id = "c_course",
-//            language = "C",
-//            stages = listOf(
-//               cCourseProvider.CBeginnerCourse(),
-//                cCourseProvider.CIntermediateCourse(),
-//                cCourseProvider.CAdvancedCourse(),
-//                cCourseProvider.CExpertCourse()
-//            )
-//        )
-//    )
-//
-//    private val _selectedStage = MutableStateFlow<Stage?>(
-//        Stage(
-//            id = "c_beginner_stage",
-//            title = "Beginner",
-//            lessons =
-//            cCourseProvider.CBeginnerCourse().lessons,
-//        )
-//    )
 
-//    val cPPCourseProvider = CPPCourseProvider()
-//    // Mutable state for selected course, stage, lesson, and sub-lesson
-//    private val _selectedCourse = MutableStateFlow<Course?>(
-//        Course(
-//            id = "cpp_course",
-//            language = "C++",
-//            stages = listOf(
-//                cppBeginnerCourse(),
-//                cppIntermediateCourse(),
-//                cppAdvancedCourse(),
-//                cppExpertCourse()
-//            )
-//        )
-//    )
-//    private val _selectedStage = MutableStateFlow<Stage?>(
-//        Stage(
-//            id = "cpp_expert_stage",
-//            title = "Expert",
-//            lessons = cppExpertCourse().lessons,
-//        )
-//    )
-//
     private val _selectedCourse = MutableStateFlow<Course?>(null)
     private val _selectedStage = MutableStateFlow<Stage?>(null)
 
@@ -163,7 +118,7 @@ class CourseViewModel @Inject constructor(
         val lesson = findLessonById(lessonId)
         lesson?.let {
             // Check if all sub-lessons are completed
-            val allSubLessonsCompleted = it.subLessons.all { subLesson ->
+            val allSubLessonsCompleted = it.lessonContents.all { subLesson ->
                 updatedCompletionStatus[subLesson.id] == LessonStatus.COMPLETED
             }
             if (allSubLessonsCompleted && updatedCompletionStatus[lesson.id] != LessonStatus.COMPLETED) {
@@ -271,7 +226,7 @@ class CourseViewModel @Inject constructor(
                 Log.d("Next Lesson Unlocked", nextLesson.id)
 
                 // Unlock the first sub-lesson
-                nextLesson.subLessons.firstOrNull()?.let { firstSubLesson ->
+                nextLesson.lessonContents.firstOrNull()?.let { firstSubLesson ->
                     if (updatedCompletionStatus[firstSubLesson.id] != LessonStatus.ACTIVE) {
                         updatedCompletionStatus[firstSubLesson.id] = LessonStatus.ACTIVE
                         _lessonCompletionStatus.value = updatedCompletionStatus
@@ -288,10 +243,10 @@ class CourseViewModel @Inject constructor(
     // Function to unlock the next sub-lesson within the current lesson
     private fun unlockNextSubLesson(currentLesson: Lesson, currentSubLessonId: String) {
         val currentSubLessonIndex =
-            currentLesson.subLessons.indexOfFirst { it.id == currentSubLessonId }
+            currentLesson.lessonContents.indexOfFirst { it.id == currentSubLessonId }
 
-        if (currentSubLessonIndex >= 0 && currentSubLessonIndex < currentLesson.subLessons.size - 1) {
-            val nextSubLesson = currentLesson.subLessons[currentSubLessonIndex + 1]
+        if (currentSubLessonIndex >= 0 && currentSubLessonIndex < currentLesson.lessonContents.size - 1) {
+            val nextSubLesson = currentLesson.lessonContents[currentSubLessonIndex + 1]
             val updatedCompletionStatus = _lessonCompletionStatus.value.toMutableMap()
 
             // Check the status of the next sub-lesson
@@ -320,7 +275,7 @@ class CourseViewModel @Inject constructor(
         val lesson = getCurrentLesson()
 
         lesson?.let {
-            val allSubLessonsCompleted = it.subLessons.all { subLesson ->
+            val allSubLessonsCompleted = it.lessonContents.all { subLesson ->
                 updatedCompletionStatus[subLesson.id] == LessonStatus.COMPLETED
             }
             if (allSubLessonsCompleted && updatedCompletionStatus[it.id] != LessonStatus.COMPLETED) {
