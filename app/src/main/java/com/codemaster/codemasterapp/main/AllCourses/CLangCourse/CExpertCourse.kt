@@ -2139,39 +2139,6 @@ int main() {
                 id = "expert_c8",
                 title = "Student Grading System",
                 description = " Build a system to manage student grades, calculate averages, and display results. This project will involve basic data structures and file handling.",
-                subLessons = listOf(
-                    Lesson(
-                        id = "expert_c6_sub1",
-                        title = "Introduction to Contact Management System",
-                        description = "Learn how to create a contact management system in Kotlin with add, view, search, update, and delete functionalities.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c6_sub2",
-                        title = "Defining the Contact Structure",
-                        description = "Learn to define a Contact structure to store name and phone details, using constants for limits on contacts and field lengths.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c6_sub3",
-                        title = "Adding a Contact",
-                        description = "Implement the functionality to add a new contact to the contact book.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c6_sub4",
-                        title = "Viewing Contacts",
-                        description = "Display the list of all contacts stored in the contact book.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "expert_c6_sub5",
-                        title = "Searching for a Contact",
-                        description = "Search for a contact by name in the contact book.",
-                        status = LessonStatus.LOCKED
-                    ),
-
-                    ),
                 lessonContents = listOf(
                     LessonContent(
                         id = "expert_c8_sub1",
