@@ -16,7 +16,6 @@ fun cppExpertCourse(): Stage {
         title = "Expert",
         lessons = listOf(
 
-
             // Lesson 1 : Welcome to the Expert Stage
             Lesson(
                 id = "expert_cpp1",
