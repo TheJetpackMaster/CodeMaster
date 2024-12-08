@@ -1112,56 +1112,6 @@ int main() {
                 id = "advanced_c6",
                 title = "C Recursion",
                 description = "Understand recursion in C and use it effectively.",
-                subLessons = listOf(
-                    Lesson(
-                        id = "advanced_c6_sub1",
-                        title = "Introduction to Recursion",
-                        description = "Learn the definition of recursion in C.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c6_sub2",
-                        title = "Base Case in Recursion",
-                        description = "Understand the base case's importance.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c6_sub3",
-                        title = "Recursive Case in Recursion",
-                        description = "See a recursive function in action.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c6_sub4",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c6_sub5",
-                        title = "Recursive vs Iterative Solutions",
-                        description = "Compare recursion and iteration.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c6_sub6",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c6_sub7",
-                        title = "Real-Life Example of Recursion",
-                        description = "Apply recursion in real-world scenarios.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c6_sub8",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    ),
-                ),
                 lessonContents = listOf(
                     LessonContent(
                         id = "advanced_c6_sub1",
