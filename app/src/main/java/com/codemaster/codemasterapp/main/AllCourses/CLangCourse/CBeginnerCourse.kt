@@ -108,7 +108,8 @@ fun CBeginnerCourse(): Stage {
                             ),
                             ContentBlock.Text(createSimpleText("Plus, it’s a valuable skill for software development roles."))
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.LOCKED
                     ),
                     LessonContent(
                         id = "beginner_c1_sub6",
