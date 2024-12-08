@@ -92,7 +92,8 @@ fun CBeginnerCourse(): Stage {
                             ),
                             ContentBlock.Text(createSimpleText("Imagine your gaming console and smartwatch running thanks to C!"))
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.LOCKED
                     ),
                     LessonContent(
                         id = "beginner_c1_sub5",
