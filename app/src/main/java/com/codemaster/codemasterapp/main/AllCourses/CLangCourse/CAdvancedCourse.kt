@@ -70,62 +70,6 @@ fun CAdvancedCourse(): Stage {
                 id = "advanced_c2",
                 title = "C Functions",
                 description = "Learn how functions in C improve code reusability and modularity! 🧑‍💻",
-                subLessons = listOf(
-                    Lesson(
-                        id = "advanced_c2_sub1",
-                        title = "Introduction to Functions",
-                        description = "Understand functions, their syntax, and how they modularize code.",
-                        status = LessonStatus.ACTIVE
-                    ),
-                    Lesson(
-                        id = "advanced_c2_sub2",
-                        title = "Predefined Functions",
-                        description = "Explore built-in functions like `printf` and `scanf`.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c2_sub3",
-                        title = "Create a Function",
-                        description = "Learn to define custom functions.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c2_sub4",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c2_sub5",
-                        title = "Call a Function (Way 1)",
-                        description = "Learn how to call a function by defining it at the top and calling it in `main()`.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c2_sub6",
-                        title = "Call a Function (Way 2)",
-                        description = "Learn how to define a function within `main()` and call it in `main()`.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c2_sub7",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c2_sub6",
-                        title = "Real-Life Example of Functions",
-                        description = "See how functions solve real-world problems.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c2_sub9",
-                        title = "Quiz",
-                        description = "Quiz",
-                        status = LessonStatus.LOCKED
-                    ),
-                ),
                 lessonContents = listOf(
                     LessonContent(
                         id = "advanced_c2_sub1",
