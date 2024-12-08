@@ -320,44 +320,6 @@ fun CAdvancedCourse(): Stage {
                 id = "advanced_c3",
                 title = "C Functions: Data Types",
                 description = "Learn how different data types are used in C functions! 🧑‍💻",
-                subLessons = listOf(
-                    Lesson(
-                        id = "advanced_c3_sub1",
-                        title = "Function Data Types Overview",
-                        description = "Learn about the role of data types in functions and how they define the return value.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c3_sub2",
-                        title = "int Data Type",
-                        description = "Learn how the `int` data type is used in functions.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c3_sub3",
-                        title = "float Data Type",
-                        description = "Understand the use of the `float` data type in functions.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c3_sub4",
-                        title = "char Data Type",
-                        description = "Explore how the `char` data type is used in functions.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c3_sub5",
-                        title = "void Data Type",
-                        description = "Learn how the `void` data type works for functions that don't return a value.",
-                        status = LessonStatus.LOCKED
-                    ),
-                    Lesson(
-                        id = "advanced_c3_sub6",
-                        title = "Real-Life Example of Function Data Types",
-                        description = "See how different function data types can be used in a practical, real-world scenario.",
-                        status = LessonStatus.LOCKED
-                    )
-                ),
                 lessonContents = listOf(
                     LessonContent(
                         id = "advanced_c3_sub1",
