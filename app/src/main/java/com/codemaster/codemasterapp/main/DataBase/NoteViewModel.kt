@@ -75,5 +75,25 @@ class NoteViewModel @Inject constructor(
         }
     }
 
+    // Function for  delete SubLesson
+    fun deleteSubLesson(
+        languageName: String,
+        stageName: String,
+        lessonNumber: Int,
+        subLessonNumber: Float
+    ) = viewModelScope.launch {
+        try {
+            repository.deleteSubLesson(
+                languageName = languageName,
+                stageName = stageName,
+                lessonNumber = lessonNumber,
+                subLessonNumber = subLessonNumber
+            )
+            Log.d("NoteViewModel", "Sub-lesson deleted successfully.")
+        } catch (e: Exception) {
+            Log.e("NoteViewModel", "Error deleting sub-lesson: ${e.message}")
+        }
+    }
+
 }
 
