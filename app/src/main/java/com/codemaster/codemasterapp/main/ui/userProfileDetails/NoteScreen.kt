@@ -167,7 +167,6 @@ fun SubLessonCard(subLesson: NoteSubLesson) {
             )
             Spacer(modifier = Modifier.height(8.dp))
             NoteItem(
-                modifier = Modifier.padding(16.dp),
                 cornerRadius = 12.dp,
                 cutCornerSize = 40.dp,
                 onDeleteClick = {
