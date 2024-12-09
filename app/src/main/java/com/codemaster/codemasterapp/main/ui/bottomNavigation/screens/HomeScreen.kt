@@ -14,6 +14,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.Lifecycle
 import androidx.navigation.NavController
 import com.codemaster.codemasterapp.R
 import com.codemaster.codemasterapp.main.data.LessonStatus
@@ -26,7 +27,6 @@ import com.codemaster.codemasterapp.main.ui.viewModels.CourseViewModel
 import com.codemaster.codemasterapp.ui.theme.*
 
 
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
@@ -34,7 +34,7 @@ fun HomeScreen(
     courseViewModel: CourseViewModel
 ) {
     val scrollState = rememberScrollState()
-    val completedLessonCount = remember{ mutableStateOf(0) }
+    val completedLessonCount = remember { mutableStateOf(0) }
 
 
 
@@ -102,13 +102,17 @@ fun HomeScreen(
                         LanguageCardDesign(
                             languageName = course.language,
                             difficulty = "Beginner",
-                            lessonCount = course.stages.sumOf{it.lessons.size},
+                            lessonCount = course.stages.sumOf { it.lessons.size },
                             completedLessonCount = completedLessonCount.value,
                             gradientColors = listOf(purpleKt, yellowishKt),
                             languageImage = painterResource(id = R.drawable.kotlin),
                             onClick = {
                                 courseViewModel.selectLanguage(course)
-                                navController.navigate(MainRoutes.MAIN_ROOT.route)
+                                if (navController.currentBackStackEntry?.lifecycle?.currentState
+                                    == Lifecycle.State.RESUMED
+                                ) {
+                                    navController.navigate(MainRoutes.MAIN_ROOT.route)
+                                }
                             },
                             modifier = Modifier.weight(1f)
                         )
@@ -140,7 +144,7 @@ fun HomeScreen(
                         LanguageCardDesign(
                             languageName = course.language,
                             difficulty = "Beginner",
-                            lessonCount = course.stages.sumOf{it.lessons.size},
+                            lessonCount = course.stages.sumOf { it.lessons.size },
                             completedLessonCount = 30,
                             gradientColors = listOf(bluishPython, greenishPython),
                             languageImage = painterResource(id = R.drawable.pythonlogo),
@@ -204,7 +208,6 @@ fun HomeScreen(
         }
     }
 }
-
 
 
 //
