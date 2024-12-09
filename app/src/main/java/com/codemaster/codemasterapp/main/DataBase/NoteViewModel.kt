@@ -18,6 +18,7 @@ class NoteViewModel @Inject constructor(
     private val repository: NoteRepository,
 ) : ViewModel() {
 
+    // Function for add or Update SubLesson
     fun addOrUpdateSubLesson(
         languageName: String,
         stageName: String,
@@ -73,6 +74,23 @@ class NoteViewModel @Inject constructor(
             onResult(emptyList()) // Return an empty list in case of error
         }
     }
+
+    fun updateSubLesson(subLesson: NoteSubLesson) = viewModelScope.launch {
+        try {
+            repository.updateSubLesson(subLesson)
+        } catch (e: Exception) {
+            Log.e("NoteViewModel", "Error updating sub-lesson: ${e.message}")
+        }
+    }
+
+    fun deleteSubLesson(subLessonId: Long) = viewModelScope.launch {
+        try {
+            repository.deleteSubLesson(subLessonId)
+        } catch (e: Exception) {
+            Log.e("NoteViewModel", "Error deleting sub-lesson: ${e.message}")
+        }
+    }
+
 
 }
 

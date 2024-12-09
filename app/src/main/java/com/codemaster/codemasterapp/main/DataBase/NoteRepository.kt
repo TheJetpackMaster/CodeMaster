@@ -15,6 +15,12 @@ class NoteRepository(
     private val noteLessonDao: NoteLessonDao,
     private val noteSubLessonDao: NoteSubLessonDao
 ) {
+    // Language
+
+    // Insert language
+    suspend fun insertLanguage(language: NoteLanguage): Long {
+        return noteLanguageDao.insert(language)
+    }
 
     // Get or insert language by name
     suspend fun getOrInsertLanguage(languageName: String): Long {
@@ -26,6 +32,13 @@ class NoteRepository(
         }
     }
 
+
+    // Stage
+
+    // Insert stage
+    suspend fun insertStage(stage: NoteStage): Long {
+        return noteStageDao.insert(stage)
+    }
     // Get or insert stage by name
     suspend fun getOrInsertStage(languageName: String, stageName: String): Long {
         val languageId = getOrInsertLanguage(languageName)
@@ -35,6 +48,13 @@ class NoteRepository(
         } else {
             insertStage(NoteStage(languageId = languageId, stageName = stageName))
         }
+    }
+
+    // Lesson
+
+    // Insert lesson
+    suspend fun insertLesson(lesson: NoteLesson): Long {
+        return noteLessonDao.insert(lesson)
     }
 
     // Get or insert lesson by number
@@ -48,17 +68,14 @@ class NoteRepository(
         }
     }
 
-    // Get or insert sub-lesson by number
-    /*suspend fun getOrInsertSubLesson(languageName: String, stageName: String, lessonNumber: Int, subLessonNumber: Float, title: String, description: String): Long {
-        val lessonId = getOrInsertLesson(languageName, stageName, lessonNumber)
-        val subLesson = noteSubLessonDao.getSubLessonByNumber(lessonId, subLessonNumber)
-        return if (subLesson != null) {
-            subLesson.id
-        } else {
-            insertSubLesson(NoteSubLesson(lessonId = lessonId, subLessonNumber = subLessonNumber, title = title, description = description))
-        }
-    }*/
+    // SubLesson
 
+    // Insert sub-lesson
+    suspend fun insertSubLesson(subLesson: NoteSubLesson): Long {
+        return noteSubLessonDao.insert(subLesson)
+    }
+
+    // Get or insert SubLesson by number
     suspend fun getOrInsertSubLesson(
         languageName: String,
         stageName: String,
@@ -92,6 +109,8 @@ class NoteRepository(
     }
 
 
+
+    // Get SubLesson by names
     suspend fun getSubLessonByNames(
         languageName: String,
         stageName: String,
@@ -114,6 +133,7 @@ class NoteRepository(
         return noteSubLessonDao.getSubLessonByNumber(lesson.id, subLessonNumber)
     }
 
+    // Get All SubLessons
     suspend fun getAllSubLessons(): List<NoteSubLesson> {
         // Fetch all languages
         val allLanguages = noteLanguageDao.getAllLanguages()
@@ -136,25 +156,12 @@ class NoteRepository(
         return allSubLessons
     }
 
-
-
-    // Insert language
-    suspend fun insertLanguage(language: NoteLanguage): Long {
-        return noteLanguageDao.insert(language)
+    suspend fun updateSubLesson(subLesson: NoteSubLesson) {
+        noteSubLessonDao.update(subLesson)
+    }
+    // Delete sub-lesson by ID
+    suspend fun deleteSubLesson(subLessonId: Long) {
+        noteSubLessonDao.deleteSubLessonById(subLessonId)
     }
 
-    // Insert stage
-    suspend fun insertStage(stage: NoteStage): Long {
-        return noteStageDao.insert(stage)
-    }
-
-    // Insert lesson
-    suspend fun insertLesson(lesson: NoteLesson): Long {
-        return noteLessonDao.insert(lesson)
-    }
-
-    // Insert sub-lesson
-    suspend fun insertSubLesson(subLesson: NoteSubLesson): Long {
-        return noteSubLessonDao.insert(subLesson)
-    }
 }
