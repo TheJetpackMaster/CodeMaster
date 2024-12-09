@@ -1,6 +1,11 @@
 package com.codemaster.codemasterapp.main.ui.bottomNavigation;
 
 import android.annotation.SuppressLint
+import android.app.Activity
+import android.content.Context
+import android.util.Log
+import androidx.activity.OnBackPressedCallback
+import androidx.activity.compose.LocalOnBackPressedDispatcherOwner
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -10,6 +15,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
@@ -21,6 +28,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.nativeCanvas
+import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
@@ -29,6 +37,7 @@ import com.codemaster.codemasterapp.main.DataBase.NoteViewModel
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.RootNavHost
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.BottomNavRoutes
 import com.codemaster.codemasterapp.main.ui.viewModels.CourseViewModel
+import kotlinx.coroutines.launch
 import javax.annotation.meta.When
 import kotlin.random.Random
 
@@ -37,39 +46,63 @@ import kotlin.random.Random
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 fun MainScreen(
     courseViewModel: CourseViewModel,
-    noteViewModel: NoteViewModel
+    noteViewModel: NoteViewModel,
+    context:Context
 ) {
     val navController = rememberNavController()
-    val selectedIndex = remember { mutableStateOf(0) }
 
-    val currentRoute = navController.currentBackStackEntryAsState().value?.destination?.route
+    val navBackStackEntry by navController.currentBackStackEntryAsState()
+    val currentDestination = navBackStackEntry?.destination?.route
     val showBar =
-        currentRoute == BottomNavRoutes.HomeScreen.route || currentRoute == BottomNavRoutes.AchievementsScreen.route
+        currentDestination == BottomNavRoutes.HomeScreen.route || currentDestination == BottomNavRoutes.AchievementsScreen.route
+
+
+    val backDispatcher = LocalOnBackPressedDispatcherOwner.current?.onBackPressedDispatcher
+//    val navBackStackEntry by navController.currentBackStackEntryAsState()
+    Log.d("destination,",currentDestination.toString())
+
+//
+//    DisposableEffect(backDispatcher) {
+//        val callback = object : OnBackPressedCallback(true) {
+//            override fun handleOnBackPressed() {
+//                if(currentDestination == BottomNavRoutes.HomeScreen.route) {
+//                    (context as? Activity)?.finish()
+//                }
+//            }
+//        }
+//
+//        backDispatcher?.addCallback(callback)
+//
+//        onDispose {
+//            callback.remove()
+//        }
+//    }
 
     Scaffold(
         bottomBar = {
             if (showBar) {
-                //BottomNavBar(navController)
+
+                val bottomBarItems = listOf(
+                    BottomBarItem(
+                        "Home",
+                        R.drawable.stud,
+                        route = BottomNavRoutes.HomeScreen.route
+                    ),
+                    BottomBarItem(
+                        "Compiler",
+                        R.drawable.com,
+                        route = BottomNavRoutes.CompilerScreen.route
+                    ),
+                    BottomBarItem(
+                        "Achievements",
+                        R.drawable.achivments,
+                        route = BottomNavRoutes.AchievementsScreen.route
+                    )
+                )
 
                 CustomBottomBar(
-                    items = listOf(
-                        BottomBarItem("Home", R.drawable.stud),
-                        BottomBarItem("Compiler", R.drawable.com),
-                        BottomBarItem("Achievements", R.drawable.achivments)
-                    ),
-                    selectedItemIndex = selectedIndex.value,
-                    onItemSelected = { index ->
-                        selectedIndex.value = index
-                        // Navigate or perform actions based on index
-                        when (index) {
-                            0 -> navController.navigate(BottomNavRoutes.HomeScreen.route)
-                            1 -> {
-                                navController.navigate(BottomNavRoutes.CompilerScreen.route)
-                            }
-
-                            2 -> navController.navigate(BottomNavRoutes.AchievementsScreen.route)
-                        }
-                    }
+                    items = bottomBarItems,
+                    navController = navController
                 )
             }
         }
