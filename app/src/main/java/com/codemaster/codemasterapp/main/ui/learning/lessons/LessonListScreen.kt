@@ -71,6 +71,7 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.Lifecycle
 import com.codemaster.codemasterapp.main.DataBase.NoteViewModel
 import com.codemaster.codemasterapp.main.data.Lesson
 import com.codemaster.codemasterapp.main.data.LessonContent
@@ -103,7 +104,7 @@ fun LessonListScreen(
     // Fetch the selected stage using the stageId
     val selectedLanguage by courseViewModel.selectedCourse.collectAsState()
     val selectedStage by courseViewModel.selectedStage.collectAsState()
-    val currentStageAllLessons = remember{mutableStateOf(0)}
+    val currentStageAllLessons = remember { mutableStateOf(0) }
 
     //context
     val context = LocalContext.current
@@ -128,7 +129,11 @@ fun LessonListScreen(
 
                     OutlinedIconButton(
                         onClick = {
-                            navController.popBackStack()
+                            if (navController.currentBackStackEntry?.lifecycle?.currentState
+                                == Lifecycle.State.RESUMED
+                            ) {
+                                navController.popBackStack()
+                            }
                         },
                         modifier = Modifier
                             .statusBarsPadding()
@@ -323,7 +328,11 @@ fun LessonListScreen(
                                                     if (lessonStatus != LessonStatus.LOCKED) {
                                                         courseViewModel.selectLesson(lesson)
                                                         courseViewModel.selectLessonIndex(index = index)
-                                                        navController.navigate(MainRoutes.LessonContentScreen.route)
+                                                        if (navController.currentBackStackEntry?.lifecycle?.currentState
+                                                            == Lifecycle.State.RESUMED
+                                                        ) {
+                                                            navController.navigate(MainRoutes.LessonContentScreen.route)
+                                                        }
                                                     } else {
                                                         Toast
                                                             .makeText(
@@ -371,7 +380,12 @@ fun LessonListScreen(
                                                                 courseViewModel.selectSubLessonIndex(
                                                                     subIndex
                                                                 )
-                                                                navController.navigate(MainRoutes.LessonContentScreen.route)
+                                                                if (navController.currentBackStackEntry?.lifecycle?.currentState
+                                                                    == Lifecycle.State.RESUMED) {
+                                                                    navController.navigate(
+                                                                        MainRoutes.LessonContentScreen.route
+                                                                    )
+                                                                }
                                                             } else {
                                                                 Toast
                                                                     .makeText(
