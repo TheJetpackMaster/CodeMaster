@@ -22,7 +22,9 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.statusBars
 import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.foundation.layout.systemBars
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -125,6 +127,7 @@ fun LessonListScreen(
                 )
             )
             TopAppBar(
+                windowInsets =  WindowInsets.statusBars,
                 navigationIcon = {
 
                     OutlinedIconButton(
@@ -189,7 +192,6 @@ fun LessonListScreen(
                     screenBackgroundGradient
                 )
                 .padding(top = paddingValues.calculateTopPadding())
-                .navigationBarsPadding()
         ) {
             Column(
                 modifier = Modifier
