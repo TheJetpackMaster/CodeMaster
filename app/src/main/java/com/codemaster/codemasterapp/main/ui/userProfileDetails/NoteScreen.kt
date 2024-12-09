@@ -285,7 +285,7 @@ fun NoteItem(
 //                )
 //            }
             IconButton(
-                modifier = Modifier.size(37.dp),
+                modifier = Modifier.size(30.dp),
                 onClick = onDeleteClick
             )
             {
