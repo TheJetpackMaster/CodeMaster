@@ -112,7 +112,7 @@ fun LanguageCardDesign(
                                 .clip(CircleShape)
 
                                 .background(Color.Black)
-                                .padding(10.dp),
+                                .padding(6.dp),
                             colorFilter = ColorFilter.tint(Color.White)
                         )
 

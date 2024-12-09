@@ -109,7 +109,11 @@ fun HomeScreen(
                                 "C++" -> listOf(purpleCpp, magentaCpp)
                                 else -> listOf(purpleKt, yellowishKt)
                             } ,
-                            languageImage = painterResource(id = R.drawable.kotlin),
+                            languageImage = when(course.language){
+                                "C" -> painterResource(id = R.drawable.cpp)
+                                "C++" -> painterResource(id = R.drawable.cpp)
+                                else -> painterResource(id = R.drawable.kotlin)
+                            },
                             onClick = {
                                 courseViewModel.selectLanguage(course)
                                 if (navController.currentBackStackEntry?.lifecycle?.currentState
