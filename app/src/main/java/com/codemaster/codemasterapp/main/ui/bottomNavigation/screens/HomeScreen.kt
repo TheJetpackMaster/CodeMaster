@@ -44,7 +44,11 @@ fun HomeScreen(
         topBar = {
             HomeScreenCustomTopBar(
                 onProfileClick = {
-                    navController.navigate(ProfileRoutes.PROFILE_ROOT.route)
+                    if (navController.currentBackStackEntry?.lifecycle?.currentState
+                        == Lifecycle.State.RESUMED
+                    ) {
+                        navController.navigate(ProfileRoutes.PROFILE_ROOT.route)
+                    }
                 }
             )
         }
@@ -104,12 +108,12 @@ fun HomeScreen(
                             difficulty = "Beginner",
                             lessonCount = course.stages.sumOf { it.lessons.size },
                             completedLessonCount = completedLessonCount.value,
-                            gradientColors = when(course.language){
+                            gradientColors = when (course.language) {
                                 "C" -> listOf(purpleKt, yellowishKt)
                                 "C++" -> listOf(purpleCpp, magentaCpp)
                                 else -> listOf(purpleKt, yellowishKt)
-                            } ,
-                            languageImage = when(course.language){
+                            },
+                            languageImage = when (course.language) {
                                 "C" -> painterResource(id = R.drawable.cpp)
                                 "C++" -> painterResource(id = R.drawable.cpp)
                                 else -> painterResource(id = R.drawable.kotlin)
