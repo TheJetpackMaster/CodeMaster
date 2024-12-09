@@ -296,18 +296,18 @@ fun NoteItem(
         Row(
             modifier = Modifier.align(Alignment.BottomEnd)
         ) {
-            IconButton(
-                modifier = Modifier.size(37.dp),
-                onClick = onEditClick,
-                enabled = editButtonEnabled
-            )
-            {
-                Icon(
-                    painter = painterResource(id = editIcon),
-                    contentDescription = null,
-                    tint = editColor
-                )
-            }
+//            IconButton(
+//                modifier = Modifier.size(37.dp),
+//                onClick = onEditClick,
+//                enabled = editButtonEnabled
+//            )
+//            {
+//                Icon(
+//                    painter = painterResource(id = editIcon),
+//                    contentDescription = null,
+//                    tint = editColor
+//                )
+//            }
             IconButton(
                 modifier = Modifier.size(37.dp),
                 onClick = onDeleteClick
@@ -319,17 +319,17 @@ fun NoteItem(
                     tint = Color.Unspecified
                 )
             }
-            IconButton(
-                modifier = Modifier.size(37.dp),
-                onClick = onCompleteClick
-            )
-            {
-                Icon(
-                    painter = painterResource(id = checkIcon),
-                    contentDescription = null,
-                    tint = checkColor
-                )
-            }
+//            IconButton(
+//                modifier = Modifier.size(37.dp),
+//                onClick = onCompleteClick
+//            )
+//            {
+//                Icon(
+//                    painter = painterResource(id = checkIcon),
+//                    contentDescription = null,
+//                    tint = checkColor
+//                )
+//            }
         }
     }
 }
