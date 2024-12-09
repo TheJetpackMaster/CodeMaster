@@ -40,6 +40,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
+import androidx.lifecycle.Lifecycle
 import com.codemaster.codemasterapp.main.DataBase.NoteViewModel
 import com.codemaster.codemasterapp.main.data.LessonStatus
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.MainRoutes
@@ -68,7 +69,11 @@ fun LevelSelectionScreen(
         topBar = {
             VibrantTopBarWithLottie(
                 onBackClick = {
-                    navController.popBackStack()
+                    if (navController.currentBackStackEntry?.lifecycle?.currentState
+                        == Lifecycle.State.RESUMED
+                    ) {
+                        navController.popBackStack()
+                    }
                 }
             )
         },
@@ -115,7 +120,11 @@ fun LevelSelectionScreen(
                                     onClick = {
                                         // Navigate to lesson list, passing the selected stage
                                         courseViewModel.selectStage(stage)
-                                        navController.navigate(MainRoutes.LessonListScreen.route)
+                                        if (navController.currentBackStackEntry?.lifecycle?.currentState
+                                            == Lifecycle.State.RESUMED
+                                        ) {
+                                            navController.navigate(MainRoutes.LessonListScreen.route)
+                                        }
                                     },
                                     modifier = Modifier.weight(.5f) // Distribute the space equally
                                 )
