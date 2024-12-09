@@ -278,7 +278,7 @@ fun NoteItem(
                 .padding(end = 75.dp)
         ) {
             Text(
-                text = title, style = MaterialTheme.typography.headlineSmall,
+                text = subLesson.title, style = MaterialTheme.typography.headlineSmall,
                 color = Color.White,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis
@@ -287,7 +287,7 @@ fun NoteItem(
             Spacer(modifier = Modifier.height(4.dp))
 
             Text(
-                text = description, style = MaterialTheme.typography.bodyMedium,
+                text = subLesson.description, style = MaterialTheme.typography.bodyMedium,
                 color = Color.White,
                 maxLines = 10,
                 overflow = TextOverflow.Ellipsis
