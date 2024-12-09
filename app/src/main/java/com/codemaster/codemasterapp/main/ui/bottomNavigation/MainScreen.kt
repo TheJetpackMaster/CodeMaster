@@ -56,28 +56,6 @@ fun MainScreen(
     val showBar =
         currentDestination == BottomNavRoutes.HomeScreen.route || currentDestination == BottomNavRoutes.AchievementsScreen.route
 
-
-    val backDispatcher = LocalOnBackPressedDispatcherOwner.current?.onBackPressedDispatcher
-//    val navBackStackEntry by navController.currentBackStackEntryAsState()
-    Log.d("destination,",currentDestination.toString())
-
-//
-//    DisposableEffect(backDispatcher) {
-//        val callback = object : OnBackPressedCallback(true) {
-//            override fun handleOnBackPressed() {
-//                if(currentDestination == BottomNavRoutes.HomeScreen.route) {
-//                    (context as? Activity)?.finish()
-//                }
-//            }
-//        }
-//
-//        backDispatcher?.addCallback(callback)
-//
-//        onDispose {
-//            callback.remove()
-//        }
-//    }
-
     Scaffold(
         bottomBar = {
             if (showBar) {
