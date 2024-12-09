@@ -164,6 +164,7 @@ fun SubLessonCard(subLesson: NoteSubLesson) {
                 maxLines = 3,
                 overflow = TextOverflow.Ellipsis
             )
+            Spacer(modifier = Modifier.height(8.dp))
         }
     }
 }
