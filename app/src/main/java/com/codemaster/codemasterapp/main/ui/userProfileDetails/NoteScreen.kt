@@ -140,6 +140,7 @@ fun NoteScreen(
                     onDeleteClick = { isClicked ->
                         showNoteEditDialog = isClicked
                         selectedSubLesson = subLesson
+                        
                     },
                     onEditClick = { isClicked ->
                         showNoteEditDialog = isClicked
@@ -150,6 +151,10 @@ fun NoteScreen(
                     subLesson = subLesson
                 )
             }
+        }
+
+        if (showNoteEditDialog){
+
         }
     }
 }
