@@ -19,6 +19,7 @@ interface NoteLanguageDao {
 
     @Query("SELECT * FROM NoteLanguage")
     suspend fun getAllLanguages(): List<NoteLanguage>
+
 }
 
 
