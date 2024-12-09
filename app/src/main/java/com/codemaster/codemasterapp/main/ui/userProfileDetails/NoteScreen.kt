@@ -151,9 +151,6 @@ fun NoteScreen(
                     bgColor = Color(0xFF375A7F).copy(1f),
                     subLesson = subLesson
                     )
-//                bgColor = Color(0xFF1E88E5).copy(.5f),
-//                bgColor = Color(0xFF2A4D69),
-//                bgColor = Color(0xFF375A7F).copy(1f)
             }
         }
     }
