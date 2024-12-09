@@ -126,73 +126,98 @@ fun NoteScreen(
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             items(subLessons.value) { subLesson ->
-                SubLessonCard(subLesson = subLesson)
+//                SubLessonCard(subLesson = subLesson)
+                NoteItem(
+                    onDeleteClick = {
+                        // Handle delete action
+                        println("Delete clicked")
+                    },
+                    onEditClick = {
+                        // Handle edit action
+                        println("Edit clicked")
+                    },
+                    onCompleteClick = {
+                        // Handle complete action
+                        println("Complete clicked")
+                    },
+                    checkColor = Color.Green,
+                    editColor = Color.Blue,
+                    title = "Sample Note",
+                    description = "This is a sample description for the note.",
+                    deleteIcon = R.drawable.editicon,
+                    checkIcon = R.drawable.editicon,
+                    editIcon = R.drawable.editicon,
+                    editButtonEnabled = true,
+                    bgColor = Color(0xFF6200EE),
+                    subLesson = subLesson
+                    )
             }
         }
     }
 }
 
-@Composable
-fun SubLessonCard(subLesson: NoteSubLesson) {
-    Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(8.dp),
-        elevation = 4.dp,
-        shape = RoundedCornerShape(12.dp)
-    ) {
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .background(Color.White)
-                .padding(16.dp)
-        ) {
-            Text(
-                text = subLesson.title,
-                style = MaterialTheme.typography.titleMedium.copy(
-                    fontWeight = FontWeight.Bold,
-                    color = Color(0xFF101820)
-                ),
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis
-            )
-            Spacer(modifier = Modifier.height(8.dp))
-            Text(
-                text = subLesson.description,
-                style = MaterialTheme.typography.bodyMedium.copy(
-                    color = Color.Gray
-                ),
-                maxLines = 3,
-                overflow = TextOverflow.Ellipsis
-            )
-            Spacer(modifier = Modifier.height(8.dp))
-            NoteItem(
-                onDeleteClick = {
-                    // Handle delete action
-                    println("Delete clicked")
-                },
-                onEditClick = {
-                    // Handle edit action
-                    println("Edit clicked")
-                },
-                onCompleteClick = {
-                    // Handle complete action
-                    println("Complete clicked")
-                },
-                checkColor = Color.Green,
-                editColor = Color.Blue,
-                title = "Sample Note",
-                description = "This is a sample description for the note.",
-                deleteIcon = R.drawable.editicon,
-                checkIcon = R.drawable.editicon,
-                editIcon = R.drawable.editicon,
-                editButtonEnabled = true,
-                bgColor = Color(0xFF6200EE)
-            )
-
-        }
-    }
-}
+//@Composable
+//fun SubLessonCard(subLesson: NoteSubLesson) {
+//    Card(
+//        modifier = Modifier
+//            .fillMaxWidth()
+//            .padding(8.dp),
+//        elevation = 4.dp,
+//        shape = RoundedCornerShape(12.dp)
+//    ) {
+//        Column(
+//            modifier = Modifier
+//                .fillMaxWidth()
+//                .background(Color.White)
+//                .padding(16.dp)
+//        ) {
+//            Text(
+//                text = subLesson.title,
+//                style = MaterialTheme.typography.titleMedium.copy(
+//                    fontWeight = FontWeight.Bold,
+//                    color = Color(0xFF101820)
+//                ),
+//                maxLines = 1,
+//                overflow = TextOverflow.Ellipsis
+//            )
+//            Spacer(modifier = Modifier.height(8.dp))
+//            Text(
+//                text = subLesson.description,
+//                style = MaterialTheme.typography.bodyMedium.copy(
+//                    color = Color.Gray
+//                ),
+//                maxLines = 3,
+//                overflow = TextOverflow.Ellipsis
+//            )
+//            Spacer(modifier = Modifier.height(8.dp))
+//            NoteItem(
+//                onDeleteClick = {
+//                    // Handle delete action
+//                    println("Delete clicked")
+//                },
+//                onEditClick = {
+//                    // Handle edit action
+//                    println("Edit clicked")
+//                },
+//                onCompleteClick = {
+//                    // Handle complete action
+//                    println("Complete clicked")
+//                },
+//                checkColor = Color.Green,
+//                editColor = Color.Blue,
+//                title = "Sample Note",
+//                description = "This is a sample description for the note.",
+//                deleteIcon = R.drawable.editicon,
+//                checkIcon = R.drawable.editicon,
+//                editIcon = R.drawable.editicon,
+//                editButtonEnabled = true,
+//                bgColor = Color(0xFF6200EE),
+//
+//            )
+//
+//        }
+//    }
+//}
 
 @Composable
 fun NoteItem(
@@ -210,7 +235,8 @@ fun NoteItem(
     checkIcon: Int,
     editIcon: Int,
     editButtonEnabled:Boolean,
-    bgColor: Color
+    bgColor: Color,
+    subLesson: NoteSubLesson
 ) {
     Box(
         modifier = modifier
