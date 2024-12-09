@@ -148,10 +148,11 @@ fun NoteScreen(
                     checkIcon = R.drawable.editicon,
                     editIcon = R.drawable.editicon,
                     editButtonEnabled = true,
-                    bgColor = Color(0xFF1E88E5).copy(.5f),
+                    bgColor = Color(0xFF2A4D69).copy(0.5f),
                     subLesson = subLesson
                     )
 //                bgColor = Color(0xFF1E88E5).copy(.5f),
+//                bgColor = Color(0xFF2A4D69).copy(0.5f),
             }
         }
     }
