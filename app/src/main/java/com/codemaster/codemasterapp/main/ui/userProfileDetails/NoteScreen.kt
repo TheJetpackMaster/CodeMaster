@@ -293,7 +293,7 @@ fun NoteItem(
                     painter = painterResource(id = deleteIcon),
                     contentDescription = null,
                     tint = Color.Unspecified,
-                    modifier = Modifier.size(25.dp)
+                    modifier = Modifier.size(20.dp)
                 )
             }
 //            IconButton(
