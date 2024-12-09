@@ -133,7 +133,7 @@ fun NoteScreen(
                         println("Delete clicked")
                     },
                     deleteIcon = R.drawable.delete,
-                    bgColor = Color(0xFF375A7F).copy(1f),
+                    bgColor = Color(0xFF375A7F),
                     subLesson = subLesson
                     )
             }
