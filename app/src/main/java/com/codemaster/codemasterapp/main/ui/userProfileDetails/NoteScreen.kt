@@ -51,6 +51,7 @@ import com.codemaster.codemasterapp.main.DataBase.NoteViewModel
 import com.codemaster.codemasterapp.main.data.NoteSubLesson
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.ProfileRoutes
 import com.codemaster.codemasterapp.main.ui.viewModels.CourseViewModel
+import com.codemaster.codemasterapp.R
 
 @Composable
 fun NoteScreen(
@@ -165,6 +166,32 @@ fun SubLessonCard(subLesson: NoteSubLesson) {
                 overflow = TextOverflow.Ellipsis
             )
             Spacer(modifier = Modifier.height(8.dp))
+            NoteItem(
+                modifier = Modifier.padding(16.dp),
+                cornerRadius = 12.dp,
+                cutCornerSize = 40.dp,
+                onDeleteClick = {
+                    // Handle delete action
+                    println("Delete clicked")
+                },
+                onEditClick = {
+                    // Handle edit action
+                    println("Edit clicked")
+                },
+                onCompleteClick = {
+                    // Handle complete action
+                    println("Complete clicked")
+                },
+                checkColor = Color.Green,
+                editColor = Color.Blue,
+                title = "Sample Note",
+                description = "This is a sample description for the note.",
+                deleteIcon = R.drawable.editicon,
+                checkIcon = R.drawable.editicon,
+                editIcon = R.drawable.editicon,
+                editButtonEnabled = true,
+                bgColor = Color(0xFF6200EE)
+            )
 
         }
     }
