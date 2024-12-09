@@ -132,22 +132,7 @@ fun NoteScreen(
                         // Handle delete action
                         println("Delete clicked")
                     },
-                    onEditClick = {
-                        // Handle edit action
-                        println("Edit clicked")
-                    },
-                    onCompleteClick = {
-                        // Handle complete action
-                        println("Complete clicked")
-                    },
-                    checkColor = Color.Green,
-                    editColor = Color.Blue,
-                    title = "Sample Note",
-                    description = "This is a sample description for the note.",
                     deleteIcon = R.drawable.delete,
-                    checkIcon = R.drawable.editicon,
-                    editIcon = R.drawable.editicon,
-                    editButtonEnabled = true,
                     bgColor = Color(0xFF375A7F).copy(1f),
                     subLesson = subLesson
                     )
@@ -225,16 +210,7 @@ fun NoteItem(
     cornerRadius: Dp = 10.dp,
     cutCornerSize: Dp = 30.dp,
     onDeleteClick: () -> Unit,
-    onEditClick:()->Unit,
-    onCompleteClick:()->Unit,
-    checkColor:Color,
-    editColor:Color,
-    title: String,
-    description: String,
     deleteIcon: Int,
-    checkIcon: Int,
-    editIcon: Int,
-    editButtonEnabled:Boolean,
     bgColor: Color,
     subLesson: NoteSubLesson
 ) {
