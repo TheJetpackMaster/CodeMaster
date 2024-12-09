@@ -104,7 +104,11 @@ fun HomeScreen(
                             difficulty = "Beginner",
                             lessonCount = course.stages.sumOf { it.lessons.size },
                             completedLessonCount = completedLessonCount.value,
-                            gradientColors = listOf(purpleKt, yellowishKt),
+                            gradientColors = when(course.language){
+                                "C" -> listOf(purpleKt, yellowishKt)
+                                "C++" -> listOf(purpleCpp, magentaCpp)
+                                else -> listOf(purpleKt, yellowishKt)
+                            } ,
                             languageImage = painterResource(id = R.drawable.kotlin),
                             onClick = {
                                 courseViewModel.selectLanguage(course)
