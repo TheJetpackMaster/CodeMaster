@@ -27,6 +27,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.runtime.Composable;
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -37,12 +38,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.currentBackStackEntryAsState
+import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.BottomNavRoutes
 
 @Composable
 fun CustomBottomBar(
     items: List<BottomBarItem>,
-    selectedItemIndex: Int,
-    onItemSelected: (Int) -> Unit
+    navController: NavController
 ) {
 
     val bottomBarGradient = Brush.horizontalGradient(
@@ -58,6 +60,9 @@ fun CustomBottomBar(
     val mutedBlueGrayBottomBar = Color(0xFF20232A) // Dark Slate Blue
 
 
+    val navBackStackEntry by navController.currentBackStackEntryAsState()
+    val currentDestination = navBackStackEntry?.destination?.route
+
 
     // Box to contain the Row and underline
     Box(
@@ -72,8 +77,12 @@ fun CustomBottomBar(
 //                brush = bottomBarGradient
 //            )
 
-            .shadow(elevation = .5.dp, shape = RoundedCornerShape(topStart = 8.dp, topEnd = 8.dp), ambientColor = Color.White,
-                spotColor = Color.White)
+            .shadow(
+                elevation = .5.dp,
+                shape = RoundedCornerShape(topStart = 8.dp, topEnd = 8.dp),
+                ambientColor = Color.White,
+                spotColor = Color.White
+            )
     ) {
         // Row to hold the icons
         Row(
@@ -85,8 +94,31 @@ fun CustomBottomBar(
             items.forEachIndexed { index, item ->
                 BottomBarItem(
                     item = item,
-                    isSelected = index == selectedItemIndex,
-                    onClick = { onItemSelected(index) },
+                    isSelected = currentDestination == item.route,
+                    onClick = {
+                        if (currentDestination != item.route) {
+                            if (item.route == BottomNavRoutes.HomeScreen.route) {
+                                // Navigate to HomeScreen and ensure no black screen
+                                navController.navigate(item.route) {
+                                    // Clear all other destinations
+                                    popUpTo(navController.graph.startDestinationId) {
+                                        saveState = false // Ensure fresh start for HomeScreen
+                                    }
+                                    launchSingleTop = true // Prevent multiple instances of HomeScreen
+                                }
+                            } else {
+                                // Navigate to other screens, keeping HomeScreen in the stack
+                                navController.navigate(item.route) {
+                                    popUpTo(BottomNavRoutes.HomeScreen.route) {
+                                        saveState = true // Restore HomeScreen state when navigating back
+                                    }
+                                    launchSingleTop = true // Prevent multiple instances of the target
+                                    restoreState = true // Restore saved state for the target
+                                }
+                            }
+
+                        }
+                    },
                     modifier = Modifier.weight(1f)
                 )
             }
@@ -152,9 +184,9 @@ fun BottomBarItem(
 }
 
 
-
 data class BottomBarItem(
     val label: String,
-    val iconRes: Int // Resource ID for the icon
+    val iconRes: Int,
+    val route: String
 )
 
