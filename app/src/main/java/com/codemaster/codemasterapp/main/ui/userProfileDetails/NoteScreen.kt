@@ -140,7 +140,16 @@ fun NoteScreen(
                     onDeleteClick = { isClicked ->
                         showNoteEditDialog = isClicked
                         selectedSubLesson = subLesson
-                        
+
+                        val subLessonToUpdate = NoteSubLesson(
+                            id = subLesson.id, // Example ID
+                            lessonId = subLesson.lessonId,
+                            subLessonNumber = subLesson.subLessonNumber,
+                            title = subLesson.title,
+                            description = "Updated"
+                        )
+
+                        noteViewModel.updateSubLesson(subLessonToUpdate)
                     },
                     onEditClick = { isClicked ->
                         showNoteEditDialog = isClicked
@@ -211,7 +220,7 @@ fun NoteItem(
                 .padding(end = 75.dp)
         ) {
             Text(
-                text = subLesson.title, style = MaterialTheme.typography.headlineSmall,
+                text = "${ subLesson.id },${ subLesson.lessonId }", style = MaterialTheme.typography.headlineSmall,
                 color = Color.White,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis
