@@ -59,6 +59,9 @@ interface NoteSubLessonDao {
     @Update
     suspend fun update(noteSubLesson: NoteSubLesson)
 
+    @Query("DELETE FROM NoteSubLesson WHERE id = :subLessonId")
+    suspend fun deleteSubLessonById(subLessonId: Long)
+
     @Query("SELECT * FROM NoteSubLesson WHERE lessonId = :lessonId")
     suspend fun getSubLessonsByLessonId(lessonId: Long): List<NoteSubLesson>
 

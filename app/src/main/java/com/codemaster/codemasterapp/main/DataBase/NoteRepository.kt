@@ -156,26 +156,12 @@ class NoteRepository(
         return allSubLessons
     }
 
-    // Delete a specific sub-lesson by its identifiers
-    suspend fun deleteSubLesson(
-        languageName: String,
-        stageName: String,
-        lessonNumber: Int,
-        subLessonNumber: Float
-    ) {
-        // Step 1: Get the lesson ID by navigating through language and stage hierarchy
-        val lessonId = getOrInsertLesson(languageName, stageName, lessonNumber)
-
-        // Step 2: Fetch the sub-lesson by its number
-        val subLesson = noteSubLessonDao.getSubLessonByNumber(lessonId, subLessonNumber)
-
-        // Step 3: If the sub-lesson exists, delete it
-        if (subLesson != null) {
-            noteSubLessonDao.deleteSubLessonByNumber(lessonId, subLessonNumber)
-        } else {
-            // Log or handle the case where the sub-lesson doesn't exist
-            throw IllegalArgumentException("Sub-lesson not found for deletion")
-        }
+    suspend fun updateSubLesson(subLesson: NoteSubLesson) {
+        noteSubLessonDao.update(subLesson)
+    }
+    // Delete sub-lesson by ID
+    suspend fun deleteSubLesson(subLessonId: Long) {
+        noteSubLessonDao.deleteSubLessonById(subLessonId)
     }
 
 }
