@@ -65,9 +65,9 @@ fun LanguageCardDesign(
     Card(
         modifier = modifier
             .height(155.dp)
+            .clip(RoundedCornerShape(20.dp))
             .clickable { onClick() },
-//            .shadow(8.dp, RoundedCornerShape(24.dp), ambientColor = Color.White, spotColor = Color.White),
-        shape = RoundedCornerShape(20.dp),
+//            .shadow(8.dp, RoundedCornerShape(24.dp), ambientColor = Color.White, spotColor = Color.White), ,
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
         colors = CardDefaults.cardColors(containerColor = Color.Transparent)
     ) {
@@ -112,7 +112,7 @@ fun LanguageCardDesign(
                                 .clip(CircleShape)
 
                                 .background(Color.Black)
-                                .padding(10.dp),
+                                .padding(6.dp),
                             colorFilter = ColorFilter.tint(Color.White)
                         )
 

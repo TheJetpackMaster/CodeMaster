@@ -41,6 +41,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.Lifecycle
 import androidx.navigation.NavController
 import com.codemaster.codemasterapp.R
 import com.codemaster.codemasterapp.main.DataBase.NoteViewModel
@@ -121,7 +122,11 @@ fun UserProfileScreen(
                 modifier = Modifier
                     .clip(RoundedCornerShape(6.dp))
                     .clickable(onClick = {
-                        navController.navigate(ProfileRoutes.SettingsScreen.route)
+                        if (navController.currentBackStackEntry?.lifecycle?.currentState
+                            == Lifecycle.State.RESUMED
+                        ) {
+                            navController.navigate(ProfileRoutes.SettingsScreen.route)
+                        }
                     })
                     .background(Color.LightGray.copy(.2f))
                     .padding(6.dp)
@@ -301,7 +306,7 @@ fun UserProfileScreen(
                         liveSupportButtonColors,
                         shape = RoundedCornerShape(12.dp)
                     )
-                    .clickable {  navController.navigate(ProfileRoutes.NoteScreen.route) }
+                    .clickable { navController.navigate(ProfileRoutes.NoteScreen.route) }
                     .padding(vertical = 14.dp),
                 contentAlignment = Alignment.Center
             ) {

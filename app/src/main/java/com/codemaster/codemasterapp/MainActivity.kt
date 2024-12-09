@@ -31,7 +31,8 @@ class MainActivity : ComponentActivity() {
 
                     MainScreen(
                         courseViewModel = courseViewModel,
-                        noteViewModel = noteViewModel
+                        noteViewModel = noteViewModel,
+                        context = this@MainActivity
                     )
                 }
             }

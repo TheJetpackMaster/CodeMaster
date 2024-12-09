@@ -465,8 +465,6 @@ fun LessonContentScreen(
                             }
                         )
                     }
-
-
                 }
 
             }

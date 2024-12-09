@@ -1,5 +1,10 @@
 package com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph
 
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.scaleIn
+import androidx.compose.animation.scaleOut
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
@@ -20,15 +25,89 @@ fun NavGraphBuilder.profileNavHost(
         startDestination = ProfileRoutes.UserProfileScreen.route,
         route = ProfileRoutes.PROFILE_ROOT.route
     ) {
-        composable(ProfileRoutes.UserProfileScreen.route) {
+        composable(ProfileRoutes.UserProfileScreen.route,
+            enterTransition = {
+                scaleIn(
+                    initialScale = 0.95f,
+                    animationSpec = tween(160)
+                ) + fadeIn(animationSpec = tween(100))
+            },
+            exitTransition = {
+                scaleOut(
+                    targetScale = .95f,
+                    animationSpec = tween(160)
+                ) + fadeOut(animationSpec = tween(150))
+            },
+            popEnterTransition = {
+                scaleIn(initialScale = .95f, animationSpec = tween(160)) + fadeIn(
+                    animationSpec = tween(100)
+                )
+            },
+            popExitTransition = {
+                scaleOut(
+                    targetScale = .95f,
+                    animationSpec = tween(160)
+                ) + fadeOut(animationSpec = tween(150))
+            }
+        ) {
             UserProfileScreen(navController, noteViewModel)
         }
 
-        composable(ProfileRoutes.SettingsScreen.route) {
+        composable(ProfileRoutes.SettingsScreen.route,
+            enterTransition = {
+                scaleIn(
+                    initialScale = 0.95f,
+                    animationSpec = tween(160)
+                ) + fadeIn(animationSpec = tween(100))
+            },
+            exitTransition = {
+                scaleOut(
+                    targetScale = .95f,
+                    animationSpec = tween(160)
+                ) + fadeOut(animationSpec = tween(150))
+            },
+            popEnterTransition = {
+                scaleIn(
+                    initialScale = .95f,
+                    animationSpec = tween(160)
+                ) + fadeIn(animationSpec = tween(100))
+            },
+            popExitTransition = {
+                scaleOut(
+                    targetScale = .95f,
+                    animationSpec = tween(160)
+                ) + fadeOut(animationSpec = tween(150))
+            }) {
             SettingScreen(navController)
         }
-        composable(ProfileRoutes.NoteScreen.route) {
-            NoteScreen(navController, noteViewModel,courseViewModel)
+        composable(ProfileRoutes.NoteScreen.route,
+            enterTransition = {
+                scaleIn(
+                    initialScale = 0.95f,
+                    animationSpec = tween(160)
+                ) + fadeIn(animationSpec = tween(100))
+            },
+            exitTransition = {
+                scaleOut(
+                    targetScale = .95f,
+                    animationSpec = tween(160)
+                ) + fadeOut(animationSpec = tween(150))
+            },
+            popEnterTransition = {
+                scaleIn(initialScale = .95f, animationSpec = tween(160)) + fadeIn(
+                    animationSpec = tween(
+                        100
+                    )
+                )
+            },
+            popExitTransition = {
+                scaleOut(
+                    targetScale = .95f,
+                    animationSpec = tween(160)
+                ) + fadeOut(animationSpec = tween(150))
+            }
+        ) {
+            NoteScreen(navController, noteViewModel, courseViewModel)
         }
     }
 }

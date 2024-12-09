@@ -57,6 +57,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.Lifecycle
 import androidx.navigation.NavController
 import com.codemaster.codemasterapp.R
 
@@ -82,13 +83,20 @@ fun SettingScreen(navController: NavController) {
 
                     OutlinedIconButton(
                         onClick = {
-                            navController.popBackStack()
+                            if (navController.currentBackStackEntry?.lifecycle?.currentState
+                                == Lifecycle.State.RESUMED
+                            ) {
+                                navController.popBackStack()
+                            }
                         },
                         modifier = Modifier
                             .statusBarsPadding()
                             .padding(start = 8.dp)
                             .size(36.dp),
-                        border = BorderStroke(1.3.dp, color = Color.LightGray.copy(alpha = 0.4f)), // Light border with transparency
+                        border = BorderStroke(
+                            1.3.dp,
+                            color = Color.LightGray.copy(alpha = 0.4f)
+                        ), // Light border with transparency
                         colors = IconButtonDefaults.outlinedIconButtonColors(
                             containerColor = Color.White.copy(.08f),
                         )
@@ -113,7 +121,11 @@ fun SettingScreen(navController: NavController) {
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = Color(0x990F263D) // Desired dark gradient tone
                 ),
-                modifier = Modifier.shadow(.5.dp, ambientColor = Color.White, spotColor = Color.White)
+                modifier = Modifier.shadow(
+                    .5.dp,
+                    ambientColor = Color.White,
+                    spotColor = Color.White
+                )
 
             )
         }
@@ -168,6 +180,7 @@ fun SettingScreen(navController: NavController) {
         }
     }
 }
+
 @Composable
 fun SectionCard(title: String, content: @Composable ColumnScope.() -> Unit) {
     Column(
