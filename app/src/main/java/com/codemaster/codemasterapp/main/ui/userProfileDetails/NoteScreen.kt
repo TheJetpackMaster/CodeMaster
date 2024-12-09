@@ -285,14 +285,15 @@ fun NoteItem(
 //                )
 //            }
             IconButton(
-                modifier = Modifier.size(30.dp),
+                modifier = Modifier.size(40.dp),
                 onClick = onDeleteClick
             )
             {
                 Icon(
                     painter = painterResource(id = deleteIcon),
                     contentDescription = null,
-                    tint = Color.Unspecified
+                    tint = Color.Unspecified,
+                    modifier = Modifier.size(25.dp)
                 )
             }
 //            IconButton(
