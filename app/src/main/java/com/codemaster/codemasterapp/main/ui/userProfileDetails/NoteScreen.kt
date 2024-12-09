@@ -144,7 +144,7 @@ fun NoteScreen(
                     editColor = Color.Blue,
                     title = "Sample Note",
                     description = "This is a sample description for the note.",
-                    deleteIcon = R.drawable.editicon,
+                    deleteIcon = R.drawable.delete,
                     checkIcon = R.drawable.editicon,
                     editIcon = R.drawable.editicon,
                     editButtonEnabled = true,
