@@ -381,7 +381,8 @@ fun LessonListScreen(
                                                                     subIndex
                                                                 )
                                                                 if (navController.currentBackStackEntry?.lifecycle?.currentState
-                                                                    == Lifecycle.State.RESUMED) {
+                                                                    == Lifecycle.State.RESUMED
+                                                                ) {
                                                                     navController.navigate(
                                                                         MainRoutes.LessonContentScreen.route
                                                                     )
