@@ -2,6 +2,9 @@ package com.codemaster.codemasterapp.main.DataBase
 
 import android.content.Context
 import androidx.room.Room
+import com.codemaster.codemasterapp.main.DataBase.continueLearningprogressDB.UserLearningProgressDB
+import com.codemaster.codemasterapp.main.DataBase.continueLearningprogressDB.UserLearningProgressDao
+import com.codemaster.codemasterapp.main.DataBase.continueLearningprogressDB.UserLearningProgressRepository
 import com.codemaster.codemasterapp.main.DataBase.lessonStatusDB.LessonStatusDB
 import com.codemaster.codemasterapp.main.DataBase.lessonStatusDB.LessonStatusDao
 import com.codemaster.codemasterapp.main.DataBase.lessonStatusDB.LessonStatusRepo
@@ -47,6 +50,7 @@ object AppModule {
     }
 
 
+    // Lesson Status
     @Provides
     @Singleton
     fun provideLessonStatusDatabase(@ApplicationContext context: Context): LessonStatusDB {
@@ -63,4 +67,24 @@ object AppModule {
     fun provideLessonStatusRepository(lessonStatusDao: LessonStatusDao): LessonStatusRepo {
         return LessonStatusRepo(lessonStatusDao)
     }
+
+
+    // Continue Progress
+    @Provides
+    @Singleton
+    fun provideUserLearningProgressDatabase(@ApplicationContext context: Context): UserLearningProgressDB {
+        return UserLearningProgressDB.getDatabase(context)
+    }
+
+    @Provides
+    fun provideUserLearningProgressDao(database: UserLearningProgressDB): UserLearningProgressDao {
+        return database.UserLearningProgressDao()
+    }
+
+    @Provides
+    @Singleton
+    fun provideUserLearningProgressRepository(userLearningProgressDao: UserLearningProgressDao): UserLearningProgressRepository {
+        return UserLearningProgressRepository(userLearningProgressDao)
+    }
+
 }

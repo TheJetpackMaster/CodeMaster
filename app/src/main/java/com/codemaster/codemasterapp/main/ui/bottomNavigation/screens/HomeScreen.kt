@@ -204,17 +204,22 @@ fun HomeScreen(
                             )
                         )
                     }
-                    ContinueLearningCard(
-                        completedLessons = 14,
-                        totalLessons = 20,
-                        levelName = "Introduction",
-                        lessonName = "Variables Part 2",
-                        progressPercentage = 0.7f,
-                        paddingValues = PaddingValues(0.dp),
-                        onContinueClick = {
-                            navController.navigate(MainRoutes.LessonContentScreen.route)
-                        }
-                    )
+
+                    val progress = courseViewModel.loadProgress()
+
+                    progress?.let {
+                        ContinueLearningCard(
+                            completedLessons = 14,
+                            totalLessons = 20,
+                            levelName = it.stageName,
+                            lessonName = it.subLessonName,
+                            progressPercentage = 0.7f,
+                            paddingValues = PaddingValues(0.dp),
+                            onContinueClick = {
+                                navController.navigate(MainRoutes.LessonContentScreen.route)
+                            }
+                        )
+                    }
                 }
             }
         }

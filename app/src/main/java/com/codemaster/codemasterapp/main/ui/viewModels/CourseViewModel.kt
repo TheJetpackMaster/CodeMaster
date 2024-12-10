@@ -1,5 +1,6 @@
 package com.codemaster.codemasterapp.main.ui.viewModels
 
+import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
 import androidx.lifecycle.ViewModel
@@ -8,9 +9,13 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import com.codemaster.codemasterapp.main.AllCourses.CLangCourseProvider
 import com.codemaster.codemasterapp.main.AllCourses.CppCourse.CPPCourseProvider
+import com.codemaster.codemasterapp.main.DataBase.continueLearningprogressDB.UserLearningProgress
+import com.codemaster.codemasterapp.main.DataBase.continueLearningprogressDB.UserLearningProgressDB
+import com.codemaster.codemasterapp.main.DataBase.continueLearningprogressDB.UserLearningProgressRepository
 import com.codemaster.codemasterapp.main.DataBase.lessonStatusDB.LessonStatusEntity
 import com.codemaster.codemasterapp.main.DataBase.lessonStatusDB.LessonStatusRepo
 import com.codemaster.codemasterapp.main.data.Course
+import com.codemaster.codemasterapp.main.data.LearningProgress
 import com.codemaster.codemasterapp.main.data.Lesson
 import com.codemaster.codemasterapp.main.data.LessonStatus
 import com.codemaster.codemasterapp.main.data.Stage
@@ -25,7 +30,8 @@ import javax.inject.Inject
 class CourseViewModel @Inject constructor(
     private val sharedPreferences: SharedPreferences,
     private val gson: Gson,
-    private val repository: LessonStatusRepo
+    private val lessonStatusRepository: LessonStatusRepo,
+    private val userLearningProgressRepository: UserLearningProgressRepository
 ) : ViewModel() {
 
     // List of courses to display
@@ -84,7 +90,7 @@ class CourseViewModel @Inject constructor(
     // Load all lesson statuses
     fun loadAllLessonStatuses() {
         viewModelScope.launch {
-            val statuses = repository.getAllLessonStatuses()
+            val statuses = lessonStatusRepository.getAllLessonStatuses()
             _lessonCompletionStatus.value = statuses.associate { it.id to it.status }
             statuses.forEach {
                 Log.d("status", "${it.id} ${it.status}")
@@ -94,7 +100,7 @@ class CourseViewModel @Inject constructor(
 
     fun addOrUpdateLessonStatus(lessonId: String, status: LessonStatus) {
         viewModelScope.launch {
-            repository.addOrUpdateLessonStatus(LessonStatusEntity(lessonId, status))
+            lessonStatusRepository.addOrUpdateLessonStatus(LessonStatusEntity(lessonId, status))
 
             // Update the MutableStateFlow directly
             _lessonCompletionStatus.update { currentMap ->
@@ -205,8 +211,44 @@ class CourseViewModel @Inject constructor(
     // Function to save lesson status to the database (only sub-lesson status)
     private suspend fun saveLessonCompletionStatusToDb(subLessonId: String, status: LessonStatus) {
         val lessonStatusEntity = LessonStatusEntity(subLessonId, status)
-        repository.addOrUpdateLessonStatus(lessonStatusEntity)
+        lessonStatusRepository.addOrUpdateLessonStatus(lessonStatusEntity)
     }
+
+    fun saveProgress(progress: LearningProgress) {
+        sharedPreferences.edit().apply {
+            putString("language", progress.language)
+            putString("courseId", progress.courseId)
+            putString("stageId", progress.stageId)
+            putString("lessonId", progress.lessonId)
+            putString("subLessonId", progress.subLessonId)
+            putString("subLessonName", progress.subLessonName)
+            putString("stageName", progress.stageName)
+            putString("lessonName", progress.lessonName)
+            putInt("subLessonIndex", progress.subLessonIndex) // Save the index
+            apply()
+        }
+    }
+
+
+    fun loadProgress(): LearningProgress? {
+        return if (sharedPreferences.contains("language")) {
+            LearningProgress(
+                language = sharedPreferences.getString("language", "") ?: "",
+                courseId = sharedPreferences.getString("courseId", "") ?: "",
+                stageId = sharedPreferences.getString("stageId", "") ?: "",
+                lessonId = sharedPreferences.getString("lessonId", "") ?: "",
+                subLessonId = sharedPreferences.getString("subLessonId", "") ?: "",
+                subLessonName = sharedPreferences.getString("subLessonName", "") ?: "",
+                stageName = sharedPreferences.getString("stageName", "") ?: "",
+                lessonName = sharedPreferences.getString("lessonName", "") ?: "",
+                subLessonIndex = sharedPreferences.getInt("subLessonIndex", -1) // Load the index
+            )
+        } else {
+            null
+        }
+    }
+
+
 
 
 //    // Function to get the current stage from the selected course
