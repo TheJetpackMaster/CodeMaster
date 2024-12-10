@@ -2,8 +2,6 @@ package com.codemaster.codemasterapp.main.ui.viewModels
 
 import android.content.SharedPreferences
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -17,8 +15,8 @@ import com.codemaster.codemasterapp.main.data.Lesson
 import com.codemaster.codemasterapp.main.data.LessonStatus
 import com.codemaster.codemasterapp.main.data.Stage
 import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -40,7 +38,7 @@ class CourseViewModel @Inject constructor(
 
     private val _selectedLesson = MutableStateFlow<Lesson?>(null)
     private val _selectedSubLessonIndex = MutableStateFlow<Int>(0)
-    private val _selectedLessonIndex  = MutableStateFlow<Int>(0)
+    private val _selectedLessonIndex = MutableStateFlow<Int>(0)
 
     // Exposed state for UI binding
     val selectedCourse: StateFlow<Course?> get() = _selectedCourse
@@ -50,7 +48,7 @@ class CourseViewModel @Inject constructor(
     val selectedLessonIndex: StateFlow<Int> get() = _selectedLessonIndex
 
     // MutableStateFlow to hold the lesson statuses
-    private val _lessonCompletionStatus = MutableStateFlow<Map<String, LessonStatus >>(emptyMap())
+    private val _lessonCompletionStatus = MutableStateFlow<Map<String, LessonStatus>>(emptyMap())
     val lessonCompletionStatus: StateFlow<Map<String, LessonStatus>> = _lessonCompletionStatus
 
     //Points collection
@@ -73,6 +71,7 @@ class CourseViewModel @Inject constructor(
     fun selectSubLessonIndex(index: Int) {
         _selectedSubLessonIndex.value = index
     }
+
     fun selectLessonIndex(index: Int) {
         _selectedLessonIndex.value = index
     }
@@ -87,20 +86,29 @@ class CourseViewModel @Inject constructor(
         viewModelScope.launch {
             val statuses = repository.getAllLessonStatuses()
             _lessonCompletionStatus.value = statuses.associate { it.id to it.status }
+            statuses.forEach {
+                Log.d("status", "${it.id} ${it.status}")
+            }
         }
     }
 
-    // Add or update lesson status
     fun addOrUpdateLessonStatus(lessonId: String, status: LessonStatus) {
         viewModelScope.launch {
             repository.addOrUpdateLessonStatus(LessonStatusEntity(lessonId, status))
-            loadAllLessonStatuses()
+
+            // Update the MutableStateFlow directly
+            _lessonCompletionStatus.update { currentMap ->
+                currentMap.toMutableMap().apply {
+                    put(lessonId, status)
+                }
+            }
         }
     }
 
     // Function to mark a sub-lesson as completed and update lesson status
     fun markSubLessonAsCompleted(subLessonId: String, lessonId: String) {
-        val updatedCompletionStatus = _lessonCompletionStatus.value?.toMutableMap() ?: mutableMapOf()
+        val updatedCompletionStatus =
+            _lessonCompletionStatus.value?.toMutableMap() ?: mutableMapOf()
 
         // Mark the sub-lesson as completed if not already completed
         if (updatedCompletionStatus[subLessonId] != LessonStatus.COMPLETED) {
@@ -126,13 +134,13 @@ class CourseViewModel @Inject constructor(
                     unlockNextLesson(it)
                 }
 
-                // Unlock the next sub-lesson if applicable
-                unlockNextSubLesson(it, subLessonId)
+//                // Unlock the next sub-lesson if applicable
+//                unlockNextSubLesson(nextLesson = ne, subLessonId)
             }
         }
 
         // Save the updated status to the database (just sub-lesson status)
-        viewModelScope.launch{
+        viewModelScope.launch {
             saveLessonCompletionStatusToDb(subLessonId, LessonStatus.COMPLETED)
         }
 
@@ -151,14 +159,12 @@ class CourseViewModel @Inject constructor(
                 updatedCompletionStatus[nextLesson.id] = LessonStatus.ACTIVE
                 _lessonCompletionStatus.value = updatedCompletionStatus
 
-                // Unlock the first sub-lesson of the next lesson
-                nextLesson.lessonContents.firstOrNull()?.let { firstSubLesson ->
-                    updatedCompletionStatus[firstSubLesson.id] = LessonStatus.ACTIVE
-                    _lessonCompletionStatus.value = updatedCompletionStatus
-                }
+
+                // Unlock the next sub-lesson if applicable
+                unlockNextSubLesson(nextLesson = nextLesson)
 
                 // Save the updated sub-lesson status to the database
-                viewModelScope.launch{
+                viewModelScope.launch {
                     saveLessonCompletionStatusToDb(nextLesson.id, LessonStatus.ACTIVE)
                 }
             }
@@ -166,37 +172,34 @@ class CourseViewModel @Inject constructor(
     }
 
     // Function to unlock the next sub-lesson
-    private fun unlockNextSubLesson(currentLesson: Lesson, currentSubLessonId: String) {
-        val currentSubLessonIndex = currentLesson.lessonContents.indexOfFirst { it.id == currentSubLessonId }
+    private fun unlockNextSubLesson(nextLesson: Lesson) {
+        val nextSubLesson = nextLesson.lessonContents[0]
+        val updatedCompletionStatus = _lessonCompletionStatus.value.toMutableMap()
 
-        if (currentSubLessonIndex >= 0 && currentSubLessonIndex < currentLesson.lessonContents.size - 1) {
-            val nextSubLesson = currentLesson.lessonContents[currentSubLessonIndex + 1]
-            val updatedCompletionStatus = _lessonCompletionStatus.value.toMutableMap()
+        if (updatedCompletionStatus[nextSubLesson.id].toString() == "null"
+            || updatedCompletionStatus[nextSubLesson.id] == LessonStatus.LOCKED
+        ) {
+            updatedCompletionStatus[nextSubLesson.id] = LessonStatus.ACTIVE
+            _lessonCompletionStatus.value = updatedCompletionStatus
+        }
 
-            // Unlock the next sub-lesson if its status is LOCKED
-            if (updatedCompletionStatus[nextSubLesson.id] == LessonStatus.LOCKED) {
-                updatedCompletionStatus[nextSubLesson.id] = LessonStatus.ACTIVE
-                _lessonCompletionStatus.value = updatedCompletionStatus
-                Log.d("Next SubLesson Unlocked", nextSubLesson.id)
-            }
-
-            // Save the updated sub-lesson status to the database
-            viewModelScope.launch{
-                saveLessonCompletionStatusToDb(nextSubLesson.id, LessonStatus.ACTIVE)
-            }
-
+        // Save the updated sub-lesson status to the database
+        viewModelScope.launch {
+            saveLessonCompletionStatusToDb(nextSubLesson.id, LessonStatus.ACTIVE)
         }
     }
 
     // Function to find the current lesson (returns Lesson or null)
     private fun findLessonById(lessonId: String): Lesson? {
         // Replace with your hardcoded courses and stages logic
-        return courses.flatMap { it.stages }.flatMap { it.lessons }.firstOrNull { it.id == lessonId }
+        return courses.flatMap { it.stages }.flatMap { it.lessons }
+            .firstOrNull { it.id == lessonId }
     }
 
     // Function to find the stage by the current lesson
     private fun findStageByLesson(currentLesson: Lesson): Stage? {
-        return courses.flatMap { it.stages }.firstOrNull { stage -> stage.lessons.contains(currentLesson) }
+        return courses.flatMap { it.stages }
+            .firstOrNull { stage -> stage.lessons.contains(currentLesson) }
     }
 
     // Function to save lesson status to the database (only sub-lesson status)
@@ -422,7 +425,6 @@ class CourseViewModel @Inject constructor(
 //        val loadedPoints = pointsJson?.let { gson.fromJson<Map<String, Int>>(it, type) }
 //        _points.value = loadedPoints ?: emptyMap()
 //    }
-
 
 
 }
