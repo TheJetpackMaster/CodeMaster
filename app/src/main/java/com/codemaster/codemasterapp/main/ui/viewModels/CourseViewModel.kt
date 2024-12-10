@@ -1,6 +1,5 @@
 package com.codemaster.codemasterapp.main.ui.viewModels
 
-import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
 import androidx.lifecycle.ViewModel
@@ -15,7 +14,6 @@ import com.codemaster.codemasterapp.main.DataBase.continueLearningprogressDB.Use
 import com.codemaster.codemasterapp.main.DataBase.lessonStatusDB.LessonStatusEntity
 import com.codemaster.codemasterapp.main.DataBase.lessonStatusDB.LessonStatusRepo
 import com.codemaster.codemasterapp.main.data.Course
-import com.codemaster.codemasterapp.main.data.LearningProgress
 import com.codemaster.codemasterapp.main.data.Lesson
 import com.codemaster.codemasterapp.main.data.LessonStatus
 import com.codemaster.codemasterapp.main.data.Stage
@@ -31,7 +29,6 @@ class CourseViewModel @Inject constructor(
     private val sharedPreferences: SharedPreferences,
     private val gson: Gson,
     private val lessonStatusRepository: LessonStatusRepo,
-    private val userLearningProgressRepository: UserLearningProgressRepository
 ) : ViewModel() {
 
     // List of courses to display
@@ -213,43 +210,6 @@ class CourseViewModel @Inject constructor(
         val lessonStatusEntity = LessonStatusEntity(subLessonId, status)
         lessonStatusRepository.addOrUpdateLessonStatus(lessonStatusEntity)
     }
-
-    fun saveProgress(progress: LearningProgress) {
-        sharedPreferences.edit().apply {
-            putString("language", progress.language)
-            putString("courseId", progress.courseId)
-            putString("stageId", progress.stageId)
-            putString("lessonId", progress.lessonId)
-            putString("subLessonId", progress.subLessonId)
-            putString("subLessonName", progress.subLessonName)
-            putString("stageName", progress.stageName)
-            putString("lessonName", progress.lessonName)
-            putInt("subLessonIndex", progress.subLessonIndex) // Save the index
-            apply()
-        }
-    }
-
-
-    fun loadProgress(): LearningProgress? {
-        return if (sharedPreferences.contains("language")) {
-            LearningProgress(
-                language = sharedPreferences.getString("language", "") ?: "",
-                courseId = sharedPreferences.getString("courseId", "") ?: "",
-                stageId = sharedPreferences.getString("stageId", "") ?: "",
-                lessonId = sharedPreferences.getString("lessonId", "") ?: "",
-                subLessonId = sharedPreferences.getString("subLessonId", "") ?: "",
-                subLessonName = sharedPreferences.getString("subLessonName", "") ?: "",
-                stageName = sharedPreferences.getString("stageName", "") ?: "",
-                lessonName = sharedPreferences.getString("lessonName", "") ?: "",
-                subLessonIndex = sharedPreferences.getInt("subLessonIndex", -1) // Load the index
-            )
-        } else {
-            null
-        }
-    }
-
-
-
 
 //    // Function to get the current stage from the selected course
 //    fun getCurrentStage(): Stage? {
