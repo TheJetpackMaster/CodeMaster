@@ -6,6 +6,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -36,6 +37,8 @@ fun HomeScreen(
     val scrollState = rememberScrollState()
     val completedLessonCount = remember { mutableStateOf(0) }
 
+    // Saved Lesson Status
+    val allLessonsStatus = courseViewModel.lessonCompletionStatus.collectAsState()
 
 
 
@@ -185,29 +188,11 @@ fun HomeScreen(
 
                 //Continue
                 Column(modifier = Modifier.padding(bottom = 80.dp)) {
-                    // Progress
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(top = 14.dp),
-                        horizontalArrangement = Arrangement.SpaceBetween,
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Text(
-                            text = "Continue where you left:",
-                            style = MaterialTheme.typography.bodyLarge,
-                            color = Color(0xFFFFFFFF),
-                            fontWeight = FontWeight.Medium,
-                            modifier = Modifier.padding(
-                                start = 4.dp,
-                                bottom = 6.dp
-                            )
-                        )
-                    }
 
                     val progress = courseViewModel.loadProgress()
 
-                    progress?.let { (courseId, stageId, lessonId, subLessonId, subLessonName, stageName,subLessonIndex) ->
+
+                    progress?.let { (courseId, stageId, lessonId, subLessonId, subLessonName, stageName, subLessonIndex) ->
                         // Find the course and stage from the list
                         val course = courses.find { it.id == courseId }
                         val stage = course?.stages?.find { it.id == stageId }
@@ -215,19 +200,78 @@ fun HomeScreen(
                         // Optionally, find the lesson and sub-lesson using lessonId and subLessonId if needed
                         val lesson = stage?.lessons?.find { it.id == lessonId }
 
+
+                        // Completed Sub-Lessons (Lesson Contents)
+                        val completedSubLessons = stage!!.lessons.sumOf { lesson ->
+                            lesson.lessonContents.count { content -> allLessonsStatus.value[content.id] == LessonStatus.COMPLETED }
+
+                        }
+
+                        // Progress
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(top = 14.dp),
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Text(
+                                text = "Continue where you left:",
+                                style = MaterialTheme.typography.bodyLarge,
+                                color = Color(0xFFFFFFFF),
+                                fontWeight = FontWeight.Medium,
+                                modifier = Modifier.padding(
+                                    start = 4.dp,
+                                    bottom = 6.dp
+                                )
+                            )
+                        }
+
+
                         ContinueLearningCard(
-                            completedLessons = 14,
-                            totalLessons = 20,
+                            completedLessons = completedSubLessons,
+                            totalLessons = stage.lessons.sumOf { it.lessonContents.size },
                             levelName = stageName,
                             lessonName = subLessonName,
-                            progressPercentage = 0.7f,
+                            progressPercentage = (completedSubLessons.toFloat()
+                                .toFloat() / (stage.lessons.sumOf { it.lessonContents.size }).toFloat()),
                             paddingValues = PaddingValues(0.dp),
+                            decorativeLogo =
+                            when (course.language) {
+                                "C" -> R.drawable.clang
+                                "C++"-> R.drawable.cpp
+                                else -> {R.drawable.kotlin}
+                            },
                             onContinueClick = {
-                                courseViewModel.selectLanguage(course!!)
-                                courseViewModel.selectStage(stage!!)
+                                courseViewModel.selectLanguage(course)
+                                courseViewModel.selectStage(stage)
                                 courseViewModel.selectLesson(lesson!!)
                                 courseViewModel.selectSubLessonIndex(subLessonIndex)
-                                navController.navigate(MainRoutes.LessonContentScreen.route)
+
+
+                                // Add two more screens to the back stack and navigate to the final screen
+                                navController.navigate(MainRoutes.LevelSelectionScreen.route) {
+                                    // Add the StageSelectionScreen to the back stack
+                                    launchSingleTop =
+                                        true  // Ensures that this screen is added to the stack only once
+                                    popUpTo(MainRoutes.LevelSelectionScreen.route) {
+                                        inclusive = false
+                                    }
+                                }
+
+                                navController.navigate(MainRoutes.LessonListScreen.route) {
+                                    // Add the LessonListScreen to the back stack
+                                    launchSingleTop = true
+                                    popUpTo(MainRoutes.LessonListScreen.route) { inclusive = false }
+                                }
+
+                                // Finally, navigate to the LessonContentScreen
+                                navController.navigate(MainRoutes.LessonContentScreen.route) {
+                                    // This will ensure we don't end up with duplicates in the back stack
+                                    popUpTo(MainRoutes.LessonContentScreen.route) {
+                                        inclusive = false
+                                    }
+                                }
                             }
                         )
                     }

@@ -109,10 +109,11 @@ class CourseViewModel @Inject constructor(
         }
     }
 
-    // Function to mark a sub-lesson as completed and update lesson status
+
+    //    // Function to mark a sub-lesson as completed and update lesson status
     fun markSubLessonAsCompleted(subLessonId: String, lessonId: String) {
         val updatedCompletionStatus =
-            _lessonCompletionStatus.value?.toMutableMap() ?: mutableMapOf()
+            _lessonCompletionStatus.value.toMutableMap()
 
         // Mark the sub-lesson as completed if not already completed
         if (updatedCompletionStatus[subLessonId] != LessonStatus.COMPLETED) {
@@ -138,8 +139,26 @@ class CourseViewModel @Inject constructor(
                     unlockNextLesson(it)
                 }
 
-//                // Unlock the next sub-lesson if applicable
-//                unlockNextSubLesson(nextLesson = ne, subLessonId)
+                // Mark the next sub-lesson as active (if not on the last sub-lesson)
+                val currentSubLessonIndex = it.lessonContents.indexOfFirst { subLesson ->
+                    subLesson.id == subLessonId
+                }
+
+                if (currentSubLessonIndex != -1 && currentSubLessonIndex < it.lessonContents.size - 1) {
+                    // Get the next sub-lesson
+                    val nextSubLesson = it.lessonContents[currentSubLessonIndex + 1]
+
+                    // Mark the next sub-lesson as active (not completed yet)
+                    if (updatedCompletionStatus[nextSubLesson.id] != LessonStatus.COMPLETED) {
+                        updatedCompletionStatus[nextSubLesson.id] = LessonStatus.ACTIVE
+                        _lessonCompletionStatus.value = updatedCompletionStatus
+                        Log.d("Next Sub-Lesson Active", nextSubLesson.id)
+                        // Save the updated status to the database (just sub-lesson status)
+                        viewModelScope.launch {
+                            saveLessonCompletionStatusToDb(nextSubLesson.id, LessonStatus.ACTIVE)
+                        }
+                    }
+                }
             }
         }
 
@@ -147,8 +166,46 @@ class CourseViewModel @Inject constructor(
         viewModelScope.launch {
             saveLessonCompletionStatusToDb(subLessonId, LessonStatus.COMPLETED)
         }
-
     }
+
+
+//    // Function to mark a sub-lesson as completed and update lesson status
+//    fun markSubLessonAsCompleted(subLessonId: String, lessonId: String) {
+//        val updatedCompletionStatus =
+//            _lessonCompletionStatus.value?.toMutableMap() ?: mutableMapOf()
+//
+//        // Mark the sub-lesson as completed if not already completed
+//        if (updatedCompletionStatus[subLessonId] != LessonStatus.COMPLETED) {
+//            updatedCompletionStatus[subLessonId] = LessonStatus.COMPLETED
+//            _lessonCompletionStatus.value = updatedCompletionStatus
+//            Log.d("SubLesson Completed", subLessonId)
+//
+//            // Now process the lesson-level completion and unlock next lesson/sub-lesson
+//            val lesson = findLessonById(lessonId)
+//            lesson?.let {
+//                // Check if all sub-lessons of this lesson are completed
+//                val allSubLessonsCompleted = it.lessonContents.all { subLesson ->
+//                    updatedCompletionStatus[subLesson.id] == LessonStatus.COMPLETED
+//                }
+//
+//                // If all sub-lessons are completed, mark the lesson as completed
+//                if (allSubLessonsCompleted && updatedCompletionStatus[lesson.id] != LessonStatus.COMPLETED) {
+//                    updatedCompletionStatus[lesson.id] = LessonStatus.COMPLETED
+//                    _lessonCompletionStatus.value = updatedCompletionStatus
+//                    Log.d("Lesson Completed", lesson.id)
+//
+//                    // Unlock next lesson if available
+//                    unlockNextLesson(it)
+//                }
+//            }
+//        }
+//
+//        // Save the updated status to the database (just sub-lesson status)
+//        viewModelScope.launch {
+//            saveLessonCompletionStatusToDb(subLessonId, LessonStatus.COMPLETED)
+//        }
+//
+//    }
 
     // Function to unlock the next lesson
     private fun unlockNextLesson(currentLesson: Lesson) {
@@ -208,8 +265,10 @@ class CourseViewModel @Inject constructor(
 
     // Function to save lesson status to the database (only sub-lesson status)
     private suspend fun saveLessonCompletionStatusToDb(subLessonId: String, status: LessonStatus) {
+        Log.d("DB Save", "Saving $subLessonId with status $status")
         val lessonStatusEntity = LessonStatusEntity(subLessonId, status)
         lessonStatusRepository.addOrUpdateLessonStatus(lessonStatusEntity)
+        Log.d("DB Save", "Status saved for sub-lesson $subLessonId")
     }
 
 
