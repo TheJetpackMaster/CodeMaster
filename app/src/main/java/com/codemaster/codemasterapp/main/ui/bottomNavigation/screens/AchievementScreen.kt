@@ -28,12 +28,18 @@ import com.codemaster.codemasterapp.main.ui.bottomNavigation.screens.components.
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.screens.components.AchievementScreenCustomTopBar
 import androidx.compose.runtime.*
 import androidx.compose.ui.graphics.Brush
+import com.codemaster.codemasterapp.main.data.Course
+import com.codemaster.codemasterapp.main.data.LessonStatus
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.screens.components.LanguageProgressCard
+import com.codemaster.codemasterapp.main.ui.viewModels.CourseViewModel
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AchievementScreen(navController: NavController) {
+fun AchievementScreen(
+    navController: NavController,
+    courseViewModel: CourseViewModel
+) {
     val scrollState = rememberScrollState()
     var currentTab by remember { mutableStateOf(0) }
     val pagerState = rememberPagerState(pageCount = { 2 })
@@ -70,7 +76,7 @@ fun AchievementScreen(navController: NavController) {
                 ) { page ->
                     when (page) {
                         0 -> AchievementsContent()
-                        1 -> ProgressContent()
+                        1 -> ProgressContent(courseViewModel = courseViewModel)
                     }
                 }
             }
@@ -117,7 +123,7 @@ fun AchievementsContent() {
         "Inventor",
         "Guru",
 
-    )
+        )
 
 
     // List of animation resource IDs (Assume you have different animation files)
@@ -141,7 +147,7 @@ fun AchievementsContent() {
         R.drawable.leader, R.drawable.inventor,
 
 
-    )
+        )
 
     // Progress values and animation resources for each achievement
     val progressValues = List(30) { (it + 1) / 100f }
@@ -155,7 +161,6 @@ fun AchievementsContent() {
             animationResource = animationResources[index]  // Unique animation
         )
     }
-
 
 
     // AchievementCard bg colors
@@ -198,16 +203,53 @@ data class AchievementItem(
 )
 
 @Composable
-fun ProgressContent() {
+fun ProgressContent(
+    courseViewModel: CourseViewModel
+) {
+    val allCompletedLessons = courseViewModel.lessonCompletionStatus.collectAsState()
+    val courses = courseViewModel.courses
+
+
+
     LazyColumn(
         modifier = Modifier.fillMaxSize()
     ) {
         // First Row
         item {
-            Row() {
+            Row {
+                // Find the course and stage from the list
+                val course = courses.find { it.id == "c_course" }
+
+                // Get all stages
+                val allStages = course?.stages ?: listOf()
+
+                // Calculate completed sub-lessons for each stage and lesson
+                val completedSubLessons = allStages.sumOf { stage ->
+                    // For each stage, sum the completed sub-lessons across all lessons in that stage
+                    stage.lessons.sumOf { lesson ->
+                        // Count the number of sub-lessons marked as COMPLETED in each lesson
+                        lesson.lessonContents.count { content ->
+                            allCompletedLessons.value[content.id] == LessonStatus.COMPLETED
+                        }
+                    }
+                }
+
+                // Count all sub-lessons across all stages and lessons
+                val totalSubLessons = allStages.sumOf { stage ->
+                    // For each stage, sum the total sub-lessons across all lessons in that stage
+                    stage.lessons.sumOf { lesson ->
+                        // Count all sub-lessons in each lesson
+                        lesson.lessonContents.size
+                    }
+                }
+
                 LanguageProgressCard(
                     title = "C",
-                    progressValue = 0f,
+                    progressValue = getCourseProgress(
+                        courseId = "c_course",
+                        courses = courses,
+                        allCompletedLessons = allCompletedLessons.value
+                    ),
                     animationResource = R.raw.cardbadge,
                     bgDecorativeIcon = R.drawable.cpp,
                     modifier = Modifier.weight(1f),
@@ -217,7 +259,11 @@ fun ProgressContent() {
                 )
                 LanguageProgressCard(
                     title = "C++",
-                    progressValue = 0.2f,
+                    progressValue = getCourseProgress(
+                        courseId = "cpp_course",
+                        courses = courses,
+                        allCompletedLessons = allCompletedLessons.value
+                    ),
                     animationResource = R.raw.cardbadge,
                     bgDecorativeIcon = R.drawable.cpp,
                     modifier = Modifier.weight(1f),
@@ -233,7 +279,11 @@ fun ProgressContent() {
             Row() {
                 LanguageProgressCard(
                     title = "Python",
-                    progressValue = 0.4f,
+                    progressValue =  getCourseProgress(
+                        courseId = "python_course",
+                        courses = courses,
+                        allCompletedLessons = allCompletedLessons.value
+                    ),
                     animationResource = R.raw.cardbadge,
                     bgDecorativeIcon = R.drawable.pythonlogo,
                     modifier = Modifier.weight(1f),
@@ -243,7 +293,11 @@ fun ProgressContent() {
                 )
                 LanguageProgressCard(
                     title = "Java",
-                    progressValue = 0.6f,
+                    progressValue =  getCourseProgress(
+                        courseId = "java_course",
+                        courses = courses,
+                        allCompletedLessons = allCompletedLessons.value
+                    ),
                     animationResource = R.raw.cardbadge,
                     bgDecorativeIcon = R.drawable.java,
                     modifier = Modifier.weight(1f),
@@ -259,7 +313,11 @@ fun ProgressContent() {
             Row() {
                 LanguageProgressCard(
                     title = "DSA",
-                    progressValue = 0.8f,
+                    progressValue =  getCourseProgress(
+                        courseId = "DSA_course",
+                        courses = courses,
+                        allCompletedLessons = allCompletedLessons.value
+                    ),
                     animationResource = R.raw.cardbadge,
                     bgDecorativeIcon = R.drawable.cpp,
                     modifier = Modifier.weight(1f),
@@ -269,7 +327,11 @@ fun ProgressContent() {
                 )
                 LanguageProgressCard(
                     title = "Kotlin",
-                    progressValue = 1f,
+                    progressValue =  getCourseProgress(
+                        courseId = "kotlin_course",
+                        courses = courses,
+                        allCompletedLessons = allCompletedLessons.value
+                    ),
                     animationResource = R.raw.cardbadge,
                     bgDecorativeIcon = R.drawable.kotlin,
                     modifier = Modifier.weight(1f),
@@ -284,5 +346,51 @@ fun ProgressContent() {
         item {
             Spacer(modifier = Modifier.height(80.dp))
         }
+    }
+}
+
+
+fun getCourseProgress(
+    courseId: String,
+    courses: List<Course>,
+    allCompletedLessons: Map<String, LessonStatus>
+): Float {
+    // Find the course by ID
+    val course = courses.find { it.id == courseId }
+
+    // If the course is found, proceed; otherwise, return 0 as progress
+    if (course != null) {
+        // Get all stages from the course
+        val allStages = course.stages
+
+        // Calculate completed sub-lessons for each stage and lesson
+        val completedSubLessons = allStages.sumOf { stage ->
+            // For each stage, sum the completed sub-lessons across all lessons in that stage
+            stage.lessons.sumOf { lesson ->
+                // Count the number of sub-lessons marked as COMPLETED in each lesson
+                lesson.lessonContents.count { content ->
+                    allCompletedLessons[content.id] == LessonStatus.COMPLETED
+                }
+            }
+        }
+
+        // Count all sub-lessons across all stages and lessons
+        val totalSubLessons = allStages.sumOf { stage ->
+            // For each stage, sum the total sub-lessons across all lessons in that stage
+            stage.lessons.sumOf { lesson ->
+                // Count all sub-lessons in each lesson
+                lesson.lessonContents.size
+            }
+        }
+
+        // Return progress as a float (percentage of completed sub-lessons)
+        return if (totalSubLessons > 0) {
+            (completedSubLessons.toFloat()) / totalSubLessons.toFloat()
+        } else {
+            0f
+        }
+    } else {
+        // If course is not found, return 0 as progress
+        return 0f
     }
 }

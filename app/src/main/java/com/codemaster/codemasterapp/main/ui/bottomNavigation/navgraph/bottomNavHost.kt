@@ -74,7 +74,7 @@ fun NavGraphBuilder.bottomNavHost(
                 fadeOut(animationSpec = tween(250))
             }
         ) {
-            AchievementScreen(navController = navController)
+            AchievementScreen(navController = navController,courseViewModel = courseViewModel)
         }
     }
 }
