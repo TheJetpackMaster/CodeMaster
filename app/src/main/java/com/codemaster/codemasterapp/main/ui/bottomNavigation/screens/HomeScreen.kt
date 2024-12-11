@@ -205,18 +205,32 @@ fun HomeScreen(
                         )
                     }
 
-                    ContinueLearningCard(
-                        completedLessons = 14,
-                        totalLessons = 20,
-                        levelName = "Beginner",
-                        lessonName = "Variables part 2",
-                        progressPercentage = 0.7f,
-                        paddingValues = PaddingValues(0.dp),
-                        onContinueClick = {
-                            courseViewModel
-                            navController.navigate(MainRoutes.LessonContentScreen.route)
-                        }
-                    )
+                    val progress = courseViewModel.loadProgress()
+
+                    progress?.let { (courseId, stageId, lessonId, subLessonId, subLessonName, stageName,subLessonIndex) ->
+                        // Find the course and stage from the list
+                        val course = courses.find { it.id == courseId }
+                        val stage = course?.stages?.find { it.id == stageId }
+
+                        // Optionally, find the lesson and sub-lesson using lessonId and subLessonId if needed
+                        val lesson = stage?.lessons?.find { it.id == lessonId }
+
+                        ContinueLearningCard(
+                            completedLessons = 14,
+                            totalLessons = 20,
+                            levelName = stageName,
+                            lessonName = subLessonName,
+                            progressPercentage = 0.7f,
+                            paddingValues = PaddingValues(0.dp),
+                            onContinueClick = {
+                                courseViewModel.selectLanguage(course!!)
+                                courseViewModel.selectStage(stage!!)
+                                courseViewModel.selectLesson(lesson!!)
+                                courseViewModel.selectSubLessonIndex(subLessonIndex)
+                                navController.navigate(MainRoutes.LessonContentScreen.route)
+                            }
+                        )
+                    }
                 }
             }
         }

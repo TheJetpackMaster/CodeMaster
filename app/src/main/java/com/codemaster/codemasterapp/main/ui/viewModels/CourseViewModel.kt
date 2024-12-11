@@ -14,6 +14,7 @@ import com.codemaster.codemasterapp.main.DataBase.continueLearningprogressDB.Use
 import com.codemaster.codemasterapp.main.DataBase.lessonStatusDB.LessonStatusEntity
 import com.codemaster.codemasterapp.main.DataBase.lessonStatusDB.LessonStatusRepo
 import com.codemaster.codemasterapp.main.data.Course
+import com.codemaster.codemasterapp.main.data.LearningProgress
 import com.codemaster.codemasterapp.main.data.Lesson
 import com.codemaster.codemasterapp.main.data.LessonStatus
 import com.codemaster.codemasterapp.main.data.Stage
@@ -210,6 +211,38 @@ class CourseViewModel @Inject constructor(
         val lessonStatusEntity = LessonStatusEntity(subLessonId, status)
         lessonStatusRepository.addOrUpdateLessonStatus(lessonStatusEntity)
     }
+
+
+    fun saveProgress(progress: LearningProgress) {
+        sharedPreferences.edit().apply {
+            putString("courseId", progress.courseId)  // Only save the courseId
+            putString("stageId", progress.stageId)    // Save the stageId
+            putString("lessonId", progress.lessonId)  // Save the lessonId
+            putString("subLessonId", progress.subLessonId)  // Save the subLessonId
+            putString("subLessonName", progress.subLessonName)  // Optionally save subLessonName if needed
+            putString("stageName", progress.stageName)  // Optionally save stageName if needed
+            putInt("subLessonIndex",progress.subLessonIndex)
+            apply()
+        }
+    }
+
+    fun loadProgress(): LearningProgress? {
+        return if (sharedPreferences.contains("courseId") && sharedPreferences.contains("stageId")) {
+            LearningProgress(
+                courseId = sharedPreferences.getString("courseId", "") ?: "",
+                stageId = sharedPreferences.getString("stageId", "") ?: "",
+                lessonId = sharedPreferences.getString("lessonId", "") ?: "",
+                subLessonId = sharedPreferences.getString("subLessonId", "") ?: "",
+                subLessonName = sharedPreferences.getString("subLessonName", "") ?: "",
+                stageName = sharedPreferences.getString("stageName", "") ?: "",
+                subLessonIndex = sharedPreferences.getInt("subLessonIndex",0)
+            )
+        } else {
+            null
+        }
+    }
+
+
 
 //    // Function to get the current stage from the selected course
 //    fun getCurrentStage(): Stage? {

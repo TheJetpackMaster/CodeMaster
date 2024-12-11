@@ -108,6 +108,7 @@ import com.airbnb.lottie.compose.rememberLottieComposition
 import com.codemaster.codemasterapp.R
 import com.codemaster.codemasterapp.main.DataBase.NoteViewModel
 import com.codemaster.codemasterapp.main.data.ContentBlock
+import com.codemaster.codemasterapp.main.data.LearningProgress
 import com.codemaster.codemasterapp.main.data.LessonContent
 import com.codemaster.codemasterapp.main.data.LessonContentType
 import com.codemaster.codemasterapp.main.data.LessonStatus
@@ -132,33 +133,7 @@ fun LessonContentScreen(
     val context = LocalContext.current
     val window = context.findActivity().window
 
-    // Hide the status bar
-    DisposableEffect(Unit) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            // API 30 and above
-            val controller = window.insetsController
-            controller?.hide(WindowInsets.Type.statusBars())
-            controller?.systemBarsBehavior =
-                WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
-        } else {
-            // Below API 30
-            @Suppress("DEPRECATION")
-            window.decorView.systemUiVisibility = (
-                    View.SYSTEM_UI_FLAG_FULLSCREEN or
-                            View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                    )
-        }
 
-        onDispose {
-            // Restore the status bar when leaving the screen
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-                window.insetsController?.show(WindowInsets.Type.statusBars())
-            } else {
-                @Suppress("DEPRECATION")
-                window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_VISIBLE
-            }
-        }
-    }
 
 
     //SelectedSubLesson
@@ -205,6 +180,47 @@ fun LessonContentScreen(
 
     LaunchedEffect(Unit) {
         courseViewModel.selectSubLessonIndex(0)
+    }
+
+    // Hide the status bar
+    DisposableEffect(Unit) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            // API 30 and above
+            val controller = window.insetsController
+            controller?.hide(WindowInsets.Type.statusBars())
+            controller?.systemBarsBehavior =
+                WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+        } else {
+            // Below API 30
+            @Suppress("DEPRECATION")
+            window.decorView.systemUiVisibility = (
+                    View.SYSTEM_UI_FLAG_FULLSCREEN or
+                            View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                    )
+        }
+
+        onDispose {
+            // Restore the status bar when leaving the screen
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                window.insetsController?.show(WindowInsets.Type.statusBars())
+            } else {
+                @Suppress("DEPRECATION")
+                window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_VISIBLE
+            }
+
+            courseViewModel.saveProgress(
+                progress = LearningProgress(
+                    courseId = selectedCourse!!.id,
+                    stageId = selectedStage!!.id,
+                    lessonId = selectedLesson!!.id,
+                    subLessonId = lessons[pagerState.currentPage].id,
+                    subLessonName = lessons[pagerState.currentPage].title,
+                    stageName = selectedStage!!.title,
+                    subLessonIndex = pagerState.currentPage
+                )
+            )
+            Log.d("sub",selectedSubLesson.toString())
+        }
     }
     Box() {
 
