@@ -8,6 +8,8 @@ import androidx.compose.material3.*
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.State
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -20,6 +22,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.NavController
 import com.codemaster.codemasterapp.R
+import com.codemaster.codemasterapp.main.data.Course
 import com.codemaster.codemasterapp.main.data.LessonStatus
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.screens.components.HomeScreenCustomTopBar
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.MainRoutes
@@ -34,25 +37,16 @@ import com.codemaster.codemasterapp.ui.theme.*
 @Composable
 fun HomeScreen(
     navController: NavController,
-    courseViewModel: CourseViewModel
+    courseViewModel: CourseViewModel,
+    courses:List<Course> = emptyList<Course>(),
+    allLessonsStatus: State<Map<String, LessonStatus>>
 ) {
     val scrollState = rememberScrollState()
     val completedLessonCount = remember { mutableStateOf(0) }
-    val courses = courseViewModel.courses
+//    val courses = courseViewModel.courses
 
     // Saved Lesson Status
-    val allLessonsStatus = courseViewModel.lessonCompletionStatus.collectAsState()
-
-    // Recompute completed lesson counts when courses or allLessonsStatus change
-    val completedLessonCounts = remember(courses, allLessonsStatus.value) {
-        courses.map { course ->
-            course.stages.sumOf { stage ->
-                stage.lessons.count { lesson ->
-                    allLessonsStatus.value[lesson.id] == LessonStatus.COMPLETED
-                }
-            }
-        }
-    }
+//    val allLessonsStatus = courseViewModel.lessonCompletionStatus.collectAsState()
 
     LaunchedEffect(Unit) {
         courseViewModel.loadLastSavedProgress()

@@ -55,7 +55,6 @@ fun LevelSelectionCardDesign(
 ) {
 
 
-
     // Calculate progress percentage
     val progress = remember {
         (completedLessonCount.toFloat() / lessonCount.toFloat()).coerceIn(0f, 1f)

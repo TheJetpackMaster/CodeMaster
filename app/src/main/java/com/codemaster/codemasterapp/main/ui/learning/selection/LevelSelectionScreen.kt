@@ -38,6 +38,7 @@ import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedIconButton
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.State
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -61,7 +62,8 @@ import kotlinx.coroutines.launch
 fun LevelSelectionScreen(
     navController: NavController,
     courseViewModel: CourseViewModel,
-    noteViewModel: NoteViewModel
+    noteViewModel: NoteViewModel,
+    allLessonsStatus: State<Map<String, LessonStatus>>
 ) {
 
     val cardGradientColors1 = listOf(
@@ -74,8 +76,7 @@ fun LevelSelectionScreen(
     val selectedCourse by courseViewModel.selectedCourse.collectAsState()
     val progress = remember { mutableStateOf<LearningProgress?>(null) }
 
-    // Saved Lesson Status
-    val allLessonsStatus = courseViewModel.lessonCompletionStatus.collectAsState()
+
 
 
     LaunchedEffect(Unit) {

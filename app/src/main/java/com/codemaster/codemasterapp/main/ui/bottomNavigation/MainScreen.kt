@@ -25,6 +25,7 @@ import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.State
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -42,9 +43,12 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.codemaster.codemasterapp.main.DataBase.NoteViewModel
+import com.codemaster.codemasterapp.main.data.Course
+import com.codemaster.codemasterapp.main.data.LessonStatus
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.RootNavHost
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.BottomNavRoutes
 import com.codemaster.codemasterapp.main.ui.viewModels.CourseViewModel
+import kotlinx.coroutines.flow.StateFlow
 import kotlin.random.Random
 
 
@@ -53,7 +57,9 @@ import kotlin.random.Random
 fun MainScreen(
     courseViewModel: CourseViewModel,
     noteViewModel: NoteViewModel,
-    context: Context
+    context: Context,
+    courses:List<Course> = emptyList<Course>(),
+    allLessonsStatus: State<Map<String, LessonStatus>>
 ) {
     val navController = rememberNavController()
 
@@ -147,7 +153,15 @@ fun MainScreen(
             navController = navController,
             courseViewModel = courseViewModel,
             noteViewModel = noteViewModel
-        )
+        ){
+            RootNavHost(
+                navController = navController,
+                courseViewModel = courseViewModel,
+                noteViewModel = noteViewModel,
+                courses = courses,
+                allLessonsStatus = allLessonsStatus
+            )
+        }
 
 
         ExitConfirmationDialog(
@@ -189,7 +203,8 @@ val screenBackgroundGradient = Brush.verticalGradient(
 fun TechBackground(
     navController: NavHostController,
     courseViewModel: CourseViewModel,
-    noteViewModel: NoteViewModel
+    noteViewModel: NoteViewModel,
+    content:@Composable () -> Unit = {},
 ) {
     Box(
         modifier = Modifier
@@ -286,14 +301,8 @@ fun TechBackground(
             modifier = Modifier
                 .fillMaxSize()
                 .background(screenBackgroundGradient2)
-        ) {
-
-        }
-        RootNavHost(
-            navController = navController,
-            courseViewModel = courseViewModel,
-            noteViewModel = noteViewModel
         )
+        content
     }
 }
 

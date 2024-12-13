@@ -97,8 +97,6 @@ fun LessonListScreen(
     val scrollState = rememberScrollState()
 
 
-    val lessonCompletionStatus by courseViewModel.lessonCompletionStatus.collectAsState()
-
     //Lesson or Description
     var selectedTab by remember {
         mutableStateOf(LessonOrDescription.LESSON)

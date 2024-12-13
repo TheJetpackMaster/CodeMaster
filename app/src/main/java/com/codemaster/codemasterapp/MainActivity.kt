@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Scaffold
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import com.codemaster.codemasterapp.main.DataBase.NoteViewModel
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.MainScreen
@@ -29,10 +30,15 @@ class MainActivity : ComponentActivity() {
             CodeMasterTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
 
+                    val courses = courseViewModel.courses
+                    val allLessonStatus = courseViewModel.lessonCompletionStatus.collectAsState()
+
                     MainScreen(
                         courseViewModel = courseViewModel,
                         noteViewModel = noteViewModel,
-                        context = this@MainActivity
+                        context = this@MainActivity,
+                        courses = courses,
+                        allLessonsStatus = allLessonStatus
                     )
                 }
             }

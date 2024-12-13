@@ -67,6 +67,8 @@ fun LessonContentScreen(
     navController: NavController,
     courseViewModel: CourseViewModel, // Your ViewModel that holds the selectedLesson
     noteViewModel: NoteViewModel,
+    courses:List<Course> = emptyList<Course>(),
+    allLessonsStatus: State<Map<String, LessonStatus>>
 ) {
 
     // UI State
