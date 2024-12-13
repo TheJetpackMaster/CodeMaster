@@ -43,7 +43,7 @@ fun HomeScreen(
 ) {
     val scrollState = rememberScrollState()
     val completedLessonCount = remember { mutableStateOf(0) }
-//    val courses = courseViewModel.courses
+    val courses = courseViewModel.courses
 
     // Saved Lesson Status
 //    val allLessonsStatus = courseViewModel.lessonCompletionStatus.collectAsState()

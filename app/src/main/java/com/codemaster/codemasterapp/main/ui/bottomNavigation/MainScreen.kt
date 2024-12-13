@@ -302,7 +302,7 @@ fun TechBackground(
                 .fillMaxSize()
                 .background(screenBackgroundGradient2)
         )
-        content
+        content()
     }
 }
 

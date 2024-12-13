@@ -1,5 +1,6 @@
 package com.codemaster.codemasterapp.main.ui.bottomNavigation.screens
 
+import android.util.Log
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -29,6 +30,7 @@ import com.codemaster.codemasterapp.main.ui.bottomNavigation.screens.components.
 import androidx.compose.runtime.*
 import androidx.compose.ui.graphics.Brush
 import com.codemaster.codemasterapp.main.data.Course
+import com.codemaster.codemasterapp.main.data.LessonContentType
 import com.codemaster.codemasterapp.main.data.LessonStatus
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.screens.components.LanguageProgressCard
 import com.codemaster.codemasterapp.main.ui.viewModels.CourseViewModel
@@ -38,7 +40,9 @@ import kotlinx.coroutines.launch
 @Composable
 fun AchievementScreen(
     navController: NavController,
-    courseViewModel: CourseViewModel
+    courseViewModel: CourseViewModel,
+    courses: List<Course>,
+    allLessonsStatus: State<Map<String, LessonStatus>>
 ) {
     val scrollState = rememberScrollState()
     var currentTab by remember { mutableStateOf(0) }
@@ -75,7 +79,10 @@ fun AchievementScreen(
                     state = pagerState,
                 ) { page ->
                     when (page) {
-                        0 -> AchievementsContent()
+                        0 -> AchievementsContent(
+                            courses = courses,
+                            allLessonsStatus = allLessonsStatus
+                        )
                         1 -> ProgressContent(courseViewModel = courseViewModel)
                     }
                 }
@@ -87,7 +94,10 @@ fun AchievementScreen(
 }
 
 @Composable
-fun AchievementsContent() {
+fun AchievementsContent(
+    courses: List<Course>,
+    allLessonsStatus: State<Map<String, LessonStatus>>
+) {
 
     // List of 100 titles
     val titles = listOf(
@@ -149,15 +159,30 @@ fun AchievementsContent() {
 
         )
 
-    // Progress values and animation resources for each achievement
-    val progressValues = List(30) { (it + 1) / 100f }
-    // val animationResources = List(48) { R.raw.cardbadge }
+// Define the required points for each achievement (e.g., 50, 100, 150, etc.)
+    val requiredPointsForAchievements = List(30) { (it + 1) * 50 } // 100, 200, 300, ...
 
-    // Create a list of 10 achievements with different titles, progress, and animation
+    // Calculate points earned for each achievement
     val achievements = List(30) { index ->
+        val earnedPointsForAchievement = calculateAchievementPoints(index, courses, allLessonsStatus.value)
+        val requiredPoints = requiredPointsForAchievements[index]
+
+        // Calculate the progress for the current achievement
+        val achievementProgress = when {
+            earnedPointsForAchievement >= requiredPoints -> 1f  // 100% progress if points earned are greater than or equal to required points
+            earnedPointsForAchievement > 0 -> earnedPointsForAchievement.toFloat() / requiredPoints.toFloat()  // Progress based on the earned points
+            else -> 0f  // No progress if no points are earned
+        }
+
+        // Log for debugging
+        Log.d("requiredpoints", requiredPoints.toString())
+        Log.d("earnedPoints", earnedPointsForAchievement.toString())
+        Log.d("progresspoints", achievementProgress.toString())
+
+        // Create the achievement item with dynamic progress
         AchievementItem(
             title = titles[index],  // Unique title
-            progressValue = progressValues[index],  // Unique progress
+            progressValue = achievementProgress,  // Set the progress dynamically
             animationResource = animationResources[index]  // Unique animation
         )
     }
@@ -394,3 +419,44 @@ fun getCourseProgress(
         return 0f
     }
 }
+
+// Function to calculate points based on achievement type
+fun calculateAchievementPoints(achievementIndex: Int, courses: List<Course>, allLessonsStatus: Map<String, LessonStatus>): Int {
+    return when (achievementIndex) {
+        0 -> { // First achievement: Collect only quiz points
+            courses.sumOf { course ->
+                course.stages.sumOf { stage ->
+                    stage.lessons.sumOf { lesson ->
+                        lesson.lessonContents.sumOf { content ->
+                            // Check if the lessonContent is a quiz and if it's completed
+                            if (content.type == LessonContentType.QUIZ && allLessonsStatus[content.id] == LessonStatus.COMPLETED) {
+                                content.points // Collect points if the quiz lessonContent is completed
+                            } else {
+                                0 // No points if it's not a quiz or it's not completed
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        1 -> { // Second achievement: Collect only C++ course points
+            courses.sumOf { course ->
+                if (course.id == "cpp_course") { // Assuming course name is "C++"
+                    course.stages.sumOf { stage ->
+                        stage.lessons.sumOf { lesson ->
+                            lesson.lessonContents.sumOf { content ->
+                                // Add points for C++ lesson contents if completed
+                                if (content.type == LessonContentType.INTERACTIVE && allLessonsStatus[content.id] == LessonStatus.COMPLETED) content.points else 0
+                            }
+                        }
+                    }
+                } else {
+                    0
+                }
+            }
+        }
+        // Add more cases for other achievements as needed
+        else -> 0 // Default case for achievements that don't match the criteria
+    }
+}
+
