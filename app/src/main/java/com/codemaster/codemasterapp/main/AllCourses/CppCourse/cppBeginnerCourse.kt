@@ -478,7 +478,7 @@ int main() {
 
                     // Sub-Lesson 8: Quiz
                     LessonContent(
-                        id = "beginner_cpp2_sub5_content",
+                        id = "beginner_cpp2_sub8_content",
                         title = "Quiz!",
                         description = "Basic quiz to check you lesson knowledge.",
                         contentBlocks = listOf(
@@ -490,7 +490,8 @@ int main() {
                                 isCorrect = false
                             )
                         ),
-                        type = LessonContentType.QUIZ, points = 10,
+                        type = LessonContentType.QUIZ,
+                        points = 10,
                         status = LessonStatus.LOCKED
                     ),
 
@@ -1011,7 +1012,7 @@ cout << "Line 1" << endl << "Line 2";
                                 isCorrect = false
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE,
+                        type = LessonContentType.QUIZ,
                         status = LessonStatus.LOCKED
                     )
                 ),

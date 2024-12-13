@@ -1,11 +1,13 @@
 package com.codemaster.codemasterapp.main.ui.bottomNavigation.screens
 
+import android.util.Log
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -36,12 +38,27 @@ fun HomeScreen(
 ) {
     val scrollState = rememberScrollState()
     val completedLessonCount = remember { mutableStateOf(0) }
+    val courses = courseViewModel.courses
 
     // Saved Lesson Status
     val allLessonsStatus = courseViewModel.lessonCompletionStatus.collectAsState()
 
+    // Recompute completed lesson counts when courses or allLessonsStatus change
+    val completedLessonCounts = remember(courses, allLessonsStatus.value) {
+        courses.map { course ->
+            course.stages.sumOf { stage ->
+                stage.lessons.count { lesson ->
+                    allLessonsStatus.value[lesson.id] == LessonStatus.COMPLETED
+                }
+            }
+        }
+    }
 
+    LaunchedEffect(Unit) {
+        courseViewModel.loadLastSavedProgress()
+    }
 
+    Log.d("home","home")
     Scaffold(
         containerColor = Color.Transparent,
         topBar = {
@@ -94,83 +111,116 @@ fun HomeScreen(
 
                 Spacer(Modifier.height(4.dp))
 
+                // Row of Language Cards
+                courses.chunked(2).forEach { pair ->
+                    // Language cards
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(10.dp)
+                    ) {
 
-                val courses = courseViewModel.courses
+                        pair.forEachIndexed { index, course ->
 
-                // First Row of Language Cards
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.spacedBy(10.dp)
-                ) {
-                    courses.take(2).forEach { course ->
-                        completedLessonCount.value = course.stages.sumOf { stage ->
-                            stage.lessons.count { lesson -> lesson.status == LessonStatus.COMPLETED }
-                        }
-                        LanguageCardDesign(
-                            languageName = course.language,
-                            difficulty = "Beginner",
-                            lessonCount = course.stages.sumOf { it.lessons.size },
-                            completedLessonCount = completedLessonCount.value,
-                            gradientColors = when (course.language) {
-                                "C" -> listOf(purpleKt, yellowishKt)
-                                "C++" -> listOf(purpleCpp, magentaCpp)
-                                else -> listOf(purpleKt, yellowishKt)
-                            },
-                            languageImage = when (course.language) {
-                                "C" -> painterResource(id = R.drawable.cpp)
-                                "C++" -> painterResource(id = R.drawable.cpp)
-                                else -> painterResource(id = R.drawable.kotlin)
-                            },
-                            onClick = {
-                                courseViewModel.selectLanguage(course)
-                                if (navController.currentBackStackEntry?.lifecycle?.currentState
-                                    == Lifecycle.State.RESUMED
-                                ) {
-                                    navController.navigate(MainRoutes.MAIN_ROOT.route)
+                            // Directly calculate the completed lessons for the current course
+                            val completedLessons = course.stages.sumOf { stage ->
+                                stage.lessons.count { lesson ->
+                                    allLessonsStatus.value[lesson.id] == LessonStatus.COMPLETED
                                 }
-                            },
-                            modifier = Modifier.weight(1f)
-                        )
+                            }
+
+                            LanguageCardDesign(
+                                languageName = course.language,
+                                difficulty = "Beginner",
+                                lessonCount = course.stages.sumOf { it.lessons.size },
+                                completedLessonCount = completedLessons,
+                                gradientColors = when (course.language) {
+                                    "C" -> listOf(purpleKt, yellowishKt)
+                                    "C++" -> listOf(purpleCpp, magentaCpp)
+                                    else -> listOf(purpleKt, yellowishKt)
+                                },
+                                languageImage = when (course.language) {
+                                    "C" -> painterResource(id = R.drawable.cpp)
+                                    "C++" -> painterResource(id = R.drawable.cpp)
+                                    else -> painterResource(id = R.drawable.kotlin)
+                                },
+                                onClick = {
+                                    courseViewModel.selectLanguage(course)
+                                    if (navController.currentBackStackEntry?.lifecycle?.currentState == Lifecycle.State.RESUMED) {
+                                        navController.navigate(MainRoutes.MAIN_ROOT.route)
+                                    }
+                                },
+                                modifier = Modifier.weight(1f)
+                            )
+                        }
                     }
-
-//                    LanguageCardDesign(
-//                        languageName = "C++",
-//                        difficulty = "Expert",
-//                        lessonCount = 40,
-//                        completedLessonCount = 30,
-//                        gradientColors = listOf(purpleCpp, magentaCpp),
-//                        languageImage = painterResource(id = R.drawable.cpp),
-//                        onClick = {
-//                            navController.navigate(MainRoutes.MAIN_ROOT.route)
-//                        },
-//                        modifier = Modifier.weight(1f)
-//                    )
-
                 }
 
-                Spacer(Modifier.height(16.dp))
 
-                // Second Row of Language Cards
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.spacedBy(10.dp)
-                ) {
-                    courses.drop(2).take(2).forEach { course ->
-                        LanguageCardDesign(
-                            languageName = course.language,
-                            difficulty = "Beginner",
-                            lessonCount = course.stages.sumOf { it.lessons.size },
-                            completedLessonCount = 30,
-                            gradientColors = listOf(bluishPython, greenishPython),
-                            languageImage = painterResource(id = R.drawable.pythonlogo),
-                            onClick = {
-                                courseViewModel.selectLanguage(course)
-                                navController.navigate(MainRoutes.MAIN_ROOT.route)
-                            },
-                            modifier = Modifier.weight(1f)
-                        )
-                    }
 
+
+//                Row(
+//                    modifier = Modifier.fillMaxWidth(),
+//                    horizontalArrangement = Arrangement.spacedBy(10.dp)
+//                ) {
+//                    courses.take(2).forEachIndexed { index, course ->
+//                        val completedLessons = completedLessonCounts.getOrNull(index) ?: 0
+//
+//                        LanguageCardDesign(
+//                            languageName = course.language,
+//                            difficulty = "Beginner",
+//                            lessonCount = course.stages.sumOf { it.lessons.size },
+//                            completedLessonCount = completedLessons,
+//                            gradientColors = when (course.language) {
+//                                "C" -> listOf(purpleKt, yellowishKt)
+//                                "C++" -> listOf(purpleCpp, magentaCpp)
+//                                else -> listOf(purpleKt, yellowishKt)
+//                            },
+//                            languageImage = when (course.language) {
+//                                "C" -> painterResource(id = R.drawable.cpp)
+//                                "C++" -> painterResource(id = R.drawable.cpp)
+//                                else -> painterResource(id = R.drawable.kotlin)
+//                            },
+//                            onClick = {
+//                                courseViewModel.selectLanguage(course)
+//                                if (navController.currentBackStackEntry?.lifecycle?.currentState == Lifecycle.State.RESUMED) {
+//                                    navController.navigate(MainRoutes.MAIN_ROOT.route)
+//                                }
+//                            },
+//                            modifier = Modifier.weight(1f)
+//                        )
+//                    }
+//                }
+//
+//                Spacer(Modifier.height(16.dp))
+//
+//                // Second Row of Language Cards
+//                Row(
+//                    modifier = Modifier.fillMaxWidth(),
+//                    horizontalArrangement = Arrangement.spacedBy(10.dp)
+//                ) {
+//                    courses.drop(2).take(2).forEachIndexed { index, course ->
+//                        val completedLessons = completedLessonCounts.getOrNull(index + 2) ?: 0
+//
+//                        LanguageCardDesign(
+//                            languageName = course.language,
+//                            difficulty = "Beginner",
+//                            lessonCount = course.stages.sumOf { it.lessons.size },
+//                            completedLessonCount = completedLessons,
+//                            gradientColors = when (course.language) {
+//                                "Python" -> listOf(bluishPython, greenishPython)
+//                                else -> listOf(purpleKt, yellowishKt)
+//                            },
+//                            languageImage = when (course.language) {
+//                                "Python" -> painterResource(id = R.drawable.pythonlogo)
+//                                else -> painterResource(id = R.drawable.kotlin)
+//                            },
+//                            onClick = {
+//                                courseViewModel.selectLanguage(course)
+//                                navController.navigate(MainRoutes.MAIN_ROOT.route)
+//                            },
+//                            modifier = Modifier.weight(1f)
+//                        )
+//                    }
 //                    LanguageCardDesign(
 //                        languageName = "Java",
 //                        difficulty = "Medium",
@@ -183,16 +233,16 @@ fun HomeScreen(
 //                        },
 //                        modifier = Modifier.weight(1f)
 //                    )
-                }
+
 
 
                 //Continue
                 Column(modifier = Modifier.padding(bottom = 80.dp)) {
 
-                    val progress = courseViewModel.loadProgress()
+                    val lastSavedProgress = courseViewModel.lastSavedProgress.collectAsState()
 
 
-                    progress?.let { (courseId, stageId, lessonId, subLessonId, subLessonName, stageName, subLessonIndex) ->
+                    lastSavedProgress.value?.let { (courseId, stageId, lessonId, subLessonId, subLessonName, stageName, subLessonIndex) ->
                         // Find the course and stage from the list
                         val course = courses.find { it.id == courseId }
                         val stage = course?.stages?.find { it.id == stageId }

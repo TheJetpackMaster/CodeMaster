@@ -30,6 +30,7 @@ class CourseViewModel @Inject constructor(
     private val sharedPreferences: SharedPreferences,
     private val gson: Gson,
     private val lessonStatusRepository: LessonStatusRepo,
+    private val learningProgressRepository: UserLearningProgressRepository
 ) : ViewModel() {
 
     // List of courses to display
@@ -54,6 +55,10 @@ class CourseViewModel @Inject constructor(
     // MutableStateFlow to hold the lesson statuses
     private val _lessonCompletionStatus = MutableStateFlow<Map<String, LessonStatus>>(emptyMap())
     val lessonCompletionStatus: StateFlow<Map<String, LessonStatus>> = _lessonCompletionStatus
+
+    //Continue Learning from last saved
+    private val _lastSavedProgress = MutableStateFlow<LearningProgress?>(null)
+    val lastSavedProgress: StateFlow<LearningProgress?> = _lastSavedProgress
 
     //Points collection
     private val _points = MutableStateFlow<Map<String, Int>>(emptyMap()) // Track points
@@ -83,6 +88,7 @@ class CourseViewModel @Inject constructor(
     init {
         // Load all statuses initially when the ViewModel is created
         loadAllLessonStatuses()
+        loadLastSavedProgress()
     }
 
     // Load all lesson statuses
@@ -119,7 +125,7 @@ class CourseViewModel @Inject constructor(
         if (updatedCompletionStatus[subLessonId] != LessonStatus.COMPLETED) {
             updatedCompletionStatus[subLessonId] = LessonStatus.COMPLETED
             _lessonCompletionStatus.value = updatedCompletionStatus
-            Log.d("SubLesson Completed", subLessonId)
+//            Log.d("SubLesson Completed", subLessonId)
 
             // Now process the lesson-level completion and unlock next lesson/sub-lesson
             val lesson = findLessonById(lessonId)
@@ -152,7 +158,7 @@ class CourseViewModel @Inject constructor(
                     if (updatedCompletionStatus[nextSubLesson.id] != LessonStatus.COMPLETED) {
                         updatedCompletionStatus[nextSubLesson.id] = LessonStatus.ACTIVE
                         _lessonCompletionStatus.value = updatedCompletionStatus
-                        Log.d("Next Sub-Lesson Active", nextSubLesson.id)
+//                        Log.d("Next Sub-Lesson Active", nextSubLesson.id)
                         // Save the updated status to the database (just sub-lesson status)
                         viewModelScope.launch {
                             saveLessonCompletionStatusToDb(nextSubLesson.id, LessonStatus.ACTIVE)
@@ -272,36 +278,22 @@ class CourseViewModel @Inject constructor(
     }
 
 
+    // Last saved learning
     fun saveProgress(progress: LearningProgress) {
-        sharedPreferences.edit().apply {
-            putString("courseId", progress.courseId)  // Only save the courseId
-            putString("stageId", progress.stageId)    // Save the stageId
-            putString("lessonId", progress.lessonId)  // Save the lessonId
-            putString("subLessonId", progress.subLessonId)  // Save the subLessonId
-            putString("subLessonName", progress.subLessonName)  // Optionally save subLessonName if needed
-            putString("stageName", progress.stageName)  // Optionally save stageName if needed
-            putInt("subLessonIndex",progress.subLessonIndex)
-            apply()
+        viewModelScope.launch {
+            learningProgressRepository.saveProgress(progress)
         }
     }
 
-    fun loadProgress(): LearningProgress? {
-        return if (sharedPreferences.contains("courseId") && sharedPreferences.contains("stageId")) {
-            LearningProgress(
-                courseId = sharedPreferences.getString("courseId", "") ?: "",
-                stageId = sharedPreferences.getString("stageId", "") ?: "",
-                lessonId = sharedPreferences.getString("lessonId", "") ?: "",
-                subLessonId = sharedPreferences.getString("subLessonId", "") ?: "",
-                subLessonName = sharedPreferences.getString("subLessonName", "") ?: "",
-                stageName = sharedPreferences.getString("stageName", "") ?: "",
-                subLessonIndex = sharedPreferences.getInt("subLessonIndex",0)
-            )
-        } else {
-            null
+    fun loadLastSavedProgress(){
+        viewModelScope.launch {
+            _lastSavedProgress.value = learningProgressRepository.loadLastSavedProgress()
         }
     }
 
-
+    suspend fun loadLastSavedProgressForLanguage(courseId: String): LearningProgress? {
+        return learningProgressRepository.loadProgressForCourse(courseId)
+    }
 
 //    // Function to get the current stage from the selected course
 //    fun getCurrentStage(): Stage? {

@@ -15,14 +15,12 @@ import androidx.room.TypeConverters
 import com.codemaster.codemasterapp.main.DataBase.lessonStatusDB.Converters
 import com.codemaster.codemasterapp.main.DataBase.lessonStatusDB.LessonStatusDao
 import com.codemaster.codemasterapp.main.DataBase.lessonStatusDB.LessonStatusEntity
+import com.codemaster.codemasterapp.main.data.LearningProgress
 import com.codemaster.codemasterapp.main.data.LessonStatus
 
 @Entity(tableName = "user_learning_progress")
 data class UserLearningProgress(
     @PrimaryKey
-    @ColumnInfo(name = "last_sub_lesson_id")
-    val lastSubLessonId: String,
-
     @ColumnInfo(name = "last_course_id")
     val lastCourseId: String,
 
@@ -32,16 +30,37 @@ data class UserLearningProgress(
     @ColumnInfo(name = "last_lesson_id")
     val lastLessonId: String,
 
-    )
+    @ColumnInfo(name = "last_sub_lesson_name")
+    val lastSubLessonName: String? = null,
+
+    @ColumnInfo(name = "last_stage_name")
+    val lastStageName: String? = null,
+
+    @ColumnInfo(name = "last_sub_lesson_id")
+    val lastSubLessonId: String,
+
+    @ColumnInfo(name = "last_sub_lesson_index")
+    val lastSubLessonIndex: Int = 0,
+
+    @ColumnInfo(name = "last_updated")
+    val lastUpdated: Long // Save timestamp for ordering
+)
+
 
 @Dao
 interface UserLearningProgressDao {
 
-    @Query("SELECT * FROM user_learning_progress WHERE last_sub_lesson_id = :subLessonId")
-    suspend fun getUserLearningProgress(subLessonId: String): UserLearningProgress?
+    // Query to fetch the last saved progress
+    @Query("SELECT * FROM user_learning_progress ORDER BY last_updated DESC LIMIT 1")
+    suspend fun getLastSavedProgress(): UserLearningProgress?
 
+    // Check if a progress entry exists for a specific courseId
+    @Query("SELECT * FROM user_learning_progress WHERE last_course_id = :courseId")
+    suspend fun getProgressForCourse(courseId: String): UserLearningProgress?
+
+    // Insert or update user learning progress
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun updateUserLearningProgress(userLearningProgress: UserLearningProgress)
+    suspend fun saveUserLearningProgress(userLearningProgress: UserLearningProgress)
 }
 
 
@@ -67,13 +86,50 @@ abstract class UserLearningProgressDB : RoomDatabase() {
     }
 }
 
-class UserLearningProgressRepository(private val userLearningProgressDao: UserLearningProgressDao) {
+class UserLearningProgressRepository(private val dao: UserLearningProgressDao) {
 
-    suspend fun getUserLearningProgress(subLessonId: String): UserLearningProgress? {
-        return userLearningProgressDao.getUserLearningProgress(subLessonId)
+    suspend fun saveProgress(progress: LearningProgress) {
+        val userProgress = UserLearningProgress(
+            lastCourseId = progress.courseId,
+            lastStageId = progress.stageId,
+            lastLessonId = progress.lessonId,
+            lastSubLessonName = progress.subLessonName,
+            lastStageName = progress.stageName,
+            lastSubLessonId = progress.subLessonId,
+            lastSubLessonIndex = progress.subLessonIndex,
+            lastUpdated = System.currentTimeMillis() // Save current timestamp
+        )
+        dao.saveUserLearningProgress(userProgress)
     }
 
-    suspend fun updateUserLearningProgress(userLearningProgress: UserLearningProgress) {
-        userLearningProgressDao.updateUserLearningProgress(userLearningProgress)
+    suspend fun loadLastSavedProgress(): LearningProgress? {
+        val userProgress = dao.getLastSavedProgress()
+        return userProgress?.let {
+            LearningProgress(
+                courseId = it.lastCourseId,
+                stageId = it.lastStageId,
+                lessonId = it.lastLessonId,
+                subLessonId = it.lastSubLessonId,
+                subLessonName = it.lastSubLessonName.orEmpty(),
+                stageName = it.lastStageName.orEmpty(),
+                subLessonIndex = it.lastSubLessonIndex
+            )
+        }
+    }
+
+    // Load progress for a specific course by its courseId
+    suspend fun loadProgressForCourse(courseId: String): LearningProgress? {
+        val userProgress = dao.getProgressForCourse(courseId)
+        return userProgress?.let {
+            LearningProgress(
+                courseId = it.lastCourseId,
+                stageId = it.lastStageId,
+                lessonId = it.lastLessonId,
+                subLessonId = it.lastSubLessonId,
+                subLessonName = it.lastSubLessonName.orEmpty(),
+                stageName = it.lastStageName.orEmpty(),
+                subLessonIndex = it.lastSubLessonIndex
+            )
+        }
     }
 }

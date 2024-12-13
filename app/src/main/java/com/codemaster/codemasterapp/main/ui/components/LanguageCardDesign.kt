@@ -24,6 +24,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ProgressIndicatorDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -54,10 +55,11 @@ fun LanguageCardDesign(
     modifier: Modifier
 ) {
 
-    val progress = remember {
-        mutableStateOf(
-            (completedLessonCount.toFloat()/lessonCount.toFloat())
-        )
+    // Use derivedStateOf to only recompute progress when lessonCount or completedLessonCount changes
+    val progress = remember(completedLessonCount, lessonCount) {
+        derivedStateOf {
+            (completedLessonCount.toFloat() / lessonCount.toFloat()).coerceIn(0f, 1f)
+        }
     }
 
     Log.d("progress",progress.value.toString())

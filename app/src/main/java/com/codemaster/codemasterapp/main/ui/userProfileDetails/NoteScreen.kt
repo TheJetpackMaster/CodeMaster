@@ -57,7 +57,7 @@ import com.codemaster.codemasterapp.main.data.NoteSubLesson
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.ProfileRoutes
 import com.codemaster.codemasterapp.main.ui.viewModels.CourseViewModel
 import com.codemaster.codemasterapp.R
-import com.codemaster.codemasterapp.main.ui.learning.lessons.AddSubLessonNoteDialog
+
 
 @Composable
 fun NoteScreen(
