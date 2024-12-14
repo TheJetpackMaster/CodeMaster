@@ -4,7 +4,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -22,7 +21,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import com.codemaster.codemasterapp.main.DataBase.NoteViewModel
+import com.codemaster.codemasterapp.main.data.Note
 import com.codemaster.codemasterapp.ui.theme.bluishPython
+import kotlin.math.log
 
 
 @Composable
@@ -30,32 +31,19 @@ fun AddNoteDialog(
     showDialog: Boolean,
     onDismiss: () -> Unit,
     noteViewModel: NoteViewModel,
-    languageName: String,
-    stageName: String,
-    lessonNumber: Int,
-    subLessonNumber: Float,
-    subLessonTittle: String // Passing subLessonTittle as a parameter
+    noteId: String?, // Nullable to distinguish between new and existing notes
+    title: String // Passed title that will be locked
 ) {
-    // States for title and description, initialized with subLessonTittle
-    var title by remember(showDialog) { mutableStateOf(subLessonTittle) }
+    // State for description only, as title is locked
     var description by remember(showDialog) { mutableStateOf("") }
 
-    // Fetch sub-lesson data when the dialog is shown
-    LaunchedEffect(showDialog) {
-//        if (showDialog) {
-//            // Reset description but keep the title as the default value
-//            description = ""
-//            noteViewModel.getSubLessonByNames(
-//                languageName = languageName,
-//                stageName = stageName,
-//                lessonNumber = lessonNumber,
-//                subLessonNumber = subLessonNumber
-//            ) { subLesson ->
-//                // Update title and description if the sub-lesson data is fetched
-//                title = subLesson?.title ?: subLessonTittle // Default to subLessonTittle
-//                description = subLesson?.description.orEmpty() // Set description
-//            }
-//        }
+    // Fetch note data if editing an existing note
+    LaunchedEffect(showDialog, noteId) {
+        if (showDialog && noteId != null) {
+            noteViewModel.getNoteById(noteId) { note ->
+                description = note?.description ?: ""
+            }
+        }
     }
 
     if (showDialog) {
@@ -63,9 +51,7 @@ fun AddNoteDialog(
             onDismissRequest = onDismiss,
             title = {
                 Text(
-                    text = "Add Note",
-                    color = bluishPython, // Updated to bluishPython color
-                    style = MaterialTheme.typography.h6
+                    text = if (noteId == null) "Add Note" else "Edit Note"
                 )
             },
             text = {
@@ -74,76 +60,58 @@ fun AddNoteDialog(
                         .fillMaxWidth()
                         .padding(16.dp)
                 ) {
-                    // Title TextField with custom styling
+                    // Title TextField (locked, uneditable)
                     OutlinedTextField(
                         value = title,
-                        onValueChange = { title = it }, // Allow user to change the title
-                        label = { Text("Title", color = bluishPython) }, // Updated label color
-                        enabled = false,
-                        singleLine = true,
+                        onValueChange = {}, // No-op since title is locked
+                        label = { Text("Title") },
+                        enabled = false, // Disables editing
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(bottom = 16.dp),
-                        colors = OutlinedTextFieldDefaults.colors(
-                            focusedBorderColor = bluishPython, // Updated focused border color
-                            unfocusedBorderColor = Color.Gray
-                        ),
+                        colors = OutlinedTextFieldDefaults.colors()
                     )
 
-                    // Description TextField with custom styling
+                    // Description TextField
                     OutlinedTextField(
                         value = description,
                         onValueChange = { description = it },
-                        label = {
-                            Text(
-                                "Description",
-                                color = bluishPython
-                            )
-                        }, // Updated label color
+                        label = { Text("Description") },
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(bottom = 24.dp)
-                            .heightIn(min = 120.dp), // Ensures enough space for description
-                        colors = OutlinedTextFieldDefaults.colors(
-                            focusedBorderColor = bluishPython, // Updated focused border color
-                            unfocusedBorderColor = Color.Gray
-                        ),
-                        maxLines = 5,
-                        visualTransformation = VisualTransformation.None
+                            .padding(bottom = 16.dp)
+                            .heightIn(min = 120.dp),
+                        maxLines = 5
                     )
                 }
             },
             confirmButton = {
                 Button(
                     onClick = {
-                        // Add or update the note via ViewModel
-//                        noteViewModel.addOrUpdateSubLesson(
-//                            languageName = languageName,
-//                            stageName = stageName,
-//                            lessonNumber = lessonNumber,
-//                            subLessonNumber = subLessonNumber,
-//                            title = title,
-//                            description = description // Save the title and description
-//                        )
+                        // Save or update the note
+                        val newNote = Note(
+                            id = noteId!!,
+                            title = title, // Title is locked
+                            description = description
+                        )
+                        noteViewModel.addOrUpdateNote(newNote) { resultId ->
+                            if (resultId.isNotEmpty()) {
+                                // Log success if needed
+                            } else {
+                                // Log error if needed
+                            }
+                        }
                         onDismiss() // Close dialog
-                    },
-                    shape = MaterialTheme.shapes.medium,
-                    colors = ButtonDefaults.buttonColors(containerColor = bluishPython) // Updated button color
+                    }
                 ) {
-                    // Conditionally change button text based on description
-                    Text(
-                        text = "Add Note",
-                        color = Color.White
-                    )
+                    Text(if (noteId == null) "Add Note" else "Update Note")
                 }
             },
             dismissButton = {
                 Button(
-                    onClick = onDismiss,
-                    shape = MaterialTheme.shapes.medium,
-                    colors = ButtonDefaults.buttonColors(containerColor = Color.Gray)
+                    onClick = onDismiss
                 ) {
-                    Text("Cancel", color = Color.White)
+                    Text("Cancel")
                 }
             },
             modifier = Modifier.padding(16.dp),
