@@ -158,11 +158,8 @@ fun LessonContentScreen(
             showDialog = showAddNoteDialog,
             onDismiss = { showAddNoteDialog = false },
             noteViewModel = noteViewModel,
-            languageName = languageName,
-            stageName = stageName,
-            lessonNumber = lessonNumber,
-            subLessonNumber = combinedLessonIndex,
-            subLessonTittle = subLessons[pagerState.currentPage].title
+            noteId = currentSubLesson.value?.id ?: "",
+            title = currentSubLesson.value?.title ?: "",
         )
 
         ShowPointsDialog(showPointsDialog = showPointsDialog)

@@ -72,9 +72,9 @@ fun NoteScreen(
     var selectedSubLesson by remember { mutableStateOf<Note?>(null) }
 
     LaunchedEffect(Unit) {
-//        noteViewModel.getAllSubLessons { result ->
-//            subLessons.value = result
-//        }
+        noteViewModel.allNotes.collect { result ->
+            subLessons.value = result
+        }
     }
 
     Column(
@@ -146,7 +146,7 @@ fun NoteScreen(
                         showNoteEditDialog = true
                     },
                     deleteIcon = R.drawable.delete,
-                    editIcon = R.drawable.delete,
+                    editIcon = R.drawable.edit,
                     bgColor = Color(0xFF375A7F),
                     subLesson = subLesson
                 )
@@ -182,13 +182,28 @@ fun NoteScreen(
                     TextButton(
                         onClick = {
                             selectedSubLesson?.let { subLesson ->
-//                                noteViewModel.updateSubLesson(subLesson)
+                                // Construct a Note object from the selectedSubLesson
+                                val noteToUpdate = Note(
+                                    id = subLesson.id, // Use subLesson's ID for existing notes
+                                    title = subLesson.title ?: "", // Use a default empty string if null
+                                    description = subLesson.description ?: "" // Use a default empty string if null
+                                )
+
+                                // Call the ViewModel's addOrUpdateNote function
+                                noteViewModel.addOrUpdateNote(noteToUpdate) { noteId ->
+                                    if (noteId.isNotEmpty()) {
+                                        //Log.d("UpdateNote", "Note updated successfully with ID: $noteId")
+                                    } else {
+                                        //Log.e("UpdateNote", "Failed to update the note.")
+                                    }
+                                }
                             }
-                            showNoteEditDialog = false
+                            showNoteEditDialog = false // Close the edit dialog
                         }
                     ) {
                         Text("Update")
                     }
+
                 },
                 dismissButton = {
                     TextButton(onClick = { showNoteEditDialog = false }) {
@@ -210,13 +225,25 @@ fun NoteScreen(
                     TextButton(
                         onClick = {
                             selectedSubLesson?.let { subLesson ->
-//                                noteViewModel.deleteSubLesson(subLesson.lessonId)
+                                val noteToDelete = Note(
+                                    id = subLesson.id,
+                                    title = subLesson.title,
+                                    description = subLesson.description
+                                )
+                                noteViewModel.deleteNote(noteToDelete) { success ->
+                                    if (success) {
+                                        //Log.d("DeleteNote", "Note successfully deleted.")
+                                    } else {
+                                        //Log.e("DeleteNote", "Failed to delete note.")
+                                    }
+                                }
                             }
                             showNoteDeleteDialog = false
                         }
                     ) {
                         Text("Delete")
                     }
+
                 },
                 dismissButton = {
                     TextButton(onClick = { showNoteDeleteDialog = false }) {
@@ -307,18 +334,19 @@ fun NoteItem(
                 Icon(
                     painter = painterResource(id = editIcon),
                     contentDescription = null,
-                    tint = Color.White
+                    tint = Color.White,
+                    modifier = Modifier.size(20.dp)
                 )
             }
             IconButton(
-                modifier = Modifier.size(40.dp),
+                modifier = Modifier.size(37.dp),
                 onClick = { onDeleteClick(true) }
             )
             {
                 Icon(
                     painter = painterResource(id = deleteIcon),
                     contentDescription = null,
-                    tint = Color.Unspecified,
+                    tint = Color.White,
                     modifier = Modifier.size(20.dp)
                 )
             }
