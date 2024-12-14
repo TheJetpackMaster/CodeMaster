@@ -101,39 +101,60 @@ fun AchievementsContent(
 
     // List of 100 titles
     val titles = listOf(
-        "Achiever",
-        "Prodigy",
-        "Master",
-        "Champion",
-        "Maverick",
-        "Hero",
-        "Legend",
-        "Titan",
-        "Conqueror",
-        "Innovator",
-        "Strategist",
-        "Philanthropist",
-        "Expert",
-        "Winner",
-        "Adventurer",
-        "Pathfinder",
-        "Explorer",
-        "Creator",
-        "Builder",
-        "Visionary",
-        "Revolutionary",
-        "Pioneer",
-        "Goalsetter",
-        "Transformer",
-        "Empowerer",
-        "Inspire",
-        "Mentor",
-        "Influencer",
-        "Leader",
-        "Inventor",
-        "Guru",
+        "Achiever", "Prodigy", "Master", "Champion", "Maverick", "Hero", "Legend", "Titan",
+        "Conqueror", "Innovator", "Strategist", "Philanthropist", "Expert", "Winner", "Adventurer",
+        "Pathfinder", "Explorer", "Creator", "Builder", "Visionary", "Revolutionary", "Pioneer",
+        "Goalsetter", "Transformer", "Empowerer", "Inspire", "Mentor", "Influencer", "Leader", "Inventor", "Guru"
+    )
 
-        )
+
+    // List of 30 achievement descriptions for the four courses (C, C++, Python, DSA) and their stages (Beginner to Expert)
+    val achievementDescriptions = listOf(
+        // C Course Achievements
+        "Complete 10 quizzes from C Beginner stage",
+        "Complete 5 interactive coding challenges from C Beginner stage",
+        "Complete 3 lessons from C Beginner course",
+        "Complete 20 quizzes from C Intermediate stage",
+        "Complete 10 interactive coding challenges from C Intermediate stage",
+        "Complete 5 lessons from C Intermediate course",
+        "Complete 30 quizzes from C Advanced stage",
+        "Complete 15 interactive coding challenges from C Advanced stage",
+        "Complete 10 lessons from C Advanced course",
+
+        // C++ Course Achievements
+        "Complete 10 quizzes from C++ Beginner stage",
+        "Complete 5 interactive coding challenges from C++ Beginner stage",
+        "Complete 3 lessons from C++ Beginner course",
+        "Complete 20 quizzes from C++ Intermediate stage",
+        "Complete 10 interactive coding challenges from C++ Intermediate stage",
+        "Complete 5 lessons from C++ Intermediate course",
+        "Complete 30 quizzes from C++ Advanced stage",
+        "Complete 15 interactive coding challenges from C++ Advanced stage",
+        "Complete 10 lessons from C++ Advanced course",
+
+        // Python Course Achievements
+        "Complete 10 quizzes from Python Beginner stage",
+        "Complete 5 interactive coding challenges from Python Beginner stage",
+        "Complete 3 lessons from Python Beginner course",
+        "Complete 20 quizzes from Python Intermediate stage",
+        "Complete 10 interactive coding challenges from Python Intermediate stage",
+        "Complete 5 lessons from Python Intermediate course",
+        "Complete 30 quizzes from Python Advanced stage",
+        "Complete 15 interactive coding challenges from Python Advanced stage",
+        "Complete 10 lessons from Python Advanced course",
+
+        // DSA Course Achievements
+        "Complete 10 quizzes from DSA Beginner stage",
+        "Complete 5 interactive coding challenges from DSA Beginner stage",
+        "Complete 3 lessons from DSA Beginner course",
+        "Complete 20 quizzes from DSA Intermediate stage",
+        "Complete 10 interactive coding challenges from DSA Intermediate stage",
+        "Complete 5 lessons from DSA Intermediate course",
+        "Complete 30 quizzes from DSA Advanced stage",
+        "Complete 15 interactive coding challenges from DSA Advanced stage",
+        "Complete 10 lessons from DSA Advanced course"
+    )
+
 
 
     // List of animation resource IDs (Assume you have different animation files)
@@ -181,9 +202,10 @@ fun AchievementsContent(
 
         // Create the achievement item with dynamic progress
         AchievementItem(
-            title = titles[index],  // Unique title
-            progressValue = achievementProgress,  // Set the progress dynamically
-            animationResource = animationResources[index]  // Unique animation
+            title = titles[index],
+            progressValue = achievementProgress,
+            animationResource = animationResources[index],
+            achievementDetails = achievementDescriptions[index]
         )
     }
 
@@ -208,7 +230,8 @@ fun AchievementsContent(
                         progressValue = achievement.progressValue,
                         ImageResource = achievement.animationResource,
                         modifier = Modifier.weight(1f),
-                        cardGradientColor = achievementCardColor
+                        cardGradientColor = achievementCardColor,
+                        achievementDetails = achievement.achievementDetails
 
                     )
                 }
@@ -225,6 +248,7 @@ data class AchievementItem(
     val title: String,
     val progressValue: Float,
     val animationResource: Int,
+    val achievementDetails:String = ""
 )
 
 @Composable
