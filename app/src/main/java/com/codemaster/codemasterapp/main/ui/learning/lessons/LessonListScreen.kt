@@ -97,8 +97,6 @@ fun LessonListScreen(
     val scrollState = rememberScrollState()
 
 
-    val lessonCompletionStatus by courseViewModel.lessonCompletionStatus.collectAsState()
-
     //Lesson or Description
     var selectedTab by remember {
         mutableStateOf(LessonOrDescription.LESSON)
@@ -335,6 +333,17 @@ fun LessonListScreen(
                                                     if (lessonStatus != LessonStatus.LOCKED) {
                                                         courseViewModel.selectLesson(lesson)
                                                         courseViewModel.selectLessonIndex(index = index)
+
+                                                        //Start where left
+                                                        // Find the first active sub-lesson (not completed yet)
+                                                        val activeSubLessonIndex = lesson.lessonContents.indexOfFirst { subLesson ->
+                                                            lessonCompletionStatus.value[subLesson.id] != LessonStatus.COMPLETED
+                                                        }
+
+                                                        // If all sub-lessons are completed, set to the first sub-lesson
+                                                        courseViewModel.selectSubLessonIndex(activeSubLessonIndex.takeIf { it >= 0 } ?: 0)
+
+
                                                         if (navController.currentBackStackEntry?.lifecycle?.currentState
                                                             == Lifecycle.State.RESUMED
                                                         ) {

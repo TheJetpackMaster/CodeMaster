@@ -1,6 +1,7 @@
 package com.codemaster.codemasterapp.main.ui.learning.selection
 
 
+import android.util.Log
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
@@ -36,16 +37,24 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedIconButton
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.State
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.viewModelScope
 import com.codemaster.codemasterapp.main.DataBase.NoteViewModel
+import com.codemaster.codemasterapp.main.data.LearningProgress
 import com.codemaster.codemasterapp.main.data.LessonStatus
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.MainRoutes
 import com.codemaster.codemasterapp.main.ui.components.ContinueLearningCard
 import com.codemaster.codemasterapp.main.ui.viewModels.CourseViewModel
+import kotlinx.coroutines.launch
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -53,7 +62,8 @@ import com.codemaster.codemasterapp.main.ui.viewModels.CourseViewModel
 fun LevelSelectionScreen(
     navController: NavController,
     courseViewModel: CourseViewModel,
-    noteViewModel: NoteViewModel
+    noteViewModel: NoteViewModel,
+    allLessonsStatus: State<Map<String, LessonStatus>>
 ) {
 
     val cardGradientColors1 = listOf(
@@ -62,6 +72,16 @@ fun LevelSelectionScreen(
         Color(0xFF175D67), // Cyan
         Color(0xFF009688)  // Teal
     )
+
+    val selectedCourse by courseViewModel.selectedCourse.collectAsState()
+    val progress = remember { mutableStateOf<LearningProgress?>(null) }
+
+
+
+
+    LaunchedEffect(Unit) {
+        progress.value = courseViewModel.loadLastSavedProgressForLanguage(selectedCourse!!.id)
+    }
 
 
     Scaffold(
@@ -81,8 +101,6 @@ fun LevelSelectionScreen(
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-//                    .background(Color(0xFFF7F9FC))
-//                    .background(Color.Transparent)
                     .padding(paddingValues)
                     .verticalScroll(state = rememberScrollState()),
             ) {
@@ -101,7 +119,7 @@ fun LevelSelectionScreen(
                     )
 
 
-                    val selectedCourse by courseViewModel.selectedCourse.collectAsState()
+
                     selectedCourse?.stages?.chunked(2)?.forEach { stagePair ->
                         Row(
                             modifier = Modifier
@@ -110,12 +128,17 @@ fun LevelSelectionScreen(
                             horizontalArrangement = Arrangement.spacedBy(10.dp) // Increased spacing between cards
                         ) {
                             // For each pair of stages, create two cards
-                            stagePair.forEach { stage ->
+                            stagePair.forEachIndexed {index, stage ->
+                                // Calculate the completed lessons for the current stage
+                                val completedLessons = stage.lessons.count { lesson ->
+                                    allLessonsStatus.value[lesson.id] == LessonStatus.COMPLETED
+                                }
+
                                 LevelSelectionCardDesign(
                                     gradientColors = cardGradientColors1,
                                     stageName = stage.title, // Stage name dynamically
                                     lessonCount = stage.lessons.size, // Lesson count dynamically
-                                    completedLessonCount = stage.lessons.count { it.status == LessonStatus.COMPLETED }, // Completed lessons
+                                    completedLessonCount = completedLessons, // Completed lessons
                                     icon = painterResource(id = R.drawable.cpp), // This could be dynamic based on language
                                     onClick = {
                                         // Navigate to lesson list, passing the selected stage
@@ -136,34 +159,109 @@ fun LevelSelectionScreen(
 
                     Spacer(Modifier.height(18.dp))
 
+                    Log.d("LevelSelectionScreen", "Progress: $progress")
 
-                    ContinueLearningCard(
-                        completedLessons = 14,
-                        totalLessons = 20,
-                        levelName = "Introduction",
-                        lessonName = "Variables Part 2",
-                        progressPercentage = 0.7f,
-                        paddingValues = PaddingValues(horizontal = 8.dp),
-                        onContinueClick = {
-                            navController.navigate(MainRoutes.LessonContentScreen.route)
-                        },
-                        gradientColors = listOf(
-                            Color(0xFF82E9FF), // Light Blue
-                            Color(0xFF00B4DB)  // Cyan Blue
-                        ),
-                        levelTextColor = Color(0xFF0B3D2E), // Darker green to match the level card text color
-                        lessonTextColor = Color(0xFF558776), // Muted greenish tone to harmonize with level text color
-                        progressBarColor = Color(0xFF007B93), // Muted Cyan for progress bar to match gradient colors
-                        progressBarTrackColor = Color(0xFFC4E4F3), // Light cyan for track, ensuring consistency with the progress bar
-                        buttonBackgroundColor = Color(0xFF007B93), // Button color matches the progress bar color for a cohesive look
-                        buttonTextColor = Color.White, // White button text for high contrast
-                        buttonText = "Resume",
-                        buttonTextSize = 12.sp,
-                        buttonHeight = 38.dp,
-                        // If you want an animated border color for the button:
-                        animatedButtonBorderColor1 = Color(0xFF007B93), // Darker blue for animated border
-                        animatedButtonBorderColor2 = Color(0xFF00B4DB)  // Lighter cyan for animated border transition
-                    )
+                    // Saved Lesson Status
+                    val allLessonsStatus = courseViewModel.lessonCompletionStatus.collectAsState()
+                    val courses = courseViewModel.courses
+
+
+                    progress.value?.let { (courseId, stageId, lessonId, subLessonId, subLessonName, stageName, subLessonIndex) ->
+                        // Find the course and stage from the list
+                        val course = courses.find { it.id == courseId }
+                        val stage = course?.stages?.find { it.id == stageId }
+
+                        // Optionally, find the lesson and sub-lesson using lessonId and subLessonId if needed
+                        val lesson = stage?.lessons?.find { it.id == lessonId }
+
+
+                        // Completed Sub-Lessons (Lesson Contents)
+                        val completedSubLessons = stage!!.lessons.sumOf { lesson ->
+                            lesson.lessonContents.count { content -> allLessonsStatus.value[content.id] == LessonStatus.COMPLETED }
+
+                        }
+                        ContinueLearningCard(
+                            completedLessons = completedSubLessons,
+                            totalLessons = stage.lessons.sumOf { it.lessonContents.size },
+                            levelName = stageName,
+                            lessonName = subLessonName,
+                            progressPercentage = (completedSubLessons.toFloat()
+                                .toFloat() / (stage.lessons.sumOf { it.lessonContents.size }).toFloat()),
+                            paddingValues = PaddingValues(0.dp),
+                            decorativeLogo =
+                            when (course.language) {
+                                "C" -> R.drawable.clang
+                                "C++" -> R.drawable.cpp
+                                else -> {
+                                    R.drawable.kotlin
+                                }
+                            },
+                            gradientColors = listOf(
+                                Color(0xFF82E9FF), // Light Blue
+                                Color(0xFF00B4DB)  // Cyan Blue
+                            ),
+                            onContinueClick = {
+                                courseViewModel.selectLanguage(course)
+                                courseViewModel.selectStage(stage)
+                                courseViewModel.selectLesson(lesson!!)
+                                courseViewModel.selectSubLessonIndex(subLessonIndex)
+
+
+                                // Add two more screens to the back stack and navigate to the final screen
+                                navController.navigate(MainRoutes.LevelSelectionScreen.route) {
+                                    // Add the StageSelectionScreen to the back stack
+                                    launchSingleTop =
+                                        true  // Ensures that this screen is added to the stack only once
+                                    popUpTo(MainRoutes.LevelSelectionScreen.route) {
+                                        inclusive = false
+                                    }
+                                }
+
+                                navController.navigate(MainRoutes.LessonListScreen.route) {
+                                    // Add the LessonListScreen to the back stack
+                                    launchSingleTop = true
+                                    popUpTo(MainRoutes.LessonListScreen.route) { inclusive = false }
+                                }
+
+                                // Finally, navigate to the LessonContentScreen
+                                navController.navigate(MainRoutes.LessonContentScreen.route) {
+                                    // This will ensure we don't end up with duplicates in the back stack
+                                    popUpTo(MainRoutes.LessonContentScreen.route) {
+                                        inclusive = false
+                                    }
+                                }
+                            }
+                        )
+                    }
+
+//
+//                    ContinueLearningCard(
+//                        completedLessons = 14,
+//                        totalLessons = 20,
+//                        levelName = "Introduction",
+//                        lessonName = "Variables Part 2",
+//                        progressPercentage = 0.7f,
+//                        paddingValues = PaddingValues(horizontal = 8.dp),
+//                        onContinueClick = {
+//                            navController.navigate(MainRoutes.LessonContentScreen.route)
+//                        },
+//                        gradientColors = listOf(
+//                            Color(0xFF82E9FF), // Light Blue
+//                            Color(0xFF00B4DB)  // Cyan Blue
+//                        ),
+//                        levelTextColor = Color(0xFF0B3D2E), // Darker green to match the level card text color
+//                        lessonTextColor = Color(0xFF558776), // Muted greenish tone to harmonize with level text color
+//                        progressBarColor = Color(0xFF007B93), // Muted Cyan for progress bar to match gradient colors
+//                        progressBarTrackColor = Color(0xFFC4E4F3), // Light cyan for track, ensuring consistency with the progress bar
+//                        buttonBackgroundColor = Color(0xFF007B93), // Button color matches the progress bar color for a cohesive look
+//                        buttonTextColor = Color.White, // White button text for high contrast
+//                        buttonText = "Resume",
+//                        buttonTextSize = 12.sp,
+//                        buttonHeight = 38.dp,
+//                        // If you want an animated border color for the button:
+//                        animatedButtonBorderColor1 = Color(0xFF007B93), // Darker blue for animated border
+//                        animatedButtonBorderColor2 = Color(0xFF00B4DB)  // Lighter cyan for animated border transition
+//                    )
                 }
             }
         }

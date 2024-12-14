@@ -1,5 +1,6 @@
 package com.codemaster.codemasterapp.main.ui.bottomNavigation.screens
 
+import android.util.Log
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -28,12 +29,21 @@ import com.codemaster.codemasterapp.main.ui.bottomNavigation.screens.components.
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.screens.components.AchievementScreenCustomTopBar
 import androidx.compose.runtime.*
 import androidx.compose.ui.graphics.Brush
+import com.codemaster.codemasterapp.main.data.Course
+import com.codemaster.codemasterapp.main.data.LessonContentType
+import com.codemaster.codemasterapp.main.data.LessonStatus
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.screens.components.LanguageProgressCard
+import com.codemaster.codemasterapp.main.ui.viewModels.CourseViewModel
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AchievementScreen(navController: NavController) {
+fun AchievementScreen(
+    navController: NavController,
+    courseViewModel: CourseViewModel,
+    courses: List<Course>,
+    allLessonsStatus: State<Map<String, LessonStatus>>
+) {
     val scrollState = rememberScrollState()
     var currentTab by remember { mutableStateOf(0) }
     val pagerState = rememberPagerState(pageCount = { 2 })
@@ -69,8 +79,11 @@ fun AchievementScreen(navController: NavController) {
                     state = pagerState,
                 ) { page ->
                     when (page) {
-                        0 -> AchievementsContent()
-                        1 -> ProgressContent()
+                        0 -> AchievementsContent(
+                            courses = courses,
+                            allLessonsStatus = allLessonsStatus
+                        )
+                        1 -> ProgressContent(courseViewModel = courseViewModel)
                     }
                 }
             }
@@ -81,7 +94,10 @@ fun AchievementScreen(navController: NavController) {
 }
 
 @Composable
-fun AchievementsContent() {
+fun AchievementsContent(
+    courses: List<Course>,
+    allLessonsStatus: State<Map<String, LessonStatus>>
+) {
 
     // List of 100 titles
     val titles = listOf(
@@ -117,7 +133,7 @@ fun AchievementsContent() {
         "Inventor",
         "Guru",
 
-    )
+        )
 
 
     // List of animation resource IDs (Assume you have different animation files)
@@ -141,21 +157,35 @@ fun AchievementsContent() {
         R.drawable.leader, R.drawable.inventor,
 
 
-    )
+        )
 
-    // Progress values and animation resources for each achievement
-    val progressValues = List(30) { (it + 1) / 100f }
-    // val animationResources = List(48) { R.raw.cardbadge }
+// Define the required points for each achievement (e.g., 50, 100, 150, etc.)
+    val requiredPointsForAchievements = List(30) { (it + 1) * 50 } // 100, 200, 300, ...
 
-    // Create a list of 10 achievements with different titles, progress, and animation
+    // Calculate points earned for each achievement
     val achievements = List(30) { index ->
+        val earnedPointsForAchievement = calculateAchievementPoints(index, courses, allLessonsStatus.value)
+        val requiredPoints = requiredPointsForAchievements[index]
+
+        // Calculate the progress for the current achievement
+        val achievementProgress = when {
+            earnedPointsForAchievement >= requiredPoints -> 1f  // 100% progress if points earned are greater than or equal to required points
+            earnedPointsForAchievement > 0 -> earnedPointsForAchievement.toFloat() / requiredPoints.toFloat()  // Progress based on the earned points
+            else -> 0f  // No progress if no points are earned
+        }
+
+        // Log for debugging
+        Log.d("requiredpoints", requiredPoints.toString())
+        Log.d("earnedPoints", earnedPointsForAchievement.toString())
+        Log.d("progresspoints", achievementProgress.toString())
+
+        // Create the achievement item with dynamic progress
         AchievementItem(
             title = titles[index],  // Unique title
-            progressValue = progressValues[index],  // Unique progress
+            progressValue = achievementProgress,  // Set the progress dynamically
             animationResource = animationResources[index]  // Unique animation
         )
     }
-
 
 
     // AchievementCard bg colors
@@ -198,16 +228,53 @@ data class AchievementItem(
 )
 
 @Composable
-fun ProgressContent() {
+fun ProgressContent(
+    courseViewModel: CourseViewModel
+) {
+    val allCompletedLessons = courseViewModel.lessonCompletionStatus.collectAsState()
+    val courses = courseViewModel.courses
+
+
+
     LazyColumn(
         modifier = Modifier.fillMaxSize()
     ) {
         // First Row
         item {
-            Row() {
+            Row {
+                // Find the course and stage from the list
+                val course = courses.find { it.id == "c_course" }
+
+                // Get all stages
+                val allStages = course?.stages ?: listOf()
+
+                // Calculate completed sub-lessons for each stage and lesson
+                val completedSubLessons = allStages.sumOf { stage ->
+                    // For each stage, sum the completed sub-lessons across all lessons in that stage
+                    stage.lessons.sumOf { lesson ->
+                        // Count the number of sub-lessons marked as COMPLETED in each lesson
+                        lesson.lessonContents.count { content ->
+                            allCompletedLessons.value[content.id] == LessonStatus.COMPLETED
+                        }
+                    }
+                }
+
+                // Count all sub-lessons across all stages and lessons
+                val totalSubLessons = allStages.sumOf { stage ->
+                    // For each stage, sum the total sub-lessons across all lessons in that stage
+                    stage.lessons.sumOf { lesson ->
+                        // Count all sub-lessons in each lesson
+                        lesson.lessonContents.size
+                    }
+                }
+
                 LanguageProgressCard(
                     title = "C",
-                    progressValue = 0f,
+                    progressValue = getCourseProgress(
+                        courseId = "c_course",
+                        courses = courses,
+                        allCompletedLessons = allCompletedLessons.value
+                    ),
                     animationResource = R.raw.cardbadge,
                     bgDecorativeIcon = R.drawable.cpp,
                     modifier = Modifier.weight(1f),
@@ -217,7 +284,11 @@ fun ProgressContent() {
                 )
                 LanguageProgressCard(
                     title = "C++",
-                    progressValue = 0.2f,
+                    progressValue = getCourseProgress(
+                        courseId = "cpp_course",
+                        courses = courses,
+                        allCompletedLessons = allCompletedLessons.value
+                    ),
                     animationResource = R.raw.cardbadge,
                     bgDecorativeIcon = R.drawable.cpp,
                     modifier = Modifier.weight(1f),
@@ -233,7 +304,11 @@ fun ProgressContent() {
             Row() {
                 LanguageProgressCard(
                     title = "Python",
-                    progressValue = 0.4f,
+                    progressValue =  getCourseProgress(
+                        courseId = "python_course",
+                        courses = courses,
+                        allCompletedLessons = allCompletedLessons.value
+                    ),
                     animationResource = R.raw.cardbadge,
                     bgDecorativeIcon = R.drawable.pythonlogo,
                     modifier = Modifier.weight(1f),
@@ -243,7 +318,11 @@ fun ProgressContent() {
                 )
                 LanguageProgressCard(
                     title = "Java",
-                    progressValue = 0.6f,
+                    progressValue =  getCourseProgress(
+                        courseId = "java_course",
+                        courses = courses,
+                        allCompletedLessons = allCompletedLessons.value
+                    ),
                     animationResource = R.raw.cardbadge,
                     bgDecorativeIcon = R.drawable.java,
                     modifier = Modifier.weight(1f),
@@ -259,7 +338,11 @@ fun ProgressContent() {
             Row() {
                 LanguageProgressCard(
                     title = "DSA",
-                    progressValue = 0.8f,
+                    progressValue =  getCourseProgress(
+                        courseId = "DSA_course",
+                        courses = courses,
+                        allCompletedLessons = allCompletedLessons.value
+                    ),
                     animationResource = R.raw.cardbadge,
                     bgDecorativeIcon = R.drawable.cpp,
                     modifier = Modifier.weight(1f),
@@ -269,7 +352,11 @@ fun ProgressContent() {
                 )
                 LanguageProgressCard(
                     title = "Kotlin",
-                    progressValue = 1f,
+                    progressValue =  getCourseProgress(
+                        courseId = "kotlin_course",
+                        courses = courses,
+                        allCompletedLessons = allCompletedLessons.value
+                    ),
                     animationResource = R.raw.cardbadge,
                     bgDecorativeIcon = R.drawable.kotlin,
                     modifier = Modifier.weight(1f),
@@ -286,3 +373,90 @@ fun ProgressContent() {
         }
     }
 }
+
+
+fun getCourseProgress(
+    courseId: String,
+    courses: List<Course>,
+    allCompletedLessons: Map<String, LessonStatus>
+): Float {
+    // Find the course by ID
+    val course = courses.find { it.id == courseId }
+
+    // If the course is found, proceed; otherwise, return 0 as progress
+    if (course != null) {
+        // Get all stages from the course
+        val allStages = course.stages
+
+        // Calculate completed sub-lessons for each stage and lesson
+        val completedSubLessons = allStages.sumOf { stage ->
+            // For each stage, sum the completed sub-lessons across all lessons in that stage
+            stage.lessons.sumOf { lesson ->
+                // Count the number of sub-lessons marked as COMPLETED in each lesson
+                lesson.lessonContents.count { content ->
+                    allCompletedLessons[content.id] == LessonStatus.COMPLETED
+                }
+            }
+        }
+
+        // Count all sub-lessons across all stages and lessons
+        val totalSubLessons = allStages.sumOf { stage ->
+            // For each stage, sum the total sub-lessons across all lessons in that stage
+            stage.lessons.sumOf { lesson ->
+                // Count all sub-lessons in each lesson
+                lesson.lessonContents.size
+            }
+        }
+
+        // Return progress as a float (percentage of completed sub-lessons)
+        return if (totalSubLessons > 0) {
+            (completedSubLessons.toFloat()) / totalSubLessons.toFloat()
+        } else {
+            0f
+        }
+    } else {
+        // If course is not found, return 0 as progress
+        return 0f
+    }
+}
+
+// Function to calculate points based on achievement type
+fun calculateAchievementPoints(achievementIndex: Int, courses: List<Course>, allLessonsStatus: Map<String, LessonStatus>): Int {
+    return when (achievementIndex) {
+        0 -> { // First achievement: Collect only quiz points
+            courses.sumOf { course ->
+                course.stages.sumOf { stage ->
+                    stage.lessons.sumOf { lesson ->
+                        lesson.lessonContents.sumOf { content ->
+                            // Check if the lessonContent is a quiz and if it's completed
+                            if (content.type == LessonContentType.QUIZ && allLessonsStatus[content.id] == LessonStatus.COMPLETED) {
+                                content.points // Collect points if the quiz lessonContent is completed
+                            } else {
+                                0 // No points if it's not a quiz or it's not completed
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        1 -> { // Second achievement: Collect only C++ course points
+            courses.sumOf { course ->
+                if (course.id == "cpp_course") { // Assuming course name is "C++"
+                    course.stages.sumOf { stage ->
+                        stage.lessons.sumOf { lesson ->
+                            lesson.lessonContents.sumOf { content ->
+                                // Add points for C++ lesson contents if completed
+                                if (content.type == LessonContentType.INTERACTIVE && allLessonsStatus[content.id] == LessonStatus.COMPLETED) content.points else 0
+                            }
+                        }
+                    }
+                } else {
+                    0
+                }
+            }
+        }
+        // Add more cases for other achievements as needed
+        else -> 0 // Default case for achievements that don't match the criteria
+    }
+}
+

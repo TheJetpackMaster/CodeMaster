@@ -83,7 +83,7 @@ fun ContinueLearningCard(
             modifier = Modifier
                 .scale(1.6f)
                 .padding(4.dp)
-                .alpha(0.2f),
+                .alpha(.4f),
             colorFilter = ColorFilter.tint(Color.White)
         )
 
