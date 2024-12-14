@@ -5,92 +5,53 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
-import com.codemaster.codemasterapp.main.data.NoteLanguage
-import com.codemaster.codemasterapp.main.data.NoteLesson
-import com.codemaster.codemasterapp.main.data.NoteStage
-import com.codemaster.codemasterapp.main.data.NoteSubLesson
+import com.codemaster.codemasterapp.main.data.Note
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class NoteViewModel @Inject constructor(
-    private val repository: NoteRepository,
+    private val repository: NoteRepository
 ) : ViewModel() {
 
-    // Function for add or Update SubLesson
-    fun addOrUpdateSubLesson(
-        languageName: String,
-        stageName: String,
-        lessonNumber: Int,
-        subLessonNumber: Float,
-        title: String,
-        description: String
-    ) = viewModelScope.launch {
+    val allNotes = repository.getAllNotes() // Use this to observe notes in the UI
+
+    fun addOrUpdateNote(note: Note, onResult: (String) -> Unit) = viewModelScope.launch {
         try {
-            repository.getOrInsertSubLesson(
-                languageName = languageName,
-                stageName = stageName,
-                lessonNumber = lessonNumber,
-                subLessonNumber = subLessonNumber,
-                title = title,
-                description = description
-            )
-            Log.d("NoteViewModel", "Sub-lesson added or updated successfully.")
+            val noteId = repository.addOrUpdateNote(note)
+            onResult(noteId)
         } catch (e: Exception) {
-            Log.e("NoteViewModel", "Error adding or updating sub-lesson: ${e.message}")
+            onResult("") // Handle error case
         }
     }
 
-    // Function to retrieve sub-lesson by names
-    fun getSubLessonByNames(
-        languageName: String,
-        stageName: String,
-        lessonNumber: Int,
-        subLessonNumber: Float,
-        onResult: (NoteSubLesson?) -> Unit
-    ) = viewModelScope.launch {
+    fun getNoteById(noteId: String, onResult: (Note?) -> Unit) = viewModelScope.launch {
         try {
-            val subLesson = repository.getSubLessonByNames(
-                languageName = languageName,
-                stageName = stageName,
-                lessonNumber = lessonNumber,
-                subLessonNumber = subLessonNumber
-            )
-            onResult(subLesson)
+            val note = repository.getNoteById(noteId)
+            onResult(note)
         } catch (e: Exception) {
-            Log.e("NoteViewModel", "Error retrieving sub-lesson: ${e.message}")
             onResult(null)
         }
     }
 
-    // Function to get all sub-lessons
-    fun getAllSubLessons(onResult: (List<NoteSubLesson>) -> Unit) = viewModelScope.launch {
+    fun deleteNote(note: Note, onComplete: (Boolean) -> Unit) = viewModelScope.launch {
         try {
-            val subLessons = repository.getAllSubLessons()
-            onResult(subLessons)
+            repository.deleteNote(note)
+            onComplete(true)
         } catch (e: Exception) {
-            Log.e("NoteViewModel", "Error retrieving all sub-lessons: ${e.message}")
-            onResult(emptyList()) // Return an empty list in case of error
+            onComplete(false)
         }
     }
 
-    fun updateSubLesson(subLesson: NoteSubLesson) = viewModelScope.launch {
+    fun deleteAllNotes(onComplete: (Boolean) -> Unit) = viewModelScope.launch {
         try {
-            repository.updateSubLesson(subLesson)
+            repository.deleteAllNotes()
+            onComplete(true)
         } catch (e: Exception) {
-            Log.e("NoteViewModel", "Error updating sub-lesson: ${e.message}")
+            onComplete(false)
         }
     }
-
-    fun deleteSubLesson(subLessonId: Long) = viewModelScope.launch {
-        try {
-            repository.deleteSubLesson(subLessonId)
-        } catch (e: Exception) {
-            Log.e("NoteViewModel", "Error deleting sub-lesson: ${e.message}")
-        }
-    }
-
-
 }
 

@@ -22,33 +22,20 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideDatabase(@ApplicationContext context: Context): NoteDatabase {
+    fun provideNoteDatabase(@ApplicationContext context: Context): NoteDatabase {
         return NoteDatabase.getDatabase(context)
     }
 
     @Provides
-    fun provideNoteLanguageDao(database: NoteDatabase): NoteLanguageDao = database.noteLanguageDao()
-
-    @Provides
-    fun provideNoteStageDao(database: NoteDatabase): NoteStageDao = database.noteStageDao()
-
-    @Provides
-    fun provideNoteLessonDao(database: NoteDatabase): NoteLessonDao = database.noteLessonDao()
-
-    @Provides
-    fun provideNoteSubLessonDao(database: NoteDatabase): NoteSubLessonDao = database.noteSubLessonDao()
+    fun provideNoteDao(database: NoteDatabase): NoteDao {
+        return database.noteDao()
+    }
 
     @Provides
     @Singleton
-    fun provideNoteRepository(
-        noteLanguageDao: NoteLanguageDao,
-        noteStageDao: NoteStageDao,
-        noteLessonDao: NoteLessonDao,
-        noteSubLessonDao: NoteSubLessonDao
-    ): NoteRepository {
-        return NoteRepository(noteLanguageDao, noteStageDao, noteLessonDao, noteSubLessonDao)
+    fun provideNoteRepository(noteDao: NoteDao): NoteRepository {
+        return NoteRepository(noteDao)
     }
-
 
     // Lesson Status
     @Provides
@@ -86,5 +73,4 @@ object AppModule {
     fun provideUserLearningProgressRepository(userLearningProgressDao: UserLearningProgressDao): UserLearningProgressRepository {
         return UserLearningProgressRepository(userLearningProgressDao)
     }
-
 }

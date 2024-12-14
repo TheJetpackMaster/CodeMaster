@@ -42,20 +42,20 @@ fun AddNoteDialog(
 
     // Fetch sub-lesson data when the dialog is shown
     LaunchedEffect(showDialog) {
-        if (showDialog) {
-            // Reset description but keep the title as the default value
-            description = ""
-            noteViewModel.getSubLessonByNames(
-                languageName = languageName,
-                stageName = stageName,
-                lessonNumber = lessonNumber,
-                subLessonNumber = subLessonNumber
-            ) { subLesson ->
-                // Update title and description if the sub-lesson data is fetched
-                title = subLesson?.title ?: subLessonTittle // Default to subLessonTittle
-                description = subLesson?.description.orEmpty() // Set description
-            }
-        }
+//        if (showDialog) {
+//            // Reset description but keep the title as the default value
+//            description = ""
+//            noteViewModel.getSubLessonByNames(
+//                languageName = languageName,
+//                stageName = stageName,
+//                lessonNumber = lessonNumber,
+//                subLessonNumber = subLessonNumber
+//            ) { subLesson ->
+//                // Update title and description if the sub-lesson data is fetched
+//                title = subLesson?.title ?: subLessonTittle // Default to subLessonTittle
+//                description = subLesson?.description.orEmpty() // Set description
+//            }
+//        }
     }
 
     if (showDialog) {
@@ -117,14 +117,14 @@ fun AddNoteDialog(
                 Button(
                     onClick = {
                         // Add or update the note via ViewModel
-                        noteViewModel.addOrUpdateSubLesson(
-                            languageName = languageName,
-                            stageName = stageName,
-                            lessonNumber = lessonNumber,
-                            subLessonNumber = subLessonNumber,
-                            title = title,
-                            description = description // Save the title and description
-                        )
+//                        noteViewModel.addOrUpdateSubLesson(
+//                            languageName = languageName,
+//                            stageName = stageName,
+//                            lessonNumber = lessonNumber,
+//                            subLessonNumber = subLessonNumber,
+//                            title = title,
+//                            description = description // Save the title and description
+//                        )
                         onDismiss() // Close dialog
                     },
                     shape = MaterialTheme.shapes.medium,
