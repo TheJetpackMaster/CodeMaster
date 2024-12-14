@@ -53,7 +53,7 @@ import androidx.compose.ui.unit.sp
 import androidx.core.graphics.ColorUtils
 import androidx.navigation.NavController
 import com.codemaster.codemasterapp.main.DataBase.NoteViewModel
-import com.codemaster.codemasterapp.main.data.NoteSubLesson
+import com.codemaster.codemasterapp.main.data.Note
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.ProfileRoutes
 import com.codemaster.codemasterapp.main.ui.viewModels.CourseViewModel
 import com.codemaster.codemasterapp.R
@@ -65,21 +65,21 @@ fun NoteScreen(
     noteViewModel: NoteViewModel,
     courseViewModel: CourseViewModel
 ) {
-    val subLessons = remember { mutableStateOf<List<NoteSubLesson>>(emptyList()) }
+    val subLessons = remember { mutableStateOf<List<Note>>(emptyList()) }
     // State for dialog visibility
     var showNoteEditDialog by remember { mutableStateOf(false) }
-    var selectedSubLesson by remember { mutableStateOf<NoteSubLesson?>(null) }
+    var showNoteDeleteDialog by remember { mutableStateOf(false) }
+    var selectedSubLesson by remember { mutableStateOf<Note?>(null) }
 
     LaunchedEffect(Unit) {
-        noteViewModel.getAllSubLessons { result ->
-            subLessons.value = result
-        }
+//        noteViewModel.getAllSubLessons { result ->
+//            subLessons.value = result
+//        }
     }
 
     Column(
         modifier = Modifier
             .fillMaxSize()
-
     ) {
         // Top Header
         Row(
@@ -135,24 +135,15 @@ fun NoteScreen(
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             items(subLessons.value) { subLesson ->
-//                SubLessonCard(subLesson = subLesson)
+                // SubLessonItem with onDeleteClick and onEditClick
                 NoteItem(
-                    onDeleteClick = { isClicked ->
-                        showNoteEditDialog = isClicked
+                    onDeleteClick = {
                         selectedSubLesson = subLesson
-
-                        val subLessonToUpdate = NoteSubLesson(
-                            id = subLesson.id, // Example ID
-                            lessonId = subLesson.lessonId,
-                            subLessonNumber = subLesson.subLessonNumber,
-                            title = subLesson.title,
-                            description = "Updated"
-                        )
-
-                        noteViewModel.updateSubLesson(subLessonToUpdate)
+                        showNoteDeleteDialog = true
                     },
-                    onEditClick = { isClicked ->
-                        showNoteEditDialog = isClicked
+                    onEditClick = {
+                        selectedSubLesson = subLesson
+                        showNoteEditDialog = true
                     },
                     deleteIcon = R.drawable.delete,
                     editIcon = R.drawable.delete,
@@ -162,11 +153,81 @@ fun NoteScreen(
             }
         }
 
-        if (showNoteEditDialog){
+        // Update Dialog
+        if (showNoteEditDialog) {
+            AlertDialog(
+                onDismissRequest = { showNoteEditDialog = false },
+                title = { Text("Update SubLesson") },
+                text = {
+                    Column {
+                        // Text fields to update the title and description
+                        TextField(
+                            value = selectedSubLesson?.title ?: "",
+                            onValueChange = { newTitle ->
+                                selectedSubLesson = selectedSubLesson?.copy(title = newTitle)
+                            },
+                            label = { Text("Title") }
+                        )
+                        Spacer(modifier = Modifier.height(8.dp))
+                        TextField(
+                            value = selectedSubLesson?.description ?: "",
+                            onValueChange = { newDescription ->
+                                selectedSubLesson = selectedSubLesson?.copy(description = newDescription)
+                            },
+                            label = { Text("Description") }
+                        )
+                    }
+                },
+                confirmButton = {
+                    TextButton(
+                        onClick = {
+                            selectedSubLesson?.let { subLesson ->
+//                                noteViewModel.updateSubLesson(subLesson)
+                            }
+                            showNoteEditDialog = false
+                        }
+                    ) {
+                        Text("Update")
+                    }
+                },
+                dismissButton = {
+                    TextButton(onClick = { showNoteEditDialog = false }) {
+                        Text("Cancel")
+                    }
+                }
+            )
+        }
 
+        // Delete Dialog
+        if (showNoteDeleteDialog) {
+            AlertDialog(
+                onDismissRequest = { showNoteDeleteDialog = false },
+                title = { Text("Delete SubLesson") },
+                text = {
+                    Text("Are you sure you want to delete this sub-lesson?")
+                },
+                confirmButton = {
+                    TextButton(
+                        onClick = {
+                            selectedSubLesson?.let { subLesson ->
+//                                noteViewModel.deleteSubLesson(subLesson.lessonId)
+                            }
+                            showNoteDeleteDialog = false
+                        }
+                    ) {
+                        Text("Delete")
+                    }
+                },
+                dismissButton = {
+                    TextButton(onClick = { showNoteDeleteDialog = false }) {
+                        Text("Cancel")
+                    }
+                }
+            )
         }
     }
 }
+
 
 @Composable
 fun NoteItem(
@@ -178,7 +239,7 @@ fun NoteItem(
     deleteIcon: Int,
     editIcon: Int,
     bgColor: Color,
-    subLesson: NoteSubLesson
+    subLesson: Note
 ) {
     Box(
         modifier = modifier
@@ -220,7 +281,7 @@ fun NoteItem(
                 .padding(end = 75.dp)
         ) {
             Text(
-                text = "${ subLesson.id },${ subLesson.lessonId }", style = MaterialTheme.typography.headlineSmall,
+                text = subLesson.title, style = MaterialTheme.typography.headlineSmall,
                 color = Color.White,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis
@@ -235,33 +296,32 @@ fun NoteItem(
                 overflow = TextOverflow.Ellipsis
             )
         }
-//        Row(
-//            modifier = Modifier.align(Alignment.BottomEnd)
-//        ) {
-//            IconButton(
-//                modifier = Modifier.size(37.dp),
-//                onClick = onEditClick,
-//                enabled = editButtonEnabled
-//            )
-//            {
-//                Icon(
-//                    painter = painterResource(id = editIcon),
-//                    contentDescription = null,
-//                    tint = editColor
-//                )
-//            }
-//            IconButton(
-//                modifier = Modifier.size(40.dp),
-//                onClick = { onDeleteClick(true) }
-//            )
-//            {
-//                Icon(
-//                    painter = painterResource(id = deleteIcon),
-//                    contentDescription = null,
-//                    tint = Color.Unspecified,
-//                    modifier = Modifier.size(20.dp)
-//                )
-//            }
+        Row(
+            modifier = Modifier.align(Alignment.BottomEnd)
+        ) {
+            IconButton(
+                modifier = Modifier.size(37.dp),
+                onClick = { onEditClick(true) }
+            )
+            {
+                Icon(
+                    painter = painterResource(id = editIcon),
+                    contentDescription = null,
+                    tint = Color.White
+                )
+            }
+            IconButton(
+                modifier = Modifier.size(40.dp),
+                onClick = { onDeleteClick(true) }
+            )
+            {
+                Icon(
+                    painter = painterResource(id = deleteIcon),
+                    contentDescription = null,
+                    tint = Color.Unspecified,
+                    modifier = Modifier.size(20.dp)
+                )
+            }
 //            IconButton(
 //                modifier = Modifier.size(37.dp),
 //                onClick = onCompleteClick
@@ -273,59 +333,8 @@ fun NoteItem(
 //                    tint = checkColor
 //                )
 //            }
-//        }
-    }
-}
-
-@Composable
-fun EditNoteDialog(
-    subLesson: NoteSubLesson,
-    onUpdate: (String, String) -> Unit,
-    onDelete: () -> Unit,
-    onDismiss: () -> Unit
-) {
-    var title by remember { mutableStateOf(subLesson.title) }
-    var description by remember { mutableStateOf(subLesson.description) }
-
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        title = { Text(text = "Edit Sub-Lesson") },
-        text = {
-            Column {
-                TextField(
-                    value = title,
-                    onValueChange = { title = it },
-                    label = { Text("Title") },
-                    modifier = Modifier.fillMaxWidth()
-                )
-                Spacer(modifier = Modifier.height(8.dp))
-                TextField(
-                    value = description,
-                    onValueChange = { description = it },
-                    label = { Text("Description") },
-                    modifier = Modifier.fillMaxWidth()
-                )
-            }
-        },
-        confirmButton = {
-            TextButton(
-                onClick = {
-                    onUpdate(title, description)
-                }
-            ) {
-                Text("Update")
-            }
-        },
-        dismissButton = {
-            TextButton(
-                onClick = {
-                    onDelete()
-                }
-            ) {
-                Text("Delete")
-            }
         }
-    )
+    }
 }
 
 

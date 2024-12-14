@@ -6,7 +6,9 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class Note(
+    @PrimaryKey
     var id: String = "", // Unique Note ID
-    val title: String, // Note title
+    val title: String,   // Note title
     val description: String // Note description
 )
+
