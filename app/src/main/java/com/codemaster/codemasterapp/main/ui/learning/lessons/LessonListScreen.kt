@@ -85,6 +85,9 @@ import com.codemaster.codemasterapp.main.data.LessonStatus
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.MainRoutes
 import com.codemaster.codemasterapp.main.ui.viewModels.CourseViewModel
 import com.codemaster.codemasterapp.ui.theme.bluishPython
+import com.codemaster.codemasterapp.ui.theme.purpleKt
+import com.codemaster.codemasterapp.ui.theme.yellowishJava
+import com.codemaster.codemasterapp.ui.theme.yellowishKt
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -336,12 +339,15 @@ fun LessonListScreen(
 
                                                         //Start where left
                                                         // Find the first active sub-lesson (not completed yet)
-                                                        val activeSubLessonIndex = lesson.lessonContents.indexOfFirst { subLesson ->
-                                                            lessonCompletionStatus.value[subLesson.id] != LessonStatus.COMPLETED
-                                                        }
+                                                        val activeSubLessonIndex =
+                                                            lesson.lessonContents.indexOfFirst { subLesson ->
+                                                                lessonCompletionStatus.value[subLesson.id] != LessonStatus.COMPLETED
+                                                            }
 
                                                         // If all sub-lessons are completed, set to the first sub-lesson
-                                                        courseViewModel.selectSubLessonIndex(activeSubLessonIndex.takeIf { it >= 0 } ?: 0)
+                                                        courseViewModel.selectSubLessonIndex(
+                                                            activeSubLessonIndex.takeIf { it >= 0 }
+                                                                ?: 0)
 
 
                                                         if (navController.currentBackStackEntry?.lifecycle?.currentState
@@ -542,7 +548,7 @@ fun SubLessonItem(
                     modifier = Modifier
                         .size(3.dp)
                         .clip(CircleShape)
-                        .background(bluishPython)
+                        .background(if (status == LessonStatus.COMPLETED) bluishPython  else yellowishJava)
                 )
                 Spacer(Modifier.height(2.dp))
             }
@@ -558,7 +564,7 @@ fun LessonItem(
     onArrowClick: () -> Unit, // Callback for expanding the lesson,
     onLessonClick: () -> Unit,
     isExpanded: Boolean,
-    isLastLesson: Boolean // Add a flag to check if it's the last lesson
+    isLastLesson: Boolean, // Add a flag to check if it's the last lesson
 ) {
     val glowAnimation = remember { Animatable(0f) }
     val context = LocalContext.current
@@ -687,7 +693,7 @@ fun LessonItem(
                     modifier = Modifier
                         .size(3.dp)
                         .clip(CircleShape)
-                        .background(bluishPython)
+                        .background(if (status == LessonStatus.COMPLETED) bluishPython  else yellowishJava)
                 )
                 Spacer(Modifier.height(2.dp))
             }
