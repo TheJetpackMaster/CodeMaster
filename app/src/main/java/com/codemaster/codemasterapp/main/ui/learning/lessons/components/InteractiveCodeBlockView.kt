@@ -21,6 +21,7 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateMapOf
@@ -35,6 +36,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.codemaster.codemasterapp.main.data.ContentBlock
+import com.codemaster.codemasterapp.main.data.LessonStatus
 import kotlin.collections.set
 
 @Composable
@@ -42,6 +44,7 @@ fun InteractiveCodeBlockView(
     contentBlock: ContentBlock.InteractiveCodeBlock,
     isAnswerGiven: MutableState<Boolean>,
     answerFeedbackText: MutableState<String>,
+    subLessonStatus: LessonStatus = LessonStatus.ACTIVE
 
     ) {
 
@@ -55,6 +58,12 @@ fun InteractiveCodeBlockView(
     val buttonState = remember {
         mutableStateMapOf<String, String>().apply {
             contentBlock.options.forEach { put(it, it) } // Initialize with all options
+        }
+    }
+
+    LaunchedEffect(Unit) {
+        if(subLessonStatus == LessonStatus.COMPLETED){
+            userAnswer = contentBlock.correctAnswer
         }
     }
 

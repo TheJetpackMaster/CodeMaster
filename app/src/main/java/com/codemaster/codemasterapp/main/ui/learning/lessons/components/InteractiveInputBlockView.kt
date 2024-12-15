@@ -15,6 +15,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
@@ -28,6 +29,8 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.codemaster.codemasterapp.main.data.ContentBlock
+import com.codemaster.codemasterapp.main.data.LessonStatus
+
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -35,6 +38,7 @@ fun InteractiveInputBlockView(
     contentBlock: ContentBlock.InteractiveInputBlock,
     isAnswerGiven: MutableState<Boolean>,
     answerFeedbackText: MutableState<String>,
+    subLessonStatus: LessonStatus = LessonStatus.ACTIVE
 ) {
     // Manage user input for each blank separately
     val userInputs = remember {
@@ -45,6 +49,18 @@ fun InteractiveInputBlockView(
 
     var feedback by remember { mutableStateOf("") }
     var isCodeCorrect by remember { mutableStateOf(false) }
+
+    LaunchedEffect(Unit) {
+        if (subLessonStatus == LessonStatus.COMPLETED) {
+            val correctCodeParts = contentBlock.correctCode.split(" ") // Adjust delimiter as needed
+            correctCodeParts.forEachIndexed { index, correctAnswer ->
+                if (index < userInputs.size) {
+                    userInputs[index] = correctAnswer
+                }
+            }
+        }
+    }
+
 
     Column(
         modifier = Modifier

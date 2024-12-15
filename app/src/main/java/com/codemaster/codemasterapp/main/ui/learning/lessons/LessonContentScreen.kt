@@ -92,27 +92,21 @@ fun LessonContentScreen(
         rememberPagerState(initialPage = selectedSubLessonIndex, pageCount = { subLessons.size })
     val coroutineScope = rememberCoroutineScope()
 
-    // Navigation Identifiers
-    val lessonNumber = selectedLessonIndex + 1
+    // Current SubLesson or LessonContent
     val currentSubLesson = remember { mutableStateOf(subLessons.getOrNull(pagerState.currentPage)) }
-    val combinedLessonIndex = lessonNumber + (pagerState.currentPage + 1) / 10f
 
     // Lessons status
-    val allLessonStatus = courseViewModel.lessonCompletionStatus.collectAsState()
     var currentLessonStatus by remember {
         mutableStateOf(selectedLesson?.let { lesson ->
-            allLessonStatus.value[lesson.id]
+            allLessonsStatus.value[lesson.id]
         } ?: LessonStatus.LOCKED)
     }
 
     // Calculated States
     val isPointsAssigned = currentSubLesson.value?.points != 0
     val isPointsCollected =
-        allLessonStatus.value[currentSubLesson.value?.id] == LessonStatus.COMPLETED
+        allLessonsStatus.value[currentSubLesson.value?.id] == LessonStatus.COMPLETED
 
-    // Other properties for identifying the sub-lesson
-    val languageName = selectedCourse?.language ?: ""
-    val stageName = selectedStage?.title ?: ""
 
     // Hide the status bar
     ManageStatusBar(window) {
@@ -129,7 +123,7 @@ fun LessonContentScreen(
     LaunchedEffect(pagerState.currentPage) {
         currentSubLesson.value = selectedLesson?.lessonContents[pagerState.currentPage]
         currentLessonStatus = selectedLesson?.let { lesson ->
-            allLessonStatus.value[lesson.id]
+            allLessonsStatus.value[lesson.id]
         } ?: LessonStatus.LOCKED
     }
 
@@ -146,7 +140,7 @@ fun LessonContentScreen(
             showPointsDialog = showPointsDialog,
             lessonStatus = currentLessonStatus,
             subLessonStatus = currentSubLesson.value?.let { subLesson ->
-                allLessonStatus.value[subLesson.id]
+                allLessonsStatus.value[subLesson.id]
             } ?: LessonStatus.LOCKED
         )
 

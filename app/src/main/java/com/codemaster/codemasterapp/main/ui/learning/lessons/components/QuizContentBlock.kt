@@ -14,6 +14,7 @@ import androidx.compose.material3.RadioButton
 import androidx.compose.material3.RadioButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -26,6 +27,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.codemaster.codemasterapp.main.data.ContentBlock
+import com.codemaster.codemasterapp.main.data.LessonStatus
 
 
 @Composable
@@ -33,6 +35,7 @@ fun QuizContentBlock(
     contentBlock: ContentBlock.QuizContentBlock,
     isAnswerGiven: MutableState<Boolean>,
     answerFeedbackText: MutableState<String>,
+    subLessonStatus: LessonStatus = LessonStatus.ACTIVE
 ) {
     // Track the selected answer and feedback state
     var userAnswer by remember { mutableStateOf("") }
@@ -45,6 +48,12 @@ fun QuizContentBlock(
         userAnswer = option
         isAnswerGiven.value = false // Reset feedback until confirmed
 //        feedback = "" // Clear previous feedback
+    }
+
+    LaunchedEffect(Unit) {
+        if(subLessonStatus == LessonStatus.COMPLETED){
+            userAnswer = contentBlock.correctAnswer
+        }
     }
 
     Column(
