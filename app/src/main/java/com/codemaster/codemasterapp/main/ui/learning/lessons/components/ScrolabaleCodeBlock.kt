@@ -1,6 +1,7 @@
 package com.codemaster.codemasterapp.main.ui.learning.lessons.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -54,16 +55,6 @@ fun ScrollableCodeBlock(contentBlock: String) {
     // Create a scroll state for tracking scroll position
     val scrollState = rememberScrollState()
 
-    // Define a fixed height for the code block container
-    val containerHeight = 400.dp
-    val scrollIndicatorHeight = 30.dp  // Fixed height for the scroll indicator line
-
-    // Get the LocalDensity to convert Dp to pixels
-    val density = LocalDensity.current.density
-
-    // Convert Dp to pixels for height calculations
-    val containerHeightPx = with(LocalDensity.current) { containerHeight.toPx() }
-    val scrollIndicatorHeightPx = with(LocalDensity.current) { scrollIndicatorHeight.toPx() }
 
     Box(
         modifier = Modifier
@@ -77,7 +68,7 @@ fun ScrollableCodeBlock(contentBlock: String) {
         Column(
             modifier = Modifier
                 .padding(horizontal = 12.dp)
-//                .verticalScroll(scrollState) // Make the code block scrollable
+                .horizontalScroll(scrollState) // Make the code block scrollable
         ) {
             Spacer(Modifier.height(12.dp))
 
@@ -163,35 +154,6 @@ fun ScrollableCodeBlock(contentBlock: String) {
             }
 
             Spacer(Modifier.height(12.dp))
-        }
-
-        // Scroll Indicator
-        Box(
-            modifier = Modifier
-                .align(Alignment.CenterEnd)
-                .width(4.dp)
-                .background(
-                    Color.Gray.copy(alpha = 0.5f),
-                    shape = RoundedCornerShape(topEnd = 124.dp, bottomEnd = 124.dp)
-                ) // Background for the scroll indicator
-
-        ) {
-            // Scroll indicator height calculation
-            val scrollPercentage = scrollState.value.toFloat() / scrollState.maxValue.toFloat()
-            val scrollIndicatorHeight =
-                (containerHeight.value * scrollPercentage).coerceIn(0f, containerHeight.value)
-
-            Box(
-                modifier = Modifier
-                    .align(Alignment.TopStart)
-                    .fillMaxWidth()
-                    .height(if (scrollIndicatorHeight.dp > 5.dp) scrollIndicatorHeight.dp else 5.dp) // Use Dp value directly for height
-                    .background(
-                        Color.White,
-                        shape = RoundedCornerShape(topEnd = 124.dp, bottomEnd = 124.dp)
-                    ) // Scroll indicator color
-
-            )
         }
     }
 }
