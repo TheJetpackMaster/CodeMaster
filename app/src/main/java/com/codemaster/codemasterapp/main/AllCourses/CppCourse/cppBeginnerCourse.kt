@@ -23,7 +23,7 @@ fun cppBeginnerCourse(): Stage {
                 lessonContents = listOf(
                     // Sub-lesson 1: What is C++?
                     LessonContent(
-                        id = "beginner_cpp1_sub1_content",
+                        id = "beginner_cpp1_sub1",
                         title = "What is C++?",
                         description = "In this lesson, we'll briefly talk about the C++ programming language, where it came from, and why it's still awesome today.",
                         contentBlocks = listOf(
@@ -47,7 +47,7 @@ fun cppBeginnerCourse(): Stage {
 
                     // Sub-lesson 2: Why C++?
                     LessonContent(
-                        id = "beginner_cpp1_sub2_content",
+                        id = "beginner_cpp1_sub2",
                         title = "Why C++?",
                         description = "C++ isn't just any language. Let's explore why it's so powerful, and why you should care.",
                         contentBlocks = listOf(
@@ -70,7 +70,7 @@ fun cppBeginnerCourse(): Stage {
 
                     // Sub-lesson 3: History of C++
                     LessonContent(
-                        id = "beginner_cpp1_sub3_content",
+                        id = "beginner_cpp1_sub3",
                         title = "History of C++",
                         description = "We’ll look back to the early 1980s when C++ was born and how it grew up to be the language it is today.",
                         contentBlocks = listOf(
@@ -93,7 +93,7 @@ fun cppBeginnerCourse(): Stage {
 
                     // Sub-lesson 4: What's Next in C++?
                     LessonContent(
-                        id = "beginner_cpp1_sub4_content",
+                        id = "beginner_cpp1_sub4",
                         title = "What's Next in Course?",
                         description = "Now that you've got the basics, we will move on to variables, data types, and how to manipulate them in upcoming lessons!",
                         contentBlocks = listOf(
@@ -116,7 +116,7 @@ fun cppBeginnerCourse(): Stage {
 
                     // Sub-lesson 5: Get Ready for Action!
                     LessonContent(
-                        id = "beginner_cpp1_sub5_content",
+                        id = "beginner_cpp1_sub5",
                         title = "Get Ready for Action!",
                         description = "Get ready to start coding! In the next lesson, you'll create your first interactive program and learn how to handle user input.",
                         contentBlocks = listOf(
@@ -166,7 +166,7 @@ fun cppBeginnerCourse(): Stage {
                 lessonContents = listOf(
                     // Sub-lesson 1: Setting Up an IDE
                     LessonContent(
-                        id = "beginner_cpp2_sub1_content",
+                        id = "beginner_cpp2_sub1",
                         title = "Setting Up an IDE",
                         description = "In this lesson, you'll learn how to install an IDE (Integrated Development Environment) to start writing C++ code. We’ll walk you through popular choices like Visual Studio (Windows), Code::Blocks (Cross-platform), or CLion (Cross-platform).",
                         contentBlocks = listOf(
@@ -190,7 +190,7 @@ fun cppBeginnerCourse(): Stage {
 
                     // Sub-lesson 2: Installing a C++ Compiler
                     LessonContent(
-                        id = "beginner_cpp2_sub2_content",
+                        id = "beginner_cpp2_sub2",
                         title = "Installing a C++ Compiler",
                         description = "A C++ compiler is essential to compile and run your C++ programs. We will show you how to install GCC, MinGW, or Clang, depending on your operating system.",
                         contentBlocks = listOf(
@@ -219,7 +219,7 @@ fun cppBeginnerCourse(): Stage {
 
                     // Sub-lesson 3: Your First C++ Program
                     LessonContent(
-                        id = "beginner_cpp2_sub3_content",
+                        id = "beginner_cpp2_sub3",
                         title = "Your First C++ Program",
                         description = "Now that your environment is set up, let’s write your first C++ program: a simple 'Hello, World!' that you can compile and run.",
                         contentBlocks = listOf(
@@ -243,7 +243,7 @@ fun cppBeginnerCourse(): Stage {
 
                     // Sub-lesson 4: Setting Up Debugging Tools
                     LessonContent(
-                        id = "beginner_cpp2_sub4_content",
+                        id = "beginner_cpp2_sub4",
                         title = "Setting Up Debugging Tools",
                         description = "Debugging is an essential part of programming. In this sub-lesson, you’ll learn how to use debugging tools within your IDE to step through your code and catch bugs early.",
                         contentBlocks = listOf(
@@ -257,7 +257,7 @@ fun cppBeginnerCourse(): Stage {
 
                     // Sub-lesson 5: Quiz!
                     LessonContent(
-                        id = "beginner_cpp2_sub5_content",
+                        id = "beginner_cpp2_sub5",
                         title = "Quiz!",
                         description = "At the end of this lesson, test your knowledge with a quiz about IDEs, compilers, and your first program.",
                         contentBlocks = listOf(
@@ -285,7 +285,7 @@ fun cppBeginnerCourse(): Stage {
                 lessonContents = listOf(
                     // Sub-Lesson 1: Why Syntax is Important
                     LessonContent(
-                        id = "beginner_c3_sub0",
+                        id = "beginner_cpp3_sub1",
                         title = "Why Syntax is Important",
                         description = "Learn why syntax is your program's BFF. It's like the grammar of programming—skip it, and things just won’t make sense!",
                         contentBlocks = listOf(
@@ -312,7 +312,7 @@ fun cppBeginnerCourse(): Stage {
 
                     // Sub-Lesson 2: The '#include' Directive
                     LessonContent(
-                        id = "beginner_c3_sub1",
+                        id = "beginner_cpp3_sub2",
                         title = "The '#include' Directive",
                         description = "What's the deal with '#include'? It's how you invite external libraries to your C++ party. Think of it like your program's shopping list!",
                         contentBlocks = listOf(
@@ -340,7 +340,7 @@ fun cppBeginnerCourse(): Stage {
 
                     // Sub-Lesson 3: Understanding the 'main()' Function
                     LessonContent(
-                        id = "beginner_c3_sub2",
+                        id = "beginner_cpp3_sub3",
                         title = "Understanding the 'main()' Function",
                         description = "The 'main()' function: where every C++ program starts its journey. It's the ‘start’ button for your code!",
                         contentBlocks = listOf(
@@ -372,7 +372,7 @@ int main() {
 
                     // Sub-Lesson 4: C++ Statements
                     LessonContent(
-                        id = "beginner_c3_sub3",
+                        id = "beginner_cpp3_sub4",
                         title = "C++ Statements",
                         description = "C++ statements: small but mighty! These are the building blocks of your code. Like LEGO for grown-ups.",
                         contentBlocks = listOf(
@@ -402,7 +402,7 @@ int main() {
 
                     // Sub-Lesson 5: C++ Single Statement
                     LessonContent(
-                        id = "beginner_c3_sub4",
+                        id = "beginner_cpp3_sub5",
                         title = "Single Statements",
                         description = "Single statement = one action. Think of it as a solo performance—straight to the point!",
                         contentBlocks = listOf(
@@ -426,7 +426,7 @@ int main() {
 
                     // Sub-Lesson 6: C++ Multiple Statements
                     LessonContent(
-                        id = "beginner_c3_sub5",
+                        id = "beginner_cpp3_sub6",
                         title = "Multiple Statements",
                         description = "Multiple statements? It's like a team working together to get things done. Teamwork makes the code work!",
                         contentBlocks = listOf(
@@ -459,9 +459,9 @@ int main() {
                     ),
 
 
-                    // Sub-Lesson 8: More on Statements
+                    // Sub-Lesson 7: More on Statements
                     LessonContent(
-                        id = "beginner_c3_sub8",
+                        id = "beginner_cpp3_sub7",
                         title = "More on Statements!",
                         description = "Let's dig deeper! Think of statements as the tiny gears in the machine of your program.",
                         contentBlocks = listOf(
@@ -478,7 +478,7 @@ int main() {
 
                     // Sub-Lesson 8: Quiz
                     LessonContent(
-                        id = "beginner_cpp2_sub8_content",
+                        id = "beginner_cpp3_sub8",
                         title = "Quiz!",
                         description = "Basic quiz to check you lesson knowledge.",
                         contentBlocks = listOf(
@@ -497,7 +497,7 @@ int main() {
 
                     // Sub-Lesson 9: Code Block Structure
                     LessonContent(
-                        id = "beginner_c3_sub8",
+                        id = "beginner_cpp3_sub9",
                         title = "Code Block Structure",
                         description = "Curly braces, baby! Code blocks group statements like a VIP club, making sure everything runs smoothly.",
                         contentBlocks = listOf(
@@ -531,9 +531,9 @@ int main() {
                         status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-Lesson 9: Quiz
+                    // Sub-Lesson 10: Quiz
                     LessonContent(
-                        id = "beginner_cpp2_sub5_content",
+                        id = "beginner_cpp3_sub10",
                         title = "Quiz!",
                         description = "Basic quiz to check you lesson knowledge.",
                         contentBlocks = listOf(
