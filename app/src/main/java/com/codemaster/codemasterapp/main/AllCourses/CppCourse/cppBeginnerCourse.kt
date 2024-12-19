@@ -560,7 +560,7 @@ int main() {
                 lessonContents = listOf(
                     // Content 1: What Are Comments?
                     LessonContent(
-                        id = "beginner_cpp4_content1",
+                        id = "beginner_cpp4_sub1",
                         title = "What Are Comments? 📝",
                         description = "Understand the concept of comments and their purpose in programming.",
                         contentBlocks = listOf(
@@ -584,7 +584,7 @@ int main() {
                     ),
                     // Content 2: Single-Line Comments
                     LessonContent(
-                        id = "beginner_cpp4_content2",
+                        id = "beginner_cpp4_sub2",
                         title = "Single-Line Comments",
                         description = "Learn how to write single-line comments in C++.",
                         contentBlocks = listOf(
@@ -613,7 +613,7 @@ int main() {
 
                     // Content 3: Multi-Line Comments
                     LessonContent(
-                        id = "beginner_cpp4_content3",
+                        id = "beginner_cpp4_sub3",
                         title = "Multi-Line Comments",
                         description = "Explore the use of multi-line comments for more detailed explanations.",
                         contentBlocks = listOf(
@@ -647,7 +647,7 @@ int main() {
 
                     // Content 4: Interactive Input Block
                     LessonContent(
-                        id = "beginner_cpp4_content4",
+                        id = "beginner_cpp4_sub4",
                         title = "Try Writing Comments! 🖊️",
                         description = "Now it's time to try writing comments in C++! Complete the missing part of the code to add a single-line comment.",
                         contentBlocks = listOf(
@@ -672,7 +672,7 @@ int main () {
 
                     // Content 5: Why Use Comments?
                     LessonContent(
-                        id = "beginner_cpp4_content5",
+                        id = "beginner_cpp4_sub5",
                         title = "Why Use Comments? 🤔",
                         description = "Discover why comments are essential for writing clear and maintainable code.",
                         contentBlocks = listOf(
@@ -690,7 +690,7 @@ int main () {
 
                     // Content 6: Interactive Code Block
                     LessonContent(
-                        id = "beginner_cpp4_content7",
+                        id = "beginner_cpp4_sub6",
                         title = "Complete the Multi-Line Comment Code",
                         description = "Now it's time to practice writing multi-line comments. Complete the code by adding a multi-line comment.",
                         contentBlocks = listOf(
@@ -716,7 +716,7 @@ int main () {
 
                     // Content 7: Commenting Best Practices
                     LessonContent(
-                        id = "beginner_cpp4_content6",
+                        id = "beginner_cpp4_sub7",
                         title = "Commenting Best Practices 🧹",
                         description = "Master the art of writing effective and meaningful comments.",
                         contentBlocks = listOf(
@@ -739,7 +739,7 @@ int main () {
 
                     // Sub-Lesson 8: Quiz
                     LessonContent(
-                        id = "beginner_cpp2_sub5_content",
+                        id = "beginner_cpp4_sub8",
                         title = "Quiz!",
                         description = "Basic quiz to check you lesson knowledge.",
                         contentBlocks = listOf(
@@ -869,7 +869,7 @@ int main() {
 
                     // Content 4: Interactive Input Block
                     LessonContent(
-                        id = "beginner_cpp4_content4",
+                        id = "beginner_cpp5_sub4",
                         title = "Complete the code",
                         description = "Ok so now try to complete the program.",
                         contentBlocks = listOf(
@@ -893,7 +893,7 @@ int main () {
 
                     // Lesson Content 5: Printing Numbers
                     LessonContent(
-                        id = "beginner_cpp5_sub4",
+                        id = "beginner_cpp5_sub5",
                         title = "Printing Numbers",
                         description = "Find out how to display numbers, like showing off your favorite ones.",
                         contentBlocks = listOf(
@@ -926,9 +926,9 @@ int main() {
                     ),
 
 
-                    // Lesson Content 5: Adding New Lines with \n
+                    // Lesson Content 6: Adding New Lines with \n
                     LessonContent(
-                        id = "beginner_cpp5_sub5",
+                        id = "beginner_cpp5_sub6",
                         title = "Adding New Lines with \\n",
                         description = "Let’s learn how to neatly move text to a new line. Nobody likes a messy program.",
                         contentBlocks = listOf(
@@ -961,9 +961,9 @@ int main() {
                         status = LessonStatus.LOCKED
                     ),
 
-                    // Lesson Content 6: Using endl
+                    // Lesson Content 7: Using endl
                     LessonContent(
-                        id = "beginner_cpp5_sub6",
+                        id = "beginner_cpp5_sub7",
                         title = "Using endl",
                         description = "Another way to break lines – because options are nice!",
                         contentBlocks = listOf(
@@ -993,9 +993,9 @@ cout << "Line 1" << endl << "Line 2";
                         status = LessonStatus.LOCKED
                     ),
 
-                    // Lesson Content 7: Quiz Time!
+                    // Lesson Content 8: Quiz Time!
                     LessonContent(
-                        id = "beginner_cpp5_sub7",
+                        id = "beginner_cpp5_sub8",
                         title = "Quiz Time!",
                         description = "Time to show off what you learned – don’t worry, there’s no grade.",
                         contentBlocks = listOf(
@@ -1130,7 +1130,7 @@ cout << "Line 1" << endl << "Line 2";
 
                     // Content for "Quiz Time!"
                     LessonContent(
-                        id = "beginner_cpp6_sub8",
+                        id = "beginner_cpp6_sub5",
                         title = "Quiz Time! 🧠",
                         description = "Test your knowledge of lesson.",
                         contentBlocks = listOf(
@@ -1153,7 +1153,7 @@ cout << "Line 1" << endl << "Line 2";
 
                     // Content for "Declaring Multiple Variables"
                     LessonContent(
-                        id = "beginner_cpp6_sub5",
+                        id = "beginner_cpp6_sub6",
                         title = "Declaring Multiple Variables",
                         description = "You can declare multiple variables of the same type in one line.",
                         contentBlocks = listOf(
@@ -1176,9 +1176,9 @@ cout << "Line 1" << endl << "Line 2";
                         status = LessonStatus.LOCKED
                     ),
 
-                    // Content 6: Interactive Input Block
+                    // Content 7: Interactive Input Block
                     LessonContent(
-                        id = "beginner_cpp_content6",
+                        id = "beginner_cpp6_sub7",
                         title = "Complete the code",
                         description = "Complete code to declare a variable",
                         contentBlocks = listOf(
@@ -1202,7 +1202,7 @@ int main () {
 
                     // Content for "Variable Types"
                     LessonContent(
-                        id = "beginner_cpp6_sub6",
+                        id = "beginner_cpp6_sub8",
                         title = "Variable Types",
                         description = "C++ offers different data types for variables like 'int', 'float', and 'char'.",
                         contentBlocks = listOf(
@@ -1233,7 +1233,7 @@ int main () {
 
                     // Data Types Overview
                     LessonContent(
-                        id = "beginner_cpp6_sub6_data_types",
+                        id = "beginner_cpp6_sub9",
                         title = "Data Types in C++",
                         description = "C++ offers different data types for variables like 'int', 'float', and 'char'.",
                         contentBlocks = listOf(
@@ -1278,7 +1278,7 @@ int main () {
 
                     // Content for "Quiz Time!"
                     LessonContent(
-                        id = "beginner_cpp6_sub8",
+                        id = "beginner_cpp6_sub10",
                         title = "Quiz Time! 🧠",
                         description = "Test your knowledge of variables and their declaration in C++! Let’s see if you’re ready to move forward.",
                         contentBlocks = listOf(
