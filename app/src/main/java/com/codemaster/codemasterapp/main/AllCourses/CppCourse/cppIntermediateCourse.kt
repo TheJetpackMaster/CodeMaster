@@ -2776,7 +2776,7 @@ int main () {
 
                     // Sub-lesson 1: What Are References?
                     LessonContent(
-                        id = "beginner_cpp_references_sub1",
+                        id = "intermediate_cpp13_sub1",
                         title = "What Are References?",
                         description = "Think of references as giving your variable a cool alias!",
                         contentBlocks = listOf(
@@ -2793,7 +2793,7 @@ int main () {
 
                     // Sub-lesson 2: Why References Matter
                     LessonContent(
-                        id = "beginner_cpp_references_sub2",
+                        id = "intermediate_cpp13_sub2",
                         title = "Why References Matter",
                         description = "References make your code cleaner, faster, and more efficient!",
                         contentBlocks = listOf(
@@ -2810,7 +2810,7 @@ int main () {
 
                     // Content for "Quiz Time!"
                     LessonContent(
-                        id = "beginner_cpp6_sub8",
+                        id = "intermediate_cpp13_sub3",
                         title = "Quiz Time! 🧠",
                         description = "Test your knowledge of lesson.",
                         contentBlocks = listOf(
@@ -2831,9 +2831,9 @@ int main () {
                     ),
 
 
-                    // Sub-lesson 3: How to Create References
+                    // Sub-lesson 4: How to Create References
                     LessonContent(
-                        id = "beginner_cpp_references_sub3",
+                        id = "intermediate_cpp13_sub4",
                         title = "How to Create References",
                         description = "Creating references is easy! You just need to use the '&' symbol.",
                         contentBlocks = listOf(
@@ -2865,9 +2865,9 @@ int main () {
                         status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 4: Changing Data Through References
+                    // Sub-lesson 5: Changing Data Through References
                     LessonContent(
-                        id = "beginner_cpp_references_sub4",
+                        id = "intermediate_cpp13_sub5",
                         title = "Changing Data Through References",
                         description = "When you change the reference, the original variable changes too!",
                         contentBlocks = listOf(
@@ -2900,9 +2900,9 @@ int main () {
                         status = LessonStatus.LOCKED
                     ),
 
-// Content 4: Interactive Input Block
+                    // Content 6: Interactive Input Block
                     LessonContent(
-                        id = "beginner_cpp4_content4",
+                        id = "intermediate_cpp13_sub6",
                         title = "Complete the Code",
                         description = "Learn how to use references in C++.",
                         contentBlocks = listOf(
@@ -2926,9 +2926,9 @@ int main() {
                         status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 5: What is a Memory Address?
+                    // Sub-lesson 7: What is a Memory Address?
                     LessonContent(
-                        id = "beginner_cpp_references_sub5",
+                        id = "intermediate_cpp13_sub7",
                         title = "What is a Memory Address?",
                         description = "Memory addresses are where data is stored in your computer’s memory.",
                         contentBlocks = listOf(
@@ -2950,9 +2950,9 @@ int main() {
                     ),
 
 
-                    // Sub-lesson 6: Code Example (Showing Memory Address)
+                    // Sub-lesson 8: Code Example (Showing Memory Address)
                     LessonContent(
-                        id = "beginner_cpp_references_sub6",
+                        id = "intermediate_cpp13_sub8",
                         title = "Code Example: Showing Memory Address",
                         description = "Let's see how to print a memory address.",
                         contentBlocks = listOf(
@@ -2981,9 +2981,9 @@ int main() {
                         status = LessonStatus.LOCKED
                     ),
 
-                    // Final Sub-lesson 7: Pointers Are Coming!
+                    // Final Sub-lesson 9: Pointers Are Coming!
                     LessonContent(
-                        id = "beginner_cpp_references_sub7",
+                        id = "intermediate_cpp13_sub9",
                         title = "Pointers Are Coming!",
                         description = "Ready to level up? We’re about to meet pointers!",
                         contentBlocks = listOf(
@@ -3008,14 +3008,14 @@ int main() {
 
             // Lesson 14: Pointers in C++
             Lesson(
-                id = "beginner_cpp_pointers",
+                id = "intermediate_cpp14",
                 title = "C++ Pointers",
                 description = "Pointers are one of the most powerful tools in C++! Let’s dive into how they work and why they make your code more efficient.",
                 lessonContents = listOf(
 
                     // Sub-lesson 1: What Are Pointers?
                     LessonContent(
-                        id = "beginner_cpp_pointers_sub1",
+                        id = "intermediate_cpp14_sub1",
                         title = "What Are Pointers?",
                         description = "Pointers are variables that store memory addresses instead of actual data.",
                         contentBlocks = listOf(
@@ -3043,7 +3043,7 @@ int main() {
 
                     // Sub-lesson 2: Declaring and Using Pointers
                     LessonContent(
-                        id = "beginner_cpp_pointers_sub2",
+                        id = "intermediate_cpp14_sub2",
                         title = "Declaring and Using Pointers",
                         description = "Let’s see how to declare pointers and use them to store memory addresses.",
                         contentBlocks = listOf(
@@ -3073,7 +3073,7 @@ int main() {
 
                     // Sub-lesson 3: Dereferencing Pointers
                     LessonContent(
-                        id = "beginner_cpp_pointers_sub3",
+                        id = "intermediate_cpp14_sub3",
                         title = "Dereferencing Pointers",
                         description = "Dereferencing allows you to access the value stored at the memory address the pointer is pointing to.",
                         contentBlocks = listOf(
@@ -3101,7 +3101,7 @@ int main() {
 
                     // Content 4: Interactive Input Block
                     LessonContent(
-                        id = "beginner_cpp4_content4",
+                        id = "intermediate_cpp14_sub4",
                         title = "Complete the Code",
                         description = "Learn how to use pointers in C++.",
                         contentBlocks = listOf(
@@ -3124,9 +3124,9 @@ int main() {
                         status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 4: Benefits of Pointers
+                    // Sub-lesson 5: Benefits of Pointers
                     LessonContent(
-                        id = "beginner_cpp_pointers_sub4",
+                        id = "intermediate_cpp14_sub5",
                         title = "Why Use Pointers?",
                         description = "Pointers can save memory and improve the efficiency of your program.",
                         contentBlocks = listOf(
@@ -3153,9 +3153,9 @@ int main() {
                         status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 5: Pointers and Arrays
+                    // Sub-lesson 6: Pointers and Arrays
                     LessonContent(
-                        id = "beginner_cpp_pointers_sub5",
+                        id = "intermediate_cpp14_sub6",
                         title = "Pointers and Arrays",
                         description = "Pointers work hand-in-hand with arrays. Let’s see how they can be used together.",
                         contentBlocks = listOf(
@@ -3184,9 +3184,9 @@ int main() {
                         status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 6: Modifying Pointer Values
+                    // Sub-lesson 7: Modifying Pointer Values
                     LessonContent(
-                        id = "beginner_cpp_pointers_sub6",
+                        id = "intermediate_cpp14_sub7",
                         title = "Modifying Pointer Values",
                         description = "You can modify the value that a pointer points to by dereferencing and assigning a new value.",
                         contentBlocks = listOf(
@@ -3222,9 +3222,9 @@ int main() {
                         status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 7: Pointers and Dynamic Memory Management
+                    // Sub-lesson 8: Pointers and Dynamic Memory Management
                     LessonContent(
-                        id = "beginner_cpp_pointers_sub7",
+                        id = "intermediate_cpp14_sub8",
                         title = "Pointers and Dynamic Memory Management",
                         description = "Pointers also allow you to manage memory dynamically, but with great power comes great responsibility!",
                         contentBlocks = listOf(
@@ -3255,7 +3255,7 @@ int main() {
 
                     // Content for "Quiz Time!"
                     LessonContent(
-                        id = "beginner_cpp6_sub8",
+                        id = "intermediate_cpp14_sub9",
                         title = "Quiz Time! 🧠",
                         description = "Test your knowledge of lesson.",
                         contentBlocks = listOf(
@@ -3276,9 +3276,9 @@ int main() {
                     ),
 
 
-                    // Sub-lesson 8: Explore More and Practice
+                    // Sub-lesson 10: Explore More and Practice
                     LessonContent(
-                        id = "beginner_cpp_pointers_sub7",
+                        id = "intermediate_cpp14_sub10",
                         title = "Explore More and Practice",
                         description = "Learning is fun, but practice makes perfect!",
                         contentBlocks = listOf(
@@ -3304,14 +3304,14 @@ int main() {
 
             // Lesson 15: Functions in C++
             Lesson(
-                id = "beginner_cpp_functions",
+                id = "intermediate_cpp15",
                 title = "C++ Functions",
                 description = "Functions are like your own little helpers in the code! Let’s explore how they work.",
                 lessonContents = listOf(
 
                     // Sub-lesson 1: What is a Function?
                     LessonContent(
-                        id = "beginner_cpp_functions_sub1",
+                        id = "intermediate_cpp15_sub1",
                         title = "What is a Function?",
                         description = "A function is like a mini-program inside your program that does something special.",
                         contentBlocks = listOf(
@@ -3332,7 +3332,7 @@ int main() {
 
                     // Sub-lesson 2: Declaring a Simple Function
                     LessonContent(
-                        id = "beginner_cpp_functions_sub2",
+                        id = "intermediate_cpp15_sub2",
                         title = "Declaring a Simple Function",
                         description = "Let’s create a function! It’s like giving your helper a name and telling them what to do.",
                         contentBlocks = listOf(
@@ -3363,7 +3363,7 @@ int main() {
 
                     // Sub-lesson 3: Calling Your Function
                     LessonContent(
-                        id = "beginner_cpp_functions_sub3",
+                        id = "intermediate_cpp15_sub3",
                         title = "Calling Your Function",
                         description = "Once you’ve got a function, you can call it anytime you need to perform that task!",
                         contentBlocks = listOf(
@@ -3392,7 +3392,7 @@ int main() {
 
                     // Content 4: Interactive Input Block
                     LessonContent(
-                        id = "beginner_cpp4_content4",
+                        id = "intermediate_cpp15_sub4",
                         title = "Complete the code",
                         description = "Ok so now try to complete the program.",
                         contentBlocks = listOf(
@@ -3418,9 +3418,9 @@ int main() {
                     ),
 
 
-                    // Sub-lesson 4: Avoid Declaring Functions Below Main
+                    // Sub-lesson 5: Avoid Declaring Functions Below Main
                     LessonContent(
-                        id = "beginner_cpp_functions_sub4",
+                        id = "intermediate_cpp15_sub5",
                         title = "Avoid Declaring Functions Below Main()",
                         description = "It’s best practice to declare your functions above ‘main()’, not below it.",
                         contentBlocks = listOf(
@@ -3451,9 +3451,9 @@ int main() {
                     ),
 
 
-                    // Sub-lesson 5: Simple Function Calls
+                    // Sub-lesson 6: Simple Function Calls
                     LessonContent(
-                        id = "beginner_cpp_functions_sub5",
+                        id = "intermediate_cpp15_sub6",
                         title = "Simple Function Calls",
                         description = "Functions can be called multiple times to repeat an action!",
                         contentBlocks = listOf(
@@ -3492,9 +3492,9 @@ int main() {
                     ),
 
 
-                    // Sub-lesson 6: Why Use Functions?
+                    // Sub-lesson 7: Why Use Functions?
                     LessonContent(
-                        id = "beginner_cpp_functions_sub6",
+                        id = "intermediate_cpp15_sub7",
                         title = "Why Use Functions?",
                         description = "Functions make your life easier by letting you reuse code without repeating yourself.",
                         contentBlocks = listOf(
@@ -3516,7 +3516,7 @@ int main() {
 
                     // Final Sub-lesson: Keep It Fun and Keep It Simple
                     LessonContent(
-                        id = "beginner_cpp_functions_sub7",
+                        id = "intermediate_cpp15_sub8",
                         title = "Keep It Fun and Keep It Simple!",
                         description = "Remember: functions are here to make your life easier. They help you keep your code neat and avoid repetition.",
                         contentBlocks = listOf(
@@ -3537,7 +3537,7 @@ int main() {
 
                     // Content for "Quiz Time!"
                     LessonContent(
-                        id = "beginner_cpp6_sub8",
+                        id = "intermediate_cpp15_sub9",
                         title = "Quiz Time! 🧠",
                         description = "Test your knowledge of lesson.",
                         contentBlocks = listOf(
