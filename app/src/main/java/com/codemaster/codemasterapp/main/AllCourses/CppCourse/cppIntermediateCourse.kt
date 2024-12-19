@@ -3841,7 +3841,7 @@ int main() {
 
                     // Sub-lesson 1: Introduction to Return Keyword
                     LessonContent(
-                        id = "beginner_cpp_return_keyword_sub1",
+                        id = "intermediate_cpp17_sub1",
                         title = "The Return Keyword",
                         description = "We used 'void' before, but now we need something more exciting – functions that actually send something back!",
                         contentBlocks = listOf(
@@ -3862,7 +3862,7 @@ int main() {
 
                     // Sub-lesson 2: Basic Syntax of Return Functions
                     LessonContent(
-                        id = "beginner_cpp_return_keyword_sub2",
+                        id = "intermediate_cpp17_sub2",
                         title = "Syntax of Return Functions",
                         description = "Here’s how you make your function do the real work – and give something back. No more excuses.",
                         contentBlocks = listOf(
@@ -3897,9 +3897,9 @@ int main() {
                         status = LessonStatus.LOCKED
                     ),
 
-                    // Content 4: Interactive Input Block
+                    // Content 3: Interactive Input Block
                     LessonContent(
-                        id = "beginner_cpp4_content4",
+                        id = "intermediate_cpp17_sub3",
                         title = "Complete the code",
                         description = "Ok so now try to complete the program.",
                         contentBlocks = listOf(
@@ -3924,9 +3924,9 @@ int main() {
                         status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 3: Storing Return Values in Variables
+                    // Sub-lesson 4: Storing Return Values in Variables
                     LessonContent(
-                        id = "beginner_cpp_return_keyword_sub3",
+                        id = "intermediate_cpp17_sub4",
                         title = "Storing Return Values",
                         description = "You don’t just want to receive a value and forget about it, right? Store it, use it, make it work for you.",
                         contentBlocks = listOf(
@@ -3958,9 +3958,9 @@ int main() {
                         status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 4: Using Return Functions with Multiple Parameters
+                    // Sub-lesson 5: Using Return Functions with Multiple Parameters
                     LessonContent(
-                        id = "beginner_cpp_return_keyword_sub4",
+                        id = "intermediate_cpp17_sub5",
                         title = "Return Functions with Multiple Parameters",
                         description = "Want more complexity? Use multiple parameters and make your functions even more useful!",
                         contentBlocks = listOf(
@@ -3991,9 +3991,9 @@ int main() {
                         status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-Lesson 5:
+                    // Sub-Lesson 6:
                     LessonContent(
-                        id = "beginner_cpp_return_keyword_sub5",
+                        id = "intermediate_cpp17_sub6",
                         title = "Returning Strings",
                         description = "Numbers are cool, but what about words? Let’s make your functions talk by returning strings!",
                         contentBlocks = listOf(
@@ -4029,7 +4029,7 @@ int main() {
 
                     // Content for "Quiz Time!"
                     LessonContent(
-                        id = "beginner_cpp6_sub8",
+                        id = "intermediate_cpp17_sub7",
                         title = "Quiz Time! 🧠",
                         description = "Test your knowledge of functions.",
                         contentBlocks = listOf(
@@ -4049,9 +4049,9 @@ int main() {
                         type = LessonContentType.QUIZ
                     ),
 
-                    // Sub-lesson 6: Return Keyword Recap
+                    // Sub-lesson 8: Return Keyword Recap
                     LessonContent(
-                        id = "beginner_cpp_return_keyword_sub6",
+                        id = "intermediate_cpp17_sub8",
                         title = "Return Keyword Recap",
                         description = "You’ve unlocked the secret of 'return'. Now go forth and use it like a pro!",
                         contentBlocks = listOf(
@@ -4076,14 +4076,14 @@ int main() {
 
             // Lesson 18: Pass Array to a Function
             Lesson(
-                id = "beginner_cpp_passing_arrays_with_params",
+                id = "intermediate_cpp18",
                 title = "Passing Arrays to Function",
                 description = "Let’s see how to pass arrays and other parameters to functions without the confusion of big code blocks.",
                 lessonContents = listOf(
 
                     // Sub-lesson 1: Create a Function to Accept an Array
                     LessonContent(
-                        id = "beginner_cpp_passing_arrays_sub1",
+                        id = "intermediate_cpp18_sub1",
                         title = "Create a Function for Arrays",
                         description = "Start by writing a function that accepts only an array.",
                         contentBlocks = listOf(
@@ -4114,7 +4114,7 @@ int main() {
 
                     // Sub-lesson 2: Call the Function with an Array
                     LessonContent(
-                        id = "beginner_cpp_passing_arrays_sub2",
+                        id = "intermediate_cpp18_sub2",
                         title = "Call the Function with an Array",
                         description = "Now, let’s call the function from the main program.",
                         contentBlocks = listOf(
@@ -4142,7 +4142,7 @@ int main() {
 
                     // Sub-lesson 3: Return a Specific Index from an Array
                     LessonContent(
-                        id = "beginner_cpp_passing_arrays_sub3",
+                        id = "intermediate_cpp18_sub3",
                         title = "Return a Specific Index from an Array",
                         description = "Let’s modify the function to return the value at a specific index in the array.",
                         contentBlocks = listOf(
@@ -4165,7 +4165,7 @@ int main() {
 
                     // Sub-lesson 4: Call the Function and Get the Returned Value
                     LessonContent(
-                        id = "beginner_cpp_passing_arrays_sub4",
+                        id = "intermediate_cpp18_sub4",
                         title = "Get the Returned Value",
                         description = "Call the updated function to fetch and print a value from the array.",
                         contentBlocks = listOf(
@@ -4194,7 +4194,7 @@ int main() {
 
                     // Content for "Quiz Time!"
                     LessonContent(
-                        id = "beginner_cpp6_sub11",
+                        id = "intermediate_cpp18_sub5",
                         title = "Quiz Time! 🧠",
                         description = "Test your knowledge on passing arrays to functions.",
                         contentBlocks = listOf(
@@ -4216,7 +4216,7 @@ int main() {
 
                     // Closing Thoughts
                     LessonContent(
-                        id = "beginner_cpp_passing_arrays_sub5",
+                        id = "intermediate_cpp18_sub6",
                         title = "Closing Thoughts",
                         description = "Passing arrays and other parameters gives you flexibility to make your functions dynamic and powerful.",
                         contentBlocks = listOf(
