@@ -1657,7 +1657,7 @@ printf("Size of char: %zu bytes", sizeof(char));  // Check memory size of char
                 description = "Learn how to use booleans in C for conditional statements and logical operations! ✅❌",
                 lessonContents = listOf(
                     LessonContent(
-                        id = "beginner_c10_sub1",
+                        id = CBeginnerStageIds.lesson10_subs[0],
                         title = "Introduction to Booleans",
                         description = "Understand how booleans work in C.",
                         contentBlocks = listOf(
@@ -1677,7 +1677,7 @@ printf("Size of char: %zu bytes", sizeof(char));  // Check memory size of char
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "beginner_c10_sub2",
+                        id = CBeginnerStageIds.lesson10_subs[1],
                         title = "Basic Boolean Representation",
                         description = "Learn how booleans are represented as 0 and 1 in C.",
                         contentBlocks = listOf(
@@ -1697,7 +1697,7 @@ printf("Size of char: %zu bytes", sizeof(char));  // Check memory size of char
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "beginner_c10_sub3",
+                        id = CBeginnerStageIds.lesson10_subs[2],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -1714,7 +1714,7 @@ printf("Size of char: %zu bytes", sizeof(char));  // Check memory size of char
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "beginner_c10_sub4",
+                        id = CBeginnerStageIds.lesson10_subs[3],
                         title = "Boolean Values",
                         description = "Learn how to use true and false with the stdbool.h library.",
                         contentBlocks = listOf(
@@ -1736,7 +1736,7 @@ printf("Size of char: %zu bytes", sizeof(char));  // Check memory size of char
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "beginner_c10_sub5",
+                        id = CBeginnerStageIds.lesson10_subs[4],
                         title = "Boolean Operations",
                         description = "Use booleans in logical operations.",
                         contentBlocks = listOf(
@@ -1753,7 +1753,7 @@ printf("Size of char: %zu bytes", sizeof(char));  // Check memory size of char
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "beginner_c10_sub6",
+                        id = CBeginnerStageIds.lesson10_subs[5],
                         title = "Boolean in Conditional Statements",
                         description = "Using booleans in if and while statements.",
                         contentBlocks = listOf(
@@ -1776,7 +1776,7 @@ printf("Size of char: %zu bytes", sizeof(char));  // Check memory size of char
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "beginner_c10_sub7",
+                        id = CBeginnerStageIds.lesson10_subs[6],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -1796,12 +1796,12 @@ printf("Size of char: %zu bytes", sizeof(char));  // Check memory size of char
 
             // lesson 11
             Lesson(
-                id = "beginner_c11",
+                id = CBeginnerStageIds.lesson11,
                 title = "Recap",
                 description = "Review important topics from this stage and prepare for the next stage in your C programming journey! 🧠💻",
                 lessonContents = listOf(
                     LessonContent(
-                        id = "beginner_c11_sub1",
+                        id = CBeginnerStageIds.lesson11_subs[0],
                         title = "C Syntax Overview",
                         description = "Review the basic syntax of C programming. Remember to focus on semicolons, curly braces, and the structure of main().",
                         contentBlocks = listOf(
@@ -1810,7 +1810,7 @@ printf("Size of char: %zu bytes", sizeof(char));  // Check memory size of char
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "beginner_c11_sub2",
+                        id = CBeginnerStageIds.lesson11_subs[1],
                         title = "Understanding Statements",
                         description = "Statements are the building blocks of your program. Each statement performs a task, like declaring variables or performing operations.",
                         contentBlocks = listOf(
@@ -1819,7 +1819,7 @@ printf("Size of char: %zu bytes", sizeof(char));  // Check memory size of char
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "beginner_c11_sub3",
+                        id = CBeginnerStageIds.lesson11_subs[2],
                         title = "Working with Variables and Data Types",
                         description = "Variables store data values in a program. Review the common data types such as int, char, float, and double.",
                         contentBlocks = listOf(
@@ -1828,7 +1828,7 @@ printf("Size of char: %zu bytes", sizeof(char));  // Check memory size of char
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "beginner_c11_sub4",
+                        id = CBeginnerStageIds.lesson11_subs[3],
                         title = "Using Operators in C",
                         description = "Operators are used to perform operations on variables and values. Refresh your knowledge on arithmetic, comparison, and logical operators.",
                         contentBlocks = listOf(
@@ -1837,7 +1837,7 @@ printf("Size of char: %zu bytes", sizeof(char));  // Check memory size of char
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "beginner_c11_sub5",
+                        id = CBeginnerStageIds.lesson11_subs[4],
                         title = "Booleans and Logical Operations",
                         description = "Booleans represent true/false values. Logical operations help combine multiple conditions.",
                         contentBlocks = listOf(
@@ -1846,7 +1846,7 @@ printf("Size of char: %zu bytes", sizeof(char));  // Check memory size of char
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "beginner_c11_sub6",
+                        id = CBeginnerStageIds.lesson11_subs[5],
                         title = "Conditional Statements",
                         description = "Conditional statements such as if, else if, and while control program flow based on conditions.",
                         contentBlocks = listOf(
@@ -1855,7 +1855,7 @@ printf("Size of char: %zu bytes", sizeof(char));  // Check memory size of char
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "beginner_c11_sub7",
+                        id = CBeginnerStageIds.lesson11_subs[6],
                         title = "Your Next Step",
                         description = "Great job! You've covered some important concepts in C programming. Keep practicing and researching on your own to build stronger skills.",
                         contentBlocks = listOf(
@@ -1870,12 +1870,12 @@ printf("Size of char: %zu bytes", sizeof(char));  // Check memory size of char
 
             // lesson 12
             Lesson(
-                id = "beginner_c12",
+                id = CBeginnerStageIds.lesson12,
                 title = "Quiz",
                 description = "Test your knowledge of the topics covered in this stage! 🧠💻",
                 lessonContents = listOf(
                     LessonContent(
-                        id = "beginner_c12_sub1",
+                        id = CBeginnerStageIds.lesson12_subs[0],
                         title = "Quiz: C Syntax Overview",
                         description = "Answer the questions related to C syntax.",
                         contentBlocks = listOf(
@@ -1889,7 +1889,7 @@ printf("Size of char: %zu bytes", sizeof(char));  // Check memory size of char
                         type = LessonContentType.QUIZ
                     ),
                     LessonContent(
-                        id = "beginner_c12_sub2",
+                        id = CBeginnerStageIds.lesson12_subs[1],
                         title = "Quiz: Understanding Statements",
                         description = "Test your knowledge of statements in C.",
                         contentBlocks = listOf(
@@ -1908,7 +1908,7 @@ printf("Size of char: %zu bytes", sizeof(char));  // Check memory size of char
                         type = LessonContentType.QUIZ
                     ),
                     LessonContent(
-                        id = "beginner_c12_sub3",
+                        id = CBeginnerStageIds.lesson12_subs[2],
                         title = "Quiz: Working with Variables and Data Types",
                         description = "Answer the questions about variables and data types in C.",
                         contentBlocks = listOf(
@@ -1921,7 +1921,7 @@ printf("Size of char: %zu bytes", sizeof(char));  // Check memory size of char
                         type = LessonContentType.QUIZ
                     ),
                     LessonContent(
-                        id = "beginner_c12_sub4",
+                        id = CBeginnerStageIds.lesson12_subs[3],
                         title = "Quiz: Using Operators in C",
                         description = "Test your knowledge of operators in C.",
                         contentBlocks = listOf(
@@ -1934,7 +1934,7 @@ printf("Size of char: %zu bytes", sizeof(char));  // Check memory size of char
                         type = LessonContentType.QUIZ
                     ),
                     LessonContent(
-                        id = "beginner_c12_sub5",
+                        id = CBeginnerStageIds.lesson12_subs[4],
                         title = "Quiz: Booleans and Logical Operations",
                         description = "Answer questions related to booleans and logical operations in C.",
                         contentBlocks = listOf(
@@ -1947,7 +1947,7 @@ printf("Size of char: %zu bytes", sizeof(char));  // Check memory size of char
                         type = LessonContentType.QUIZ
                     ),
                     LessonContent(
-                        id = "beginner_c12_sub6",
+                        id = CBeginnerStageIds.lesson12_subs[5],
                         title = "Quiz: Conditional Statements",
                         description = "Test your knowledge of conditional statements in C.",
                         contentBlocks = listOf(
@@ -1966,7 +1966,7 @@ printf("Size of char: %zu bytes", sizeof(char));  // Check memory size of char
                         type = LessonContentType.QUIZ
                     ),
                     LessonContent(
-                        id = "beginner_c12_sub7",
+                        id = CBeginnerStageIds.lesson12_subs[6],
                         title = "Stage Completed",
                         description = "You’ve completed this stage, now prepare for the next one!",
                         contentBlocks = listOf(
