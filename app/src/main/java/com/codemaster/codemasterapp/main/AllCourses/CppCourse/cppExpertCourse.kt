@@ -128,7 +128,7 @@ fun cppExpertCourse(): Stage {
 
                     // Content for "Quiz Time!"
                     LessonContent(
-                        id = "expert_cpp1_sub6",
+                        id = "expert_cpp1_sub5",
                         title = "Quiz Time! 🧠",
                         description = "Test your knowledge of problem-solving basics.",
                         contentBlocks = listOf(
