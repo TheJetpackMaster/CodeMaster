@@ -1163,13 +1163,13 @@ fun cppIntermediateCourse(): Stage {
 
             // Additional Lesson 6: Practice Makes Perfect - Mastering Loops
             Lesson(
-                id = "master_loops",
+                id = "intermediate_cpp6",
                 title = "Practice Makes Perfect!",
                 description = "You're ready to level up your loop game. Before you rush ahead, let’s make sure loops are your best friend!",
                 lessonContents = listOf(
                     // Sub-lesson 1: Why Practice Loops?
                     LessonContent(
-                        id = "why_practice_loops",
+                        id = "intermediate_cpp6_sub1",
                         title = "Why Practice Loops?",
                         description = "Loops: the secret sauce of programming. Skip them, and you'll regret it. Master them, and you'll feel like a programming ninja!",
                         contentBlocks = listOf(
@@ -1192,7 +1192,7 @@ fun cppIntermediateCourse(): Stage {
 
                     // Sub-lesson 2: Keep It Going!
                     LessonContent(
-                        id = "practice_while_you_can",
+                        id = "intermediate_cpp6_sub2",
                         title = "Keep Looping!",
                         description = "Once you get into the loop groove, there's no turning back. The more you loop, the less you'll want to stop!",
                         contentBlocks = listOf(
@@ -1215,7 +1215,7 @@ fun cppIntermediateCourse(): Stage {
 
                     // Sub-lesson 3: Don't Rush It!
                     LessonContent(
-                        id = "no_rushing_loops",
+                        id = "intermediate_cpp6_sub3",
                         title = "Take Your Time",
                         description = "Slow down! Loops need love too. The more you practice, the smoother they'll become, and you'll start looping like a pro.",
                         contentBlocks = listOf(
@@ -1241,14 +1241,14 @@ fun cppIntermediateCourse(): Stage {
 
             // Lesson 7: Understanding Break and Continue in Loops
             Lesson(
-                id = "intermediate_cpp_break_continue",
+                id = "intermediate_cpp7",
                 title = "Break and Continue in Loops",
                 description = "Learn how to control your loops effectively with 'break' and 'continue'!",
                 lessonContents = listOf(
 
                     // Sub-lesson 1: Starting with Humor and Importance
                     LessonContent(
-                        id = "intermediate_cpp_break_continue_sub1",
+                        id = "intermediate_cpp7_sub1",
                         title = "Why Loops Need Break and Continue?",
                         description = "Let’s kick things off with some humor and dive into why loops need 'break' and 'continue'.",
                         contentBlocks = listOf(
@@ -1271,7 +1271,7 @@ fun cppIntermediateCourse(): Stage {
 
                     // Sub-lesson 2: What are Break and Continue?
                     LessonContent(
-                        id = "intermediate_cpp_break_continue_sub2",
+                        id = "intermediate_cpp7_sub2",
                         title = "What are Break and Continue?",
                         description = "Understand the basics of 'break' and 'continue'.",
                         contentBlocks = listOf(
@@ -1288,7 +1288,7 @@ fun cppIntermediateCourse(): Stage {
 
                     // Content for "Quiz Time!"
                     LessonContent(
-                        id = "beginner_cpp6_sub8",
+                        id = "intermediate_cpp7_sub3",
                         title = "Quiz Time! 🧠",
                         description = "Test your knowledge of lesson.",
                         contentBlocks = listOf(
@@ -1308,9 +1308,9 @@ fun cppIntermediateCourse(): Stage {
                         type = LessonContentType.QUIZ
                     ),
 
-                    // Sub-lesson 3: Using Break in For Loops
+                    // Sub-lesson 4: Using Break in For Loops
                     LessonContent(
-                        id = "intermediate_cpp_break_continue_sub3",
+                        id = "intermediate_cpp7_sub4",
                         title = "Using Break in For Loops",
                         description = "Learn how to exit a for loop early using 'break'.",
                         contentBlocks = listOf(
@@ -1338,7 +1338,7 @@ fun cppIntermediateCourse(): Stage {
 
                     // Sub-lesson 4: Using Break in While Loops
                     LessonContent(
-                        id = "intermediate_cpp_break_continue_sub4",
+                        id = "intermediate_cpp7_sub5",
                         title = "Using Break in While Loops",
                         description = "Learn how to exit a while loop early using 'break'.",
                         contentBlocks = listOf(
@@ -1368,7 +1368,7 @@ fun cppIntermediateCourse(): Stage {
 
                     // Content for "Complete the code to exit loop at i = 50"
                     LessonContent(
-                        id = "beginner_cpp4_content4",
+                        id = "intermediate_cpp7_sub6",
                         title = "Complete the code",
                         description = "Try to complete the program so that the loop exits when 'i' reaches 50.",
                         contentBlocks = listOf(
@@ -1393,9 +1393,9 @@ fun cppIntermediateCourse(): Stage {
                     ),
 
 
-                    // Sub-lesson 5: Using Continue in For Loops
+                    // Sub-lesson 7: Using Continue in For Loops
                     LessonContent(
-                        id = "intermediate_cpp_break_continue_sub5",
+                        id = "intermediate_cpp7_sub7",
                         title = "Using Continue in For Loops",
                         description = "Learn how to skip specific iterations in a for loop using 'continue'.",
                         contentBlocks = listOf(
@@ -1421,9 +1421,9 @@ fun cppIntermediateCourse(): Stage {
                         status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 6: Using Continue in While Loops
+                    // Sub-lesson 8: Using Continue in While Loops
                     LessonContent(
-                        id = "intermediate_cpp_break_continue_sub6",
+                        id = "intermediate_cpp7_sub8",
                         title = "Using Continue in While Loops",
                         description = "Learn how to skip iterations in a while loop using 'continue'.",
                         contentBlocks = listOf(
@@ -1453,7 +1453,7 @@ fun cppIntermediateCourse(): Stage {
 
                     // Content for "Complete the code to exit loop at i = 50"
                     LessonContent(
-                        id = "beginner_cpp4_content4",
+                        id = "intermediate_cpp7_sub9",
                         title = "Complete the code",
                         description = "Try to complete the program so that the loop exits when 'i' reaches 50.",
                         contentBlocks = listOf(
@@ -1481,7 +1481,7 @@ fun cppIntermediateCourse(): Stage {
 
                     // Sub-lesson 7: When to Use Break and Continue
                     LessonContent(
-                        id = "intermediate_cpp_break_continue_sub7",
+                        id = "intermediate_cpp7_sub10",
                         title = "When to Use Break and Continue",
                         description = "Learn best practices for using 'break' and 'continue' effectively.",
                         contentBlocks = listOf(
@@ -1510,7 +1510,7 @@ fun cppIntermediateCourse(): Stage {
 
                     // Content for "Break and Continue Quiz"
                     LessonContent(
-                        id = "beginner_cpp6_sub9",
+                        id = "intermediate_cpp7_sub11",
                         title = "Quiz on Break and Continue",
                         description = "Test your understanding of the `break` and `continue` statements.",
                         contentBlocks = listOf(
@@ -1533,14 +1533,14 @@ fun cppIntermediateCourse(): Stage {
 
             // Lesson 8: Arrays
             Lesson(
-                id = "beginner_cpp_arrays",
+                id = "intermediate_cpp8",
                 title = "Arrays in C++",
                 description = "Master arrays and make your life easier by storing multiple items in one variable! 🎉",
                 lessonContents = listOf(
 
                     // Sub-lesson 1: What are Arrays?
                     LessonContent(
-                        id = "beginner_cpp_arrays_sub1",
+                        id = "intermediate_cpp8_sub1",
                         title = "What are Arrays?",
                         description = "Let's start by understanding what arrays are and how they help you organize data like a boss!",
                         contentBlocks = listOf(
@@ -1563,7 +1563,7 @@ fun cppIntermediateCourse(): Stage {
 
                     // Sub-lesson 2: Why Are Arrays Important?
                     LessonContent(
-                        id = "beginner_cpp_arrays_sub2",
+                        id = "intermediate_cpp8_sub2",
                         title = "Why Are Arrays Important?",
                         description = "Why would you use arrays? Well, let's find out why arrays are the unsung heroes of programming!",
                         contentBlocks = listOf(
@@ -1585,7 +1585,7 @@ fun cppIntermediateCourse(): Stage {
                     ),
                     // Content for "Array Quiz"
                     LessonContent(
-                        id = "beginner_cpp7_sub1",
+                        id = "intermediate_cpp8_sub3",
                         title = "Quiz on Arrays",
                         description = "Test your basic knowledge of arrays in C++.",
                         contentBlocks = listOf(
@@ -1603,9 +1603,9 @@ fun cppIntermediateCourse(): Stage {
                         type = LessonContentType.QUIZ
                     ),
 
-                    // Sub-lesson 3: Declaring an Array
+                    // Sub-lesson 4: Declaring an Array
                     LessonContent(
-                        id = "beginner_cpp_arrays_sub3",
+                        id = "intermediate_cpp8_sub4",
                         title = "Declaring an Array",
                         description = "Let's get our hands dirty by declaring an array in C++. It's like saying, 'I need a bunch of stuff to store!'",
                         contentBlocks = listOf(
@@ -1636,9 +1636,9 @@ fun cppIntermediateCourse(): Stage {
                         status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 4: Accessing Elements in an Array
+                    // Sub-lesson 5: Accessing Elements in an Array
                     LessonContent(
-                        id = "beginner_cpp_arrays_sub4",
+                        id = "intermediate_cpp8_sub5",
                         title = "Accessing Elements in an Array",
                         description = "Let's access some array elements. Spoiler: It involves an index (and not the magical kind).",
                         contentBlocks = listOf(
@@ -1666,9 +1666,9 @@ fun cppIntermediateCourse(): Stage {
                         status = LessonStatus.LOCKED
                     ),
 
-                    // Content 4: Interactive Input Block
+                    // Content 6: Interactive Input Block
                     LessonContent(
-                        id = "beginner_cpp4_content4",
+                        id = "intermediate_cpp8_sub6",
                         title = "Complete the code",
                         description = "Ok so now try to complete the program.",
                         contentBlocks = listOf(
@@ -1690,9 +1690,9 @@ fun cppIntermediateCourse(): Stage {
                         status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 5: Modifying Array Elements
+                    // Sub-lesson 7: Modifying Array Elements
                     LessonContent(
-                        id = "beginner_cpp_arrays_sub5",
+                        id = "intermediate_cpp8_sub7",
                         title = "Modifying Array Elements",
                         description = "What if you want to change an element? No problem! Here's how you do it.",
                         contentBlocks = listOf(
@@ -1725,9 +1725,9 @@ fun cppIntermediateCourse(): Stage {
                         status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 6: Array Length and Iteration
+                    // Sub-lesson 8: Array Length and Iteration
                     LessonContent(
-                        id = "beginner_cpp_arrays_sub6",
+                        id = "intermediate_cpp8_sub8",
                         title = "Array Length and Iteration",
                         description = "Let's learn how to get the length of an array and loop through it. Arrays love loops!",
                         contentBlocks = listOf(
@@ -1753,9 +1753,9 @@ fun cppIntermediateCourse(): Stage {
                         status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 7: Common Array Operations
+                    // Sub-lesson 9: Common Array Operations
                     LessonContent(
-                        id = "beginner_cpp_arrays_sub7",
+                        id = "intermediate_cpp8_sub9",
                         title = "Common Array Operations",
                         description = "Let's talk about some useful array operations, like sorting and searching. It's like having an array Swiss Army knife.",
                         contentBlocks = listOf(
@@ -1777,9 +1777,9 @@ fun cppIntermediateCourse(): Stage {
                         status = LessonStatus.LOCKED
                     ),
 
-                    // Content 4: Interactive Input Block
+                    // Content 10: Interactive Input Block
                     LessonContent(
-                        id = "beginner_cpp4_content4",
+                        id = "intermediate_cpp8_sub10",
                         title = "Complete the code",
                         description = "Ok so now try to complete the program.",
                         contentBlocks = listOf(
