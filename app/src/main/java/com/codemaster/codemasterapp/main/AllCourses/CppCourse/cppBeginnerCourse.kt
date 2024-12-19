@@ -1413,9 +1413,9 @@ int main () {
                         status = LessonStatus.LOCKED
                     ),
 
-                    // Content 6: Interactive Input Block
+                    // Content 4: Interactive Input Block
                     LessonContent(
-                        id = "beginner_cpp_content6",
+                        id = "beginner_cpp7_sub4",
                         title = "Complete the Code:)",
                         description = "Complete code to declare a variable",
                         contentBlocks = listOf(
@@ -1438,7 +1438,7 @@ int main () {
 
                     // Content for "Constants"
                     LessonContent(
-                        id = "beginner_cpp7_sub4",
+                        id = "beginner_cpp7_sub5",
                         title = "Constants",
                         description = "Discover how to use constants in your programs.",
                         contentBlocks = listOf(
@@ -1467,7 +1467,7 @@ int main () {
 
                     // Content for "Naming Conventions"
                     LessonContent(
-                        id = "beginner_cpp7_sub5",
+                        id = "beginner_cpp7_sub6",
                         title = "Naming Conventions",
                         description = "Explore common naming conventions in C++ and learn why consistency is key for clean, maintainable code.",
                         contentBlocks = listOf(
@@ -1494,7 +1494,7 @@ int main () {
 
                     // Content for "Quiz"
                     LessonContent(
-                        id = "beginner_cpp7_sub6",
+                        id = "beginner_cpp7_sub7",
                         title = "Quiz: Naming & Constants",
                         description = "Test your knowledge on naming conventions and constants in this quiz.",
                         contentBlocks = listOf(
@@ -1620,7 +1620,7 @@ int main () {
 
                     // Content 4: Interactive Input Block
                     LessonContent(
-                        id = "beginner_cpp4_content4",
+                        id = "beginner_cpp8_sub4",
                         title = "Complete the code",
                         description = "Ok so now try to complete the program.",
                         contentBlocks = listOf(
@@ -1645,7 +1645,7 @@ int main () {
 
                     // Content for "Creating a Simple Calculator"
                     LessonContent(
-                        id = "beginner_cpp8_sub4",
+                        id = "beginner_cpp8_sub5",
                         title = "Creating a Simple Calculator: Math Magic!️",
                         description = "Are you ready to make math fun? Now, let’s build a simple calculator.",
                         contentBlocks = listOf(
@@ -1685,7 +1685,7 @@ cout << 'Sum is: ' << sum;
 
 //                  Content for "Multiple Inputs"
                     LessonContent(
-                        id = "beginner_cpp8_sub5",
+                        id = "beginner_cpp8_sub6",
                         title = "Multiple Inputs: Getting Fancy ️",
                         description = "Why settle for one input when you can have more?  ",
                         contentBlocks = listOf(
@@ -1722,7 +1722,7 @@ cout << 'You entered: '<< x <<','<< y <<','<< z;
 
                     // Content for Quiz Block
                     LessonContent(
-                        id = "beginner_cpp8_sub6",
+                        id = "beginner_cpp8_sub7",
                         title = "Quiz! 🧠",
                         description = "You’ve learned a lot about user input, so let's see if you can remember what you’ve learned.",
                         contentBlocks = listOf(
@@ -1806,7 +1806,7 @@ int main() {
 
                     // Content for "Quiz Time!"
                     LessonContent(
-                        id = "beginner_cpp6_sub8",
+                        id = "beginner_cpp9_sub3",
                         title = "Quiz Time! 🧠",
                         description = "Test your knowledge of lesson.",
                         contentBlocks = listOf(
@@ -1829,7 +1829,7 @@ int main() {
 
                     // Content for "Booleans ('bool')"
                     LessonContent(
-                        id = "beginner_cpp9_sub3",
+                        id = "beginner_cpp9_sub4",
                         title = "Booleans ('bool'): True or False?",
                         description = "Booleans can store only two values: 'true' or 'false'.",
                         contentBlocks = listOf(
@@ -1867,7 +1867,7 @@ int main() {
 
                     // Content for "Characters ('char')"
                     LessonContent(
-                        id = "beginner_cpp9_sub4",
+                        id = "beginner_cpp9_sub5",
                         title = "Characters ('char'): The Alphabet's Little Helper!",
                         description = "Need to store a single letter or character? Use 'char'! It's like putting one letter into a tiny pocket.",
                         contentBlocks = listOf(
@@ -1898,7 +1898,7 @@ cout << 'Grade: ' << grade << ', Symbol: ' << symbol;
 
                     // Content for "Strings ('string')"
                     LessonContent(
-                        id = "beginner_cpp9_sub5",
+                        id = "beginner_cpp9_sub6",
                         title = "Strings ('string'): Words Are Important!",
                         description = "When you need to store more than one letter, use 'string'. It's like writing a sentence in your notebook!",
                         contentBlocks = listOf(
@@ -1938,7 +1938,7 @@ int main() {
 
                     // Content for "Quiz Block"
                     LessonContent(
-                        id = "beginner_cpp9_sub6",
+                        id = "beginner_cpp9_sub7",
                         title = "Quiz Time: Test Your Data Types Knowledge!",
                         description = "Now that you've learned the data types, let's test your knowledge. Ready to show what you've got?",
                         contentBlocks = listOf(
@@ -2045,7 +2045,7 @@ int main() {
 
                     // Content 4: Interactive Input Block
                     LessonContent(
-                        id = "beginner_cpp4_content4",
+                        id = "beginner_cpp10_sub3",
                         title = "Complete the code",
                         description = "Ok, so now try to complete the program by inserting your name or any text into the output statement.",
                         contentBlocks = listOf(
@@ -2074,7 +2074,7 @@ int main() {
 
                     // Content for "User Input with Strings"
                     LessonContent(
-                        id = "beginner_cpp10_sub3",
+                        id = "beginner_cpp10_sub4",
                         title = "User Input with Strings",
                         description = "Take input from the user and store it in a string.",
                         contentBlocks = listOf(
@@ -2103,7 +2103,7 @@ int main() {
                     ),
                     // Content for "Measuring String Length"
                     LessonContent(
-                        id = "beginner_cpp10_sub4",
+                        id = "beginner_cpp10_sub5",
                         title = "Measuring String Length",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -2131,7 +2131,7 @@ int main() {
 
                     // Content for "Using String Functions"
                     LessonContent(
-                        id = "beginner_cpp10_sub5",
+                        id = "beginner_cpp10_sub6",
                         title = "Using String Functions",
                         description = "Learn some fun functions like 'substr()' and 'find()' to manipulate strings.",
                         contentBlocks = listOf(
@@ -2196,7 +2196,7 @@ int main() {
                     ),
                     // Content for "String Quiz"
                     LessonContent(
-                        id = "beginner_cpp10_sub6",
+                        id = "beginner_cpp10_sub7",
                         title = "String Quiz",
                         description = "Test your string knowledge with a fun quiz!",
                         contentBlocks = listOf(
@@ -2256,7 +2256,7 @@ int main() {
 
                     // Content for "Quiz Time!"
                     LessonContent(
-                        id = "beginner_cpp6_sub8",
+                        id = "beginner_cpp11_sub2",
                         title = "Quiz Time! 🧠",
                         description = "Test your knowledge of lesson.",
                         contentBlocks = listOf(
@@ -2279,7 +2279,7 @@ int main() {
 
                     // Content for "Booleans for Decisions"
                     LessonContent(
-                        id = "beginner_cpp11_sub2",
+                        id = "beginner_cpp11_sub3",
                         title = "Booleans for Decisions",
                         description = "Booleans help make decisions. We’ll see how to use 'true' or 'false' for making choices.",
                         contentBlocks = listOf(
@@ -2313,7 +2313,7 @@ int main() {
 
                     // Content for "Boolean Variables in Action"
                     LessonContent(
-                        id = "beginner_cpp11_sub3",
+                        id = "beginner_cpp11_sub4",
                         title = "Boolean Variables in Action",
                         description = "In this lesson, we’ll use boolean variables in different scenarios.",
                         contentBlocks = listOf(
@@ -2342,7 +2342,7 @@ int main() {
 
                     // Content for "Boolean Quiz"
                     LessonContent(
-                        id = "beginner_cpp11_sub4",
+                        id = "beginner_cpp11_sub5",
                         title = "Boolean Quiz",
                         description = "Test your knowledge with a fun quiz about booleans!",
                         contentBlocks = listOf(
@@ -2415,7 +2415,7 @@ int main() {
 
                     // Content 4: Interactive Input Block
                     LessonContent(
-                        id = "beginner_cpp4_content4",
+                        id = "beginner_cpp12_sub3",
                         title = "Complete the code",
                         description = "Ok so now try to complete the program.",
                         contentBlocks = listOf(
@@ -2440,7 +2440,7 @@ int main () {
 
                     // Content for "Arithmetic Operators"
                     LessonContent(
-                        id = "beginner_cpp12_sub3",
+                        id = "beginner_cpp12_sub4",
                         title = "Arithmetic Operators",
                         description = "Perform mathematical operations with the arithmetic operators.",
                         contentBlocks = listOf(
@@ -2471,7 +2471,7 @@ int main () {
 
                     // Content for "Comparison Operators"
                     LessonContent(
-                        id = "beginner_cpp12_sub4",
+                        id = "beginner_cpp12_sub5",
                         title = "Comparison Operators",
                         description = "Compare values using the comparison operators.",
                         contentBlocks = listOf(
@@ -2496,7 +2496,7 @@ int main () {
 
                     // Content for "Quiz Time!"
                     LessonContent(
-                        id = "beginner_cpp6_sub8",
+                        id = "beginner_cpp12_sub6",
                         title = "Quiz Time! 🧠",
                         description = "Test your knowledge of lesson.",
                         contentBlocks = listOf(
@@ -2520,7 +2520,7 @@ int main () {
 
                     // Content for "Logical Operators"
                     LessonContent(
-                        id = "beginner_cpp12_sub5",
+                        id = "beginner_cpp12_sub7",
                         title = "Logical Operators",
                         description = "Combine multiple conditions with the logical operators.",
                         contentBlocks = listOf(
@@ -2545,7 +2545,7 @@ int main () {
 
                     // Content for "Increment and Decrement Operators"
                     LessonContent(
-                        id = "beginner_cpp12_sub6",
+                        id = "beginner_cpp12_sub8",
                         title = "Increment and Decrement Operators",
                         description = "Use the shorthand operators to modify variables.",
                         contentBlocks = listOf(
@@ -2573,7 +2573,7 @@ int main () {
 
                     // Content 4: Interactive Input Block
                     LessonContent(
-                        id = "beginner_cpp4_content4",
+                        id = "beginner_cpp12_sub9",
                         title = "Complete the code",
                         description = "Ok, now try to complete the program.",
                         contentBlocks = listOf(
@@ -2602,7 +2602,7 @@ int main() {
 
                     // Content for "Combining Operators in Expressions"
                     LessonContent(
-                        id = "beginner_cpp12_sub7",
+                        id = "beginner_cpp12_sub10",
                         title = "Combining Operators in Expressions",
                         description = "Combine operators for more complex calculations.",
                         contentBlocks = listOf(
@@ -2628,7 +2628,7 @@ int main() {
 
                     // Content for "Operator Quiz"
                     LessonContent(
-                        id = "beginner_cpp12_sub8",
+                        id = "beginner_cpp12_sub11",
                         title = "Operator Quiz",
                         description = "Test your knowledge with a fun quiz about operators!",
                         contentBlocks = listOf(
