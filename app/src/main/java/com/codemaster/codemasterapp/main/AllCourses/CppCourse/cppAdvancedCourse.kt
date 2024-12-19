@@ -266,9 +266,9 @@ fun cppAdvancedCourse(): Stage {
                        status = LessonStatus.LOCKED
                     ),
 
-                    // Content for "Quiz Time!"
+                    // Content 6 for "Quiz Time!"
                     LessonContent(
-                        id = "beginner_cpp6_sub8",
+                        id = "advanced_cpp2_sub6",
                         title = "Quiz Time! 🧠",
                         description = "Test your knowledge of lesson.",
                         contentBlocks = listOf(
@@ -300,7 +300,7 @@ fun cppAdvancedCourse(): Stage {
 
                     // Sub-lesson 1: What is a Class?
                     LessonContent(
-                        id = "cpp_classes_1_sub1",
+                        id = "advanced_cpp3_sub1",
                         title = "What is a Class?",
                         description = "Understand the concept of a class with real-life examples.",
                         contentBlocks = listOf(
