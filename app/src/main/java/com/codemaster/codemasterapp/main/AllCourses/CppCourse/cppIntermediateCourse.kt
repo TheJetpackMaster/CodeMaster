@@ -4553,7 +4553,7 @@ int main() {
 
                     // Content for "Quiz Time!"
                     LessonContent(
-                        id = "beginner_cpp6_sub14",
+                        id = "intermediate_cpp20_sub4",
                         title = "Recursion Quiz! 🧠",
                         description = "Test your understanding of recursion in C++.",
                         contentBlocks = listOf(
@@ -4574,9 +4574,9 @@ int main() {
                     ),
 
 
-                    // Sub-lesson 4: When to Use Recursion
+                    // Sub-lesson 5: When to Use Recursion
                     LessonContent(
-                        id = "beginner_cpp_recursion_use_cases",
+                        id = "intermediate_cpp20_sub5",
                         title = "When to Use Recursion",
                         description = "Learn when recursion is appropriate.",
                         contentBlocks = listOf(
@@ -4601,9 +4601,9 @@ int main() {
                         status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 5: Common Pitfalls of Recursion
+                    // Sub-lesson 6: Common Pitfalls of Recursion
                     LessonContent(
-                        id = "beginner_cpp_recursion_pitfalls",
+                        id = "intermediate_cpp20_sub6",
                         title = "Common Recursion Pitfalls",
                         description = "Avoid errors like infinite loops or performance issues.",
                         contentBlocks = listOf(
@@ -4634,9 +4634,9 @@ int main() {
                         status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 6: Debugging Recursion
+                    // Sub-lesson 7: Debugging Recursion
                     LessonContent(
-                        id = "beginner_cpp_recursion_debugging",
+                        id = "intermediate_cpp20_sub7",
                         title = "Debugging Recursive Functions",
                         description = "Tips for troubleshooting recursive functions.",
                         contentBlocks = listOf(
@@ -4671,7 +4671,7 @@ int main() {
 
                     // Content for "Quiz Time!"
                     LessonContent(
-                        id = "beginner_cpp6_sub14",
+                        id = "intermediate_cpp20_sub8",
                         title = "Recursion Quiz! 🧠",
                         description = "Test your understanding of recursion in C++.",
                         contentBlocks = listOf(
@@ -4691,9 +4691,9 @@ int main() {
                         type = LessonContentType.QUIZ
                     ),
 
-                    // Sub-lesson 7: The Importance of Practice (And Not Just Scrolling)
+                    // Sub-lesson 9: The Importance of Practice (And Not Just Scrolling)
                     LessonContent(
-                        id = "beginner_cpp_recursion_practice",
+                        id = "intermediate_cpp20_sub9",
                         title = "The Importance of Practice",
                         description = "You won’t learn anything just by scrolling through lessons.",
                         contentBlocks = listOf(
@@ -4719,14 +4719,14 @@ int main() {
 
             // Final Quiz Lesson for Beginner C++ Stage
             Lesson(
-                id = "final_quiz_cpp",
+                id = "intermediate_cpp21",
                 title = "C++ Final Quiz - Intermediate Level",
                 description = "Test your knowledge on everything you've learned about C++ in this final quiz!",
                 lessonContents = listOf(
 
                     // Sub-Lesson 1: C++ Syntax Quiz
                     LessonContent(
-                        id = "final_quiz_syntax",
+                        id = "intermediate_cpp21_sub1",
                         title = "C++ Syntax Quiz",
                         description = "What do you know about C++ syntax and its basic structure?",
                         contentBlocks = listOf(
@@ -4749,7 +4749,7 @@ int main() {
 
                     // Sub-Lesson 2: C++ Comments Quiz
                     LessonContent(
-                        id = "final_quiz_comments",
+                        id = "intermediate_cpp21_sub2",
                         title = "C++ Comments Quiz",
                         description = "Test your knowledge of C++ comment syntax.",
                         contentBlocks = listOf(
@@ -4772,7 +4772,7 @@ int main() {
 
                     // Sub-Lesson 3: C++ Output Quiz
                     LessonContent(
-                        id = "final_quiz_output",
+                        id = "intermediate_cpp21_sub3",
                         title = "C++ Output Quiz",
                         description = "Test your understanding of output in C++.",
                         contentBlocks = listOf(
@@ -4795,7 +4795,7 @@ int main() {
 
                     // Sub-Lesson 4: C++ Variables Quiz 1
                     LessonContent(
-                        id = "final_quiz_variables_1",
+                        id = "intermediate_cpp21_sub4",
                         title = "C++ Variables Quiz 1",
                         description = "Test your knowledge of variables in C++.",
                         contentBlocks = listOf(
@@ -4818,7 +4818,7 @@ int main() {
 
                     // Sub-Lesson 5: C++ Variables Quiz 2
                     LessonContent(
-                        id = "final_quiz_variables_2",
+                        id = "intermediate_cpp21_sub5",
                         title = "C++ Variables Quiz 2",
                         description = "Check your knowledge of variable initialization.",
                         contentBlocks = listOf(
@@ -4841,7 +4841,7 @@ int main() {
 
                     // Sub-Lesson 6: C++ Variables Quiz 3
                     LessonContent(
-                        id = "final_quiz_variables_3",
+                        id = "intermediate_cpp21_sub6",
                         title = "C++ Variables Quiz 3",
                         description = "Test your knowledge of variable types.",
                         contentBlocks = listOf(
@@ -4864,7 +4864,7 @@ int main() {
 
                     // Sub-Lesson 7: C++ User Input Quiz
                     LessonContent(
-                        id = "final_quiz_input",
+                        id = "intermediate_cpp21_sub7",
                         title = "C++ User Input Quiz",
                         description = "Test your knowledge on handling user input.",
                         contentBlocks = listOf(
@@ -4887,7 +4887,7 @@ int main() {
 
                     // Sub-Lesson 8: C++ Data Types Quiz
                     LessonContent(
-                        id = "final_quiz_data_types",
+                        id = "intermediate_cpp21_sub8",
                         title = "C++ Data Types Quiz",
                         description = "Test your knowledge on the data types in C++.",
                         contentBlocks = listOf(
@@ -4910,7 +4910,7 @@ int main() {
 
                     // Sub-Lesson 9: C++ Strings Quiz
                     LessonContent(
-                        id = "final_quiz_strings",
+                        id = "intermediate_cpp21_sub9",
                         title = "C++ Strings Quiz",
                         description = "Check your knowledge on strings in C++.",
                         contentBlocks = listOf(
@@ -4933,7 +4933,7 @@ int main() {
 
                     // Sub-Lesson 10: C++ Booleans Quiz
                     LessonContent(
-                        id = "final_quiz_booleans",
+                        id = "intermediate_cpp21_sub10",
                         title = "C++ Booleans Quiz",
                         description = "Test your understanding of booleans.",
                         contentBlocks = listOf(
@@ -4956,7 +4956,7 @@ int main() {
 
                     // Sub-Lesson 11: C++ Operators Quiz
                     LessonContent(
-                        id = "final_quiz_operators",
+                        id = "intermediate_cpp21_sub11",
                         title = "C++ Operators Quiz",
                         description = "Test your knowledge of operators in C++.",
                         contentBlocks = listOf(
@@ -4979,7 +4979,7 @@ int main() {
 
                     // Sub-Lesson 12: Else If Quiz
                     LessonContent(
-                        id = "final_quiz_else_if",
+                        id = "intermediate_cpp21_sub12",
                         title = "C++ Else If Quiz",
                         description = "Test your knowledge of `else if` statements.",
                         contentBlocks = listOf(
@@ -5002,7 +5002,7 @@ int main() {
 
                     // Sub-Lesson 13: Nested Else If Quiz
                     LessonContent(
-                        id = "final_quiz_nested_else_if",
+                        id = "intermediate_cpp21_sub13",
                         title = "C++ Nested Else If Quiz",
                         description = "Test your understanding of nested `else if` statements.",
                         contentBlocks = listOf(
@@ -5025,7 +5025,7 @@ int main() {
 
                     // Sub-Lesson 14: C++ Switch Case Quiz
                     LessonContent(
-                        id = "final_quiz_switch_case",
+                        id = "intermediate_cpp21_sub14",
                         title = "C++ Switch Case Quiz",
                         description = "Test your knowledge of `switch` and `case` statements.",
                         contentBlocks = listOf(
