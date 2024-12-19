@@ -1132,7 +1132,7 @@ int main() {
 
                     // Sub-lesson 2: Public Access Specifier
                     LessonContent(
-                        id = "cpp_access_specifiers_1_sub2",
+                        id = "advanced_cpp6_sub2",
                         title = "Public Access Specifier",
                         description = "The public specifier allows anyone to access your class members.",
                         contentBlocks = listOf(
@@ -1169,7 +1169,7 @@ int main () {
 
                     // Sub-lesson 3: Private Access Specifier
                     LessonContent(
-                        id = "cpp_access_specifiers_1_sub3",
+                        id = "advanced_cpp6_sub3",
                         title = "Private Access Specifier",
                         description = "The private specifier keeps your class members hidden from the outside world.",
                         contentBlocks = listOf(
@@ -1211,7 +1211,7 @@ int main () {
 
                     // Sub-lesson 4: Protected Access Specifier
                     LessonContent(
-                        id = "cpp_access_specifiers_1_sub4",
+                        id = "advanced_cpp6_sub4",
                         title = "Protected Access Specifier",
                         description = "The protected specifier allows access to derived classes.",
                         contentBlocks = listOf(
@@ -1249,7 +1249,7 @@ int main () {
 
                     // Sub-lesson 5: Default Access Specifier
                     LessonContent(
-                        id = "cpp_access_specifiers_1_sub5",
+                        id = "advanced_cpp6_sub5",
                         title = "Default Access Specifier",
                         description = "If you dont specify an access specifier, its treated as private by default.",
                         contentBlocks = listOf(
@@ -1284,9 +1284,9 @@ int main () {
                        status = LessonStatus.LOCKED
                     ),
 
-                    // Content 4: Interactive Input Block
+                    // Content 6: Interactive Input Block
                     LessonContent(
-                        id = "beginner_cpp4_content4",
+                        id = "advanced_cpp6_sub6",
                         title = "Complete the Code",
                         description = "Complete the class definition with appropriate access specifier.",
                         contentBlocks = listOf(
@@ -1317,7 +1317,7 @@ int main() {
 
                     // Sub-lesson 6: Accessing Private Members
                     LessonContent(
-                        id = "cpp_access_specifiers_1_sub6",
+                        id = "advanced_cpp6_sub7",
                         title = "Accessing Private Members",
                         description = "In the next lessons, we will discuss how to set and get values for private members and work with derived classes.",
                         contentBlocks = listOf(
@@ -1335,7 +1335,7 @@ int main() {
 
                     // Sub-lesson 6: Quick Practice
                     LessonContent(
-                        id = "cpp_access_specifiers_1_sub6",
+                        id = "advanced_cpp6_sub8",
                         title = "Quick Practice!",
                         description = "Time to experiment with access specifiers! Can you mix public, private, and protected in one class?",
                         contentBlocks = listOf(
