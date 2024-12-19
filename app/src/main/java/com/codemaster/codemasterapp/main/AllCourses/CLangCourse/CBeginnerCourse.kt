@@ -4,6 +4,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
+import com.codemaster.codemasterapp.main.AllCourses.CLangCourse.courseIds.CBeginnerStageIds
 import com.codemaster.codemasterapp.main.AllCourses.helperFuntions.createAnnotatedText
 import com.codemaster.codemasterapp.main.AllCourses.helperFuntions.createSimpleText
 import com.codemaster.codemasterapp.main.data.ContentBlock
@@ -18,7 +19,7 @@ import com.codemaster.codemasterapp.main.data.Stage
 
 fun CBeginnerCourse(): Stage {
     return Stage(
-        id = "c_beginner_stage",
+        id = CBeginnerStageIds.stageId,
         title = "Beginner",
         lessons = listOf(
             // lesson 1
