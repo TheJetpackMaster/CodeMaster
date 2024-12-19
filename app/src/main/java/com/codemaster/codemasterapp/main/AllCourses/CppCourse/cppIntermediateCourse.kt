@@ -1805,14 +1805,14 @@ fun cppIntermediateCourse(): Stage {
 
             // Lesson 9: Multi dimensional Arrays
             Lesson(
-                id = "beginner_cpp_multidimensional_arrays",
+                id = "intermediate_cpp9",
                 title = "Multi-dimensional Arrays",
                 description = "Congratulations, you’ve mastered arrays! Now it’s time to level up.",
                 lessonContents = listOf(
 
                     // Sub - lesson 1: Intro
                     LessonContent(
-                        id = "beginner_cpp_multidimensional_arrays_sub1",
+                        id = "intermediate_cpp9_sub1",
                         title = "Get Ready!",
                         description = "",
                         contentBlocks = listOf(
@@ -1839,7 +1839,7 @@ fun cppIntermediateCourse(): Stage {
 
                     // Sub-lesson 2: What Are Multi-dimensional Arrays?
                     LessonContent(
-                        id = "beginner_cpp_multidimensional_arrays_sub2",
+                        id = "intermediate_cpp9_sub2",
                         title = "What Are Multi-dimensional Arrays?",
                         description = "",
                         contentBlocks = listOf(
@@ -1866,7 +1866,7 @@ fun cppIntermediateCourse(): Stage {
 
                     // Content for "Quiz Time!"
                     LessonContent(
-                        id = "beginner_cpp_multidim_array_quiz",
+                        id = "intermediate_cpp9_sub3",
                         title = "Quiz Time! 🧠",
                         description = "Test your knowledge of multidimensional arrays.",
                         contentBlocks = listOf(
@@ -1887,9 +1887,9 @@ fun cppIntermediateCourse(): Stage {
                     ),
 
 
-                    // Sub-lesson 3: Declaring a 2D Array
+                    // Sub-lesson 4: Declaring a 2D Array
                     LessonContent(
-                        id = "beginner_cpp_multidimensional_arrays_sub3",
+                        id = "intermediate_cpp9_sub4",
                         title = "Declaring a 2D Array",
                         description = "Let’s declare a 2D array. It’s like creating a grid where you can store numbers in rows and columns.",
                         contentBlocks = listOf(
@@ -1915,9 +1915,9 @@ fun cppIntermediateCourse(): Stage {
                         status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 4: Accessing Elements in a 2D Array
+                    // Sub-lesson 5: Accessing Elements in a 2D Array
                     LessonContent(
-                        id = "beginner_cpp_multidimensional_arrays_sub4",
+                        id = "intermediate_cpp9_sub5",
                         title = "Accessing Elements in a 2D Array",
                         description = "How to access elements ina  2d array by index/",
                         contentBlocks = listOf(
@@ -1944,9 +1944,9 @@ fun cppIntermediateCourse(): Stage {
                         status = LessonStatus.LOCKED
                     ),
 
-                    // Content 4: Interactive Input Block
+                    // Content 6: Interactive Input Block
                     LessonContent(
-                        id = "beginner_cpp4_content4",
+                        id = "intermediate_cpp9_sub6",
                         title = "Complete the code",
                         description = "Ok, now try to complete the program.",
                         contentBlocks = listOf(
@@ -1969,9 +1969,9 @@ fun cppIntermediateCourse(): Stage {
                     ),
 
 
-                    // Sub-lesson 5: Modifying Elements in a 2D Array
+                    // Sub-lesson 7: Modifying Elements in a 2D Array
                     LessonContent(
-                        id = "beginner_cpp_multidimensional_arrays_sub5",
+                        id = "intermediate_cpp9_sub7",
                         title = "Modifying Elements in a 2D Array",
                         description = "Let's play around with the elements in our array. Imagine swapping stuff around in our cupboard. Let’s modify an element!",
                         contentBlocks = listOf(
@@ -1993,9 +1993,9 @@ fun cppIntermediateCourse(): Stage {
                         status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 6: Iterating Through a 2D Array
+                    // Sub-lesson 8: Iterating Through a 2D Array
                     LessonContent(
-                        id = "beginner_cpp_multidimensional_arrays_sub6",
+                        id = "intermediate_cpp9_sub8",
                         title = "Iterating Through a 2D Array",
                         description = "You’ve got a whole cupboard full of boxes. Now, let's go through each box and check out what's inside!",
                         contentBlocks = listOf(
@@ -2032,7 +2032,7 @@ fun cppIntermediateCourse(): Stage {
 
                     // Content for "Quiz Time!"
                     LessonContent(
-                        id = "beginner_cpp4_2d_array_quiz",
+                        id = "intermediate_cpp9_sub9",
                         title = "Quiz Time! 🧠",
                         description = "Test your understanding of 2D arrays.",
                         contentBlocks = listOf(
@@ -2055,7 +2055,7 @@ fun cppIntermediateCourse(): Stage {
 
                     // Sub-lesson 7: Multi-dimensional Arrays with More Dimensions
                     LessonContent(
-                        id = "beginner_cpp_multidimensional_arrays_sub7",
+                        id = "intermediate_cpp9_sub10",
                         title = "Multi-dimensional Arrays with More Dimensions",
                         description = "What if one cupboard just isn’t enough? What if you need a cupboard inside a cupboard inside a cupboard? Let's go deeper into multi-dimensional arrays!",
                         contentBlocks = listOf(
@@ -2072,9 +2072,9 @@ fun cppIntermediateCourse(): Stage {
                         status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 8: Keep Practicing
+                    // Sub-lesson 11: Keep Practicing
                     LessonContent(
-                        id = "beginner_cpp_multidimensional_arrays_sub8",
+                        id = "intermediate_cpp9_sub11",
                         title = "Mastering Arrays: Practice Makes Perfect!",
                         description = "Arrays might seem confusing at first, but with practice, you'll get the hang of it!",
                         contentBlocks = listOf(
