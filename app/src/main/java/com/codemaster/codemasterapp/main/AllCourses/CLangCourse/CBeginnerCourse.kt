@@ -1230,7 +1230,7 @@ printf("Size of char: %zu bytes", sizeof(char));  // Check memory size of char
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "beginner_c7_sub8",
+                        id = CBeginnerStageIds.lesson7_subs[7],
                         title = "Type Conversion",
                         description = "Learn how to convert between data types.",
                         contentBlocks = listOf(
@@ -1265,7 +1265,7 @@ printf("Size of char: %zu bytes", sizeof(char));  // Check memory size of char
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "beginner_c7_sub9",
+                        id = CBeginnerStageIds.lesson7_subs[8],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -1283,12 +1283,12 @@ printf("Size of char: %zu bytes", sizeof(char));  // Check memory size of char
 
             // lesson 8
             Lesson(
-                id = "beginner_c8",
+                id = CBeginnerStageIds.lesson8,
                 title = "C Constants",
                 description = "Understand how constants are used in C programs for fixed values that do not change! 🔒",
                 lessonContents = listOf(
                     LessonContent(
-                        id = "beginner_c8_sub1",
+                        id = CBeginnerStageIds.lesson8_subs[0],
                         title = "Introduction to Constants",
                         description = "Learn what constants are and why to use them.",
                         contentBlocks = listOf(
@@ -1303,7 +1303,7 @@ printf("Size of char: %zu bytes", sizeof(char));  // Check memory size of char
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "beginner_c8_sub2",
+                        id = CBeginnerStageIds.lesson8_subs[1],
                         title = "Defining Constants",
                         description = "Learn how to define constants in C using #define and const.",
                         contentBlocks = listOf(
@@ -1330,7 +1330,7 @@ printf("Size of char: %zu bytes", sizeof(char));  // Check memory size of char
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "beginner_c8_sub3",
+                        id = CBeginnerStageIds.lesson8_subs[2],
                         title = "Defining Constants",
                         description = "Learn how to define constants in C using #define and const.",
                         contentBlocks = listOf(
@@ -1347,7 +1347,7 @@ printf("Size of char: %zu bytes", sizeof(char));  // Check memory size of char
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "beginner_c8_sub4",
+                        id = CBeginnerStageIds.lesson8_subs[3],
                         title = "Constant Naming",
                         description = "Understand naming conventions for constants.",
                         contentBlocks = listOf(
@@ -1368,7 +1368,7 @@ printf("Size of char: %zu bytes", sizeof(char));  // Check memory size of char
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "beginner_c8_sub5",
+                        id = CBeginnerStageIds.lesson8_subs[4],
                         title = "Real-Life Example",
                         description = "See a practical example of using constants in a program.",
                         contentBlocks = listOf(
@@ -1397,7 +1397,7 @@ printf("Size of char: %zu bytes", sizeof(char));  // Check memory size of char
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "beginner_c8_sub6",
+                        id = CBeginnerStageIds.lesson8_subs[5],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
