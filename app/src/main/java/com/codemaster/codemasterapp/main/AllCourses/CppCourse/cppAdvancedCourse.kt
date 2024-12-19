@@ -3222,7 +3222,7 @@ int main() {
                 lessonContents = listOf(
                     // Sub-lesson 1: Review of Classes & Objects
                     LessonContent(
-                        id = "advanced_cpp_recap_sub1",
+                        id = "advanced_cpp14_sub1",
                         title = "Review of Classes & Objects",
                         description = "Classes form the blueprint, and objects are instances that bring it to life.",
                         contentBlocks = listOf(
@@ -3245,7 +3245,7 @@ int main() {
 
                     // Sub-lesson 2: Class Methods in C++
                     LessonContent(
-                        id = "advanced_cpp_recap_sub2",
+                        id = "advanced_cpp14_sub2",
                         title = "Class Methods in C++",
                         description = "Methods define behaviors for objects, allowing you to perform actions.",
                         contentBlocks = listOf(
@@ -3268,7 +3268,7 @@ int main() {
 
                     // Sub-lesson 3: Constructors in C++
                     LessonContent(
-                        id = "advanced_cpp_recap_sub3",
+                        id = "advanced_cpp14_sub3",
                         title = "Constructors in C++",
                         description = "Constructors initialize objects and set the starting state.",
                         contentBlocks = listOf(
@@ -3295,7 +3295,7 @@ int main() {
 
                     // Sub-lesson 4: C++ Access Specifiers
                     LessonContent(
-                        id = "advanced_cpp_recap_sub4",
+                        id = "advanced_cpp14_sub4",
                         title = "C++ Access Specifiers",
                         description = "Access specifiers control the visibility of class members.",
                         contentBlocks = listOf(
@@ -3318,7 +3318,7 @@ int main() {
 
                     // Sub-lesson 5: Setters and Getters in C++
                     LessonContent(
-                        id = "advanced_cpp_recap_sub5",
+                        id = "advanced_cpp14_sub5",
                         title = "Setters and Getters in C++",
                         description = "Setters and getters provide controlled access to private members.",
                         contentBlocks = listOf(
@@ -3341,7 +3341,7 @@ int main() {
 
                     // Sub-lesson 6: Inheritance in C++
                     LessonContent(
-                        id = "advanced_cpp_recap_sub6",
+                        id = "advanced_cpp14_sub6",
                         title = "Inheritance in C++",
                         description = "Inheritance allows classes to derive from other classes, reusing code and enhancing flexibility.",
                         contentBlocks = listOf(
@@ -3368,7 +3368,7 @@ int main() {
 
                     // Sub-lesson 7: Multilevel Inheritance in C++
                     LessonContent(
-                        id = "advanced_cpp_recap_sub7",
+                        id = "advanced_cpp14_sub7",
                         title = "Multilevel Inheritance in C++",
                         description = "Multilevel inheritance builds on the idea of a chain of inheritance.",
                         contentBlocks = listOf(
@@ -3391,7 +3391,7 @@ int main() {
 
                     // Sub-lesson 8: Multiple Inheritance in C++
                     LessonContent(
-                        id = "advanced_cpp_recap_sub8",
+                        id = "advanced_cpp14_sub8",
                         title = "Multiple Inheritance in C++",
                         description = "Multiple inheritance allows a class to inherit from more than one base class.",
                         contentBlocks = listOf(
@@ -3414,7 +3414,7 @@ int main() {
 
                     // Sub-lesson 9: Encapsulation in C++
                     LessonContent(
-                        id = "advanced_cpp_recap_sub9",
+                        id = "advanced_cpp14_sub9",
                         title = "Encapsulation in C++",
                         description = "Encapsulation ensures the data inside a class is protected and only accessible through defined interfaces.",
                         contentBlocks = listOf(
@@ -3437,7 +3437,7 @@ int main() {
 
                     // Sub-lesson 10: Polymorphism in C++
                     LessonContent(
-                        id = "advanced_cpp_recap_sub10",
+                        id = "advanced_cpp14_sub10",
                         title = "Polymorphism in C++",
                         description = "Polymorphism allows one interface to be used for different data types, enhancing flexibility and scalability.",
                         contentBlocks = listOf(
@@ -3462,7 +3462,7 @@ int main() {
                status = LessonStatus.LOCKED
             ),
 
-            // Advanced Quiz Lesson for C++
+            //15 Advanced Quiz Lesson for C++
             Lesson(
                 id = cppAdvancedStageIds.lesson15,
                 title = "C++ Advanced Quiz",
@@ -3470,7 +3470,7 @@ int main() {
                 lessonContents = listOf(
                     // Sub-Lesson 1: Introduction to OOP
                     LessonContent(
-                        id = "quiz_intro_oop",
+                        id = "advanced_cpp15_sub1",
                         title = "Introduction to OOP in C++",
                         description = "Test your understanding of Object-Oriented Programming principles in C++.",
                         contentBlocks = listOf(
@@ -3494,7 +3494,7 @@ int main() {
 
                     // Sub-Lesson 2: Classes & Objects in C++
                     LessonContent(
-                        id = "quiz_classes_objects",
+                        id = "advanced_cpp15_sub2",
                         title = "Classes & Objects in C++",
                         description = "Test your understanding of classes and objects in C++.",
                         contentBlocks = listOf(
@@ -3517,7 +3517,7 @@ int main() {
 
                     // Sub-Lesson 3: Class Methods in C++
                     LessonContent(
-                        id = "quiz_class_methods",
+                        id = "advanced_cpp15_sub3",
                         title = "Class Methods in C++",
                         description = "Test your knowledge of class methods in C++.",
                         contentBlocks = listOf(
@@ -3540,7 +3540,7 @@ int main() {
 
                     // Sub-Lesson 4: Constructors in C++
                     LessonContent(
-                        id = "quiz_constructors",
+                        id = "advanced_cpp15_sub4",
                         title = "Constructors in C++",
                         description = "Test your understanding of constructors in C++.",
                         contentBlocks = listOf(
@@ -3563,7 +3563,7 @@ int main() {
 
                     // Sub-Lesson 5: C++ Access Specifiers
                     LessonContent(
-                        id = "quiz_access_specifiers",
+                        id = "advanced_cpp15_sub5",
                         title = "C++ Access Specifiers",
                         description = "Test your knowledge of access specifiers in C++.",
                         contentBlocks = listOf(
@@ -3586,7 +3586,7 @@ int main() {
 
                     // Sub-Lesson 6: Setters and Getters in C++
                     LessonContent(
-                        id = "quiz_setters_getters",
+                        id = "advanced_cpp15_sub6",
                         title = "Setters and Getters in C++",
                         description = "Test your knowledge of setter and getter methods in C++.",
                         contentBlocks = listOf(
@@ -3609,7 +3609,7 @@ int main() {
 
                     // Sub-Lesson 7: C++ Inheritance
                     LessonContent(
-                        id = "quiz_inheritance",
+                        id = "advanced_cpp15_sub7",
                         title = "C++ Inheritance",
                         description = "Test your understanding of inheritance in C++.",
                         contentBlocks = listOf(
@@ -3632,7 +3632,7 @@ int main() {
 
                     // Sub-Lesson 8: C++ Multilevel Inheritance
                     LessonContent(
-                        id = "quiz_multilevel_inheritance",
+                        id = "advanced_cpp15_sub8",
                         title = "C++ Multilevel Inheritance",
                         description = "Test your understanding of multilevel inheritance in C++.",
                         contentBlocks = listOf(
@@ -3655,7 +3655,7 @@ int main() {
 
                     // Sub-Lesson 9: C++ Multiple Inheritance
                     LessonContent(
-                        id = "quiz_multiple_inheritance",
+                        id = "advanced_cpp15_sub9",
                         title = "C++ Multiple Inheritance",
                         description = "Test your understanding of multiple inheritance in C++.",
                         contentBlocks = listOf(
@@ -3678,7 +3678,7 @@ int main() {
 
                     // Sub-Lesson 10: Encapsulation in C++
                     LessonContent(
-                        id = "quiz_encapsulation",
+                        id = "advanced_cpp15_sub10",
                         title = "Encapsulation in C++",
                         description = "Test your knowledge of encapsulation in C++.",
                         contentBlocks = listOf(
@@ -3701,7 +3701,7 @@ int main() {
 
                     // Sub-Lesson 11: Polymorphism in C++
                     LessonContent(
-                        id = "quiz_polymorphism",
+                        id = "advanced_cpp15_sub11",
                         title = "Polymorphism in C++",
                         description = "Test your understanding of polymorphism in C++.",
                         contentBlocks = listOf(
@@ -3724,7 +3724,7 @@ int main() {
 
                     // Sub-Lesson 12: Practice C++ OOP
                     LessonContent(
-                        id = "quiz_practice_oop",
+                        id = "advanced_cpp15_sub12",
                         title = "Practice C++ OOP",
                         description = "Test your overall OOP knowledge with practice questions.",
                         contentBlocks = listOf(
@@ -3747,7 +3747,7 @@ int main() {
 
                     // Sub-Lesson 13: Advanced C++ Concepts Recap
                     LessonContent(
-                        id = "quiz_advanced_cpp",
+                        id = "advanced_cpp15_sub13",
                         title = "Advanced C++ Concepts Recap",
                         description = "Test your overall understanding of advanced C++ concepts.",
                         contentBlocks = listOf(
