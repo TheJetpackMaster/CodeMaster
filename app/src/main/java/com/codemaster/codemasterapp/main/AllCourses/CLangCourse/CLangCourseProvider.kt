@@ -1,24 +1,6 @@
-package com.codemaster.codemasterapp.main.AllCourses
+package com.codemaster.codemasterapp.main.AllCourses.CLangCourse
 
-import androidx.compose.ui.graphics.Color
-import com.codemaster.codemasterapp.R
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.AnnotatedString
-import androidx.compose.ui.text.SpanStyle
-import androidx.compose.ui.text.buildAnnotatedString
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.withStyle
-import com.codemaster.codemasterapp.main.AllCourses.CLangCourse.CAdvancedCourse
-import com.codemaster.codemasterapp.main.AllCourses.CLangCourse.CBeginnerCourse
-import com.codemaster.codemasterapp.main.AllCourses.CLangCourse.CExpertCourse
-import com.codemaster.codemasterapp.main.AllCourses.CLangCourse.CIntermediateCourse
-import com.codemaster.codemasterapp.main.data.ContentBlock
 import com.codemaster.codemasterapp.main.data.Course
-import com.codemaster.codemasterapp.main.data.Lesson
-import com.codemaster.codemasterapp.main.data.LessonContent
-import com.codemaster.codemasterapp.main.data.LessonContentType
-import com.codemaster.codemasterapp.main.data.LessonStatus
-import com.codemaster.codemasterapp.main.data.Stage
 
 
 class CLangCourseProvider() {
