@@ -550,7 +550,7 @@ int main() {
                     ),
 
                     LessonContent(
-                        id = "beginner_c4_sub2",
+                        id = CBeginnerStageIds.lesson4_subs[2],
                         title = "New Lines in Output",
                         description = "Learn to control your output layout using \\n for new lines.",
                         contentBlocks = listOf(
@@ -576,7 +576,7 @@ int main() {
                     ),
 
                     LessonContent(
-                        id = "beginner_c4_sub3",
+                        id = CBeginnerStageIds.lesson4_subs[3],
                         title = "Special Characters in Output",
                         description = "Learn how to use escape sequences like \\t for tabbing and \\\" for quotes in your output.",
                         contentBlocks = listOf(
@@ -597,7 +597,7 @@ int main() {
                     ),
 
                     LessonContent(
-                        id = "beginner_c4_sub4",
+                        id = CBeginnerStageIds.lesson4_subs[4],
                         title = "Printing Variables",
                         description = "Display variable values dynamically with printf() using format specifiers.",
                         contentBlocks = listOf(
@@ -623,7 +623,7 @@ int main() {
                     ),
 
                     LessonContent(
-                        id = "beginner_c4_sub5",
+                        id = CBeginnerStageIds.lesson4_subs[5],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -647,7 +647,7 @@ int main() {
                     ),
 
                     LessonContent(
-                        id = "beginner_c4_sub6",
+                        id = CBeginnerStageIds.lesson4_subs[6],
                         title = "Printing Multiple Values",
                         description = "Master printing multiple variables in one printf() statement using multiple format specifiers.",
                         contentBlocks = listOf(
