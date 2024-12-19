@@ -1,5 +1,6 @@
 package com.codemaster.codemasterapp.main.ui.learning.lessons.components
 
+import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -28,6 +29,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.codemaster.codemasterapp.main.data.ContentBlock
 import com.codemaster.codemasterapp.main.data.LessonStatus
+import com.codemaster.codemasterapp.main.ui.learning.lessons.SubLessonItem
+import kotlinx.coroutines.delay
 
 
 @Composable
@@ -50,11 +53,15 @@ fun QuizContentBlock(
 //        feedback = "" // Clear previous feedback
     }
 
-    LaunchedEffect(Unit) {
-        if(subLessonStatus == LessonStatus.COMPLETED){
+    Log.d("quizlessonstatus",subLessonStatus.toString())
+    LaunchedEffect(subLessonStatus) {
+        if (subLessonStatus == LessonStatus.COMPLETED) {
             userAnswer = contentBlock.correctAnswer
+        }else{
+            userAnswer = ""
         }
     }
+
 
     Column(
         modifier = Modifier.fillMaxWidth(),

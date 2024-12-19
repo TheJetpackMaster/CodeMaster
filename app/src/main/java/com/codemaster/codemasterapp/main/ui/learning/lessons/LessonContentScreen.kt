@@ -3,6 +3,7 @@ package com.codemaster.codemasterapp.main.ui.learning.lessons
 
 import android.app.Activity
 import android.content.Context
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectHorizontalDragGestures
 import androidx.compose.foundation.layout.Arrangement
@@ -94,6 +95,7 @@ fun LessonContentScreen(
 
     // Current SubLesson or LessonContent
     val currentSubLesson = remember { mutableStateOf(subLessons.getOrNull(pagerState.currentPage)) }
+
 
     // Lessons status
     var currentLessonStatus by remember {
