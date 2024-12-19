@@ -2471,7 +2471,7 @@ public:
 
                     // Sub-lesson 1: Introduction to Encapsulation
                     LessonContent(
-                        id = "cpp_encapsulation_sub1",
+                        id = "advanced_cpp11_sub1",
                         title = "Introduction to Encapsulation",
                         description = "Understand what encapsulation is and why it’s important in C++.",
                         contentBlocks = listOf(
@@ -2499,7 +2499,7 @@ public:
 
                     // Sub-lesson 2: Key Features of Encapsulation
                     LessonContent(
-                        id = "cpp_encapsulation_sub2",
+                        id = "advanced_cpp11_sub2",
                         title = "Key Features of Encapsulation",
                         description = "Explore how access modifiers and getter/setter methods implement encapsulation.",
                         contentBlocks = listOf(
@@ -2527,7 +2527,7 @@ public:
 
                     // Content: Simple Quiz on Encapsulation
                     LessonContent(
-                        id = "beginner_cpp_encapsulation_quiz",
+                        id = "advanced_cpp11_sub3",
                         title = "Quiz: Encapsulation 🧠",
                         description = "Test your understanding of encapsulation in C++.",
                         contentBlocks = listOf(
@@ -2548,9 +2548,9 @@ public:
                         status = LessonStatus.ACTIVE
                     ),
 
-                    // Sub-lesson 3: Encapsulation Code Example
+                    // Sub-lesson 4: Encapsulation Code Example
                     LessonContent(
-                        id = "cpp_encapsulation_sub3",
+                        id = "advanced_cpp11_sub4",
                         title = "Encapsulation Code Example",
                         description = "See encapsulation in action with a C++ code example.",
                         contentBlocks = listOf(
@@ -2610,9 +2610,9 @@ int main() {
                        status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 4: Benefits of Encapsulation
+                    // Sub-lesson 5: Benefits of Encapsulation
                     LessonContent(
-                        id = "cpp_encapsulation_sub4",
+                        id = "advanced_cpp11_sub5",
                         title = "Benefits of Encapsulation",
                         description = "Learn how encapsulation improves your code.",
                         contentBlocks = listOf(
@@ -2633,7 +2633,7 @@ int main() {
 
                     // Content for "Quiz Time!"
                     LessonContent(
-                        id = "beginner_cpp_encapsulation_quiz",
+                        id = "advanced_cpp11_sub6",
                         title = "Quiz Time! 🧠",
                         description = "Test your knowledge of encapsulation in C++.",
                         contentBlocks = listOf(
