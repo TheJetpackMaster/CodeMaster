@@ -800,7 +800,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "beginner_c5_sub5",
+                        id = CBeginnerStageIds.lesson5_subs[5],
                         title = "Nested Comments",
                         description = "Handling nested comments in C.",
                         contentBlocks = listOf(
@@ -829,7 +829,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "beginner_c5_sub6",
+                        id = CBeginnerStageIds.lesson5_subs[6],
                         title = "Commenting Best Practices",
                         description = "Best practices for writing effective comments.",
                         contentBlocks = listOf(
@@ -860,7 +860,7 @@ bubbleSort(arr, n);
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "beginner_c5_sub7",
+                        id = CBeginnerStageIds.lesson5_subs[7],
                         title = "Quiz",
                         description = "Test your knowledge of comments.",
                         contentBlocks = listOf(
@@ -885,12 +885,12 @@ bubbleSort(arr, n);
 
             // lesson 6
             Lesson(
-                id = "beginner_c6",
+                id = CBeginnerStageIds.lesson6,
                 title = "C Variables",
                 description = "Learn how to work with variables in C: declaring, formatting, changing values, and naming! 🎯",
                 lessonContents = listOf(
                     LessonContent(
-                        id = "beginner_c6_sub1",
+                        id = CBeginnerStageIds.lesson6_subs[0],
                         title = "Creating Variables",
                         description = "Learn how to declare and initialize variables.",
                         contentBlocks = listOf(
@@ -910,7 +910,7 @@ float temperature = 36.5;  // Declaring a float
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "beginner_c6_sub2",
+                        id = CBeginnerStageIds.lesson6_subs[1],
                         title = "Format Specifiers",
                         description = "Understand format specifiers for different data types.",
                         contentBlocks = listOf(
@@ -932,7 +932,7 @@ printf("Pi is approximately: %.2f", pi);  // %.2f for float
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "beginner_c6_sub3",
+                        id = CBeginnerStageIds.lesson6_subs[3],
                         title = "Change Variable Values",
                         description = "Learn how to update the values of variables.",
                         contentBlocks = listOf(
@@ -947,7 +947,7 @@ age = 30;  // Changing the value of age
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "beginner_c6_sub4",
+                        id = CBeginnerStageIds.lesson6_subs[4],
                         title = "Change Variable Values",
                         description = "Learn how to update the values of variables.",
                         contentBlocks = listOf(
@@ -965,7 +965,7 @@ ___ = 30;  // Update the value of age
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "beginner_c6_sub5",
+                        id = CBeginnerStageIds.lesson6_subs[5],
                         title = "Declare Multiple Variables",
                         description = "Learn how to declare multiple variables in one line.",
                         contentBlocks = listOf(
@@ -984,7 +984,7 @@ int x = 10, y = 20, z = 30;  // Declaring multiple integers
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "beginner_c6_sub6",
+                        id = CBeginnerStageIds.lesson6_subs[6],
                         title = "Variable Names",
                         description = "Understand the rules for naming variables.",
                         contentBlocks = listOf(
@@ -1010,7 +1010,7 @@ int x = 10, y = 20, z = 30;  // Declaring multiple integers
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "beginner_c6_sub7",
+                        id = CBeginnerStageIds.lesson6_subs[7],
                         title = "Real-Life Example",
                         description = "A practical example using variables in a program.",
                         contentBlocks = listOf(
@@ -1034,7 +1034,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "beginner_c6_sub8",
+                        id = CBeginnerStageIds.lesson6_subs[8],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -1059,12 +1059,12 @@ int main() {
 
             // lesson 7
             Lesson(
-                id = "beginner_c7",
+                id = CBeginnerStageIds.lesson7,
                 title = "C Data Types",
                 description = "Explore the different data types in C: what they are, how they work, and how to convert between them! 🧮🎯",
                 lessonContents = listOf(
                     LessonContent(
-                        id = "beginner_c7_sub1",
+                        id = CBeginnerStageIds.lesson7_subs[0],
                         title = "Data Types",
                         description = "Learn about data types in C.",
                         contentBlocks = listOf(
@@ -1104,7 +1104,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "beginner_c7_sub2",
+                        id = CBeginnerStageIds.lesson7_subs[1],
                         title = "The char Type",
                         description = "Learn about the char type for characters.",
                         contentBlocks = listOf(
@@ -1124,7 +1124,7 @@ printf("Character: %c", letter);  // Prints A
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "beginner_c7_sub3",
+                        id = CBeginnerStageIds.lesson7_subs[2],
                         title = "Numeric Types",
                         description = "Learn how to handle integer and floating-point numbers.",
                         contentBlocks = listOf(
@@ -1144,7 +1144,7 @@ double pi = 3.14159;  // Double (higher precision decimal)
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "beginner_c7_sub4",
+                        id = CBeginnerStageIds.lesson7_subs[3],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -1161,7 +1161,7 @@ double pi = 3.14159;  // Double (higher precision decimal)
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "beginner_c7_sub5",
+                        id = CBeginnerStageIds.lesson7_subs[4],
                         title = "Set Decimal Precision",
                         description = "Control decimal precision when displaying numbers.",
                         contentBlocks = listOf(
@@ -1180,7 +1180,7 @@ printf("Price: %.2f", price);  // Prints 10.12 (rounded to 2 decimals)
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "beginner_c7_sub6",
+                        id = CBeginnerStageIds.lesson7_subs[5],
                         title = "Get the Memory Size",
                         description = "Find out how much memory each data type uses.",
                         contentBlocks = listOf(
@@ -1200,7 +1200,7 @@ printf("Size of char: %zu bytes", sizeof(char));  // Check memory size of char
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "beginner_c7_sub7",
+                        id = CBeginnerStageIds.lesson7_subs[6],
                         title = "Real-Life Example",
                         description = "See a real-world example using C data types.",
                         contentBlocks = listOf(
