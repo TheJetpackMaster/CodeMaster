@@ -36,7 +36,7 @@ fun CIntermediateCourse(): Stage {
                         status = LessonStatus.ACTIVE
                     ),
                     LessonContent(
-                        id = CIntermediateStageIds.lesson1_subs[0],
+                        id = CIntermediateStageIds.lesson1_subs[1],
                         title = "Stay Inspired",
                         description = "Encouraging words to keep you motivated.",
                         contentBlocks = listOf(
@@ -45,7 +45,7 @@ fun CIntermediateCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c1_sub3",
+                        id = CIntermediateStageIds.lesson1_subs[2],
                         title = "Effective Learning Strategies",
                         description = "Tips for improving your skills and staying on track.",
                         contentBlocks = listOf(
@@ -54,7 +54,7 @@ fun CIntermediateCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c1_sub4",
+                        id = CIntermediateStageIds.lesson1_subs[3],
                         title = "Ready to Begin",
                         description = "Learn what comes next in your journey.",
                         contentBlocks = listOf(
@@ -68,12 +68,12 @@ fun CIntermediateCourse(): Stage {
 
             // lesson 2
             Lesson(
-                id = "intermediate_c2",
+                id = CIntermediateStageIds.lesson2,
                 title = "C If ... Else",
                 description = "Learn how to use if, else, and else if statements in C to control program flow and make decisions! 💡",
                 lessonContents = listOf(
                     LessonContent(
-                        id = "intermediate_c2_sub1",
+                        id = CIntermediateStageIds.lesson2_subs[0],
                         title = "If Statements",
                         description = "Learn how to use if statements to make decisions.",
                         contentBlocks = listOf(
@@ -104,7 +104,7 @@ fun CIntermediateCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c2_sub2",
+                        id = CIntermediateStageIds.lesson2_subs[1],
                         title = "Else Statement",
                         description = "Learn how to use the else statement to handle the opposite condition.",
                         contentBlocks = listOf(
@@ -139,7 +139,7 @@ fun CIntermediateCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c2_sub3",
+                        id = CIntermediateStageIds.lesson2_subs[2],
                         title = "Else If Statement",
                         description = "Learn how to handle multiple conditions with else if statements.",
                         contentBlocks = listOf(
@@ -178,7 +178,7 @@ fun CIntermediateCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c2_sub4",
+                        id = CIntermediateStageIds.lesson2_subs[3],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -198,7 +198,7 @@ fun CIntermediateCourse(): Stage {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c2_sub5",
+                        id = CIntermediateStageIds.lesson2_subs[4],
                         title = "Short Hand If...Else (Ternary Operator)",
                         description = "Learn how to use the ternary operator as a shorthand for if...else statements.",
                         contentBlocks = listOf(
@@ -225,7 +225,7 @@ fun CIntermediateCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c2_sub6",
+                        id = CIntermediateStageIds.lesson2_subs[5],
                         title = "Real-Life Examples",
                         description = "See how if, else, and else if statements are used in real-world scenarios.",
                         contentBlocks = listOf(
@@ -263,7 +263,7 @@ fun CIntermediateCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c2_sub7",
+                        id = CIntermediateStageIds.lesson2_subs[6],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -295,7 +295,7 @@ fun CIntermediateCourse(): Stage {
 
             // Lesson 3
             Lesson(
-                id = "intermediate_c3",
+                id = CIntermediateStageIds.lesson3,
                 title = "C If ... Else Nested",
                 description = "Learn how to nest if...else statements to create more complex decision-making structures in C! 🧩",
                 lessonContents = listOf(
