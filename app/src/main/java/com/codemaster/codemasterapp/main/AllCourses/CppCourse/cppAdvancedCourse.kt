@@ -2953,7 +2953,7 @@ int main() {
 
                     // Sub-lesson 1: How to Learn and Approach This Guide
                     LessonContent(
-                        id = "master_classes_inheritance_sub1_learn_cpp",
+                        id = "advanced_cpp13_sub1",
                         title = "How to Learn and Approach This Guide",
                         description = "Follow each step carefully and practice consistently to master C++ OOP concepts.",
                         contentBlocks = listOf(
@@ -2980,7 +2980,7 @@ int main() {
 
                     // Sub-lesson 2: Understanding Classes in C++
                     LessonContent(
-                        id = "master_classes_inheritance_sub2_cpp",
+                        id = "advanced_cpp13_sub2",
                         title = "Understanding Classes",
                         description = "Learn the basics of creating and using classes in C++.",
                         contentBlocks = listOf(
@@ -3003,7 +3003,7 @@ int main() {
 
                     // Sub-lesson 3: Members and Methods in C++ Classes
                     LessonContent(
-                        id = "master_classes_inheritance_sub3_cpp",
+                        id = "advanced_cpp13_sub3",
                         title = "Adding Members and Methods",
                         description = "Learn how to add data members (attributes) and methods (functions) to your classes.",
                         contentBlocks = listOf(
@@ -3026,7 +3026,7 @@ int main() {
 
                     // Sub-lesson 4: Constructors and Destructors
                     LessonContent(
-                        id = "master_classes_inheritance_sub4_cpp",
+                        id = "advanced_cpp13_sub4",
                         title = "Understanding Constructors and Destructors",
                         description = "Learn about constructors and destructors to manage object creation and destruction in C++.",
                         contentBlocks = listOf(
@@ -3052,7 +3052,7 @@ int main() {
 
                     // Sub-lesson 5: Introduction to Inheritance in C++
                     LessonContent(
-                        id = "master_classes_inheritance_sub5_cpp",
+                        id = "advanced_cpp13_sub5",
                         title = "Introduction to Inheritance",
                         description = "Learn how to reuse code through inheritance, a key feature of OOP.",
                         contentBlocks = listOf(
@@ -3098,7 +3098,7 @@ int main() {
 
                     // Sub-lesson 6: Multi-Level Inheritance
                     LessonContent(
-                        id = "master_classes_inheritance_sub6_cpp",
+                        id = "advanced_cpp13_sub6",
                         title = "Multi-Level Inheritance",
                         description = "Learn about multi-level inheritance where a class can inherit from a derived class.",
                         contentBlocks = listOf(
@@ -3121,7 +3121,7 @@ int main() {
 
                     // Sub-lesson 7: Multiple Inheritance and Virtual Inheritance
                     LessonContent(
-                        id = "master_classes_inheritance_sub7_cpp",
+                        id = "advanced_cpp13_sub7",
                         title = "Multiple Inheritance and Virtual Inheritance",
                         description = "Learn about multiple inheritance and virtual inheritance to avoid ambiguity.",
                         contentBlocks = listOf(
@@ -3144,7 +3144,7 @@ int main() {
 
                     // Sub-lesson 8: Abstract Classes and Interfaces
                     LessonContent(
-                        id = "master_classes_inheritance_sub8_cpp",
+                        id = "advanced_cpp13_sub8",
                         title = "Abstract Classes and Interfaces",
                         description = "Learn how abstract classes and interfaces provide a blueprint for derived classes.",
                         contentBlocks = listOf(
