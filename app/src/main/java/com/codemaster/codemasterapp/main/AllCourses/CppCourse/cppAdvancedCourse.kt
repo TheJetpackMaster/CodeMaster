@@ -3167,7 +3167,7 @@ int main() {
 
                     // Sub-lesson 9: Putting It All Together: Building a Project
                     LessonContent(
-                        id = "master_classes_inheritance_sub9_cpp",
+                        id = "advanced_cpp13_sub9",
                         title = "Real-World Application – Putting It All Together",
                         description = "Apply your C++ OOP knowledge by building a real-world project.",
                         contentBlocks = listOf(
@@ -3190,7 +3190,7 @@ int main() {
 
                     // Sub-lesson 10: Keep Practicing and Experimenting
                     LessonContent(
-                        id = "master_classes_inheritance_sub10_cpp",
+                        id = "advanced_cpp13_sub10",
                         title = "Keep Practicing and Experimenting",
                         description = "The key to mastering C++ OOP is consistent practice and building projects.",
                         contentBlocks = listOf(
