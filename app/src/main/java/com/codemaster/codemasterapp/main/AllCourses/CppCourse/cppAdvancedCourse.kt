@@ -2129,7 +2129,7 @@ int main() {
 
                     // Sub-lesson 1: What is Multiple Inheritance?
                     LessonContent(
-                        id = "cpp_multiple_inheritance_sub1",
+                        id = "advanced_cpp10_sub1",
                         title = "What is Multiple Inheritance?",
                         description = "Multiple inheritance is when a class can inherit from more than one class at the same time.",
                         contentBlocks = listOf(
@@ -2157,7 +2157,7 @@ int main() {
 
                     // Sub-lesson 2: How Multiple Inheritance Works
                     LessonContent(
-                        id = "cpp_multiple_inheritance_sub2",
+                        id = "advanced_cpp10_sub2",
                         title = "How Multiple Inheritance Works",
                         description = "Let's see how C++ allows a class to inherit from two classes, and how the compiler handles it.",
                         contentBlocks = listOf(
@@ -2219,7 +2219,7 @@ int main() {
 
                     // Sub-lesson 3: Why Use Multiple Inheritance?
                     LessonContent(
-                        id = "cpp_multiple_inheritance_sub3",
+                        id = "advanced_cpp10_sub3",
                         title = "Why Use Multiple Inheritance?",
                         description = "Multiple inheritance lets us combine functionalities from different classes into one. Let's look at why it's useful.",
                         contentBlocks = listOf(
@@ -2242,7 +2242,7 @@ int main() {
 
                     // Content 4: Interactive Input Block
                     LessonContent(
-                        id = "beginner_cpp4_content4",
+                        id = "advanced_cpp10_sub4",
                         title = "Complete the code",
                         description = "Ok so now try to complete the program.",
                         contentBlocks = listOf(
@@ -2283,9 +2283,9 @@ public:
                     ),
 
 
-                    // Sub-lesson 4: The Diamond Problem in Multiple Inheritance
+                    // Sub-lesson 5: The Diamond Problem in Multiple Inheritance
                     LessonContent(
-                        id = "cpp_multiple_inheritance_sub4",
+                        id = "advanced_cpp10_sub5",
                         title = "The Diamond Problem",
                         description = "Multiple inheritance can cause issues like the 'Diamond Problem' where a class inherits from two classes that have a common ancestor.",
                         contentBlocks = listOf(
@@ -2346,9 +2346,9 @@ public:
                        status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 5: Virtual Inheritance to Solve the Diamond Problem
+                    // Sub-lesson 6: Virtual Inheritance to Solve the Diamond Problem
                     LessonContent(
-                        id = "cpp_multiple_inheritance_sub5",
+                        id = "advanced_cpp10_sub6",
                         title = "Virtual Inheritance",
                         description = "To solve the Diamond Problem, we can use virtual inheritance. This ensures only one instance of the base class is inherited.",
                         contentBlocks = listOf(
@@ -2405,7 +2405,7 @@ public:
 
                     // Content: Simple Quiz on Multiple Inheritance
                     LessonContent(
-                        id = "beginner_cpp_multiple_inheritance_quiz",
+                        id = "advanced_cpp10_sub7",
                         title = "Quiz: Multiple Inheritance 🧠",
                         description = "Test your understanding of multiple inheritance in C++.",
                         contentBlocks = listOf(
@@ -2427,9 +2427,9 @@ public:
                     ),
 
 
-                    // Sub-lesson 6: Practice Exercise
+                    // Sub-lesson 8: Practice Exercise
                     LessonContent(
-                        id = "cpp_multiple_inheritance_sub6",
+                        id = "advanced_cpp10_sub8",
                         title = "Practice Exercise",
                         description = "Create your own example of multiple inheritance with at least two parent classes. Try solving the Diamond Problem with virtual inheritance!",
                         contentBlocks = listOf(
