@@ -2107,14 +2107,14 @@ fun cppIntermediateCourse(): Stage {
 
             // Lesson 10: Structures in c++
             Lesson(
-                id = "beginner_cpp_structures",
+                id = "intermediate_cpp10",
                 title = "Structures in c++",
                 description = "Level up your skills by creating your own data types with structures!",
                 lessonContents = listOf(
 
                     // Sub-lesson 1: What are Structures?
                     LessonContent(
-                        id = "beginner_cpp_structures_sub1",
+                        id = "intermediate_cpp10_sub1",
                         title = "What are Structures?",
                         description = "Let’s dive into structures! They’re like blueprints for creating custom data types that group different variables together!",
                         contentBlocks = listOf(
@@ -2139,7 +2139,7 @@ fun cppIntermediateCourse(): Stage {
 
                     // Sub-lesson 2: Declaring and Using Structures
                     LessonContent(
-                        id = "beginner_cpp_structures_sub2",
+                        id = "intermediate_cpp10_sub2",
                         title = "Declaring and Using Structures",
                         description = "Ready to make your own custom data type? Let’s declare a structure and use it in C++!",
                         contentBlocks = listOf(
@@ -2183,7 +2183,7 @@ fun cppIntermediateCourse(): Stage {
 
                     // Content for "Quiz Time!"
                     LessonContent(
-                        id = "beginner_cpp_structure_quiz2",
+                        id = "intermediate_cpp10_sub3",
                         title = "Quiz Time! 🧠",
                         description = "Test your understanding of why structures are used in C++.",
                         contentBlocks = listOf(
@@ -2203,9 +2203,9 @@ fun cppIntermediateCourse(): Stage {
                         type = LessonContentType.QUIZ
                     ),
 
-                    // Sub-lesson 3: Accessing and Modifying Structure Members
+                    // Sub-lesson 4: Accessing and Modifying Structure Members
                     LessonContent(
-                        id = "beginner_cpp_structures_sub3",
+                        id = "intermediate_cpp10_sub4",
                         title = "Accessing and Modifying Structure Members",
                         description = "Let’s access and modify the members of our structures. It's like having the keys to each room in your data house!",
                         contentBlocks = listOf(
@@ -2239,9 +2239,9 @@ fun cppIntermediateCourse(): Stage {
                         status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 4: Structures in Action
+                    // Sub-lesson 5: Structures in Action
                     LessonContent(
-                        id = "beginner_cpp_structures_sub4",
+                        id = "intermediate_cpp10_sub5",
                         title = "Structures in Action",
                         description = "Now let’s see structures in action with a fun example. Let's make a structure for a 'Book' and use it to store some information!",
                         contentBlocks = listOf(
@@ -2283,7 +2283,7 @@ fun cppIntermediateCourse(): Stage {
 
                     // Content 4: Interactive Input Block
                     LessonContent(
-                        id = "beginner_cpp4_content4",
+                        id = "intermediate_cpp10_sub6",
                         title = "Complete the code",
                         description = "Ok so now try to complete the program.",
                         contentBlocks = listOf(
@@ -2310,9 +2310,9 @@ int main () {
                     ),
 
 
-                    // Sub-lesson 5: Why Structures are Awesome
+                    // Sub-lesson 7: Why Structures are Awesome
                     LessonContent(
-                        id = "beginner_cpp_structures_sub5",
+                        id = "intermediate_cpp10_sub7",
                         title = "Why Structures are Awesome",
                         description = "Why bother with structures? Because they help you organize your data better, reduce chaos, and make your code look neat and tidy!",
                         contentBlocks = listOf(
@@ -2335,7 +2335,7 @@ int main () {
 
                     // Content for "Final Quiz: Mastering Structures"
                     LessonContent(
-                        id = "beginner_cpp_structure_final_quiz",
+                        id = "intermediate_cpp10_sub8",
                         title = "Final Quiz: Mastering Structures",
                         description = "Test your comprehensive understanding of structures in C++.",
                         contentBlocks = listOf(
@@ -2360,14 +2360,14 @@ int main () {
 
             // Lesson 11: Diving Deeper into Structures
             Lesson(
-                id = "beginner_cpp_structures_advanced",
+                id = "intermediate_cpp11",
                 title = "Level Up: Structures",
                 description = "Structures just got even more exciting! Let’s dive into nested structures and additional features.",
                 lessonContents = listOf(
 
                     // Sub-lesson 1: A Quick Recap
                     LessonContent(
-                        id = "beginner_cpp_structures_advanced_sub1",
+                        id = "intermediate_cpp11_sub1",
                         title = "Quick Recap: Structures",
                         description = "",
                         contentBlocks = listOf(
@@ -2403,7 +2403,7 @@ int main () {
 
                     // Sub-lesson 2: Nested Structures
                     LessonContent(
-                        id = "beginner_cpp_structures_advanced_sub2",
+                        id = "intermediate_cpp11_sub2",
                         title = "Nested Structures: A Structure Inside a Structure",
                         description = "",
                         contentBlocks = listOf(
@@ -2445,7 +2445,7 @@ int main () {
 
                     // Sub-lesson 3: Arrays of Structures
                     LessonContent(
-                        id = "beginner_cpp_structures_advanced_sub3",
+                        id = "intermediate_cpp11_sub3",
                         title = "Arrays of Structures",
                         description = "",
                         contentBlocks = listOf(
@@ -2485,7 +2485,7 @@ int main () {
 
                     // Sub-lesson 4: Time to Practice and Prep for Enums!
                     LessonContent(
-                        id = "beginner_cpp_structures_advanced_sub4",
+                        id = "intermediate_cpp11_sub4",
                         title = "Practice Makes Perfect!",
                         description = "",
                         contentBlocks = listOf(
@@ -2515,14 +2515,14 @@ int main () {
 
             // Lesson 12: Enums - The Power of Constant Values
             Lesson(
-                id = "beginner_cpp_enums",
+                id = "intermediate_cpp12",
                 title = "Enums in C++",
                 description = "Enums help group related constants together, making your code cleaner and more readable.",
                 lessonContents = listOf(
 
                     // Sub-lesson 1: What Are Enums?
                     LessonContent(
-                        id = "beginner_cpp_enums_sub1",
+                        id = "intermediate_cpp12_sub1",
                         title = "What Are Enums?",
                         description = "Learn what enums are and why they're useful!",
                         contentBlocks = listOf(
@@ -2546,7 +2546,7 @@ int main () {
 
                     // Sub-lesson 2: Why Use Enums?
                     LessonContent(
-                        id = "beginner_cpp_enums_sub2",
+                        id = "intermediate_cpp12_sub2",
                         title = "Why Use Enums?",
                         description = "Find out why enums are essential in your code!",
                         contentBlocks = listOf(
@@ -2569,7 +2569,7 @@ int main () {
 
                     // Content for "Quiz Time: Understanding Enums"
                     LessonContent(
-                        id = "beginner_cpp_enum_quiz",
+                        id = "intermediate_cpp12_sub3",
                         title = "Quiz Time: Understanding Enums",
                         description = "Test your knowledge of enums in C++.",
                         contentBlocks = listOf(
@@ -2590,9 +2590,9 @@ int main () {
                     ),
 
 
-                    // Sub-lesson 3: Declaring Enums
+                    // Sub-lesson 4: Declaring Enums
                     LessonContent(
-                        id = "beginner_cpp_enums_sub3",
+                        id = "intermediate_cpp12_sub4",
                         title = "How to Declare an Enum",
                         description = "Let’s declare our first enum!",
                         contentBlocks = listOf(
@@ -2628,9 +2628,9 @@ int main () {
                         status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 4: Using Enums
+                    // Sub-lesson 5: Using Enums
                     LessonContent(
-                        id = "beginner_cpp_enums_sub4",
+                        id = "intermediate_cpp12_sub5",
                         title = "Using Enums in Your Code",
                         description = "Let’s use enums in your code!",
                         contentBlocks = listOf(
@@ -2665,9 +2665,9 @@ int main () {
                         status = LessonStatus.LOCKED
                     ),
 
-                    // Content 4: Interactive Input Block
+                    // Content 6: Interactive Input Block
                     LessonContent(
-                        id = "beginner_cpp4_content4",
+                        id = "intermediate_cpp12_sub6",
                         title = "Complete the code",
                         description = "Ok so now try to complete the program.",
                         contentBlocks = listOf(
@@ -2696,7 +2696,7 @@ int main () {
 
                     // Sub-lesson 5: Enums in Switch Statements
                     LessonContent(
-                        id = "beginner_cpp_enums_sub5",
+                        id = "intermediate_cpp12_sub7",
                         title = "Using Enums in a Switch Statement",
                         description = "Switch statements and enums go hand in hand. Let’s see why!",
                         contentBlocks = listOf(
@@ -2741,9 +2741,9 @@ int main () {
                         status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 6: Practice Time!
+                    // Sub-lesson 8: Practice Time!
                     LessonContent(
-                        id = "beginner_cpp_enums_sub6",
+                        id = "intermediate_cpp12_sub8",
                         title = "Practice Makes Perfect with Enums!",
                         description = "Your turn to practice and become an enum pro!",
                         contentBlocks = listOf(
@@ -2769,7 +2769,7 @@ int main () {
 
             // Lesson 13: Reference in C++
             Lesson(
-                id = "beginner_cpp_references",
+                id = "intermediate_cpp13",
                 title = "C++ References",
                 description = "References are like giving a variable a nickname. Let’s see how they work!",
                 lessonContents = listOf(
