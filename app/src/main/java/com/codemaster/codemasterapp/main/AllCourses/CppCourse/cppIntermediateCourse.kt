@@ -4240,14 +4240,14 @@ int main() {
 
             // Lesson 19: C++ Variable Scope
             Lesson(
-                id = "beginner_cpp_variable_scope",
+                id = "intermediate_cpp19",
                 title = "C++ Variable Scope",
                 description = "Learn how variables in C++ decide their reach and manage their accessibility effectively.",
                 lessonContents = listOf(
 
                     // Sub-lesson 1: Introduction to Scope
                     LessonContent(
-                        id = "beginner_cpp_scope_intro",
+                        id = "intermediate_cpp19_sub1",
                         title = "What is Scope?",
                         description = "Understand what variable scope is and why it matters in C++.",
                         contentBlocks = listOf(
@@ -4268,7 +4268,7 @@ int main() {
 
                     // Sub-lesson 2: Local Scope
                     LessonContent(
-                        id = "beginner_cpp_scope_local",
+                        id = "intermediate_cpp19_sub2",
                         title = "Local Scope: Restricted Access",
                         description = "Learn about variables confined to the function they’re declared in.",
                         contentBlocks = listOf(
@@ -4303,7 +4303,7 @@ int main() {
 
                     // Sub-lesson 3: Global Scope
                     LessonContent(
-                        id = "beginner_cpp_scope_global",
+                        id = "intermediate_cpp19_sub3",
                         title = "Global Scope: Always Available",
                         description = "Discover variables that are accessible from anywhere in your program.",
                         contentBlocks = listOf(
@@ -4339,7 +4339,7 @@ int main() {
 
                     // Content for "Quiz Time!"
                     LessonContent(
-                        id = "beginner_cpp6_sub12",
+                        id = "intermediate_cpp19_sub4",
                         title = "Quiz Time! 🧠",
                         description = "Test your knowledge on local variables in C++.",
                         contentBlocks = listOf(
@@ -4361,7 +4361,7 @@ int main() {
 
                     // Sub-lesson 4: Local vs Global Name Conflicts
                     LessonContent(
-                        id = "beginner_cpp_scope_name_clash",
+                        id = "intermediate_cpp19_sub5",
                         title = "Local vs Global: Name Conflicts",
                         description = "What happens when a local and global variable share the same name?",
                         contentBlocks = listOf(
@@ -4396,9 +4396,9 @@ int main() {
                         status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 5: Best Practices for Scope
+                    // Sub-lesson 6: Best Practices for Scope
                     LessonContent(
-                        id = "beginner_cpp_scope_best_practices",
+                        id = "intermediate_cpp19_sub6",
                         title = "Best Practices for Variable Scope",
                         description = "Tips to effectively manage variable scope in your programs.",
                         contentBlocks = listOf(
@@ -4435,7 +4435,7 @@ int main() {
 
                     // Content for "Quiz Time!"
                     LessonContent(
-                        id = "beginner_cpp6_sub13",
+                        id = "intermediate_cpp19_sub7",
                         title = "Final Quiz! 🧠",
                         description = "Test your understanding of local variables in C++.",
                         contentBlocks = listOf(
