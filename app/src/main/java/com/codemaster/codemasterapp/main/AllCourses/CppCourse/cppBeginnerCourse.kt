@@ -134,7 +134,7 @@ fun cppBeginnerCourse(): Stage {
 
                     // Sub-lesson 6: QUIZ!
                     LessonContent(
-                        id = "beginner_cpp_sub6",
+                        id = "beginner_cpp1_sub6",
                         title = "Quiz!",
                         description = "Test your knowledge with a basic quiz on what C++ is.",
                         contentBlocks = listOf(
@@ -2652,14 +2652,14 @@ int main() {
 
             //Lesson 13 : Else if
             Lesson(
-                id = "beginner_cpp12",
+                id = "beginner_cpp13",
                 title = "If-Else – Make Choices!",
                 description = "Time to make decisions in your code! With If-Else, you can choose what happens next in your program. Let’s get started!",
                 lessonContents = listOf(
 
                     // Sub-lesson 1: What is If-Else?
                     LessonContent(
-                        id = "beginner_cpp12_sub1",
+                        id = "beginner_cpp13_sub1",
                         title = "What is If-Else?",
                         description = "Learn how If-Else helps make decisions in code.",
                         contentBlocks = listOf(
@@ -2683,7 +2683,7 @@ int main() {
 
                     // Sub-lesson 2 : The Ultimate Decision: Should I Eat or Not?
                     LessonContent(
-                        id = "beginner_cpp12_sub2",
+                        id = "beginner_cpp13_sub2",
                         title = "The Ultimate Decision: Should I Eat or Not?",
                         description = "Explore decision-making with a pizza or no food choice.",
                         contentBlocks = listOf(
@@ -2705,7 +2705,7 @@ int main() {
 
                     // Content for "Quiz Time!"
                     LessonContent(
-                        id = "beginner_cpp6_sub8",
+                        id = "beginner_cpp13_sub3",
                         title = "Quiz Time! 🧠",
                         description = "Test your knowledge from the lesson!",
                         contentBlocks = listOf(
@@ -2729,7 +2729,7 @@ int main() {
 
                     // Sub-lesson 3: If-Else: The Code Behind the Decision
                     LessonContent(
-                        id = "beginner_cpp12_sub3",
+                        id = "beginner_cpp13_sub4",
                         title = "If-Else: The Code Behind the Decision",
                         description = "Turn a decision into code: hungry for pizza or salad?",
                         contentBlocks = listOf(
@@ -2761,7 +2761,7 @@ int main() {
 
                     //Content
                     LessonContent(
-                        id = "beginner_cpp12_sub4",
+                        id = "beginner_cpp13_sub5",
                         title = "A Simple Decision: Should I Get Up or Not?",
                         description = "Decide whether to stay in bed or get up and conquer the day!",
                         contentBlocks = listOf(
@@ -2787,7 +2787,7 @@ int main() {
 
                     // Content 4: Interactive Input Block
                     LessonContent(
-                        id = "beginner_cpp4_content4",
+                        id = "beginner_cpp13_sub6",
                         title = "Complete the code",
                         description = "Ok, so now try to complete the program.",
                         contentBlocks = listOf(
@@ -2815,7 +2815,7 @@ int main () {
 
                     //Content
                     LessonContent(
-                        id = "beginner_cpp12_sub5",
+                        id = "beginner_cpp13_sub7",
                         title = "Else-If and Else: More Choices!",
                         description = "Level up with `else if` and `else` for multiple choices.",
                         contentBlocks = listOf(
@@ -2851,7 +2851,7 @@ if (isHungry) {
 
                     // Quiz on Else-If
                     LessonContent(
-                        id = "beginner_cpp12_sub6",
+                        id = "beginner_cpp13_sub8",
                         title = "Else-If Quiz",
                         description = "Test your knowledge of `else if` and `else` with a simple quiz!",
                         contentBlocks = listOf(
@@ -2871,7 +2871,7 @@ if (isHungry) {
 
                     // Final Quiz: Conditionals Recap
                     LessonContent(
-                        id = "beginner_cpp12_sub7",
+                        id = "beginner_cpp13_sub9",
                         title = "Final Quiz: Conditionals Recap!",
                         description = "Recap everything about `if`, `else`, and `else if` with a quiz!",
                         contentBlocks = listOf(
@@ -2894,13 +2894,13 @@ if (isHungry) {
 
             // Lesson 14 :Nested else if
             Lesson(
-                id = "beginner_cpp13",
+                id = "beginner_cpp14",
                 title = "Nested if-else: Decisions!",
                 description = "Ready to level up your decision-making skills? In this lesson, we’ll explore Nested If-Else statements.",
                 lessonContents = listOf(
                     // Content for "What is Nested If-Else?"
                     LessonContent(
-                        id = "beginner_cpp13_sub1",
+                        id = "beginner_cpp14_sub1",
                         title = "What is Nested If-Else?",
                         description = "Learn how nested if-else makes multiple decisions in a sequence.",
                         contentBlocks = listOf(
@@ -2924,7 +2924,7 @@ if (isHungry) {
 
                     // Content for "Should I Go Outside or Stay In?"
                     LessonContent(
-                        id = "beginner_cpp13_sub2",
+                        id = "beginner_cpp14_sub2",
                         title = "Should I Go Outside or Stay In?",
                         description = "Understand how to check multiple conditions before making a decision.",
                         contentBlocks = listOf(
@@ -2963,7 +2963,7 @@ if (isSunny) {
 
                     // Content for "Understanding Nested If-Else"
                     LessonContent(
-                        id = "beginner_cpp13_sub3",
+                        id = "beginner_cpp14_sub3",
                         title = "Understanding Nested If-Else",
                         description = "Explore how nested if-else works with multiple conditions.",
                         contentBlocks = listOf(
@@ -2988,10 +2988,9 @@ if (isSunny) {
                     ),
 
 
-                    // Content 4: Interactive Input Block
                     // Nested If-Else Interactive Input Block
                     LessonContent(
-                        id = "beginner_cpp_nested_ifelse",
+                        id = "beginner_cpp14_sub4",
                         title = "Complete the Nested If-Else",
                         description = "Fill in the missing parts to complete the nested if-else structure.",
                         contentBlocks = listOf(
@@ -3027,7 +3026,7 @@ int main() {
 
                     // Content for "Quiz on Nested If-Else"
                     LessonContent(
-                        id = "beginner_cpp13_sub4",
+                        id = "beginner_cpp14_sub5",
                         title = "Quiz on Nested If-Else",
                         description = "Test your knowledge of nested if-else logic in a quiz!",
                         contentBlocks = listOf(
@@ -3052,7 +3051,7 @@ int main() {
 
             // Lesson 15 : Switch Case
             Lesson(
-                id = "beginner_cpp_switch_case",
+                id = "beginner_cpp15",
                 title = "Switch-Case: Simplifying Multiple Choices",
                 description = "Time to take decision-making to the next level! With Switch-Case.",
                 lessonContents = listOf(

@@ -1,7 +1,4 @@
-package com.codemaster.codemasterapp.main.AllCourses.CppCourse
-
-import android.util.Log
-
+package com.codemaster.codemasterapp.main.AllCourses.CppCourse.courseIds
 
 
 // Step 1: Create a class to store IDs
