@@ -1105,7 +1105,7 @@ int main() {
 
                     // Sub-lesson 1: Introduction to Access Specifiers
                     LessonContent(
-                        id = "cpp_access_specifiers_1_sub1",
+                        id = "advanced_cpp6_sub1",
                         title = "What Are Access Specifiers?",
                         description = "Access specifiers control who can access or modify your class members.",
                         contentBlocks = listOf(
