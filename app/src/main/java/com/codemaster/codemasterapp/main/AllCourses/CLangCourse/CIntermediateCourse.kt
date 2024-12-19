@@ -1,5 +1,6 @@
 package com.codemaster.codemasterapp.main.AllCourses.CLangCourse
 
+import com.codemaster.codemasterapp.main.AllCourses.CLangCourse.courseIds.CIntermediateStageIds
 import com.codemaster.codemasterapp.main.AllCourses.helperFuntions.createAnnotatedText
 import com.codemaster.codemasterapp.main.AllCourses.helperFuntions.createSimpleText
 import com.codemaster.codemasterapp.main.data.ContentBlock
@@ -14,18 +15,18 @@ import com.codemaster.codemasterapp.main.data.Stage
 
 fun CIntermediateCourse(): Stage {
     return Stage(
-        id = "c_intermediate_stage",
+        id = CIntermediateStageIds.stageId,
         title = "Intermediate",
         lessons = listOf(
 
             // lesson 1
             Lesson(
-                id = "intermediate_c1",
+                id = CIntermediateStageIds.lesson1,
                 title = "Welcome to Intermediate",
                 description = "An essential step to advance your programming skills with logic and control structures.",
                 lessonContents = listOf(
                     LessonContent(
-                        id = "intermediate_c1_sub1",
+                        id = CIntermediateStageIds.lesson1_subs[0],
                         title = "Overview",
                         description = "Learn the key topics and goals of this stage.",
                         contentBlocks = listOf(
@@ -35,7 +36,7 @@ fun CIntermediateCourse(): Stage {
                         status = LessonStatus.ACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c1_sub2",
+                        id = CIntermediateStageIds.lesson1_subs[0],
                         title = "Stay Inspired",
                         description = "Encouraging words to keep you motivated.",
                         contentBlocks = listOf(
