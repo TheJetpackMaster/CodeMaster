@@ -295,7 +295,7 @@ fun cppIntermediateCourse(): Stage {
 
                     // Content for Basic Loop Quiz
                     LessonContent(
-                        id = "beginner_cpp_loop_quiz",
+                        id = "intermediate_cpp2_sub6",
                         title = "Basic Loop Quiz 🧠",
                         description = "Test your knowledge of loops in C++.",
                         contentBlocks = listOf(
@@ -423,7 +423,7 @@ fun cppIntermediateCourse(): Stage {
 
                     // Content 4: Interactive Input Block
                     LessonContent(
-                        id = "beginner_cpp4_content4",
+                        id = "intermediate_cpp3_sub4",
                         title = "Complete the code",
                         description = "Ok so now try to complete the program.",
                         contentBlocks = listOf(
@@ -446,9 +446,9 @@ fun cppIntermediateCourse(): Stage {
                     ),
 
 
-                    // Sub-lesson 4: Practical Use of For Loops (Not Just Apologies!) 💡
+                    // Sub-lesson 5: Practical Use of For Loops (Not Just Apologies!) 💡
                     LessonContent(
-                        id = "intermediate_cpp3_sub4",
+                        id = "intermediate_cpp3_sub5",
                         title = "Practical Use of For Loops",
                         description = "You can use For loops for much more than just apologizing!",
                         contentBlocks = listOf(
@@ -476,9 +476,9 @@ fun cppIntermediateCourse(): Stage {
                         status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 5: Infinite Loops (Don’t Get Stuck!) ⚠️
+                    // Sub-lesson 6: Infinite Loops (Don’t Get Stuck!) ⚠️
                     LessonContent(
-                        id = "intermediate_cpp3_sub5",
+                        id = "intermediate_cpp3_sub6",
                         title = "Infinite Loops",
                         description = "Be careful, some loops can go on forever if you're not careful!",
                         contentBlocks = listOf(
@@ -509,7 +509,7 @@ fun cppIntermediateCourse(): Stage {
 
                     // Content for For Loop Quiz
                     LessonContent(
-                        id = "beginner_cpp_for_loop_quiz",
+                        id = "intermediate_cpp3_sub7",
                         title = "For Loop Quiz 🧠",
                         description = "Test your understanding of the basic `for` loop in C++.",
                         contentBlocks = listOf(
@@ -528,9 +528,9 @@ fun cppIntermediateCourse(): Stage {
                     ),
 
 
-                    // Sub-lesson 6: Optimizing Loops for Speed ⚡
+                    // Sub-lesson 9: Optimizing Loops for Speed ⚡
                     LessonContent(
-                        id = "intermediate_cpp3_sub6",
+                        id = "intermediate_cpp3_sub9",
                         title = "Optimizing Loops for Speed",
                         description = "You can make your loops faster with a few tricks.",
                         contentBlocks = listOf(
@@ -559,9 +559,9 @@ fun cppIntermediateCourse(): Stage {
                         status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 7: Looping Through Arrays 🌐
+                    // Sub-lesson 10: Looping Through Arrays 🌐
                     LessonContent(
-                        id = "intermediate_cpp3_sub7",
+                        id = "intermediate_cpp3_sub10",
                         title = "Looping Through Arrays",
                         description = "For loops are great for iterating over arrays!",
                         contentBlocks = listOf(
@@ -622,14 +622,14 @@ fun cppIntermediateCourse(): Stage {
 
             // Lesson 4 : While loops
             Lesson(
-                id = "intermediate_cpp_while",
+                id = "intermediate_cpp4",
                 title = "While Loops in C++",
                 description = "While Loops: The ultimate tool for endless repetition, without losing your mind!",
                 lessonContents = listOf(
 
                     // Sub-lesson 1: What is a While Loop?
                     LessonContent(
-                        id = "intermediate_cpp_while_sub1",
+                        id = "intermediate_cpp4_sub1",
                         title = "What is a While Loop?",
                         description = "Let’s introduce you to the While loop.",
                         contentBlocks = listOf(
@@ -652,7 +652,7 @@ fun cppIntermediateCourse(): Stage {
 
                     // Sub-lesson 2: Basic Syntax of a While Loop
                     LessonContent(
-                        id = "intermediate_cpp_while_sub2",
+                        id = "intermediate_cpp4_sub2",
                         title = "Basic Syntax of a While Loop",
                         description = "Here’s how to write a while loop in C++.",
                         contentBlocks = listOf(
@@ -678,7 +678,7 @@ fun cppIntermediateCourse(): Stage {
 
                     // Sub-lesson 3: Simple Practice Challenge!
                     LessonContent(
-                        id = "intermediate_cpp_while_sub_practice",
+                        id = "intermediate_cpp4_sub3",
                         title = "Time to Get Your Hands Dirty!",
                         description = "Don’t just scroll! Try writing a while loop that counts down from 10 to 1. Go on, it’s fun!",
                         contentBlocks = listOf(
@@ -695,7 +695,7 @@ fun cppIntermediateCourse(): Stage {
 
                     // Content 4: Interactive Input Block
                     LessonContent(
-                        id = "beginner_cpp4_content4",
+                        id = "intermediate_cpp4_sub4",
                         title = "Complete the code",
                         description = "Ok so now try to complete the program.",
                         contentBlocks = listOf(
@@ -719,9 +719,9 @@ fun cppIntermediateCourse(): Stage {
                         status = LessonStatus.ACTIVE
                     ),
 
-                    // Sub-lesson 4: The Infinite Loop Problem
+                    // Sub-lesson 5: The Infinite Loop Problem
                     LessonContent(
-                        id = "intermediate_cpp_while_sub4",
+                        id = "intermediate_cpp4_sub5",
                         title = "The Infinite Loop Problem",
                         description = "Watch out! A while loop can run forever if you don’t update the condition.",
                         contentBlocks = listOf(
@@ -750,9 +750,9 @@ fun cppIntermediateCourse(): Stage {
                         status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 5: Using While Loop for User Input
+                    // Sub-lesson 6: Using While Loop for User Input
                     LessonContent(
-                        id = "intermediate_cpp_while_sub5",
+                        id = "intermediate_cpp4_sub6",
                         title = "Using While Loop for User Input",
                         description = "While loops can be used for continuous user input.",
                         contentBlocks = listOf(
@@ -784,7 +784,7 @@ fun cppIntermediateCourse(): Stage {
 
                     // Content for Basic while Loop Quiz 1
                     LessonContent(
-                        id = "beginner_cpp_while_loop_quiz1",
+                        id = "intermediate_cpp4_sub7",
                         title = "Basic While Loop Quiz 🧠",
                         description = "Test your understanding of basic while loops in C++.",
                         contentBlocks = listOf(
@@ -801,9 +801,9 @@ fun cppIntermediateCourse(): Stage {
                         type = LessonContentType.QUIZ
                     ),
 
-                    // Sub-lesson 6: Using While Loop for Validation
+                    // Sub-lesson 8: Using While Loop for Validation
                     LessonContent(
-                        id = "intermediate_cpp_while_sub6",
+                        id = "intermediate_cpp4_sub8",
                         title = "Using While Loop for Validation",
                         description = "Let’s validate some user input using while loops.",
                         contentBlocks = listOf(
@@ -835,9 +835,9 @@ fun cppIntermediateCourse(): Stage {
                         status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 7: Exit Condition in While Loops
+                    // Sub-lesson 9: Exit Condition in While Loops
                     LessonContent(
-                        id = "intermediate_cpp_while_sub7",
+                        id = "intermediate_cpp4_sub9",
                         title = "Exit Condition in While Loops",
                         description = "While loops depend on a condition, and you can make that condition depend on multiple factors.",
                         contentBlocks = listOf(
@@ -869,7 +869,7 @@ fun cppIntermediateCourse(): Stage {
 
                     // Content for Infinite while Loop Quiz 2
                     LessonContent(
-                        id = "beginner_cpp_while_loop_quiz2",
+                        id = "intermediate_cpp4_sub10",
                         title = "Infinite While Loop Quiz 🧠",
                         description = "Test your knowledge about infinite while loops in C++.",
                         contentBlocks = listOf(
@@ -892,14 +892,14 @@ fun cppIntermediateCourse(): Stage {
 
             // Lesson 5: Understanding Do-While Loops
             Lesson(
-                id = "intermediate_cpp_do_while",
+                id = "intermediate_cpp5",
                 title = "Do-While Loops in C++",
                 description = "Do-While Loops: The loop that always runs at least once!",
                 lessonContents = listOf(
 
                     // Sub-lesson 1: What Does a Do-While Loop Do?
                     LessonContent(
-                        id = "intermediate_cpp_do_while_sub1",
+                        id = "intermediate_cpp5_sub1",
                         title = "What Does a Do-While Loop Do?",
                         description = "Let’s dive into how do-while works and where it can be super useful.",
                         contentBlocks = listOf(
@@ -922,7 +922,7 @@ fun cppIntermediateCourse(): Stage {
 
                     // Sub-lesson 2: Funny Example of Do-While Loop
                     LessonContent(
-                        id = "intermediate_cpp_do_while_sub2",
+                        id = "intermediate_cpp5_sub2",
                         title = "Funny Example of Do-While Loop",
                         description = "Here's a fun way to understand how a do-while loop works.",
                         contentBlocks = listOf(
@@ -955,7 +955,7 @@ fun cppIntermediateCourse(): Stage {
 
                     // Content for "Quiz Time!"
                     LessonContent(
-                        id = "beginner_cpp6_sub8",
+                        id = "intermediate_cpp5_sub3",
                         title = "Quiz Time! 🧠",
                         description = "Test your knowledge of the lesson.",
                         contentBlocks = listOf(
@@ -978,7 +978,7 @@ fun cppIntermediateCourse(): Stage {
 
                     // Sub-lesson 3: Basic Syntax of a Do-While Loop
                     LessonContent(
-                        id = "intermediate_cpp_do_while_sub3",
+                        id = "intermediate_cpp5_sub4",
                         title = "Basic Syntax of a Do-While Loop",
                         description = "Let’s break down the syntax of a do-while loop.",
                         contentBlocks = listOf(
@@ -1000,9 +1000,9 @@ fun cppIntermediateCourse(): Stage {
                         status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 4: Common Use Cases for Do-While Loops
+                    // Sub-lesson 5: Common Use Cases for Do-While Loops
                     LessonContent(
-                        id = "intermediate_cpp_do_while_sub4",
+                        id = "intermediate_cpp5_sub5",
                         title = "Common Use Cases for Do-While Loops",
                         description = "Where can you use a do-while loop?",
                         contentBlocks = listOf(
@@ -1024,9 +1024,9 @@ fun cppIntermediateCourse(): Stage {
                     ),
 
 
-                    // Sub-lesson 5: Do-While vs. While Loop (Quick Comparison)
+                    // Sub-lesson 6: Do-While vs. While Loop (Quick Comparison)
                     LessonContent(
-                        id = "intermediate_cpp_do_while_sub5",
+                        id = "intermediate_cpp5_sub6",
                         title = "Do-While vs. While Loop",
                         description = "Let’s compare the do-while loop with a regular while loop.",
                         contentBlocks = listOf(
@@ -1048,9 +1048,9 @@ fun cppIntermediateCourse(): Stage {
                     ),
 
 
-                    // Content 4: Interactive Input Block
+                    // Content 7: Interactive Input Block
                     LessonContent(
-                        id = "beginner_cpp4_content4",
+                        id = "intermediate_cpp5_sub7",
                         title = "Complete the code",
                         description = "Ok so now try to complete the program.",
                         contentBlocks = listOf(
@@ -1073,9 +1073,9 @@ fun cppIntermediateCourse(): Stage {
                         status = LessonStatus.ACTIVE
                     ),
 
-                    // Sub-lesson 6: Another Practical Example
+                    // Sub-lesson 8: Another Practical Example
                     LessonContent(
-                        id = "intermediate_cpp_do_while_sub6",
+                        id = "intermediate_cpp5_sub8",
                         title = "Another Practical Example",
                         description = "Here’s a practical use case for a do-while loop.",
                         contentBlocks = listOf(
@@ -1108,7 +1108,7 @@ fun cppIntermediateCourse(): Stage {
 
                     // Final Comparison: Do-While, While, and For Loops (2 Lines Each)
                     LessonContent(
-                        id = "intermediate_cpp_loops_final_comparison",
+                        id = "intermediate_cpp5_sub9",
                         title = "Do-While, While, and For Loops",
                         description = "Let’s summarize the differences in a quick comparison.",
                         contentBlocks = listOf(
@@ -1137,7 +1137,7 @@ fun cppIntermediateCourse(): Stage {
 
                     // Content for "Quiz Time: Do-While vs While"
                     LessonContent(
-                        id = "beginner_cpp6_sub9",
+                        id = "beginner_cpp5_sub10",
                         title = "Quiz Time: Do-While vs While 🧠",
                         description = "Test your understanding of the difference between 'while' and 'do-while' loops.",
                         contentBlocks = listOf(

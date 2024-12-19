@@ -667,7 +667,7 @@ int main () {
                         ),
                         type = LessonContentType.INTERACTIVE,
                         points = 20,
-                        status = LessonStatus.ACTIVE
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Content 5: Why Use Comments?
@@ -711,7 +711,7 @@ int main () {
                         ),
                         type = LessonContentType.INTERACTIVE,
                         points = 20,
-                        status = LessonStatus.ACTIVE
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Content 7: Commenting Best Practices
@@ -888,7 +888,7 @@ int main () {
                         ),
                         type = LessonContentType.INTERACTIVE,
                         points = 20,
-                        status = LessonStatus.ACTIVE
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Lesson Content 5: Printing Numbers
@@ -1197,7 +1197,7 @@ int main () {
                         ),
                         type = LessonContentType.INTERACTIVE,
                         points = 20,
-                        status = LessonStatus.ACTIVE
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Variable Types"
@@ -1433,7 +1433,7 @@ int main () {
                         ),
                         type = LessonContentType.INTERACTIVE,
                         points = 20,
-                        status = LessonStatus.ACTIVE
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Constants"
@@ -1640,7 +1640,7 @@ int main () {
                         ),
                         type = LessonContentType.INTERACTIVE,
                         points = 20,
-                        status = LessonStatus.ACTIVE
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Content for "Creating a Simple Calculator"
@@ -2069,7 +2069,7 @@ int main() {
                         ),
                         type = LessonContentType.INTERACTIVE,
                         points = 20,
-                        status = LessonStatus.ACTIVE
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Content for "User Input with Strings"
@@ -2434,7 +2434,7 @@ int main () {
                         ),
                         type = LessonContentType.INTERACTIVE,
                         points = 20,
-                        status = LessonStatus.ACTIVE
+                        status = LessonStatus.LOCKED
                     ),
 
 
@@ -2514,7 +2514,7 @@ int main () {
                             ),
                         ),
                         type = LessonContentType.QUIZ, points = 10,
-                        status = LessonStatus.ACTIVE
+                        status = LessonStatus.LOCKED
                     ),
 
 
@@ -2596,7 +2596,7 @@ int main() {
                         ),
                         type = LessonContentType.INTERACTIVE,
                         points = 20,
-                        status = LessonStatus.ACTIVE
+                        status = LessonStatus.LOCKED
                     ),
 
 
@@ -2810,7 +2810,7 @@ int main () {
                         ),
                         type = LessonContentType.INTERACTIVE,
                         points = 20,
-                        status = LessonStatus.ACTIVE
+                        status = LessonStatus.LOCKED
                     ),
 
                     //Content
@@ -3020,7 +3020,7 @@ int main() {
                         ),
                         type = LessonContentType.INTERACTIVE,
                         points = 20,
-                        status = LessonStatus.ACTIVE
+                        status = LessonStatus.LOCKED
                     ),
 
 
@@ -3232,7 +3232,7 @@ switch (number) {
                         ),
                         type = LessonContentType.INTERACTIVE,
                         points = 20,
-                        status = LessonStatus.ACTIVE
+                        status = LessonStatus.LOCKED
                     ),
 
 
@@ -3364,7 +3364,7 @@ switch (number) {
                 status = LessonStatus.LOCKED
             ),
 
-            // Final Quiz Lesson for Beginner C++ Stage
+            //16 Final Quiz Lesson for Beginner C++ Stage
             Lesson(
                 id = "beginner_cpp16",
                 title = "C++ Final Quiz - Beginner Level",
