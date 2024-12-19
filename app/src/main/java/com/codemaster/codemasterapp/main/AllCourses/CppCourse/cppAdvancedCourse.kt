@@ -1363,7 +1363,7 @@ int main() {
 
                     // Sub-lesson 1: Introduction to Setters and Getters
                     LessonContent(
-                        id = "cpp_setters_getters_1_sub1",
+                        id = "advanced_cpp7_sub1",
                         title = "What Are Setters and Getters?",
                         description = "Setters and getters provide controlled access to private members.",
                         contentBlocks = listOf(
@@ -1386,7 +1386,7 @@ int main() {
 
                     // Content for "Quiz Time!"
                     LessonContent(
-                        id = "beginner_cpp6_sub8",
+                        id = "advanced_cpp7_sub2",
                         title = "Quiz Time! 🧠",
                         description = "Test your knowledge of lesson.",
                         contentBlocks = listOf(
@@ -1407,9 +1407,9 @@ int main() {
                     ),
 
 
-                    // Sub-lesson 2: Using Setters and Getters
+                    // Sub-lesson 3: Using Setters and Getters
                     LessonContent(
-                        id = "cpp_setters_getters_1_sub2",
+                        id = "advanced_cpp7_sub3",
                         title = "Using Setters and Getters in C++",
                         description = "Learn how to define and use setter and getter methods in C++.",
                         contentBlocks = listOf(
@@ -1456,9 +1456,9 @@ int main() {
                        status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 3: Why Use Setters and Getters?
+                    // Sub-lesson 4: Why Use Setters and Getters?
                     LessonContent(
-                        id = "cpp_setters_getters_1_sub3",
+                        id = "advanced_cpp7_sub4",
                         title = "Why Use Setters and Getters?",
                         description = "Understand why setters and getters are important for data validation and encapsulation.",
                         contentBlocks = listOf(
@@ -1515,9 +1515,9 @@ int main() {
                        status = LessonStatus.LOCKED
                     ),
 
-                    // Content 4: Interactive Input Block
+                    // Content 5: Interactive Input Block
                     LessonContent(
-                        id = "beginner_cpp4_content4",
+                        id = "advanced_cpp7_sub5",
                         title = "Complete the code",
                         description = "Ok so now try to complete the program.",
                         contentBlocks = listOf(
@@ -1545,9 +1545,9 @@ public:
                     ),
 
 
-                    // Sub-lesson 4: Best Practices for Setters and Getters
+                    // Sub-lesson 6: Best Practices for Setters and Getters
                     LessonContent(
-                        id = "cpp_setters_getters_1_sub4",
+                        id = "advanced_cpp7_sub6",
                         title = "Best Practices for Setters and Getters",
                         description = "Learn the best practices when using setters and getters.",
                         contentBlocks = listOf(
@@ -1568,9 +1568,9 @@ public:
                        status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 6: Correct Structure with Access Specifiers
+                    // Sub-lesson 7: Correct Structure with Access Specifiers
                     LessonContent(
-                        id = "cpp_access_specifiers_1_sub6",
+                        id = "advanced_cpp7_sub7",
                         title = "Correct Structure of Class",
                         description = "A good practice is to make data members private and methods public. This encapsulates the data and ensures it is accessed through the classs public interface.",
                         contentBlocks = listOf(
@@ -1608,9 +1608,9 @@ int main() {
                        status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 7: Quick Practice
+                    // Sub-lesson 8: Quick Practice
                     LessonContent(
-                        id = "cpp_access_specifiers_1_sub7",
+                        id = "advanced_cpp7_sub8",
                         title = "Quick Practice!",
                         description = "Time to experiment with access specifiers! Can you mix public, private, and protected in one class?",
                         contentBlocks = listOf(
@@ -1638,7 +1638,7 @@ int main() {
 
                     // Sub-lesson 1: What is Inheritance?
                     LessonContent(
-                        id = "cpp_inheritance_intro_sub1",
+                        id = "advanced_cpp8_sub1",
                         title = "What is Inheritance?",
                         description = "Inheritance allows one class to inherit properties and behaviors (methods) from another class. Think of it like family: if youre born into a family, you inherit some of their traits.",
                         contentBlocks = listOf(
@@ -1661,7 +1661,7 @@ int main() {
 
                     // Sub-lesson 2: Why is Inheritance Important?
                     LessonContent(
-                        id = "cpp_inheritance_intro_sub2",
+                        id = "advanced_cpp8_sub2",
                         title = "Why Inheritance is Important?",
                         description = "Inheritance helps to reuse code, reduce redundancy, and make code easier to maintain.",
                         contentBlocks = listOf(
@@ -1684,7 +1684,7 @@ int main() {
 
                     // Content for "Quiz Time!"
                     LessonContent(
-                        id = "beginner_cpp6_sub8",
+                        id = "advanced_cpp8_sub3",
                         title = "Quiz Time! 🧠",
                         description = "Test your knowledge of lesson.",
                         contentBlocks = listOf(
@@ -1704,9 +1704,9 @@ int main() {
                         type = LessonContentType.QUIZ
                     ),
 
-                    // Sub-lesson 3: Basic Structure of Inheritance (without members yet)
+                    // Sub-lesson 4: Basic Structure of Inheritance (without members yet)
                     LessonContent(
-                        id = "cpp_inheritance_intro_sub3",
+                        id = "advanced_cpp8_sub4",
                         title = "Basic Structure of Inheritance",
                         description = "Let’s start with the basic structure of inheritance in C++. We’ll create two classes: a base class and a derived class.",
                         contentBlocks = listOf(
@@ -1744,9 +1744,9 @@ class Car : public Vehicle {
                        status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 4: Inheritance with Members and Methods
+                    // Sub-lesson 5: Inheritance with Members and Methods
                     LessonContent(
-                        id = "cpp_inheritance_intro_sub4",
+                        id = "advanced_cpp8_sub5",
                         title = "Inheritance with Members and Methods",
                         description = "Now, let’s add some members and methods to the classes and see how inheritance works with attributes.",
                         contentBlocks = listOf(
@@ -1793,9 +1793,9 @@ int main() {
                        status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 5: Constructors and Using Them in Inheritance
+                    // Sub-lesson 8: Constructors and Using Them in Inheritance
                     LessonContent(
-                        id = "cpp_inheritance_intro_sub5",
+                        id = "advanced_cpp8_sub6",
                         title = "Constructors and Using Them in Inheritance",
                         description = "Lets learn how to use constructors with inheritance. Well create a constructor in the parent class and see how it affects the child class.",
                         contentBlocks = listOf(
@@ -1861,9 +1861,9 @@ int main() {
                     ),
 
 
-                    // Content 4: Interactive Input Block
+                    // Content 7: Interactive Input Block
                     LessonContent(
-                        id = "beginner_cpp4_content4",
+                        id = "advanced_cpp8_sub7",
                         title = "Complete the code",
                         description = "Ok so now try to complete the program.",
                         contentBlocks = listOf(
@@ -1896,9 +1896,9 @@ class Car ___ public Vehicle {
                     ),
 
 
-                    // Sub-lesson 6: Practice
+                    // Sub-lesson 8: Practice
                     LessonContent(
-                        id = "cpp_inheritance_intro_sub6",
+                        id = "advanced_cpp8_sub8",
                         title = "Practice",
                         description = "Try creating your own classes and use inheritance with constructors. Experiment with access modifiers and creating objects from derived classes.",
                         contentBlocks = listOf(
@@ -1932,7 +1932,7 @@ class Car ___ public Vehicle {
 
                     // Sub-lesson 1: What is Multilevel Inheritance?
                     LessonContent(
-                        id = "cpp_multilevel_inheritance_sub1",
+                        id = "advanced_cpp9_sub1",
                         title = "What is Multilevel Inheritance?",
                         description = "Multilevel inheritance allows one class to inherit from another class, which has already inherited from a third class. Its like passing down traits from one generation to another.",
                         contentBlocks = listOf(
@@ -1955,7 +1955,7 @@ class Car ___ public Vehicle {
 
                     // Sub-lesson 2: How Multilevel Inheritance Works
                     LessonContent(
-                        id = "cpp_multilevel_inheritance_sub2",
+                        id = "advanced_cpp9_sub2",
                         title = "How Multilevel Inheritance Works",
                         description = "Lets see how classes can inherit properties and behaviors from more than one class.",
                         contentBlocks = listOf(
@@ -2013,7 +2013,7 @@ int main() {
 
                     // Sub-lesson 3: Why Use Multilevel Inheritance?
                     LessonContent(
-                        id = "cpp_multilevel_inheritance_sub3",
+                        id = "advanced_cpp9_sub3",
                         title = "Why Use Multilevel Inheritance?",
                         description = "Multilevel inheritance helps organize classes into a hierarchy, making code more manageable and easier to understand.",
                         contentBlocks = listOf(
@@ -2040,7 +2040,7 @@ int main() {
 
                     // Sub-lesson 4: When Not to Use Multilevel Inheritance
                     LessonContent(
-                        id = "cpp_multilevel_inheritance_sub4",
+                        id = "advanced_cpp9_sub4",
                         title = "When Not to Use Multilevel Inheritance",
                         description = "While multilevel inheritance can be useful, there are cases when its better to avoid it. Lets explore those.",
                         contentBlocks = listOf(
@@ -2067,7 +2067,7 @@ int main() {
 
                     // Content for "Quiz Time!"
                     LessonContent(
-                        id = "beginner_cpp6_sub8",
+                        id = "advanced_cpp9_sub5",
                         title = "Quiz Time! 🧠",
                         description = "Test your knowledge of lesson.",
                         contentBlocks = listOf(
@@ -2087,9 +2087,9 @@ int main() {
                         type = LessonContentType.QUIZ
                     ),
 
-                    // Sub-lesson 5: Practice Exercise
+                    // Sub-lesson 6: Practice Exercise
                     LessonContent(
-                        id = "cpp_multilevel_inheritance_sub5",
+                        id = "advanced_cpp9_sub6",
                         title = "Practice Exercise",
                         description = "Now its your turn! Try creating a multilevel inheritance structure with your own classes.",
                         contentBlocks = listOf(
