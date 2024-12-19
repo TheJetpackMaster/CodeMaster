@@ -153,14 +153,14 @@ fun cppExpertCourse(): Stage {
 
             // Lesson 2 : Easy Peasy - Problems
             Lesson(
-                id = "easy_peasy_math1",
+                id = "expert_cpp2",
                 title = "Easy Peasy - Problems",
                 description = "Let's practice basic math problems! We will start with simple addition and percentage calculation.",
                 lessonContents = listOf(
 
                     // Sub-lesson 1: Problem 1 - Add Two Numbers and Print the Sum
                     LessonContent(
-                        id = "easy_peasy_math1_sub1",
+                        id = "expert_cpp2_sub1",
                         title = "Add Two Numbers and Print the Sum",
                         description = "Create a program that adds two numbers and prints the result.",
                         contentBlocks = listOf(
@@ -183,7 +183,7 @@ fun cppExpertCourse(): Stage {
 
                     // Sub-lesson 2: Hint for Solving Problem 1
                     LessonContent(
-                        id = "easy_peasy_math1_sub2",
+                        id = "expert_cpp2_sub2",
                         title = "Hint",
                         description = "How to approach the problem.",
                         contentBlocks = listOf(
@@ -200,7 +200,7 @@ fun cppExpertCourse(): Stage {
 
                     // Sub-lesson 3: Solution for Problem 1
                     LessonContent(
-                        id = "easy_peasy_math1_sub3",
+                        id = "expert_cpp2_sub3",
                         title = "Solution",
                         description = "Here’s the solution for adding two numbers.",
                         contentBlocks = listOf(
@@ -230,7 +230,7 @@ fun cppExpertCourse(): Stage {
 
                     // Sub-lesson 4: Explanation of the Code for Problem
                     LessonContent(
-                        id = "easy_peasy_math1_sub4",
+                        id = "expert_cpp2_sub4",
                         title = "Explanation of the Code",
                         description = "Let’s understand the solution code.",
                         contentBlocks = listOf(
@@ -253,7 +253,7 @@ fun cppExpertCourse(): Stage {
 
                     // Content for "Quiz Time!"
                     LessonContent(
-                        id = "beginner_cpp6_sub8",
+                        id = "expert_cpp2_sub5",
                         title = "Quiz Time! 🧠",
                         description = "Test your knowledge of lesson.",
                         contentBlocks = listOf(
@@ -276,7 +276,7 @@ fun cppExpertCourse(): Stage {
 
                     // Sub-lesson 5: Problem 2 - Calculate Percentage
                     LessonContent(
-                        id = "easy_peasy_math1_sub5",
+                        id = "expert_cpp2_sub6",
                         title = "Calculate Percentage",
                         description = "Now, let’s calculate the percentage of a number.",
                         contentBlocks = listOf(
@@ -298,9 +298,9 @@ fun cppExpertCourse(): Stage {
                        status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 6: Hint for Solving Problem 2
+                    // Sub-lesson 7: Hint for Solving Problem 2
                     LessonContent(
-                        id = "easy_peasy_math1_sub6",
+                        id = "expert_cpp2_sub7",
                         title = "Hint",
                         description = "Approach to calculate the percentage.",
                         contentBlocks = listOf(
@@ -315,9 +315,9 @@ fun cppExpertCourse(): Stage {
                        status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 7: Solution for Problem 2
+                    // Sub-lesson 8: Solution for Problem 2
                     LessonContent(
-                        id = "easy_peasy_math1_sub7",
+                        id = "expert_cpp2_sub8",
                         title = "Solution",
                         description = "Here’s the solution for calculating the percentage.",
                         contentBlocks = listOf(
@@ -346,9 +346,9 @@ fun cppExpertCourse(): Stage {
                        status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 8: Explanation of the Code for Problem 2
+                    // Sub-lesson 9: Explanation of the Code for Problem 2
                     LessonContent(
-                        id = "easy_peasy_math1_sub8",
+                        id = "expert_cpp2_sub9",
                         title = "Explanation of the Code",
                         description = "Let’s break down the code for calculating the percentage.",
                         contentBlocks = listOf(
@@ -373,9 +373,9 @@ fun cppExpertCourse(): Stage {
                     ),
 
 
-                    // Sub-lesson 9: Quiz Time!
+                    // Sub-lesson 10: Quiz Time!
                     LessonContent(
-                        id = "easy_peasy_math1_sub9",
+                        id = "expert_cpp2_sub10",
                         title = "Quiz Time! 🧠",
                         description = "Test your knowledge of the problems.",
                         contentBlocks = listOf(
@@ -398,7 +398,7 @@ fun cppExpertCourse(): Stage {
 
 
                     LessonContent(
-                        id = "easy_peasy_math1_practice",
+                        id = "expert_cpp2_sub11",
                         title = "Practice Time!",
                         description = "Now it’s time to practice! The more you solve, the better you get!",
                         contentBlocks = listOf(
@@ -431,13 +431,13 @@ fun cppExpertCourse(): Stage {
 
             // Lesson 3 : THE MATH
             Lesson(
-                id = "intermediate_math1",
+                id = "expert_cpp3",
                 title = "THE MATH",
                 description = "Let’s work on some more math problems! In this lesson, you’ll learn how to check if a number is even or odd, and calculate the average of three numbers.",
                 lessonContents = listOf(
                     // Sub-lesson 1: Problem 1 - Check if a Number is Even or Odd
                     LessonContent(
-                        id = "intermediate_math1_sub1",
+                        id = "expert_cpp3_sub1",
                         title = "is Even or Odd",
                         description = "Write a program to check whether a given number is even or odd.",
                         contentBlocks = listOf(
@@ -460,7 +460,7 @@ fun cppExpertCourse(): Stage {
 
                     // Sub-lesson 2: Hint for Solving Problem 1
                     LessonContent(
-                        id = "intermediate_math1_sub2",
+                        id = "expert_cpp3_sub2",
                         title = "Hint",
                         description = "Here’s a hint for solving the even/odd problem.",
                         contentBlocks = listOf(
@@ -477,7 +477,7 @@ fun cppExpertCourse(): Stage {
 
                     // Sub-lesson 3: Solution for Problem 1
                     LessonContent(
-                        id = "intermediate_math1_sub3",
+                        id = "expert_cpp3_sub3",
                         title = "Solution",
                         description = "Here’s the solution for checking even or odd.",
                         contentBlocks = listOf(
@@ -507,7 +507,7 @@ fun cppExpertCourse(): Stage {
 
                     // Sub-lesson 4: Explanation of the Code for Problem 1
                     LessonContent(
-                        id = "intermediate_math1_sub4",
+                        id = "expert_cpp3_sub4",
                         title = "Explanation of the Code",
                         description = "Let’s break down the solution for checking even or odd.",
                         contentBlocks = listOf(
@@ -530,7 +530,7 @@ fun cppExpertCourse(): Stage {
 
                     // Sub-lesson 5: Quiz Time!
                     LessonContent(
-                        id = "intermediate_math1_sub5",
+                        id = "expert_cpp3_sub5",
                         title = "Quiz Time! 🧠",
                         description = "Test your knowledge about checking even or odd.",
                         contentBlocks = listOf(
@@ -553,7 +553,7 @@ fun cppExpertCourse(): Stage {
 
                     // Sub-lesson 6: Problem 2 - Calculate the Average of Three Numbers
                     LessonContent(
-                        id = "intermediate_math1_sub6",
+                        id = "expert_cpp3_sub6",
                         title = "Calculate the Average of Three Numbers",
                         description = "Create a program that calculates the average of three numbers.",
                         contentBlocks = listOf(
@@ -580,7 +580,7 @@ fun cppExpertCourse(): Stage {
 
                     // Sub-lesson 7: Hint for Solving Problem 2
                     LessonContent(
-                        id = "intermediate_math1_sub7",
+                        id = "expert_cpp3_sub7",
                         title = "Hint",
                         description = "Here’s a hint for calculating the average.",
                         contentBlocks = listOf(
@@ -597,7 +597,7 @@ fun cppExpertCourse(): Stage {
 
                     // Sub-lesson 8: Solution for Problem 2
                     LessonContent(
-                        id = "intermediate_math1_sub8",
+                        id = "expert_cpp3_sub8",
                         title = "Solution",
                         description = "Here’s the solution for calculating the average.",
                         contentBlocks = listOf(
@@ -626,7 +626,7 @@ fun cppExpertCourse(): Stage {
 
                     // Sub-lesson 9: Explanation of the Code for Problem 2
                     LessonContent(
-                        id = "intermediate_math1_sub9",
+                        id = "expert_cpp3_sub9",
                         title = "Explanation of the Code",
                         description = "Let’s understand how the average is calculated in the solution.",
                         contentBlocks = listOf(
@@ -649,7 +649,7 @@ fun cppExpertCourse(): Stage {
 
                     // Sub-lesson 10: Quiz Time!
                     LessonContent(
-                        id = "intermediate_math1_sub10",
+                        id = "expert_cpp3_sub10",
                         title = "Quiz Time! 🧠",
                         description = "Test your knowledge of calculating averages.",
                         contentBlocks = listOf(
@@ -672,7 +672,7 @@ fun cppExpertCourse(): Stage {
 
                     // Sub-lesson 11: Practice Time!
                     LessonContent(
-                        id = "intermediate_math1_practice",
+                        id = "expert_cpp3_sub11",
                         title = "Practice Time!",
                         description = "Practice solving problems to solidify your skills!",
                         contentBlocks = listOf(
