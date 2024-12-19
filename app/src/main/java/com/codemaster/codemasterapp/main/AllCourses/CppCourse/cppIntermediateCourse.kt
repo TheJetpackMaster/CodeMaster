@@ -442,7 +442,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.INTERACTIVE,
-                        status = LessonStatus.ACTIVE
+                        status = LessonStatus.LOCKED
                     ),
 
 
@@ -716,7 +716,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.INTERACTIVE,
-                        status = LessonStatus.ACTIVE
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 5: The Infinite Loop Problem
@@ -1070,7 +1070,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.INTERACTIVE,
-                        status = LessonStatus.ACTIVE
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 8: Another Practical Example
@@ -1389,7 +1389,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.INTERACTIVE,
-                        status = LessonStatus.ACTIVE
+                        status = LessonStatus.LOCKED
                     ),
 
 
@@ -1476,7 +1476,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.INTERACTIVE,
-                        status = LessonStatus.ACTIVE
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 7: When to Use Break and Continue
@@ -1687,7 +1687,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.INTERACTIVE,
-                        status = LessonStatus.ACTIVE
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 5: Modifying Array Elements
@@ -1797,7 +1797,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.INTERACTIVE,
-                        status = LessonStatus.ACTIVE
+                        status = LessonStatus.LOCKED
                     ),
                 ),
                 status = LessonStatus.LOCKED
@@ -1965,7 +1965,7 @@ fun cppIntermediateCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.INTERACTIVE,
-                        status = LessonStatus.ACTIVE
+                        status = LessonStatus.LOCKED
                     ),
 
 
@@ -2306,7 +2306,7 @@ int main () {
                             )
                         ),
                         type = LessonContentType.INTERACTIVE,
-                        status = LessonStatus.ACTIVE
+                        status = LessonStatus.LOCKED
                     ),
 
 
@@ -2690,7 +2690,7 @@ int main () {
                             )
                         ),
                         type = LessonContentType.INTERACTIVE,
-                        status = LessonStatus.ACTIVE
+                        status = LessonStatus.LOCKED
                     ),
 
 
@@ -2923,7 +2923,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.INTERACTIVE,
-                        status = LessonStatus.ACTIVE
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 5: What is a Memory Address?
@@ -3121,7 +3121,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.INTERACTIVE,
-                        status = LessonStatus.ACTIVE
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 4: Benefits of Pointers
@@ -3414,7 +3414,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.INTERACTIVE,
-                        status = LessonStatus.ACTIVE
+                        status = LessonStatus.LOCKED
                     ),
 
 
@@ -3677,7 +3677,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.INTERACTIVE,
-                        status = LessonStatus.ACTIVE
+                        status = LessonStatus.LOCKED
                     ),
 
 
@@ -3921,7 +3921,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.INTERACTIVE,
-                        status = LessonStatus.ACTIVE
+                        status = LessonStatus.LOCKED
                     ),
 
                     // Sub-lesson 3: Storing Return Values in Variables
