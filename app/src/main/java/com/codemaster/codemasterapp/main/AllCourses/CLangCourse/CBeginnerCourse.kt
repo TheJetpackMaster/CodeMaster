@@ -686,7 +686,7 @@ int main() {
                     ),
 
                     LessonContent(
-                        id = "beginner_c4_sub7",
+                        id = CBeginnerStageIds.lesson4_subs[7],
                         title = "Formatting Output",
                         description = "Learn to refine the layout of your output with advanced format specifiers.",
                         contentBlocks = listOf(
@@ -706,12 +706,12 @@ int main() {
 
             // lesson 5
             Lesson(
-                id = "beginner_c5",
+                id = CBeginnerStageIds.lesson5,
                 title = "C Comments",
                 description = "Master how to use comments in C for better code readability and documentation!",
                 lessonContents = listOf(
                     LessonContent(
-                        id = "beginner_c5_sub1",
+                        id = CBeginnerStageIds.lesson5_subs[0],
                         title = "Introduction to Comments",
                         description = "Understanding comments and their importance in code.",
                         contentBlocks = listOf(
@@ -722,7 +722,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "beginner_c5_sub2",
+                        id = CBeginnerStageIds.lesson5_subs[1],
                         title = "Single-Line Comments",
                         description = "How to use single-line comments in C.",
                         contentBlocks = listOf(
@@ -749,7 +749,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "beginner_c5_sub3",
+                        id = CBeginnerStageIds.lesson5_subs[3],
                         title = "Interactive: Add a Single-Line Comment",
                         description = "Add a single-line comment in the code.",
                         contentBlocks = listOf(
@@ -772,7 +772,7 @@ int main() {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "beginner_c5_sub4",
+                        id = CBeginnerStageIds.lesson5_subs[4],
                         title = "Multi-Line Comments",
                         description = "How to use multi-line comments in C.",
                         contentBlocks = listOf(
