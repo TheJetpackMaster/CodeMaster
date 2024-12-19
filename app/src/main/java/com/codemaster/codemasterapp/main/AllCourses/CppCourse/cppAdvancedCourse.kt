@@ -804,7 +804,7 @@ int main() {
 
                     // Sub-lesson 1: What is a Constructor?
                     LessonContent(
-                        id = "cpp_constructors_1_sub1",
+                        id = "advanced_cpp5_sub1",
                         title = "What is a Constructor?",
                         description = "Understand constructors as the auto-setup tools for your objects.",
                         contentBlocks = listOf(
@@ -830,7 +830,7 @@ int main() {
 
                     // Sub-lesson 2: Creating a Constructor
                     LessonContent(
-                        id = "cpp_constructors_1_sub2",
+                        id = "advanced_cpp5_sub2",
                         title = "Creating a Constructor",
                         description = "Learn how to define and use a simple constructor.",
                         contentBlocks = listOf(
@@ -869,7 +869,7 @@ int main() {
 
                     // Sub-lesson 3: Parameterized Constructors
                     LessonContent(
-                        id = "cpp_constructors_1_sub3",
+                        id = "advanced_cpp5_sub3",
                         title = "Parameterized Constructors",
                         description = "Discover how to pass values to constructors during object creation.",
                         contentBlocks = listOf(
@@ -907,7 +907,7 @@ int main() {
 
                     // Content 4: Interactive Input Block
                     LessonContent(
-                        id = "beginner_cpp4_content4",
+                        id = "advanced_cpp5_sub4",
                         title = "Complete the code",
                         description = "Ok so now try to complete the program.",
                         contentBlocks = listOf(
@@ -937,9 +937,9 @@ int main() {
                     ),
 
 
-                    // Sub-lesson 4: Initializing Member Variables with Constructors
+                    // Sub-lesson 5: Initializing Member Variables with Constructors
                     LessonContent(
-                        id = "cpp_constructors_1_sub4",
+                        id = "advanced_cpp5_sub5",
                         title = "Initializing Member Variables with Constructors",
                         description = "Learn how to initialize member variables directly using constructors.",
                         contentBlocks = listOf(
@@ -976,9 +976,9 @@ int main() {
                        status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 5: Using Multiple Constructors
+                    // Sub-lesson 6: Using Multiple Constructors
                     LessonContent(
-                        id = "cpp_constructors_1_sub5",
+                        id = "advanced_cpp5_sub6",
                         title = "Using Multiple Constructors",
                         description = "Learn how to create multiple constructors to handle different object initialization scenarios.",
                         contentBlocks = listOf(
@@ -1027,9 +1027,9 @@ int main() {
                        status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 6: Why Use Multiple Constructors?
+                    // Sub-lesson 7: Why Use Multiple Constructors?
                     LessonContent(
-                        id = "cpp_constructors_1_sub6",
+                        id = "advanced_cpp5_sub7",
                         title = "Why Use Multiple Constructors?",
                         description = "Understand why constructor overloading is useful in real-world scenarios.",
                         contentBlocks = listOf(
@@ -1053,9 +1053,9 @@ int main() {
                        status = LessonStatus.LOCKED
                     ),
 
-                    // Content for "Quiz Time!"
+                    // Content 8 :"Quiz Time!"
                     LessonContent(
-                        id = "beginner_cpp6_sub9",
+                        id = "advanced_cpp5_sub8",
                         title = "Quiz Time! 🧠",
                         description = "Test your knowledge of constructors in C++.",
                         contentBlocks = listOf(
@@ -1076,9 +1076,9 @@ int main() {
                     ),
 
 
-                    // Sub-lesson 7: Practice and Explore
+                    // Sub-lesson 9: Practice and Explore
                     LessonContent(
-                        id = "cpp_constructors_1_sub7",
+                        id = "advanced_cpp5_sub9",
                         title = "Practice and Explore!",
                         description = "Experiment with constructors to understand them better!",
                         contentBlocks = listOf(
