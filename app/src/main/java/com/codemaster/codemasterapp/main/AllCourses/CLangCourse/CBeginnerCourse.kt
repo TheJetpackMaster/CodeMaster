@@ -29,7 +29,7 @@ fun CBeginnerCourse(): Stage {
                 description = "In this lesson, we’ll cover the basics of programming, exploring the origins, purpose, and structure of the C language.",
                 lessonContents = listOf(
                     LessonContent(
-                        id = CBeginnerStageIds.lesson1_subs[1],
+                        id = CBeginnerStageIds.lesson1_subs[0],
                         title = "What is Programming?",
                         description = "Understand programming, why it matters, and how it lets computers execute your instructions.",
                         contentBlocks = listOf(
@@ -46,7 +46,7 @@ fun CBeginnerCourse(): Stage {
                         status = LessonStatus.ACTIVE
                     ),
                     LessonContent(
-                        id = CBeginnerStageIds.lesson1_subs[2],
+                        id = CBeginnerStageIds.lesson1_subs[1],
                         title = "Understanding Code and How It Works",
                         description = "Peek behind the scenes to see how code tells computers what to do.",
                         contentBlocks = listOf(
@@ -63,7 +63,7 @@ fun CBeginnerCourse(): Stage {
                         status = LessonStatus.LOCKED
                     ),
                     LessonContent(
-                        id = CBeginnerStageIds.lesson1_subs[3],
+                        id = CBeginnerStageIds.lesson1_subs[2],
                         title = "Introduction to the C Language",
                         description = "Meet C: the foundation of many modern programming languages.",
                         contentBlocks = listOf(
@@ -80,7 +80,7 @@ fun CBeginnerCourse(): Stage {
                         status = LessonStatus.LOCKED
                     ),
                     LessonContent(
-                        id = CBeginnerStageIds.lesson1_subs[4],
+                        id = CBeginnerStageIds.lesson1_subs[3],
                         title = "Applications of C Programming",
                         description = "Discover where C is used in real-world scenarios like operating systems and embedded systems.",
                         contentBlocks = listOf(
@@ -97,7 +97,7 @@ fun CBeginnerCourse(): Stage {
                         status = LessonStatus.LOCKED
                     ),
                     LessonContent(
-                        id = CBeginnerStageIds.lesson1_subs[5],
+                        id = CBeginnerStageIds.lesson1_subs[4],
                         title = "Why Learn C?",
                         description = "Explore the benefits of learning C, including its role as a foundation for other programming languages.",
                         contentBlocks = listOf(
@@ -114,7 +114,7 @@ fun CBeginnerCourse(): Stage {
                         status = LessonStatus.LOCKED
                     ),
                     LessonContent(
-                        id = CBeginnerStageIds.lesson1_subs[6],
+                        id = CBeginnerStageIds.lesson1_subs[5],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -135,7 +135,7 @@ fun CBeginnerCourse(): Stage {
                         status = LessonStatus.LOCKED
                     ),
                     LessonContent(
-                        id = CBeginnerStageIds.lesson1_subs[7],
+                        id = CBeginnerStageIds.lesson1_subs[6],
                         title = "What’s Next?",
                         description = "Preview the journey ahead as we dive into loops, arrays, and advanced concepts.",
                         contentBlocks = listOf(
@@ -157,7 +157,7 @@ fun CBeginnerCourse(): Stage {
                 description = "In this lesson, we focus on developing the right mindset to succeed in programming. Programming is more than just writing code—it's about resilience, learning from mistakes, and pushing through challenges. Let's cultivate a growth mindset to become a successful programmer.",
                 lessonContents = listOf(
                     LessonContent(
-                        id = CBeginnerStageIds.lesson2_subs[1],
+                        id = CBeginnerStageIds.lesson2_subs[0],
                         title = "The Power of Persistence",
                         description = "In programming, persistence is key. Even the best programmers encounter errors and roadblocks, but they don't give up. They debug, retry, and learn from mistakes. The more you practice, the more you improve.",
                         contentBlocks = listOf(
@@ -167,7 +167,7 @@ fun CBeginnerCourse(): Stage {
                         status = LessonStatus.LOCKED
                     ),
                     LessonContent(
-                        id = CBeginnerStageIds.lesson2_subs[2],
+                        id = CBeginnerStageIds.lesson2_subs[1],
                         title = "Building Consistency",
                         description = "Success in programming isn't about working long hours in a single stretch. It's about consistent, focused effort. Try to code every day, even if it's just for 30 minutes. Small, consistent steps lead to big progress over time.",
                         contentBlocks = listOf(
@@ -177,7 +177,7 @@ fun CBeginnerCourse(): Stage {
                         status = LessonStatus.LOCKED
                     ),
                     LessonContent(
-                        id = CBeginnerStageIds.lesson2_subs[3],
+                        id = CBeginnerStageIds.lesson2_subs[2],
                         title = "Setting Realistic Goals",
                         description = "When you're starting out, it can be tempting to aim for huge projects. But success comes from breaking down your learning into small, manageable chunks. Set goals that are achievable, and celebrate your progress along the way.",
                         contentBlocks = listOf(
@@ -187,7 +187,7 @@ fun CBeginnerCourse(): Stage {
                         status = LessonStatus.LOCKED
                     ),
                     LessonContent(
-                        id = CBeginnerStageIds.lesson2_subs[4],
+                        id = CBeginnerStageIds.lesson2_subs[3],
                         title = "Learning from Challenges",
                         description = "The best programmers are those who embrace challenges. Rather than feeling frustrated when things go wrong, look at challenges as opportunities to learn something new.",
                         contentBlocks = listOf(
@@ -197,7 +197,7 @@ fun CBeginnerCourse(): Stage {
                         status = LessonStatus.LOCKED
                     ),
                     LessonContent(
-                        id = CBeginnerStageIds.lesson2_subs[5],
+                        id = CBeginnerStageIds.lesson2_subs[4],
                         title = "Staying Motivated Over Time",
                         description = "Programming can be difficult, and it's easy to feel discouraged. But with the right mindset, you can keep going. Set small milestones, find a programming community to support you, and remember that every line of code is progress.",
                         contentBlocks = listOf(
@@ -217,7 +217,7 @@ fun CBeginnerCourse(): Stage {
                 description = "Master the rules of C and write error-free code that won't make your robot self-destruct.",
                 lessonContents = listOf(
                     LessonContent(
-                        id = CBeginnerStageIds.lesson3_subs[1],
+                        id = CBeginnerStageIds.lesson3_subs[0],
                         title = "What is Syntax in C?",
                         description = "Discover the basic rules for writing C programs, which define the structure and format of the code.",
                         contentBlocks = listOf(
@@ -254,7 +254,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = CBeginnerStageIds.lesson3_subs[2],
+                        id = CBeginnerStageIds.lesson3_subs[1],
                         title = "Core Elements of Syntax",
                         description = "Understand the building blocks of C syntax.",
                         contentBlocks = listOf(
@@ -294,7 +294,7 @@ printf("Sum: %d\\n", sum);
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = CBeginnerStageIds.lesson3_subs[3],
+                        id = CBeginnerStageIds.lesson3_subs[2],
                         title = "Quiz",
                         description = "Test your knowledge of C syntax elements.",
                         contentBlocks = listOf(
@@ -314,7 +314,7 @@ ___ main() {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = CBeginnerStageIds.lesson3_subs[4],
+                        id = CBeginnerStageIds.lesson3_subs[3],
                         title = "What is a Statement in C?",
                         description = "Learn what a statement is in C and how it defines actions in your program.",
                         contentBlocks = listOf(
@@ -335,7 +335,7 @@ printf("Value: %d\\n", x);
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = CBeginnerStageIds.lesson3_subs[5],
+                        id = CBeginnerStageIds.lesson3_subs[4],
                         title = "Types of Statements in C",
                         description = "Explore the different types of statements in C that control program flow.",
                         contentBlocks = listOf(
@@ -386,7 +386,7 @@ if (a > 0) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = CBeginnerStageIds.lesson3_subs[6],
+                        id = CBeginnerStageIds.lesson3_subs[5],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -403,7 +403,7 @@ int x ___ 10;
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = CBeginnerStageIds.lesson3_subs[7],
+                        id = CBeginnerStageIds.lesson3_subs[6],
                         title = "Combining Multiple Statements",
                         description = "Learn how to combine multiple statements to create more complex and functional programs.",
                         contentBlocks = listOf(
@@ -458,7 +458,7 @@ printf("Sum: %d\\n", sum);
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = CBeginnerStageIds.lesson3_subs[8],
+                        id = CBeginnerStageIds.lesson3_subs[7],
                         title = "Real-Life Example of C Syntax & Statements",
                         description = "See how C syntax is applied in a simple real-world example, like a basic calculator program.",
                         contentBlocks = listOf(
@@ -489,7 +489,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = CBeginnerStageIds.lesson3_subs[9],
+                        id = CBeginnerStageIds.lesson3_subs[8],
                         title = "Quiz",
                         description = "Test your knowledge of C syntax elements.",
                         contentBlocks = listOf(
@@ -519,7 +519,7 @@ int main() {
                 description = "Learn to talk to your computer with printf() and make it answer back—with style and humor!",
                 lessonContents = listOf(
                     LessonContent(
-                        id = CBeginnerStageIds.lesson4_subs[1],
+                        id = CBeginnerStageIds.lesson4_subs[0],
                         title = "Printing Text in C",
                         description = "Learn to use printf() to output text in C. Output anything your program needs to communicate! 🎉",
                         contentBlocks = listOf(
@@ -550,7 +550,7 @@ int main() {
                     ),
 
                     LessonContent(
-                        id = CBeginnerStageIds.lesson4_subs[2],
+                        id = CBeginnerStageIds.lesson4_subs[1],
                         title = "New Lines in Output",
                         description = "Learn to control your output layout using \\n for new lines.",
                         contentBlocks = listOf(
@@ -576,7 +576,7 @@ int main() {
                     ),
 
                     LessonContent(
-                        id = CBeginnerStageIds.lesson4_subs[3],
+                        id = CBeginnerStageIds.lesson4_subs[2],
                         title = "Special Characters in Output",
                         description = "Learn how to use escape sequences like \\t for tabbing and \\\" for quotes in your output.",
                         contentBlocks = listOf(
@@ -597,7 +597,7 @@ int main() {
                     ),
 
                     LessonContent(
-                        id = CBeginnerStageIds.lesson4_subs[4],
+                        id = CBeginnerStageIds.lesson4_subs[3],
                         title = "Printing Variables",
                         description = "Display variable values dynamically with printf() using format specifiers.",
                         contentBlocks = listOf(
@@ -623,7 +623,7 @@ int main() {
                     ),
 
                     LessonContent(
-                        id = CBeginnerStageIds.lesson4_subs[5],
+                        id = CBeginnerStageIds.lesson4_subs[4],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -647,7 +647,7 @@ int main() {
                     ),
 
                     LessonContent(
-                        id = CBeginnerStageIds.lesson4_subs[6],
+                        id = CBeginnerStageIds.lesson4_subs[5],
                         title = "Printing Multiple Values",
                         description = "Master printing multiple variables in one printf() statement using multiple format specifiers.",
                         contentBlocks = listOf(
@@ -686,7 +686,7 @@ int main() {
                     ),
 
                     LessonContent(
-                        id = CBeginnerStageIds.lesson4_subs[7],
+                        id = CBeginnerStageIds.lesson4_subs[6],
                         title = "Formatting Output",
                         description = "Learn to refine the layout of your output with advanced format specifiers.",
                         contentBlocks = listOf(
