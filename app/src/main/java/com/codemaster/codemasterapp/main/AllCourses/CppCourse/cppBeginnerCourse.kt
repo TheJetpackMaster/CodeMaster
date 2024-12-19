@@ -3058,7 +3058,7 @@ int main() {
 
                     // Content for Introduction to Switch-Case
                     LessonContent(
-                        id = "beginner_cpp_switch_case_sub1",
+                        id = "beginner_cpp15_sub1",
                         title = "Introduction to Switch-Case",
                         description = "Learn how Switch-Case simplifies decision-making with multiple conditions.",
                         contentBlocks = listOf(
@@ -3085,7 +3085,7 @@ int main() {
 
                     // Content for If-Else vs. Switch-Case
                     LessonContent(
-                        id = "beginner_cpp_switch_case_sub2",
+                        id = "beginner_cpp15_sub2",
                         title = "If-Else vs. Switch-Case",
                         description = "Compare `if-else` and `switch-case` for handling multiple choices.",
                         contentBlocks = listOf(
@@ -3107,9 +3107,8 @@ int main() {
                     ),
 
                     // Content for "Quiz Time!"
-                    // Content for "Quiz Time!"
                     LessonContent(
-                        id = "beginner_cpp6_sub8",
+                        id = "beginner_cpp15_sub3",
                         title = "Quiz Time! 🧠",
                         description = "Test your knowledge of the lesson.",
                         contentBlocks = listOf(
@@ -3130,7 +3129,7 @@ int main() {
 
                     // Content for The Basic Switch-Case Syntax
                     LessonContent(
-                        id = "beginner_cpp_switch_case_sub3",
+                        id = "beginner_cpp15_sub4",
                         title = "The Basic Switch-Case Syntax",
                         description = "Learn the basic syntax for Switch-Case, using `case` and `default`.",
                         contentBlocks = listOf(
@@ -3172,7 +3171,7 @@ switch (number) {
 
                     // Content for Understanding break and default in Switch-Case
                     LessonContent(
-                        id = "beginner_cpp_switch_case_sub4",
+                        id = "beginner_cpp15_sub5",
                         title = "Understanding break and default in Switch-Case",
                         description = "Explore the role of `break` and `default` in controlling flow in Switch-Case.",
                         contentBlocks = listOf(
@@ -3202,9 +3201,9 @@ switch (number) {
                         status = LessonStatus.LOCKED
                     ),
 
-                    // Content 4: Interactive Input Block
+                    // Content 6: Interactive Input Block
                     LessonContent(
-                        id = "beginner_cpp4_content4",
+                        id = "beginner_cpp15_sub6",
                         title = "Complete the code",
                         description = "Ok so now try to complete the program.",
                         contentBlocks = listOf(
@@ -3239,7 +3238,7 @@ switch (number) {
 
                     // Content for Switch-Case with Multiple Conditions
                     LessonContent(
-                        id = "beginner_cpp_switch_case_sub5",
+                        id = "beginner_cpp15_sub7",
                         title = "Switch-Case with Multiple Conditions",
                         description = "Discover how to handle multiple `case` labels in a Switch-Case.",
                         contentBlocks = listOf(
@@ -3281,7 +3280,7 @@ switch (number) {
 
                     // Content for Switch-Case with Ranges and Expressions
                     LessonContent(
-                        id = "beginner_cpp_switch_case_sub6",
+                        id = "beginner_cpp15_sub8",
                         title = "Switch-Case with Ranges and Expressions",
                         description = "Learn to handle ranges and expressions within Switch-Case statements.",
                         contentBlocks = listOf(
@@ -3319,7 +3318,7 @@ switch (number) {
 
                     // Content for Common Mistakes in Switch-Case
                     LessonContent(
-                        id = "beginner_cpp_switch_case_sub7",
+                        id = "beginner_cpp15_sub9",
                         title = "Common Mistakes in Switch-Case",
                         description = "Identify common mistakes, like missing `break` statements and fall-through issues.",
                         contentBlocks = listOf(
@@ -3343,7 +3342,7 @@ switch (number) {
 
                     // Content for Final Quiz: Mastering Switch-Case
                     LessonContent(
-                        id = "beginner_cpp_switch_case_sub8",
+                        id = "beginner_cpp15_sub10",
                         title = "Final Quiz: Mastering Switch-Case",
                         description = "Test your knowledge of Switch-Case with a final quiz!",
                         contentBlocks = listOf(
@@ -3367,13 +3366,13 @@ switch (number) {
 
             // Final Quiz Lesson for Beginner C++ Stage
             Lesson(
-                id = "final_quiz_cplusplus",
+                id = "beginner_cpp16",
                 title = "C++ Final Quiz - Beginner Level",
                 description = "Test your knowledge on everything you've learned about C++ in this final quiz!",
                 lessonContents = listOf(
                     // Sub-Lesson 1: C++ Syntax Quiz
                     LessonContent(
-                        id = "final_quiz_syntax",
+                        id = "beginner_cpp16_sub1",
                         title = "C++ Syntax Quiz",
                         description = "What do you know about C++ syntax and its basic structure?",
                         contentBlocks = listOf(
@@ -3396,7 +3395,7 @@ switch (number) {
 
                     // Sub-Lesson 2: C++ Comments Quiz
                     LessonContent(
-                        id = "final_quiz_comments",
+                        id = "beginner_cpp16_sub2",
                         title = "C++ Comments Quiz",
                         description = "Test your knowledge of C++ comment syntax.",
                         contentBlocks = listOf(
@@ -3419,7 +3418,7 @@ switch (number) {
 
                     // Sub-Lesson 3: C++ Output Quiz
                     LessonContent(
-                        id = "final_quiz_output",
+                        id = "beginner_cpp16_sub3",
                         title = "C++ Output Quiz",
                         description = "Test your understanding of output in C++.",
                         contentBlocks = listOf(
@@ -3442,7 +3441,7 @@ switch (number) {
 
                     // Sub-Lesson 4: C++ Variables Quiz 1
                     LessonContent(
-                        id = "final_quiz_variables_1",
+                        id = "beginner_cpp16_sub4",
                         title = "C++ Variables Quiz 1",
                         description = "Test your knowledge of variables in C++.",
                         contentBlocks = listOf(
@@ -3465,7 +3464,7 @@ switch (number) {
 
                     // Sub-Lesson 5: C++ Variables Quiz 2
                     LessonContent(
-                        id = "final_quiz_variables_2",
+                        id = "beginner_cpp16_sub5",
                         title = "C++ Variables Quiz 2",
                         description = "Check your knowledge of variable initialization.",
                         contentBlocks = listOf(
@@ -3488,7 +3487,7 @@ switch (number) {
 
                     // Sub-Lesson 6: C++ Variables Quiz 3
                     LessonContent(
-                        id = "final_quiz_variables_3",
+                        id = "beginner_cpp16_sub6",
                         title = "C++ Variables Quiz 3",
                         description = "Test your knowledge of variable types.",
                         contentBlocks = listOf(
@@ -3511,7 +3510,7 @@ switch (number) {
 
                     // Sub-Lesson 7: C++ User Input Quiz
                     LessonContent(
-                        id = "final_quiz_input",
+                        id = "beginner_cpp16_sub7",
                         title = "C++ User Input Quiz",
                         description = "Test your knowledge on handling user input.",
                         contentBlocks = listOf(
@@ -3534,7 +3533,7 @@ switch (number) {
 
                     // Sub-Lesson 8: C++ Data Types Quiz
                     LessonContent(
-                        id = "final_quiz_data_types",
+                        id = "beginner_cpp16_sub8",
                         title = "C++ Data Types Quiz",
                         description = "Test your knowledge on the data types in C++.",
                         contentBlocks = listOf(
@@ -3557,7 +3556,7 @@ switch (number) {
 
                     // Sub-Lesson 9: C++ Strings Quiz
                     LessonContent(
-                        id = "final_quiz_strings",
+                        id = "beginner_cpp16_sub9",
                         title = "C++ Strings Quiz",
                         description = "Check your knowledge on strings in C++.",
                         contentBlocks = listOf(
@@ -3580,7 +3579,7 @@ switch (number) {
 
                     // Sub-Lesson 10: C++ Booleans Quiz
                     LessonContent(
-                        id = "final_quiz_booleans",
+                        id = "beginner_cpp16_sub10",
                         title = "C++ Booleans Quiz",
                         description = "Test your understanding of booleans.",
                         contentBlocks = listOf(
@@ -3603,7 +3602,7 @@ switch (number) {
 
                     // Sub-Lesson 11: C++ Operators Quiz
                     LessonContent(
-                        id = "final_quiz_operators",
+                        id = "beginner_cpp16_sub11",
                         title = "C++ Operators Quiz",
                         description = "Test your knowledge of operators in C++.",
                         contentBlocks = listOf(
@@ -3626,7 +3625,7 @@ switch (number) {
 
                     // Sub-Lesson 12: Else If Quiz
                     LessonContent(
-                        id = "final_quiz_else_if",
+                        id = "beginner_cpp16_sub12",
                         title = "C++ Else If Quiz",
                         description = "Test your knowledge of `else if` statements.",
                         contentBlocks = listOf(
@@ -3649,7 +3648,7 @@ switch (number) {
 
                     // Sub-Lesson 13: Nested Else If Quiz
                     LessonContent(
-                        id = "final_quiz_nested_else_if",
+                        id = "beginner_cpp16_sub13",
                         title = "C++ Nested Else If Quiz",
                         description = "Test your understanding of nested `else if` statements.",
                         contentBlocks = listOf(
@@ -3672,7 +3671,7 @@ switch (number) {
 
                     // Sub-Lesson 14: C++ Switch Case Quiz
                     LessonContent(
-                        id = "final_quiz_switch_case",
+                        id = "beginner_cpp16_sub14",
                         title = "C++ Switch Case Quiz",
                         description = "Test your knowledge of `switch` and `case` statements.",
                         contentBlocks = listOf(
