@@ -3220,7 +3220,6 @@ int main() {
                 title = "Advanced Concepts Recap",
                 description = "A comprehensive review of key C++ concepts that lay the foundation for advanced programming skills.",
                 lessonContents = listOf(
-
                     // Sub-lesson 1: Review of Classes & Objects
                     LessonContent(
                         id = "advanced_cpp_recap_sub1",
