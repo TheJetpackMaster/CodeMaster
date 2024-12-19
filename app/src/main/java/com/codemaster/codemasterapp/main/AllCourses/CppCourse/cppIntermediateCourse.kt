@@ -3562,14 +3562,14 @@ int main() {
 
             // Lesson 16: Function Parameters in C++
             Lesson(
-                id = "beginner_cpp_function_parameters",
+                id = "intermediate_cpp16",
                 title = "Function Parameters in C++",
                 description = "Let’s dive into how functions can take input through parameters and how to work with them effectively.",
                 lessonContents = listOf(
 
                     // Sub-lesson 1: What Are Function Parameters?
                     LessonContent(
-                        id = "beginner_cpp_function_parameters_sub1",
+                        id = "intermediate_cpp16_sub1",
                         title = "What Are Function Parameters?",
                         description = "Parameters act as placeholders in functions, where you can pass data for the function to work with.",
                         contentBlocks = listOf(
@@ -3590,7 +3590,7 @@ int main() {
 
                     // Sub-lesson 2: Basic Syntax of Function Parameters
                     LessonContent(
-                        id = "beginner_cpp_function_parameters_sub2",
+                        id = "intermediate_cpp16_sub2",
                         title = "Basic Syntax of Function Parameters",
                         description = "Here’s how you add parameters to your functions in C++.",
                         contentBlocks = listOf(
@@ -3622,7 +3622,7 @@ int main() {
 
                     // Sub-lesson 3: Parameters vs Arguments
                     LessonContent(
-                        id = "beginner_cpp_function_parameters_sub3",
+                        id = "intermediate_cpp16_sub3",
                         title = "Parameters vs Arguments",
                         description = "Understanding the difference between parameters (the placeholders) and arguments (the actual values passed).",
                         contentBlocks = listOf(
@@ -3656,7 +3656,7 @@ int main() {
 
                     // Content 4: Interactive Input Block
                     LessonContent(
-                        id = "beginner_cpp4_content4",
+                        id = "intermediate_cpp16_sub4",
                         title = "Complete the code",
                         description = "Complete the function declaration syntax.",
                         contentBlocks = listOf(
@@ -3681,9 +3681,9 @@ int main() {
                     ),
 
 
-                    // Sub-lesson 4: Calling Functions with Multiple Parameters
+                    // Sub-lesson 5: Calling Functions with Multiple Parameters
                     LessonContent(
-                        id = "beginner_cpp_function_parameters_sub4",
+                        id = "intermediate_cpp16_sub5",
                         title = "Calling Functions with Multiple Parameters",
                         description = "Let’s call a function that takes more than one parameter and pass the required arguments.",
                         contentBlocks = listOf(
@@ -3716,9 +3716,9 @@ int main() {
                         status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 5: Using Parameters to Perform Tasks
+                    // Sub-lesson 6: Using Parameters to Perform Tasks
                     LessonContent(
-                        id = "beginner_cpp_function_parameters_sub5",
+                        id = "intermediate_cpp16_sub6",
                         title = "Using Parameters to Perform Tasks",
                         description = "Function parameters allow you to create flexible functions that can handle different data each time they are called.",
                         contentBlocks = listOf(
@@ -3750,9 +3750,9 @@ int main() {
                         status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 6: Using Default Parameters
+                    // Sub-lesson 7: Using Default Parameters
                     LessonContent(
-                        id = "beginner_cpp_function_parameters_sub6",
+                        id = "intermediate_cpp16_sub7",
                         title = "Using Default Parameters",
                         description = "Learn how to set default values for parameters so that they can be optional when calling the function.",
                         contentBlocks = listOf(
@@ -3786,7 +3786,7 @@ int main() {
 
                     // Content for "Final Quiz: Function Parameters"
                     LessonContent(
-                        id = "beginner_cpp_function_parameters_final_quiz",
+                        id = "intermediate_cpp16_sub8",
                         title = "Final Quiz: Function Parameters",
                         description = "Test your knowledge on function parameters in C++.",
                         contentBlocks = listOf(
@@ -3806,9 +3806,9 @@ int main() {
                         type = LessonContentType.QUIZ
                     ),
 
-                    // Final Sub-lesson 7: Keep It Clear and Simple!
+                    // Final Sub-lesson 9: Keep It Clear and Simple!
                     LessonContent(
-                        id = "beginner_cpp_function_parameters_sub7",
+                        id = "intermediate_cpp16_sub9",
                         title = "Keep It Clear and Simple!",
                         description = "Remember, parameters allow your functions to be more dynamic and reusable. Use them wisely to keep your code clean and flexible!",
                         contentBlocks = listOf(
@@ -3834,7 +3834,7 @@ int main() {
 
             // Lesson 17: function with return values
             Lesson(
-                id = "beginner_cpp_return_keyword",
+                id = "intermediate_cpp17",
                 title = "Function with return values",
                 description = "Let’s talk about the return keyword – the superhero of functions. No more 'void' boringness. Time for some action!",
                 lessonContents = listOf(
