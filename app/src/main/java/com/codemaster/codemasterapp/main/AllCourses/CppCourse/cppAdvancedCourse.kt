@@ -2651,13 +2651,13 @@ int main() {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        status = LessonStatus.ACTIVE
+                        status = LessonStatus.LOCKED
                     ),
 
 
-                    // Sub-lesson 5: Encapsulation – A Simple Process
+                    // Sub-lesson 7: Encapsulation – A Simple Process
                     LessonContent(
-                        id = "cpp_encapsulation_sub5",
+                        id = "advanced_cpp11_sub7",
                         title = "Encapsulation – A Simple Process",
                         description = "Understand why encapsulation isn’t as complicated as it sounds.",
                         contentBlocks = listOf(
@@ -2690,7 +2690,7 @@ int main() {
 
                     // Sub-lesson 1: Introduction to Polymorphism
                     LessonContent(
-                        id = "cpp_polymorphism_sub1",
+                        id = "advanced_cpp12_sub1",
                         title = "Introduction to Polymorphism",
                         description = "Understand what polymorphism is and its role in object-oriented programming.",
                         contentBlocks = listOf(
@@ -2716,7 +2716,7 @@ int main() {
 
                     // Sub-lesson 2: Types of Polymorphism
                     LessonContent(
-                        id = "cpp_polymorphism_sub2",
+                        id = "advanced_cpp12_sub2",
                         title = "Types of Polymorphism",
                         description = "Explore compile-time and runtime polymorphism in C++.",
                         contentBlocks = listOf(
@@ -2747,7 +2747,7 @@ int main() {
 
                     // Content for "Quiz Time!"
                     LessonContent(
-                        id = "beginner_cpp_polymorphism_quiz",
+                        id = "advanced_cpp12_sub3",
                         title = "Quiz Time! 🧠",
                         description = "Test your knowledge of polymorphism in C++.",
                         contentBlocks = listOf(
@@ -2768,9 +2768,9 @@ int main() {
                         status = LessonStatus.ACTIVE
                     ),
 
-                    // Sub-lesson 3: Compile-time Polymorphism Example
+                    // Sub-lesson 4: Compile-time Polymorphism Example
                     LessonContent(
-                        id = "cpp_polymorphism_sub3",
+                        id = "advanced_cpp12_sub4",
                         title = "Compile-time Polymorphism Example",
                         description = "Learn about compile-time polymorphism with function overloading.",
                         contentBlocks = listOf(
@@ -2810,9 +2810,9 @@ int main() {
                        status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 4: Runtime Polymorphism Example
+                    // Sub-lesson 5: Runtime Polymorphism Example
                     LessonContent(
-                        id = "cpp_polymorphism_sub4",
+                        id = "advanced_cpp12_sub5",
                         title = "Runtime Polymorphism Example",
                         description = "Learn about runtime polymorphism with virtual functions.",
                         contentBlocks = listOf(
@@ -2868,9 +2868,9 @@ int main() {
                        status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 5: Benefits of Polymorphism
+                    // Sub-lesson 6: Benefits of Polymorphism
                     LessonContent(
-                        id = "cpp_polymorphism_sub5",
+                        id = "advanced_cpp12_sub6",
                         title = "Benefits of Polymorphism",
                         description = "Understand how polymorphism simplifies code and enhances flexibility.",
                         contentBlocks = listOf(
@@ -2890,9 +2890,9 @@ int main() {
                        status = LessonStatus.LOCKED
                     ),
 
-                    // Content for "Quiz Time!"
+                    // Content 7 for "Quiz Time!"
                     LessonContent(
-                        id = "beginner_cpp_polymorphism_quiz2",
+                        id = "advanced_cpp12_sub7",
                         title = "Quiz Time! 🧠",
                         description = "Test your understanding of polymorphism in C++.",
                         contentBlocks = listOf(
@@ -2913,9 +2913,9 @@ int main() {
                         status = LessonStatus.ACTIVE
                     ),
 
-                    // Sub-lesson 6: Polymorphism Simplified
+                    // Sub-lesson 8: Polymorphism Simplified
                     LessonContent(
-                        id = "cpp_polymorphism_sub6",
+                        id = "advanced_cpp12_sub8",
                         title = "Polymorphism Simplified",
                         description = "Demystify polymorphism with an easy-to-understand analogy.",
                         contentBlocks = listOf(
