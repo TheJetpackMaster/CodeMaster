@@ -699,14 +699,14 @@ fun cppExpertCourse(): Stage {
 
             // Lesson 4 : Voting Eligibility
             Lesson(
-                id = "voting_eligibility",
+                id = "expert_cpp4",
                 title = "Voting Eligibility",
                 description = "Learn how to use conditional statements to check if a person is eligible to vote based on their age.",
                 lessonContents = listOf(
 
                     // Sub-lesson 1: Problem - Check Voting Eligibility
                     LessonContent(
-                        id = "voting_eligibility_sub1",
+                        id = "expert_cpp3_sub1",
                         title = "Check Voting Eligibility",
                         description = "Create a program that checks if a person is eligible to vote based on their age. If the person’s age is 18 or older, print 'Eligible to Vote'. If not, print 'Not Eligible to Vote'.",
                         contentBlocks = listOf(
@@ -723,7 +723,7 @@ fun cppExpertCourse(): Stage {
 
                     // Sub-lesson 2: Hint for Solving Problem
                     LessonContent(
-                        id = "voting_eligibility_sub2",
+                        id = "expert_cpp3_sub2",
                         title = "Hint",
                         description = "How to approach the problem.",
                         contentBlocks = listOf(
@@ -740,7 +740,7 @@ fun cppExpertCourse(): Stage {
 
                     // Sub-lesson 3: Solution for Problem
                     LessonContent(
-                        id = "voting_eligibility_sub3",
+                        id = "expert_cpp3_sub3",
                         title = "Solution",
                         description = "Here’s the solution for checking voting eligibility.",
                         contentBlocks = listOf(
@@ -771,7 +771,7 @@ fun cppExpertCourse(): Stage {
 
                     // Sub-lesson 4: Explanation of the Code
                     LessonContent(
-                        id = "voting_eligibility_sub4",
+                        id = "expert_cpp3_sub4",
                         title = "Explanation of the Code",
                         description = "Let’s break down the solution code.",
                         contentBlocks = listOf(
@@ -794,7 +794,7 @@ fun cppExpertCourse(): Stage {
 
                     // Sub-lesson 5: Quiz Time!
                     LessonContent(
-                        id = "voting_eligibility_sub5",
+                        id = "expert_cpp3_sub5",
                         title = "Quiz Time! 🧠",
                         description = "Test your knowledge of the lesson.",
                         contentBlocks = listOf(
@@ -817,7 +817,7 @@ fun cppExpertCourse(): Stage {
 
                     // Sub-lesson 6: Practice Time!
                     LessonContent(
-                        id = "voting_eligibility_practice",
+                        id = "expert_cpp3_sub6",
                         title = "Practice Time!",
                         description = "Now it's time to practice! The more you solve, the better you get!",
                         contentBlocks = listOf(
