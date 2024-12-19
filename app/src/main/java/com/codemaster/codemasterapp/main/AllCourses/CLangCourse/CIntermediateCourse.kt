@@ -300,7 +300,7 @@ fun CIntermediateCourse(): Stage {
                 description = "Learn how to nest if...else statements to create more complex decision-making structures in C! 🧩",
                 lessonContents = listOf(
                     LessonContent(
-                        id = "intermediate_c3_sub1",
+                        id = CIntermediateStageIds.lesson3_subs[0],
                         title = "Introduction to Nested If...Else",
                         description = "Learn the basics of nesting if...else statements.",
                         contentBlocks = listOf(
@@ -328,7 +328,7 @@ fun CIntermediateCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c3_sub2",
+                        id = CIntermediateStageIds.lesson3_subs[1],
                         title = "Nesting Multiple If...Else",
                         description = "Learn how to nest multiple if...else statements within each other.",
                         contentBlocks = listOf(
@@ -363,7 +363,7 @@ fun CIntermediateCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c3_sub3",
+                        id = CIntermediateStageIds.lesson3_subs[2],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -386,7 +386,7 @@ fun CIntermediateCourse(): Stage {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c3_sub4",
+                        id = CIntermediateStageIds.lesson3_subs[3],
                         title = "Real-Life Example",
                         description = "See how nested if...else statements are used in practical scenarios.",
                         contentBlocks = listOf(
@@ -422,7 +422,7 @@ fun CIntermediateCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c3_sub5",
+                        id = CIntermediateStageIds.lesson3_subs[4],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -448,12 +448,12 @@ fun CIntermediateCourse(): Stage {
 
             // lesson 4
             Lesson(
-                id = "intermediate_c4",
+                id = CIntermediateStageIds.lesson4,
                 title = "C Switch Statement",
                 description = "Learn how to use the switch statement to simplify multiple conditional branches in C! 🔄",
                 lessonContents = listOf(
                     LessonContent(
-                        id = "intermediate_c4_sub1",
+                        id = CIntermediateStageIds.lesson4_subs[0],
                         title = "Introduction to Switch Statement",
                         description = "Understand the syntax and purpose of the switch statement.",
                         contentBlocks = listOf(
@@ -482,7 +482,7 @@ fun CIntermediateCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c4_sub2",
+                        id = CIntermediateStageIds.lesson4_subs[1],
                         title = "Switch Case and Default",
                         description = "Learn how to use case and default in a switch statement.",
                         contentBlocks = listOf(
@@ -510,7 +510,7 @@ fun CIntermediateCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c4_sub3",
+                        id = CIntermediateStageIds.lesson4_subs[2],
                         title = "Switch Case and Break",
                         description = "Learn why the break keyword is used in a switch statement to prevent fall-through.",
                         contentBlocks = listOf(
@@ -571,7 +571,7 @@ fun CIntermediateCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c4_sub4",
+                        id = CIntermediateStageIds.lesson4_subs[3],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -592,7 +592,7 @@ fun CIntermediateCourse(): Stage {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c4_sub5",
+                        id = CIntermediateStageIds.lesson4_subs[4],
                         title = "Real-Life Example",
                         description = "See how the switch statement is used in practical applications.",
                         contentBlocks = listOf(
@@ -630,7 +630,7 @@ fun CIntermediateCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c4_sub6",
+                        id = CIntermediateStageIds.lesson4_subs[5],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -653,12 +653,12 @@ fun CIntermediateCourse(): Stage {
             
             // lesson 5
             Lesson(
-                id = "intermediate_c5",
+                id = CIntermediateStageIds.lesson5,
                 title = "C Loops",
                 description = "Master the while, do-while, and for loops to control repetitive tasks in C!",
                 lessonContents = listOf(
                     LessonContent(
-                        id = "intermediate_c5_sub1",
+                        id = CIntermediateStageIds.lesson5_subs[0],
                         title = "Introduction to Loops",
                         description = "Learn about the importance of loops and how they help to repeat tasks efficiently in programming.",
                         contentBlocks = listOf(
@@ -679,7 +679,7 @@ fun CIntermediateCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c5_sub2",
+                        id = CIntermediateStageIds.lesson5_subs[1],
                         title = "While Loop",
                         description = "Learn how to use the while loop to repeat code as long as a condition is true.",
                         contentBlocks = listOf(
@@ -701,7 +701,7 @@ fun CIntermediateCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c5_sub3",
+                        id = CIntermediateStageIds.lesson5_subs[2],
                         title = "The Do/While Loop",
                         description = "Understand the do-while loop where the code runs at least once.",
                         contentBlocks = listOf(
@@ -723,7 +723,7 @@ fun CIntermediateCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c5_sub4",
+                        id = CIntermediateStageIds.lesson5_subs[3],
                         title = "The For Loop",
                         description = "Learn how the for loop provides a compact way to write loops with initialization, condition, and increment in a single line.",
                         contentBlocks = listOf(
@@ -745,7 +745,7 @@ fun CIntermediateCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c5_sub5",
+                        id = CIntermediateStageIds.lesson5_subs[4],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -764,7 +764,7 @@ fun CIntermediateCourse(): Stage {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c5_sub6",
+                        id = CIntermediateStageIds.lesson5_subs[5],
                         title = "Real-Life Examples",
                         description = "See practical applications of while, do-while, and for loops.",
                         contentBlocks = listOf(
@@ -821,7 +821,7 @@ fun CIntermediateCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c5_sub7",
+                        id = CIntermediateStageIds.lesson5_subs[6],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -846,12 +846,12 @@ fun CIntermediateCourse(): Stage {
             
             // lesson 6
             Lesson(
-                id = "intermediate_c6",
+                id = CIntermediateStageIds.lesson6,
                 title = "C Nested Loops",
                 description = "Learn how to use nested loops in C for complex tasks and control flows! 🔄🔄",
                 lessonContents = listOf(
                     LessonContent(
-                        id = "intermediate_c6_sub1",
+                        id = CIntermediateStageIds.lesson6_subs[0],
                         title = "Nested For Loops",
                         description = "Learn how to use a for loop inside another for loop.",
                         contentBlocks = listOf(
