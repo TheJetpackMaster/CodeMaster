@@ -29,7 +29,7 @@ fun CBeginnerCourse(): Stage {
                 description = "In this lesson, we’ll cover the basics of programming, exploring the origins, purpose, and structure of the C language.",
                 lessonContents = listOf(
                     LessonContent(
-                        id = "beginner_c1_sub1",
+                        id = CBeginnerStageIds.lesson1_subs[1],
                         title = "What is Programming?",
                         description = "Understand programming, why it matters, and how it lets computers execute your instructions.",
                         contentBlocks = listOf(
@@ -46,7 +46,7 @@ fun CBeginnerCourse(): Stage {
                         status = LessonStatus.ACTIVE
                     ),
                     LessonContent(
-                        id = "beginner_c1_sub2",
+                        id = CBeginnerStageIds.lesson1_subs[2],
                         title = "Understanding Code and How It Works",
                         description = "Peek behind the scenes to see how code tells computers what to do.",
                         contentBlocks = listOf(
@@ -63,7 +63,7 @@ fun CBeginnerCourse(): Stage {
                         status = LessonStatus.LOCKED
                     ),
                     LessonContent(
-                        id = "beginner_c1_sub3",
+                        id = CBeginnerStageIds.lesson1_subs[3],
                         title = "Introduction to the C Language",
                         description = "Meet C: the foundation of many modern programming languages.",
                         contentBlocks = listOf(
@@ -80,7 +80,7 @@ fun CBeginnerCourse(): Stage {
                         status = LessonStatus.LOCKED
                     ),
                     LessonContent(
-                        id = "beginner_c1_sub4",
+                        id = CBeginnerStageIds.lesson1_subs[4],
                         title = "Applications of C Programming",
                         description = "Discover where C is used in real-world scenarios like operating systems and embedded systems.",
                         contentBlocks = listOf(
