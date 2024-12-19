@@ -24,7 +24,7 @@ fun CBeginnerCourse(): Stage {
         lessons = listOf(
             // lesson 1
             Lesson(
-                id = "beginner_c1",
+                id = CBeginnerStageIds.lesson1,
                 title = "Introduction to C Programming",
                 description = "In this lesson, we’ll cover the basics of programming, exploring the origins, purpose, and structure of the C language.",
                 lessonContents = listOf(
