@@ -326,9 +326,9 @@ fun cppAdvancedCourse(): Stage {
                        status = LessonStatus.LOCKED
                     ),
 
-                    // Content for "Quiz Time!"
+                    // Content 2 for "Quiz Time!"
                     LessonContent(
-                        id = "beginner_cpp6_sub8",
+                        id = "advanced_cpp3_sub2",
                         title = "Quiz Time! 🧠",
                         description = "Test your knowledge of lesson.",
                         contentBlocks = listOf(
@@ -348,9 +348,9 @@ fun cppAdvancedCourse(): Stage {
                         type = LessonContentType.QUIZ
                     ),
 
-                    // Sub-lesson 2: Creating a Class
+                    // Sub-lesson 3: Creating a Class
                     LessonContent(
-                        id = "cpp_classes_1_sub2",
+                        id = "advanced_cpp3_sub3",
                         title = "Creating a Class",
                         description = "Learn how to define a basic class in C++.",
                         contentBlocks = listOf(
@@ -378,7 +378,7 @@ class MyClass {
 
                     // Sub-lesson 3: Creating an Object
                     LessonContent(
-                        id = "cpp_classes_1_sub3",
+                        id = "advanced_cpp3_sub4",
                         title = "Creating an Object",
                         description = "Learn how to create a single object from a class.",
                         contentBlocks = listOf(
@@ -403,9 +403,9 @@ int main() {
                        status = LessonStatus.LOCKED
                     ),
 
-                    // Content 4: Interactive Input Block
+                    // Content 5: Interactive Input Block
                     LessonContent(
-                        id = "beginner_cpp4_content4",
+                        id = "advanced_cpp3_sub5",
                         title = "Complete the code",
                         description = "Ok so now try to complete the program.",
                         contentBlocks = listOf(
@@ -436,9 +436,9 @@ int main() {
                         status = LessonStatus.ACTIVE
                     ),
 
-                    // Sub-lesson 4: Accessing and Assigning Values to Class Members
+                    // Sub-lesson 6: Accessing and Assigning Values to Class Members
                     LessonContent(
-                        id = "cpp_classes_1_sub4",
+                        id = "advanced_cpp3_sub6",
                         title = "Accessing and Assigning Values to Class Members",
                         description = "Learn how to access and assign values to class members using an object.",
                         contentBlocks = listOf(
@@ -465,9 +465,9 @@ int main() {
                        status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 5: Creating Multiple Objects
+                    // Sub-lesson 7: Creating Multiple Objects
                     LessonContent(
-                        id = "cpp_classes_1_sub5",
+                        id = "advanced_cpp3_sub7",
                         title = "Creating Multiple Objects",
                         description = "Learn how to create multiple objects from a class.",
                         contentBlocks = listOf(
@@ -501,9 +501,9 @@ int main() {
                        status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 6: Printing Class Values
+                    // Sub-lesson 8: Printing Class Values
                     LessonContent(
-                        id = "cpp_classes_1_sub6",
+                        id = "advanced_cpp3_sub8",
                         title = "Printing Class Values",
                         description = "Learn how to print the values of class members.",
                         contentBlocks = listOf(
@@ -544,9 +544,9 @@ int main() {
                        status = LessonStatus.LOCKED
                     ),
 
-                    // Content for "Quiz Time!"
+                    // Content 9 for "Quiz Time!"
                     LessonContent(
-                        id = "beginner_cpp6_sub8",
+                        id = "advanced_cpp3_sub9",
                         title = "Quiz Time! 🧠",
                         description = "Test your knowledge of lesson.",
                         contentBlocks = listOf(
@@ -568,7 +568,7 @@ int main() {
 
                     // Fun Practice Lesson: Lets Code!
                     LessonContent(
-                        id = "cpp_classes_1_practice",
+                        id = "advanced_cpp3_sub10",
                         title = "Lets Code! (Practice)",
                         description = "Now that youve learned the basics, its time to put it all together! Go ahead and create your own classes and objects. Have fun with it!",
                         contentBlocks = listOf(
@@ -601,7 +601,7 @@ int main() {
 
                     // Sub-lesson 1: What are Class Methods?
                     LessonContent(
-                        id = "cpp_class_methods_2_sub1",
+                        id = "advanced_cpp4_sub1",
                         title = "What are Class Methods?",
                         description = "Understand the basics of methods in classes.",
                         contentBlocks = listOf(
@@ -624,7 +624,7 @@ int main() {
 
                     // Content for "Quiz Time!"
                     LessonContent(
-                        id = "beginner_cpp6_sub8",
+                        id = "advanced_cpp4_sub2",
                         title = "Quiz Time! 🧠",
                         description = "Test your knowledge of lesson.",
                         contentBlocks = listOf(
@@ -645,9 +645,9 @@ int main() {
                     ),
 
 
-                    // Sub-lesson 2: Creating a Class with Methods
+                    // Sub-lesson 3: Creating a Class with Methods
                     LessonContent(
-                        id = "cpp_class_methods_2_sub2",
+                        id = "advanced_cpp4_sub3",
                         title = "Creating a Class with Methods",
                         description = "Learn how to define methods in a class.",
                         contentBlocks = listOf(
@@ -672,9 +672,9 @@ class MyClass {
                        status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 3: Accessing Methods
+                    // Sub-lesson 4: Accessing Methods
                     LessonContent(
-                        id = "cpp_class_methods_2_sub3",
+                        id = "advanced_cpp4_sub4",
                         title = "Accessing Methods",
                         description = "Learn how to call a method using an object.",
                         contentBlocks = listOf(
@@ -698,9 +698,9 @@ int main() {
                        status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 4: Full Example with Main Function
+                    // Sub-lesson 5: Full Example with Main Function
                     LessonContent(
-                        id = "cpp_class_methods_2_sub4",
+                        id = "advanced_cpp4_sub5",
                         title = "Complete Example",
                         description = "See how it all comes together.",
                         contentBlocks = listOf(
@@ -738,9 +738,9 @@ int main() {
                        status = LessonStatus.LOCKED
                     ),
 
-                    // Content 4: Interactive Input Block
+                    // Content 6: Interactive Input Block
                     LessonContent(
-                        id = "beginner_cpp4_content4",
+                        id = "advanced_cpp4_sub6",
                         title = "Complete the code",
                         description = "Now, try completing the program by calling the 'sayHello' method.",
                         contentBlocks = listOf(
@@ -769,9 +769,9 @@ int main() {
                         status = LessonStatus.ACTIVE
                     ),
 
-                    // Sub-lesson 5: Explore and Have Fun!
+                    // Sub-lesson 7: Explore and Have Fun!
                     LessonContent(
-                        id = "cpp_class_methods_2_sub5",
+                        id = "advanced_cpp4_sub7",
                         title = "Explore and Have Fun!",
                         description = "Use your creativity and experiment with methods.",
                         contentBlocks = listOf(
