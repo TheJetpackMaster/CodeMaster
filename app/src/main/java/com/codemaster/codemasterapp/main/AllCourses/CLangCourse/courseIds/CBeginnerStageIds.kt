@@ -61,6 +61,7 @@ object CBeginnerStageIds {
         "${lesson4}_sub5",
         "${lesson4}_sub5",
         "${lesson4}_sub6",
+        "${lesson4}_sub7",
     )
 
     // Sub-lesson IDs for lesson 5 - Constructors in C++
@@ -72,8 +73,6 @@ object CBeginnerStageIds {
         "${lesson5}_sub5",
         "${lesson5}_sub6",
         "${lesson5}_sub7",
-        "${lesson5}_sub8",
-        "${lesson5}_sub9"
     )
 
     // Sub-lesson IDs for lesson 6 - Access Modifiers in C++
@@ -97,7 +96,8 @@ object CBeginnerStageIds {
         "${lesson7}_sub5",
         "${lesson7}_sub6",
         "${lesson7}_sub7",
-        "${lesson7}_sub8"
+        "${lesson7}_sub8",
+        "${lesson7}_sub9"
     )
 
     // Sub-lesson IDs for lesson 8 - Inheritance in C++
@@ -108,8 +108,6 @@ object CBeginnerStageIds {
         "${lesson8}_sub4",
         "${lesson8}_sub5",
         "${lesson8}_sub6",
-        "${lesson8}_sub7",
-        "${lesson8}_sub8"
     )
 
     // Sub-lesson IDs for lesson 9 - Inheritance in C++
@@ -121,7 +119,8 @@ object CBeginnerStageIds {
         "${lesson9}_sub5",
         "${lesson9}_sub6",
         "${lesson9}_sub7",
-        "${lesson9}_sub8"
+        "${lesson9}_sub8",
+        "${lesson9}_sub9"
     )
 
     // Sub-lesson IDs for lesson 10 - Inheritance in C++
@@ -132,8 +131,7 @@ object CBeginnerStageIds {
         "${lesson10}_sub4",
         "${lesson10}_sub5",
         "${lesson10}_sub6",
-        "${lesson10}_sub7",
-        "${lesson10}_sub8"
+        "${lesson10}_sub7"
     )
 
     // Sub-lesson IDs for lesson 11 - Inheritance in C++
@@ -144,8 +142,7 @@ object CBeginnerStageIds {
         "${lesson11}_sub4",
         "${lesson11}_sub5",
         "${lesson11}_sub6",
-        "${lesson11}_sub7",
-        "${lesson11}_sub8"
+        "${lesson11}_sub7"
     )
 
     // Sub-lesson IDs for lesson 12 - Inheritance in C++
@@ -156,8 +153,7 @@ object CBeginnerStageIds {
         "${lesson12}_sub4",
         "${lesson12}_sub5",
         "${lesson12}_sub6",
-        "${lesson12}_sub7",
-        "${lesson12}_sub8"
+        "${lesson12}_sub7"
     )
 
 }
