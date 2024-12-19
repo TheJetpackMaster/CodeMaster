@@ -17,9 +17,7 @@ object CBeginnerStageIds {
     val lesson10 = "beginner_c10"
     val lesson11 = "beginner_c11"
     val lesson12 = "beginner_c12"
-    val lesson13 = "beginner_c13"
-    val lesson14 = "beginner_c14"
-    val lesson15 = "beginner_c15"
+
 
     // Sub-lesson IDs for lesson 1 Welcome
     val lesson1_subs = listOf(
@@ -28,7 +26,8 @@ object CBeginnerStageIds {
         "${lesson1}_sub3",
         "${lesson1}_sub4",
         "${lesson1}_sub5",
-        "${lesson1}_sub6"
+        "${lesson1}_sub6",
+        "${lesson1}_sub7"
     )
 
     // Sub-lesson IDs for lesson 2 - Introduction to OOP
