@@ -37,7 +37,6 @@ object CBeginnerStageIds {
         "${lesson2}_sub3",
         "${lesson2}_sub4",
         "${lesson2}_sub5",
-        "${lesson2}_sub6"
     )
 
     // Sub-lesson IDs for lesson 3 - Classes & Objects in C++
@@ -51,7 +50,6 @@ object CBeginnerStageIds {
         "${lesson3}_sub7",
         "${lesson3}_sub8",
         "${lesson3}_sub9",
-        "${lesson3}_sub10"
     )
 
     // Sub-lesson IDs for lesson 4 - Classes & Methods
