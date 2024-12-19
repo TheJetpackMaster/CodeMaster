@@ -4462,14 +4462,14 @@ int main() {
 
             // Lesson 20: C++ Recursion
             Lesson(
-                id = "beginner_cpp_recursion",
+                id = "intermediate_cpp20",
                 title = "C++ Recursion",
                 description = "Learn how recursion works: functions calling themselves to solve problems step by step.",
                 lessonContents = listOf(
 
                     // Sub-lesson 1: What is Recursion?
                     LessonContent(
-                        id = "beginner_cpp_recursion_intro",
+                        id = "intermediate_cpp20_sub1",
                         title = "What is Recursion?",
                         description = "Understand the concept of recursion.",
                         contentBlocks = listOf(
@@ -4493,7 +4493,7 @@ int main() {
 
                     // Sub-lesson 2: Basic Example of Recursion
                     LessonContent(
-                        id = "beginner_cpp_recursion_basic_example",
+                        id = "intermediate_cpp20_sub2",
                         title = "Basic Recursion Example",
                         description = "See how recursion works in action with a simple countdown example.",
                         contentBlocks = listOf(
@@ -4531,7 +4531,7 @@ int main() {
 
                     // Sub-lesson 3: How Does Recursion Work?
                     LessonContent(
-                        id = "beginner_cpp_recursion_steps",
+                        id = "intermediate_cpp20_sub3",
                         title = "How Recursion Works",
                         description = "Breaking down the recursion process.",
                         contentBlocks = listOf(
