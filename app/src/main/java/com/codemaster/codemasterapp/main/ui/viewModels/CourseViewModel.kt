@@ -6,10 +6,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import com.codemaster.codemasterapp.main.AllCourses.CLangCourseProvider
+import com.codemaster.codemasterapp.main.AllCourses.CLangCourse.CLangCourseProvider
 import com.codemaster.codemasterapp.main.AllCourses.CppCourse.CPPCourseProvider
-import com.codemaster.codemasterapp.main.DataBase.continueLearningprogressDB.UserLearningProgress
-import com.codemaster.codemasterapp.main.DataBase.continueLearningprogressDB.UserLearningProgressDB
 import com.codemaster.codemasterapp.main.DataBase.continueLearningprogressDB.UserLearningProgressRepository
 import com.codemaster.codemasterapp.main.DataBase.lessonStatusDB.LessonStatusEntity
 import com.codemaster.codemasterapp.main.DataBase.lessonStatusDB.LessonStatusRepo
