@@ -115,7 +115,7 @@ object CBeginnerStageIds {
         "${lesson8}_sub8"
     )
 
-    // Sub-lesson IDs for lesson 8 - Inheritance in C++
+    // Sub-lesson IDs for lesson 9 - Inheritance in C++
     val lesson9_subs = listOf(
         "${lesson9}_sub1",
         "${lesson9}_sub2",
@@ -125,6 +125,42 @@ object CBeginnerStageIds {
         "${lesson9}_sub6",
         "${lesson9}_sub7",
         "${lesson9}_sub8"
+    )
+
+    // Sub-lesson IDs for lesson 10 - Inheritance in C++
+    val lesson10_subs = listOf(
+        "${lesson10}_sub1",
+        "${lesson10}_sub2",
+        "${lesson10}_sub3",
+        "${lesson10}_sub4",
+        "${lesson10}_sub5",
+        "${lesson10}_sub6",
+        "${lesson10}_sub7",
+        "${lesson10}_sub8"
+    )
+
+    // Sub-lesson IDs for lesson 11 - Inheritance in C++
+    val lesson11_subs = listOf(
+        "${lesson11}_sub1",
+        "${lesson11}_sub2",
+        "${lesson11}_sub3",
+        "${lesson11}_sub4",
+        "${lesson11}_sub5",
+        "${lesson11}_sub6",
+        "${lesson11}_sub7",
+        "${lesson11}_sub8"
+    )
+
+    // Sub-lesson IDs for lesson 12 - Inheritance in C++
+    val lesson12_subs = listOf(
+        "${lesson12}_sub1",
+        "${lesson12}_sub2",
+        "${lesson12}_sub3",
+        "${lesson12}_sub4",
+        "${lesson12}_sub5",
+        "${lesson12}_sub6",
+        "${lesson12}_sub7",
+        "${lesson12}_sub8"
     )
 
 }
