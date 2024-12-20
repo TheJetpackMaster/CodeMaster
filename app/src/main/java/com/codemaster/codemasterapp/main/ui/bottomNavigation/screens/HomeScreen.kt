@@ -1,6 +1,7 @@
 package com.codemaster.codemasterapp.main.ui.bottomNavigation.screens
 
 import android.util.Log
+import android.widget.Toast
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -38,7 +39,7 @@ import com.codemaster.codemasterapp.ui.theme.*
 fun HomeScreen(
     navController: NavController,
     courseViewModel: CourseViewModel,
-    courses:List<Course> = emptyList<Course>(),
+    courses: List<Course> = emptyList<Course>(),
     allLessonsStatus: State<Map<String, LessonStatus>>
 ) {
     val scrollState = rememberScrollState()
@@ -52,7 +53,7 @@ fun HomeScreen(
         courseViewModel.loadLastSavedProgress()
     }
 
-    Log.d("home","home")
+    Log.d("home", "home")
     Scaffold(
         containerColor = Color.Transparent,
         topBar = {
@@ -110,7 +111,7 @@ fun HomeScreen(
                     // Language cards
                     Row(
                         modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.spacedBy(10.dp)
+                        horizontalArrangement = Arrangement.spacedBy(8.dp)
                     ) {
 
                         pair.forEachIndexed { index, course ->
@@ -122,6 +123,14 @@ fun HomeScreen(
                                 }
                             }
 
+                            val isComingSoon = when (course.language) {
+                                "C" -> false
+                                "C++" -> false
+                                "Python" -> true
+                                "DSA | C++" -> true
+                                else -> false
+                            }
+
                             LanguageCardDesign(
                                 languageName = course.language,
                                 difficulty = "Beginner",
@@ -130,26 +139,41 @@ fun HomeScreen(
                                 gradientColors = when (course.language) {
                                     "C" -> listOf(purpleKt, yellowishKt)
                                     "C++" -> listOf(purpleCpp, magentaCpp)
+                                    "Python" -> listOf(bluishPython, greenishPython)
+                                    "DSA | C++" -> listOf(yellowishJava, bluishJava)
                                     else -> listOf(purpleKt, yellowishKt)
                                 },
                                 languageImage = when (course.language) {
-                                    "C" -> painterResource(id = R.drawable.cpp)
+                                    "C" -> painterResource(id = R.drawable.clang)
                                     "C++" -> painterResource(id = R.drawable.cpp)
+                                    "Python" -> painterResource(id = R.drawable.pythonlogo)
+                                    "DSA | C++" -> painterResource(id = R.drawable.cpp)
                                     else -> painterResource(id = R.drawable.kotlin)
+                                },
+                                comingSoon = when (course.language) {
+                                    "C" -> false
+                                    "C++" -> false
+                                    "Python" -> true
+                                    "DSA | C++" -> true
+                                    else -> false
                                 },
                                 onClick = {
                                     courseViewModel.selectLanguage(course)
-                                    if (navController.currentBackStackEntry?.lifecycle?.currentState == Lifecycle.State.RESUMED) {
-                                        navController.navigate(MainRoutes.MAIN_ROOT.route)
+                                    if (isComingSoon) {
+
+                                    } else {
+                                        if (navController.currentBackStackEntry?.lifecycle?.currentState == Lifecycle.State.RESUMED) {
+                                            navController.navigate(MainRoutes.MAIN_ROOT.route)
+                                        }
                                     }
                                 },
                                 modifier = Modifier.weight(1f)
                             )
                         }
                     }
+
+                    Spacer(Modifier.height(8.dp)) // Space between rows
                 }
-
-
 
 
 //                Row(
@@ -229,7 +253,6 @@ fun HomeScreen(
 //                    )
 
 
-
                 //Continue
                 Column(modifier = Modifier.padding(bottom = 80.dp)) {
 
@@ -255,7 +278,7 @@ fun HomeScreen(
                         Row(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .padding(top = 14.dp),
+                                .padding(top = 8.dp),
                             horizontalArrangement = Arrangement.SpaceBetween,
                             verticalAlignment = Alignment.CenterVertically
                         ) {
@@ -283,8 +306,10 @@ fun HomeScreen(
                             decorativeLogo =
                             when (course.language) {
                                 "C" -> R.drawable.clang
-                                "C++"-> R.drawable.cpp
-                                else -> {R.drawable.kotlin}
+                                "C++" -> R.drawable.cpp
+                                else -> {
+                                    R.drawable.kotlin
+                                }
                             },
                             onContinueClick = {
                                 courseViewModel.selectLanguage(course)

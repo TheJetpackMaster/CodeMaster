@@ -10,8 +10,6 @@ import com.codemaster.codemasterapp.main.data.LessonStatus
 import com.codemaster.codemasterapp.main.data.Stage
 
 class CPPCourseProvider {
-
-
     fun getCompleteCPPCourse(): Course {
         return Course(
             id = "cpp_course",
