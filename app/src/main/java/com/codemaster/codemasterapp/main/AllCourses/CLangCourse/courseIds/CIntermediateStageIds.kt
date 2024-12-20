@@ -29,7 +29,8 @@ object CIntermediateStageIds{
         "${lesson1}_sub3",
         "${lesson1}_sub4",
         "${lesson1}_sub5",
-        "${lesson1}_sub6"
+        "${lesson1}_sub6",
+
     )
 
     // Sub-lesson IDs for lesson 2 - Introduction to OOP
@@ -39,7 +40,8 @@ object CIntermediateStageIds{
         "${lesson2}_sub3",
         "${lesson2}_sub4",
         "${lesson2}_sub5",
-        "${lesson2}_sub6"
+        "${lesson2}_sub6",
+        "${lesson2}_sub7"
     )
 
     // Sub-lesson IDs for lesson 3 - Classes & Objects in C++

@@ -73,6 +73,7 @@ object CBeginnerStageIds {
         "${lesson5}_sub5",
         "${lesson5}_sub6",
         "${lesson5}_sub7",
+        "${lesson5}_sub8",
     )
 
     // Sub-lesson IDs for lesson 6 - Access Modifiers in C++
@@ -84,7 +85,8 @@ object CBeginnerStageIds {
         "${lesson6}_sub5",
         "${lesson6}_sub6",
         "${lesson6}_sub7",
-        "${lesson6}_sub8"
+        "${lesson6}_sub8",
+        "${lesson6}_sub9"
     )
 
     // Sub-lesson IDs for lesson 7 - Setters and Getters in C++
