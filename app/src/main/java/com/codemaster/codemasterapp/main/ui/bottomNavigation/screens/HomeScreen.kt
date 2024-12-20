@@ -127,7 +127,7 @@ fun HomeScreen(
                                 "C" -> false
                                 "C++" -> false
                                 "Python" -> true
-                                "DSA | C++" -> true
+                                "DSA | C++" -> false
                                 else -> false
                             }
 
