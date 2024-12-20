@@ -955,7 +955,7 @@ int main() {
                 lessonContents = listOf(
 
                     LessonContent(
-                        id = "expert_c5_sub1",
+                        id = CExpertStageIds.lesson5_subs[0],
                         title = "Introduction to Unit Converter Program",
                         description = "This project teaches how to create a unit converter program in C, allowing users to convert between categories like length, weight, and temperature using modularized functions and conditionals.",
                         contentBlocks = listOf(
@@ -970,7 +970,7 @@ int main() {
                     ),
 
                     LessonContent(
-                        id = "expert_c5_sub2",
+                        id = CExpertStageIds.lesson5_subs[1],
                         title = "Converting Length Units with a Function",
                         description = "This lesson explains how to create a function that converts between various length units such as meters, kilometers, miles, and centimeters.",
                         contentBlocks = listOf(
@@ -1021,7 +1021,7 @@ float convertLength(float value, int fromUnit, int toUnit) {
                     ),
 
                     LessonContent(
-                        id = "expert_c5_sub3",
+                        id = CExpertStageIds.lesson5_subs[1],
                         title = "Converting Weight Units with a Function",
                         description = "This lesson demonstrates how to create a function to convert between various weight units such as kilograms, pounds, grams, and ounces.",
                         contentBlocks = listOf(
@@ -1074,7 +1074,7 @@ float convertWeight(float value, int fromUnit, int toUnit) {
 
                     // Sublesson: Viewing Contacts
                     LessonContent(
-                        id = "expert_c5_sub4",
+                        id = CExpertStageIds.lesson5_subs[3],
                         title = "Converting Temperature Units",
                         description = "In this lesson, we will implement a function to convert between temperature units such as Celsius, Fahrenheit, and Kelvin.",
                         contentBlocks = listOf(
