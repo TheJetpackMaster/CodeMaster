@@ -44,7 +44,7 @@ fun CAdvancedCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c1_sub3",
+                        id = CAdvancedStageIds.lesson1_subs[2],
                         title = "Effective Learning Strategies",
                         description = "Tips for mastering challenging advanced topics and becoming a better programmer.",
                         contentBlocks = listOf(
@@ -53,7 +53,7 @@ fun CAdvancedCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c1_sub4",
+                        id = CAdvancedStageIds.lesson1_subs[3],
                         title = "Ready to Begin",
                         description = "Prepare yourself for diving deep into advanced topics in the upcoming lessons.",
                         contentBlocks = listOf(
@@ -68,12 +68,12 @@ fun CAdvancedCourse(): Stage {
 
             // lesson 2
             Lesson(
-                id = "advanced_c2",
+                id = CAdvancedStageIds.lesson2,
                 title = "C Functions",
                 description = "Learn how functions in C improve code reusability and modularity! 🧑‍💻",
                 lessonContents = listOf(
                     LessonContent(
-                        id = "advanced_c2_sub1",
+                        id = CAdvancedStageIds.lesson2_subs[0],
                         title = "Introduction to Functions",
                         description = "Understand functions, their syntax, and how they modularize code.",
                         contentBlocks = listOf(
@@ -100,7 +100,7 @@ fun CAdvancedCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c2_sub2",
+                        id = CAdvancedStageIds.lesson2_subs[1],
                         title = "Predefined Functions",
                         description = "Explore built-in functions like printf and scanf.",
                         contentBlocks = listOf(
@@ -129,7 +129,7 @@ fun CAdvancedCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c2_sub3",
+                        id = CAdvancedStageIds.lesson2_subs[2],
                         title = "Create a Function",
                         description = "Learn to define custom functions.",
                         contentBlocks = listOf(
@@ -150,7 +150,7 @@ fun CAdvancedCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c2_sub4",
+                        id = CAdvancedStageIds.lesson2_subs[3],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -169,7 +169,7 @@ fun CAdvancedCourse(): Stage {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c2_sub5",
+                        id = CAdvancedStageIds.lesson2_subs[4],
                         title = "Call a Function (Way 1)",
                         description = "Learn how to call a function by defining it at the top and calling it in main().",
                         contentBlocks = listOf(
