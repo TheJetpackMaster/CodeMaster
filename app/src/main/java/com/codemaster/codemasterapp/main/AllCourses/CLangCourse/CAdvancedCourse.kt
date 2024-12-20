@@ -2442,12 +2442,12 @@ int main() {
 
             // Lesson 12
             Lesson(
-                id = "advanced_c12",
+                id = CAdvancedStageIds.lesson12,
                 title = "C Enumeration (enum)",
                 description = "Learn advanced techniques for using enums in C, including defining enums, changing their values, and using them in switch statements.",
                 lessonContents = listOf(
                     LessonContent(
-                        id = "advanced_c12_sub1",
+                        id = CAdvancedStageIds.lesson12_subs[0],
                         title = "Introduction to Enums",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -2480,7 +2480,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c12_sub2",
+                        id = CAdvancedStageIds.lesson12_subs[1],
                         title = "Changing Enum Values",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -2511,7 +2511,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c12_sub3",
+                        id = CAdvancedStageIds.lesson12_subs[2],
                         title = "Quiz",
                         contentBlocks = listOf(
                             InteractiveInputBlock(
@@ -2531,7 +2531,7 @@ int main() {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c12_sub4",
+                        id = CAdvancedStageIds.lesson12_subs[3],
                         title = "Enum in Switch Statement",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -2566,7 +2566,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c12_sub4",
+                        id = CAdvancedStageIds.lesson12_subs[4],
                         title = "Enum with Bit Flags",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -2608,7 +2608,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c12_sub5",
+                        id = CAdvancedStageIds.lesson12_subs[5],
                         title = "Quiz",
                         contentBlocks = listOf(
                             InteractiveInputBlock(
@@ -2636,7 +2636,7 @@ int main() {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c12_sub6",
+                        id = CAdvancedStageIds.lesson12_subs[6],
                         title = "Real-life Example of Enums",
                         contentBlocks = listOf(
                             ContentBlock.Text(createAnnotatedText("Enums can represent user roles in a system, improving clarity and managing permissions efficiently.")),
@@ -2678,7 +2678,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c12_sub7",
+                        id = CAdvancedStageIds.lesson12_subs[7],
                         title = "Quiz",
                         contentBlocks = listOf(
                             QuizContentBlock(
@@ -2700,12 +2700,12 @@ int main() {
 
             // lesson 13
             Lesson(
-                id = "advanced_c13",
+                id = CAdvancedStageIds.lesson13,
                 title = "C Memory Management",
                 description = "Master memory management in C, including dynamic memory allocation, deallocation, and handling memory efficiently.",
                 lessonContents = listOf(
                     LessonContent(
-                        id = "advanced_c13_sub1",
+                        id = CAdvancedStageIds.lesson13_subs[0],
                         title = "Introduction to Memory Management",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -2744,7 +2744,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c13_sub2",
+                        id = CAdvancedStageIds.lesson13_subs[1],
                         title = "Dynamic Memory Allocation",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -2809,7 +2809,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c13_sub3",
+                        id = CAdvancedStageIds.lesson13_subs[2],
                         title = "Quiz",
                         contentBlocks = listOf(
                             InteractiveInputBlock(
@@ -2823,7 +2823,7 @@ int main() {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c13_sub4",
+                        id = CAdvancedStageIds.lesson13_subs[3],
                         title = "Memory Deallocation",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -2858,7 +2858,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c13_sub5",
+                        id = CAdvancedStageIds.lesson13_subs[4],
                         title = "Memory Leaks and Optimization",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -2913,7 +2913,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c13_sub6",
+                        id = CAdvancedStageIds.lesson13_subs[5],
                         title = "Quiz",
                         contentBlocks = listOf(
                             InteractiveInputBlock(
