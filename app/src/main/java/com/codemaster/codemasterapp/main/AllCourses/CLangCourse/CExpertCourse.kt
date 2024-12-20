@@ -88,7 +88,7 @@ fun CExpertCourse(): Stage {
                 description = "Learn the essential strategies to build projects, solve problems, escape tutorial hell, and become a great programmer using the tools provided in this app.",
                 lessonContents = listOf(
                     LessonContent(
-                        id = "advance_c2_sub1",
+                        id = CExpertStageIds.lesson2_subs[0],
                         title = "Key Strategies for Logic Building",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -101,7 +101,7 @@ fun CExpertCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advance_c2_sub2",
+                        id = CExpertStageIds.lesson2_subs[1],
                         title = "Project Execution Framework",
                         contentBlocks = listOf(
                             ContentBlock.Text(
