@@ -1914,7 +1914,7 @@ for (int location = 0; location < 10; location++) {
                 description = "Test your knowledge of the topics covered in this stage! 🧠💻",
                 lessonContents = listOf(
                     LessonContent(
-                        id = "intermediate_c11_sub1",
+                        id = CIntermediateStageIds.lesson11_subs[0],
                         title = "Quiz: Loops and Arrays",
                         description = "Answer questions about loops and arrays in C.",
                         contentBlocks = listOf(
@@ -1927,7 +1927,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.QUIZ
                     ),
                     LessonContent(
-                        id = "intermediate_c11_sub2",
+                        id = CIntermediateStageIds.lesson11_subs[1],
                         title = "Quiz: If-Else and Nested Statements",
                         description = "Test your knowledge of if-else and nested conditional statements.",
                         contentBlocks = listOf(
