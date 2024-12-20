@@ -1115,7 +1115,7 @@ int main() {
                 description = "Understand recursion in C and use it effectively.",
                 lessonContents = listOf(
                     LessonContent(
-                        id = "advanced_c6_sub1",
+                        id = CAdvancedStageIds.lesson6_subs[0],
                         title = "Introduction to Recursion",
                         description = "Learn the definition of recursion in C.",
                         contentBlocks = listOf(
@@ -1163,7 +1163,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c6_sub2",
+                        id = CAdvancedStageIds.lesson6_subs[1],
                         title = "Base Case in Recursion",
                         description = "Understand the base case's importance.",
                         contentBlocks = listOf(
@@ -1198,7 +1198,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c6_sub3",
+                        id = CAdvancedStageIds.lesson6_subs[2],
                         title = "Recursive Case in Recursion",
                         description = "See a recursive function in action.",
                         contentBlocks = listOf(
@@ -1242,7 +1242,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c6_sub4",
+                        id = CAdvancedStageIds.lesson6_subs[3],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -1264,7 +1264,7 @@ int main() {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c6_sub5",
+                        id = CAdvancedStageIds.lesson6_subs[],
                         title = "Recursive vs Iterative Solutions",
                         description = "Compare recursion and iteration.",
                         contentBlocks = listOf(
