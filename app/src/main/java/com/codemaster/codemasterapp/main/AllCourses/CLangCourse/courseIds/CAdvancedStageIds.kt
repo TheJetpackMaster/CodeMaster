@@ -41,7 +41,8 @@ object CAdvancedStageIds {
         "${lesson2}_sub5",
         "${lesson2}_sub6",
         "${lesson2}_sub7",
-        "${lesson2}_sub8"
+        "${lesson2}_sub8",
+        "${lesson2}_sub9"
     )
 
     // Sub-lesson IDs for lesson 3 - Classes & Objects in C++
