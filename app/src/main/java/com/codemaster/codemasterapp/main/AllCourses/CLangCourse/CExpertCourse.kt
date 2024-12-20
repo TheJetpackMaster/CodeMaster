@@ -126,7 +126,7 @@ fun CExpertCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advance_c2_sub3",
+                        id = CExpertStageIds.lesson2_subs[2],
                         title = "Escaping Tutorial Hell",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -151,7 +151,7 @@ fun CExpertCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advance_c2_sub4",
+                        id = CExpertStageIds.lesson2_subs[3],
                         title = "Becoming a Great Programmer",
                         contentBlocks = listOf(
                             ContentBlock.Text(
