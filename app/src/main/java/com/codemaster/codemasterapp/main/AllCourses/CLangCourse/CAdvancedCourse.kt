@@ -1264,7 +1264,7 @@ int main() {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = CAdvancedStageIds.lesson6_subs[],
+                        id = CAdvancedStageIds.lesson6_subs[4],
                         title = "Recursive vs Iterative Solutions",
                         description = "Compare recursion and iteration.",
                         contentBlocks = listOf(
@@ -1315,7 +1315,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c6_sub6",
+                        id = CAdvancedStageIds.lesson6_subs[5],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -1338,7 +1338,7 @@ int main() {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c6_sub7",
+                        id = CAdvancedStageIds.lesson6_subs[6],
                         title = "Real-Life Example of Recursion",
                         description = "Apply recursion in real-world scenarios.",
                         contentBlocks = listOf(
@@ -1384,7 +1384,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c6_sub8",
+                        id = CAdvancedStageIds.lesson6_subs[7],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -1407,12 +1407,12 @@ int main() {
 
             // lesson 7
             Lesson(
-                id = "advanced_c7",
+                id = CAdvancedStageIds.lesson7,
                 title = "C Math Functions",
                 description = "Learn basic math functions in C.",
                 lessonContents = listOf(
                     LessonContent(
-                        id = "advanced_c7_sub1",
+                        id = CAdvancedStageIds.lesson7_subs[0],
                         title = "Intro to C Math Functions",
                         description = "Understand the math.h library.",
                         contentBlocks = listOf(
@@ -1422,7 +1422,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c7_sub2",
+                        id = CAdvancedStageIds.lesson7_subs[1],
                         title = "Common Math Functions",
                         description = "Learn basic functions like sqrt(), pow(), and abs().",
                         contentBlocks = listOf(
@@ -1443,7 +1443,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c7_sub3",
+                        id = CAdvancedStageIds.lesson7_subs[2],
                         title = "Trigonometric Functions",
                         description = "Use functions like sin(), cos(), and tan().",
                         contentBlocks = listOf(
@@ -1461,7 +1461,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c7_sub4",
+                        id = CAdvancedStageIds.lesson7_subs[3],
                         title = "Logarithmic & Exponential",
                         description = "Learn log(), log10(), and exp().",
                         contentBlocks = listOf(
@@ -1478,7 +1478,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c7_sub5",
+                        id = CAdvancedStageIds.lesson7_subs[4],
                         title = "Rounding Functions",
                         description = "Explore round(), floor(), and ceil().",
                         contentBlocks = listOf(
@@ -1498,7 +1498,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c7_sub6",
+                        id = CAdvancedStageIds.lesson7_subs[5],
                         title = "Real Life Example",
                         description = "See how C math functions are used in real-world applications.",
                         contentBlocks = listOf(
@@ -1518,7 +1518,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c7_sub7",
+                        id = CAdvancedStageIds.lesson7_subs[6],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
