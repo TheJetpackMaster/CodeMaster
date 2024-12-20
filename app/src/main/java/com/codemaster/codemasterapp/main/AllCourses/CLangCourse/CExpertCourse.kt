@@ -1501,7 +1501,7 @@ void playerMove(char player) {
                     ),
 
                     LessonContent(
-                        id = "expert_c6_sub7",
+                        id = CExpertStageIds.lesson6_subs[6],
                         title = "Complete Project Code",
                         description = "Below is the complete code for the Tic-Tac-Toe game, which allows two players to take turns and play the game on a 3x3 grid.",
                         contentBlocks = listOf(
@@ -1637,13 +1637,13 @@ int main() {
 
             // lesson 7
             Lesson(
-                id = "expert_c7",
+                id = CExpertStageIds.lesson7,
                 title = "Text Editor",
                 description = "A simple text editor that allows the user to create, save, and open files. It will require handling file operations and memory management for dynamic text manipulation.",
                 lessonContents = listOf(
 
                     LessonContent(
-                        id = "expert_c7_sub1",
+                        id = CExpertStageIds.lesson7_subs[0],
                         title = "Introduction to Text Editor Project",
                         description = "This project teaches how to create a simple text-based text editor in C, allowing users to create, edit, view, and manage text files dynamically using memory allocation, file handling, and string manipulation.",
                         contentBlocks = listOf(
