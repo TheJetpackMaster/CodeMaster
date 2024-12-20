@@ -1,5 +1,6 @@
 package com.codemaster.codemasterapp.main.AllCourses.CLangCourse
 
+import com.codemaster.codemasterapp.main.AllCourses.CLangCourse.courseIds.CAdvancedStageIds
 import com.codemaster.codemasterapp.main.AllCourses.helperFuntions.createAnnotatedText
 import com.codemaster.codemasterapp.main.AllCourses.helperFuntions.createSimpleText
 import com.codemaster.codemasterapp.main.data.ContentBlock
@@ -13,18 +14,18 @@ import com.codemaster.codemasterapp.main.data.Stage
 
 fun CAdvancedCourse(): Stage {
     return Stage(
-        id = "c_advanced_stage",
+        id = CAdvancedStageIds.stageId,
         title = "Advanced",
         lessons = listOf(
 
             // lesson 1
             Lesson(
-                id = "advanced_c1",
+                id = CAdvancedStageIds.lesson1,
                 title = "Welcome to Advanced Programming",
                 description = "Take your programming skills to the next level by mastering functions, memory management, pointers, and more.",
                 lessonContents = listOf(
                     LessonContent(
-                        id = "advanced_c1_sub1",
+                        id = CAdvancedStageIds.lesson1_subs[0],
                         title = "Overview",
                         description = "Explore the key advanced topics that will shape your programming expertise.",
                         contentBlocks = listOf(
@@ -34,7 +35,7 @@ fun CAdvancedCourse(): Stage {
                         status = LessonStatus.ACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c1_sub2",
+                        id = CAdvancedStageIds.lesson1_subs[1],
                         title = "Stay Inspired",
                         description = "Encouragement to keep you motivated as you tackle complex programming challenges.",
                         contentBlocks = listOf(
