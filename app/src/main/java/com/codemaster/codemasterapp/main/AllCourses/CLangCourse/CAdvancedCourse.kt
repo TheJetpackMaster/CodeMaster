@@ -2145,7 +2145,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c11_sub2",
+                        id = CAdvancedStageIds.lesson11_subs[1],
                         title = "Creating a File",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -2178,7 +2178,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c11_sub3",
+                        id = CAdvancedStageIds.lesson11_subs[2],
                         title = "Reading from a File",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -2213,7 +2213,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c11_sub4",
+                        id = CAdvancedStageIds.lesson11_subs[3],
                         title = "Quiz",
                         contentBlocks = listOf(
                             InteractiveInputBlock(
@@ -2233,7 +2233,7 @@ if (file == NULL) {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c11_sub5",
+                        id = CAdvancedStageIds.lesson11_subs[4],
                         title = "Writing to a File",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -2266,7 +2266,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c11_sub6",
+                        id = CAdvancedStageIds.lesson11_subs[5],
                         title = "Closing a File",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -2299,7 +2299,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c11_sub7",
+                        id = CAdvancedStageIds.lesson11_subs[6],
                         title = "File Error Handling",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -2331,7 +2331,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c11_sub8",
+                        id = CAdvancedStageIds.lesson11_subs[7],
                         title = "Quiz",
                         contentBlocks = listOf(
                             InteractiveInputBlock(
@@ -2345,7 +2345,7 @@ int main() {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c11_sub9",
+                        id = CAdvancedStageIds.lesson11_subs[8],
                         title = "Real-Life Example of File Handling",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -2418,7 +2418,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c11_sub10",
+                        id = CAdvancedStageIds.lesson11_subs[9],
                         title = "Quiz",
                         contentBlocks = listOf(
                             QuizContentBlock(
