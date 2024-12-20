@@ -1716,7 +1716,7 @@ printf("Value at the address: %d\n", *ptr);  // Dereferencing the pointer to get
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c9_sub3",
+                        id = CAdvancedStageIds.lesson9_subs[2],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -1731,7 +1731,7 @@ printf("Value at the address: %d\n", *ptr);  // Dereferencing the pointer to get
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c9_sub4",
+                        id = CAdvancedStageIds.lesson9_subs[3],
                         title = "Pointers & Arrays",
                         description = "Learn how pointers and arrays are closely related in C.",
                         contentBlocks = listOf(
