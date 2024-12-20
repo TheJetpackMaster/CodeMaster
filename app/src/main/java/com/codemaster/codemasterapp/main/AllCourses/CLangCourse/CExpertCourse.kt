@@ -2412,7 +2412,7 @@ void saveRecord(int studentIndex) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "expert_c8_sub7",
+                        id = CExpertStageIds.lesson8_subs[6],
                         title = "Loading Student Records in C",
                         description = "Learn how to load student records from a file in C.",
                         contentBlocks = listOf(
@@ -2465,7 +2465,7 @@ void loadRecords() {
                     ),
 
                     LessonContent(
-                        id = "expert_c8_sub8",
+                        id = CExpertStageIds.lesson8_subs[7],
                         title = "Student Grading System in C",
                         description = "Complete implementation of a student grading system in C, showcasing file handling, data management, and a menu-driven interface.",
                         contentBlocks = listOf(
@@ -2681,7 +2681,7 @@ int main() {
 
             // lesson 9
             Lesson(
-                id = "expert_c9",
+                id = CExpertStageIds.lesson9_subs[0],
                 title = "End of C Language Lessons",
                 description = "Congratulations! You have completed the C programming lessons.",
                 lessonContents = listOf(
