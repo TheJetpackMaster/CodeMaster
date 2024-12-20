@@ -1946,7 +1946,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.QUIZ
                     ),
                     LessonContent(
-                        id = "intermediate_c11_sub3",
+                        id = CIntermediateStageIds.lesson11_subs[2],
                         title = "Quiz: Strings and Arrays",
                         description = "Answer questions about strings and arrays in C.",
                         contentBlocks = listOf(
@@ -1964,7 +1964,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.QUIZ
                     ),
                     LessonContent(
-                        id = "intermediate_c11_sub4",
+                        id = CIntermediateStageIds.lesson11_subs[3],
                         title = "Quiz: Break and Continue",
                         description = "Test your understanding of break and continue in loops.",
                         contentBlocks = listOf(
@@ -1984,7 +1984,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.QUIZ
                     ),
                     LessonContent(
-                        id = "intermediate_c11_sub5",
+                        id = CIntermediateStageIds.lesson11_subs[4],
                         title = "Quiz: Input Handling",
                         description = "Quiz on handling user input in C.",
                         contentBlocks = listOf(
