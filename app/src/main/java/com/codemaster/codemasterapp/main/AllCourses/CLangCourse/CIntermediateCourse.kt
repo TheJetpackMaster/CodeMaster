@@ -1848,7 +1848,7 @@ for (int location = 0; location < 10; location++) {
                 description = "A brief recap of key programming concepts in C.",
                 lessonContents = listOf(
                     LessonContent(
-                        id = "intermediate_c10_sub1",
+                        id = CIntermediateStageIds.lesson10_subs[0],
                         title = "Introduction and Encouragement",
                         description = "Let's begin by revisiting some essential concepts in C programming. These foundations will help you grow your coding skills and tackle more complex problems.",
                         contentBlocks = listOf(
@@ -1862,7 +1862,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c10_sub2",
+                        id = CIntermediateStageIds.lesson10_subs[1],
                         title = "Loops (For, While, Do-While)",
                         description = "Loops are essential for repeating tasks. The for, while, and do-while loops help execute code multiple times, making them crucial for handling repetitive tasks efficiently.",
                         contentBlocks = listOf(
@@ -1876,7 +1876,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c10_sub3",
+                        id = CIntermediateStageIds.lesson10_subs[2],
                         title = "Arrays",
                         description = "Arrays are essential for storing multiple values of the same type. They’re crucial for managing large datasets and implementing efficient algorithms.",
                         contentBlocks = listOf(
@@ -1890,7 +1890,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c10_sub4",
+                        id = CIntermediateStageIds.lesson10_subs[3],
                         title = "Keep Going! Your Next Challenge Awaits",
                         description = "You’ve made excellent progress so far. Completing the sections on loops and arrays has built a strong foundation for you. These core concepts will support more advanced topics ahead. Keep practicing, and the clarity will come. Remember, learning programming is a journey, not a sprint. Stay focused, keep pushing forward, and the next challenge is yours to conquer!",
                         contentBlocks = listOf(
