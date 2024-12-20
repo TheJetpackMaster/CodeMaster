@@ -58,6 +58,8 @@ fun LanguageCardDesign(
         }
     }
 
+
+
     Log.d("progress",progress.value.toString())
 
     Card(
@@ -88,7 +90,7 @@ fun LanguageCardDesign(
                     .clip(RoundedCornerShape(20.dp))
                     .background(Color.White.copy(alpha = 0.15f))
                     .border(1.dp, Color.White.copy(alpha = 0.3f), RoundedCornerShape(20.dp))
-                    .padding(12.dp),
+                    .padding(top = 12.dp, start = 12.dp, end = 8.dp, bottom = 12.dp),
                 contentAlignment = Alignment.Center
 
             ) {
@@ -106,7 +108,7 @@ fun LanguageCardDesign(
                             painter = languageImage,
                             contentDescription = "$languageName icon",
                             modifier = Modifier
-                                .size(55.dp)
+                                .size(50.dp)
                                 .clip(CircleShape)
 
                                 .background(Color.Black)
