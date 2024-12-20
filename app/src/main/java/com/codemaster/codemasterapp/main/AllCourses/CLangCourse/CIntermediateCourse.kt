@@ -2003,7 +2003,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.QUIZ
                     ),
                     LessonContent(
-                        id = "intermediate_c11_sub6",
+                        id = CIntermediateStageIds.lesson11_subs[5],
                         title = "Stage Completed",
                         description = "You’ve completed this stage, now prepare for the next one!",
                         contentBlocks = listOf(
