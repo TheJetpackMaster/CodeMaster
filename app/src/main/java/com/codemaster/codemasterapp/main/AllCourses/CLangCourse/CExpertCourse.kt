@@ -1116,7 +1116,7 @@ float convertTemperature(float value, int fromUnit, int toUnit) {
                     ),
 
                     LessonContent(
-                        id = "expert_c5_sub5",
+                        id = CExpertStageIds.lesson5_subs[4],
                         title = "Complete Project Code",
                         description = "Below is the complete code for the Unit Converter program, which supports converting between different units of length, weight, and temperature.",
                         contentBlocks = listOf(
@@ -1285,7 +1285,7 @@ float convertTemperature(float value, int fromUnit, int toUnit) {
 
             // lesson 6
             Lesson(
-                id = "expert_c6",
+                id = CExpertStageIds.lesson6,
                 title = "Tic-Tac-Toe Game",
                 description = "Create a text-based Tic-Tac-Toe game that allows two players to take turns marking spaces on a 3x3 grid. The game will check for winning conditions, handle user input, and display the board after each move.",
                 lessonContents = listOf(
