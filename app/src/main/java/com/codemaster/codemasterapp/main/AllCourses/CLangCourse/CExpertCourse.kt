@@ -311,7 +311,7 @@ double logarithm(double a, double base) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "expert_c3_sub4",
+                        id = CExpertStageIds.lesson3_subs[3],
                         title = "User Interface Design",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -339,7 +339,7 @@ void displayCalculator() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "expert_c3_sub5",
+                        id = CExpertStageIds.lesson3_subs[4],
                         title = "Handling User Input",
                         contentBlocks = listOf(
                             ContentBlock.Text(
