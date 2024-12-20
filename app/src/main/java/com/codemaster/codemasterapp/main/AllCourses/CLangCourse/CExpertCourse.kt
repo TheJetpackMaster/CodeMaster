@@ -217,7 +217,7 @@ fun CExpertCourse(): Stage {
                 description = "Build a personalized calculator with custom functions, UI, and logic.",
                 lessonContents = listOf(
                     LessonContent(
-                        id = "expert_c3_sub1",
+                        id = CExpertStageIds.lesson3_subs[0],
                         title = "Introduction to Personalized Calculator",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -236,7 +236,7 @@ fun CExpertCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "expert_c3_sub2",
+                        id = CExpertStageIds.lesson3_subs[1],
                         title = "Basic Operations",
                         contentBlocks = listOf(
                             ContentBlock.Text(
