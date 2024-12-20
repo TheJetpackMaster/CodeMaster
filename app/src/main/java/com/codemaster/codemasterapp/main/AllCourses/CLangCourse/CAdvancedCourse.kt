@@ -1559,7 +1559,7 @@ printf("Memory address of num: %p\n", &num);
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c8_sub2",
+                        id = CAdvancedStageIds.lesson8_subs[1],
                         title = "What is a Memory Address?",
                         description = "Learn what a memory address is and how it relates to variable storage.",
                         contentBlocks = listOf(
@@ -1576,7 +1576,7 @@ printf("Address of num: %p\n", &num);
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c8_sub3",
+                        id = CAdvancedStageIds.lesson8_subs[2],
                         title = "Variables and Their Memory Locations",
                         description = "Understand how variables are stored at specific memory locations.",
                         contentBlocks = listOf(
@@ -1593,7 +1593,7 @@ printf("%p", &num);
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c8_sub4",
+                        id = CAdvancedStageIds.lesson8_subs[3],
                         title = "How Variables are Stored in Memory",
                         description = "Learn how variables are physically stored in memory and allocated.",
                         contentBlocks = listOf(
@@ -1609,7 +1609,7 @@ int num = 10;  // Stored on the stack
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c8_sub5",
+                        id = CAdvancedStageIds.lesson8_subs[4],
                         title = "Basic Use of the & (Address-of) Operator",
                         description = "Understand how to use the & operator to access the memory address.",
                         contentBlocks = listOf(
@@ -1626,7 +1626,7 @@ printf("Memory address of num: %p\n", &num);
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c8_sub6",
+                        id = CAdvancedStageIds.lesson8_subs[5],
                         title = "Real-life Example of Dynamic Memory Usage",
                         description = "Understand dynamic memory allocation in real applications.",
                         contentBlocks = listOf(
@@ -1648,7 +1648,7 @@ if (imageData != NULL) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c8_sub7",
+                        id = CAdvancedStageIds.lesson8_subs[6],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -1666,12 +1666,12 @@ if (imageData != NULL) {
 
             // Lesson 9
             Lesson(
-                id = "advanced_c9",
+                id = CAdvancedStageIds.lesson9,
                 title = "C Pointers",
                 description = "Master pointers in C, including creating pointers and their relationship with arrays! 🔑",
                 lessonContents = listOf(
                     LessonContent(
-                        id = "advanced_c9_sub1",
+                        id = CAdvancedStageIds.lesson9_subs[0],
                         title = "Introduction to Pointers",
                         description = "An introduction to what pointers are and why they are important in C programming.",
                         contentBlocks = listOf(
@@ -1693,7 +1693,7 @@ printf("Value of num using pointer: %d\n", *ptr);
 
                     // Creating Pointers
                     LessonContent(
-                        id = "advanced_c9_sub2",
+                        id = CAdvancedStageIds.lesson9_subs[1],
                         title = "Creating Pointers",
                         description = "Learn how to create pointers and assign them to variables. This is the fundamental step in understanding pointers.",
                         contentBlocks = listOf(
