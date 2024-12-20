@@ -1118,7 +1118,7 @@ while (isPartyOn) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c7_sub2",
+                        id = CIntermediateStageIds.lesson7_subs[1],
                         title = "Basic Continue Statement",
                         description = "Understand the basic usage of continue to skip loop iterations.",
                         contentBlocks = listOf(
