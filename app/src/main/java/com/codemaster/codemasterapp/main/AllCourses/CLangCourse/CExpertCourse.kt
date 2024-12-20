@@ -1,5 +1,6 @@
 package com.codemaster.codemasterapp.main.AllCourses.CLangCourse
 
+import com.codemaster.codemasterapp.main.AllCourses.CLangCourse.courseIds.CExpertStageIds
 import com.codemaster.codemasterapp.main.AllCourses.helperFuntions.createAnnotatedText
 import com.codemaster.codemasterapp.main.data.ContentBlock
 import com.codemaster.codemasterapp.main.data.ContentBlock.InteractiveInputBlock
@@ -12,18 +13,18 @@ import com.codemaster.codemasterapp.main.data.Stage
 
 fun CExpertCourse(): Stage {
     return Stage(
-        id = "c_expert_stage",
+        id = CExpertStageIds.stageId,
         title = "Expert",
         lessons = listOf(
 
             // lesson 1
             Lesson(
-                id = "expert_c1",
+                id = CExpertStageIds.lesson1,
                 title = "Introduction to Expert Projects",
                 description = "Get an overview of what you'll learn in the expert-level projects, focusing on logic building and advanced programming concepts.",
                 lessonContents = listOf(
                     LessonContent(
-                        id = "expert_c1_sub1",
+                        id = CExpertStageIds.lesson1_subs[0],
                         title = "Introduction to the Expert Stage",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -47,7 +48,7 @@ fun CExpertCourse(): Stage {
                         status = LessonStatus.ACTIVE
                     ),
                     LessonContent(
-                        id = "expert_c1_sub2",
+                        id = CExpertStageIds.lesson1_subs[1],
                         title = "Overview of Projects and Goals",
                         contentBlocks = listOf(
                             ContentBlock.Text(
