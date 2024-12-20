@@ -1,26 +1,25 @@
 package com.codemaster.codemasterapp.main.AllCourses.CLangCourse.courseIds
 
-object CIntermediateStageIds{
+object CAdvancedStageIds {
 
-
-    val stageId = "c_intermediate_stage"
+    val stageId = "c_advanced_stage"
 
     // Course and Lesson IDs as constants
-    val lesson1 = "intermediate_c1"
-    val lesson2 = "intermediate_c2"
-    val lesson3 = "intermediate_c3"
-    val lesson4 = "intermediate_c4"
-    val lesson5 = "intermediate_c5"
-    val lesson6 = "intermediate_c6"
-    val lesson7 = "intermediate_c7"
-    val lesson8 = "intermediate_c8"
-    val lesson9 = "intermediate_c9"
-    val lesson10 = "intermediate_c10"
-    val lesson11 = "intermediate_c11"
-    val lesson12 = "intermediate_c12"
-    val lesson13 = "intermediate_c13"
-    val lesson14 = "intermediate_c14"
-    val lesson15 = "intermediate_c15"
+    val lesson1 = "advanced_c1"
+    val lesson2 = "advanced_c2"
+    val lesson3 = "advanced_c3"
+    val lesson4 = "advanced_c4"
+    val lesson5 = "advanced_c5"
+    val lesson6 = "advanced_c6"
+    val lesson7 = "advanced_c7"
+    val lesson8 = "advanced_c8"
+    val lesson9 = "advanced_c9"
+    val lesson10 = "advanced_c10"
+    val lesson11 = "advanced_c11"
+    val lesson12 = "advanced_c12"
+    val lesson13 = "advanced_c13"
+    val lesson14 = "advanced_c14"
+    val lesson15 = "advanced_c15"
 
     // Sub-lesson IDs for lesson 1 Welcome
     val lesson1_subs = listOf(
@@ -31,7 +30,7 @@ object CIntermediateStageIds{
         "${lesson1}_sub5",
         "${lesson1}_sub6",
 
-    )
+        )
 
     // Sub-lesson IDs for lesson 2 - Introduction to OOP
     val lesson2_subs = listOf(
@@ -41,7 +40,9 @@ object CIntermediateStageIds{
         "${lesson2}_sub4",
         "${lesson2}_sub5",
         "${lesson2}_sub6",
-        "${lesson2}_sub7"
+        "${lesson2}_sub7",
+        "${lesson2}_sub8",
+        "${lesson2}_sub9"
     )
 
     // Sub-lesson IDs for lesson 3 - Classes & Objects in C++
@@ -67,6 +68,9 @@ object CIntermediateStageIds{
         "${lesson4}_sub5",
         "${lesson4}_sub5",
         "${lesson4}_sub6",
+        "${lesson4}_sub7",
+        "${lesson4}_sub8",
+        "${lesson4}_sub9",
     )
 
     // Sub-lesson IDs for lesson 5 - Constructors in C++
@@ -115,8 +119,7 @@ object CIntermediateStageIds{
         "${lesson8}_sub5",
         "${lesson8}_sub6",
         "${lesson8}_sub7",
-        "${lesson8}_sub8",
-        "${lesson8}_sub9"
+        "${lesson8}_sub8"
     )
 
     // Sub-lesson IDs for lesson 9 - Inheritance in C++
@@ -131,8 +134,7 @@ object CIntermediateStageIds{
         "${lesson9}_sub8",
         "${lesson9}_sub9",
         "${lesson9}_sub10",
-        "${lesson9}_sub11",
-        "${lesson9}_sub12",
+        "${lesson9}_sub11"
     )
 
     // Sub-lesson IDs for lesson 10 - Inheritance in C++
@@ -144,7 +146,8 @@ object CIntermediateStageIds{
         "${lesson10}_sub5",
         "${lesson10}_sub6",
         "${lesson10}_sub7",
-        "${lesson10}_sub8"
+        "${lesson10}_sub8",
+        "${lesson10}_sub9"
     )
 
     // Sub-lesson IDs for lesson 11 - Inheritance in C++
@@ -156,7 +159,9 @@ object CIntermediateStageIds{
         "${lesson11}_sub5",
         "${lesson11}_sub6",
         "${lesson11}_sub7",
-        "${lesson11}_sub8"
+        "${lesson11}_sub8",
+        "${lesson11}_sub9",
+        "${lesson11}_sub10"
     )
 
     // Sub-lesson IDs for lesson 12 - Inheritance in C++
@@ -169,6 +174,42 @@ object CIntermediateStageIds{
         "${lesson12}_sub6",
         "${lesson12}_sub7",
         "${lesson12}_sub8"
+    )
+
+    // Sub-lesson IDs for lesson 13 - Inheritance in C++
+    val lesson13_subs = listOf(
+        "${lesson13}_sub1",
+        "${lesson13}_sub2",
+        "${lesson13}_sub3",
+        "${lesson13}_sub4",
+        "${lesson13}_sub5",
+        "${lesson13}_sub6",
+        "${lesson13}_sub7",
+        "${lesson13}_sub8"
+    )
+
+    // Sub-lesson IDs for lesson 14 - Inheritance in C++
+    val lesson14_subs = listOf(
+        "${lesson14}_sub1",
+        "${lesson14}_sub2",
+        "${lesson14}_sub3",
+        "${lesson14}_sub4",
+        "${lesson14}_sub5",
+        "${lesson14}_sub6",
+        "${lesson14}_sub7",
+        "${lesson14}_sub8"
+    )
+
+    // Sub-lesson IDs for lesson 14 - Inheritance in C++
+    val lesson15_subs = listOf(
+        "${lesson15}_sub1",
+        "${lesson15}_sub2",
+        "${lesson15}_sub3",
+        "${lesson15}_sub4",
+        "${lesson15}_sub5",
+        "${lesson15}_sub6",
+        "${lesson15}_sub7",
+        "${lesson15}_sub8"
     )
 
 }

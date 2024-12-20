@@ -1089,12 +1089,12 @@ do {
             
             // lesson 7
             Lesson(
-                id = "intermediate_c7",
+                id = CIntermediateStageIds.lesson7,
                 title = "C Break and Continue",
                 description = "Master the break and continue statements to control loop flow in C! 🛑➡️",
                 lessonContents = listOf(
                     LessonContent(
-                        id = "intermediate_c7_sub1",
+                        id = CIntermediateStageIds.lesson7_subs[0],
                         title = "Basic Break Statement",
                         description = "Learn the simple use of the break statement in loops.",
                         contentBlocks = listOf(
@@ -1118,7 +1118,7 @@ while (isPartyOn) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c7_sub2",
+                        id = CIntermediateStageIds.lesson7_subs[1],
                         title = "Basic Continue Statement",
                         description = "Understand the basic usage of continue to skip loop iterations.",
                         contentBlocks = listOf(
@@ -1142,7 +1142,7 @@ for (int dish = 0; dish < buffetSize; dish++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c7_sub3",
+                        id = CIntermediateStageIds.lesson7_subs[2],
                         title = "Break in Nested Loops",
                         description = "Learn how to use break in nested loops.",
                         contentBlocks = listOf(
@@ -1167,7 +1167,7 @@ for (int section = 0; section < 5; section++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c7_sub4",
+                        id = CIntermediateStageIds.lesson7_subs[3],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -1190,7 +1190,7 @@ for (int section = 0; section < 5; section++) {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c7_sub5",
+                        id = CIntermediateStageIds.lesson7_subs[4],
                         title = "Continue in Nested Loops",
                         description = "See how to use continue in nested loops to skip iterations.",
                         contentBlocks = listOf(
@@ -1216,7 +1216,7 @@ for (int street = 0; street < 5; street++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c7_sub6",
+                        id = CIntermediateStageIds.lesson7_subs[5],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -1240,7 +1240,7 @@ for (int street = 0; street < 5; street++) {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c7_sub7",
+                        id = CIntermediateStageIds.lesson7_subs[6],
                         title = "Real-Life Examples",
                         description = "Check out practical examples of break and continue in loops.",
                         contentBlocks = listOf(
@@ -1271,7 +1271,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c7_sub8",
+                        id = CIntermediateStageIds.lesson7_subs[7],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -1296,12 +1296,12 @@ for (int location = 0; location < 10; location++) {
             
             // lesson 8
             Lesson(
-                id = "intermediate_c8",
+                id = CIntermediateStageIds.lesson8,
                 title = "C Arrays",
                 description = "Master arrays in C for efficient data storage and access! 🗃️",
                 lessonContents = listOf(
                     LessonContent(
-                        id = "intermediate_c8_sub1",
+                        id = CIntermediateStageIds.lesson8_subs[0],
                         title = "Introduction to Arrays",
                         description = "Learn how arrays store similar data in sequence.",
                         contentBlocks = listOf(
@@ -1316,7 +1316,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c8_sub2",
+                        id = CIntermediateStageIds.lesson8_subs[1],
                         title = "Array Declaration and Initialization",
                         description = "Learn how to create and fill arrays.",
                         contentBlocks = listOf(
@@ -1336,7 +1336,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c8_sub3",
+                        id = CIntermediateStageIds.lesson8_subs[2],
                         title = "Accessing Array Elements",
                         description = "How to get or change array elements using their index.",
                         contentBlocks = listOf(
@@ -1358,7 +1358,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c8_sub4",
+                        id = CIntermediateStageIds.lesson8_subs[3],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -1371,7 +1371,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c8_sub5",
+                        id = CIntermediateStageIds.lesson8_subs[4],
                         title = "Array Size",
                         description = "Find out how many elements an array can hold.",
                         contentBlocks = listOf(
@@ -1392,7 +1392,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c8_sub6",
+                        id = CIntermediateStageIds.lesson8_subs[5],
                         title = "2D array",
                         description = "Organize data in rows and columns.",
                         contentBlocks = listOf(
@@ -1415,7 +1415,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c8_sub7",
+                        id = CIntermediateStageIds.lesson8_subs[6],
                         title = "Array Operations",
                         description = "Sort or search elements in arrays.",
                         contentBlocks = listOf(
@@ -1448,7 +1448,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c8_sub8",
+                        id = CIntermediateStageIds.lesson8_subs[7],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -1483,7 +1483,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c8_sub9",
+                        id = CIntermediateStageIds.lesson8_subs[8],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -1506,12 +1506,12 @@ for (int location = 0; location < 10; location++) {
             
             // lesson 9
             Lesson(
-                id = "intermediate_c9",
+                id = CIntermediateStageIds.lesson9,
                 title = "C Strings",
                 description = "Learn how to work with strings in C and perform string manipulations. 📝",
                 lessonContents = listOf(
                     LessonContent(
-                        id = "intermediate_c9_sub1",
+                        id = CIntermediateStageIds.lesson9_subs[0],
                         title = "Introduction to Strings in C",
                         description = "Understand the basics of strings in C.",
                         contentBlocks = listOf(
@@ -1530,7 +1530,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c9_sub2",
+                        id = CIntermediateStageIds.lesson9_subs[1],
                         title = "Declaring and Initializing Strings",
                         description = "Learn how to declare and initialize strings in C.",
                         contentBlocks = listOf(
@@ -1567,7 +1567,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c9_sub3",
+                        id = CIntermediateStageIds.lesson9_subs[2],
                         title = "Accessing String Elements",
                         description = "Learn how to access individual characters in a string.",
                         contentBlocks = listOf(
@@ -1600,7 +1600,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c9_sub4",
+                        id = CIntermediateStageIds.lesson9_subs[3],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -1615,7 +1615,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c9_sub5",
+                        id = CIntermediateStageIds.lesson9_subs[4],
                         title = "String Length and Size",
                         description = "Understand how to calculate the length of a string.",
                         contentBlocks = listOf(
@@ -1648,7 +1648,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c9_sub6",
+                        id = CIntermediateStageIds.lesson9_subs[5],
                         title = "Common String Functions",
                         description = "Explore commonly used functions for string manipulation.",
                         contentBlocks = listOf(
@@ -1688,7 +1688,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c9_sub7",
+                        id = CIntermediateStageIds.lesson9_subs[6],
                         title = "String Comparison",
                         description = "Learn how to compare strings.",
                         contentBlocks = listOf(
@@ -1712,7 +1712,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c9_sub8",
+                        id = CIntermediateStageIds.lesson9_subs[7],
                         title = "String Copying and Concatenation",
                         description = "Learn how to copy and concatenate strings.",
                         contentBlocks = listOf(
@@ -1752,7 +1752,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c9_sub9",
+                        id = CIntermediateStageIds.lesson9_subs[8],
                         title = "String Input and Output",
                         description = "Understand how to handle input and output with strings.",
                         contentBlocks = listOf(
@@ -1775,7 +1775,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c9_sub10",
+                        id = CIntermediateStageIds.lesson9_subs[9],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -1795,7 +1795,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c9_sub11",
+                        id = CIntermediateStageIds.lesson9_subs[10],
                         title = "Real-Life Example with Strings",
                         description = "See how strings are used in real applications.",
                         contentBlocks = listOf(
@@ -1823,7 +1823,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c9_sub12",
+                        id = CIntermediateStageIds.lesson9_subs[11],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -1843,12 +1843,12 @@ for (int location = 0; location < 10; location++) {
             
             // lesson 10
             Lesson(
-                id = "intermediate_c10",
+                id = CIntermediateStageIds.lesson10,
                 title = "Recap",
                 description = "A brief recap of key programming concepts in C.",
                 lessonContents = listOf(
                     LessonContent(
-                        id = "intermediate_c10_sub1",
+                        id = CIntermediateStageIds.lesson10_subs[0],
                         title = "Introduction and Encouragement",
                         description = "Let's begin by revisiting some essential concepts in C programming. These foundations will help you grow your coding skills and tackle more complex problems.",
                         contentBlocks = listOf(
@@ -1862,7 +1862,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c10_sub2",
+                        id = CIntermediateStageIds.lesson10_subs[1],
                         title = "Loops (For, While, Do-While)",
                         description = "Loops are essential for repeating tasks. The for, while, and do-while loops help execute code multiple times, making them crucial for handling repetitive tasks efficiently.",
                         contentBlocks = listOf(
@@ -1876,7 +1876,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c10_sub3",
+                        id = CIntermediateStageIds.lesson10_subs[2],
                         title = "Arrays",
                         description = "Arrays are essential for storing multiple values of the same type. They’re crucial for managing large datasets and implementing efficient algorithms.",
                         contentBlocks = listOf(
@@ -1890,7 +1890,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c10_sub4",
+                        id = CIntermediateStageIds.lesson10_subs[3],
                         title = "Keep Going! Your Next Challenge Awaits",
                         description = "You’ve made excellent progress so far. Completing the sections on loops and arrays has built a strong foundation for you. These core concepts will support more advanced topics ahead. Keep practicing, and the clarity will come. Remember, learning programming is a journey, not a sprint. Stay focused, keep pushing forward, and the next challenge is yours to conquer!",
                         contentBlocks = listOf(
@@ -1907,13 +1907,14 @@ for (int location = 0; location < 10; location++) {
                 status = LessonStatus.LOCKED
             ),
 
+            // lesson 11
             Lesson(
-                id = "intermediate_c11",
+                id = CIntermediateStageIds.lesson11,
                 title = "Quiz",
                 description = "Test your knowledge of the topics covered in this stage! 🧠💻",
                 lessonContents = listOf(
                     LessonContent(
-                        id = "intermediate_c11_sub1",
+                        id = CIntermediateStageIds.lesson11_subs[0],
                         title = "Quiz: Loops and Arrays",
                         description = "Answer questions about loops and arrays in C.",
                         contentBlocks = listOf(
@@ -1926,7 +1927,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.QUIZ
                     ),
                     LessonContent(
-                        id = "intermediate_c11_sub2",
+                        id = CIntermediateStageIds.lesson11_subs[1],
                         title = "Quiz: If-Else and Nested Statements",
                         description = "Test your knowledge of if-else and nested conditional statements.",
                         contentBlocks = listOf(
@@ -1945,7 +1946,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.QUIZ
                     ),
                     LessonContent(
-                        id = "intermediate_c11_sub3",
+                        id = CIntermediateStageIds.lesson11_subs[2],
                         title = "Quiz: Strings and Arrays",
                         description = "Answer questions about strings and arrays in C.",
                         contentBlocks = listOf(
@@ -1963,7 +1964,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.QUIZ
                     ),
                     LessonContent(
-                        id = "intermediate_c11_sub4",
+                        id = CIntermediateStageIds.lesson11_subs[3],
                         title = "Quiz: Break and Continue",
                         description = "Test your understanding of break and continue in loops.",
                         contentBlocks = listOf(
@@ -1983,7 +1984,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.QUIZ
                     ),
                     LessonContent(
-                        id = "intermediate_c11_sub5",
+                        id = CIntermediateStageIds.lesson11_subs[4],
                         title = "Quiz: Input Handling",
                         description = "Quiz on handling user input in C.",
                         contentBlocks = listOf(
@@ -2002,7 +2003,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.QUIZ
                     ),
                     LessonContent(
-                        id = "intermediate_c11_sub6",
+                        id = CIntermediateStageIds.lesson11_subs[5],
                         title = "Stage Completed",
                         description = "You’ve completed this stage, now prepare for the next one!",
                         contentBlocks = listOf(
