@@ -83,7 +83,7 @@ fun CExpertCourse(): Stage {
 
             // lesson 2
             Lesson(
-                id = "advance_c2",
+                id = CExpertStageIds.lesson2,
                 title = "Mastering Logic Building and Project Execution",
                 description = "Learn the essential strategies to build projects, solve problems, escape tutorial hell, and become a great programmer using the tools provided in this app.",
                 lessonContents = listOf(
