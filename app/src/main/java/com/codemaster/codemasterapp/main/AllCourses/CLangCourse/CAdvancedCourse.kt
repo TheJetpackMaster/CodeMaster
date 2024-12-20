@@ -578,7 +578,7 @@ fun CAdvancedCourse(): Stage {
                 description = "Learn about function parameters and how they work in C functions! 🧑‍💻",
                 lessonContents = listOf(
                     LessonContent(
-                        id = "advanced_c4_sub1",
+                        id = CAdvancedStageIds.lesson4_subs[0],
                         title = "Introduction to Parameters",
                         description = "Get introduced to function parameters and understand their importance in C.",
                         contentBlocks = listOf(
@@ -609,7 +609,7 @@ fun CAdvancedCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c4_sub2",
+                        id = CAdvancedStageIds.lesson4_subs[1],
                         title = "Multiple Parameters",
                         description = "Understand how to pass multiple parameters to a function.",
                         contentBlocks = listOf(
@@ -642,7 +642,7 @@ fun CAdvancedCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c4_sub3",
+                        id = CAdvancedStageIds.lesson4_subs[2],
                         title = "Non-Parameter Functions",
                         description = "Learn about functions that do not take any parameters.",
                         contentBlocks = listOf(
@@ -673,7 +673,7 @@ fun CAdvancedCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c4_sub4",
+                        id = CAdvancedStageIds.lesson4_subs[3],
                         title = "Arguments in Functions",
                         description = "Understand the difference between parameters and arguments, and how arguments are passed to functions during a function call in C.",
                         contentBlocks = listOf(
@@ -711,7 +711,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c4_sub5",
+                        id = CAdvancedStageIds.lesson4_subs[4],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -733,7 +733,7 @@ int main() {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c4_sub6",
+                        id = CAdvancedStageIds.lesson4_subs[5],
                         title = "Pass Arrays as Function Parameters",
                         description = "Learn how to pass arrays to functions in C.",
                         contentBlocks = listOf(
@@ -775,7 +775,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c4_sub7",
+                        id = CAdvancedStageIds.lesson4_subs[6],
                         title = "Return Values from Functions",
                         description = "Learn how functions return values to the caller.",
                         contentBlocks = listOf(
@@ -814,7 +814,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c4_sub8",
+                        id = CAdvancedStageIds.lesson4_subs[7],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -836,7 +836,7 @@ int main() {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c4_sub9",
+                        id = CAdvancedStageIds.lesson4_subs[8],
                         title = "Real-Life Example of Function Parameters",
                         description = "Understand the use of function parameters with a real-life example.",
                         contentBlocks = listOf(
@@ -874,7 +874,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c4_sub10",
+                        id = CAdvancedStageIds.lesson4_subs[9],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -897,7 +897,7 @@ int main() {
 
             // lesson 5
             Lesson(
-                id = "advanced_c5",
+                id = CAdvancedStageIds.lesson5,
                 title = "C Variable Scope",
                 description = "Understand how variables behave inside and outside functions in C.",
                 lessonContents = listOf(
