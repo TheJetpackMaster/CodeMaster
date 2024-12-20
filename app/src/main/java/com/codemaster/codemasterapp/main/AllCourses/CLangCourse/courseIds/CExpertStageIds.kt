@@ -1,26 +1,25 @@
 package com.codemaster.codemasterapp.main.AllCourses.CLangCourse.courseIds
 
-object CIntermediateStageIds{
+object CExpertStageIds{
 
-
-    val stageId = "c_intermediate_stage"
+    val stageId = "c_expert_stage"
 
     // Course and Lesson IDs as constants
-    val lesson1 = "intermediate_c1"
-    val lesson2 = "intermediate_c2"
-    val lesson3 = "intermediate_c3"
-    val lesson4 = "intermediate_c4"
-    val lesson5 = "intermediate_c5"
-    val lesson6 = "intermediate_c6"
-    val lesson7 = "intermediate_c7"
-    val lesson8 = "intermediate_c8"
-    val lesson9 = "intermediate_c9"
-    val lesson10 = "intermediate_c10"
-    val lesson11 = "intermediate_c11"
-    val lesson12 = "intermediate_c12"
-    val lesson13 = "intermediate_c13"
-    val lesson14 = "intermediate_c14"
-    val lesson15 = "intermediate_c15"
+    val lesson1 = "expert_c1"
+    val lesson2 = "expert_c2"
+    val lesson3 = "expert_c3"
+    val lesson4 = "expert_c4"
+    val lesson5 = "expert_c5"
+    val lesson6 = "expert_c6"
+    val lesson7 = "expert_c7"
+    val lesson8 = "expert_c8"
+    val lesson9 = "expert_c9"
+    val lesson10 = "expert_c10"
+    val lesson11 = "expert_c11"
+    val lesson12 = "expert_c12"
+    val lesson13 = "expert_c13"
+    val lesson14 = "expert_c14"
+    val lesson15 = "expert_c15"
 
     // Sub-lesson IDs for lesson 1 Welcome
     val lesson1_subs = listOf(
@@ -31,7 +30,7 @@ object CIntermediateStageIds{
         "${lesson1}_sub5",
         "${lesson1}_sub6",
 
-    )
+        )
 
     // Sub-lesson IDs for lesson 2 - Introduction to OOP
     val lesson2_subs = listOf(
@@ -67,6 +66,7 @@ object CIntermediateStageIds{
         "${lesson4}_sub5",
         "${lesson4}_sub5",
         "${lesson4}_sub6",
+        "${lesson4}_sub7",
     )
 
     // Sub-lesson IDs for lesson 5 - Constructors in C++
@@ -115,8 +115,7 @@ object CIntermediateStageIds{
         "${lesson8}_sub5",
         "${lesson8}_sub6",
         "${lesson8}_sub7",
-        "${lesson8}_sub8",
-        "${lesson8}_sub9"
+        "${lesson8}_sub8"
     )
 
     // Sub-lesson IDs for lesson 9 - Inheritance in C++
@@ -128,11 +127,7 @@ object CIntermediateStageIds{
         "${lesson9}_sub5",
         "${lesson9}_sub6",
         "${lesson9}_sub7",
-        "${lesson9}_sub8",
-        "${lesson9}_sub9",
-        "${lesson9}_sub10",
-        "${lesson9}_sub11",
-        "${lesson9}_sub12",
+        "${lesson9}_sub8"
     )
 
     // Sub-lesson IDs for lesson 10 - Inheritance in C++
