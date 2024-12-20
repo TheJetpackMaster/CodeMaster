@@ -1142,7 +1142,7 @@ for (int dish = 0; dish < buffetSize; dish++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c7_sub3",
+                        id = CIntermediateStageIds.lesson7_subs[2],
                         title = "Break in Nested Loops",
                         description = "Learn how to use break in nested loops.",
                         contentBlocks = listOf(
@@ -1167,7 +1167,7 @@ for (int section = 0; section < 5; section++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c7_sub4",
+                        id = CIntermediateStageIds.lesson7_subs[3],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -1190,7 +1190,7 @@ for (int section = 0; section < 5; section++) {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c7_sub5",
+                        id = CIntermediateStageIds.lesson7_subs[4],
                         title = "Continue in Nested Loops",
                         description = "See how to use continue in nested loops to skip iterations.",
                         contentBlocks = listOf(
