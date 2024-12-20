@@ -70,6 +70,7 @@ object CAdvancedStageIds {
         "${lesson4}_sub6",
         "${lesson4}_sub7",
         "${lesson4}_sub8",
+        "${lesson4}_sub9",
     )
 
     // Sub-lesson IDs for lesson 5 - Constructors in C++
