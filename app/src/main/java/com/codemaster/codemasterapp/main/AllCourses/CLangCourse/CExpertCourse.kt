@@ -1291,7 +1291,7 @@ float convertTemperature(float value, int fromUnit, int toUnit) {
                 lessonContents = listOf(
 
                     LessonContent(
-                        id = "expert_c6_sub1",
+                        id = CExpertStageIds.lesson6_subs[0],
                         title = "Introduction to Tic-Tac-Toe Game",
                         description = "This project teaches how to create a text-based Tic-Tac-Toe game in C, where players can take turns to make moves and check for winning conditions or a draw using arrays, loops, and conditional statements.",
                         contentBlocks = listOf(
@@ -1306,7 +1306,7 @@ float convertTemperature(float value, int fromUnit, int toUnit) {
                     ),
 
                     LessonContent(
-                        id = "expert_c6_sub2",
+                        id = CExpertStageIds.lesson6_subs[1],
                         title = "Initializing a Tic-Tac-Toe Board in C",
                         description = "Learn how to initialize a 3x3 Tic-Tac-Toe board with numbers 1 to 9 in C.",
                         contentBlocks = listOf(
@@ -1338,7 +1338,7 @@ void initializeBoard() {
                     ),
 
                     LessonContent(
-                        id = "expert_c6_sub3",
+                        id = CExpertStageIds.lesson6_subs[2],
                         title = "Displaying the Tic-Tac-Toe Board in C",
                         description = "This lesson demonstrates how to create a function to display a Tic-Tac-Toe board in C using loops and conditional statements. The board is displayed with a grid format, and the cells are separated by pipes ('|') for clarity.",
                         contentBlocks = listOf(
@@ -1374,7 +1374,7 @@ void displayBoard() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "expert_c6_sub4",
+                        id = CExpertStageIds.lesson6_subs[3],
                         title = "Checking for a Winner in Tic-Tac-Toe",
                         description = "In this lesson, we will implement a function to check if a player has won the game in Tic-Tac-Toe by evaluating rows, columns, and diagonals for a winning condition.",
                         contentBlocks = listOf(
@@ -1415,7 +1415,7 @@ int checkWin(char player) {
                     ),
 
                     LessonContent(
-                        id = "expert_c6_sub5",
+                        id = CExpertStageIds.lesson6_subs[4],
                         title = "Checking for a Draw in Tic-Tac-Toe",
                         description = "In this lesson, we will implement a function to check if the game has ended in a draw, meaning all cells are filled without a winner.",
                         contentBlocks = listOf(
@@ -1451,7 +1451,7 @@ int checkDraw() {
                     ),
 
                     LessonContent(
-                        id = "expert_c6_sub6",
+                        id = CExpertStageIds.lesson6_subs[5],
                         title = "Handling Player Moves in Tic-Tac-Toe",
                         description = "In this lesson, we will implement a function to take input from the player and make their move on the Tic-Tac-Toe board.",
                         contentBlocks = listOf(
