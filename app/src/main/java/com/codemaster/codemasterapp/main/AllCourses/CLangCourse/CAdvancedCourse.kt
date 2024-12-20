@@ -3098,7 +3098,7 @@ int main() {
                         type = LessonContentType.QUIZ
                     ),
                     LessonContent(
-                        id = CAdvancedStageIds.lesson15_subs[0],
+                        id = CAdvancedStageIds.lesson15_subs[1],
                         title = "Quiz: Structs and Enums",
                         description = "Test your understanding of structs, enums, and their applications in C.",
                         contentBlocks = listOf(
@@ -3116,7 +3116,7 @@ int main() {
                         type = LessonContentType.QUIZ
                     ),
                     LessonContent(
-                        id = "advanced_c15_sub3",
+                        id = CAdvancedStageIds.lesson15_subs[2],
                         title = "Quiz: File I/O and Error Handling",
                         description = "Answer questions about file input/output and error handling in C.",
                         contentBlocks = listOf(
@@ -3135,7 +3135,7 @@ int main() {
                         type = LessonContentType.QUIZ
                     ),
                     LessonContent(
-                        id = "advanced_c15_sub4",
+                        id = CAdvancedStageIds.lesson15_subs[3],
                         title = "Quiz: Advanced Data Structures",
                         description = "Test your understanding of advanced data structures like linked lists and trees.",
                         contentBlocks = listOf(
@@ -3154,7 +3154,7 @@ int main() {
                         type = LessonContentType.QUIZ
                     ),
                     LessonContent(
-                        id = "advanced_c15_sub5",
+                        id = CAdvancedStageIds.lesson15_subs[4],
                         title = "Quiz: Multithreading and Concurrency",
                         description = "Test your knowledge of multithreading and concurrency concepts in C.",
                         contentBlocks = listOf(
@@ -3173,7 +3173,7 @@ int main() {
                         type = LessonContentType.QUIZ
                     ),
                     LessonContent(
-                        id = "advanced_c15_sub6",
+                        id = CAdvancedStageIds.lesson15_subs[5],
                         title = "Stage Completed",
                         description = "You’ve completed this stage, now prepare for the next one!",
                         contentBlocks = listOf(
