@@ -1843,7 +1843,7 @@ for (int location = 0; location < 10; location++) {
             
             // lesson 10
             Lesson(
-                id = "intermediate_c10",
+                id = CIntermediateStageIds.lesson10,
                 title = "Recap",
                 description = "A brief recap of key programming concepts in C.",
                 lessonContents = listOf(
