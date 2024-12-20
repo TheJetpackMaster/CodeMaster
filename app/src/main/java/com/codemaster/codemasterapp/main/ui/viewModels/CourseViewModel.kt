@@ -33,6 +33,7 @@ class CourseViewModel @Inject constructor(
     private val learningProgressRepository: UserLearningProgressRepository
 ) : ViewModel() {
 
+
     // List of courses to display
     val courses: List<Course> = AllCoursesProvider()
 
@@ -63,6 +64,17 @@ class CourseViewModel @Inject constructor(
     //Points collection
     private val _points = MutableStateFlow<Map<String, Int>>(emptyMap()) // Track points
     val points: StateFlow<Map<String, Int>> = _points
+
+    init {
+        // Load all statuses and last saved progress
+        loadAllLessonStatuses()
+        loadLastSavedProgress()
+
+        // Default selection
+        val dsaCourse = courses.find { it.id== "dsa_course" }
+        _selectedCourse.value = dsaCourse
+        _selectedStage.value = dsaCourse?.stages?.find { it.id == "Beginner" }
+    }
 
     // Functions to select course, stage, lesson, and sub-lesson
     fun selectLanguage(course: Course) {
