@@ -615,7 +615,7 @@ typedef struct {
 
                     // Sublesson: Adding a Contact
                     LessonContent(
-                        id = "expert_c4_sub3",
+                        id = CExpertStageIds.lesson4_subs[2],
                         title = "Adding a Contact",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -649,7 +649,7 @@ void addContact() {
 
                     // Sublesson: Viewing Contacts
                     LessonContent(
-                        id = "expert_c4_sub4",
+                        id = CExpertStageIds.lesson4_subs[3],
                         title = "Viewing Contacts",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -679,7 +679,7 @@ void viewContacts() {
 
                     // Sublesson: Searching for a Contact
                     LessonContent(
-                        id = "expert_c4_sub5",
+                        id = CExpertStageIds.lesson4_subs[4],
                         title = "Searching for a Contact",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -715,7 +715,7 @@ void searchContact() {
 
                     // Sublesson: Updating a Contact
                     LessonContent(
-                        id = "expert_c4_sub6",
+                        id = CExpertStageIds.lesson4_subs[5],
                         title = "Updating a Contact",
                         contentBlocks = listOf(
                             ContentBlock.Text(
