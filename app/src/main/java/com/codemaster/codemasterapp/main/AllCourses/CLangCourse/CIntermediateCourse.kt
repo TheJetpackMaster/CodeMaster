@@ -1907,6 +1907,7 @@ for (int location = 0; location < 10; location++) {
                 status = LessonStatus.LOCKED
             ),
 
+            // lesson 11
             Lesson(
                 id = "intermediate_c11",
                 title = "Quiz",
