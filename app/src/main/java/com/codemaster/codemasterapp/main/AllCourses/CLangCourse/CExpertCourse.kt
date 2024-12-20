@@ -397,7 +397,7 @@ double getUserInput() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "expert_c3_sub6",
+                        id = CExpertStageIds.lesson3_subs[5],
                         title = "Error Handling",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -421,7 +421,7 @@ double divide(double a, double b) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "expert_c3_sub7",
+                        id = CExpertStageIds.lesson3_subs[6],
                         title = "Complete Project Code",
                         contentBlocks = listOf(
                             ContentBlock.Text(
