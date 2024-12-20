@@ -2723,7 +2723,7 @@ int main() {
                     ),
 
                     LessonContent(
-                        id = "expert_c9_sub3",
+                        id = CExpertStageIds.lesson9_subs[2],
                         title = "The Journey Ahead: Real-World Projects Await",
                         description = "You're ready to take on real-world projects now! With your C language skills, you have the tools to tackle complex challenges and build powerful applications.",
                         contentBlocks = listOf(
@@ -2741,7 +2741,7 @@ int main() {
                     ),
 
                     LessonContent(
-                        id = "expert_c9_sub4",
+                        id = CExpertStageIds.lesson9_subs[3],
                         title = "Embrace the Challenge: You're Ready",
                         description = "With determination and the knowledge you've gained, you're more than ready for the next chapter in your programming journey.",
                         contentBlocks = listOf(
@@ -2759,7 +2759,7 @@ int main() {
                     ),
 
                     LessonContent(
-                        id = "expert_c9_sub5",
+                        id = CExpertStageIds.lesson9_subs[4],
                         title = "Best Wishes for Your Future Projects",
                         description = "The road ahead is bright. Best of luck in your future programming endeavors!",
                         contentBlocks = listOf(
