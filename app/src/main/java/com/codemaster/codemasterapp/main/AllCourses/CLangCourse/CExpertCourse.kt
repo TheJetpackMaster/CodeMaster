@@ -786,7 +786,7 @@ void deleteContact() {
                     ),
 
                     LessonContent(
-                        id = "expert_c4_sub8",
+                        id = CExpertStageIds.lesson4_subs[7],
                         title = "Complete Project Code",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -949,7 +949,7 @@ int main() {
 
             // lesson 5
             Lesson(
-                id = "expert_c5",
+                id = CExpertStageIds.lesson5,
                 title = "Unit Converter",
                 description = "A comprehensive unit converter system for converting between different units such as length, weight, temperature, and more.",
                 lessonContents = listOf(
