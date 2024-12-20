@@ -58,9 +58,14 @@ interface UserLearningProgressDao {
     @Query("SELECT * FROM user_learning_progress WHERE last_course_id = :courseId")
     suspend fun getProgressForCourse(courseId: String): UserLearningProgress?
 
+    // Fetch the last stage name for a specific course ID
+    @Query("SELECT last_stage_name FROM user_learning_progress WHERE last_course_id = :courseId")
+    suspend fun getLastStageNameForCourse(courseId: String): String?
+
     // Insert or update user learning progress
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun saveUserLearningProgress(userLearningProgress: UserLearningProgress)
+
 }
 
 
@@ -88,6 +93,7 @@ abstract class UserLearningProgressDB : RoomDatabase() {
 
 class UserLearningProgressRepository(private val dao: UserLearningProgressDao) {
 
+    // Save learning progress
     suspend fun saveProgress(progress: LearningProgress) {
         val userProgress = UserLearningProgress(
             lastCourseId = progress.courseId,
@@ -102,6 +108,7 @@ class UserLearningProgressRepository(private val dao: UserLearningProgressDao) {
         dao.saveUserLearningProgress(userProgress)
     }
 
+    //Load last saved progress
     suspend fun loadLastSavedProgress(): LearningProgress? {
         val userProgress = dao.getLastSavedProgress()
         return userProgress?.let {
@@ -131,5 +138,11 @@ class UserLearningProgressRepository(private val dao: UserLearningProgressDao) {
                 subLessonIndex = it.lastSubLessonIndex
             )
         }
+    }
+
+    // Get stage name for each course by id
+    // Get the last stage name for a specific course
+    suspend fun getLastStageNameForCourse(courseId: String): String? {
+        return dao.getLastStageNameForCourse(courseId)
     }
 }

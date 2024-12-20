@@ -14,6 +14,7 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -32,6 +33,7 @@ import com.codemaster.codemasterapp.main.ui.components.ContinueLearningCard
 import com.codemaster.codemasterapp.main.ui.components.LanguageCardDesign
 import com.codemaster.codemasterapp.main.ui.viewModels.CourseViewModel
 import com.codemaster.codemasterapp.ui.theme.*
+import kotlinx.coroutines.launch
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -46,8 +48,19 @@ fun HomeScreen(
     val completedLessonCount = remember { mutableStateOf(0) }
     val courses = courseViewModel.courses
 
-    // Saved Lesson Status
-//    val allLessonsStatus = courseViewModel.lessonCompletionStatus.collectAsState()
+
+    // Get last saved stage name
+    val coroutineScope = rememberCoroutineScope()
+    val stageNames = remember { mutableStateOf<Map<String, String?>>(emptyMap()) }
+
+    // Fetch stage names when the composable is loaded
+    LaunchedEffect(courses) {
+        coroutineScope.launch {
+            val courseIds = courses.map { it.id } // Assuming `id` is the course ID
+            stageNames.value = courseViewModel.loadStageNamesForCourses(courseIds)
+        }
+    }
+
 
     LaunchedEffect(Unit) {
         courseViewModel.loadLastSavedProgress()
@@ -131,9 +144,12 @@ fun HomeScreen(
                                 else -> false
                             }
 
+                            // Fetch the stage name (difficulty) for the current course
+                            val difficulty = stageNames.value[course.id] ?: "Beginner"
+
                             LanguageCardDesign(
                                 languageName = course.language,
-                                difficulty = "Beginner",
+                                difficulty = difficulty,
                                 lessonCount = course.stages.sumOf { it.lessons.size },
                                 completedLessonCount = completedLessons,
                                 gradientColors = when (course.language) {

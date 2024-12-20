@@ -246,14 +246,23 @@ class CourseViewModel @Inject constructor(
         }
     }
 
-    fun loadLastSavedProgress(){
+    // Load latest progress
+    fun loadLastSavedProgress() {
         viewModelScope.launch {
             _lastSavedProgress.value = learningProgressRepository.loadLastSavedProgress()
         }
     }
 
+    // get each language last saved progress
     suspend fun loadLastSavedProgressForLanguage(courseId: String): LearningProgress? {
         return learningProgressRepository.loadProgressForCourse(courseId)
+    }
+
+    // Get stage name for each course
+    suspend fun loadStageNamesForCourses(courseIds: List<String>): Map<String, String?> {
+        return courseIds.associateWith { courseId ->
+            learningProgressRepository.getLastStageNameForCourse(courseId)
+        }
     }
 
 
