@@ -128,7 +128,7 @@ fun cppExpertCourse(): Stage {
 
                     // Content for "Quiz Time!"
                     LessonContent(
-                        id = "expert_cpp1_sub6",
+                        id = "expert_cpp1_sub5",
                         title = "Quiz Time! 🧠",
                         description = "Test your knowledge of problem-solving basics.",
                         contentBlocks = listOf(
@@ -153,14 +153,14 @@ fun cppExpertCourse(): Stage {
 
             // Lesson 2 : Easy Peasy - Problems
             Lesson(
-                id = "easy_peasy_math1",
+                id = "expert_cpp2",
                 title = "Easy Peasy - Problems",
                 description = "Let's practice basic math problems! We will start with simple addition and percentage calculation.",
                 lessonContents = listOf(
 
                     // Sub-lesson 1: Problem 1 - Add Two Numbers and Print the Sum
                     LessonContent(
-                        id = "easy_peasy_math1_sub1",
+                        id = "expert_cpp2_sub1",
                         title = "Add Two Numbers and Print the Sum",
                         description = "Create a program that adds two numbers and prints the result.",
                         contentBlocks = listOf(
@@ -183,7 +183,7 @@ fun cppExpertCourse(): Stage {
 
                     // Sub-lesson 2: Hint for Solving Problem 1
                     LessonContent(
-                        id = "easy_peasy_math1_sub2",
+                        id = "expert_cpp2_sub2",
                         title = "Hint",
                         description = "How to approach the problem.",
                         contentBlocks = listOf(
@@ -200,7 +200,7 @@ fun cppExpertCourse(): Stage {
 
                     // Sub-lesson 3: Solution for Problem 1
                     LessonContent(
-                        id = "easy_peasy_math1_sub3",
+                        id = "expert_cpp2_sub3",
                         title = "Solution",
                         description = "Here’s the solution for adding two numbers.",
                         contentBlocks = listOf(
@@ -230,7 +230,7 @@ fun cppExpertCourse(): Stage {
 
                     // Sub-lesson 4: Explanation of the Code for Problem
                     LessonContent(
-                        id = "easy_peasy_math1_sub4",
+                        id = "expert_cpp2_sub4",
                         title = "Explanation of the Code",
                         description = "Let’s understand the solution code.",
                         contentBlocks = listOf(
@@ -253,7 +253,7 @@ fun cppExpertCourse(): Stage {
 
                     // Content for "Quiz Time!"
                     LessonContent(
-                        id = "beginner_cpp6_sub8",
+                        id = "expert_cpp2_sub5",
                         title = "Quiz Time! 🧠",
                         description = "Test your knowledge of lesson.",
                         contentBlocks = listOf(
@@ -276,7 +276,7 @@ fun cppExpertCourse(): Stage {
 
                     // Sub-lesson 5: Problem 2 - Calculate Percentage
                     LessonContent(
-                        id = "easy_peasy_math1_sub5",
+                        id = "expert_cpp2_sub6",
                         title = "Calculate Percentage",
                         description = "Now, let’s calculate the percentage of a number.",
                         contentBlocks = listOf(
@@ -298,9 +298,9 @@ fun cppExpertCourse(): Stage {
                        status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 6: Hint for Solving Problem 2
+                    // Sub-lesson 7: Hint for Solving Problem 2
                     LessonContent(
-                        id = "easy_peasy_math1_sub6",
+                        id = "expert_cpp2_sub7",
                         title = "Hint",
                         description = "Approach to calculate the percentage.",
                         contentBlocks = listOf(
@@ -315,9 +315,9 @@ fun cppExpertCourse(): Stage {
                        status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 7: Solution for Problem 2
+                    // Sub-lesson 8: Solution for Problem 2
                     LessonContent(
-                        id = "easy_peasy_math1_sub7",
+                        id = "expert_cpp2_sub8",
                         title = "Solution",
                         description = "Here’s the solution for calculating the percentage.",
                         contentBlocks = listOf(
@@ -346,9 +346,9 @@ fun cppExpertCourse(): Stage {
                        status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 8: Explanation of the Code for Problem 2
+                    // Sub-lesson 9: Explanation of the Code for Problem 2
                     LessonContent(
-                        id = "easy_peasy_math1_sub8",
+                        id = "expert_cpp2_sub9",
                         title = "Explanation of the Code",
                         description = "Let’s break down the code for calculating the percentage.",
                         contentBlocks = listOf(
@@ -373,9 +373,9 @@ fun cppExpertCourse(): Stage {
                     ),
 
 
-                    // Sub-lesson 9: Quiz Time!
+                    // Sub-lesson 10: Quiz Time!
                     LessonContent(
-                        id = "easy_peasy_math1_sub9",
+                        id = "expert_cpp2_sub10",
                         title = "Quiz Time! 🧠",
                         description = "Test your knowledge of the problems.",
                         contentBlocks = listOf(
@@ -398,7 +398,7 @@ fun cppExpertCourse(): Stage {
 
 
                     LessonContent(
-                        id = "easy_peasy_math1_practice",
+                        id = "expert_cpp2_sub11",
                         title = "Practice Time!",
                         description = "Now it’s time to practice! The more you solve, the better you get!",
                         contentBlocks = listOf(
@@ -431,13 +431,13 @@ fun cppExpertCourse(): Stage {
 
             // Lesson 3 : THE MATH
             Lesson(
-                id = "intermediate_math1",
+                id = "expert_cpp3",
                 title = "THE MATH",
                 description = "Let’s work on some more math problems! In this lesson, you’ll learn how to check if a number is even or odd, and calculate the average of three numbers.",
                 lessonContents = listOf(
                     // Sub-lesson 1: Problem 1 - Check if a Number is Even or Odd
                     LessonContent(
-                        id = "intermediate_math1_sub1",
+                        id = "expert_cpp3_sub1",
                         title = "is Even or Odd",
                         description = "Write a program to check whether a given number is even or odd.",
                         contentBlocks = listOf(
@@ -460,7 +460,7 @@ fun cppExpertCourse(): Stage {
 
                     // Sub-lesson 2: Hint for Solving Problem 1
                     LessonContent(
-                        id = "intermediate_math1_sub2",
+                        id = "expert_cpp3_sub2",
                         title = "Hint",
                         description = "Here’s a hint for solving the even/odd problem.",
                         contentBlocks = listOf(
@@ -477,7 +477,7 @@ fun cppExpertCourse(): Stage {
 
                     // Sub-lesson 3: Solution for Problem 1
                     LessonContent(
-                        id = "intermediate_math1_sub3",
+                        id = "expert_cpp3_sub3",
                         title = "Solution",
                         description = "Here’s the solution for checking even or odd.",
                         contentBlocks = listOf(
@@ -507,7 +507,7 @@ fun cppExpertCourse(): Stage {
 
                     // Sub-lesson 4: Explanation of the Code for Problem 1
                     LessonContent(
-                        id = "intermediate_math1_sub4",
+                        id = "expert_cpp3_sub4",
                         title = "Explanation of the Code",
                         description = "Let’s break down the solution for checking even or odd.",
                         contentBlocks = listOf(
@@ -530,7 +530,7 @@ fun cppExpertCourse(): Stage {
 
                     // Sub-lesson 5: Quiz Time!
                     LessonContent(
-                        id = "intermediate_math1_sub5",
+                        id = "expert_cpp3_sub5",
                         title = "Quiz Time! 🧠",
                         description = "Test your knowledge about checking even or odd.",
                         contentBlocks = listOf(
@@ -553,7 +553,7 @@ fun cppExpertCourse(): Stage {
 
                     // Sub-lesson 6: Problem 2 - Calculate the Average of Three Numbers
                     LessonContent(
-                        id = "intermediate_math1_sub6",
+                        id = "expert_cpp3_sub6",
                         title = "Calculate the Average of Three Numbers",
                         description = "Create a program that calculates the average of three numbers.",
                         contentBlocks = listOf(
@@ -580,7 +580,7 @@ fun cppExpertCourse(): Stage {
 
                     // Sub-lesson 7: Hint for Solving Problem 2
                     LessonContent(
-                        id = "intermediate_math1_sub7",
+                        id = "expert_cpp3_sub7",
                         title = "Hint",
                         description = "Here’s a hint for calculating the average.",
                         contentBlocks = listOf(
@@ -597,7 +597,7 @@ fun cppExpertCourse(): Stage {
 
                     // Sub-lesson 8: Solution for Problem 2
                     LessonContent(
-                        id = "intermediate_math1_sub8",
+                        id = "expert_cpp3_sub8",
                         title = "Solution",
                         description = "Here’s the solution for calculating the average.",
                         contentBlocks = listOf(
@@ -626,7 +626,7 @@ fun cppExpertCourse(): Stage {
 
                     // Sub-lesson 9: Explanation of the Code for Problem 2
                     LessonContent(
-                        id = "intermediate_math1_sub9",
+                        id = "expert_cpp3_sub9",
                         title = "Explanation of the Code",
                         description = "Let’s understand how the average is calculated in the solution.",
                         contentBlocks = listOf(
@@ -649,7 +649,7 @@ fun cppExpertCourse(): Stage {
 
                     // Sub-lesson 10: Quiz Time!
                     LessonContent(
-                        id = "intermediate_math1_sub10",
+                        id = "expert_cpp3_sub10",
                         title = "Quiz Time! 🧠",
                         description = "Test your knowledge of calculating averages.",
                         contentBlocks = listOf(
@@ -672,7 +672,7 @@ fun cppExpertCourse(): Stage {
 
                     // Sub-lesson 11: Practice Time!
                     LessonContent(
-                        id = "intermediate_math1_practice",
+                        id = "expert_cpp3_sub11",
                         title = "Practice Time!",
                         description = "Practice solving problems to solidify your skills!",
                         contentBlocks = listOf(
@@ -699,14 +699,14 @@ fun cppExpertCourse(): Stage {
 
             // Lesson 4 : Voting Eligibility
             Lesson(
-                id = "voting_eligibility",
+                id = "expert_cpp4",
                 title = "Voting Eligibility",
                 description = "Learn how to use conditional statements to check if a person is eligible to vote based on their age.",
                 lessonContents = listOf(
 
                     // Sub-lesson 1: Problem - Check Voting Eligibility
                     LessonContent(
-                        id = "voting_eligibility_sub1",
+                        id = "expert_cpp4_sub1",
                         title = "Check Voting Eligibility",
                         description = "Create a program that checks if a person is eligible to vote based on their age. If the person’s age is 18 or older, print 'Eligible to Vote'. If not, print 'Not Eligible to Vote'.",
                         contentBlocks = listOf(
@@ -723,7 +723,7 @@ fun cppExpertCourse(): Stage {
 
                     // Sub-lesson 2: Hint for Solving Problem
                     LessonContent(
-                        id = "voting_eligibility_sub2",
+                        id = "expert_cpp4_sub2",
                         title = "Hint",
                         description = "How to approach the problem.",
                         contentBlocks = listOf(
@@ -740,7 +740,7 @@ fun cppExpertCourse(): Stage {
 
                     // Sub-lesson 3: Solution for Problem
                     LessonContent(
-                        id = "voting_eligibility_sub3",
+                        id = "expert_cpp4_sub3",
                         title = "Solution",
                         description = "Here’s the solution for checking voting eligibility.",
                         contentBlocks = listOf(
@@ -771,7 +771,7 @@ fun cppExpertCourse(): Stage {
 
                     // Sub-lesson 4: Explanation of the Code
                     LessonContent(
-                        id = "voting_eligibility_sub4",
+                        id = "expert_cpp4_sub4",
                         title = "Explanation of the Code",
                         description = "Let’s break down the solution code.",
                         contentBlocks = listOf(
@@ -794,7 +794,7 @@ fun cppExpertCourse(): Stage {
 
                     // Sub-lesson 5: Quiz Time!
                     LessonContent(
-                        id = "voting_eligibility_sub5",
+                        id = "expert_cpp4_sub5",
                         title = "Quiz Time! 🧠",
                         description = "Test your knowledge of the lesson.",
                         contentBlocks = listOf(
@@ -817,7 +817,7 @@ fun cppExpertCourse(): Stage {
 
                     // Sub-lesson 6: Practice Time!
                     LessonContent(
-                        id = "voting_eligibility_practice",
+                        id = "expert_cpp4_sub6",
                         title = "Practice Time!",
                         description = "Now it's time to practice! The more you solve, the better you get!",
                         contentBlocks = listOf(
@@ -844,14 +844,14 @@ fun cppExpertCourse(): Stage {
 
             // Lesson 5 : Grade Evaluation
             Lesson(
-                id = "nested_if_else_grade_evaluation",
+                id = "expert_cpp5",
                 title = "Grade Evaluation",
                 description = "Learn how to evaluate a student's grade using nested if-else statements based on their marks.",
                 lessonContents = listOf(
 
                     // Sub-lesson 1: Problem 1 - Grade Evaluation
                     LessonContent(
-                        id = "nested_if_else_grade_evaluation_sub1",
+                        id = "expert_cpp5_sub1",
                         title = "Grade Evaluation Problem",
                         description = "Create a program that evaluates a student's grade based on their marks.",
                         contentBlocks = listOf(
@@ -872,7 +872,7 @@ fun cppExpertCourse(): Stage {
 
                     // Sub-lesson 2: Hint for Solving the Problem
                     LessonContent(
-                        id = "nested_if_else_grade_evaluation_sub2",
+                        id = "expert_cpp5_sub2",
                         title = "Hint for Solving Problem",
                         description = "How to approach the problem.",
                         contentBlocks = listOf(
@@ -889,7 +889,7 @@ fun cppExpertCourse(): Stage {
 
                     // Sub-lesson 3: Solution for the Problem
                     LessonContent(
-                        id = "nested_if_else_grade_evaluation_sub3",
+                        id = "expert_cpp5_sub3",
                         title = "Solution for Grade Evaluation",
                         description = "Here’s the solution to the grade evaluation problem using nested if-else statements.",
                         contentBlocks = listOf(
@@ -929,7 +929,7 @@ int main() {
 
                     // Sub-lesson 4: Explanation of the Code
                     LessonContent(
-                        id = "nested_if_else_grade_evaluation_sub4",
+                        id = "expert_cpp5_sub4",
                         title = "Explanation of the Code",
                         description = "Let’s break down the solution for grade evaluation.",
                         contentBlocks = listOf(
@@ -952,7 +952,7 @@ int main() {
 
                     // Sub-lesson 5: Quiz Time!
                     LessonContent(
-                        id = "nested_if_else_grade_evaluation_sub5",
+                        id = "expert_cpp5_sub5",
                         title = "Quiz Time! 🧠",
                         description = "Test your knowledge of grade evaluation using if-else statements.",
                         contentBlocks = listOf(
@@ -975,7 +975,7 @@ int main() {
 
                     // Sub-lesson 6: Practice Time
                     LessonContent(
-                        id = "nested_if_else_grade_evaluation_sub6",
+                        id = "expert_cpp5_sub6",
                         title = "Practice Time!",
                         description = "It’s time to practice grade evaluation with different marks and conditions!",
                         contentBlocks = listOf(
@@ -1002,14 +1002,14 @@ int main() {
 
             // Lesson 6 : Calculator with Switch-Case
             Lesson(
-                id = "switch_case_simple_calculator",
+                id = "expert_cpp6",
                 title = "Calculator With Switch-Csae",
                 description = "Learn how to implement a simple calculator using the `switch-case` statement in C++.",
                 lessonContents = listOf(
 
                     // Sub-lesson 1: Problem - Simple Calculator
                     LessonContent(
-                        id = "switch_case_simple_calculator_sub1",
+                        id = "expert_cpp6_sub1",
                         title = "Simple Calculator Problem",
                         description = "Create a program that performs basic arithmetic operations (+, -, *, /) based on user input using a `switch-case` statement.",
                         contentBlocks = listOf(
@@ -1032,7 +1032,7 @@ int main() {
 
                     // Sub-lesson 2: Hint for Solving the Problem
                     LessonContent(
-                        id = "switch_case_simple_calculator_sub2",
+                        id = "expert_cpp6_sub2",
                         title = "Hint for Solving Problem",
                         description = "How to approach the problem.",
                         contentBlocks = listOf(
@@ -1053,7 +1053,7 @@ int main() {
 
                     // Sub-lesson 3: Solution for the Problem
                     LessonContent(
-                        id = "switch_case_simple_calculator_sub3",
+                        id = "expert_cpp6_sub3",
                         title = "Solution for Simple Calculator",
                         description = "Here’s the solution to the simple calculator problem using the `switch-case` statement.",
                         contentBlocks = listOf(
@@ -1110,7 +1110,7 @@ int main() {
 
                     // Sub-lesson 4: Explanation of the Code
                     LessonContent(
-                        id = "switch_case_simple_calculator_sub4",
+                        id = "expert_cpp6_sub4",
                         title = "Explanation of the Code",
                         description = "Let’s break down the solution for the simple calculator.",
                         contentBlocks = listOf(
@@ -1133,7 +1133,7 @@ int main() {
 
                     // Sub-lesson 5: Quiz Time!
                     LessonContent(
-                        id = "switch_case_simple_calculator_sub5",
+                        id = "expert_cpp6_sub5",
                         title = "Quiz Time! 🧠",
                         description = "Test your knowledge of the `switch-case` structure used in the calculator program.",
                         contentBlocks = listOf(
@@ -1156,7 +1156,7 @@ int main() {
 
                     // Sub-lesson 6: Practice Time
                     LessonContent(
-                        id = "switch_case_simple_calculator_sub6",
+                        id = "expert_cpp6_sub6",
                         title = "Practice Time!",
                         description = "It’s time to practice the simple calculator with different operators and numbers.",
                         contentBlocks = listOf(
@@ -1182,14 +1182,14 @@ int main() {
 
             // Lesson 7 : Multiplication Table
             Lesson(
-                id = "for_loop_table_of_2",
+                id = "expert_cpp7",
                 title = "Multiplication Table",
                 description = "Learn how to use a for loop to print the table of 2 in C++.",
                 lessonContents = listOf(
 
                     // Sub-lesson 1: Problem - Print Table of 2
                     LessonContent(
-                        id = "for_loop_table_of_2_sub1",
+                        id = "expert_cpp7_sub1",
                         title = "Print Table of 2",
                         description = "Create a program that prints the table of 2 (2 x 1, 2 x 2, ..., 2 x 10) using a for loop.",
                         contentBlocks = listOf(
@@ -1212,7 +1212,7 @@ int main() {
 
                     // Sub-lesson 2: Hint for Solving the Problem
                     LessonContent(
-                        id = "for_loop_table_of_2_sub2",
+                        id = "expert_cpp7_sub2",
                         title = "Hint for Solving Problem",
                         description = "How to approach the problem.",
                         contentBlocks = listOf(
@@ -1229,7 +1229,7 @@ int main() {
 
                     // Sub-lesson 3: Solution for the Problem
                     LessonContent(
-                        id = "for_loop_table_of_2_sub3",
+                        id = "expert_cpp7_sub3",
                         title = "Solution for Table of 2",
                         description = "Here’s the solution to the table of 2 problem using the for loop in C++.",
                         contentBlocks = listOf(
@@ -1254,7 +1254,7 @@ int main() {
 
                     // Sub-lesson 4: Explanation of the Code
                     LessonContent(
-                        id = "for_loop_table_of_2_sub4",
+                        id = "expert_cpp7_sub4",
                         title = "Explanation of the Code",
                         description = "Let’s break down the solution for printing the table of 2.",
                         contentBlocks = listOf(
@@ -1278,7 +1278,7 @@ int main() {
 
                     // Sub-lesson 5: Quiz Time!
                     LessonContent(
-                        id = "for_loop_table_of_2_sub5",
+                        id = "expert_cpp7_sub5",
                         title = "Quiz Time! 🧠",
                         description = "Test your knowledge of using loops in C++ to print the table of 2.",
                         contentBlocks = listOf(
@@ -1304,14 +1304,14 @@ int main() {
 
             // Lesson 8: Sum of First 10 Numbers
             Lesson(
-                id = "sum_of_first_10_numbers",
+                id = "expert_cpp8",
                 title = "Sum of First 10 Numbers",
                 description = "Learn how to use a loop to calculate the sum of the first 10 numbers in C++.",
                 lessonContents = listOf(
 
                     // Sub-lesson 1: Problem - Find Sum of First 10 Numbers
                     LessonContent(
-                        id = "sum_of_first_10_numbers_sub1",
+                        id = "expert_cpp8_sub1",
                         title = "Find Sum of First 10 Numbers",
                         description = "Create a program that calculates the sum of the first 10 numbers (1 + 2 + 3 + ... + 10) using a loop.",
                         contentBlocks = listOf(
@@ -1329,7 +1329,7 @@ int main() {
 
                     // Sub-lesson 2: Hint for Solving the Problem
                     LessonContent(
-                        id = "sum_of_first_10_numbers_sub2",
+                        id = "expert_cpp8_sub2",
                         title = "Hint for Solving Problem",
                         description = "How to approach the problem.",
                         contentBlocks = listOf(
@@ -1346,7 +1346,7 @@ int main() {
 
                     // Sub-lesson 3: Solution for the Problem
                     LessonContent(
-                        id = "sum_of_first_10_numbers_sub3",
+                        id = "expert_cpp8_sub3",
                         title = "Solution for Sum of First 10 Numbers",
                         description = "Here’s the solution to the sum of the first 10 numbers problem using a for loop in C++.",
                         contentBlocks = listOf(
@@ -1376,7 +1376,7 @@ int main() {
 
                     // Sub-lesson 4: Explanation of the Code
                     LessonContent(
-                        id = "sum_of_first_10_numbers_sub4",
+                        id = "expert_cpp8_sub4",
                         title = "Explanation of the Code",
                         description = "Let’s break down the solution for calculating the sum of the first 10 numbers.",
                         contentBlocks = listOf(
@@ -1399,7 +1399,7 @@ int main() {
 
                     // Sub-lesson 5: Quiz Time!
                     LessonContent(
-                        id = "sum_of_first_10_numbers_sub5",
+                        id = "expert_cpp8_sub5",
                         title = "Quiz Time! 🧠",
                         description = "Test your knowledge of calculating the sum of the first 10 numbers using a loop.",
                         contentBlocks = listOf(
@@ -1422,7 +1422,7 @@ int main() {
 
                     // Sub-lesson 6: Practice Time
                     LessonContent(
-                        id = "sum_of_first_10_numbers_sub6",
+                        id = "expert_cpp8_sub6",
                         title = "Practice Time!",
                         description = "Practice calculating the sum of different ranges of numbers.",
                         contentBlocks = listOf(
@@ -1448,14 +1448,14 @@ int main() {
 
             // Lesson 9 : Triangle Star Pattern in C++
             Lesson(
-                id = "right_angle_triangle_star_pattern",
+                id = "expert_cpp9",
                 title = "Triangle Star Pattern in C++",
                 description = "Learn how to create a program in C++ to display a right-angle triangle pattern with stars.",
                 lessonContents = listOf(
 
                     // Sub-lesson 1: Problem - Display Right Angle Triangle with Stars
                     LessonContent(
-                        id = "right_angle_triangle_star_pattern_sub1",
+                        id = "expert_cpp9_sub1",
                         title = "Problem: Triangle with Stars",
                         description = "Create a program that displays a right-angle triangle pattern made up of stars, where the number of rows is fixed to 5.",
                         contentBlocks = listOf(
@@ -1478,7 +1478,7 @@ int main() {
 
                     // Sub-lesson 2: Hint for Solving the Problem
                     LessonContent(
-                        id = "right_angle_triangle_star_pattern_sub2",
+                        id = "expert_cpp9_sub2",
                         title = "Hint for Solving the Problem",
                         description = "How to approach the problem.",
                         contentBlocks = listOf(
@@ -1495,7 +1495,7 @@ int main() {
 
                     // Sub-lesson 3: Solution for the Problem
                     LessonContent(
-                        id = "right_angle_triangle_star_pattern_sub3",
+                        id = "expert_cpp9_sub3",
                         title = "Solution for Right Angle Triangle Star Pattern",
                         description = "Here’s the solution to the problem of displaying a right-angle triangle pattern with stars in C++.",
                         contentBlocks = listOf(
@@ -1525,7 +1525,7 @@ int main() {
 
                     // Sub-lesson 4: Explanation of the Code
                     LessonContent(
-                        id = "right_angle_triangle_star_pattern_sub4",
+                        id = "expert_cpp9_sub4",
                         title = "Explanation of the Code",
                         description = "Let’s break down the solution to understand how the code works.",
                         contentBlocks = listOf(
@@ -1549,9 +1549,9 @@ int main() {
                        status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 3: Solution for the Problem2
+                    // Sub-lesson 5: Solution for the Problem2
                     LessonContent(
-                        id = "right_angle_triangle_star_pattern_sub3",
+                        id = "expert_cpp9_sub5",
                         title = "Solution 2: for Numbers Pattern",
                         description = "Here’s the solution to the problem of displaying a right-angle triangle pattern with numbers in C++.",
                         contentBlocks = listOf(
@@ -1588,9 +1588,9 @@ int main() {
                        status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 3: Solution for the Problem2
+                    // Sub-lesson 6: Solution for the Problem2
                     LessonContent(
-                        id = "right_angle_triangle_star_pattern_sub3",
+                        id = "expert_cpp9_sub6",
                         title = "Solution 3: Different Num Pattern",
                         description = "Here’s the solution to the problem of displaying a right-angle triangle pattern with numbers in C++.",
                         contentBlocks = listOf(
@@ -1628,9 +1628,9 @@ int main() {
                     ),
 
 
-                    // Sub-lesson 5: Quiz Time!
+                    // Sub-lesson 7: Quiz Time!
                     LessonContent(
-                        id = "right_angle_triangle_star_pattern_sub5",
+                        id = "expert_cpp9_sub7",
                         title = "Quiz Time! 🧠",
                         description = "Test your understanding of the right-angle triangle pattern code.",
                         contentBlocks = listOf(
@@ -1651,9 +1651,9 @@ int main() {
                        status = LessonStatus.LOCKED
                     ),
 
-                    // Sub-lesson 6: Practice Time
+                    // Sub-lesson 8: Practice Time
                     LessonContent(
-                        id = "right_angle_triangle_star_pattern_sub6",
+                        id = "expert_cpp9_sub8",
                         title = "Practice Time!",
                         description = "It’s time to practice printing similar star patterns in C++.",
                         contentBlocks = listOf(
@@ -1679,14 +1679,14 @@ int main() {
 
             // Lesson 10 : Pyramid Star Pattern in C++
             Lesson(
-                id = "pyramid_star_pattern",
+                id = "expert_cpp10",
                 title = "Pyramid Star Pattern in C++",
                 description = "Learn how to create a program in C++ to display a pyramid pattern made up of stars.",
                 lessonContents = listOf(
 
                     // Sub-lesson 1: Problem - Display Pyramid with Stars
                     LessonContent(
-                        id = "pyramid_star_pattern_sub1",
+                        id = "expert_cpp10_sub1",
                         title = "Problem: Display Pyramid with Stars",
                         description = "Create a program that displays a pyramid pattern made up of stars. The number of rows is fixed to 5, and the stars should be centered.",
                         contentBlocks = listOf(
@@ -1709,7 +1709,7 @@ int main() {
 
                     // Sub-lesson 2: Hint for Solving the Problem
                     LessonContent(
-                        id = "pyramid_star_pattern_sub2",
+                        id = "expert_cpp10_sub2",
                         title = "Hint for Solving the Problem",
                         description = "How to approach the problem.",
                         contentBlocks = listOf(
@@ -1726,7 +1726,7 @@ int main() {
 
                     // Sub-lesson 3: Solution for the Problem
                     LessonContent(
-                        id = "pyramid_star_pattern_sub3",
+                        id = "expert_cpp10_sub3",
                         title = "Solution for Pyramid Star Pattern",
                         description = "Here’s the solution to the problem of displaying a pyramid pattern with stars in C++.",
                         contentBlocks = listOf(
@@ -1763,7 +1763,7 @@ int main() {
 
                     // Sub-lesson 4: Explanation of the Code
                     LessonContent(
-                        id = "pyramid_star_pattern_sub4",
+                        id = "expert_cpp10_sub4",
                         title = "Explanation of the Code",
                         description = "Let’s break down the solution to understand how the code works.",
                         contentBlocks = listOf(
@@ -1790,7 +1790,7 @@ int main() {
 
                     // Sub-lesson 3: Solution for the Problem
                     LessonContent(
-                        id = "pyramid_star_pattern_sub3",
+                        id = "expert_cpp10_sub5",
                         title = "Solution: Slight Changed Pattern",
                         description = "Here’s the solution to the problem of displaying a pyramid pattern with stars in C++.",
                         contentBlocks = listOf(
@@ -1837,7 +1837,7 @@ int main() {
 
                     // Sub-lesson 5: Quiz Time!
                     LessonContent(
-                        id = "pyramid_star_pattern_sub5",
+                        id = "expert_cpp10_sub6",
                         title = "Quiz Time! 🧠",
                         description = "Test your understanding of the pyramid star pattern code.",
                         contentBlocks = listOf(
@@ -1860,7 +1860,7 @@ int main() {
 
                     // Sub-lesson 6: Practice Time
                     LessonContent(
-                        id = "pyramid_star_pattern_sub6",
+                        id = "expert_cpp10_sub7",
                         title = "Practice Time!",
                         description = "It’s time to practice printing similar star patterns in C++.",
                         contentBlocks = listOf(
