@@ -66,14 +66,10 @@ class CourseViewModel @Inject constructor(
     val points: StateFlow<Map<String, Int>> = _points
 
     init {
-        // Load all statuses and last saved progress
-        loadAllLessonStatuses()
-        loadLastSavedProgress()
-
         // Default selection
         val dsaCourse = courses.find { it.id== "dsa_course" }
         _selectedCourse.value = dsaCourse
-        _selectedStage.value = dsaCourse?.stages?.find { it.id == "Beginner" }
+        _selectedStage.value = dsaCourse?.stages?.find { it.id == "c_beginner_stage" }
     }
 
     // Functions to select course, stage, lesson, and sub-lesson
