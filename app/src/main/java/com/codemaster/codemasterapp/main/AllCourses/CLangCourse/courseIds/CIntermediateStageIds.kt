@@ -1,23 +1,26 @@
 package com.codemaster.codemasterapp.main.AllCourses.CLangCourse.courseIds
 
-object CBeginnerStageIds {
+object CIntermediateStageIds{
 
-    val stageId = "c_beginner_stage"
+
+    val stageId = "c_intermediate_stage"
 
     // Course and Lesson IDs as constants
-    val lesson1 = "beginner_c1"
-    val lesson2 = "beginner_c2"
-    val lesson3 = "beginner_c3"
-    val lesson4 = "beginner_c4"
-    val lesson5 = "beginner_c5"
-    val lesson6 = "beginner_c6"
-    val lesson7 = "beginner_c7"
-    val lesson8 = "beginner_c8"
-    val lesson9 = "beginner_c9"
-    val lesson10 = "beginner_c10"
-    val lesson11 = "beginner_c11"
-    val lesson12 = "beginner_c12"
-
+    val lesson1 = "intermediate_c1"
+    val lesson2 = "intermediate_c2"
+    val lesson3 = "intermediate_c3"
+    val lesson4 = "intermediate_c4"
+    val lesson5 = "intermediate_c5"
+    val lesson6 = "intermediate_c6"
+    val lesson7 = "intermediate_c7"
+    val lesson8 = "intermediate_c8"
+    val lesson9 = "intermediate_c9"
+    val lesson10 = "intermediate_c10"
+    val lesson11 = "intermediate_c11"
+    val lesson12 = "intermediate_c12"
+    val lesson13 = "intermediate_c13"
+    val lesson14 = "intermediate_c14"
+    val lesson15 = "intermediate_c15"
 
     // Sub-lesson IDs for lesson 1 Welcome
     val lesson1_subs = listOf(
@@ -27,7 +30,7 @@ object CBeginnerStageIds {
         "${lesson1}_sub4",
         "${lesson1}_sub5",
         "${lesson1}_sub6",
-        "${lesson1}_sub7"
+
     )
 
     // Sub-lesson IDs for lesson 2 - Introduction to OOP
@@ -37,6 +40,8 @@ object CBeginnerStageIds {
         "${lesson2}_sub3",
         "${lesson2}_sub4",
         "${lesson2}_sub5",
+        "${lesson2}_sub6",
+        "${lesson2}_sub7"
     )
 
     // Sub-lesson IDs for lesson 3 - Classes & Objects in C++
@@ -50,6 +55,7 @@ object CBeginnerStageIds {
         "${lesson3}_sub7",
         "${lesson3}_sub8",
         "${lesson3}_sub9",
+        "${lesson3}_sub10"
     )
 
     // Sub-lesson IDs for lesson 4 - Classes & Methods
@@ -61,7 +67,6 @@ object CBeginnerStageIds {
         "${lesson4}_sub5",
         "${lesson4}_sub5",
         "${lesson4}_sub6",
-        "${lesson4}_sub7",
     )
 
     // Sub-lesson IDs for lesson 5 - Constructors in C++
@@ -74,6 +79,7 @@ object CBeginnerStageIds {
         "${lesson5}_sub6",
         "${lesson5}_sub7",
         "${lesson5}_sub8",
+        "${lesson5}_sub9"
     )
 
     // Sub-lesson IDs for lesson 6 - Access Modifiers in C++
@@ -85,8 +91,7 @@ object CBeginnerStageIds {
         "${lesson6}_sub5",
         "${lesson6}_sub6",
         "${lesson6}_sub7",
-        "${lesson6}_sub8",
-        "${lesson6}_sub9"
+        "${lesson6}_sub8"
     )
 
     // Sub-lesson IDs for lesson 7 - Setters and Getters in C++
@@ -98,8 +103,7 @@ object CBeginnerStageIds {
         "${lesson7}_sub5",
         "${lesson7}_sub6",
         "${lesson7}_sub7",
-        "${lesson7}_sub8",
-        "${lesson7}_sub9"
+        "${lesson7}_sub8"
     )
 
     // Sub-lesson IDs for lesson 8 - Inheritance in C++
@@ -110,6 +114,8 @@ object CBeginnerStageIds {
         "${lesson8}_sub4",
         "${lesson8}_sub5",
         "${lesson8}_sub6",
+        "${lesson8}_sub7",
+        "${lesson8}_sub8"
     )
 
     // Sub-lesson IDs for lesson 9 - Inheritance in C++
@@ -121,8 +127,7 @@ object CBeginnerStageIds {
         "${lesson9}_sub5",
         "${lesson9}_sub6",
         "${lesson9}_sub7",
-        "${lesson9}_sub8",
-        "${lesson9}_sub9"
+        "${lesson9}_sub8"
     )
 
     // Sub-lesson IDs for lesson 10 - Inheritance in C++
@@ -133,7 +138,8 @@ object CBeginnerStageIds {
         "${lesson10}_sub4",
         "${lesson10}_sub5",
         "${lesson10}_sub6",
-        "${lesson10}_sub7"
+        "${lesson10}_sub7",
+        "${lesson10}_sub8"
     )
 
     // Sub-lesson IDs for lesson 11 - Inheritance in C++
@@ -144,7 +150,8 @@ object CBeginnerStageIds {
         "${lesson11}_sub4",
         "${lesson11}_sub5",
         "${lesson11}_sub6",
-        "${lesson11}_sub7"
+        "${lesson11}_sub7",
+        "${lesson11}_sub8"
     )
 
     // Sub-lesson IDs for lesson 12 - Inheritance in C++
@@ -155,7 +162,8 @@ object CBeginnerStageIds {
         "${lesson12}_sub4",
         "${lesson12}_sub5",
         "${lesson12}_sub6",
-        "${lesson12}_sub7"
+        "${lesson12}_sub7",
+        "${lesson12}_sub8"
     )
 
 }
