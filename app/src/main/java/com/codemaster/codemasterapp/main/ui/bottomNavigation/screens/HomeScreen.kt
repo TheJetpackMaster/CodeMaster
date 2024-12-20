@@ -140,7 +140,7 @@ fun HomeScreen(
                                 "C" -> false
                                 "C++" -> false
                                 "Python" -> true
-                                "DSA | C++" -> true
+                                "DSA | C++" -> false
                                 else -> false
                             }
 
@@ -170,7 +170,7 @@ fun HomeScreen(
                                     "C" -> false
                                     "C++" -> false
                                     "Python" -> true
-                                    "DSA | C++" -> true
+                                    "DSA | C++" -> false
                                     else -> false
                                 },
                                 onClick = {
