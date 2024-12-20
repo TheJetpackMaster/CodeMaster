@@ -2137,7 +2137,7 @@ int main() {
 
             // lesson 8
             Lesson(
-                id = "expert_c8",
+                id = CExpertStageIds.lesson8,
                 title = "Student Grading System",
                 description = " Build a system to manage student grades, calculate averages, and display results. This project will involve basic data structures and file handling.",
                 lessonContents = listOf(
