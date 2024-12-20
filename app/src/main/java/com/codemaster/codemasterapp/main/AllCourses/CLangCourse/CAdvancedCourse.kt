@@ -198,7 +198,7 @@ fun CAdvancedCourse(): Stage {
                     ),
 
                     LessonContent(
-                        id = "advanced_c2_sub6",
+                        id = CAdvancedStageIds.lesson2_subs[5],
                         title = "Call a Function (Way 2)",
                         description = "Learn how to define a function within main() and call it in main().",
                         contentBlocks = listOf(
@@ -227,7 +227,7 @@ fun CAdvancedCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c2_sub7",
+                        id = CAdvancedStageIds.lesson2_subs[6],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -254,7 +254,7 @@ fun CAdvancedCourse(): Stage {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c2_sub8",
+                        id = CAdvancedStageIds.lesson2_subs[7],
                         title = "Real-Life Example of Functions",
                         description = "See how functions can be used in real-world scenarios.",
                         contentBlocks = listOf(
@@ -292,7 +292,7 @@ fun CAdvancedCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c2_sub9",
+                        id = CAdvancedStageIds.lesson2_subs[8],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -318,12 +318,12 @@ fun CAdvancedCourse(): Stage {
 
             // lesson 3
             Lesson(
-                id = "advanced_c3",
+                id = CAdvancedStageIds.lesson3,
                 title = "C Functions: Data Types",
                 description = "Learn how different data types are used in C functions! 🧑‍💻",
                 lessonContents = listOf(
                     LessonContent(
-                        id = "advanced_c3_sub1",
+                        id =  CAdvancedStageIds.lesson3_subs[0],
                         title = "Function Data Types Overview",
                         description = "Learn about the role of data types in functions and how they define the return value.",
                         contentBlocks = listOf(
