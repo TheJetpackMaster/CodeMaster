@@ -1537,12 +1537,12 @@ int main() {
 
             // lesson 8
             Lesson(
-                id = "advanced_c8",
+                id = CAdvancedStageIds.lesson8,
                 title = "C Memory Address",
                 description = "Dive into memory addresses in C and understand how variables are stored in memory! 🧠",
                 lessonContents = listOf(
                     LessonContent(
-                        id = "advanced_c8_sub1",
+                        id = CAdvancedStageIds.lesson8_subs[0],
                         title = "Introduction to Memory Addresses",
                         description = "Introduction to memory addresses and how variables are stored in memory.",
                         contentBlocks = listOf(
