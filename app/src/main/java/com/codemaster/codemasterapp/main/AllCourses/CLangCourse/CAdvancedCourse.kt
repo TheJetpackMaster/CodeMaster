@@ -3028,7 +3028,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c14_sub2",
+                        id = CAdvancedStageIds.lesson14_subs[1],
                         title = "Pointers and Memory Management",
                         description = "Understanding pointers and memory management is critical for writing optimized code. Pointers give you direct access to memory, and mastering memory allocation and deallocation allows for efficient resource usage.",
                         contentBlocks = listOf(
@@ -3042,7 +3042,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c14_sub3",
+                        id = CAdvancedStageIds.lesson14_subs[2],
                         title = "Enums and Advanced Data Structures",
                         description = "Enums allow you to work with sets of named constants, while advanced data structures like structs and linked lists enable you to manage complex data efficiently.",
                         contentBlocks = listOf(
@@ -3056,7 +3056,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c14_sub4",
+                        id = CAdvancedStageIds.lesson14_subs[3],
                         title = "Keep Going! Your Next Challenge Awaits",
                         description = "You’ve gained mastery over advanced topics like pointers and memory management. These concepts will support the most complex tasks you’ll encounter. As you continue, your ability to write efficient and scalable code will grow exponentially.",
                         contentBlocks = listOf(
@@ -3075,12 +3075,12 @@ int main() {
             
             // lesson 15
             Lesson(
-                id = "advanced_c15",
+                id = CAdvancedStageIds.lesson15,
                 title = "Advanced Quiz",
                 description = "Test your advanced knowledge of C programming concepts such as memory management, pointers, structs, and file I/O! 🧠💻",
                 lessonContents = listOf(
                     LessonContent(
-                        id = "advanced_c15_sub1",
+                        id = CAdvancedStageIds.lesson15_subs[0],
                         title = "Quiz: Pointers and Memory Management",
                         description = "Answer questions about pointers, dynamic memory allocation, and memory management techniques in C.",
                         contentBlocks = listOf(
@@ -3098,7 +3098,7 @@ int main() {
                         type = LessonContentType.QUIZ
                     ),
                     LessonContent(
-                        id = "advanced_c15_sub2",
+                        id = CAdvancedStageIds.lesson15_subs[0],
                         title = "Quiz: Structs and Enums",
                         description = "Test your understanding of structs, enums, and their applications in C.",
                         contentBlocks = listOf(
