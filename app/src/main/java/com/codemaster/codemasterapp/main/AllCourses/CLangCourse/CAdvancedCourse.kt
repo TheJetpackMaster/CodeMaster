@@ -2927,7 +2927,7 @@ int main() {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c13_sub7",
+                        id = CAdvancedStageIds.lesson13_subs[6],
                         title = "Real-Life Memory Management Examples",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -2989,7 +2989,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c13_sub8",
+                        id = CAdvancedStageIds.lesson13_subs[7],
                         title = "Quiz",
                         contentBlocks = listOf(
                             QuizContentBlock(
@@ -3009,12 +3009,12 @@ int main() {
 
             // lesson 14
             Lesson(
-                id = "advanced_c14",
+                id = CAdvancedStageIds.lesson14,
                 title = "Advanced Recap",
                 description = "A brief recap of advanced programming concepts in C, focusing on memory management, pointers, and other complex topics.",
                 lessonContents = listOf(
                     LessonContent(
-                        id = "advanced_c14_sub1",
+                        id = CAdvancedStageIds.lesson14_subs[0],
                         title = "Introduction and Encouragement",
                         description = "Let's revisit advanced concepts that will solidify your skills in C programming. These topics are the building blocks of efficient, high-performance applications.",
                         contentBlocks = listOf(
