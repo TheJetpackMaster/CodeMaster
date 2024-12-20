@@ -549,13 +549,13 @@ double getUserInput() {
 
             // lesson 4
             Lesson(
-                id = "expert_c4",
+                id = CExpertStageIds.lesson4,
                 title = "Contact Management System",
                 description = "Create an advanced contact management system with features like adding, viewing, searching, updating, and deleting contacts.",
                 lessonContents = listOf(
 
                     LessonContent(
-                        id = "expert_c4_sub1",
+                        id = CExpertStageIds.lesson4_subs[0],
                         title = "Introduction to Contact Management System",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -574,7 +574,7 @@ double getUserInput() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "expert_c4_sub2",
+                        id = CExpertStageIds.lesson4_subs[1],
                         title = "Defining the Contact Structure",
                         contentBlocks = listOf(
                             ContentBlock.Text(
