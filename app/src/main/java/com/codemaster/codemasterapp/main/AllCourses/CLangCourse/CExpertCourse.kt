@@ -1662,7 +1662,7 @@ int main() {
                     ),
 
                     LessonContent(
-                        id = "expert_c7_sub2",
+                        id = CExpertStageIds.lesson7_subs[1],
                         title = "Initializing the Text Editor in C",
                         description = "Learn to set up a text editor in C with dynamic memory and file handling.",
                         contentBlocks = listOf(
@@ -1687,7 +1687,7 @@ int main() {
                     ),
 
                     LessonContent(
-                        id = "expert_c7_sub3",
+                        id = CExpertStageIds.lesson7_subs[2],
                         title = "Creating and Saving a New File in C",
                         description = "Learn how to create, edit, and save a new file in C using dynamic memory and user input handling.",
                         contentBlocks = listOf(
@@ -1773,7 +1773,7 @@ void createNewFile(char **buffer, size_t *bufferSize, char *filename) {
                     ),
 
                     LessonContent(
-                        id = "expert_c7_sub4",
+                        id = CExpertStageIds.lesson7_subs[3],
                         title = "Editing and Appending Content to a File in C",
                         description = "Learn how to edit and append content to an existing file in C using dynamic memory and file handling techniques.",
                         contentBlocks = listOf(
@@ -1867,7 +1867,7 @@ void editFile(char **buffer, size_t *bufferSize, const char *filename) {
                     ),
 
                     LessonContent(
-                        id = "expert_c7_sub5",
+                        id = CExpertStageIds.lesson7_subs[4],
                         title = "Opening and Reading File Content in C",
                         description = "This lesson covers how to open and read the contents of a file line by line in C using file handling techniques.",
                         contentBlocks = listOf(
@@ -1906,7 +1906,7 @@ void openFile(const char *filename) {
                     ),
 
                     LessonContent(
-                        id = "expert_c7_sub6",
+                        id = CExpertStageIds.lesson7_subs[5],
                         title = "Complete Text Editor Project",
                         description = "Below is the complete code for a text editor program in C. This project allows users to create, edit, and view text files, showcasing essential file handling operations in C.",
                         contentBlocks = listOf(
