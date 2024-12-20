@@ -1089,12 +1089,12 @@ do {
             
             // lesson 7
             Lesson(
-                id = "intermediate_c7",
+                id = CIntermediateStageIds.lesson7,
                 title = "C Break and Continue",
                 description = "Master the break and continue statements to control loop flow in C! 🛑➡️",
                 lessonContents = listOf(
                     LessonContent(
-                        id = "intermediate_c7_sub1",
+                        id = CIntermediateStageIds.lesson7_subs[0],
                         title = "Basic Break Statement",
                         description = "Learn the simple use of the break statement in loops.",
                         contentBlocks = listOf(
