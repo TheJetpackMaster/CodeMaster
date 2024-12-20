@@ -128,7 +128,10 @@ object CIntermediateStageIds{
         "${lesson9}_sub5",
         "${lesson9}_sub6",
         "${lesson9}_sub7",
-        "${lesson9}_sub8"
+        "${lesson9}_sub8",
+        "${lesson9}_sub9",
+        "${lesson9}_sub10",
+        "${lesson9}_sub11",
     )
 
     // Sub-lesson IDs for lesson 10 - Inheritance in C++
