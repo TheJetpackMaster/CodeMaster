@@ -1948,7 +1948,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c10_sub3",
+                        id = CAdvancedStageIds.lesson10_subs[2],
                         title = "Accessing Structure Members",
                         description = "Learn how to access and modify structure members.",
                         contentBlocks = listOf(
@@ -1970,7 +1970,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c10_sub4",
+                        id = CAdvancedStageIds.lesson10_subs[3],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -1988,7 +1988,7 @@ int main() {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c10_sub5",
+                        id = CAdvancedStageIds.lesson10_subs[4],
                         title = "Nested Structures",
                         description = "Learn how to define structures within structures.",
                         contentBlocks = listOf(
@@ -2019,7 +2019,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c10_sub6",
+                        id = CAdvancedStageIds.lesson10_subs[5],
                         title = "Pointers to Structures",
                         description = "Understand how to use pointers with structures.",
                         contentBlocks = listOf(
@@ -2042,7 +2042,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c10_sub7",
+                        id = CAdvancedStageIds.lesson10_subs[6],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -2062,7 +2062,7 @@ struct Person {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c10_sub8",
+                        id = CAdvancedStageIds.lesson10_subs[7],
                         title = "Real-Life Example of Structures",
                         description = "An advanced example of structures with arrays and functions.",
                         contentBlocks = listOf(
@@ -2095,7 +2095,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c10_sub9",
+                        id = CAdvancedStageIds.lesson10_subs[8],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -2120,12 +2120,12 @@ int main() {
             
             // lesson 11
             Lesson(
-                id = "advanced_c11",
+                id = CAdvancedStageIds.lesson11,
                 title = "C Files",
                 description = "Learn advanced file handling techniques in C, including creating, reading, writing, and closing files.",
                 lessonContents = listOf(
                     LessonContent(
-                        id = "advanced_c11_sub1",
+                        id = CAdvancedStageIds.lesson11_subs[0],
                         title = "Introduction to File Handling",
                         contentBlocks = listOf(
                             ContentBlock.Text(
