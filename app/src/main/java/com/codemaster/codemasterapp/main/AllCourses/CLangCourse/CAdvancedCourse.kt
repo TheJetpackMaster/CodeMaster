@@ -902,7 +902,7 @@ int main() {
                 description = "Understand how variables behave inside and outside functions in C.",
                 lessonContents = listOf(
                     LessonContent(
-                        id = "advanced_c5_sub1",
+                        id = CAdvancedStageIds.lesson5_subs[0],
                         title = "Introduction to Variable Scope",
                         description = "Get a fundamental understanding of variable scope and its significance in C programming.",
                         contentBlocks = listOf(
@@ -922,7 +922,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c5_sub2",
+                        id = CAdvancedStageIds.lesson5_subs[1],
                         title = "Local Scope",
                         description = "Learn how local variables are restricted to the function they're declared in.",
                         contentBlocks = listOf(
@@ -949,7 +949,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c5_sub3",
+                        id = CAdvancedStageIds.lesson5_subs[2],
                         title = "Global Scope",
                         description = "Understand the accessibility of global variables across functions.",
                         contentBlocks = listOf(
@@ -976,7 +976,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c5_sub4",
+                        id = CAdvancedStageIds.lesson5_subs[3],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -1000,7 +1000,7 @@ int main() {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c5_sub5",
+                        id = CAdvancedStageIds.lesson5_subs[4],
                         title = "Naming Variables",
                         description = "Explore how naming works and the impact of scope in C.",
                         contentBlocks = listOf(
@@ -1034,7 +1034,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c5_sub6",
+                        id = CAdvancedStageIds.lesson5_subs[5],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -1054,7 +1054,7 @@ int main() {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c5_sub7",
+                        id = CAdvancedStageIds.lesson5_subs[6],
                         title = "Real-Life Example",
                         description = "See practical examples of variable scope.",
                         contentBlocks = listOf(
@@ -1085,7 +1085,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c5_sub8",
+                        id = CAdvancedStageIds.lesson5_subs[7],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -1110,7 +1110,7 @@ int main() {
 
             // lesson 6
             Lesson(
-                id = "advanced_c6",
+                id = CAdvancedStageIds.lesson6,
                 title = "C Recursion",
                 description = "Understand recursion in C and use it effectively.",
                 lessonContents = listOf(
