@@ -2681,12 +2681,12 @@ int main() {
 
             // lesson 9
             Lesson(
-                id = CExpertStageIds.lesson9_subs[0],
+                id = CExpertStageIds.lesson9,
                 title = "End of C Language Lessons",
                 description = "Congratulations! You have completed the C programming lessons.",
                 lessonContents = listOf(
                     LessonContent(
-                        id = "expert_c9_sub1",
+                        id = CExpertStageIds.lesson9_subs[0],
                         title = "Conclusion of C Language Learning",
                         description = "This marks the end of your C programming journey. You've covered the fundamentals and advanced topics in C, including control structures, functions, arrays, pointers, memory management, and more.",
                         contentBlocks = listOf(
@@ -2705,7 +2705,7 @@ int main() {
                     ),
 
                     LessonContent(
-                        id = "expert_c9_sub2",
+                        id = CExpertStageIds.lesson9_subs[1],
                         title = "Farewell to C: Embracing New Beginnings",
                         description = "It's time to say goodbye to C programming. While it's bittersweet, you are now equipped with valuable skills for the next phase of your learning journey.",
                         contentBlocks = listOf(
