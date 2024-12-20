@@ -8,7 +8,11 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import com.codemaster.codemasterapp.main.AllCourses.CLangCourse.CLangCourseProvider
 import com.codemaster.codemasterapp.main.AllCourses.CppCourse.CPPCourseProvider
+import com.codemaster.codemasterapp.main.AllCourses.DSACourse.DSAAdvancedCourse
+import com.codemaster.codemasterapp.main.AllCourses.DSACourse.DSABeginnerCourse
 import com.codemaster.codemasterapp.main.AllCourses.DSACourse.DSACourseProvider
+import com.codemaster.codemasterapp.main.AllCourses.DSACourse.DSAExpertCourse
+import com.codemaster.codemasterapp.main.AllCourses.DSACourse.DSAIntermediateCourse
 import com.codemaster.codemasterapp.main.AllCourses.PythonCourse.PythonCourseProvider
 import com.codemaster.codemasterapp.main.DataBase.continueLearningprogressDB.UserLearningProgressRepository
 import com.codemaster.codemasterapp.main.DataBase.lessonStatusDB.LessonStatusEntity
@@ -41,6 +45,29 @@ class CourseViewModel @Inject constructor(
     private val _selectedCourse = MutableStateFlow<Course?>(null)
     private val _selectedStage = MutableStateFlow<Stage?>(null)
 
+//    private val _selectedCourse = MutableStateFlow<Course?>(
+//        Course(
+//            id = "dsa_course",
+//            language = "DSA | C++",
+//            stages = listOf(
+//                DSABeginnerCourse(),
+//                DSAIntermediateCourse(),
+//                DSAAdvancedCourse(),
+//                DSAExpertCourse()
+//            )
+//
+//        )
+//    )
+//
+//
+//    private val _selectedStage = MutableStateFlow<Stage?>(
+//        Stage(
+//            id = "Beginner",
+//            title = "Beginner",
+//            lessons = DSABeginnerCourse().lessons
+//        )
+//    )
+
 
     private val _selectedLesson = MutableStateFlow<Lesson?>(null)
     private val _selectedSubLessonIndex = MutableStateFlow<Int>(0)
@@ -69,11 +96,6 @@ class CourseViewModel @Inject constructor(
         // Load all statuses and last saved progress
         loadAllLessonStatuses()
         loadLastSavedProgress()
-
-        // Default selection
-        val dsaCourse = courses.find { it.id== "dsa_course" }
-        _selectedCourse.value = dsaCourse
-        _selectedStage.value = dsaCourse?.stages?.find { it.id == "Beginner" }
     }
 
     // Functions to select course, stage, lesson, and sub-lesson
@@ -279,6 +301,7 @@ class CourseViewModel @Inject constructor(
 
 
 }
+
 
 //Sample course
 fun AllCoursesProvider(): List<Course> {
