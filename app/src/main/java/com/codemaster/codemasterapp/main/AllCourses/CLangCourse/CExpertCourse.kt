@@ -272,7 +272,7 @@ double divide(double a, double b) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "expert_c3_sub3",
+                        id = CExpertStageIds.lesson3_subs[2],
                         title = "Custom Functions",
                         contentBlocks = listOf(
                             ContentBlock.Text(
