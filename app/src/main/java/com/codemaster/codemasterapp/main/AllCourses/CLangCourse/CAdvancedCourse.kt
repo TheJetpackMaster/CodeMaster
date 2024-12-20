@@ -343,7 +343,7 @@ fun CAdvancedCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c3_sub2",
+                        id =  CAdvancedStageIds.lesson3_subs[1],
                         title = "int Data Type",
                         description = "Learn how the int data type is used in functions.",
                         contentBlocks = listOf(
@@ -370,7 +370,7 @@ fun CAdvancedCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c3_sub3",
+                        id =  CAdvancedStageIds.lesson3_subs[2],
                         title = "float Data Type",
                         description = "Understand the use of the float data type in functions.",
                         contentBlocks = listOf(
@@ -397,7 +397,7 @@ fun CAdvancedCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c3_sub4",
+                        id =  CAdvancedStageIds.lesson3_subs[3],
                         title = "char Data Type",
                         description = "Explore how the char data type is used in functions.",
                         contentBlocks = listOf(
@@ -426,7 +426,7 @@ fun CAdvancedCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c3_sub5",
+                        id =  CAdvancedStageIds.lesson3_subs[4],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -445,7 +445,7 @@ fun CAdvancedCourse(): Stage {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c3_sub6",
+                        id =  CAdvancedStageIds.lesson3_subs[5],
                         title = "void Data Type",
                         description = "Learn how the void data type works for functions that don't return a value.",
                         contentBlocks = listOf(
@@ -472,7 +472,7 @@ fun CAdvancedCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c3_sub7",
+                        id =  CAdvancedStageIds.lesson3_subs[6],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -491,7 +491,7 @@ fun CAdvancedCourse(): Stage {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c3_sub8",
+                        id =  CAdvancedStageIds.lesson3_subs[7],
                         title = "Real-Life Example of Function Data Types",
                         description = "See how different function data types can be used in a practical, real-world scenario.",
                         contentBlocks = listOf(
@@ -548,7 +548,7 @@ fun CAdvancedCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c3_sub9",
+                        id =  CAdvancedStageIds.lesson3_subs[8],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -573,7 +573,7 @@ fun CAdvancedCourse(): Stage {
 
             // lesson 4
             Lesson(
-                id = "advanced_c4",
+                id =  CAdvancedStageIds.lesson4,
                 title = "C Function Parameters",
                 description = "Learn about function parameters and how they work in C functions! 🧑‍💻",
                 lessonContents = listOf(
