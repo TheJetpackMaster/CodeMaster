@@ -146,7 +146,8 @@ object CAdvancedStageIds {
         "${lesson10}_sub5",
         "${lesson10}_sub6",
         "${lesson10}_sub7",
-        "${lesson10}_sub8"
+        "${lesson10}_sub8",
+        "${lesson10}_sub9"
     )
 
     // Sub-lesson IDs for lesson 11 - Inheritance in C++
