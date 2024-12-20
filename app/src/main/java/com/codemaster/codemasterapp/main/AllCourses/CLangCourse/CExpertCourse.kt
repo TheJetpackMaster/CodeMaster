@@ -750,7 +750,7 @@ void updateContact() {
 
                     // Sublesson: Deleting a Contact
                     LessonContent(
-                        id = "expert_c4_sub7",
+                        id = CExpertStageIds.lesson4_subs[6],
                         title = "Deleting a Contact",
                         contentBlocks = listOf(
                             ContentBlock.Text(
