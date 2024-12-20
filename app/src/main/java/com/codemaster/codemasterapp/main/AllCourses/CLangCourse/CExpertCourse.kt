@@ -2142,7 +2142,7 @@ int main() {
                 description = " Build a system to manage student grades, calculate averages, and display results. This project will involve basic data structures and file handling.",
                 lessonContents = listOf(
                     LessonContent(
-                        id = "expert_c8_sub1",
+                        id = CExpertStageIds.lesson8_subs[0],
                         title = "Student Grading System in C",
                         description = "This project teaches how to build a robust student grading system in C, allowing users to add, view, and manage student records. The system ensures uniqueness of roll numbers and includes features like grade computation, file storage, and record retrieval.",
                         contentBlocks = listOf(
@@ -2161,7 +2161,7 @@ int main() {
                     ),
 
                     LessonContent(
-                        id = "expert_c8_sub2",
+                        id = CExpertStageIds.lesson8_subs[1],
                         title = "Building a Student Grading System in C",
                         description = "Learn how to build a student grading system in C with features like unique roll number validation, grade calculation, and persistent file storage.",
                         contentBlocks = listOf(
@@ -2202,7 +2202,7 @@ int studentCount = 0;
                     ),
 
                     LessonContent(
-                        id = "expert_c8_sub3",
+                        id = CExpertStageIds.lesson8_subs[2],
                         title = "Adding and Validating Student Records in C",
                         description = "Learn how to implement a function for adding student records in C while ensuring validation, accurate grade calculation, and options for saving the records persistently.",
                         contentBlocks = listOf(
@@ -2234,7 +2234,7 @@ char getGrade(float average) {
                     ),
 
                     LessonContent(
-                        id = "expert_c8_sub4",
+                        id = CExpertStageIds.lesson8_subs[3],
                         title = "Adding New Student Records with Validation in C",
                         description = "Learn how to add new student records with validation, calculate averages, and provide options to save records in C.",
                         contentBlocks = listOf(
@@ -2310,7 +2310,7 @@ void addStudent() {
                     ),
 
                     LessonContent(
-                        id = "expert_c8_sub5",
+                        id = CExpertStageIds.lesson8_subs[4],
                         title = "Viewing Student Records by Roll Number in C",
                         description = "Learn how to search and display student records by roll number in C.",
                         contentBlocks = listOf(
@@ -2370,7 +2370,7 @@ void viewRecordByRollNumber() {
                     ),
 
                     LessonContent(
-                        id = "expert_c8_sub6",
+                        id = CExpertStageIds.lesson8_subs[5],
                         title = "Saving Student Records in C",
                         description = "Learn how to save student records to a file in C.",
                         contentBlocks = listOf(
