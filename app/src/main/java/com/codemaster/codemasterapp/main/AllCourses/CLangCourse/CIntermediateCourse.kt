@@ -874,7 +874,7 @@ for (int i = 0; i < tables; i++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c6_sub2",
+                        id = CIntermediateStageIds.lesson6_subs[1],
                         title = "Nested While Loops",
                         description = "Learn how to use a while loop inside another while loop.",
                         contentBlocks = listOf(
@@ -898,7 +898,7 @@ while (level < maxLevel) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c6_sub3",
+                        id = CIntermediateStageIds.lesson6_subs[2],
                         title = "For in While Loops",
                         description = "Learn how to nest a for loop inside a while loop.",
                         contentBlocks = listOf(
@@ -922,7 +922,7 @@ while (gameOn) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c6_sub4",
+                        id = CIntermediateStageIds.lesson6_subs[3],
                         title = "While in For Loops",
                         description = "Learn how to nest a while loop inside a for loop.",
                         contentBlocks = listOf(
@@ -946,7 +946,7 @@ for (int i = 0; i < rooms; i++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c6_sub5",
+                        id = CIntermediateStageIds.lesson6_subs[4],
                         title = "Nested Do-While Loops",
                         description = "Learn how to use a do-while loop inside another do-while loop.",
                         contentBlocks = listOf(
@@ -970,7 +970,7 @@ do {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c6_sub6",
+                        id = CIntermediateStageIds.lesson6_subs[5],
                         title = "Real-Life Examples",
                         description = "See practical examples of nested loops in action.",
                         contentBlocks = listOf(
@@ -1065,7 +1065,7 @@ do {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c6_sub7",
+                        id = CIntermediateStageIds.lesson6_subs[6],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
