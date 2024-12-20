@@ -33,6 +33,17 @@ class CourseViewModel @Inject constructor(
     private val learningProgressRepository: UserLearningProgressRepository
 ) : ViewModel() {
 
+    init {
+        // Load all statuses and last saved progress
+        loadAllLessonStatuses()
+        loadLastSavedProgress()
+
+        // Default selection
+        val dsaCourse = courses.find { it.id== "DSA" }
+        _selectedCourse.value = dsaCourse
+        _selectedStage.value = dsaCourse?.stages?.find { it.name == "Beginner" }
+    }
+
     // List of courses to display
     val courses: List<Course> = AllCoursesProvider()
 
