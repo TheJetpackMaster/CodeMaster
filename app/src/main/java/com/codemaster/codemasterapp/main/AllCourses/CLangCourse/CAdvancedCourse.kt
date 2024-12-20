@@ -1748,7 +1748,7 @@ printf("%d\n", *(ptr + 1));  // Prints the second element of the array
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c9_sub5",
+                        id = CAdvancedStageIds.lesson9_subs[4],
                         title = "Pointer Arithmetic",
                         description = "Explore pointer arithmetic and how to manipulate pointer values.",
                         contentBlocks = listOf(
@@ -1766,7 +1766,7 @@ printf("%d\n", *ptr);  // Prints the second element of the array
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c9_sub6",
+                        id = CAdvancedStageIds.lesson9_subs[5],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -1785,7 +1785,7 @@ printf("%d\n", *(ptr + ___));  // Fill in the blank
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c9_sub7",
+                        id = CAdvancedStageIds.lesson9_subs[6],
                         title = "Pointers to Pointers",
                         description = "Understand pointers that point to other pointers and how to work with them.",
                         contentBlocks = listOf(
@@ -1803,7 +1803,7 @@ printf("%d\n", **ptr2);  // Dereferencing twice to access num's value
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c9_sub8",
+                        id = CAdvancedStageIds.lesson9_subs[7],
                         title = "Pointer & Function Arguments",
                         description = "Learn how to pass pointers to functions and manipulate data through them.",
                         contentBlocks = listOf(
@@ -1826,7 +1826,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c9_sub9",
+                        id = CAdvancedStageIds.lesson9_subs[8],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -1846,7 +1846,7 @@ printf("%d\n", ___);  // Fill in the blank to access 'num' using pointer to poin
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c9_sub10",
+                        id = CAdvancedStageIds.lesson9_subs[9],
                         title = "Real-Life Example of Pointers",
                         description = "Learn how pointers can be used in real-world applications, such as dynamic memory management or handling large data.",
                         contentBlocks = listOf(
@@ -1878,7 +1878,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c9_sub11",
+                        id = CAdvancedStageIds.lesson9_subs[10],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -1903,12 +1903,12 @@ int main() {
 
             // lesson 10
             Lesson(
-                id = "advanced_c10",
+                id = CAdvancedStageIds.lesson10,
                 title = "C Structures",
                 description = "Learn how to use structures (structs) in C to group different types of data.",
                 lessonContents = listOf(
                     LessonContent(
-                        id = "advanced_c10_sub1",
+                        id = CAdvancedStageIds.lesson10_subs[0],
                         title = "Introduction to Structures",
                         description = "Understand the basics of structures in C.",
                         contentBlocks = listOf(
@@ -1925,7 +1925,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "advanced_c10_sub2",
+                        id = CAdvancedStageIds.lesson10_subs[1],
                         title = "Creating a Structure",
                         description = "Learn how to define and initialize a structure.",
                         contentBlocks = listOf(
