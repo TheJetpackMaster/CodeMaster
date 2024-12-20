@@ -1909,7 +1909,7 @@ for (int location = 0; location < 10; location++) {
 
             // lesson 11
             Lesson(
-                id = "intermediate_c11",
+                id = CIntermediateStageIds.lesson11,
                 title = "Quiz",
                 description = "Test your knowledge of the topics covered in this stage! 🧠💻",
                 lessonContents = listOf(
