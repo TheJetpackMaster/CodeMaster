@@ -165,4 +165,16 @@ object CAdvancedStageIds {
         "${lesson12}_sub8"
     )
 
+    // Sub-lesson IDs for lesson 13 - Inheritance in C++
+    val lesson13_subs = listOf(
+        "${lesson13}_sub1",
+        "${lesson13}_sub2",
+        "${lesson13}_sub3",
+        "${lesson13}_sub4",
+        "${lesson13}_sub5",
+        "${lesson13}_sub6",
+        "${lesson13}_sub7",
+        "${lesson13}_sub8"
+    )
+
 }
