@@ -1567,7 +1567,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c9_sub3",
+                        id = CIntermediateStageIds.lesson9_subs[2],
                         title = "Accessing String Elements",
                         description = "Learn how to access individual characters in a string.",
                         contentBlocks = listOf(
@@ -1600,7 +1600,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c9_sub4",
+                        id = CIntermediateStageIds.lesson9_subs[3],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -1615,7 +1615,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c9_sub5",
+                        id = CIntermediateStageIds.lesson9_subs[4],
                         title = "String Length and Size",
                         description = "Understand how to calculate the length of a string.",
                         contentBlocks = listOf(
@@ -1648,7 +1648,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c9_sub6",
+                        id = CIntermediateStageIds.lesson9_subs[5],
                         title = "Common String Functions",
                         description = "Explore commonly used functions for string manipulation.",
                         contentBlocks = listOf(
@@ -1688,7 +1688,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c9_sub7",
+                        id = CIntermediateStageIds.lesson9_subs[6],
                         title = "String Comparison",
                         description = "Learn how to compare strings.",
                         contentBlocks = listOf(
@@ -1712,7 +1712,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c9_sub8",
+                        id = CIntermediateStageIds.lesson9_subs[7],
                         title = "String Copying and Concatenation",
                         description = "Learn how to copy and concatenate strings.",
                         contentBlocks = listOf(
@@ -1752,7 +1752,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c9_sub9",
+                        id = CIntermediateStageIds.lesson9_subs[8],
                         title = "String Input and Output",
                         description = "Understand how to handle input and output with strings.",
                         contentBlocks = listOf(
@@ -1775,7 +1775,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c9_sub10",
+                        id = CIntermediateStageIds.lesson9_subs[9],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
@@ -1795,7 +1795,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c9_sub11",
+                        id = CIntermediateStageIds.lesson9_subs[10],
                         title = "Real-Life Example with Strings",
                         description = "See how strings are used in real applications.",
                         contentBlocks = listOf(
@@ -1823,7 +1823,7 @@ for (int location = 0; location < 10; location++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = "intermediate_c9_sub12",
+                        id = CIntermediateStageIds.lesson9_subs[11],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
