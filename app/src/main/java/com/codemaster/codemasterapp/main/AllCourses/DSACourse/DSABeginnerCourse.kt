@@ -322,7 +322,7 @@ int main() {
                             InteractiveInputBlock(
                                 question = "What is the 6th number in the Fibonacci sequence?",
                                 incompleteCode = """
-Write your answer:
+Write your answer:___
                     """.trimIndent(),
                                 correctCode = "8",
                                 userInput = null, // User's input will be captured here
@@ -507,7 +507,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     )
                 ),
-                status = LessonStatus.ACTIVE
+                status = LessonStatus.LOCKED
             ),
 
             // lesson 5
