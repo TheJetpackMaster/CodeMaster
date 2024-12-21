@@ -225,7 +225,8 @@ Fibonacci Sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21, ...
                             ),
                             ContentBlock.Text(createSimpleText("The Fibonacci sequence has applications in mathematics, computer science, and nature.")),
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.LOCKED
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson3_subs[1],
@@ -257,7 +258,8 @@ int main() {
                             ),
                             ContentBlock.Text(createSimpleText("This approach uses iteration to generate the Fibonacci sequence efficiently.")),
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.LOCKED
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson3_subs[2],
@@ -286,7 +288,8 @@ int main() {
                             ),
                             ContentBlock.Text(createSimpleText("Recursion simplifies the implementation but can be inefficient for large values of n.")),
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.LOCKED
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson3_subs[3],
@@ -312,7 +315,8 @@ int main() {
                             ),
                             ContentBlock.Text(createSimpleText("This method can be optimized using techniques like memoization to store intermediate results.")),
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.LOCKED
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson3_subs[4],
@@ -329,7 +333,8 @@ Write your answer:___
                                 isCodeCorrect = false // Will be updated based on user input
                             ),
                         ),
-                        type = LessonContentType.INTERACTIVE
+                        type = LessonContentType.INTERACTIVE,
+                        status = LessonStatus.LOCKED
                     )
                 ),
                 status = LessonStatus.LOCKED
@@ -364,7 +369,8 @@ int main() {
                     """.trimIndent()
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.LOCKED
                     ),
 
                     LessonContent(
@@ -399,7 +405,8 @@ int main() {
                     """.trimIndent()
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.LOCKED
                     ),
 
                     LessonContent(
@@ -414,7 +421,8 @@ int main() {
                                         "4. Update the minimum if a smaller value is found.")
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.LOCKED
                     ),
 
                     LessonContent(
@@ -429,7 +437,8 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.LOCKED
                     ),
 
                     LessonContent(
@@ -463,7 +472,8 @@ int main() {
                                 isCodeCorrect = false // Will be updated based on user input
                             )
                         ),
-                        type = LessonContentType.INTERACTIVE
+                        type = LessonContentType.INTERACTIVE,
+                        status = LessonStatus.LOCKED
                     ),
 
                     LessonContent(
@@ -504,7 +514,8 @@ int main() {
                     """.trimIndent()
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.LOCKED
                     )
                 ),
                 status = LessonStatus.LOCKED
