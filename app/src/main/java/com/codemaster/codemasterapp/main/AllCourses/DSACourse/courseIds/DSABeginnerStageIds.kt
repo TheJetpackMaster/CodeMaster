@@ -1,7 +1,7 @@
 package com.codemaster.codemasterapp.main.AllCourses.DSACourse.courseIds
 
 object DSABeginnerStageIds {
-    val stageId = "c_beginner_stage"
+    val stageId = "dsa_beginner_stage"
 
     // Course and Lesson IDs as constants
     val lesson1 = "beginner_c1"
