@@ -96,6 +96,11 @@ class CourseViewModel @Inject constructor(
         // Load all statuses and last saved progress
         loadAllLessonStatuses()
         loadLastSavedProgress()
+
+        // Default selection
+        val dsaCourse = courses.find { it.id == "dsa_course" }
+        _selectedCourse.value = dsaCourse
+        _selectedStage.value = dsaCourse?.stages?.find { it.id == "c_beginner_stage" }
     }
 
     // Functions to select course, stage, lesson, and sub-lesson
@@ -117,12 +122,6 @@ class CourseViewModel @Inject constructor(
 
     fun selectLessonIndex(index: Int) {
         _selectedLessonIndex.value = index
-    }
-
-    init {
-        // Load all statuses initially when the ViewModel is created
-        loadAllLessonStatuses()
-        loadLastSavedProgress()
     }
 
     // Load all lesson statuses
