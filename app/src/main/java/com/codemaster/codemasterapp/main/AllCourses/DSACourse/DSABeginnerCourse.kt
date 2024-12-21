@@ -450,7 +450,7 @@ int main() {
     // Loop through the array to find the minimum value
     for (int i = 1; i < n; i++) {
         if (arr[i] < min) {
-            min = ___; // Fill the missing code here
+            min = ___; 
         }
     }
 
