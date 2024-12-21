@@ -1,6 +1,7 @@
 package com.codemaster.codemasterapp.main.AllCourses.DSACourse
 
 import com.codemaster.codemasterapp.main.AllCourses.CLangCourse.courseIds.CBeginnerStageIds
+import com.codemaster.codemasterapp.main.AllCourses.DSACourse.courseIds.DSABeginnerStageIds
 import com.codemaster.codemasterapp.main.AllCourses.helperFuntions.createAnnotatedText
 import com.codemaster.codemasterapp.main.AllCourses.helperFuntions.createSimpleText
 import com.codemaster.codemasterapp.main.data.ContentBlock
@@ -15,111 +16,111 @@ import com.codemaster.codemasterapp.main.data.Stage
 
 fun DSABeginnerCourse(): Stage {
     return Stage(
-        id = CBeginnerStageIds.stageId,
+        id = DSABeginnerStageIds.stageId,
         title = "Beginner",
         lessons = listOf(
-            // lesson 1
+            // Lesson 1
             Lesson(
-                id = CBeginnerStageIds.lesson1,
-                title = "Introduction to C Programming",
-                description = "In this lesson, we’ll cover the basics of programming, exploring the origins, purpose, and structure of the C language.",
+                id = DSABeginnerStageIds.lesson1,
+                title = "Introduction to Data Structures and Algorithms in C++",
+                description = "In this lesson, we’ll explore the fundamentals of data structures and algorithms (DSA), their importance, and how they’re implemented in C++.",
                 lessonContents = listOf(
                     LessonContent(
-                        id = CBeginnerStageIds.lesson1_subs[0],
-                        title = "What is Programming?",
-                        description = "Understand programming, why it matters, and how it lets computers execute your instructions.",
+                        id = DSABeginnerStageIds.lesson1_subs[0],
+                        title = "What is DSA?",
+                        description = "Understand the significance of DSA and why it is a cornerstone of programming.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Programming creates instructions for computers to automate tasks, solve problems, and build software.")),
+                            ContentBlock.Text(createSimpleText("DSA involves organizing and manipulating data efficiently to solve problems.")),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Programming languages like C, Python, or Java help us communicate instructions to machines.",
+                                    "Data structures store and manage data, while algorithms provide the steps to process it.",
                                     listOf("")
                                 )
                             ),
-                            ContentBlock.Text(createSimpleText("Without programming, your favorite apps and systems wouldn’t exist."))
+                            ContentBlock.Text(createSimpleText("Mastering DSA is key to building optimized and scalable software solutions."))
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.ACTIVE
                     ),
                     LessonContent(
-                        id = CBeginnerStageIds.lesson1_subs[1],
-                        title = "Understanding Code and How It Works",
-                        description = "Peek behind the scenes to see how code tells computers what to do.",
+                        id = DSABeginnerStageIds.lesson1_subs[1],
+                        title = "Understanding C++ for DSA",
+                        description = "Explore why C++ is a preferred language for implementing DSA.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Code is like a recipe—a series of step-by-step instructions for computers.")),
+                            ContentBlock.Text(createSimpleText("C++ offers low-level control and high-level abstractions, making it ideal for DSA.")),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "C code translates directly into machine language, making it powerful and efficient.",
-                                    listOf("")
+                                    "Its Standard Template Library (STL) simplifies working with common data structures and algorithms.",
+                                    listOf("STL")
                                 )
                             ),
-                            ContentBlock.Text(createSimpleText("Think of it as giving directions versus driving the car yourself."))
+                            ContentBlock.Text(createSimpleText("From arrays to advanced algorithms, C++ has the tools you need for DSA."))
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.LOCKED
                     ),
                     LessonContent(
-                        id = CBeginnerStageIds.lesson1_subs[2],
-                        title = "Introduction to the C Language",
-                        description = "Meet C: the foundation of many modern programming languages.",
+                        id = DSABeginnerStageIds.lesson1_subs[2],
+                        title = "Key Concepts in DSA",
+                        description = "Learn the fundamental concepts of DSA and their role in programming.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("C was created in the 1970s by Dennis Ritchie for building UNIX.")),
+                            ContentBlock.Text(createSimpleText("Data structures include arrays, linked lists, stacks, queues, trees, graphs, and more.")),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "C combines low-level power with ease of use and has influenced many languages like C++, Java, and Python.",
-                                    listOf("low-level")
+                                    "Algorithms include searching, sorting, recursion, dynamic programming, and greedy approaches.",
+                                    listOf("searching", "sorting")
                                 )
                             ),
-                            ContentBlock.Text(createSimpleText("Languages like Python and Java owe their roots to C."))
+                            ContentBlock.Text(createSimpleText("C++ provides the flexibility to implement both simple and complex DSA solutions."))
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.LOCKED
                     ),
                     LessonContent(
-                        id = CBeginnerStageIds.lesson1_subs[3],
-                        title = "Applications of C Programming",
-                        description = "Discover where C is used in real-world scenarios like operating systems and embedded systems.",
+                        id = DSABeginnerStageIds.lesson1_subs[3],
+                        title = "Applications of DSA in Real-World Problems",
+                        description = "Discover how DSA solves problems across various domains.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("C is widely used in operating systems, embedded systems, and gaming.")),
+                            ContentBlock.Text(createSimpleText("DSA powers search engines, social media platforms, and navigation systems.")),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "It’s essential for gaming, robotics, and embedded systems where precision is key.",
+                                    "It is crucial in game development, robotics, and data analysis, where performance matters.",
                                     listOf()
                                 )
                             ),
-                            ContentBlock.Text(createSimpleText("Imagine your gaming console and smartwatch running thanks to C!"))
+                            ContentBlock.Text(createSimpleText("From AI to web applications, DSA ensures efficiency and reliability."))
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.LOCKED
                     ),
                     LessonContent(
-                        id = CBeginnerStageIds.lesson1_subs[4],
-                        title = "Why Learn C?",
-                        description = "Explore the benefits of learning C, including its role as a foundation for other programming languages.",
+                        id = DSABeginnerStageIds.lesson1_subs[4],
+                        title = "Why Learn DSA with C++?",
+                        description = "Explore the benefits of learning DSA and why C++ is an excellent choice.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Learning C builds a solid foundation in core programming concepts.")),
+                            ContentBlock.Text(createSimpleText("DSA teaches you to think critically and solve complex problems effectively.")),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "C teaches the principles of programming, making it easier to master other languages.",
-                                    listOf("principles of programming")
+                                    "C++ enables efficient implementation with features like pointers, templates, and STL.",
+                                    listOf("pointers", "templates")
                                 )
                             ),
-                            ContentBlock.Text(createSimpleText("Plus, it’s a valuable skill for software development roles."))
+                            ContentBlock.Text(createSimpleText("These skills are highly valued in competitive programming and software development."))
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.LOCKED
                     ),
                     LessonContent(
-                        id = CBeginnerStageIds.lesson1_subs[5],
+                        id = DSABeginnerStageIds.lesson1_subs[5],
                         title = "Quiz",
                         description = "Quiz",
                         contentBlocks = listOf(
                             QuizContentBlock(
-                                question = "What makes programming essential for modern technology?",
+                                question = "Why is C++ widely used for DSA?",
                                 options = listOf(
-                                    "It enables precise control over hardware.",
-                                    "It allows for the automation of tasks.",
-                                    "It is a foundation for software development.",
+                                    "It provides low-level control and high-level abstractions.",
+                                    "It includes the Standard Template Library (STL).",
+                                    "It supports efficient memory management.",
                                     "All of the above."
                                 ),
                                 correctAnswer = "All of the above.",
@@ -131,13 +132,13 @@ fun DSABeginnerCourse(): Stage {
                         status = LessonStatus.LOCKED
                     ),
                     LessonContent(
-                        id = CBeginnerStageIds.lesson1_subs[6],
+                        id = DSABeginnerStageIds.lesson1_subs[6],
                         title = "What’s Next?",
-                        description = "Preview the journey ahead as we dive into loops, arrays, and advanced concepts.",
+                        description = "Preview the journey ahead as we dive into arrays, linked lists, and advanced DSA concepts.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Get ready to unlock the core building blocks of programming!")),
-                            ContentBlock.Text(createSimpleText("In the next lessons, you’ll master input/output, variables, and data types—skills that power every program you’ll ever write.")),
-                            ContentBlock.Text(createSimpleText("With hands-on projects, you'll bring ideas to life and take your first big steps as a programmer."))
+                            ContentBlock.Text(createSimpleText("Prepare to explore the building blocks of DSA with arrays and linked lists.")),
+                            ContentBlock.Text(createSimpleText("You’ll learn about recursion, dynamic programming, and graph algorithms.")),
+                            ContentBlock.Text(createSimpleText("Hands-on projects will solidify your understanding and skills in DSA."))
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.LOCKED
