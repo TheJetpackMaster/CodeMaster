@@ -13,7 +13,9 @@ import com.codemaster.codemasterapp.main.AllCourses.DSACourse.DSABeginnerCourse
 import com.codemaster.codemasterapp.main.AllCourses.DSACourse.DSACourseProvider
 import com.codemaster.codemasterapp.main.AllCourses.DSACourse.DSAExpertCourse
 import com.codemaster.codemasterapp.main.AllCourses.DSACourse.DSAIntermediateCourse
+import com.codemaster.codemasterapp.main.AllCourses.PythonCourse.PythonBeginnerCourse
 import com.codemaster.codemasterapp.main.AllCourses.PythonCourse.PythonCourseProvider
+import com.codemaster.codemasterapp.main.AllCourses.PythonCourse.PythonIntermediateCourse
 import com.codemaster.codemasterapp.main.DataBase.continueLearningprogressDB.UserLearningProgressRepository
 import com.codemaster.codemasterapp.main.DataBase.lessonStatusDB.LessonStatusEntity
 import com.codemaster.codemasterapp.main.DataBase.lessonStatusDB.LessonStatusRepo
@@ -42,31 +44,30 @@ class CourseViewModel @Inject constructor(
     val courses: List<Course> = AllCoursesProvider()
 
 
-    private val _selectedCourse = MutableStateFlow<Course?>(null)
-    private val _selectedStage = MutableStateFlow<Stage?>(null)
+//    private val _selectedCourse = MutableStateFlow<Course?>(null)
+//    private val _selectedStage = MutableStateFlow<Stage?>(null)
 
-//    private val _selectedCourse = MutableStateFlow<Course?>(
-//        Course(
-//            id = "dsa_course",
-//            language = "DSA | C++",
-//            stages = listOf(
-//                DSABeginnerCourse(),
-//                DSAIntermediateCourse(),
-//                DSAAdvancedCourse(),
-//                DSAExpertCourse()
-//            )
-//
-//        )
-//    )
-//
-//
-//    private val _selectedStage = MutableStateFlow<Stage?>(
-//        Stage(
-//            id = "Beginner",
-//            title = "Beginner",
-//            lessons = DSABeginnerCourse().lessons
-//        )
-//    )
+    private val _selectedCourse = MutableStateFlow<Course?>(
+        Course(
+            id = "python_course",
+            language = "Python",
+            stages = listOf(
+                PythonBeginnerCourse(),
+                PythonIntermediateCourse(),
+
+            )
+
+        )
+    )
+
+
+    private val _selectedStage = MutableStateFlow<Stage?>(
+        Stage(
+            id = "python_beginner_stage",
+            title = "Beginner",
+            lessons = PythonBeginnerCourse().lessons
+        )
+    )
 
 
     private val _selectedLesson = MutableStateFlow<Lesson?>(null)
@@ -97,10 +98,10 @@ class CourseViewModel @Inject constructor(
         loadAllLessonStatuses()
         loadLastSavedProgress()
 
-        // Default selection
-        val dsaCourse = courses.find { it.id == "dsa_course" }
-        _selectedCourse.value = dsaCourse
-        _selectedStage.value = dsaCourse?.stages?.find { it.id == "c_beginner_stage" }
+//        // Default selection
+//        val dsaCourse = courses.find { it.id == "dsa_course" }
+//        _selectedCourse.value = dsaCourse
+//        _selectedStage.value = dsaCourse?.stages?.find { it.id == "c_beginner_stage" }
     }
 
     // Functions to select course, stage, lesson, and sub-lesson

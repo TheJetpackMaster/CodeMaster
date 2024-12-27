@@ -30,7 +30,7 @@ fun NavGraphBuilder.mainNavHost(
     allLessonsStatus: State<Map<String, LessonStatus>>
 ) {
     navigation(
-        startDestination = MainRoutes.LevelSelectionScreen.route,
+        startDestination = MainRoutes.LessonListScreen.route,
         route = MainRoutes.MAIN_ROOT.route
     )
     {

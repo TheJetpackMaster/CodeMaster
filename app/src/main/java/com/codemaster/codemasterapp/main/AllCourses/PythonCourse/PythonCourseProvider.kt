@@ -12,7 +12,10 @@ class PythonCourseProvider {
             id = "python_course",
             language = "Python",
             stages = listOf(
-
+                PythonBeginnerCourse(),
+                PythonIntermediateCourse(),
+                PythonAdvancedCourse(),
+                PythonExpertCourse()
             )
         )
     }
