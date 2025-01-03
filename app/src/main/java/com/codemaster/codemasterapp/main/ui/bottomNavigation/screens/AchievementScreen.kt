@@ -1,6 +1,5 @@
 package com.codemaster.codemasterapp.main.ui.bottomNavigation.screens
 
-import android.util.Log
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -99,62 +98,86 @@ fun AchievementsContent(
     allLessonsStatus: State<Map<String, LessonStatus>>
 ) {
 
-    // List of 100 titles
     val titles = listOf(
-        "Achiever", "Prodigy", "Master", "Champion", "Maverick", "Hero", "Legend", "Titan",
-        "Conqueror", "Innovator", "Strategist", "Philanthropist", "Expert", "Winner", "Adventurer",
-        "Pathfinder", "Explorer", "Creator", "Builder", "Visionary", "Revolutionary", "Pioneer",
-        "Goalsetter", "Transformer", "Empowerer", "Inspire", "Mentor", "Influencer", "Leader", "Inventor", "Guru"
+        "First Step",               // For completing the first lesson or quiz
+        "Syntax Seeker",            // For completing a few basic coding challenges
+        "Logic Explorer",           // For solving logic-based challenges
+        "Challenge Conqueror",      // For taking on advanced challenges
+        "Quiz Master",              // For acing multiple quizzes
+        "Code Navigator",           // For completing a significant number of lessons
+        "Debugging Genius",         // For solving debugging challenges
+        "Algorithm Ace",            // For mastering algorithms
+        "Pathfinder",               // For exploring all beginner-level lessons
+        "Trailblazer",              // For completing intermediate-level lessons
+        "Code Virtuoso",            // For completing advanced lessons
+        "Strategist",               // For planning and solving complex problems
+        "Innovator",                // For creating unique solutions in coding challenges
+        "Mastermind",               // For achieving a high score in all lessons
+        "Visionary",                // For completing all stages of the app
+//        "Heroic Learner",           // For helping others in a community feature (if applicable)
+//        "Ultimate Champion",        // For completing 100% of the app
+//        "Explorer",                 // For exploring various features of the app
+//        "Legend",                   // For reaching a major milestone in points
+//        "Trail Master",             // For staying consistent in learning
+//        "Coding Maverick",          // For breaking into new coding territories
+//        "Learning Titan",           // For earning a significant number of points
+//        "Knowledge Seeker",         // For continuously learning without breaks
+//        "Achievement Hunter",       // For unlocking 10 achievements
+//        "Epic Achiever",            // For unlocking 20 achievements
+//        "Infinity Learner",         // For completing the app multiple times
+//        "Code Whisperer",           // For achieving perfect scores in coding challenges
+//        "Quiz Wizard",              // For scoring 100% in quizzes
+//        "Perfectionist",            // For achieving perfection in lessons
+//        "Ultimate Guru"             // For being an all-around champion in the app
     )
 
-
-    // List of 30 achievement descriptions for the four courses (C, C++, Python, DSA) and their stages (Beginner to Expert)
+// List of achievement descriptions with the new ones
     val achievementDescriptions = listOf(
-        // C Course Achievements
-        "Complete 10 quizzes from C Beginner stage",
-        "Complete 5 interactive coding challenges from C Beginner stage",
-        "Complete 3 lessons from C Beginner course",
-        "Complete 20 quizzes from C Intermediate stage",
-        "Complete 10 interactive coding challenges from C Intermediate stage",
-        "Complete 5 lessons from C Intermediate course",
-        "Complete 30 quizzes from C Advanced stage",
-        "Complete 15 interactive coding challenges from C Advanced stage",
-        "Complete 10 lessons from C Advanced course",
+        // First Step: Complete the first lesson or quiz
+       "Complete the first lesson or quiz from any course.",
 
-        // C++ Course Achievements
-        "Complete 10 quizzes from C++ Beginner stage",
-        "Complete 5 interactive coding challenges from C++ Beginner stage",
-        "Complete 3 lessons from C++ Beginner course",
-        "Complete 20 quizzes from C++ Intermediate stage",
-        "Complete 10 interactive coding challenges from C++ Intermediate stage",
-        "Complete 5 lessons from C++ Intermediate course",
-        "Complete 30 quizzes from C++ Advanced stage",
-        "Complete 15 interactive coding challenges from C++ Advanced stage",
-        "Complete 10 lessons from C++ Advanced course",
+        // Syntax Seeker: Complete at least 10 interactive lessons from C, 5 from C++, and 5 from DSA
+        "Complete at least 10 interactive lessons from C, 5 from C++, and 5 from DSA.",
 
-        // Python Course Achievements
-        "Complete 10 quizzes from Python Beginner stage",
-        "Complete 5 interactive coding challenges from Python Beginner stage",
-        "Complete 3 lessons from Python Beginner course",
-        "Complete 20 quizzes from Python Intermediate stage",
-        "Complete 10 interactive coding challenges from Python Intermediate stage",
-        "Complete 5 lessons from Python Intermediate course",
-        "Complete 30 quizzes from Python Advanced stage",
-        "Complete 15 interactive coding challenges from Python Advanced stage",
-        "Complete 10 lessons from Python Advanced course",
+        // Logic Explorer: Solve at least 10 interactive logic-based challenges from any course
+        "Solve at least 10 interactive logic-based challenges from any course.",
 
-        // DSA Course Achievements
-        "Complete 10 quizzes from DSA Beginner stage",
-        "Complete 5 interactive coding challenges from DSA Beginner stage",
-        "Complete 3 lessons from DSA Beginner course",
-        "Complete 20 quizzes from DSA Intermediate stage",
-        "Complete 10 interactive coding challenges from DSA Intermediate stage",
-        "Complete 5 lessons from DSA Intermediate course",
-        "Complete 30 quizzes from DSA Advanced stage",
-        "Complete 15 interactive coding challenges from DSA Advanced stage",
-        "Complete 10 lessons from DSA Advanced course"
+        // Challenge Conqueror: Complete at least 5 quizzes from each stage in C
+        "Complete at least 5 quizzes from each stage in C.",
+
+        // Quiz Master: Complete at least 20 quizzes (advanced quizzes) across C, C++, and DSA
+        "Complete at least 20 quizzes (advanced quizzes) across C, C++, and DSA.",
+
+        // Code Navigator: Complete at least 15 lessons from C, 15 from C++, and 10 from DSA
+        "Complete at least 15 lessons from C, 15 from C++, and 10 from DSA.",
+
+        // Learning Master: Complete at least 10 non-interactive lessons across C, C++, and DSA
+        "Complete at least 10 non-interactive lessons across C, C++, and DSA.",
+
+        // Explorer of Stages: Complete 5 lessons from each stage (Beginner, Intermediate, Advanced) in C
+        "Complete 5 lessons from each stage (Beginner, Intermediate, Advanced) in C.",
+
+        // Master of Completion: Complete 10 lessons from C, 10 from C++, and 10 from DSA
+        "Complete 10 lessons from C, 10 from C++, and 10 from DSA.",
+
+        // Multi-Stage Champion: Complete 5 lessons from each stage (Beginner, Intermediate, Advanced) across C, C++, and DSA
+        "Complete 5 lessons from each stage (Beginner, Intermediate, Advanced) across C, C++, and DSA.",
+
+        // Quiz Overlord: Complete at least 40 quizzes across all courses
+        "Complete at least 40 quizzes across all courses.",
+
+        // Code Virtuoso: Complete at least 20 advanced lessons from C, C++, and DSA
+        "Complete at least 20 advanced lessons from C, C++, and DSA.",
+
+        // Path Finder: Complete 10 lessons from C and 10 lessons from C++ (any stage)
+        "Complete 10 lessons from C and 10 lessons from C++ (any stage).",
+
+        // Stage Conqueror: Complete 5 lessons from each stage (Beginner, Intermediate, Advanced) across C and C++
+        "Complete 5 lessons from each stage (Beginner, Intermediate, Advanced) across C and C++.",
+
+        // Final Mastery: Complete all lessons from C, C++, and DSA (any stage)
+        "Complete all lessons from C, C++, and DSA (any stage)."
     )
-
 
 
     // List of animation resource IDs (Assume you have different animation files)
@@ -180,30 +203,14 @@ fun AchievementsContent(
 
         )
 
-// Define the required points for each achievement (e.g., 50, 100, 150, etc.)
-    val requiredPointsForAchievements = List(30) { (it + 1) * 50 } // 100, 200, 300, ...
-
     // Calculate points earned for each achievement
-    val achievements = List(30) { index ->
-        val earnedPointsForAchievement = calculateAchievementPoints(index, courses, allLessonsStatus.value)
-        val requiredPoints = requiredPointsForAchievements[index]
-
-        // Calculate the progress for the current achievement
-        val achievementProgress = when {
-            earnedPointsForAchievement >= requiredPoints -> 1f  // 100% progress if points earned are greater than or equal to required points
-            earnedPointsForAchievement > 0 -> earnedPointsForAchievement.toFloat() / requiredPoints.toFloat()  // Progress based on the earned points
-            else -> 0f  // No progress if no points are earned
-        }
-
-        // Log for debugging
-        Log.d("requiredpoints", requiredPoints.toString())
-        Log.d("earnedPoints", earnedPointsForAchievement.toString())
-        Log.d("progresspoints", achievementProgress.toString())
+    val achievements = List(15) { index ->
+        val achievementProgress = calculateAchievementProgress(index, courses, allLessonsStatus.value)
 
         // Create the achievement item with dynamic progress
         AchievementItem(
             title = titles[index],
-            progressValue = achievementProgress,
+            progressValue = achievementProgress/100f,
             animationResource = animationResources[index],
             achievementDetails = achievementDescriptions[index]
         )
@@ -444,43 +451,202 @@ fun getCourseProgress(
     }
 }
 
-// Function to calculate points based on achievement type
-fun calculateAchievementPoints(achievementIndex: Int, courses: List<Course>, allLessonsStatus: Map<String, LessonStatus>): Int {
-    return when (achievementIndex) {
-        0 -> { // First achievement: Collect only quiz points
-            courses.sumOf { course ->
+// For achievement completion
+fun calculateAchievementProgress(achievementIndex: Int, courses: List<Course>, allLessonsStatus: Map<String, LessonStatus>): Int {
+    val totalRequired: Int
+    val totalCompleted: Int
+
+    when (achievementIndex) {
+        0 -> { // First Step: Complete the first lesson or quiz
+            totalRequired = 1
+            totalCompleted = if (courses.any { course ->
+                    course.stages.any { stage ->
+                        stage.lessons.any { lesson ->
+                            lesson.lessonContents.any { content ->
+                                (content.type == LessonContentType.QUIZ || content.type == LessonContentType.INTERACTIVE) &&
+                                        allLessonsStatus[content.id] == LessonStatus.COMPLETED
+                            }
+                        }
+                    }
+                }) 1 else 0
+        }
+        1 -> { // Syntax Seeker: Complete 10 interactive lessons from C, 5 from C++, and 5 from DSA
+            totalRequired = 20
+            totalCompleted = courses.sumOf { course ->
                 course.stages.sumOf { stage ->
-                    stage.lessons.sumOf { lesson ->
-                        lesson.lessonContents.sumOf { content ->
-                            // Check if the lessonContent is a quiz and if it's completed
-                            if (content.type == LessonContentType.QUIZ && allLessonsStatus[content.id] == LessonStatus.COMPLETED) {
-                                content.points // Collect points if the quiz lessonContent is completed
-                            } else {
-                                0 // No points if it's not a quiz or it's not completed
-                            }
+                    stage.lessons.count { lesson ->
+                        (course.name == "C" && lesson.lessonContents.any { content ->
+                            content.type == LessonContentType.INTERACTIVE && allLessonsStatus[content.id] == LessonStatus.COMPLETED
+                        }) ||
+                                (course.name == "C++" && lesson.lessonContents.any { content ->
+                                    content.type == LessonContentType.INTERACTIVE && allLessonsStatus[content.id] == LessonStatus.COMPLETED
+                                }) ||
+                                (course.name == "DSA | C++" && lesson.lessonContents.any { content ->
+                                    content.type == LessonContentType.INTERACTIVE && allLessonsStatus[content.id] == LessonStatus.COMPLETED
+                                })
+                    }
+                }
+            }
+        }
+        2 -> { // Logic Explorer: Solve 10 interactive lessons that require logic-based thinking across C, C++, and DSA
+            totalRequired = 10
+            totalCompleted = courses.sumOf { course ->
+                course.stages.sumOf { stage ->
+                    stage.lessons.count { lesson ->
+                        lesson.lessonContents.any { content ->
+                            content.type == LessonContentType.INTERACTIVE && allLessonsStatus[content.id] == LessonStatus.COMPLETED
                         }
                     }
                 }
             }
         }
-        1 -> { // Second achievement: Collect only C++ course points
-            courses.sumOf { course ->
-                if (course.id == "cpp_course") { // Assuming course name is "C++"
+        3 -> { // Challenge Conqueror: Complete 5 quizzes from each stage in C
+            totalRequired = 15
+            totalCompleted = courses.sumOf { course ->
+                if (course.name == "C") {
                     course.stages.sumOf { stage ->
-                        stage.lessons.sumOf { lesson ->
-                            lesson.lessonContents.sumOf { content ->
-                                // Add points for C++ lesson contents if completed
-                                if (content.type == LessonContentType.INTERACTIVE && allLessonsStatus[content.id] == LessonStatus.COMPLETED) content.points else 0
+                        stage.lessons.count { lesson ->
+                            lesson.lessonContents.any { content ->
+                                content.type == LessonContentType.QUIZ && allLessonsStatus[content.id] == LessonStatus.COMPLETED
                             }
                         }
                     }
-                } else {
-                    0
+                } else 0
+            }
+        }
+        4 -> { // Quiz Master: Complete at least 20 quizzes (advanced quizzes) from C, C++, and DSA
+            totalRequired = 20
+            totalCompleted = courses.sumOf { course ->
+                course.stages.sumOf { stage ->
+                    stage.lessons.count { lesson ->
+                        lesson.lessonContents.any { content ->
+                            content.type == LessonContentType.QUIZ && allLessonsStatus[content.id] == LessonStatus.COMPLETED
+                        }
+                    }
                 }
             }
         }
-        // Add more cases for other achievements as needed
-        else -> 0 // Default case for achievements that don't match the criteria
+        5 -> { // Code Navigator: Complete 15 lessons from C, 15 from C++, and 10 from DSA
+            totalRequired = 40
+            totalCompleted = courses.sumOf { course ->
+                course.stages.sumOf { stage ->
+                    stage.lessons.count { lesson ->
+                        (course.name == "C" && allLessonsStatus[lesson.id] == LessonStatus.COMPLETED) ||
+                                (course.name == "C++" && allLessonsStatus[lesson.id] == LessonStatus.COMPLETED) ||
+                                (course.name == "DSA | C++" && allLessonsStatus[lesson.id] == LessonStatus.COMPLETED)
+                    }
+                }
+            }
+        }
+        6 -> { // Learning Master: Complete 10 non-interactive lessons across C, C++, and DSA
+            totalRequired = 10
+            totalCompleted = courses.sumOf { course ->
+                course.stages.sumOf { stage ->
+                    stage.lessons.count { lesson ->
+                        lesson.lessonContents.any { content ->
+                            content.type == LessonContentType.NON_INTERACTIVE && allLessonsStatus[content.id] == LessonStatus.COMPLETED
+                        }
+                    }
+                }
+            }
+        }
+        7 -> { // Explorer of Stages: Complete 5 lessons from each stage (Beginner, Intermediate, Advanced) in C
+            totalRequired = 15
+            totalCompleted = courses.sumOf { course ->
+                if (course.name == "C") {
+                    course.stages.sumOf { stage ->
+                        stage.lessons.count { lesson ->
+                            (stage.title == "Beginner" || stage.title == "Intermediate" || stage.title == "Advanced") && allLessonsStatus[lesson.id] == LessonStatus.COMPLETED
+                        }
+                    }
+                } else 0
+            }
+        }
+        8 -> { // Master of Completion: Complete 10 lessons from C, 10 from C++, and 10 from DSA
+            totalRequired = 30
+            totalCompleted = courses.sumOf { course ->
+                course.stages.sumOf { stage ->
+                    stage.lessons.count { lesson ->
+                        (course.name == "C" && allLessonsStatus[lesson.id] == LessonStatus.COMPLETED) ||
+                                (course.name == "C++" && allLessonsStatus[lesson.id] == LessonStatus.COMPLETED) ||
+                                (course.name == "DSA | C++" && allLessonsStatus[lesson.id] == LessonStatus.COMPLETED)
+                    }
+                }
+            }
+        }
+        9 -> { // Multi-Stage Champion: Complete 5 lessons from each stage (Beginner, Intermediate, Advanced) across C, C++, and DSA
+            totalRequired = 15
+            totalCompleted = courses.sumOf { course ->
+                course.stages.sumOf { stage ->
+                    stage.lessons.count { lesson ->
+                        (stage.title == "Beginner" || stage.title == "Intermediate" || stage.title == "Advanced") && allLessonsStatus[lesson.id] == LessonStatus.COMPLETED
+                    }
+                }
+            }
+        }
+        10 -> { // Quiz Overlord: Complete 40 quizzes across all courses
+            totalRequired = 40
+            totalCompleted = courses.sumOf { course ->
+                course.stages.sumOf { stage ->
+                    stage.lessons.count { lesson ->
+                        lesson.lessonContents.any { content ->
+                            content.type == LessonContentType.QUIZ && allLessonsStatus[content.id] == LessonStatus.COMPLETED
+                        }
+                    }
+                }
+            }
+        }
+        11 -> { // Code Virtuoso: Complete 20 advanced lessons from C, C++, and DSA
+            totalRequired = 20
+            totalCompleted = courses.sumOf { course ->
+                course.stages.sumOf { stage ->
+                    stage.lessons.count { lesson ->
+                        stage.title == "Advanced" && allLessonsStatus[lesson.id] == LessonStatus.COMPLETED
+                    }
+                }
+            }
+        }
+        12 -> { // Path Finder: Complete 10 lessons from C and 10 lessons from C++ (any stage)
+            totalRequired = 20
+            totalCompleted = courses.sumOf { course ->
+                if (course.name == "C" || course.name == "C++") {
+                    course.stages.sumOf { stage ->
+                        stage.lessons.count { lesson ->
+                            allLessonsStatus[lesson.id] == LessonStatus.COMPLETED
+                        }
+                    }
+                } else 0
+            }
+        }
+        13 -> { // Stage Conqueror: Complete 5 lessons from each stage (Beginner, Intermediate, Advanced) across C and C++
+            totalRequired = 15
+            totalCompleted = courses.sumOf { course ->
+                if (course.name == "C" || course.name == "C++") {
+                    course.stages.sumOf { stage ->
+                        stage.lessons.count { lesson ->
+                            (stage.title == "Beginner" || stage.title == "Intermediate" || stage.title == "Advanced") && allLessonsStatus[lesson.id] == LessonStatus.COMPLETED
+                        }
+                    }
+                } else 0
+            }
+        }
+        14 -> { // Final Mastery: Complete all lessons from C, C++, and DSA (any stage)
+            totalRequired = 100
+            totalCompleted = courses.sumOf { course ->
+                course.stages.sumOf { stage ->
+                    stage.lessons.count { lesson ->
+                        allLessonsStatus[lesson.id] == LessonStatus.COMPLETED
+                    }
+                }
+            }
+        }
+        else -> {
+            totalRequired = 0
+            totalCompleted = 0
+        }
     }
+
+    // Calculate percentage
+    return if (totalRequired == 0) 0 else (totalCompleted * 100) / totalRequired
 }
 

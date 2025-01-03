@@ -1,6 +1,5 @@
 package com.codemaster.codemasterapp.main.ui.learning.lessons
 
-import android.R.attr.top
 import android.app.Activity
 import android.os.Build
 import android.view.View
@@ -23,21 +22,15 @@ import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.statusBars
 import androidx.compose.foundation.layout.statusBarsPadding
-import androidx.compose.foundation.layout.systemBars
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.KeyboardArrowLeft
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.KeyboardArrowDown
@@ -70,24 +63,16 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.text.SpanStyle
-import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.text.withStyle
-import androidx.compose.ui.unit.sp
 import androidx.lifecycle.Lifecycle
 import com.codemaster.codemasterapp.main.DataBase.NoteViewModel
-import com.codemaster.codemasterapp.main.data.Lesson
 import com.codemaster.codemasterapp.main.data.LessonContent
 import com.codemaster.codemasterapp.main.data.LessonStatus
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.MainRoutes
 import com.codemaster.codemasterapp.main.ui.viewModels.CourseViewModel
 import com.codemaster.codemasterapp.ui.theme.bluishPython
-import com.codemaster.codemasterapp.ui.theme.purpleKt
 import com.codemaster.codemasterapp.ui.theme.yellowishJava
-import com.codemaster.codemasterapp.ui.theme.yellowishKt
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -168,7 +153,7 @@ fun LessonListScreen(
                 title = {
                     Text(
                         modifier = Modifier.padding(start = 24.dp),
-                        text = "${selectedLanguage?.language} - ${selectedStage?.title}",
+                        text = "${selectedLanguage?.name} - ${selectedStage?.title}",
                         color = Color.White
                     )
 

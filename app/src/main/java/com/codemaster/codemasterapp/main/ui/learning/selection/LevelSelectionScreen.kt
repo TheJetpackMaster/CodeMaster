@@ -18,7 +18,6 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.animateLottieCompositionAsState
@@ -30,9 +29,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.KeyboardArrowLeft
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.material3.MaterialTheme
@@ -43,18 +40,15 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.viewModelScope
 import com.codemaster.codemasterapp.main.DataBase.NoteViewModel
 import com.codemaster.codemasterapp.main.data.LearningProgress
 import com.codemaster.codemasterapp.main.data.LessonStatus
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.MainRoutes
 import com.codemaster.codemasterapp.main.ui.components.ContinueLearningCard
 import com.codemaster.codemasterapp.main.ui.viewModels.CourseViewModel
-import kotlinx.coroutines.launch
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -189,7 +183,7 @@ fun LevelSelectionScreen(
                                 .toFloat() / (stage.lessons.sumOf { it.lessonContents.size }).toFloat()),
                             paddingValues = PaddingValues(0.dp),
                             decorativeLogo =
-                            when (course.language) {
+                            when (course.name) {
                                 "C" -> R.drawable.clang
                                 "C++" -> R.drawable.cpp
                                 else -> {

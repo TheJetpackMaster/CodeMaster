@@ -6,7 +6,7 @@ import androidx.compose.ui.text.AnnotatedString
 // Represents a course (e.g., "English" with stages like "Beginner", "Intermediate")
 data class Course(
     val id: String, // Unique identifier for the course
-    val language: String, // Language name (e.g., "English")
+    val name: String, // Language name (e.g., "English")
     val stages: List<Stage> // List of stages (e.g., Beginner, Intermediate)
 )
 

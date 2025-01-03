@@ -10,6 +10,7 @@ import com.codemaster.codemasterapp.main.data.LessonContentType
 import com.codemaster.codemasterapp.main.data.LessonStatus
 import com.codemaster.codemasterapp.main.data.Stage
 
+
 fun PythonBeginnerCourse(): Stage {
     return Stage(
         id = "python_beginner_stage",

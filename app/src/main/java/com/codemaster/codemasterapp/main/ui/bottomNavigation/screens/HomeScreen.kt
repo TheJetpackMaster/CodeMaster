@@ -1,7 +1,6 @@
 package com.codemaster.codemasterapp.main.ui.bottomNavigation.screens
 
 import android.util.Log
-import android.widget.Toast
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -9,7 +8,6 @@ import androidx.compose.material3.*
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.mutableStateOf
@@ -136,7 +134,7 @@ fun HomeScreen(
                                 }
                             }
 
-                            val isComingSoon = when (course.language) {
+                            val isComingSoon = when (course.name) {
                                 "C" -> false
                                 "C++" -> false
                                 "Python" -> true
@@ -148,25 +146,25 @@ fun HomeScreen(
                             val difficulty = stageNames.value[course.id] ?: "Beginner"
 
                             LanguageCardDesign(
-                                languageName = course.language,
+                                languageName = course.name,
                                 difficulty = difficulty,
                                 lessonCount = course.stages.sumOf { it.lessons.size },
                                 completedLessonCount = completedLessons,
-                                gradientColors = when (course.language) {
+                                gradientColors = when (course.name) {
                                     "C" -> listOf(purpleKt, yellowishKt)
                                     "C++" -> listOf(purpleCpp, magentaCpp)
                                     "Python" -> listOf(bluishPython, greenishPython)
                                     "DSA | C++" -> listOf(yellowishJava, bluishJava)
                                     else -> listOf(purpleKt, yellowishKt)
                                 },
-                                languageImage = when (course.language) {
+                                languageImage = when (course.name) {
                                     "C" -> painterResource(id = R.drawable.clang)
                                     "C++" -> painterResource(id = R.drawable.cpp)
                                     "Python" -> painterResource(id = R.drawable.pythonlogo)
                                     "DSA | C++" -> painterResource(id = R.drawable.cpp)
                                     else -> painterResource(id = R.drawable.kotlin)
                                 },
-                                comingSoon = when (course.language) {
+                                comingSoon = when (course.name) {
                                     "C" -> false
                                     "C++" -> false
                                     "Python" -> true
@@ -320,7 +318,7 @@ fun HomeScreen(
                                 .toFloat() / (stage.lessons.sumOf { it.lessonContents.size }).toFloat()),
                             paddingValues = PaddingValues(0.dp),
                             decorativeLogo =
-                            when (course.language) {
+                            when (course.name) {
                                 "C" -> R.drawable.clang
                                 "C++" -> R.drawable.cpp
                                 else -> {

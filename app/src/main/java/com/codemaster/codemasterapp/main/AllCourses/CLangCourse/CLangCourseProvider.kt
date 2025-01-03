@@ -9,7 +9,7 @@ class CLangCourseProvider() {
     fun getCompleteCLangCourse(): Course {
         return Course(
             id = "c_course",
-            language = "C",
+            name = "C",
             stages = listOf(
                 CBeginnerCourse(),
                 CIntermediateCourse(),
