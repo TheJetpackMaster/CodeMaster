@@ -16,6 +16,7 @@ object DSABeginnerStageIds {
     val lesson10 = "beginner_dsa10"
     val lesson11 = "beginner_dsa11"
     val lesson12 = "beginner_dsa12"
+    val lesson13 = "beginner_dsa13"
 
 
     // Sub-lesson IDs for lesson 1 Welcome
@@ -157,6 +158,17 @@ object DSABeginnerStageIds {
         "${lesson12}_sub5",
         "${lesson12}_sub6",
         "${lesson12}_sub7"
+    )
+
+    // Sub-lesson IDs for lesson 12 - Inheritance in C++
+    val lesson13_subs = listOf(
+        "${lesson13}_sub1",
+        "${lesson13}_sub2",
+        "${lesson13}_sub3",
+        "${lesson13}_sub4",
+        "${lesson13}_sub5",
+        "${lesson13}_sub6",
+        "${lesson13}_sub7"
     )
 
 }

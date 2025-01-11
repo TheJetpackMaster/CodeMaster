@@ -1289,23 +1289,29 @@ int main() {
             // lesson 11
             Lesson(
                 id = DSABeginnerStageIds.lesson11,
-                title = "Radix Sort",
-                description = "Learn how the Radix Sort algorithm works and understand the importance of stable sorting!",
+                title = "Merge Sort",
+                description = "Learn how the Merge Sort algorithm works and explore its divide-and-conquer approach to sorting!",
                 lessonContents = listOf(
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson10_subs[0],
-                        title = "Introduction to Radix Sort",
-                        description = "Understand the basics of the Radix Sort algorithm.",
+                        id = DSABeginnerStageIds.lesson11_subs[0],
+                        title = "Introduction to Merge Sort",
+                        description = "Understand the basics of the Merge Sort algorithm.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "The Radix Sort algorithm sorts an array by processing individual digits of the numbers. It starts with the least significant digit (rightmost digit) and progresses to the most significant digit.",
+                                    """
+                        Merge Sort is a divide-and-conquer sorting algorithm that breaks down an array into smaller arrays, sorts them, and merges them back to produce the final sorted array. It is known for its efficiency and stability.
+                        """.trimIndent(),
                                     listOf()
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Radix Sort is a non-comparative sorting algorithm that only works with non-negative integers. It groups numbers into buckets based on their digits, sorts them, and merges them back in sequence.",
+                                    """
+                        The algorithm works in two main stages:
+                        - **Divide**: Recursively split the array into halves until each sub-array has only one element.
+                        - **Conquer**: Merge the sub-arrays back together, comparing and sorting elements as they are merged.
+                        """.trimIndent(),
                                     listOf()
                                 )
                             )
@@ -1313,18 +1319,18 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson10_subs[1],
+                        id = DSABeginnerStageIds.lesson11_subs[1],
                         title = "Step-by-Step Explanation",
-                        description = "Learn how Radix Sort works step by step.",
+                        description = "Learn how Merge Sort works step by step.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        How Radix Sort works:
-                        1. Start with the least significant digit.
-                        2. Sort numbers based on the digit in focus.
-                        3. Move numbers to buckets, merge them back into the array.
-                        4. Progress to the next digit and repeat until all digits are processed.
+                        **How Merge Sort works:**
+                        1. Divide the array into two halves.
+                        2. Recursively split each half until each sub-array contains only one element.
+                        3. Merge sub-arrays by comparing their elements and placing the smallest element first.
+                        4. Repeat the merging process until all sub-arrays are combined into a single sorted array.
                         """.trimIndent(),
                                     listOf()
                                 )
@@ -1332,20 +1338,20 @@ int main() {
                             ContentBlock.Code(
                                 """
                     // Example:
-                    Input: [170, 45, 75, 90, 802, 24, 2, 66]
-                    Step 1: Sort by the least significant digit.
-                    Step 2: Group numbers into buckets.
-                    Step 3: Merge numbers from buckets back into the array.
-                    Repeat until the most significant digit is sorted.
+                    Input: [12, 8, 9, 3, 11, 5, 4]
+                    Step 1: Split the array into halves.
+                    Step 2: Recursively split halves into smaller sub-arrays.
+                    Step 3: Merge sub-arrays by comparing and sorting elements.
+                    Result: [3, 4, 5, 8, 9, 11, 12]
                     """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson10_subs[2],
-                        title = "Implementation of Radix Sort",
-                        description = "Code example of Radix Sort in C++.",
+                        id = DSABeginnerStageIds.lesson11_subs[2],
+                        title = "Implementation of Merge Sort",
+                        description = "Code example of Merge Sort in C++.",
                         contentBlocks = listOf(
                             ContentBlock.Code(
                                 """
@@ -1353,63 +1359,48 @@ int main() {
                     #include <vector>
                     using namespace std;
 
-                    // Function to get the maximum value in the array
-                    int getMax(vector<int>& arr) {
-                        int maxVal = arr[0];
-                        for (int num : arr) {
-                            if (num > maxVal) maxVal = num;
+                    // Function to merge two sub-arrays
+                    void merge(vector<int>& arr, int left, int mid, int right) {
+                        int n1 = mid - left + 1;
+                        int n2 = right - mid;
+
+                        vector<int> L(n1), R(n2);
+
+                        for (int i = 0; i < n1; i++) L[i] = arr[left + i];
+                        for (int i = 0; i < n2; i++) R[i] = arr[mid + 1 + i];
+
+                        int i = 0, j = 0, k = left;
+                        while (i < n1 && j < n2) {
+                            if (L[i] <= R[j]) {
+                                arr[k] = L[i];
+                                i++;
+                            } else {
+                                arr[k] = R[j];
+                                j++;
+                            }
+                            k++;
                         }
-                        return maxVal;
+
+                        while (i < n1) arr[k++] = L[i++];
+                        while (j < n2) arr[k++] = R[j++];
                     }
 
-                    // Counting sort based on the digit represented by exp
-                    void countingSort(vector<int>& arr, int exp) {
-                        int n = arr.size();
-                        vector<int> output(n); // Output array
-                        int count[10] = {0};
+                    // Recursive Merge Sort function
+                    void mergeSort(vector<int>& arr, int left, int right) {
+                        if (left >= right) return;
 
-                        // Count occurrences of each digit
-                        for (int i = 0; i < n; i++) {
-                            int index = (arr[i] / exp) % 10;
-                            count[index]++;
-                        }
-
-                        // Update count[i] to store actual positions
-                        for (int i = 1; i < 10; i++) {
-                            count[i] += count[i - 1];
-                        }
-
-                        // Build the output array
-                        for (int i = n - 1; i >= 0; i--) {
-                            int index = (arr[i] / exp) % 10;
-                            output[count[index] - 1] = arr[i];
-                            count[index]--;
-                        }
-
-                        // Copy the sorted values back to the original array
-                        for (int i = 0; i < n; i++) {
-                            arr[i] = output[i];
-                        }
-                    }
-
-                    // Radix Sort function
-                    void radixSort(vector<int>& arr) {
-                        int maxVal = getMax(arr);
-
-                        // Perform counting sort for each digit
-                        for (int exp = 1; maxVal / exp > 0; exp *= 10) {
-                            countingSort(arr, exp);
-                        }
+                        int mid = left + (right - left) / 2;
+                        mergeSort(arr, left, mid);
+                        mergeSort(arr, mid + 1, right);
+                        merge(arr, left, mid, right);
                     }
 
                     int main() {
-                        vector<int> arr = {170, 45, 75, 90, 802, 24, 2, 66};
-                        radixSort(arr);
+                        vector<int> arr = {12, 8, 9, 3, 11, 5, 4};
+                        mergeSort(arr, 0, arr.size() - 1);
 
                         cout << "Sorted array: ";
-                        for (int num : arr) {
-                            cout << num << " ";
-                        }
+                        for (int num : arr) cout << num << " ";
                         return 0;
                     }
                     """.trimIndent()
@@ -1418,14 +1409,14 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson10_subs[3],
+                        id = DSABeginnerStageIds.lesson11_subs[3],
                         title = "Quiz",
                         description = "Test your knowledge with a quiz.",
                         contentBlocks = listOf(
                             QuizContentBlock(
-                                question = "Which digit is processed first in Radix Sort?",
-                                options = listOf("Most significant digit", "Least significant digit", "Random digit"),
-                                correctAnswer = "Least significant digit",
+                                question = "What is the time complexity of Merge Sort?",
+                                options = listOf("O(n^2)", "O(n log n)", "O(n)"),
+                                correctAnswer = "O(n log n)",
                                 userAnswer = null,
                                 isCorrect = false
                             )
@@ -1433,13 +1424,18 @@ int main() {
                         type = LessonContentType.QUIZ
                     ),
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson10_subs[4],
-                        title = "Importance of Stable Sorting",
-                        description = "Understand why stability is crucial in Radix Sort.",
+                        id = DSABeginnerStageIds.lesson11_subs[4],
+                        title = "Advantages of Merge Sort",
+                        description = "Learn why Merge Sort is widely used.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Radix Sort relies on stable sorting to maintain the relative order of elements with the same value. This ensures that previously sorted digits are preserved while processing the next digit.",
+                                    """
+                        Merge Sort is known for:
+                        - **Efficiency**: It has a predictable O(n log n) time complexity for all cases.
+                        - **Stability**: It preserves the relative order of equal elements, which is crucial for certain applications.
+                        - **Simplicity**: Its recursive nature makes it conceptually easy to understand.
+                        """.trimIndent(),
                                     listOf()
                                 )
                             )
@@ -1457,7 +1453,7 @@ int main() {
                 description = "Learn how the Radix Sort algorithm works and understand the importance of stable sorting!",
                 lessonContents = listOf(
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson10_subs[0],
+                        id = DSABeginnerStageIds.lesson12_subs[0],
                         title = "Introduction to Radix Sort",
                         description = "Understand the basics of the Radix Sort algorithm.",
                         contentBlocks = listOf(
@@ -1477,7 +1473,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson10_subs[1],
+                        id = DSABeginnerStageIds.lesson12_subs[1],
                         title = "Step-by-Step Explanation",
                         description = "Learn how Radix Sort works step by step.",
                         contentBlocks = listOf(
@@ -1507,7 +1503,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson10_subs[2],
+                        id = DSABeginnerStageIds.lesson12_subs[2],
                         title = "Implementation of Radix Sort",
                         description = "Code example of Radix Sort in C++.",
                         contentBlocks = listOf(
@@ -1582,7 +1578,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson10_subs[3],
+                        id = DSABeginnerStageIds.lesson12_subs[3],
                         title = "Quiz",
                         description = "Test your knowledge with a quiz.",
                         contentBlocks = listOf(
@@ -1597,7 +1593,7 @@ int main() {
                         type = LessonContentType.QUIZ
                     ),
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson10_subs[4],
+                        id = DSABeginnerStageIds.lesson12_subs[4],
                         title = "Importance of Stable Sorting",
                         description = "Understand why stability is crucial in Radix Sort.",
                         contentBlocks = listOf(
@@ -1621,7 +1617,7 @@ int main() {
                 description = "Learn how the Radix Sort algorithm works and understand the importance of stable sorting!",
                 lessonContents = listOf(
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson10_subs[0],
+                        id = DSABeginnerStageIds.lesson13_subs[0],
                         title = "Introduction to Radix Sort",
                         description = "Understand the basics of the Radix Sort algorithm.",
                         contentBlocks = listOf(
@@ -1641,7 +1637,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson10_subs[1],
+                        id = DSABeginnerStageIds.lesson13_subs[1],
                         title = "Step-by-Step Explanation",
                         description = "Learn how Radix Sort works step by step.",
                         contentBlocks = listOf(
@@ -1671,7 +1667,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson10_subs[2],
+                        id = DSABeginnerStageIds.lesson13_subs[2],
                         title = "Implementation of Radix Sort",
                         description = "Code example of Radix Sort in C++.",
                         contentBlocks = listOf(
@@ -1746,7 +1742,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson10_subs[3],
+                        id = DSABeginnerStageIds.lesson13_subs[3],
                         title = "Quiz",
                         description = "Test your knowledge with a quiz.",
                         contentBlocks = listOf(
@@ -1761,7 +1757,7 @@ int main() {
                         type = LessonContentType.QUIZ
                     ),
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson10_subs[4],
+                        id = DSABeginnerStageIds.lesson13_subs[4],
                         title = "Importance of Stable Sorting",
                         description = "Understand why stability is crucial in Radix Sort.",
                         contentBlocks = listOf(
