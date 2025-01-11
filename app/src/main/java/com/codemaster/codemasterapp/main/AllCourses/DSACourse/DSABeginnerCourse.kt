@@ -1125,24 +1125,24 @@ int main() {
             // lesson 10
             Lesson(
                 id = DSABeginnerStageIds.lesson10,
-                title = "C Booleans",
-                description = "Learn how to use booleans in C for conditional statements and logical operations! ✅❌",
+                title = "Radix Sort",
+                description = "Learn how the Radix Sort algorithm works and understand the importance of stable sorting!",
                 lessonContents = listOf(
                     LessonContent(
                         id = DSABeginnerStageIds.lesson10_subs[0],
-                        title = "Introduction to Booleans",
-                        description = "Understand how booleans work in C.",
+                        title = "Introduction to Radix Sort",
+                        description = "Understand the basics of the Radix Sort algorithm.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "A boolean is a binary value: either true (1) or false (0).",
+                                    "The Radix Sort algorithm sorts an array by processing individual digits of the numbers. It starts with the least significant digit (rightmost digit) and progresses to the most significant digit.",
                                     listOf()
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Booleans are used to represent conditions in programming. True means a condition is met, and false means it isn't. They are essential for controlling program flow with conditionals like if and while.",
-                                    listOf("")
+                                    "Radix Sort is a non-comparative sorting algorithm that only works with non-negative integers. It groups numbers into buckets based on their digits, sorts them, and merges them back in sequence.",
+                                    listOf()
                                 )
                             )
                         ),
@@ -1150,117 +1150,137 @@ int main() {
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson10_subs[1],
-                        title = "Basic Boolean Representation",
-                        description = "Learn how booleans are represented as 0 and 1 in C.",
+                        title = "Step-by-Step Explanation",
+                        description = "Learn how Radix Sort works step by step.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "In C, booleans are represented as 0 (false) and 1 (true), enabling binary logic operations. These values are fundamental in decision-making, helping to control the flow of programs using conditions like if-else statements and loops.",
-                                    listOf("")
+                                    """
+                        How Radix Sort works:
+                        1. Start with the least significant digit.
+                        2. Sort numbers based on the digit in focus.
+                        3. Move numbers to buckets, merge them back into the array.
+                        4. Progress to the next digit and repeat until all digits are processed.
+                        """.trimIndent(),
+                                    listOf()
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-                int flag = 1;  // true
-                int isZero = 0;  // false
-            """.trimIndent()
+                    // Example:
+                    Input: [170, 45, 75, 90, 802, 24, 2, 66]
+                    Step 1: Sort by the least significant digit.
+                    Step 2: Group numbers into buckets.
+                    Step 3: Merge numbers from buckets back into the array.
+                    Repeat until the most significant digit is sorted.
+                    """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson10_subs[2],
-                        title = "Quiz",
-                        description = "Quiz",
+                        title = "Implementation of Radix Sort",
+                        description = "Code example of Radix Sort in C++.",
                         contentBlocks = listOf(
-                            InteractiveCodeBlock(
-                                question = "Which of the following is the correct representation of a false boolean value in C?",
-                                options = listOf("0", "1", "true", "false"),
-                                correctAnswer = "0",
-                                incompleteCode = """
-                    int flag = ___;  // Complete the code with the correct representation of a boolean value
-                """.trimIndent(),
-                                userAnswer = null
+                            ContentBlock.Code(
+                                """
+                    #include <iostream>
+                    #include <vector>
+                    using namespace std;
+
+                    // Function to get the maximum value in the array
+                    int getMax(vector<int>& arr) {
+                        int maxVal = arr[0];
+                        for (int num : arr) {
+                            if (num > maxVal) maxVal = num;
+                        }
+                        return maxVal;
+                    }
+
+                    // Counting sort based on the digit represented by exp
+                    void countingSort(vector<int>& arr, int exp) {
+                        int n = arr.size();
+                        vector<int> output(n); // Output array
+                        int count[10] = {0};
+
+                        // Count occurrences of each digit
+                        for (int i = 0; i < n; i++) {
+                            int index = (arr[i] / exp) % 10;
+                            count[index]++;
+                        }
+
+                        // Update count[i] to store actual positions
+                        for (int i = 1; i < 10; i++) {
+                            count[i] += count[i - 1];
+                        }
+
+                        // Build the output array
+                        for (int i = n - 1; i >= 0; i--) {
+                            int index = (arr[i] / exp) % 10;
+                            output[count[index] - 1] = arr[i];
+                            count[index]--;
+                        }
+
+                        // Copy the sorted values back to the original array
+                        for (int i = 0; i < n; i++) {
+                            arr[i] = output[i];
+                        }
+                    }
+
+                    // Radix Sort function
+                    void radixSort(vector<int>& arr) {
+                        int maxVal = getMax(arr);
+
+                        // Perform counting sort for each digit
+                        for (int exp = 1; maxVal / exp > 0; exp *= 10) {
+                            countingSort(arr, exp);
+                        }
+                    }
+
+                    int main() {
+                        vector<int> arr = {170, 45, 75, 90, 802, 24, 2, 66};
+                        radixSort(arr);
+
+                        cout << "Sorted array: ";
+                        for (int num : arr) {
+                            cout << num << " ";
+                        }
+                        return 0;
+                    }
+                    """.trimIndent()
                             )
                         ),
-                        type = LessonContentType.INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson10_subs[3],
-                        title = "Boolean Values",
-                        description = "Learn how to use true and false with the stdbool.h library.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "The stdbool.h library defines the bool type for better readability.",
-                                    listOf("stdbool.h")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-                    #include <stdbool.h>
-                    
-                    bool isEven = true;   // true (1)
-                    bool isOdd = false;   // false (0)
-                """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson10_subs[4],
-                        title = "Boolean Operations",
-                        description = "Use booleans in logical operations.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Logical operations combine conditions:")),
-                            ContentBlock.Code(
-                                """
-                    bool a = true, b = false;
-                    bool result = a && b;  // false (AND)
-                    result = a || b;       // true (OR)
-                    result = !a;           // false (NOT)
-                """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson10_subs[5],
-                        title = "Boolean in Conditional Statements",
-                        description = "Using booleans in if and while statements.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Booleans control program flow, such as in conditionals:")),
-                            ContentBlock.Code(
-                                """
-                    if (isEven) {
-                        printf("Even number\n");
-                    } else {
-                        printf("Odd number\n");
-                    }
-                    
-                    while (!isOdd) {
-                        printf("Still not odd\n");
-                        isOdd = true; // Update condition
-                    }
-                """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson10_subs[6],
                         title = "Quiz",
-                        description = "Quiz",
+                        description = "Test your knowledge with a quiz.",
                         contentBlocks = listOf(
                             QuizContentBlock(
-                                question = "What is the result of !true in boolean logic?",
-                                options = listOf("true", "false", "undefined", "error"),
-                                correctAnswer = "false", // NOT true is false
-                                userAnswer = null, // User hasn't answered yet
-                                isCorrect = false // Initially, the answer is incorrect
+                                question = "Which digit is processed first in Radix Sort?",
+                                options = listOf("Most significant digit", "Least significant digit", "Random digit"),
+                                correctAnswer = "Least significant digit",
+                                userAnswer = null,
+                                isCorrect = false
                             )
                         ),
                         type = LessonContentType.QUIZ
+                    ),
+                    LessonContent(
+                        id = DSABeginnerStageIds.lesson10_subs[4],
+                        title = "Importance of Stable Sorting",
+                        description = "Understand why stability is crucial in Radix Sort.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Radix Sort relies on stable sorting to maintain the relative order of elements with the same value. This ensures that previously sorted digits are preserved while processing the next digit.",
+                                    listOf()
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
                     )
                 ),
                 status = LessonStatus.LOCKED
