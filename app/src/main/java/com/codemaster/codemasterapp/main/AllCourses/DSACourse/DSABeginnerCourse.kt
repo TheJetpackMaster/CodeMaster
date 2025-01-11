@@ -559,18 +559,31 @@ int main() {
                         title = "Bubble Sort Implementation",
                         description = "Implement Bubble Sort in code.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Here’s the code for a basic implementation of Bubble Sort:")),
+                            ContentBlock.Text(createSimpleText("Here’s the code for a basic implementation of Bubble Sort in C++:")),
                             ContentBlock.Code(
                                 """
-my_array = [64, 34, 25, 12, 22, 11, 90, 5]
+#include <iostream>
+using namespace std;
 
-n = len(my_array)
-for i in range(n-1):
-    for j in range(n-i-1):
-        if my_array[j] > my_array[j+1]:
-            my_array[j], my_array[j+1] = my_array[j+1], my_array[j]
+int main() {
+    int my_array[] = {64, 34, 25, 12, 22, 11, 90, 5};
+    int n = sizeof(my_array) / sizeof(my_array[0]);
 
-print("Sorted array:", my_array)
+    for (int i = 0; i < n-1; i++) {
+        for (int j = 0; j < n-i-1; j++) {
+            if (my_array[j] > my_array[j+1]) {
+                swap(my_array[j], my_array[j+1]);
+            }
+        }
+    }
+
+    cout << "Sorted array: ";
+    for (int i = 0; i < n; i++) {
+        cout << my_array[i] << " ";
+    }
+    cout << endl;
+    return 0;
+}
                     """.trimIndent()
                             ),
                             ContentBlock.Text(createSimpleText("The outer loop runs n-1 times, where n is the number of elements in the array.")),
@@ -586,19 +599,33 @@ print("Sorted array:", my_array)
                             ContentBlock.Text(createSimpleText("If no swaps are made during a pass, the array is already sorted, and we can stop early.")),
                             ContentBlock.Code(
                                 """
-my_array = [7, 3, 9, 12, 11]
+#include <iostream>
+using namespace std;
 
-n = len(my_array)
-for i in range(n-1):
-    swapped = False
-    for j in range(n-i-1):
-        if my_array[j] > my_array[j+1]:
-            my_array[j], my_array[j+1] = my_array[j+1], my_array[j]
-            swapped = True
-    if not swapped:
-        break
+int main() {
+    int my_array[] = {7, 3, 9, 12, 11};
+    int n = sizeof(my_array) / sizeof(my_array[0]);
 
-print("Sorted array:", my_array)
+    for (int i = 0; i < n-1; i++) {
+        bool swapped = false;
+        for (int j = 0; j < n-i-1; j++) {
+            if (my_array[j] > my_array[j+1]) {
+                swap(my_array[j], my_array[j+1]);
+                swapped = true;
+            }
+        }
+        if (!swapped) {
+            break;
+        }
+    }
+
+    cout << "Sorted array: ";
+    for (int i = 0; i < n; i++) {
+        cout << my_array[i] << " ";
+    }
+    cout << endl;
+    return 0;
+}
                     """.trimIndent()
                             ),
                             ContentBlock.Text(createSimpleText("This optimization can significantly reduce unnecessary iterations."))
@@ -691,20 +718,35 @@ Sorted array: [3, 7, 9, 11, 12]
                     LessonContent(
                         id = DSABeginnerStageIds.lesson6_subs[2],
                         title = "Selection Sort Implementation",
-                        description = "Learn how to implement Selection Sort in Python.",
+                        description = "Learn how to implement Selection Sort in C++.",
                         contentBlocks = listOf(
                             ContentBlock.Code(
                                 """
-my_array = [64, 25, 12, 22, 11]
-n = len(my_array)
-for i in range(n):
-    min_index = i
-    for j in range(i+1, n):
-        if my_array[j] < my_array[min_index]:
-            min_index = j
-    my_array[i], my_array[min_index] = my_array[min_index], my_array[i]
+#include <iostream>
+using namespace std;
 
-print("Sorted array:", my_array)
+int main() {
+    int my_array[] = {64, 25, 12, 22, 11};
+    int n = sizeof(my_array)/sizeof(my_array[0]);
+    
+    for (int i = 0; i < n; i++) {
+        int min_index = i;
+        for (int j = i+1; j < n; j++) {
+            if (my_array[j] < my_array[min_index]) {
+                min_index = j;
+            }
+        }
+        swap(my_array[i], my_array[min_index]);
+    }
+
+    cout << "Sorted array: ";
+    for (int i = 0; i < n; i++) {
+        cout << my_array[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
 """.trimIndent()
                             ),
                             ContentBlock.Text(
@@ -742,12 +784,15 @@ print("Sorted array:", my_array)
                             InteractiveInputBlock(
                                 question = "Fill in the missing code to swap the smallest element with the first unsorted element.",
                                 incompleteCode = """
-for i in range(n):
-    min_index = i
-    for j in range(i+1, n):
-        if my_array[j] < my_array[min_index]:
-            min_index = j
-    my_array[i], my_array[___] = my_array[min_index], my_array[i]
+for (int i = 0; i < n; i++) {
+    int min_index = i;
+    for (int j = i+1; j < n; j++) {
+        if (my_array[j] < my_array[min_index]) {
+            min_index = j;
+        }
+    }
+    swap(my_array[i], my_array[___]);
+}
 """.trimIndent(),
                                 correctCode = "min_index",
                                 userInput = null,
@@ -781,220 +826,142 @@ for i in range(n):
 
             // lesson 7
             Lesson(
-                id = DSABeginnerStageIds.lesson7,
-                title = "C Data Types",
-                description = "Explore the different data types in C: what they are, how they work, and how to convert between them! 🧮🎯",
+                id = DSABeginnerStageIds.lesson8,
+                title = "Insertion Sort",
+                description = "Learn about the Insertion Sort algorithm: how it works, its implementation, and how to improve it. 🔄📊",
                 lessonContents = listOf(
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson7_subs[0],
-                        title = "Data Types",
-                        description = "Learn about data types in C.",
+                        id = DSABeginnerStageIds.lesson8_subs[0],
+                        title = "Insertion Sort Overview",
+                        description = "Introduction to the Insertion Sort algorithm.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "In C, you can store numbers, characters, and more.",
+                                    "Insertion Sort works by gradually building a sorted part of the array, one element at a time. It compares each unsorted element with the sorted part and inserts it into the right position. This process continues until the entire array is sorted.",
                                     listOf("")
                                 )
                             ),
-                            ContentBlock.Text(createSimpleText("Key types include:")),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "1.int: for whole numbers (like your age)",
-                                    listOf("int")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "2.float/double: for numbers with decimals (like the price of your coffee)",
-                                    listOf("float", "double")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "3.char: for characters (like the letter A)",
-                                    listOf("char")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "4.void: when a function doesn't return anything",
-                                    listOf("void")
-                                )
-                            ),
-                            ContentBlock.Text(createSimpleText("Choosing the right type is like choosing the right tool for the job!"))
+                            ContentBlock.Text(createSimpleText("The algorithm's complexity is O(n^2), making it slower for large arrays.")),
+                            ContentBlock.Text(createSimpleText("Insertion Sort works best with small or partially sorted arrays."))
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson7_subs[1],
-                        title = "The char Type",
-                        description = "Learn about the char type for characters.",
+                        id = DSABeginnerStageIds.lesson8_subs[1],
+                        title = "Manual Run Through",
+                        description = "Manually walk through the steps of Insertion Sort.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "The char type is used to store a single character such as a letter, digit, or symbol. It is enclosed in single quotes (' ') and occupies 1 byte of memory. Examples include 'A', 'z', and '@'.",
-                                    listOf("' '")
-                                )
-                            ),
+                            ContentBlock.Text(createSimpleText("Let’s manually go through an unsorted array to see how Insertion Sort works:")),
+                            ContentBlock.Text(createSimpleText("Start with an unsorted array: [7, 12, 9, 11, 3]")),
+                            ContentBlock.Text(createSimpleText("Step 1: The first value (7) is considered the sorted part of the array.")),
+                            ContentBlock.Text(createSimpleText("Step 2: The second value (12) is already in the correct place.")),
+                            ContentBlock.Text(createSimpleText("Step 3: Insert the third value (9) into the sorted part, resulting in [7, 9, 12, 11, 3].")),
+                            ContentBlock.Text(createSimpleText("Step 4: Insert 11 into the correct position, resulting in [7, 9, 11, 12, 3].")),
+                            ContentBlock.Text(createSimpleText("Step 5: Insert the last value (3) in front of all values to get the sorted array: [3, 7, 9, 11, 12]."))
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSABeginnerStageIds.lesson8_subs[2],
+                        title = "Insertion Sort Code Implementation",
+                        description = "Learn to implement Insertion Sort in code.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(createSimpleText("Here’s how you can implement Insertion Sort in C++:")),
                             ContentBlock.Code(
                                 """
-char letter = 'A';  // A character
-printf("Character: %c", letter);  // Prints A
-            """.trimIndent()
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> my_array = {64, 34, 25, 12, 22, 11, 90, 5};
+    int n = my_array.size();
+
+    for (int i = 1; i < n; i++) {
+        int current_value = my_array[i];
+        int insert_index = i;
+        for (int j = i - 1; j >= 0; j--) {
+            if (my_array[j] > current_value) {
+                insert_index = j;
+            }
+        }
+        my_array.insert(my_array.begin() + insert_index, current_value);
+    }
+
+    cout << "Sorted array: ";
+    for (int i = 0; i < n; i++) {
+        cout << my_array[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+                    """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson7_subs[2],
-                        title = "Numeric Types",
-                        description = "Learn how to handle integer and floating-point numbers.",
+                        id = DSABeginnerStageIds.lesson8_subs[3],
+                        title = "Insertion Sort Improvement",
+                        description = "Improve the efficiency of Insertion Sort.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createSimpleText(
-                                    "In C, numeric types are used to store numbers. Integers (int) represent whole numbers such as 25 or -100. For numbers with decimal points, floating-point types like float and double are used, with double offering higher precision for calculations requiring more accuracy."
+                                    "One inefficiency in the previous implementation is removing and inserting elements repeatedly, causing unnecessary shifts. Instead, you can directly swap elements to improve efficiency."
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-int age = 25;         // Integer (whole number)
-float weight = 65.5;  // Float (decimal number)
-double pi = 3.14159;  // Double (higher precision decimal)
-            """.trimIndent()
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> my_array = {64, 34, 25, 12, 22, 11, 90, 5};
+    int n = my_array.size();
+
+    for (int i = 1; i < n; i++) {
+        int current_value = my_array[i];
+        int j = i - 1;
+        while (j >= 0 && my_array[j] > current_value) {
+            my_array[j + 1] = my_array[j];
+            j--;
+        }
+        my_array[j + 1] = current_value;
+    }
+
+    cout << "Sorted array: ";
+    for (int i = 0; i < n; i++) {
+        cout << my_array[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+                    """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "This version eliminates the need to pop and insert elements by shifting the values and directly placing the current value in the correct position."
+                                )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson7_subs[3],
+                        id = DSABeginnerStageIds.lesson8_subs[4],
                         title = "Quiz",
-                        description = "Quiz",
+                        description = "Test your understanding of Insertion Sort.",
                         contentBlocks = listOf(
                             InteractiveInputBlock(
-                                question = "Complete the code to declare a floating-point variable for weight.",
+                                question = "What is the result of the following operation?\n\nmy_array = [64, 34, 25, 12, 22, 11, 90, 5]\n\nAfter running Insertion Sort, what will the sorted array look like?",
                                 incompleteCode = """
-                    ___ weight = 70.5;  // Declare a variable for weight
-                """.trimIndent(),
-                                correctCode = "float",
+                    ___ my_array = {64, 34, 25, 12, 22, 11, 90, 5};  // Sort the array
+                    """.trimIndent(),
+                                correctCode = "my_array = {5, 11, 12, 22, 25, 34, 64, 90}",
                                 userInput = null,
                                 isCodeCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson7_subs[4],
-                        title = "Set Decimal Precision",
-                        description = "Control decimal precision when displaying numbers.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    "In C, you can control the number of decimal places displayed for floating-point numbers using format specifiers. The %.2f specifier rounds the number to two decimal places when printing, ensuring that the output shows the desired precision without extra digits."
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-float price = 10.12345;
-printf("Price: %.2f", price);  // Prints 10.12 (rounded to 2 decimals)
-            """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson7_subs[5],
-                        title = "Get the Memory Size",
-                        description = "Find out how much memory each data type uses.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "In C, you can use the sizeof() operator to determine the memory size of any data type. This is useful for understanding the memory usage of variables in your program.",
-                                    listOf("sizeof()")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-printf("Size of int: %zu bytes", sizeof(int));  // Check memory size of int
-printf("Size of char: %zu bytes", sizeof(char));  // Check memory size of char
-            """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson7_subs[6],
-                        title = "Real-Life Example",
-                        description = "See a real-world example using C data types.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Here’s an example using various data types in a program:")),
-                            ContentBlock.Code(
-                                """
-                #include <stdio.h>
-                
-                int main() {
-                    int age = 25;
-                    float height = 5.9;
-                    char grade = 'A';
-                    
-                    printf("Age: %d, Height: %.1f, Grade: %c", age, height, grade);
-                    
-                    return 0;
-                }
-            """.trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "This example shows how to use integers, floats, and chars to store and display data.",
-                                    listOf("integers", "floats", "chars")
-                                )
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson7_subs[7],
-                        title = "Type Conversion",
-                        description = "Learn how to convert between data types.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Sometimes, you need to convert types – like turning a float into an integer.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "For example, adding an integer to a float results in automatic conversion.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-                int num = 5;
-                float result = num + 5.5;  // Implicitly converts int to float
-                printf("Result: %.2f", result);  // Prints 10.50
-            """.trimIndent()
-                            ),
-                            ContentBlock.Text(createSimpleText("Or you can manually convert using a cast:")),
-                            ContentBlock.Code(
-                                """
-                float pi = 3.14;
-                int intPi = (int)pi;  // Explicit conversion from float to int
-                printf("Integer Pi: %d", intPi);  // Prints 3
-            """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson7_subs[8],
-                        title = "Quiz",
-                        description = "Quiz",
-                        contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "What is the result of the following operation?\n\nint num = 5;\nfloat result = num + 5.5;\n\nOptions: ",
-                                options = listOf("10.50", "5.50", "5", "11"),
-                                correctAnswer = "10.50"
                             )
                         ),
                         type = LessonContentType.INTERACTIVE
