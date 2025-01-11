@@ -320,22 +320,17 @@ int main() {
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson3_subs[4],
-                        title = "Quiz",
-                        description = "Test your knowledge of Fibonacci algorithms.",
+                        title = "Importance of Fibonacci Numbers",
+                        description = "Understand the importance of Fibonacci numbers and their influence in diverse fields.",
                         contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "What is the 6th number in the Fibonacci sequence on page one?",
-                                incompleteCode = """
-Write your answer:___
-                    """.trimIndent(),
-                                correctCode = "8",
-                                userInput = null, // User's input will be captured here
-                                isCodeCorrect = false // Will be updated based on user input
-                            ),
+                            ContentBlock.Text(createSimpleText(
+                                "Fibonacci numbers are not just a mathematical curiosity, they hold deep significance across various domains. In nature, they explain patterns in biological settings, such as the arrangement of leaves, flower petals, pinecones, and shells. In art and architecture, these numbers are linked to the golden ratio, which is used to create aesthetically pleasing designs and structures. In computer science, Fibonacci sequences play a vital role in algorithms, data structures, and coding challenges, such as recursive functions and dynamic programming. In finance, they are used to identify trends and levels in stock market analysis, often referred to as Fibonacci retracement levels. In astronomy, the patterns of spiral galaxies align with Fibonacci numbers, while in music, they influence rhythm, scales, and composition techniques. The Fibonacci sequence demonstrates the interconnectedness of mathematics with the natural and human-made world, continuing to inspire innovation and discovery across science, technology, and art."
+                            ))
                         ),
-                        type = LessonContentType.INTERACTIVE,
+                        type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.LOCKED
                     )
+
                 ),
                 status = LessonStatus.LOCKED
             ),
@@ -1449,23 +1444,23 @@ int main() {
             // lesson 12
             Lesson(
                 id = DSABeginnerStageIds.lesson12,
-                title = "Radix Sort",
-                description = "Learn how the Radix Sort algorithm works and understand the importance of stable sorting!",
+                title = "Linear Search",
+                description = "Learn the fundamentals of Linear Search and understand how to implement it.",
                 lessonContents = listOf(
                     LessonContent(
                         id = DSABeginnerStageIds.lesson12_subs[0],
-                        title = "Introduction to Radix Sort",
-                        description = "Understand the basics of the Radix Sort algorithm.",
+                        title = "Introduction to Linear Search",
+                        description = "Understand the basics of the Linear Search algorithm.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "The Radix Sort algorithm sorts an array by processing individual digits of the numbers. It starts with the least significant digit (rightmost digit) and progresses to the most significant digit.",
+                                    "The Linear Search algorithm searches through an array and returns the index of the value it searches for. It is one of the simplest and easiest search algorithms to understand and implement.",
                                     listOf()
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Radix Sort is a non-comparative sorting algorithm that only works with non-negative integers. It groups numbers into buckets based on their digits, sorts them, and merges them back in sequence.",
+                                    "Linear Search works on both sorted and unsorted arrays. However, it is less efficient than other search algorithms, such as Binary Search, especially for large datasets.",
                                     listOf()
                                 )
                             )
@@ -1474,29 +1469,33 @@ int main() {
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson12_subs[1],
-                        title = "Step-by-Step Explanation",
-                        description = "Learn how Radix Sort works step by step.",
+                        title = "How Linear Search Works",
+                        description = "Learn step-by-step how Linear Search operates.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        How Radix Sort works:
-                        1. Start with the least significant digit.
-                        2. Sort numbers based on the digit in focus.
-                        3. Move numbers to buckets, merge them back into the array.
-                        4. Progress to the next digit and repeat until all digits are processed.
+                        Steps for Linear Search:
+                        1. Start from the first element of the array.
+                        2. Compare the current element with the target value.
+                        3. If a match is found, return the index of the element.
+                        4. If no match is found after checking all elements, return -1.
                         """.trimIndent(),
                                     listOf()
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-                    // Example:
-                    Input: [170, 45, 75, 90, 802, 24, 2, 66]
-                    Step 1: Sort by the least significant digit.
-                    Step 2: Group numbers into buckets.
-                    Step 3: Merge numbers from buckets back into the array.
-                    Repeat until the most significant digit is sorted.
+                    Example:
+                    Array: [12, 8, 9, 11, 5, 11]
+                    Target: 11
+                    
+                    Step 1: Check element at index 0 → 12 (Not a match)
+                    Step 2: Check element at index 1 → 8 (Not a match)
+                    Step 3: Check element at index 2 → 9 (Not a match)
+                    Step 4: Check element at index 3 → 11 (Match found!)
+                    
+                    Result: Target found at index 3.
                     """.trimIndent()
                             )
                         ),
@@ -1504,74 +1503,28 @@ int main() {
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson12_subs[2],
-                        title = "Implementation of Radix Sort",
-                        description = "Code example of Radix Sort in C++.",
+                        title = "Implementation of Linear Search",
+                        description = "Code example of Linear Search in Python.",
                         contentBlocks = listOf(
                             ContentBlock.Code(
                                 """
-                    #include <iostream>
-                    #include <vector>
-                    using namespace std;
-
-                    // Function to get the maximum value in the array
-                    int getMax(vector<int>& arr) {
-                        int maxVal = arr[0];
-                        for (int num : arr) {
-                            if (num > maxVal) maxVal = num;
-                        }
-                        return maxVal;
-                    }
-
-                    // Counting sort based on the digit represented by exp
-                    void countingSort(vector<int>& arr, int exp) {
-                        int n = arr.size();
-                        vector<int> output(n); // Output array
-                        int count[10] = {0};
-
-                        // Count occurrences of each digit
-                        for (int i = 0; i < n; i++) {
-                            int index = (arr[i] / exp) % 10;
-                            count[index]++;
-                        }
-
-                        // Update count[i] to store actual positions
-                        for (int i = 1; i < 10; i++) {
-                            count[i] += count[i - 1];
-                        }
-
-                        // Build the output array
-                        for (int i = n - 1; i >= 0; i--) {
-                            int index = (arr[i] / exp) % 10;
-                            output[count[index] - 1] = arr[i];
-                            count[index]--;
-                        }
-
-                        // Copy the sorted values back to the original array
-                        for (int i = 0; i < n; i++) {
-                            arr[i] = output[i];
-                        }
-                    }
-
-                    // Radix Sort function
-                    void radixSort(vector<int>& arr) {
-                        int maxVal = getMax(arr);
-
-                        // Perform counting sort for each digit
-                        for (int exp = 1; maxVal / exp > 0; exp *= 10) {
-                            countingSort(arr, exp);
-                        }
-                    }
-
-                    int main() {
-                        vector<int> arr = {170, 45, 75, 90, 802, 24, 2, 66};
-                        radixSort(arr);
-
-                        cout << "Sorted array: ";
-                        for (int num : arr) {
-                            cout << num << " ";
-                        }
-                        return 0;
-                    }
+                    # Linear Search Implementation
+                    def linearSearch(arr, targetVal):
+                        for i in range(len(arr)):
+                            if arr[i] == targetVal:
+                                return i
+                        return -1
+                    
+                    # Example Usage
+                    arr = [3, 7, 2, 9, 5]
+                    targetVal = 9
+                    
+                    result = linearSearch(arr, targetVal)
+                    
+                    if result != -1:
+                        print("Value", targetVal, "found at index", result)
+                    else:
+                        print("Value", targetVal, "not found")
                     """.trimIndent()
                             )
                         ),
@@ -1583,9 +1536,9 @@ int main() {
                         description = "Test your knowledge with a quiz.",
                         contentBlocks = listOf(
                             QuizContentBlock(
-                                question = "Which digit is processed first in Radix Sort?",
-                                options = listOf("Most significant digit", "Least significant digit", "Random digit"),
-                                correctAnswer = "Least significant digit",
+                                question = "What is the time complexity of Linear Search in the worst-case scenario?",
+                                options = listOf("O(1)", "O(log n)", "O(n)", "O(n^2)"),
+                                correctAnswer = "O(n)",
                                 userAnswer = null,
                                 isCorrect = false
                             )
@@ -1594,12 +1547,18 @@ int main() {
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson12_subs[4],
-                        title = "Importance of Stable Sorting",
-                        description = "Understand why stability is crucial in Radix Sort.",
+                        title = "Time Complexity",
+                        description = "Understand the time complexity of Linear Search.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Radix Sort relies on stable sorting to maintain the relative order of elements with the same value. This ensures that previously sorted digits are preserved while processing the next digit.",
+                                    """
+                        - Best Case: O(1), when the target is found at the first index.
+                        - Worst Case: O(n), when the target is not present or at the last index.
+                        - Average Case: O(n), assuming random distribution of values.
+                        
+                        Linear Search is less efficient compared to algorithms like Binary Search for large datasets but is simple and works on unsorted arrays.
+                        """.trimIndent(),
                                     listOf()
                                 )
                             )
@@ -1613,23 +1572,23 @@ int main() {
             // lesson 13
             Lesson(
                 id = DSABeginnerStageIds.lesson13,
-                title = "Radix Sort",
-                description = "Learn how the Radix Sort algorithm works and understand the importance of stable sorting!",
+                title = "Binary Search",
+                description = "Learn how the Binary Search algorithm works and why it is faster than linear search for sorted arrays.",
                 lessonContents = listOf(
                     LessonContent(
                         id = DSABeginnerStageIds.lesson13_subs[0],
-                        title = "Introduction to Radix Sort",
-                        description = "Understand the basics of the Radix Sort algorithm.",
+                        title = "Introduction to Binary Search",
+                        description = "Understand the basics of the Binary Search algorithm.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "The Radix Sort algorithm sorts an array by processing individual digits of the numbers. It starts with the least significant digit (rightmost digit) and progresses to the most significant digit.",
+                                    "Binary Search is an efficient algorithm for finding a target value within a sorted array. It reduces the search area by half at each step, resulting in a logarithmic time complexity.",
                                     listOf()
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Radix Sort is a non-comparative sorting algorithm that only works with non-negative integers. It groups numbers into buckets based on their digits, sorts them, and merges them back in sequence.",
+                                    "Unlike linear search, Binary Search requires the input array to be sorted. It uses a divide-and-conquer approach to locate the target value.",
                                     listOf()
                                 )
                             )
@@ -1638,17 +1597,20 @@ int main() {
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson13_subs[1],
-                        title = "Step-by-Step Explanation",
-                        description = "Learn how Radix Sort works step by step.",
+                        title = "How Binary Search Works",
+                        description = "Step-by-step explanation of Binary Search.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        How Radix Sort works:
-                        1. Start with the least significant digit.
-                        2. Sort numbers based on the digit in focus.
-                        3. Move numbers to buckets, merge them back into the array.
-                        4. Progress to the next digit and repeat until all digits are processed.
+                        How Binary Search works:
+                        1. Start with two pointers: `left` at the beginning and `right` at the end of the array.
+                        2. Calculate the middle index using `(left + right) // 2`.
+                        3. Compare the value at the middle index with the target:
+                            - If equal, return the middle index.
+                            - If the target is smaller, move the `right` pointer to `mid - 1`.
+                            - If the target is larger, move the `left` pointer to `mid + 1`.
+                        4. Repeat steps 2-3 until the target is found or the pointers overlap.
                         """.trimIndent(),
                                     listOf()
                                 )
@@ -1656,11 +1618,12 @@ int main() {
                             ContentBlock.Code(
                                 """
                     // Example:
-                    Input: [170, 45, 75, 90, 802, 24, 2, 66]
-                    Step 1: Sort by the least significant digit.
-                    Step 2: Group numbers into buckets.
-                    Step 3: Merge numbers from buckets back into the array.
-                    Repeat until the most significant digit is sorted.
+                    Array: [1, 3, 5, 7, 9, 11, 13]
+                    Target: 9
+                    
+                    Step 1: Check middle (index 3), value 7 < 9. Adjust `left` to index 4.
+                    Step 2: Check middle (index 5), value 11 > 9. Adjust `right` to index 4.
+                    Step 3: Check middle (index 4), value 9 == 9. Return index 4.
                     """.trimIndent()
                             )
                         ),
@@ -1668,74 +1631,28 @@ int main() {
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson13_subs[2],
-                        title = "Implementation of Radix Sort",
-                        description = "Code example of Radix Sort in C++.",
+                        title = "Implementation of Binary Search",
+                        description = "Code example of Binary Search in Python.",
                         contentBlocks = listOf(
                             ContentBlock.Code(
                                 """
-                    #include <iostream>
-                    #include <vector>
-                    using namespace std;
-
-                    // Function to get the maximum value in the array
-                    int getMax(vector<int>& arr) {
-                        int maxVal = arr[0];
-                        for (int num : arr) {
-                            if (num > maxVal) maxVal = num;
-                        }
-                        return maxVal;
-                    }
-
-                    // Counting sort based on the digit represented by exp
-                    void countingSort(vector<int>& arr, int exp) {
-                        int n = arr.size();
-                        vector<int> output(n); // Output array
-                        int count[10] = {0};
-
-                        // Count occurrences of each digit
-                        for (int i = 0; i < n; i++) {
-                            int index = (arr[i] / exp) % 10;
-                            count[index]++;
-                        }
-
-                        // Update count[i] to store actual positions
-                        for (int i = 1; i < 10; i++) {
-                            count[i] += count[i - 1];
-                        }
-
-                        // Build the output array
-                        for (int i = n - 1; i >= 0; i--) {
-                            int index = (arr[i] / exp) % 10;
-                            output[count[index] - 1] = arr[i];
-                            count[index]--;
-                        }
-
-                        // Copy the sorted values back to the original array
-                        for (int i = 0; i < n; i++) {
-                            arr[i] = output[i];
-                        }
-                    }
-
-                    // Radix Sort function
-                    void radixSort(vector<int>& arr) {
-                        int maxVal = getMax(arr);
-
-                        // Perform counting sort for each digit
-                        for (int exp = 1; maxVal / exp > 0; exp *= 10) {
-                            countingSort(arr, exp);
-                        }
-                    }
-
-                    int main() {
-                        vector<int> arr = {170, 45, 75, 90, 802, 24, 2, 66};
-                        radixSort(arr);
-
-                        cout << "Sorted array: ";
-                        for (int num : arr) {
-                            cout << num << " ";
-                        }
-                        return 0;
-                    }
+                    def binary_search(arr, target):
+                        left, right = 0, len(arr) - 1
+                        while left <= right:
+                            mid = (left + right) // 2
+                            if arr[mid] == target:
+                                return mid
+                            elif arr[mid] < target:
+                                left = mid + 1
+                            else:
+                                right = mid - 1
+                        return -1
+                    
+                    # Example usage
+                    my_array = [1, 3, 5, 7, 9, 11, 13]
+                    target = 9
+                    result = binary_search(my_array, target)
+                    print(f"Target found at index {result}" if result != -1 else "Target not found.")
                     """.trimIndent()
                             )
                         ),
@@ -1744,12 +1661,12 @@ int main() {
                     LessonContent(
                         id = DSABeginnerStageIds.lesson13_subs[3],
                         title = "Quiz",
-                        description = "Test your knowledge with a quiz.",
+                        description = "Test your understanding with a quick quiz.",
                         contentBlocks = listOf(
                             QuizContentBlock(
-                                question = "Which digit is processed first in Radix Sort?",
-                                options = listOf("Most significant digit", "Least significant digit", "Random digit"),
-                                correctAnswer = "Least significant digit",
+                                question = "What is the time complexity of Binary Search?",
+                                options = listOf("O(n)", "O(n^2)", "O(log n)", "O(1)"),
+                                correctAnswer = "O(log n)",
                                 userAnswer = null,
                                 isCorrect = false
                             )
@@ -1758,12 +1675,17 @@ int main() {
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson13_subs[4],
-                        title = "Importance of Stable Sorting",
-                        description = "Understand why stability is crucial in Radix Sort.",
+                        title = "Binary Search: Time Complexity",
+                        description = "Understand why Binary Search is efficient.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Radix Sort relies on stable sorting to maintain the relative order of elements with the same value. This ensures that previously sorted digits are preserved while processing the next digit.",
+                                    """
+                        Binary Search is efficient due to its logarithmic time complexity:
+                        - At each step, it reduces the search area by half.
+                        - Even in the worst-case scenario, it only performs log₂(n) comparisons.
+                        This makes it faster than linear search (O(n)), especially for large datasets.
+                        """.trimIndent(),
                                     listOf()
                                 )
                             )
