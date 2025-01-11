@@ -233,14 +233,16 @@ Fibonacci Sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21, ...
                         title = "Manual Walkthrough",
                         description = "Step-by-step guide to manually compute Fibonacci numbers.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText(
-                                "To manually calculate Fibonacci numbers:\n\n" +
-                                        "1. Start with 0 and 1.\n" +
-                                        "2. Add the last two numbers: 0 + 1 = 1 (Sequence: 0, 1, 1).\n" +
-                                        "3. Repeat: 1 + 1 = 2, 1 + 2 = 3 (Sequence: 0, 1, 1, 2, 3).\n" +
-                                        "4. Continue this process to generate the sequence.\n\n" +
-                                        "Try calculating the first 10 Fibonacci numbers yourself!"
-                            ))
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "To manually calculate Fibonacci numbers:\n\n" +
+                                            "1. Start with 0 and 1.\n" +
+                                            "2. Add the last two numbers: 0 + 1 = 1 (Sequence: 0, 1, 1).\n" +
+                                            "3. Repeat: 1 + 1 = 2, 1 + 2 = 3 (Sequence: 0, 1, 1, 2, 3).\n" +
+                                            "4. Continue this process to generate the sequence.\n\n" +
+                                            "Try calculating the first 10 Fibonacci numbers yourself!"
+                                )
+                            )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.LOCKED
@@ -340,9 +342,11 @@ int main() {
                         title = "Importance of Fibonacci Numbers",
                         description = "Explore the significance of Fibonacci numbers across various domains.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText(
-                                "Fibonacci numbers appear in nature (e.g., leaf arrangements, shells), art and architecture (golden ratio), computer science (algorithms, dynamic programming), and finance (trend analysis). They also influence music, astronomy, and other fields, showcasing their widespread impact."
-                            ))
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Fibonacci numbers appear in nature (e.g., leaf arrangements, shells), art and architecture (golden ratio), computer science (algorithms, dynamic programming), and finance (trend analysis). They also influence music, astronomy, and other fields, showcasing their widespread impact."
+                                )
+                            )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.LOCKED
@@ -469,10 +473,12 @@ int main() {
                         description = "Break down the algorithm into step-by-step implementation.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
-                                createSimpleText("1. Initialize the minimum value with the first element.\n" +
-                                        "2. Traverse the array from the second element.\n" +
-                                        "3. Compare each element with the current minimum.\n" +
-                                        "4. Update the minimum if a smaller value is found.")
+                                createSimpleText(
+                                    "1. Initialize the minimum value with the first element.\n" +
+                                            "2. Traverse the array from the second element.\n" +
+                                            "3. Compare each element with the current minimum.\n" +
+                                            "4. Update the minimum if a smaller value is found."
+                                )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
@@ -500,9 +506,11 @@ int main() {
                         description = "Explore ways to optimize the algorithm and common pitfalls to avoid.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
-                                createSimpleText("1. Use a function to modularize the implementation.\n" +
-                                        "2. Handle edge cases, such as an empty array.\n" +
-                                        "3. Avoid unnecessary comparisons to improve efficiency.")
+                                createSimpleText(
+                                    "1. Use a function to modularize the implementation.\n" +
+                                            "2. Handle edge cases, such as an empty array.\n" +
+                                            "3. Avoid unnecessary comparisons to improve efficiency."
+                                )
                             ),
                             ContentBlock.Code(
                                 """
@@ -534,6 +542,20 @@ int main() {
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.LOCKED
+                    ),
+                    LessonContent(
+                        id = DSABeginnerStageIds.lesson4_subs[6],
+                        title = "Importance of Arrays",
+                        description = "Understand why arrays are a fundamental data structure in programming.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Arrays are one of the most essential data structures in programming. They allow for efficient element access by index, as well as optimized memory storage. Arrays form the foundation for many other data structures like stacks and queues. Their simplicity and versatility make them ideal for tasks like sorting, searching, and storing collections of data efficiently."
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.LOCKED
                     )
                 ),
                 status = LessonStatus.LOCKED
@@ -553,22 +575,38 @@ int main() {
                             ContentBlock.Text(createSimpleText("Bubble Sort is an algorithm that sorts an array from the lowest value to the highest value.")),
                             ContentBlock.Text(createSimpleText("The name 'Bubble' comes from the way higher values 'bubble up' to their correct position.")),
                             ContentBlock.Text(createSimpleText("Bubble Sort repeatedly steps through the array, compares adjacent elements, and swaps them if they are in the wrong order.")),
-                            ContentBlock.Text(createSimpleText("This process is repeated until the array is sorted."))
+                            ContentBlock.Text(createSimpleText("This process is repeated until the array is sorted.")),
+                            ContentBlock.Text(createSimpleText("**Importance of this Lesson**: Understanding the Bubble Sort algorithm helps you grasp the concept of sorting and the idea of comparing and swapping elements in an array. This lesson serves as the foundation for more advanced sorting algorithms."))  // Added importance here
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson5_subs[1],
-                        title = "Manual Run Through",
-                        description = "Manually understand how Bubble Sort works.",
+                        title = "Manual Walkthrough",
+                        description = "Manually understand how Bubble Sort works by stepping through an example.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Let's take an example of an unsorted array: [7, 12, 9, 11, 3].")),
-                            ContentBlock.Text(createSimpleText("Step 1: Compare the first two values (7 and 12). No swap is needed.")),
+                            ContentBlock.Text(createSimpleText("Consider an unsorted array: [7, 12, 9, 11, 3]. We will sort it step by step using Bubble Sort.")),
+                            ContentBlock.Text(createSimpleText("Pass 1:")),
+                            ContentBlock.Text(createSimpleText("Step 1: Compare the first two values (7 and 12). No swap is needed, as 7 < 12.")),
                             ContentBlock.Text(createSimpleText("Step 2: Compare 12 and 9. Swap them to make [7, 9, 12, 11, 3].")),
                             ContentBlock.Text(createSimpleText("Step 3: Compare 12 and 11. Swap them to make [7, 9, 11, 12, 3].")),
                             ContentBlock.Text(createSimpleText("Step 4: Compare 12 and 3. Swap them to make [7, 9, 11, 3, 12].")),
-                            ContentBlock.Text(createSimpleText("At the end of the first pass, the largest value (12) is at the correct position.")),
-                            ContentBlock.Text(createSimpleText("This process is repeated until the entire array is sorted.")),
+                            ContentBlock.Text(createSimpleText("At the end of Pass 1, the largest value (12) is placed in its correct position.")),
+                            ContentBlock.Text(createSimpleText("Pass 2:")),
+                            ContentBlock.Text(createSimpleText("Step 1: Compare 7 and 9. No swap is needed.")),
+                            ContentBlock.Text(createSimpleText("Step 2: Compare 9 and 11. No swap is needed.")),
+                            ContentBlock.Text(createSimpleText("Step 3: Compare 11 and 3. Swap them to make [7, 9, 3, 11, 12].")),
+                            ContentBlock.Text(createSimpleText("At the end of Pass 2, the second largest value (11) is placed in its correct position.")),
+                            ContentBlock.Text(createSimpleText("Pass 3:")),
+                            ContentBlock.Text(createSimpleText("Step 1: Compare 7 and 9. No swap is needed.")),
+                            ContentBlock.Text(createSimpleText("Step 2: Compare 9 and 3. Swap them to make [7, 3, 9, 11, 12].")),
+                            ContentBlock.Text(createSimpleText("At the end of Pass 3, the third largest value (9) is in its correct position.")),
+                            ContentBlock.Text(createSimpleText("Pass 4:")),
+                            ContentBlock.Text(createSimpleText("Step 1: Compare 7 and 3. Swap them to make [3, 7, 9, 11, 12].")),
+                            ContentBlock.Text(createSimpleText("At the end of Pass 4, the array is fully sorted: [3, 7, 9, 11, 12].")),
+                            ContentBlock.Text(createSimpleText("Final Array:")),
+                            ContentBlock.Text(createSimpleText("[3, 7, 9, 11, 12].")),
+                            ContentBlock.Text(createSimpleText("Notice that with each pass, the largest unsorted value 'bubbles up' to its correct position."))
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
@@ -663,19 +701,18 @@ int main() {
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson5_subs[5],
-                        title = "Quiz",
-                        description = "Test your understanding of Bubble Sort.",
+                        title = "Importance of Bubble Sort",
+                        description = "Why learning Bubble Sort is important.",
                         contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "What is the best-case time complexity of Bubble Sort?",
-                                options = listOf("O(n)", "O(n^2)", "O(log n)", "O(n log n)"),
-                                correctAnswer = "O(n)",
-                                userAnswer = null,
-                                isCorrect = false
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Bubble Sort is a simple algorithm that teaches sorting, element comparison, and swapping. It lays the groundwork for more advanced algorithms and helps in understanding loops, conditionals, and algorithmic trade-offs. Despite its inefficiency, it’s useful for debugging and learning basic algorithm design."
+                                )
                             )
                         ),
-                        type = LessonContentType.QUIZ
+                        type = LessonContentType.NON_INTERACTIVE
                     )
+
                 ),
                 status = LessonStatus.LOCKED
             ),
@@ -1314,7 +1351,11 @@ int main() {
                         contentBlocks = listOf(
                             QuizContentBlock(
                                 question = "Which digit is processed first in Radix Sort?",
-                                options = listOf("Most significant digit", "Least significant digit", "Random digit"),
+                                options = listOf(
+                                    "Most significant digit",
+                                    "Least significant digit",
+                                    "Random digit"
+                                ),
                                 correctAnswer = "Least significant digit",
                                 userAnswer = null,
                                 isCorrect = false

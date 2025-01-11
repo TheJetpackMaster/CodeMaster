@@ -39,7 +39,7 @@ object DSABeginnerStageIds {
         "${lesson2}_sub5",
     )
 
-    // Sub-lesson IDs for lesson 3 - Classes & Objects in C++
+    // Sub-lesson IDs for lesson 3 - Classes & Objects in DSA
     val lesson3_subs = listOf(
         "${lesson3}_sub1",
         "${lesson3}_sub2",
@@ -64,7 +64,7 @@ object DSABeginnerStageIds {
         "${lesson4}_sub7",
     )
 
-    // Sub-lesson IDs for lesson 5 - Constructors in C++
+    // Sub-lesson IDs for lesson 5 - Constructors in DSA
     val lesson5_subs = listOf(
         "${lesson5}_sub1",
         "${lesson5}_sub2",
@@ -76,7 +76,7 @@ object DSABeginnerStageIds {
         "${lesson5}_sub8",
     )
 
-    // Sub-lesson IDs for lesson 6 - Access Modifiers in C++
+    // Sub-lesson IDs for lesson 6 - Access Modifiers in DSA
     val lesson6_subs = listOf(
         "${lesson6}_sub1",
         "${lesson6}_sub2",
@@ -89,7 +89,7 @@ object DSABeginnerStageIds {
         "${lesson6}_sub9"
     )
 
-    // Sub-lesson IDs for lesson 7 - Setters and Getters in C++
+    // Sub-lesson IDs for lesson 7 - Setters and Getters in DSA
     val lesson7_subs = listOf(
         "${lesson7}_sub1",
         "${lesson7}_sub2",
@@ -102,7 +102,7 @@ object DSABeginnerStageIds {
         "${lesson7}_sub9"
     )
 
-    // Sub-lesson IDs for lesson 8 - Inheritance in C++
+    // Sub-lesson IDs for lesson 8 - Inheritance in DSA
     val lesson8_subs = listOf(
         "${lesson8}_sub1",
         "${lesson8}_sub2",
@@ -114,7 +114,7 @@ object DSABeginnerStageIds {
         "${lesson8}_sub8",
     )
 
-    // Sub-lesson IDs for lesson 9 - Inheritance in C++
+    // Sub-lesson IDs for lesson 9 - Inheritance in DSA
     val lesson9_subs = listOf(
         "${lesson9}_sub1",
         "${lesson9}_sub2",
@@ -127,7 +127,7 @@ object DSABeginnerStageIds {
         "${lesson9}_sub9"
     )
 
-    // Sub-lesson IDs for lesson 10 - Inheritance in C++
+    // Sub-lesson IDs for lesson 10 - Inheritance in DSA
     val lesson10_subs = listOf(
         "${lesson10}_sub1",
         "${lesson10}_sub2",
@@ -138,7 +138,7 @@ object DSABeginnerStageIds {
         "${lesson10}_sub7"
     )
 
-    // Sub-lesson IDs for lesson 11 - Inheritance in C++
+    // Sub-lesson IDs for lesson 11 - Inheritance in DSA
     val lesson11_subs = listOf(
         "${lesson11}_sub1",
         "${lesson11}_sub2",
@@ -149,7 +149,7 @@ object DSABeginnerStageIds {
         "${lesson11}_sub7"
     )
 
-    // Sub-lesson IDs for lesson 12 - Inheritance in C++
+    // Sub-lesson IDs for lesson 12 - Inheritance in DSA
     val lesson12_subs = listOf(
         "${lesson12}_sub1",
         "${lesson12}_sub2",
@@ -160,7 +160,7 @@ object DSABeginnerStageIds {
         "${lesson12}_sub7"
     )
 
-    // Sub-lesson IDs for lesson 12 - Inheritance in C++
+    // Sub-lesson IDs for lesson 12 - Inheritance in DSA
     val lesson13_subs = listOf(
         "${lesson13}_sub1",
         "${lesson13}_sub2",
