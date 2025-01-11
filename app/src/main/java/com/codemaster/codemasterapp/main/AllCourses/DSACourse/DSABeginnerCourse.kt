@@ -1289,70 +1289,160 @@ int main() {
             // lesson 11
             Lesson(
                 id = DSABeginnerStageIds.lesson11,
-                title = "Recap",
-                description = "Review important topics from this stage and prepare for the next stage in your C programming journey! 🧠💻",
+                title = "Radix Sort",
+                description = "Learn how the Radix Sort algorithm works and understand the importance of stable sorting!",
                 lessonContents = listOf(
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson11_subs[0],
-                        title = "C Syntax Overview",
-                        description = "Review the basic syntax of C programming. Remember to focus on semicolons, curly braces, and the structure of main().",
+                        id = DSABeginnerStageIds.lesson10_subs[0],
+                        title = "Introduction to Radix Sort",
+                        description = "Understand the basics of the Radix Sort algorithm.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("C programs begin with the main function, and statements are terminated with a semicolon. Curly braces are used to define code blocks. In C, each function must be defined within these braces, and the program starts execution from the main function. The use of semicolons is essential to mark the end of statements, making the program syntactically correct.")),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "The Radix Sort algorithm sorts an array by processing individual digits of the numbers. It starts with the least significant digit (rightmost digit) and progresses to the most significant digit.",
+                                    listOf()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Radix Sort is a non-comparative sorting algorithm that only works with non-negative integers. It groups numbers into buckets based on their digits, sorts them, and merges them back in sequence.",
+                                    listOf()
+                                )
+                            )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson11_subs[1],
-                        title = "Understanding Statements",
-                        description = "Statements are the building blocks of your program. Each statement performs a task, like declaring variables or performing operations.",
+                        id = DSABeginnerStageIds.lesson10_subs[1],
+                        title = "Step-by-Step Explanation",
+                        description = "Learn how Radix Sort works step by step.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("In C, statements like variable declarations and expressions are used to perform tasks. Each statement can represent an action like assigning values, performing arithmetic operations, or calling functions. Statements must end with a semicolon to be syntactically correct. For example, declaring variables, performing assignments, or displaying results all count as statements in C.")),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                        How Radix Sort works:
+                        1. Start with the least significant digit.
+                        2. Sort numbers based on the digit in focus.
+                        3. Move numbers to buckets, merge them back into the array.
+                        4. Progress to the next digit and repeat until all digits are processed.
+                        """.trimIndent(),
+                                    listOf()
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+                    // Example:
+                    Input: [170, 45, 75, 90, 802, 24, 2, 66]
+                    Step 1: Sort by the least significant digit.
+                    Step 2: Group numbers into buckets.
+                    Step 3: Merge numbers from buckets back into the array.
+                    Repeat until the most significant digit is sorted.
+                    """.trimIndent()
+                            )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson11_subs[2],
-                        title = "Working with Variables and Data Types",
-                        description = "Variables store data values in a program. Review the common data types such as int, char, float, and double.",
+                        id = DSABeginnerStageIds.lesson10_subs[2],
+                        title = "Implementation of Radix Sort",
+                        description = "Code example of Radix Sort in C++.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("In C, variables are assigned specific data types, which determine the kind of data they can hold. For example, an int can store whole numbers, a char can store single characters, and float and double are used to store decimal numbers with varying precision. Properly choosing the data type ensures that data is stored efficiently and correctly.")),
+                            ContentBlock.Code(
+                                """
+                    #include <iostream>
+                    #include <vector>
+                    using namespace std;
+
+                    // Function to get the maximum value in the array
+                    int getMax(vector<int>& arr) {
+                        int maxVal = arr[0];
+                        for (int num : arr) {
+                            if (num > maxVal) maxVal = num;
+                        }
+                        return maxVal;
+                    }
+
+                    // Counting sort based on the digit represented by exp
+                    void countingSort(vector<int>& arr, int exp) {
+                        int n = arr.size();
+                        vector<int> output(n); // Output array
+                        int count[10] = {0};
+
+                        // Count occurrences of each digit
+                        for (int i = 0; i < n; i++) {
+                            int index = (arr[i] / exp) % 10;
+                            count[index]++;
+                        }
+
+                        // Update count[i] to store actual positions
+                        for (int i = 1; i < 10; i++) {
+                            count[i] += count[i - 1];
+                        }
+
+                        // Build the output array
+                        for (int i = n - 1; i >= 0; i--) {
+                            int index = (arr[i] / exp) % 10;
+                            output[count[index] - 1] = arr[i];
+                            count[index]--;
+                        }
+
+                        // Copy the sorted values back to the original array
+                        for (int i = 0; i < n; i++) {
+                            arr[i] = output[i];
+                        }
+                    }
+
+                    // Radix Sort function
+                    void radixSort(vector<int>& arr) {
+                        int maxVal = getMax(arr);
+
+                        // Perform counting sort for each digit
+                        for (int exp = 1; maxVal / exp > 0; exp *= 10) {
+                            countingSort(arr, exp);
+                        }
+                    }
+
+                    int main() {
+                        vector<int> arr = {170, 45, 75, 90, 802, 24, 2, 66};
+                        radixSort(arr);
+
+                        cout << "Sorted array: ";
+                        for (int num : arr) {
+                            cout << num << " ";
+                        }
+                        return 0;
+                    }
+                    """.trimIndent()
+                            )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson11_subs[3],
-                        title = "Using Operators in C",
-                        description = "Operators are used to perform operations on variables and values. Refresh your knowledge on arithmetic, comparison, and logical operators.",
+                        id = DSABeginnerStageIds.lesson10_subs[3],
+                        title = "Quiz",
+                        description = "Test your knowledge with a quiz.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Operators in C help perform operations such as addition, subtraction, comparison, and logical operations. Arithmetic operators like +, -, *, and / perform basic mathematical calculations. Comparison operators like ==, !=, >, <, >=, and <= allow for value comparisons. Logical operators like && (AND), || (OR), and ! (NOT) help evaluate multiple conditions together.")),
+                            QuizContentBlock(
+                                question = "Which digit is processed first in Radix Sort?",
+                                options = listOf("Most significant digit", "Least significant digit", "Random digit"),
+                                correctAnswer = "Least significant digit",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.QUIZ
                     ),
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson11_subs[4],
-                        title = "Booleans and Logical Operations",
-                        description = "Booleans represent true/false values. Logical operations help combine multiple conditions.",
+                        id = DSABeginnerStageIds.lesson10_subs[4],
+                        title = "Importance of Stable Sorting",
+                        description = "Understand why stability is crucial in Radix Sort.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Booleans can be used in logical operations like AND (&&), OR (||), and NOT (!) to combine multiple conditions. Logical operations help make decisions based on multiple criteria, for example, checking if both conditions are true or if at least one condition is true.")),
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson11_subs[5],
-                        title = "Conditional Statements",
-                        description = "Conditional statements such as if, else if, and while control program flow based on conditions.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Conditional statements are used to control the flow of the program by executing code based on whether certain conditions are true or false. For example, if statements allow you to run code when a condition is true, while else lets you run alternative code when the condition is false. The while loop repeatedly executes code as long as the given condition is true.")),
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson11_subs[6],
-                        title = "Your Next Step",
-                        description = "Great job! You've covered some important concepts in C programming. Keep practicing and researching on your own to build stronger skills.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("You’re ready for the next stage! Keep practicing and exploring, and don’t hesitate to dive deeper into topics that interest you.")),
-                            ContentBlock.Text(createSimpleText("Programming is all about practice and learning from experience. Keep coding and have fun! 🚀"))
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Radix Sort relies on stable sorting to maintain the relative order of elements with the same value. This ensures that previously sorted digits are preserved while processing the next digit.",
+                                    listOf()
+                                )
+                            )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     )
@@ -1363,106 +1453,324 @@ int main() {
             // lesson 12
             Lesson(
                 id = DSABeginnerStageIds.lesson12,
-                title = "Quiz",
-                description = "Test your knowledge of the topics covered in this stage! 🧠💻",
+                title = "Radix Sort",
+                description = "Learn how the Radix Sort algorithm works and understand the importance of stable sorting!",
                 lessonContents = listOf(
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson12_subs[0],
-                        title = "Quiz: C Syntax Overview",
-                        description = "Answer the questions related to C syntax.",
+                        id = DSABeginnerStageIds.lesson10_subs[0],
+                        title = "Introduction to Radix Sort",
+                        description = "Understand the basics of the Radix Sort algorithm.",
                         contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "What is the entry point of a C program?",
-                                options = listOf("main", "start", "begin", "beginning"),
-                                correctAnswer = "main"
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "The Radix Sort algorithm sorts an array by processing individual digits of the numbers. It starts with the least significant digit (rightmost digit) and progresses to the most significant digit.",
+                                    listOf()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Radix Sort is a non-comparative sorting algorithm that only works with non-negative integers. It groups numbers into buckets based on their digits, sorts them, and merges them back in sequence.",
+                                    listOf()
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSABeginnerStageIds.lesson10_subs[1],
+                        title = "Step-by-Step Explanation",
+                        description = "Learn how Radix Sort works step by step.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                        How Radix Sort works:
+                        1. Start with the least significant digit.
+                        2. Sort numbers based on the digit in focus.
+                        3. Move numbers to buckets, merge them back into the array.
+                        4. Progress to the next digit and repeat until all digits are processed.
+                        """.trimIndent(),
+                                    listOf()
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+                    // Example:
+                    Input: [170, 45, 75, 90, 802, 24, 2, 66]
+                    Step 1: Sort by the least significant digit.
+                    Step 2: Group numbers into buckets.
+                    Step 3: Merge numbers from buckets back into the array.
+                    Repeat until the most significant digit is sorted.
+                    """.trimIndent()
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSABeginnerStageIds.lesson10_subs[2],
+                        title = "Implementation of Radix Sort",
+                        description = "Code example of Radix Sort in C++.",
+                        contentBlocks = listOf(
+                            ContentBlock.Code(
+                                """
+                    #include <iostream>
+                    #include <vector>
+                    using namespace std;
 
-                            )
-                        ),
-                        type = LessonContentType.QUIZ
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson12_subs[1],
-                        title = "Quiz: Understanding Statements",
-                        description = "Test your knowledge of statements in C.",
-                        contentBlocks = listOf(
-                            QuizContentBlock(
+                    // Function to get the maximum value in the array
+                    int getMax(vector<int>& arr) {
+                        int maxVal = arr[0];
+                        for (int num : arr) {
+                            if (num > maxVal) maxVal = num;
+                        }
+                        return maxVal;
+                    }
 
-                                question = "What is the purpose of a statement in C?",
-                                options = listOf(
-                                    "Declare variables",
-                                    "Perform tasks",
-                                    "Both A and B",
-                                    "None of the above"
-                                ),
-                                correctAnswer = "Both A and B"
-                            )
-                        ),
-                        type = LessonContentType.QUIZ
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson12_subs[2],
-                        title = "Quiz: Working with Variables and Data Types",
-                        description = "Answer the questions about variables and data types in C.",
-                        contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "Which data type is used to store decimal numbers in C?",
-                                options = listOf("int", "float", "char", "double"),
-                                correctAnswer = "float"
-                            )
-                        ),
-                        type = LessonContentType.QUIZ
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson12_subs[3],
-                        title = "Quiz: Using Operators in C",
-                        description = "Test your knowledge of operators in C.",
-                        contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "What operator is used for addition in C?",
-                                options = listOf("+", "-", "*", "/"),
-                                correctAnswer = "+"
-                            )
-                        ),
-                        type = LessonContentType.QUIZ
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson12_subs[4],
-                        title = "Quiz: Booleans and Logical Operations",
-                        description = "Answer questions related to booleans and logical operations in C.",
-                        contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "Which of the following is used for logical AND operation in C?",
-                                options = listOf("&&", "&", "||", "|"),
-                                correctAnswer = "&&"
-                            )
-                        ),
-                        type = LessonContentType.QUIZ
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson12_subs[5],
-                        title = "Quiz: Conditional Statements",
-                        description = "Test your knowledge of conditional statements in C.",
-                        contentBlocks = listOf(
-                            QuizContentBlock(
+                    // Counting sort based on the digit represented by exp
+                    void countingSort(vector<int>& arr, int exp) {
+                        int n = arr.size();
+                        vector<int> output(n); // Output array
+                        int count[10] = {0};
 
-                                question = "Which of the following is a valid C conditional statement?",
-                                options = listOf(
-                                    "if",
-                                    "switch",
-                                    "while",
-                                    "all of the above"
-                                ),
-                                correctAnswer = "all of the above"
+                        // Count occurrences of each digit
+                        for (int i = 0; i < n; i++) {
+                            int index = (arr[i] / exp) % 10;
+                            count[index]++;
+                        }
+
+                        // Update count[i] to store actual positions
+                        for (int i = 1; i < 10; i++) {
+                            count[i] += count[i - 1];
+                        }
+
+                        // Build the output array
+                        for (int i = n - 1; i >= 0; i--) {
+                            int index = (arr[i] / exp) % 10;
+                            output[count[index] - 1] = arr[i];
+                            count[index]--;
+                        }
+
+                        // Copy the sorted values back to the original array
+                        for (int i = 0; i < n; i++) {
+                            arr[i] = output[i];
+                        }
+                    }
+
+                    // Radix Sort function
+                    void radixSort(vector<int>& arr) {
+                        int maxVal = getMax(arr);
+
+                        // Perform counting sort for each digit
+                        for (int exp = 1; maxVal / exp > 0; exp *= 10) {
+                            countingSort(arr, exp);
+                        }
+                    }
+
+                    int main() {
+                        vector<int> arr = {170, 45, 75, 90, 802, 24, 2, 66};
+                        radixSort(arr);
+
+                        cout << "Sorted array: ";
+                        for (int num : arr) {
+                            cout << num << " ";
+                        }
+                        return 0;
+                    }
+                    """.trimIndent()
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSABeginnerStageIds.lesson10_subs[3],
+                        title = "Quiz",
+                        description = "Test your knowledge with a quiz.",
+                        contentBlocks = listOf(
+                            QuizContentBlock(
+                                question = "Which digit is processed first in Radix Sort?",
+                                options = listOf("Most significant digit", "Least significant digit", "Random digit"),
+                                correctAnswer = "Least significant digit",
+                                userAnswer = null,
+                                isCorrect = false
                             )
                         ),
                         type = LessonContentType.QUIZ
                     ),
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson12_subs[6],
-                        title = "Stage Completed",
-                        description = "You’ve completed this stage, now prepare for the next one!",
+                        id = DSABeginnerStageIds.lesson10_subs[4],
+                        title = "Importance of Stable Sorting",
+                        description = "Understand why stability is crucial in Radix Sort.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Great job completing this stage! Keep practicing and move on to the next stage to further improve your C programming skills. 🚀"))
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Radix Sort relies on stable sorting to maintain the relative order of elements with the same value. This ensures that previously sorted digits are preserved while processing the next digit.",
+                                    listOf()
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    )
+                ),
+                status = LessonStatus.LOCKED
+            ),
+
+            // lesson 13
+            Lesson(
+                id = DSABeginnerStageIds.lesson13,
+                title = "Radix Sort",
+                description = "Learn how the Radix Sort algorithm works and understand the importance of stable sorting!",
+                lessonContents = listOf(
+                    LessonContent(
+                        id = DSABeginnerStageIds.lesson10_subs[0],
+                        title = "Introduction to Radix Sort",
+                        description = "Understand the basics of the Radix Sort algorithm.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "The Radix Sort algorithm sorts an array by processing individual digits of the numbers. It starts with the least significant digit (rightmost digit) and progresses to the most significant digit.",
+                                    listOf()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Radix Sort is a non-comparative sorting algorithm that only works with non-negative integers. It groups numbers into buckets based on their digits, sorts them, and merges them back in sequence.",
+                                    listOf()
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSABeginnerStageIds.lesson10_subs[1],
+                        title = "Step-by-Step Explanation",
+                        description = "Learn how Radix Sort works step by step.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                        How Radix Sort works:
+                        1. Start with the least significant digit.
+                        2. Sort numbers based on the digit in focus.
+                        3. Move numbers to buckets, merge them back into the array.
+                        4. Progress to the next digit and repeat until all digits are processed.
+                        """.trimIndent(),
+                                    listOf()
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+                    // Example:
+                    Input: [170, 45, 75, 90, 802, 24, 2, 66]
+                    Step 1: Sort by the least significant digit.
+                    Step 2: Group numbers into buckets.
+                    Step 3: Merge numbers from buckets back into the array.
+                    Repeat until the most significant digit is sorted.
+                    """.trimIndent()
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSABeginnerStageIds.lesson10_subs[2],
+                        title = "Implementation of Radix Sort",
+                        description = "Code example of Radix Sort in C++.",
+                        contentBlocks = listOf(
+                            ContentBlock.Code(
+                                """
+                    #include <iostream>
+                    #include <vector>
+                    using namespace std;
+
+                    // Function to get the maximum value in the array
+                    int getMax(vector<int>& arr) {
+                        int maxVal = arr[0];
+                        for (int num : arr) {
+                            if (num > maxVal) maxVal = num;
+                        }
+                        return maxVal;
+                    }
+
+                    // Counting sort based on the digit represented by exp
+                    void countingSort(vector<int>& arr, int exp) {
+                        int n = arr.size();
+                        vector<int> output(n); // Output array
+                        int count[10] = {0};
+
+                        // Count occurrences of each digit
+                        for (int i = 0; i < n; i++) {
+                            int index = (arr[i] / exp) % 10;
+                            count[index]++;
+                        }
+
+                        // Update count[i] to store actual positions
+                        for (int i = 1; i < 10; i++) {
+                            count[i] += count[i - 1];
+                        }
+
+                        // Build the output array
+                        for (int i = n - 1; i >= 0; i--) {
+                            int index = (arr[i] / exp) % 10;
+                            output[count[index] - 1] = arr[i];
+                            count[index]--;
+                        }
+
+                        // Copy the sorted values back to the original array
+                        for (int i = 0; i < n; i++) {
+                            arr[i] = output[i];
+                        }
+                    }
+
+                    // Radix Sort function
+                    void radixSort(vector<int>& arr) {
+                        int maxVal = getMax(arr);
+
+                        // Perform counting sort for each digit
+                        for (int exp = 1; maxVal / exp > 0; exp *= 10) {
+                            countingSort(arr, exp);
+                        }
+                    }
+
+                    int main() {
+                        vector<int> arr = {170, 45, 75, 90, 802, 24, 2, 66};
+                        radixSort(arr);
+
+                        cout << "Sorted array: ";
+                        for (int num : arr) {
+                            cout << num << " ";
+                        }
+                        return 0;
+                    }
+                    """.trimIndent()
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSABeginnerStageIds.lesson10_subs[3],
+                        title = "Quiz",
+                        description = "Test your knowledge with a quiz.",
+                        contentBlocks = listOf(
+                            QuizContentBlock(
+                                question = "Which digit is processed first in Radix Sort?",
+                                options = listOf("Most significant digit", "Least significant digit", "Random digit"),
+                                correctAnswer = "Least significant digit",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.QUIZ
+                    ),
+                    LessonContent(
+                        id = DSABeginnerStageIds.lesson10_subs[4],
+                        title = "Importance of Stable Sorting",
+                        description = "Understand why stability is crucial in Radix Sort.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Radix Sort relies on stable sorting to maintain the relative order of elements with the same value. This ensures that previously sorted digits are preserved while processing the next digit.",
+                                    listOf()
+                                )
+                            )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     )
