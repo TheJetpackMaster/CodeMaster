@@ -440,44 +440,8 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.LOCKED
                     ),
-
                     LessonContent(
                         id = DSABeginnerStageIds.lesson4_subs[4],
-                        title = "Quiz",
-                        description = "Test your understanding of finding the smallest value in an array.",
-                        contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "Complete the code to find the smallest value in the array.",
-                                incompleteCode = """
-#include <stdio.h>
-
-int main() {
-    int arr[] = {5, 3, 8, 1, 2};
-    int n = sizeof(arr) / sizeof(arr[0]); // Calculate array size
-    int min = arr[0]; // Initialize min with the first element
-    
-    // Loop through the array to find the minimum value
-    for (int i = 1; i < n; i++) {
-        if (arr[i] < min) {
-            min = ___; 
-        }
-    }
-
-    printf("Lowest value: %d\\n", min); // Print the smallest value
-    return 0;
-}
-            """.trimIndent(),
-                                correctCode = "arr[i]",
-                                userInput = null, // User's input will be captured here
-                                isCodeCorrect = false // Will be updated based on user input
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE,
-                        status = LessonStatus.LOCKED
-                    ),
-
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson4_subs[5],
                         title = "Optimizations and Best Practices",
                         description = "Explore ways to optimize the algorithm and common pitfalls to avoid.",
                         contentBlocks = listOf(
@@ -778,31 +742,6 @@ int main() {
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson6_subs[4],
-                        title = "Interactive Quiz",
-                        description = "Test your understanding with an interactive exercise.",
-                        contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "Fill in the missing code to swap the smallest element with the first unsorted element.",
-                                incompleteCode = """
-for (int i = 0; i < n; i++) {
-    int min_index = i;
-    for (int j = i+1; j < n; j++) {
-        if (my_array[j] < my_array[min_index]) {
-            min_index = j;
-        }
-    }
-    swap(my_array[i], my_array[___]);
-}
-""".trimIndent(),
-                                correctCode = "min_index",
-                                userInput = null,
-                                isCodeCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson6_subs[5],
                         title = "Selection Sort Time Complexity",
                         description = "Analyze the time complexity of Selection Sort.",
                         contentBlocks = listOf(
@@ -826,12 +765,12 @@ for (int i = 0; i < n; i++) {
 
             // lesson 7
             Lesson(
-                id = DSABeginnerStageIds.lesson8,
+                id = DSABeginnerStageIds.lesson7,
                 title = "Insertion Sort",
                 description = "Learn about the Insertion Sort algorithm: how it works, its implementation, and how to improve it. 🔄📊",
                 lessonContents = listOf(
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson8_subs[0],
+                        id = DSABeginnerStageIds.lesson7_subs[0],
                         title = "Insertion Sort Overview",
                         description = "Introduction to the Insertion Sort algorithm.",
                         contentBlocks = listOf(
@@ -847,7 +786,7 @@ for (int i = 0; i < n; i++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson8_subs[1],
+                        id = DSABeginnerStageIds.lesson7_subs[1],
                         title = "Manual Run Through",
                         description = "Manually walk through the steps of Insertion Sort.",
                         contentBlocks = listOf(
@@ -862,7 +801,7 @@ for (int i = 0; i < n; i++) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson8_subs[2],
+                        id = DSABeginnerStageIds.lesson7_subs[2],
                         title = "Insertion Sort Code Implementation",
                         description = "Learn to implement Insertion Sort in code.",
                         contentBlocks = listOf(
@@ -902,7 +841,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson8_subs[3],
+                        id = DSABeginnerStageIds.lesson7_subs[3],
                         title = "Insertion Sort Improvement",
                         description = "Improve the efficiency of Insertion Sort.",
                         contentBlocks = listOf(
@@ -949,23 +888,6 @@ int main() {
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson8_subs[4],
-                        title = "Quiz",
-                        description = "Test your understanding of Insertion Sort.",
-                        contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "What is the result of the following operation?\n\nmy_array = [64, 34, 25, 12, 22, 11, 90, 5]\n\nAfter running Insertion Sort, what will the sorted array look like?",
-                                incompleteCode = """
-                    ___ my_array = {64, 34, 25, 12, 22, 11, 90, 5};  // Sort the array
-                    """.trimIndent(),
-                                correctCode = "my_array = {5, 11, 12, 22, 25, 34, 64, 90}",
-                                userInput = null,
-                                isCodeCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    )
                 ),
                 status = LessonStatus.LOCKED
             ),
@@ -1102,42 +1024,6 @@ int main() {
                             )
                         ),
                         type = LessonContentType.QUIZ
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson8_subs[7],
-                        title = "Exercise: Complete the Quicksort Code",
-                        description = "Practice by completing the Quicksort code.",
-                        contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "Complete the Quicksort implementation by filling in the missing parts.",
-                                incompleteCode = """
-                    int partition(int array[], int low, int high) {
-                        int pivot = array[high];
-                        int i = low - 1;
-                        for (int j = low; j < high; j++) {
-                            if (array[j] <= pivot) {
-                                i++;
-                                swap(array[i], array[j]);
-                            }
-                        }
-                        swap(array[i + 1], array[high]);
-                        return i ___ 1;
-                    }
-
-                    void quicksort(int array[], int low, int high) {
-                        if (low < high) {
-                            int pivotIndex = partition(array, low, high);
-                            quicksort(array, low, pivotIndex - 1);
-                            quicksort(array, pivotIndex + 1, high);
-                        }
-                    }
-                    """.trimIndent(),
-                                correctCode = "+",
-                                userInput = null,
-                                isCodeCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
                     )
                 ),
                 status = LessonStatus.LOCKED
@@ -1146,237 +1032,95 @@ int main() {
             // lesson 9
             Lesson(
                 id = DSABeginnerStageIds.lesson9,
-                title = "C Operators",
-                description = "Learn the different operators in C used for performing operations on variables and values! 🔧",
+                title = "Counting Sort",
+                description = "Learn how Counting Sort works to efficiently sort arrays of integers! 🔧",
                 lessonContents = listOf(
                     LessonContent(
                         id = DSABeginnerStageIds.lesson9_subs[0],
-                        title = "Introduction to Operators",
-                        description = "Understand operators and their uses.",
+                        title = "Introduction to Counting Sort",
+                        description = "Understand the basics of Counting Sort and its use cases.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Operators are essential for performing operations in a program.")),
+                            ContentBlock.Text(createSimpleText("Counting Sort is an efficient algorithm for sorting integers by counting occurrences.")),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Operators allow you to perform operations on variables and values. They are crucial for calculations, comparisons, and logical operations in your code.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Examples: +, -, *, /, %. Basic yet powerful operators.",
-                                    listOf("+", "-", "*", "/", "%")
-                                )
-                            ),
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson9_subs[1],
-                        title = "Arithmetic Operators",
-                        description = "Learn about arithmetic operators in C.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Arithmetic operators perform mathematical operations like addition, subtraction, multiplication, and division:",
+                                    "Counting Sort does not compare values like other sorting algorithms. Instead, it works by counting occurrences of each value in an array.",
                                     listOf()
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "These operators are used to perform basic mathematical calculations on numeric values, such as adding, subtracting, multiplying, dividing, and finding remainders.",
-                                    listOf("")
+                                    "Conditions for Counting Sort: values must be non-negative integers, and the range of possible values (k) should be smaller than the number of elements (n).",
+                                    listOf("k", "n")
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSABeginnerStageIds.lesson9_subs[1],
+                        title = "How Counting Sort Works",
+                        description = "Learn step-by-step how Counting Sort sorts arrays.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Counting Sort sorts an array in three main steps: counting, modifying, and sorting. Here's how:",
+                                    listOf()
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-                int a = 5, b = 3;
-                int sum = a + b;    // 8
-                int diff = a - b;   // 2
-                int prod = a * b;   // 15
-                int quotient = a / b;  // 1
-                int mod = a % b;    // 2
-            """.trimIndent()
+                    // Step 1: Count occurrences of each value
+                    int[] arr = {2, 3, 0, 2, 3, 2};
+                    int[] countArray = new int[4]; // Range: 0-3
+                    
+                    for (int num : arr) {
+                        countArray[num]++;
+                    }
+                    
+                    // Step 2: Modify countArray to store cumulative counts
+                    for (int i = 1; i < countArray.length; i++) {
+                        countArray[i] += countArray[i - 1];
+                    }
+                    
+                    // Step 3: Sort the array
+                    int[] sortedArray = new int[arr.length];
+                    for (int i = arr.length - 1; i >= 0; i--) {
+                        int num = arr[i];
+                        sortedArray[countArray[num] - 1] = num;
+                        countArray[num]--;
+                    }
+                    """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson9_subs[2],
-                        title = "Quiz",
-                        description = "Quiz",
+                        title = "Manual Walkthrough",
+                        description = "Understand Counting Sort through a manual walkthrough.",
                         contentBlocks = listOf(
-                            InteractiveCodeBlock(
-                                question = "Complete the code to calculate the sum of a and b using the correct operator:",
-                                options = listOf(
-                                    "+",
-                                    "-",
-                                    "*",
-                                    "/"
-                                ),
-                                correctAnswer = "+",
-                                incompleteCode = """
-                int a = 5, b = 3;
-                int sum = a ___ b;  // Fill in the missing operator
-                """.trimIndent(),
-                                userAnswer = null
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson9_subs[3],
-                        title = "Relational Operators",
-                        description = "Learn relational operators for comparison.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Relational operators like >, <, ==, !=, >=, and <= are used to compare values.",
-                                    listOf(">", "<", "==", "!=", ">=", "<=")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "These operators allow us to compare two values and return a boolean result. They help in decision-making processes, such as checking if one value is greater than or equal to another.",
-                                    listOf("")
-                                )
-                            ),
+                            ContentBlock.Text(createSimpleText("Let's sort the array {2, 3, 0, 2, 3, 2} step-by-step.")),
                             ContentBlock.Code(
                                 """
-                int x = 10, y = 20;
-                bool result = (x > y);   // false
-                result = (x < y);        // true  
-                result = (x == y);       // false
-                result = (x != y);       // true
-                result = (x >= y);       // false
-                result = (x <= y);       // true
-            """.trimIndent()
+                    // Initial array
+                    arr = [2, 3, 0, 2, 3, 2]
+                    
+                    // Step 1: Count occurrences
+                    countArray = [1, 0, 3, 2]  // Count values 0, 1, 2, 3
+                    
+                    // Step 2: Cumulative counts
+                    countArray = [1, 1, 4, 6]  // Modify to cumulative counts
+                    
+                    // Step 3: Sort the array
+                    sortedArray = [0, 2, 2, 2, 3, 3]  // Final sorted result
+                    """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson9_subs[4],
-                        title = "Quiz",
-                        description = "Quiz",
-                        contentBlocks = listOf(
-                            InteractiveCodeBlock(
-                                question = "Complete the code to check if x is greater than y:",
-                                options = listOf(
-                                    ">",
-                                    "<",
-                                    "==",
-                                    ">=",
-                                    "<="
-                                ),
-                                correctAnswer = ">",
-                                incompleteCode = """
-                int x = 10, y = 20;
-                bool result = (x ___ y);  // Fill in the missing operator
-                """.trimIndent(),
-                                userAnswer = null
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson9_subs[5],
-                        title = "Logical Operators",
-                        description = "Learn logical operators for combining conditions.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Logical operators &&, ||, and ! are used to combine or negate conditions.",
-                                    listOf("&&", "||", "!")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "These operators allow you to evaluate multiple conditions. The && (AND) operator checks if both conditions are true, || (OR) checks if at least one condition is true, and ! (NOT) negates a condition.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-                int a = 1, b = 0;
-                bool result = (a && b);  // false
-                result = (a || b);       // true  
-                result = !a;             // false
-            """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson9_subs[6],
-                        title = "Quiz",
-                        description = "Quiz",
-                        contentBlocks = listOf(
-                            InteractiveCodeBlock(
-                                question = "Complete the code to check if both a and b are true:",
-                                options = listOf(
-                                    "&&",
-                                    "||",
-                                    "!"
-                                ),
-                                correctAnswer = "&&",
-                                incompleteCode = """
-                int a = 1, b = 0;
-                bool result = (a ___ b);  // Fill in the missing operator
-                """.trimIndent(),
-                                userAnswer = null
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson9_subs[7],
-                        title = "Assignment and Increment/Decrement Operators",
-                        description = "Understand assignment, increment, and decrement operations.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Assignment stores values, and increment/decrement changes values. These are fundamental operations:",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "The assignment operator (=) stores a value into a variable. The increment (++) and decrement (--) operators increase or decrease a variable's value by one, respectively. Additionally, compound assignment operators (+=, -=, *=) modify variables by applying arithmetic operations and then storing the result.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-                int a = 5;
-                a++;  // a becomes 6
-                a--;  // a becomes 5
-                int b = 10;
-                b += 5;  // b becomes 15
-                b *= 2;  // b becomes 30
-            """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson9_subs[8],
-                        title = "Quiz",
-                        description = "Quiz",
-                        contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "What will be the value of a after a += 5; where a = 3?",
-                                options = listOf("3", "5", "8", "10"),
-                                correctAnswer = "8",
-                                userAnswer = null,
-                                isCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.QUIZ
-                    )
                 ),
                 status = LessonStatus.LOCKED
             ),
-
 
             // lesson 10
             Lesson(
