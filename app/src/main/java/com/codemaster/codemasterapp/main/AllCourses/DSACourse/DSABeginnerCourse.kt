@@ -229,17 +229,17 @@ Fibonacci Sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21, ...
                         status = LessonStatus.LOCKED
                     ),
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson3_subs[1], // New Content ID
-                        title = "Manual Fibonacci Calculation",
-                        description = "Learn how to manually calculate Fibonacci numbers.",
+                        id = DSABeginnerStageIds.lesson3_subs[1],
+                        title = "Manual Walkthrough",
+                        description = "Step-by-step guide to manually compute Fibonacci numbers.",
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText(
-                                "To calculate Fibonacci numbers manually, start with the first two numbers, 0 and 1. Each subsequent number is the sum of the previous two. For example:\n\n" +
-                                        "1. Start with 0, 1.\n" +
-                                        "2. Add them: 0 + 1 = 1 (Sequence: 0, 1, 1).\n" +
-                                        "3. Add the last two numbers: 1 + 1 = 2 (Sequence: 0, 1, 1, 2).\n" +
+                                "To manually calculate Fibonacci numbers:\n\n" +
+                                        "1. Start with 0 and 1.\n" +
+                                        "2. Add the last two numbers: 0 + 1 = 1 (Sequence: 0, 1, 1).\n" +
+                                        "3. Repeat: 1 + 1 = 2, 1 + 2 = 3 (Sequence: 0, 1, 1, 2, 3).\n" +
                                         "4. Continue this process to generate the sequence.\n\n" +
-                                        "Practice calculating the sequence for the first 10 numbers!"
+                                        "Try calculating the first 10 Fibonacci numbers yourself!"
                             ))
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
@@ -386,6 +386,49 @@ int main() {
 
                     LessonContent(
                         id = DSABeginnerStageIds.lesson4_subs[1],
+                        title = "Manual Walkthrough",
+                        description = "Learn to manually process elements in an array step-by-step.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "To manually process elements in an array:\n\n" +
+                                            "1. Start by initializing the array with some elements.\n" +
+                                            "2. Loop through the array one element at a time.\n" +
+                                            "3. Perform operations on each element as needed (e.g., summing up values, finding the largest element).\n" +
+                                            "4. Update variables (like a sum or a maximum value) as you go.\n\n" +
+                                            "Example: Consider the array [5, 3, 8, 1, 2]. Walk through the elements to find their sum:\n\n" +
+                                            "   - Start with sum = 0.\n" +
+                                            "   - Add each element to the sum (5 + 3 + 8 + 1 + 2 = 19).\n\n" +
+                                            "Try manually summing the values of an array yourself!"
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+#include <stdio.h>
+
+int main() {
+    int arr[] = {5, 3, 8, 1, 2};
+    int n = sizeof(arr) / sizeof(arr[0]); // Calculate array size
+    int sum = 0;
+
+    // Walkthrough to calculate the sum of elements in the array
+    for (int i = 0; i < n; i++) {
+        sum += arr[i];
+        printf("Current sum after adding %d: %d\\n", arr[i], sum);
+    }
+
+    printf("Total sum: %d\\n", sum);
+    return 0;
+}
+            """.trimIndent()
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.LOCKED
+                    ),
+
+                    LessonContent(
+                        id = DSABeginnerStageIds.lesson4_subs[2],
                         title = "Algorithm: Find the Lowest Value",
                         description = "Learn the algorithm to find the smallest value in an array using iteration.",
                         contentBlocks = listOf(
@@ -421,7 +464,7 @@ int main() {
                     ),
 
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson4_subs[2],
+                        id = DSABeginnerStageIds.lesson4_subs[3],
                         title = "Implementation Details",
                         description = "Break down the algorithm into step-by-step implementation.",
                         contentBlocks = listOf(
@@ -437,7 +480,7 @@ int main() {
                     ),
 
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson4_subs[3],
+                        id = DSABeginnerStageIds.lesson4_subs[4],
                         title = "Algorithm Time Complexity",
                         description = "Understand the time complexity of the algorithm.",
                         contentBlocks = listOf(
@@ -452,7 +495,7 @@ int main() {
                         status = LessonStatus.LOCKED
                     ),
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson4_subs[4],
+                        id = DSABeginnerStageIds.lesson4_subs[5],
                         title = "Optimizations and Best Practices",
                         description = "Explore ways to optimize the algorithm and common pitfalls to avoid.",
                         contentBlocks = listOf(
