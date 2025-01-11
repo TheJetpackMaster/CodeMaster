@@ -973,132 +973,171 @@ int main() {
             // lesson 8
             Lesson(
                 id = DSABeginnerStageIds.lesson8,
-                title = "C Constants",
-                description = "Understand how constants are used in C programs for fixed values that do not change! 🔒",
+                title = "Quicksort Algorithm",
+                description = "Learn the Quicksort algorithm, one of the fastest sorting algorithms, and understand how it works through recursion! 🚀",
                 lessonContents = listOf(
                     LessonContent(
                         id = DSABeginnerStageIds.lesson8_subs[0],
-                        title = "Introduction to Constants",
-                        description = "Learn what constants are and why to use them.",
+                        title = "Introduction to Quicksort",
+                        description = "Understand the fundamentals of the Quicksort algorithm and why it’s efficient.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Constants are fixed values that cannot be modified during program execution.")),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "They improve code readability and maintainability by replacing hard-coded values with meaningful names.",
-                                    listOf("hard-coded")
-                                )
-                            ),
+                            ContentBlock.Text(createSimpleText("Quicksort is a divide-and-conquer algorithm that is often one of the fastest sorting algorithms.")),
+                            ContentBlock.Text(createSimpleText("The algorithm selects a pivot element, then rearranges the other elements so that values smaller than the pivot are to its left, and larger values are to its right.")),
+                            ContentBlock.Text(createSimpleText("It’s efficient due to its divide-and-conquer approach, making it a popular choice for sorting.")),
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson8_subs[1],
-                        title = "Defining Constants",
-                        description = "Learn how to define constants in C using #define and const.",
+                        title = "Quicksort Algorithm Steps",
+                        description = "Learn the step-by-step process of how Quicksort works, including recursion and partitioning.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("There are two common ways to define constants in C:")),
-                            ContentBlock.Text(
-                                createAnnotatedText("1. Using #define:", listOf("#define"))
-                            ),
-                            ContentBlock.Code(
-                                """
-                #define PI 3.14159
-                printf("PI value: %f", PI);  // Output: 3.14159
-                """.trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText("2. Using the const keyword:", listOf("const"))
-                            ),
-                            ContentBlock.Code(
-                                """
-                const int maxLimit = 100;
-                printf("Max limit: %d", maxLimit);  // Output: 100
-                """.trimIndent()
-                            )
+                            ContentBlock.Text(createSimpleText("Here are the steps involved in the Quicksort algorithm:")),
+
+                            ContentBlock.Text(createSimpleText("1. Choose a pivot element from the array.")),
+                            ContentBlock.Text(createSimpleText("2. Partition the array into two sub-arrays: values less than the pivot on the left, and values greater than the pivot on the right.")),
+                            ContentBlock.Text(createSimpleText("3. Recursively apply the same process to the sub-arrays.")),
+                            ContentBlock.Text(createSimpleText("4. Continue until the array is sorted.")),
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson8_subs[2],
-                        title = "Defining Constants",
-                        description = "Learn how to define constants in C using #define and const.",
+                        title = "Manual Run Through",
+                        description = "Walk through the algorithm with an example to better understand its steps.",
                         contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "Complete the code to define a constant for Pi using the #define directive:",
-                                incompleteCode = """
-                ___ PI 3.14159;  // Define constant Pi
-                """.trimIndent(),
-                                correctCode = "#define",
-                                userInput = null,
-                                isCodeCorrect = false
-                            )
+                            ContentBlock.Text(createSimpleText("Let’s run Quicksort on an unsorted array: [11, 9, 12, 7, 3]")),
+
+                            ContentBlock.Text(createSimpleText("1. Start with the array: [11, 9, 12, 7, 3]")),
+                            ContentBlock.Text(createSimpleText("2. Choose the pivot element (last element, 3).")),
+                            ContentBlock.Text(createSimpleText("3. Rearrange the elements to have values less than the pivot to its left: [3, 9, 12, 7, 11]")),
+                            ContentBlock.Text(createSimpleText("4. Recursively apply the same process for the sub-arrays.")),
+                            ContentBlock.Text(createSimpleText("After recursively sorting, the array becomes: [3, 7, 9, 11, 12]")),
                         ),
-                        type = LessonContentType.INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson8_subs[3],
-                        title = "Constant Naming",
-                        description = "Understand naming conventions for constants.",
+                        title = "Recursion in Quicksort",
+                        description = "Understand how recursion is used in the Quicksort algorithm to divide the array into smaller sub-arrays.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Constant names follow variable naming rules, but they are often written in uppercase for clarity.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Example: const int MAX_SPEED = 120;",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(createSimpleText("Uppercase helps identify constants in code easily.")),
+                            ContentBlock.Text(createSimpleText("Quicksort works by repeatedly calling itself on smaller sub-arrays until they are of length 1 or 0, at which point they are considered sorted.")),
+                            ContentBlock.Text(createSimpleText("Recursion helps split the array into smaller and smaller pieces, allowing the algorithm to efficiently sort the entire array.")),
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson8_subs[4],
-                        title = "Real-Life Example",
-                        description = "See a practical example of using constants in a program.",
+                        title = "Quicksort Code Implementation",
+                        description = "Learn how to implement the Quicksort algorithm in code.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Imagine setting a limit on how many times you can hit snooze on your alarm.")),
-                            ContentBlock.Text(createSimpleText("You wouldn’t want to change that limit every day, so use a constant!")),
+                            ContentBlock.Text(createSimpleText("Here’s how you can implement the Quicksort algorithm in C++:")),
+
                             ContentBlock.Code(
                                 """
-                #include <stdio.h>
-                #define MAX_SNOOZES 3
-                
-                int main() {
-                    for(int i = 0; i < MAX_SNOOZES; i++) {
-                        printf("Snooze #%d of %d\n", i + 1, MAX_SNOOZES);
+                    #include <iostream>
+                    #using namespace std;
+
+                    int partition(int array[], int low, int high) {
+                        int pivot = array[high];
+                        int i = low - 1;
+                        for (int j = low; j < high; j++) {
+                            if (array[j] <= pivot) {
+                                i++;
+                                swap(array[i], array[j]);
+                            }
+                        }
+                        swap(array[i + 1], array[high]);
+                        return i + 1;
                     }
-                    return 0;
-                }
-                """.trimIndent()
+
+                    void quicksort(int array[], int low, int high) {
+                        if (low < high) {
+                            int pivotIndex = partition(array, low, high);
+                            quicksort(array, low, pivotIndex - 1);
+                            quicksort(array, pivotIndex + 1, high);
+                        }
+                    }
+
+                    int main() {
+                        int array[] = {64, 34, 25, 12, 22, 11, 90, 5};
+                        int size = sizeof(array) / sizeof(array[0]);
+
+                        quicksort(array, 0, size - 1);
+
+                        cout << "Sorted array: ";
+                        for (int i = 0; i < size; i++) {
+                            cout << array[i] << " ";
+                        }
+                        return 0;
+                    }
+                    """.trimIndent()
                             ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "This program uses the constant MAX_SNOOZES to limit the number of snoozes.",
-                                    listOf("")
-                                )
-                            ),
+                            ContentBlock.Text(createSimpleText("In this C++ implementation, the `partition` function selects a pivot and rearranges elements accordingly. The `quicksort` function is recursively called on the sub-arrays.")),
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson8_subs[5],
-                        title = "Quiz",
-                        description = "Quiz",
+                        title = "Time Complexity of Quicksort",
+                        description = "Understand the time complexity of the Quicksort algorithm in different scenarios.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(createSimpleText("Quicksort has an average-case time complexity of O(n log n), which is much faster than algorithms like Bubble Sort, which have a time complexity of O(n^2).")),
+                            ContentBlock.Text(createSimpleText("However, in the worst case (when the pivot is always the smallest or largest element), the time complexity can degrade to O(n^2).")),
+                            ContentBlock.Text(createSimpleText("But on average, Quicksort is one of the fastest sorting algorithms, especially for large datasets.")),
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSABeginnerStageIds.lesson8_subs[6],
+                        title = "Quiz: Quicksort Basics",
+                        description = "Test your understanding of the Quicksort algorithm.",
                         contentBlocks = listOf(
                             QuizContentBlock(
-                                question = "Which of the following is used to define a constant value that cannot be changed during program execution in C?",
-                                options = listOf("#define", "const", "int", "static"),
-                                correctAnswer = "#define",
+                                question = "What is the time complexity of the Quicksort algorithm in the best case?",
+                                options = listOf("O(n^2)", "O(n log n)", "O(n)", "O(log n)"),
+                                correctAnswer = "O(n log n)",
                                 userAnswer = null,
                                 isCorrect = false
                             )
                         ),
                         type = LessonContentType.QUIZ
+                    ),
+                    LessonContent(
+                        id = DSABeginnerStageIds.lesson8_subs[7],
+                        title = "Exercise: Complete the Quicksort Code",
+                        description = "Practice by completing the Quicksort code.",
+                        contentBlocks = listOf(
+                            InteractiveInputBlock(
+                                question = "Complete the Quicksort implementation by filling in the missing parts.",
+                                incompleteCode = """
+                    int partition(int array[], int low, int high) {
+                        int pivot = array[high];
+                        int i = low - 1;
+                        for (int j = low; j < high; j++) {
+                            if (array[j] <= pivot) {
+                                i++;
+                                swap(array[i], array[j]);
+                            }
+                        }
+                        swap(array[i + 1], array[high]);
+                        return i ___ 1;
+                    }
+
+                    void quicksort(int array[], int low, int high) {
+                        if (low < high) {
+                            int pivotIndex = partition(array, low, high);
+                            quicksort(array, low, pivotIndex - 1);
+                            quicksort(array, pivotIndex + 1, high);
+                        }
+                    }
+                    """.trimIndent(),
+                                correctCode = "+",
+                                userInput = null,
+                                isCodeCorrect = false
+                            )
+                        ),
+                        type = LessonContentType.INTERACTIVE
                     )
                 ),
                 status = LessonStatus.LOCKED
