@@ -229,7 +229,24 @@ Fibonacci Sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21, ...
                         status = LessonStatus.LOCKED
                     ),
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson3_subs[1],
+                        id = DSABeginnerStageIds.lesson3_subs[1], // New Content ID
+                        title = "Manual Fibonacci Calculation",
+                        description = "Learn how to manually calculate Fibonacci numbers.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(createSimpleText(
+                                "To calculate Fibonacci numbers manually, start with the first two numbers, 0 and 1. Each subsequent number is the sum of the previous two. For example:\n\n" +
+                                        "1. Start with 0, 1.\n" +
+                                        "2. Add them: 0 + 1 = 1 (Sequence: 0, 1, 1).\n" +
+                                        "3. Add the last two numbers: 1 + 1 = 2 (Sequence: 0, 1, 1, 2).\n" +
+                                        "4. Continue this process to generate the sequence.\n\n" +
+                                        "Practice calculating the sequence for the first 10 numbers!"
+                            ))
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.LOCKED
+                    ),
+                    LessonContent(
+                        id = DSABeginnerStageIds.lesson3_subs[2],
                         title = "Fibonacci Algorithm Using Loops",
                         description = "Implement the Fibonacci algorithm using a for loop.",
                         contentBlocks = listOf(
@@ -262,7 +279,7 @@ int main() {
                         status = LessonStatus.LOCKED
                     ),
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson3_subs[2],
+                        id = DSABeginnerStageIds.lesson3_subs[3],
                         title = "Fibonacci Algorithm Using Recursion",
                         description = "Understand and implement the Fibonacci sequence using recursion.",
                         contentBlocks = listOf(
@@ -292,7 +309,7 @@ int main() {
                         status = LessonStatus.LOCKED
                     ),
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson3_subs[3],
+                        id = DSABeginnerStageIds.lesson3_subs[4],
                         title = "Finding the nth Fibonacci Number Using Recursion",
                         description = "Learn how to calculate the nth Fibonacci number with recursion.",
                         contentBlocks = listOf(
@@ -319,18 +336,17 @@ int main() {
                         status = LessonStatus.LOCKED
                     ),
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson3_subs[4],
+                        id = DSABeginnerStageIds.lesson3_subs[5],
                         title = "Importance of Fibonacci Numbers",
-                        description = "Understand the importance of Fibonacci numbers and their influence in diverse fields.",
+                        description = "Explore the significance of Fibonacci numbers across various domains.",
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText(
-                                "Fibonacci numbers are not just a mathematical curiosity, they hold deep significance across various domains. In nature, they explain patterns in biological settings, such as the arrangement of leaves, flower petals, pinecones, and shells. In art and architecture, these numbers are linked to the golden ratio, which is used to create aesthetically pleasing designs and structures. In computer science, Fibonacci sequences play a vital role in algorithms, data structures, and coding challenges, such as recursive functions and dynamic programming. In finance, they are used to identify trends and levels in stock market analysis, often referred to as Fibonacci retracement levels. In astronomy, the patterns of spiral galaxies align with Fibonacci numbers, while in music, they influence rhythm, scales, and composition techniques. The Fibonacci sequence demonstrates the interconnectedness of mathematics with the natural and human-made world, continuing to inspire innovation and discovery across science, technology, and art."
+                                "Fibonacci numbers appear in nature (e.g., leaf arrangements, shells), art and architecture (golden ratio), computer science (algorithms, dynamic programming), and finance (trend analysis). They also influence music, astronomy, and other fields, showcasing their widespread impact."
                             ))
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.LOCKED
                     )
-
                 ),
                 status = LessonStatus.LOCKED
             ),
@@ -338,7 +354,7 @@ int main() {
             // lesson 4
             Lesson(
                 id = DSABeginnerStageIds.lesson4,
-                title = "Find the Lowest Value in an Array",
+                title = "Array",
                 description = "Learn how to implement algorithms to find the smallest value in an array and understand their time complexity.",
                 lessonContents = listOf(
                     LessonContent(
