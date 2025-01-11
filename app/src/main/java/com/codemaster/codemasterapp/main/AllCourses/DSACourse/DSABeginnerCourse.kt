@@ -324,7 +324,7 @@ int main() {
                         description = "Test your knowledge of Fibonacci algorithms.",
                         contentBlocks = listOf(
                             InteractiveInputBlock(
-                                question = "What is the 6th number in the Fibonacci sequence?",
+                                question = "What is the 6th number in the Fibonacci sequence on page one?",
                                 incompleteCode = """
 Write your answer:___
                     """.trimIndent(),
@@ -524,172 +524,107 @@ int main() {
             // lesson 5
             Lesson(
                 id = DSABeginnerStageIds.lesson5,
-                title = "C Comments",
-                description = "Master how to use comments in C for better code readability and documentation!",
+                title = "Bubble Sort",
+                description = "Learn the Bubble Sort algorithm, its implementation, and its time complexity.",
                 lessonContents = listOf(
                     LessonContent(
                         id = DSABeginnerStageIds.lesson5_subs[0],
-                        title = "Introduction to Comments",
-                        description = "Understanding comments and their importance in code.",
+                        title = "Introduction to Bubble Sort",
+                        description = "What is Bubble Sort, and how does it work?",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Comments are annotations in the code ignored by the compiler.")),
-                            ContentBlock.Text(createSimpleText("They help explain the purpose or logic of the code.")),
-                            ContentBlock.Text(createSimpleText("Without comments, the code can become harder to understand and maintain.")),
+                            ContentBlock.Text(createSimpleText("Bubble Sort is an algorithm that sorts an array from the lowest value to the highest value.")),
+                            ContentBlock.Text(createSimpleText("The name 'Bubble' comes from the way higher values 'bubble up' to their correct position.")),
+                            ContentBlock.Text(createSimpleText("Bubble Sort repeatedly steps through the array, compares adjacent elements, and swaps them if they are in the wrong order.")),
+                            ContentBlock.Text(createSimpleText("This process is repeated until the array is sorted."))
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson5_subs[1],
-                        title = "Single-Line Comments",
-                        description = "How to use single-line comments in C.",
+                        title = "Manual Run Through",
+                        description = "Manually understand how Bubble Sort works.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Single-line comments start with // and extend to the end of the line.",
-                                    listOf("//")
-                                )
-                            ),
-                            ContentBlock.Text(createSimpleText("Single-line comments are used for brief notes.")),
+                            ContentBlock.Text(createSimpleText("Let's take an example of an unsorted array: [7, 12, 9, 11, 3].")),
+                            ContentBlock.Text(createSimpleText("Step 1: Compare the first two values (7 and 12). No swap is needed.")),
+                            ContentBlock.Text(createSimpleText("Step 2: Compare 12 and 9. Swap them to make [7, 9, 12, 11, 3].")),
+                            ContentBlock.Text(createSimpleText("Step 3: Compare 12 and 11. Swap them to make [7, 9, 11, 12, 3].")),
+                            ContentBlock.Text(createSimpleText("Step 4: Compare 12 and 3. Swap them to make [7, 9, 11, 3, 12].")),
+                            ContentBlock.Text(createSimpleText("At the end of the first pass, the largest value (12) is at the correct position.")),
+                            ContentBlock.Text(createSimpleText("This process is repeated until the entire array is sorted.")),
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSABeginnerStageIds.lesson5_subs[2],
+                        title = "Bubble Sort Implementation",
+                        description = "Implement Bubble Sort in code.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(createSimpleText("Here’s the code for a basic implementation of Bubble Sort:")),
                             ContentBlock.Code(
                                 """
-#include <stdio.h>
+my_array = [64, 34, 25, 12, 22, 11, 90, 5]
 
-int main() {
-    // Print a greeting
-    printf("Hello, World!\n");
-    return 0;
-}
-                """.trimIndent()
+n = len(my_array)
+for i in range(n-1):
+    for j in range(n-i-1):
+        if my_array[j] > my_array[j+1]:
+            my_array[j], my_array[j+1] = my_array[j+1], my_array[j]
+
+print("Sorted array:", my_array)
+                    """.trimIndent()
                             ),
-                            ContentBlock.Text(createSimpleText("Use them for short explanations or annotations in the code.")),
+                            ContentBlock.Text(createSimpleText("The outer loop runs n-1 times, where n is the number of elements in the array.")),
+                            ContentBlock.Text(createSimpleText("The inner loop compares and swaps adjacent elements."))
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson5_subs[3],
-                        title = "Interactive: Add a Single-Line Comment",
-                        description = "Add a single-line comment in the code.",
+                        title = "Bubble Sort Optimization",
+                        description = "Improve the Bubble Sort algorithm.",
                         contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "Fill in the missing code to add a single-line comment.",
-                                incompleteCode = """
-#include <stdio.h>
+                            ContentBlock.Text(createSimpleText("If no swaps are made during a pass, the array is already sorted, and we can stop early.")),
+                            ContentBlock.Code(
+                                """
+my_array = [7, 3, 9, 12, 11]
 
-int main() {
-    ___ Print a greeting
-    printf("Hello, World!\\n");
-    return 0;
-}
-            """.trimIndent(),
-                                correctCode = "//",
-                                userInput = null,
-                                isCodeCorrect = false
-                            )
+n = len(my_array)
+for i in range(n-1):
+    swapped = False
+    for j in range(n-i-1):
+        if my_array[j] > my_array[j+1]:
+            my_array[j], my_array[j+1] = my_array[j+1], my_array[j]
+            swapped = True
+    if not swapped:
+        break
+
+print("Sorted array:", my_array)
+                    """.trimIndent()
+                            ),
+                            ContentBlock.Text(createSimpleText("This optimization can significantly reduce unnecessary iterations."))
                         ),
-                        type = LessonContentType.INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson5_subs[4],
-                        title = "Multi-Line Comments",
-                        description = "How to use multi-line comments in C.",
+                        title = "Bubble Sort Time Complexity",
+                        description = "Understand the time complexity of Bubble Sort.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Multi-line comments start with /* and end with */, spanning multiple lines.",
-                                    listOf("/*", "*/")
-                                )
-                            ),
-                            ContentBlock.Text(createSimpleText("Use multi-line comments for longer explanations.")),
-                            ContentBlock.Code(
-                                """
-#include <stdio.h>
-
-int main() {
-    /* This code prints "Hello, World!" 
-       It’s part of the beginner’s guide */
-    printf("Hello, World!\n");
-    return 0;
-}
-                """.trimIndent()
-                            ),
-                            ContentBlock.Text(createSimpleText("Keep multi-line comments concise and relevant.")),
+                            ContentBlock.Text(createSimpleText("Bubble Sort has a worst-case and average-case time complexity of O(n^2).")),
+                            ContentBlock.Text(createSimpleText("The best-case time complexity is O(n), which occurs when the array is already sorted.")),
+                            ContentBlock.Text(createSimpleText("Bubble Sort is not suitable for large datasets as it is inefficient compared to other algorithms like Quick Sort or Merge Sort."))
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson5_subs[5],
-                        title = "Nested Comments",
-                        description = "Handling nested comments in C.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "C doesn’t support nested multi-line comments (/* /* ... */ */).",
-                                    listOf("/* /* ... */ */")
-                                )
-                            ),
-                            ContentBlock.Text(createSimpleText("Use single-line comments inside multi-line comments if needed.")),
-                            ContentBlock.Code(
-                                """
-#include <stdio.h>
-
-int main() {
-    /* Multi-line comment
-       // Single-line comment inside it
-       Explaining comments */
-    printf("Hello, World!\n");
-    return 0;
-}
-                """.trimIndent()
-                            ),
-                            ContentBlock.Text(createSimpleText("Avoid complex comment structures to maintain clarity.")),
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson5_subs[6],
-                        title = "Commenting Best Practices",
-                        description = "Best practices for writing effective comments.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Good comments explain the reasoning, not just the action.")),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Explain the purpose of the code, not what it does.",
-                                    listOf("why")
-                                )
-                            ),
-                            ContentBlock.Text(createSimpleText("Avoid redundant comments that repeat the code.")),
-                            ContentBlock.Text(createSimpleText("Update comments to reflect code changes.")),
-                            ContentBlock.Text(createSimpleText("Good Example:")),
-                            ContentBlock.Code(
-                                """
-// Bubble sort is used due to the small size of the input array
-bubbleSort(arr, n);
-                """.trimIndent()
-                            ),
-                            ContentBlock.Text(createSimpleText("Bad Example:")),
-                            ContentBlock.Code(
-                                """
-// Sorting the array
-bubbleSort(arr, n);
-                """.trimIndent()
-                            ),
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson5_subs[7],
                         title = "Quiz",
-                        description = "Test your knowledge of comments.",
+                        description = "Test your understanding of Bubble Sort.",
                         contentBlocks = listOf(
                             QuizContentBlock(
-                                question = "Why do we use comments in code?",
-                                options = listOf(
-                                    "To make the code execute faster",
-                                    "To explain the code for better understanding",
-                                    "To make the code look longer",
-                                    "To remove errors from the code"
-                                ),
-                                correctAnswer = "To explain the code for better understanding",
+                                question = "What is the best-case time complexity of Bubble Sort?",
+                                options = listOf("O(n)", "O(n^2)", "O(log n)", "O(n log n)"),
+                                correctAnswer = "O(n)",
                                 userAnswer = null,
                                 isCorrect = false
                             )
@@ -700,81 +635,121 @@ bubbleSort(arr, n);
                 status = LessonStatus.LOCKED
             ),
 
+
             // lesson 6
             Lesson(
                 id = DSABeginnerStageIds.lesson6,
-                title = "C Variables",
-                description = "Learn how to work with variables in C: declaring, formatting, changing values, and naming! 🎯",
+                title = "Selection Sort",
+                description = "Understand how Selection Sort works: its process, implementation, and optimization! 🔄",
                 lessonContents = listOf(
                     LessonContent(
                         id = DSABeginnerStageIds.lesson6_subs[0],
-                        title = "Creating Variables",
-                        description = "Learn how to declare and initialize variables.",
+                        title = "What is Selection Sort?",
+                        description = "Learn the basics of the Selection Sort algorithm.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Variables store data for later use in the program.",
+                                    "The Selection Sort algorithm repeatedly selects the smallest element and moves it to its correct position in the sorted portion of the array.",
                                     listOf("")
                                 )
                             ),
-                            ContentBlock.Code(
-                                """
-int age = 25;  // Declaring an integer variable with an initial value
-float temperature = 36.5;  // Declaring a float
-""".trimIndent()
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "It has a time complexity of O(n²) and is easy to understand but not the most efficient for larger datasets."
+                                )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson6_subs[1],
-                        title = "Format Specifiers",
-                        description = "Understand format specifiers for different data types.",
+                        title = "Manual Walkthrough",
+                        description = "Understand Selection Sort step-by-step with a practical example.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Format specifiers ensure correct display of variable types (e.g., integer, float).",
-                                    listOf()
+                                    "Consider this array: [7, 12, 9, 11, 3].",
+                                    listOf("")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Step 1: Find the smallest value (3) and move it to the front.\n" +
+                                            "Step 2: Look at the unsorted portion and repeat the process until the array is sorted."
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-int x = 10;
-printf("The value of x is: %d", x);  // %d for integer
-float pi = 3.14;
-printf("Pi is approximately: %.2f", pi);  // %.2f for float
+Step 1: [3, 12, 9, 11, 7]
+Step 2: [3, 7, 9, 11, 12]
+Sorted array: [3, 7, 9, 11, 12]
 """.trimIndent()
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSABeginnerStageIds.lesson6_subs[2],
+                        title = "Selection Sort Implementation",
+                        description = "Learn how to implement Selection Sort in Python.",
+                        contentBlocks = listOf(
+                            ContentBlock.Code(
+                                """
+my_array = [64, 25, 12, 22, 11]
+n = len(my_array)
+for i in range(n):
+    min_index = i
+    for j in range(i+1, n):
+        if my_array[j] < my_array[min_index]:
+            min_index = j
+    my_array[i], my_array[min_index] = my_array[min_index], my_array[i]
+
+print("Sorted array:", my_array)
+""".trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "This code swaps elements instead of shifting them, making the implementation more efficient."
+                                )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson6_subs[3],
-                        title = "Change Variable Values",
-                        description = "Learn how to update the values of variables.",
+                        title = "Optimizations",
+                        description = "Understand how to optimize Selection Sort using swapping.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("You can change a variable’s value whenever needed.")),
-                            ContentBlock.Code(
-                                """
-int age = 25;
-age = 30;  // Changing the value of age
-""".trimIndent()
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Instead of removing and inserting elements (which causes shifting), swap the smallest element with the first unsorted element."
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "This reduces unnecessary operations and improves the algorithm's efficiency in practice.",
+                                    listOf("")
+                                )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson6_subs[4],
-                        title = "Change Variable Values",
-                        description = "Learn how to update the values of variables.",
+                        title = "Interactive Quiz",
+                        description = "Test your understanding with an interactive exercise.",
                         contentBlocks = listOf(
                             InteractiveInputBlock(
-                                question = "Fill in the missing code to reuse the variable age for updating its value.",
+                                question = "Fill in the missing code to swap the smallest element with the first unsorted element.",
                                 incompleteCode = """
-int age = 25;
-___ = 30;  // Update the value of age
+for i in range(n):
+    min_index = i
+    for j in range(i+1, n):
+        if my_array[j] < my_array[min_index]:
+            min_index = j
+    my_array[i], my_array[___] = my_array[min_index], my_array[i]
 """.trimIndent(),
-                                correctCode = "age",
+                                correctCode = "min_index",
                                 userInput = null,
                                 isCodeCorrect = false
                             )
@@ -783,89 +758,19 @@ ___ = 30;  // Update the value of age
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson6_subs[5],
-                        title = "Declare Multiple Variables",
-                        description = "Learn how to declare multiple variables in one line.",
+                        title = "Selection Sort Time Complexity",
+                        description = "Analyze the time complexity of Selection Sort.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Declare multiple variables in one line to save space.",
-                                    listOf()
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-int x = 10, y = 20, z = 30;  // Declaring multiple integers
-""".trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson6_subs[6],
-                        title = "Variable Names",
-                        description = "Understand the rules for naming variables.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Use meaningful names for variables.")),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Valid names: age, _count, temperature1. Invalid names: 1age, @count.",
+                                    "Selection Sort runs in O(n²) time because it compares each element to every other element.",
                                     listOf("")
                                 )
                             ),
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Follow conventions like snake_case for readability.",
-                                    listOf("snake_case")
-                                )
-                            ),
-                            ContentBlock.Text(
                                 createSimpleText(
-                                    "Snake case is a naming convention where words are separated by underscores and all letters are lowercase. For example: user_name, total_score."
+                                    "This makes it less efficient than other algorithms like Merge Sort or Quick Sort for larger datasets."
                                 )
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson6_subs[7],
-                        title = "Real-Life Example",
-                        description = "A practical example using variables in a program.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Here’s how you use variables in a program to store and display data:")),
-                            ContentBlock.Code(
-                                """
-#include <stdio.h>
-
-int main() {
-    int age = 25;
-    float height = 5.9;
-
-    printf("Age: %d, Height: %.2f", age, height);
-
-    return 0;
-}
-""".trimIndent()
-                            ),
-                            ContentBlock.Text(createSimpleText("This program uses variables to store age and height and displays them."))
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson6_subs[8],
-                        title = "Quiz",
-                        description = "Quiz",
-                        contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "How can you declare multiple variables in a single line?",
-                                options = listOf(
-                                    "int x, y, z = 10, 20, 30;",
-                                    "int x = 10; int y = 20; int z = 30;",
-                                    "int x = 10, y = 20, z = 30;",
-                                    "int x, y, z = 10;"
-                                ),
-                                correctAnswer = "int x = 10, y = 20, z = 30;",
-                                userAnswer = null,
-                                isCorrect = false
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE

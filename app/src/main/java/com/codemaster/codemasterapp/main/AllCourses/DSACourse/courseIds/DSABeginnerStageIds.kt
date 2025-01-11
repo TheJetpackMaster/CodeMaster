@@ -4,18 +4,18 @@ object DSABeginnerStageIds {
     val stageId = "dsa_beginner_stage"
 
     // Course and Lesson IDs as constants
-    val lesson1 = "beginner_c1"
-    val lesson2 = "beginner_c2"
-    val lesson3 = "beginner_c3"
-    val lesson4 = "beginner_c4"
-    val lesson5 = "beginner_c5"
-    val lesson6 = "beginner_c6"
-    val lesson7 = "beginner_c7"
-    val lesson8 = "beginner_c8"
-    val lesson9 = "beginner_c9"
-    val lesson10 = "beginner_c10"
-    val lesson11 = "beginner_c11"
-    val lesson12 = "beginner_c12"
+    val lesson1 = "beginner_dsa1"
+    val lesson2 = "beginner_dsa2"
+    val lesson3 = "beginner_dsa3"
+    val lesson4 = "beginner_dsa4"
+    val lesson5 = "beginner_dsa5"
+    val lesson6 = "beginner_dsa6"
+    val lesson7 = "beginner_dsa7"
+    val lesson8 = "beginner_dsa8"
+    val lesson9 = "beginner_dsa9"
+    val lesson10 = "beginner_dsa10"
+    val lesson11 = "beginner_dsa11"
+    val lesson12 = "beginner_dsa12"
 
 
     // Sub-lesson IDs for lesson 1 Welcome
