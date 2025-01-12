@@ -1693,6 +1693,46 @@ int main() {
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson12_subs[2],
+                        title = "Manual Walkthrough",
+                        description = "Manually walk through an example to understand how Merge Sort works step-by-step.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(createSimpleText("Let's manually sort the array [38, 27, 43, 3, 9, 82, 10] step-by-step.")),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Pass 1:",
+                                    listOf("Pass 1:")
+                                )
+                            ),
+                            ContentBlock.Text(createSimpleText("Step 1: Split the array into two halves: [38, 27, 43] and [3, 9, 82, 10].")),
+                            ContentBlock.Text(createSimpleText("Step 2: Further split [38, 27, 43] into [38], [27], and [43].")),
+                            ContentBlock.Text(createSimpleText("Step 3: Further split [3, 9, 82, 10] into [3, 9] and [82, 10].")),
+                            ContentBlock.Text(createSimpleText("Step 4: Continue dividing until each sub-array has one element.")),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Pass 2:",
+                                    listOf("Pass 2:")
+                                )
+                            ),
+                            ContentBlock.Text(createSimpleText("Step 1: Start merging the smallest divided sub-arrays step-by-step.")),
+                            ContentBlock.Text(createSimpleText("Merge [38] and [27] into [27, 38].")),
+                            ContentBlock.Text(createSimpleText("Merge [27, 38] and [43] into [27, 38, 43].")),
+                            ContentBlock.Text(createSimpleText("Merge [3] and [9] into [3, 9].")),
+                            ContentBlock.Text(createSimpleText("Merge [82] and [10] into [10, 82].")),
+                            ContentBlock.Text(createSimpleText("Merge [3, 9] and [10, 82] into [3, 9, 10, 82].")),
+                            ContentBlock.Text(createSimpleText("Finally, merge [27, 38, 43] and [3, 9, 10, 82] into [3, 9, 10, 27, 38, 43, 82].")),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Pass 3:",
+                                    listOf("Pass 3:")
+                                )
+                            ),
+                            ContentBlock.Text(createSimpleText("The array is now fully sorted: [3, 9, 10, 27, 38, 43, 82].")),
+                            ContentBlock.Text(createSimpleText("Merge Sort works by repeatedly dividing the array into halves and then merging them back together in sorted order."))
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSABeginnerStageIds.lesson12_subs[3],
                         title = "Implementation of Linear Search",
                         description = "Code example of Linear Search in Python.",
                         contentBlocks = listOf(
@@ -1721,58 +1761,25 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson12_subs[3],
-                        title = "Manual Walkthrough of Merge Sort",
-                        description = "Manually walk through an example to understand how Merge Sort works step-by-step.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Let's manually sort the array [38, 27, 43, 3, 9, 82, 10] step-by-step.")),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Pass 1: Dividing the array",
-                                    listOf("Pass 1:")
-                                )
-                            ),
-                            ContentBlock.Text(createSimpleText("Step 1: Split the array into two halves: [38, 27, 43] and [3, 9, 82, 10].")),
-                            ContentBlock.Text(createSimpleText("Step 2: Further split [38, 27, 43] into [38], [27], and [43].")),
-                            ContentBlock.Text(createSimpleText("Step 3: Further split [3, 9, 82, 10] into [3, 9] and [82, 10].")),
-                            ContentBlock.Text(createSimpleText("Step 4: Continue dividing until each sub-array has one element.")),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Pass 2: Merging sub-arrays",
-                                    listOf("Pass 2:")
-                                )
-                            ),
-                            ContentBlock.Text(createSimpleText("Step 1: Start merging the smallest divided sub-arrays step-by-step.")),
-                            ContentBlock.Text(createSimpleText("Merge [38] and [27] into [27, 38].")),
-                            ContentBlock.Text(createSimpleText("Merge [27, 38] and [43] into [27, 38, 43].")),
-                            ContentBlock.Text(createSimpleText("Merge [3] and [9] into [3, 9].")),
-                            ContentBlock.Text(createSimpleText("Merge [82] and [10] into [10, 82].")),
-                            ContentBlock.Text(createSimpleText("Merge [3, 9] and [10, 82] into [3, 9, 10, 82].")),
-                            ContentBlock.Text(createSimpleText("Finally, merge [27, 38, 43] and [3, 9, 10, 82] into [3, 9, 10, 27, 38, 43, 82].")),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Pass 3: Fully sorted array",
-                                    listOf("Pass 3:")
-                                )
-                            ),
-                            ContentBlock.Text(createSimpleText("The array is now fully sorted: [3, 9, 10, 27, 38, 43, 82].")),
-                            ContentBlock.Text(createSimpleText("Merge Sort works by repeatedly dividing the array into halves and then merging them back together in sorted order."))
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
                         id = DSABeginnerStageIds.lesson12_subs[4],
                         title = "Importance of Linear Search",
                         description = "Understand why Linear Search is a fundamental algorithm.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    """
-                        - Linear Search is one of the simplest search algorithms.
-                        - It forms the foundation for understanding more advanced search techniques.
-                        - It works effectively for small datasets or unsorted data where other search methods may not be applicable.
-                        - Provides a clear demonstration of algorithmic problem-solving.
-                        """.trimIndent(),
+                                    "Linear Search is an essential algorithm for understanding the basics of search techniques. It introduces the concept of sequential search, where each element is checked one by one, making it straightforward to grasp.",
+                                    listOf()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Its simplicity and applicability to both sorted and unsorted datasets make Linear Search versatile for smaller datasets or when other search methods are not feasible. It provides a clear demonstration of algorithmic problem-solving and iterative logic.",
+                                    listOf()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "By learning Linear Search, you build a strong foundation for exploring more complex algorithms like Binary Search and Hashing. Its step-by-step approach helps reinforce the importance of understanding fundamental algorithms in computer science.",
                                     listOf()
                                 )
                             )
@@ -1782,7 +1789,6 @@ int main() {
                 ),
                 status = LessonStatus.LOCKED
             ),
-
 
             // lesson 13
             Lesson(
@@ -1911,7 +1917,6 @@ int main() {
                 status = LessonStatus.LOCKED
             ),
 
-            // continue from here to add more lessons
 
         )
     )
