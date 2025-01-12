@@ -1734,27 +1734,37 @@ int main() {
                     LessonContent(
                         id = DSABeginnerStageIds.lesson12_subs[3],
                         title = "Implementation of Linear Search",
-                        description = "Code example of Linear Search in Python.",
+                        description = "Code example of Linear Search in C++.",
                         contentBlocks = listOf(
                             ContentBlock.Code(
                                 """
-                    # Linear Search Implementation
-                    def linearSearch(arr, targetVal):
-                        for i in range(len(arr)):
-                            if arr[i] == targetVal:
-                                return i
-                        return -1
-                    
-                    # Example Usage
-                    arr = [3, 7, 2, 9, 5]
-                    targetVal = 9
-                    
-                    result = linearSearch(arr, targetVal)
-                    
-                    if result != -1:
-                        print("Value", targetVal, "found at index", result)
-                    else:
-                        print("Value", targetVal, "not found")
+                    // Linear Search Implementation in C++
+                    #include <iostream>
+                    using namespace std;
+
+                    int linearSearch(int arr[], int size, int targetVal) {
+                        for (int i = 0; i < size; i++) {
+                            if (arr[i] == targetVal) {
+                                return i;  // Return index if match found
+                            }
+                        }
+                        return -1;  // Return -1 if target value is not found
+                    }
+
+                    int main() {
+                        int arr[] = {3, 7, 2, 9, 5};
+                        int size = sizeof(arr) / sizeof(arr[0]);
+                        int targetVal = 9;
+
+                        int result = linearSearch(arr, size, targetVal);
+
+                        if (result != -1) {
+                            cout << "Value " << targetVal << " found at index " << result << endl;
+                        } else {
+                            cout << "Value " << targetVal << " not found" << endl;
+                        }
+                        return 0;
+                    }
                     """.trimIndent()
                             )
                         ),
@@ -1818,84 +1828,76 @@ int main() {
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson13_subs[1],
-                        title = "How Binary Search Works",
-                        description = "Step-by-step explanation of Binary Search.",
+                        title = "Manual Walkthrough",
+                        description = "A step-by-step manual walkthrough of the Binary Search algorithm.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    """
-                        How Binary Search works:
-                        1. Start with two pointers: left at the beginning and right at the end of the array.
-                        2. Calculate the middle index using (left + right) // 2.
-                        3. Compare the value at the middle index with the target:
-                            - If equal, return the middle index.
-                            - If the target is smaller, move the right pointer to mid - 1.
-                            - If the target is larger, move the left pointer to mid + 1.
-                        4. Repeat steps 2-3 until the target is found or the pointers overlap.
-                        """.trimIndent(),
-                                    listOf()
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-                    // Example:
-                    Array: [1, 3, 5, 7, 9, 11, 13]
-                    Target: 9
-                    
-                    Step 1: Check middle (index 3), value 7 < 9. Adjust left to index 4.
-                    Step 2: Check middle (index 5), value 11 > 9. Adjust right to index 4.
-                    Step 3: Check middle (index 4), value 9 == 9. Return index 4.
-                    """.trimIndent()
-                            )
+                            ContentBlock.Text(createSimpleText("Let's walk through an example to understand how Binary Search works.")),
+                            ContentBlock.Text(createSimpleText("Array: [1, 3, 5, 7, 9, 11, 13]")),
+                            ContentBlock.Text(createSimpleText("Target: 9")),
+
+                            ContentBlock.Text(createAnnotatedText("Pass 1:", listOf("Pass 1:"))),
+                            ContentBlock.Text(createSimpleText("Step 1: Initialize two pointers. Left pointer = 0, Right pointer = 6.")),
+                            ContentBlock.Text(createSimpleText("Step 2: Calculate the middle index: mid = (0 + 6) // 2 = 3. The value at index 3 is 7.")),
+                            ContentBlock.Text(createSimpleText("Step 3: Since 7 < 9, adjust the left pointer to mid + 1. Left pointer = 4.")),
+
+                            ContentBlock.Text(createAnnotatedText("Pass 2:", listOf("Pass 2:"))),
+                            ContentBlock.Text(createSimpleText("Step 4: Recalculate the middle index: mid = (4 + 6) // 2 = 5. The value at index 5 is 11.")),
+                            ContentBlock.Text(createSimpleText("Step 5: Since 11 > 9, adjust the right pointer to mid - 1. Right pointer = 4.")),
+
+                            ContentBlock.Text(createAnnotatedText("Pass 3:", listOf("Pass 3:"))),
+                            ContentBlock.Text(createSimpleText("Step 6: Now, Left pointer = 4 and Right pointer = 4. Check the middle value at index 4, which is 9. This is a match!")),
+                            ContentBlock.Text(createSimpleText("Step 7: Return index 4 as the target value has been found.")),
+
+                            ContentBlock.Text(createSimpleText("Binary Search efficiently narrows down the search range and finds the target value in logarithmic time.")),
+                            ContentBlock.Text(createSimpleText("The array is sorted, and we use the divide-and-conquer method to reduce the search space at each step."))
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson13_subs[2],
                         title = "Implementation of Binary Search",
-                        description = "Code example of Binary Search in Python.",
+                        description = "Code example of Binary Search in C++.",
                         contentBlocks = listOf(
                             ContentBlock.Code(
                                 """
-                    def binary_search(arr, target):
-                        left, right = 0, len(arr) - 1
-                        while left <= right:
-                            mid = (left + right) // 2
-                            if arr[mid] == target:
-                                return mid
-                            elif arr[mid] < target:
-                                left = mid + 1
-                            else:
-                                right = mid - 1
-                        return -1
-                    
-                    # Example usage
-                    my_array = [1, 3, 5, 7, 9, 11, 13]
-                    target = 9
-                    result = binary_search(my_array, target)
-                    print(f"Target found at index {result}" if result != -1 else "Target not found.")
-                    """.trimIndent()
+            #include <iostream>
+            #include <vector>
+
+            int binary_search(const std::vector<int>& arr, int target) {
+                int left = 0, right = arr.size() - 1;
+                while (left <= right) {
+                    int mid = left + (right - left) / 2;
+                    if (arr[mid] == target) {
+                        return mid;
+                    }
+                    else if (arr[mid] < target) {
+                        left = mid + 1;
+                    }
+                    else {
+                        right = mid - 1;
+                    }
+                }
+                return -1;
+            }
+
+            int main() {
+                std::vector<int> my_array = {1, 3, 5, 7, 9, 11, 13};
+                int target = 9;
+                int result = binary_search(my_array, target);
+                if (result != -1) {
+                    std::cout << "Target found at index " << result << std::endl;
+                } else {
+                    std::cout << "Target not found." << std::endl;
+                }
+                return 0;
+            }
+            """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson13_subs[3],
-                        title = "Quiz",
-                        description = "Test your understanding with a quick quiz.",
-                        contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "What is the time complexity of Binary Search?",
-                                options = listOf("O(n)", "O(n^2)", "O(log n)", "O(1)"),
-                                correctAnswer = "O(log n)",
-                                userAnswer = null,
-                                isCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.QUIZ
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson13_subs[4],
                         title = "Binary Search: Time Complexity",
                         description = "Understand why Binary Search is efficient.",
                         contentBlocks = listOf(
@@ -1903,10 +1905,36 @@ int main() {
                                 createAnnotatedText(
                                     """
                         Binary Search is efficient due to its logarithmic time complexity:
-                        - At each step, it reduces the search area by half.
-                        - Even in the worst-case scenario, it only performs log₂(n) comparisons.
+                        At each step, it reduces the search area by half.
+                        Even in the worst-case scenario, it only performs log₂(n) comparisons.
                         This makes it faster than linear search (O(n)), especially for large datasets.
                         """.trimIndent(),
+                                    listOf()
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSABeginnerStageIds.lesson13_subs[4],
+                        title = "Importance of Binary Search",
+                        description = "Understand why Binary Search is essential in computer science.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Binary Search is a key algorithm that demonstrates the efficiency of divide-and-conquer strategies. It forms the foundation for understanding more advanced algorithms in various areas of computer science, such as searching in databases and file systems.",
+                                    listOf()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "By learning Binary Search, you gain insight into efficient data search techniques, crucial for optimizing algorithms in large-scale applications. It is one of the most commonly used search algorithms and forms the basis for more complex searching strategies.",
+                                    listOf()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Mastering Binary Search is essential for building more complex algorithms and is a stepping stone toward understanding other crucial algorithms, like Hashing and Graph Search algorithms.",
                                     listOf()
                                 )
                             )
@@ -1917,7 +1945,6 @@ int main() {
                 status = LessonStatus.LOCKED
             ),
 
-
-        )
+            )
     )
 }
