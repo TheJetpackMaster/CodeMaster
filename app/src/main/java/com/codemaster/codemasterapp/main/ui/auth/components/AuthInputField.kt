@@ -12,6 +12,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -21,6 +23,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
@@ -33,6 +37,8 @@ fun AuthInputField(
     onValueChange: (String) -> Unit,
     hint: String,
     leadingIcon: @Composable (() -> Unit)? = null, // Icon parameter
+    keyboardActions: KeyboardActions = KeyboardActions(),
+    keyboardOptions: KeyboardOptions = KeyboardOptions()
 ) {
     var isFieldDisabled by remember { mutableStateOf(false) }
     var isFocused by remember { mutableStateOf(false) }
@@ -46,6 +52,8 @@ fun AuthInputField(
             color = Color.Black,
             fontWeight = FontWeight.Medium
         ),
+        keyboardOptions = keyboardOptions,
+        keyboardActions = keyboardActions,
         modifier = Modifier
             .fillMaxWidth()
             .clickable {
@@ -53,7 +61,7 @@ fun AuthInputField(
                 isFieldDisabled = true
             }
             .onFocusChanged { focusState ->
-                isFocused = focusState.isFocused // Track if the TextField is focused
+                isFocused = focusState.isFocused
             }
     ) { innerTextField ->
         // Here, you can add a custom decoration around the BasicTextField
