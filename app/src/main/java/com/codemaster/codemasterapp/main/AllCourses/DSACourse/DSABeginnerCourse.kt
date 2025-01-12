@@ -1156,7 +1156,7 @@ int main() {
                     }
                     """.trimIndent()
                             ),
-                            ContentBlock.Text(createSimpleText("In this C++ implementation, the `partition` function selects a pivot and rearranges elements accordingly. The `quicksort` function is recursively called on the sub-arrays.")),
+                            ContentBlock.Text(createSimpleText("In this C++ implementation, the partition function selects a pivot and rearranges elements accordingly. The quicksort function is recursively called on the sub-arrays.")),
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
@@ -1207,8 +1207,8 @@ int main() {
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Conditions for Counting Sort: values must be non-negative integers, and the range of possible values (k) should be smaller than the number of elements (n).",
-                                    listOf("k", "n")
+                                    "Conditions for Counting Sort: values must be non-negative integers, and the range of possible values 'k' should be smaller than the number of elements 'n'.",
+                                    listOf("Conditions for Counting Sort","'k'", "'n'")
                                 )
                             )
                         ),
@@ -1220,17 +1220,17 @@ int main() {
                         description = "Walk through an example array to understand Counting Sort step by step.",
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("Let's sort the array {2, 3, 0, 2, 3, 2} step-by-step.")),
-                            ContentBlock.Text(createAnnotatedText("Step 1:", listOf("Step 1:"))),
+                            ContentBlock.Text(createAnnotatedText("Pass 1:", listOf("Pass 1:"))),
                             ContentBlock.Text(createSimpleText("Count the occurrences of each value in the array.")),
                             ContentBlock.Text(createSimpleText("Initial array: [2, 3, 0, 2, 3, 2].")),
                             ContentBlock.Text(createSimpleText("Count array after counting occurrences: [1, 0, 3, 2].")),
-                            ContentBlock.Text(createAnnotatedText("Step 2:", listOf("Step 2:"))),
+                            ContentBlock.Text(createAnnotatedText("Pass 2:", listOf("Pass 2:"))),
                             ContentBlock.Text(createSimpleText("Modify the count array to store cumulative counts.")),
                             ContentBlock.Text(createSimpleText("Cumulative count array: [1, 1, 4, 6].")),
-                            ContentBlock.Text(createAnnotatedText("Step 3:", listOf("Step 3:"))),
+                            ContentBlock.Text(createAnnotatedText("Pass 3:", listOf("Pass 3:"))),
                             ContentBlock.Text(createSimpleText("Place each element from the original array into its sorted position.")),
                             ContentBlock.Text(createSimpleText("Sorted array after placing elements: [0, 2, 2, 2, 3, 3].")),
-                            ContentBlock.Text(createAnnotatedText("Step 4:", listOf("Step 4:"))),
+                            ContentBlock.Text(createAnnotatedText("Pass 4:", listOf("Pass 4:"))),
                             ContentBlock.Text(createSimpleText("Counting Sort is complete, and the array is sorted: [0, 2, 2, 2, 3, 3].")),
                             ContentBlock.Text(createSimpleText("Counting Sort efficiently sorts the array by counting occurrences and leveraging cumulative counts.")),
                         ),
@@ -1279,11 +1279,11 @@ int main() {
                         title = "Advantages and Limitations of Counting Sort",
                         description = "Explore the pros and cons of Counting Sort and understand when to use it.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Advantages:")),
+                            ContentBlock.Text(createAnnotatedText("Advantages:", listOf("Advantages:"))),
                             ContentBlock.Text(createSimpleText("1. Works efficiently for small ranges of integers.")),
                             ContentBlock.Text(createSimpleText("2. Stable sort: maintains relative order of elements with equal keys.")),
                             ContentBlock.Text(createSimpleText("3. Has a linear time complexity, O(n + k), in most cases.")),
-                            ContentBlock.Text(createSimpleText("Limitations:")),
+                            ContentBlock.Text(createAnnotatedText("Limitations:", listOf("Limitations:"))),
                             ContentBlock.Text(createSimpleText("1. Not suitable for non-integer or negative values without modifications.")),
                             ContentBlock.Text(createSimpleText("2. Inefficient for large ranges (k >> n) due to memory consumption.")),
                             ContentBlock.Text(createSimpleText("3. Cannot handle complex data structures without additional processing."))
@@ -1336,30 +1336,23 @@ int main() {
                         title = "Manual Walkthrough",
                         description = "Step through an example to understand how Radix Sort works in practice.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    """
-                        Let's walk through an example of Radix Sort:
-                        
-                        **Initial Array**: [170, 45, 75, 90, 802, 24, 2, 66]
-
-                        - **Step 1**: Process the least significant digit (units place):
-                          Buckets: [170, 90, 802] | [2] | [24] | [45, 75, 66]
-                          Merged: [802, 2, 24, 45, 66, 75, 170, 90]
-                        
-                        - **Step 2**: Process the tens place:
-                          Buckets: [802, 2] | [24] | [45] | [66] | [75] | [170, 90]
-                          Merged: [802, 2, 24, 45, 66, 75, 170, 90]
-                        
-                        - **Step 3**: Process the hundreds place:
-                          Buckets: [2, 24, 45, 66, 75, 90] | [170] | [802]
-                          Merged: [2, 24, 45, 66, 75, 90, 170, 802]
-                        
-                        **Final Sorted Array**: [2, 24, 45, 66, 75, 90, 170, 802]
-                        """.trimIndent(),
-                                    listOf()
-                                )
-                            )
+                            ContentBlock.Text(createSimpleText("Let's sort the array {170, 45, 75, 90, 802, 24, 2, 66} step-by-step.")),
+                            ContentBlock.Text(createAnnotatedText("Pass 1:", listOf("Pass 1:"))),
+                            ContentBlock.Text(createSimpleText("Process the least significant digit (units place).")),
+                            ContentBlock.Text(createSimpleText("Initial array: [170, 45, 75, 90, 802, 24, 2, 66].")),
+                            ContentBlock.Text(createSimpleText("Buckets after sorting by units place: [170, 90, 802] | [2] | [24] | [45, 75, 66].")),
+                            ContentBlock.Text(createSimpleText("Merged array after Pass 1: [802, 2, 24, 45, 66, 75, 170, 90].")),
+                            ContentBlock.Text(createAnnotatedText("Pass 2:", listOf("Pass 2:"))),
+                            ContentBlock.Text(createSimpleText("Process the tens place.")),
+                            ContentBlock.Text(createSimpleText("Buckets after sorting by tens place: [802, 2] | [24] | [45] | [66] | [75] | [170, 90].")),
+                            ContentBlock.Text(createSimpleText("Merged array after Pass 2: [802, 2, 24, 45, 66, 75, 170, 90].")),
+                            ContentBlock.Text(createAnnotatedText("Pass 3:", listOf("Pass 3:"))),
+                            ContentBlock.Text(createSimpleText("Process the hundreds place.")),
+                            ContentBlock.Text(createSimpleText("Buckets after sorting by hundreds place: [2, 24, 45, 66, 75, 90] | [170] | [802].")),
+                            ContentBlock.Text(createSimpleText("Merged array after Pass 3: [2, 24, 45, 66, 75, 90, 170, 802].")),
+                            ContentBlock.Text(createAnnotatedText("Pass 4:", listOf("Pass 4:"))),
+                            ContentBlock.Text(createSimpleText("Radix Sort is complete, and the array is sorted: [2, 24, 45, 66, 75, 90, 170, 802].")),
+                            ContentBlock.Text(createSimpleText("Radix Sort works by processing digits from the least significant to the most significant, sorting the array step-by-step.")),
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
@@ -1496,31 +1489,26 @@ int main() {
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson11_subs[1],
-                        title = "Step-by-Step Explanation",
-                        description = "Learn how Merge Sort works step by step.",
+                        title = "Manual Walkthrough",
+                        description = "Manually walk through an example to understand how Merge Sort works.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    """
-                        **How Merge Sort works:**
-                        1. Divide the array into two halves.
-                        2. Recursively split each half until each sub-array contains only one element.
-                        3. Merge sub-arrays by comparing their elements and placing the smallest element first.
-                        4. Repeat the merging process until all sub-arrays are combined into a single sorted array.
-                        """.trimIndent(),
-                                    listOf()
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-                    // Example:
-                    Input: [12, 8, 9, 3, 11, 5, 4]
-                    Step 1: Split the array into halves.
-                    Step 2: Recursively split halves into smaller sub-arrays.
-                    Step 3: Merge sub-arrays by comparing and sorting elements.
-                    Result: [3, 4, 5, 8, 9, 11, 12]
-                    """.trimIndent()
-                            )
+                            ContentBlock.Text(createSimpleText("Let's manually sort the array [38, 27, 43, 3, 9, 82, 10] step-by-step.")),
+                            ContentBlock.Text(createAnnotatedText("Pass 1:", listOf("Pass 1:"))),
+                            ContentBlock.Text(createSimpleText("Split the array into two halves: [38, 27, 43] and [3, 9, 82, 10].")),
+                            ContentBlock.Text(createSimpleText("Further split [38, 27, 43] into [38], [27], and [43].")),
+                            ContentBlock.Text(createSimpleText("Further split [3, 9, 82, 10] into [3, 9] and [82, 10].")),
+                            ContentBlock.Text(createSimpleText("Continue dividing until each sub-array has one element.")),
+                            ContentBlock.Text(createAnnotatedText("Pass 2:", listOf("Step 2:"))),
+                            ContentBlock.Text(createSimpleText("Start merging the divided sub-arrays step-by-step:")),
+                            ContentBlock.Text(createSimpleText("Merge [38] and [27] into [27, 38].")),
+                            ContentBlock.Text(createSimpleText("Merge [27, 38] and [43] into [27, 38, 43].")),
+                            ContentBlock.Text(createSimpleText("Merge [3] and [9] into [3, 9].")),
+                            ContentBlock.Text(createSimpleText("Merge [82] and [10] into [10, 82].")),
+                            ContentBlock.Text(createSimpleText("Merge [3, 9] and [10, 82] into [3, 9, 10, 82].")),
+                            ContentBlock.Text(createSimpleText("Finally, merge [27, 38, 43] and [3, 9, 10, 82] into [3, 9, 10, 27, 38, 43, 82].")),
+                            ContentBlock.Text(createAnnotatedText("Pass 3:", listOf("Step 3:"))),
+                            ContentBlock.Text(createSimpleText("The array is now fully sorted: [3, 9, 10, 27, 38, 43, 82].")),
+                            ContentBlock.Text(createSimpleText("Merge Sort works by repeatedly dividing the array into halves and then merging them back together in sorted order."))
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
@@ -1585,21 +1573,6 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson11_subs[3],
-                        title = "Quiz",
-                        description = "Test your knowledge with a quiz.",
-                        contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "What is the time complexity of Merge Sort?",
-                                options = listOf("O(n^2)", "O(n log n)", "O(n)"),
-                                correctAnswer = "O(n log n)",
-                                userAnswer = null,
-                                isCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.QUIZ
-                    ),
-                    LessonContent(
                         id = DSABeginnerStageIds.lesson11_subs[4],
                         title = "Advantages of Merge Sort",
                         description = "Learn why Merge Sort is widely used.",
@@ -1612,6 +1585,32 @@ int main() {
                         - **Stability**: It preserves the relative order of equal elements, which is crucial for certain applications.
                         - **Simplicity**: Its recursive nature makes it conceptually easy to understand.
                         """.trimIndent(),
+                                    listOf()
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSABeginnerStageIds.lesson11_subs[5],
+                        title = "Importance of Merge Sort",
+                        description = "Understand why Merge Sort is essential in computer science.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Merge Sort is an essential algorithm for understanding divide-and-conquer techniques. It demonstrates how complex problems can be broken down into smaller, manageable tasks and solved efficiently through recursion.",
+                                    listOf()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "The stability of Merge Sort makes it ideal for sorting linked lists and external data storage systems, where maintaining the relative order of equal elements is critical. It is widely used in applications requiring reliable and predictable sorting performance.",
+                                    listOf()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "By learning Merge Sort, you gain a foundation for understanding advanced algorithms in data processing, database management, and scientific computing. Its efficiency and versatility make it a cornerstone in the study of sorting algorithms.",
                                     listOf()
                                 )
                             )
@@ -1785,12 +1784,12 @@ int main() {
                                 createAnnotatedText(
                                     """
                         How Binary Search works:
-                        1. Start with two pointers: `left` at the beginning and `right` at the end of the array.
-                        2. Calculate the middle index using `(left + right) // 2`.
+                        1. Start with two pointers: left at the beginning and right at the end of the array.
+                        2. Calculate the middle index using (left + right) // 2.
                         3. Compare the value at the middle index with the target:
                             - If equal, return the middle index.
-                            - If the target is smaller, move the `right` pointer to `mid - 1`.
-                            - If the target is larger, move the `left` pointer to `mid + 1`.
+                            - If the target is smaller, move the right pointer to mid - 1.
+                            - If the target is larger, move the left pointer to mid + 1.
                         4. Repeat steps 2-3 until the target is found or the pointers overlap.
                         """.trimIndent(),
                                     listOf()
@@ -1802,8 +1801,8 @@ int main() {
                     Array: [1, 3, 5, 7, 9, 11, 13]
                     Target: 9
                     
-                    Step 1: Check middle (index 3), value 7 < 9. Adjust `left` to index 4.
-                    Step 2: Check middle (index 5), value 11 > 9. Adjust `right` to index 4.
+                    Step 1: Check middle (index 3), value 7 < 9. Adjust left to index 4.
+                    Step 2: Check middle (index 5), value 11 > 9. Adjust right to index 4.
                     Step 3: Check middle (index 4), value 9 == 9. Return index 4.
                     """.trimIndent()
                             )
