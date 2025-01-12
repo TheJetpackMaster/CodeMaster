@@ -1051,7 +1051,7 @@ int main() {
             // lesson 8
             Lesson(
                 id = DSABeginnerStageIds.lesson8,
-                title = "Quicksort Algorithm",
+                title = "Quick Sort ",
                 description = "Learn the Quicksort algorithm, one of the fastest sorting algorithms, and understand how it works through recursion! 🚀",
                 lessonContents = listOf(
                     LessonContent(
