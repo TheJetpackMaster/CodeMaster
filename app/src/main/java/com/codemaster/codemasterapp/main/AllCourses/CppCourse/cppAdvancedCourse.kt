@@ -585,7 +585,7 @@ int main() {
                                 )
                             )
                         ),
-                        type = LessonContentType.INTERACTIVE,
+                        type = LessonContentType.NON_INTERACTIVE,
                        status = LessonStatus.LOCKED
                     )
                 ),
