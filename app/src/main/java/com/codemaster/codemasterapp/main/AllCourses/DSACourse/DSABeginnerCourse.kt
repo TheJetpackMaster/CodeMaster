@@ -572,11 +572,11 @@ int main() {
                         title = "Introduction to Bubble Sort",
                         description = "What is Bubble Sort, and how does it work?",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Bubble Sort is an algorithm that sorts an array from the lowest value to the highest value.")),
-                            ContentBlock.Text(createSimpleText("The name 'Bubble' comes from the way higher values 'bubble up' to their correct position.")),
-                            ContentBlock.Text(createSimpleText("Bubble Sort repeatedly steps through the array, compares adjacent elements, and swaps them if they are in the wrong order.")),
-                            ContentBlock.Text(createSimpleText("This process is repeated until the array is sorted.")),
-                            ContentBlock.Text(createSimpleText("**Importance of this Lesson**: Understanding the Bubble Sort algorithm helps you grasp the concept of sorting and the idea of comparing and swapping elements in an array. This lesson serves as the foundation for more advanced sorting algorithms."))  // Added importance here
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Bubble Sort is a simple algorithm that sorts an array by repeatedly comparing and swapping adjacent elements to place higher values in their correct position. This process continues until the array is fully sorted. Learning Bubble Sort builds a foundation for understanding sorting concepts and prepares you for more advanced algorithms."
+                                )
+                            )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
@@ -586,25 +586,25 @@ int main() {
                         description = "Manually understand how Bubble Sort works by stepping through an example.",
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("Consider an unsorted array: [7, 12, 9, 11, 3]. We will sort it step by step using Bubble Sort.")),
-                            ContentBlock.Text(createSimpleText("Pass 1:")),
+                            ContentBlock.Text(createAnnotatedText("Pass 1:", listOf("Pass 1:"))),
                             ContentBlock.Text(createSimpleText("Step 1: Compare the first two values (7 and 12). No swap is needed, as 7 < 12.")),
                             ContentBlock.Text(createSimpleText("Step 2: Compare 12 and 9. Swap them to make [7, 9, 12, 11, 3].")),
                             ContentBlock.Text(createSimpleText("Step 3: Compare 12 and 11. Swap them to make [7, 9, 11, 12, 3].")),
                             ContentBlock.Text(createSimpleText("Step 4: Compare 12 and 3. Swap them to make [7, 9, 11, 3, 12].")),
                             ContentBlock.Text(createSimpleText("At the end of Pass 1, the largest value (12) is placed in its correct position.")),
-                            ContentBlock.Text(createSimpleText("Pass 2:")),
+                            ContentBlock.Text(createAnnotatedText("Pass 2:", listOf("Pass 2:"))),
                             ContentBlock.Text(createSimpleText("Step 1: Compare 7 and 9. No swap is needed.")),
                             ContentBlock.Text(createSimpleText("Step 2: Compare 9 and 11. No swap is needed.")),
                             ContentBlock.Text(createSimpleText("Step 3: Compare 11 and 3. Swap them to make [7, 9, 3, 11, 12].")),
                             ContentBlock.Text(createSimpleText("At the end of Pass 2, the second largest value (11) is placed in its correct position.")),
-                            ContentBlock.Text(createSimpleText("Pass 3:")),
+                            ContentBlock.Text(createAnnotatedText("Pass 3:", listOf("Pass 3:"))),
                             ContentBlock.Text(createSimpleText("Step 1: Compare 7 and 9. No swap is needed.")),
                             ContentBlock.Text(createSimpleText("Step 2: Compare 9 and 3. Swap them to make [7, 3, 9, 11, 12].")),
                             ContentBlock.Text(createSimpleText("At the end of Pass 3, the third largest value (9) is in its correct position.")),
-                            ContentBlock.Text(createSimpleText("Pass 4:")),
+                            ContentBlock.Text(createAnnotatedText("Pass 4:",listOf("Pass 4:"))),
                             ContentBlock.Text(createSimpleText("Step 1: Compare 7 and 3. Swap them to make [3, 7, 9, 11, 12].")),
                             ContentBlock.Text(createSimpleText("At the end of Pass 4, the array is fully sorted: [3, 7, 9, 11, 12].")),
-                            ContentBlock.Text(createSimpleText("Final Array:")),
+                            ContentBlock.Text(createAnnotatedText("Final Array:",listOf("Final Array:"))),
                             ContentBlock.Text(createSimpleText("[3, 7, 9, 11, 12].")),
                             ContentBlock.Text(createSimpleText("Notice that with each pass, the largest unsorted value 'bubbles up' to its correct position."))
                         ),
@@ -726,18 +726,17 @@ int main() {
                 lessonContents = listOf(
                     LessonContent(
                         id = DSABeginnerStageIds.lesson6_subs[0],
-                        title = "What is Selection Sort?",
-                        description = "Learn the basics of the Selection Sort algorithm.",
+                        title = "Introduction to Selection Sort",
+                        description = "Get an introduction to the Selection Sort algorithm and its key concepts.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "The Selection Sort algorithm repeatedly selects the smallest element and moves it to its correct position in the sorted portion of the array.",
-                                    listOf("")
+                                createSimpleText(
+                                    "Selection Sort is a fundamental sorting algorithm that works by repeatedly selecting the smallest element from the unsorted portion of the array and swapping it with the element at the beginning of the unsorted section."
                                 )
                             ),
                             ContentBlock.Text(
                                 createSimpleText(
-                                    "It has a time complexity of O(n²) and is easy to understand but not the most efficient for larger datasets."
+                                    "Although simple to implement, Selection Sort has a time complexity of O(n²), making it less efficient for large datasets compared to algorithms like Merge Sort or Quick Sort."
                                 )
                             )
                         ),
@@ -748,25 +747,27 @@ int main() {
                         title = "Manual Walkthrough",
                         description = "Understand Selection Sort step-by-step with a practical example.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Consider this array: [7, 12, 9, 11, 3].",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    "Step 1: Find the smallest value (3) and move it to the front.\n" +
-                                            "Step 2: Look at the unsorted portion and repeat the process until the array is sorted."
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-Step 1: [3, 12, 9, 11, 7]
-Step 2: [3, 7, 9, 11, 12]
-Sorted array: [3, 7, 9, 11, 12]
-""".trimIndent()
-                            )
+                            ContentBlock.Text(createSimpleText("Consider an unsorted array: [7, 12, 9, 11, 3]. We will sort it step by step using Selection Sort.")),
+                            ContentBlock.Text(createAnnotatedText("Pass 1:", listOf("Pass 1:"))),
+                            ContentBlock.Text(createSimpleText("Step 1: Find the smallest element in the array (3).")),
+                            ContentBlock.Text(createSimpleText("Step 2: Swap 3 with the first element (7).")),
+                            ContentBlock.Text(createSimpleText("Array after Pass 1: [3, 12, 9, 11, 7].")),
+                            ContentBlock.Text(createAnnotatedText("Pass 2:", listOf("Pass 2:"))),
+                            ContentBlock.Text(createSimpleText("Step 1: Look at the unsorted portion [12, 9, 11, 7].")),
+                            ContentBlock.Text(createSimpleText("Step 2: Find the smallest element (7).")),
+                            ContentBlock.Text(createSimpleText("Step 3: Swap 7 with the first element of the unsorted portion (12).")),
+                            ContentBlock.Text(createSimpleText("Array after Pass 2: [3, 7, 9, 11, 12].")),
+                            ContentBlock.Text(createAnnotatedText("Pass 3:", listOf("Pass 3:"))),
+                            ContentBlock.Text(createSimpleText("Step 1: Look at the unsorted portion [9, 11, 12].")),
+                            ContentBlock.Text(createSimpleText("Step 2: Find the smallest element (9). No swap is needed as it’s already in the correct position.")),
+                            ContentBlock.Text(createSimpleText("Array after Pass 3: [3, 7, 9, 11, 12].")),
+                            ContentBlock.Text(createAnnotatedText("Pass 4:", listOf("Pass 4:"))),
+                            ContentBlock.Text(createSimpleText("Step 1: Look at the unsorted portion [11, 12].")),
+                            ContentBlock.Text(createSimpleText("Step 2: Find the smallest element (11). No swap is needed.")),
+                            ContentBlock.Text(createSimpleText("Array after Pass 4: [3, 7, 9, 11, 12].")),
+                            ContentBlock.Text(createAnnotatedText("Final Array:", listOf("Final Array:"))),
+                            ContentBlock.Text(createSimpleText("[3, 7, 9, 11, 12].")),
+                            ContentBlock.Text(createSimpleText("Notice that with each pass, the smallest unsorted value is placed in its correct position, reducing the size of the unsorted portion."))
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
@@ -845,6 +846,19 @@ int main() {
                             ContentBlock.Text(
                                 createSimpleText(
                                     "This makes it less efficient than other algorithms like Merge Sort or Quick Sort for larger datasets."
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSABeginnerStageIds.lesson6_subs[5],
+                        title = "Importance of Selection Sort",
+                        description = "Explore where and why Selection Sort is used in practical scenarios.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Selection Sort is valued for its simplicity, making it ideal for educational purposes and small datasets. It sorts in place, requiring no extra memory, and minimizes unnecessary swaps. While not efficient for large datasets, it helps build foundational knowledge for understanding advanced algorithms like Merge Sort and Quick Sort."
                                 )
                             )
                         ),
