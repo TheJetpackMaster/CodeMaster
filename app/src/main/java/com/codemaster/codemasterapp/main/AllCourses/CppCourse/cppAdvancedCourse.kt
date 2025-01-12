@@ -558,7 +558,7 @@ int main() {
                                     "By using the class name as the variable type",
                                     "By defining a function"
                                 ),
-                                correctAnswer = "int age;",
+                                correctAnswer = "By using the class name as the variable type",
                                 userAnswer = null,
                                 isCorrect = false
                             ),
