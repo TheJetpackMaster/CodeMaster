@@ -601,10 +601,15 @@ int main() {
                             ContentBlock.Text(createSimpleText("Step 1: Compare 7 and 9. No swap is needed.")),
                             ContentBlock.Text(createSimpleText("Step 2: Compare 9 and 3. Swap them to make [7, 3, 9, 11, 12].")),
                             ContentBlock.Text(createSimpleText("At the end of Pass 3, the third largest value (9) is in its correct position.")),
-                            ContentBlock.Text(createAnnotatedText("Pass 4:",listOf("Pass 4:"))),
+                            ContentBlock.Text(createAnnotatedText("Pass 4:", listOf("Pass 4:"))),
                             ContentBlock.Text(createSimpleText("Step 1: Compare 7 and 3. Swap them to make [3, 7, 9, 11, 12].")),
                             ContentBlock.Text(createSimpleText("At the end of Pass 4, the array is fully sorted: [3, 7, 9, 11, 12].")),
-                            ContentBlock.Text(createAnnotatedText("Final Array:",listOf("Final Array:"))),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Final Array:",
+                                    listOf("Final Array:")
+                                )
+                            ),
                             ContentBlock.Text(createSimpleText("[3, 7, 9, 11, 12].")),
                             ContentBlock.Text(createSimpleText("Notice that with each pass, the largest unsorted value 'bubbles up' to its correct position."))
                         ),
@@ -765,7 +770,12 @@ int main() {
                             ContentBlock.Text(createSimpleText("Step 1: Look at the unsorted portion [11, 12].")),
                             ContentBlock.Text(createSimpleText("Step 2: Find the smallest element (11). No swap is needed.")),
                             ContentBlock.Text(createSimpleText("Array after Pass 4: [3, 7, 9, 11, 12].")),
-                            ContentBlock.Text(createAnnotatedText("Final Array:", listOf("Final Array:"))),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Final Array:",
+                                    listOf("Final Array:")
+                                )
+                            ),
                             ContentBlock.Text(createSimpleText("[3, 7, 9, 11, 12].")),
                             ContentBlock.Text(createSimpleText("Notice that with each pass, the smallest unsorted value is placed in its correct position, reducing the size of the unsorted portion."))
                         ),
@@ -876,32 +886,55 @@ int main() {
                 lessonContents = listOf(
                     LessonContent(
                         id = DSABeginnerStageIds.lesson7_subs[0],
-                        title = "Insertion Sort Overview",
-                        description = "Introduction to the Insertion Sort algorithm.",
+                        title = "Introduction to Insertion Sort",
+                        description = "Get an introduction to the Insertion Sort algorithm and its basics.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Insertion Sort works by gradually building a sorted part of the array, one element at a time. It compares each unsorted element with the sorted part and inserts it into the right position. This process continues until the entire array is sorted.",
-                                    listOf("")
+                                createSimpleText(
+                                    "Insertion Sort is a simple and intuitive sorting algorithm that processes the array one element at a time, inserting each into its proper position in the sorted part of the array."
                                 )
                             ),
-                            ContentBlock.Text(createSimpleText("The algorithm's complexity is O(n^2), making it slower for large arrays.")),
-                            ContentBlock.Text(createSimpleText("Insertion Sort works best with small or partially sorted arrays."))
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "While it has a time complexity of O(n²), making it less suitable for large datasets, its simplicity and effectiveness on small or nearly sorted arrays make it a valuable tool."
+                                )
+                            )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson7_subs[1],
-                        title = "Manual Run Through",
-                        description = "Manually walk through the steps of Insertion Sort.",
+                        title = "Manual Walkthrough",
+                        description = "Manually walk through the steps of Insertion Sort to understand its process.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Let’s manually go through an unsorted array to see how Insertion Sort works:")),
-                            ContentBlock.Text(createSimpleText("Start with an unsorted array: [7, 12, 9, 11, 3]")),
-                            ContentBlock.Text(createSimpleText("Step 1: The first value (7) is considered the sorted part of the array.")),
-                            ContentBlock.Text(createSimpleText("Step 2: The second value (12) is already in the correct place.")),
-                            ContentBlock.Text(createSimpleText("Step 3: Insert the third value (9) into the sorted part, resulting in [7, 9, 12, 11, 3].")),
-                            ContentBlock.Text(createSimpleText("Step 4: Insert 11 into the correct position, resulting in [7, 9, 11, 12, 3].")),
-                            ContentBlock.Text(createSimpleText("Step 5: Insert the last value (3) in front of all values to get the sorted array: [3, 7, 9, 11, 12]."))
+                            ContentBlock.Text(createSimpleText("Consider an unsorted array: [7, 12, 9, 11, 3]. We will sort it step by step using Insertion Sort.")),
+                            ContentBlock.Text(createAnnotatedText("Pass 1:", listOf("Pass 1:"))),
+                            ContentBlock.Text(createSimpleText("Treat the first value (7) as sorted.")),
+                            ContentBlock.Text(createSimpleText("Sorted array after Step 1: [7].")),
+                            ContentBlock.Text(createAnnotatedText("Pass 2:", listOf("Pass 2:"))),
+                            ContentBlock.Text(createSimpleText("Compare and insert 12 into the correct position in the sorted portion.")),
+                            ContentBlock.Text(createSimpleText("Sorted array after Step 2: [7, 12].")),
+                            ContentBlock.Text(createAnnotatedText("Pass 3:", listOf("Pass 3:"))),
+                            ContentBlock.Text(createSimpleText("Compare and insert 9 into the correct position in the sorted portion.")),
+                            ContentBlock.Text(createSimpleText("Sorted array after Step 3: [7, 9, 12].")),
+                            ContentBlock.Text(createAnnotatedText("Pass 4:", listOf("Pass 4:"))),
+                            ContentBlock.Text(createSimpleText("Compare and insert 11 into the correct position in the sorted portion.")),
+                            ContentBlock.Text(createSimpleText("Sorted array after Step 4: [7, 9, 11, 12].")),
+                            ContentBlock.Text(createAnnotatedText("Pass 5:", listOf("Pass 5:"))),
+                            ContentBlock.Text(createSimpleText("Compare and insert 3 into the correct position in the sorted portion.")),
+                            ContentBlock.Text(createSimpleText("Sorted array after Step 5: [3, 7, 9, 11, 12].")),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Final Array:",
+                                    listOf("Final Array:")
+                                )
+                            ),
+                            ContentBlock.Text(createSimpleText("[3, 7, 9, 11, 12].")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "With each step, the next element from the unsorted portion is inserted into the correct position in the sorted portion, gradually forming the fully sorted array."
+                                )
+                            )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
@@ -923,13 +956,12 @@ int main() {
 
     for (int i = 1; i < n; i++) {
         int current_value = my_array[i];
-        int insert_index = i;
-        for (int j = i - 1; j >= 0; j--) {
-            if (my_array[j] > current_value) {
-                insert_index = j;
-            }
+        int j = i - 1;
+        while (j >= 0 && my_array[j] > current_value) {
+            my_array[j + 1] = my_array[j];
+            j--;
         }
-        my_array.insert(my_array.begin() + insert_index, current_value);
+        my_array[j + 1] = current_value;
     }
 
     cout << "Sorted array: ";
@@ -993,6 +1025,25 @@ int main() {
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
+
+                    LessonContent(
+                        id = DSABeginnerStageIds.lesson7_subs[4],
+                        title = "Importance of Insertion Sort",
+                        description = "Understand the significance of learning Insertion Sort.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Insertion Sort is a foundational algorithm that helps learners understand key concepts like iterative sorting and in-place operations. It’s simple to grasp, making it a great starting point for learning more advanced sorting techniques."
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Although not efficient for large datasets, it shines when working with small or nearly sorted arrays and is often used in introductory programming courses."
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    )
                 ),
                 status = LessonStatus.LOCKED
             ),
@@ -1000,7 +1051,7 @@ int main() {
             // lesson 8
             Lesson(
                 id = DSABeginnerStageIds.lesson8,
-                title = "Quicksort Algorithm",
+                title = "Quick Sort",
                 description = "Learn the Quicksort algorithm, one of the fastest sorting algorithms, and understand how it works through recursion! 🚀",
                 lessonContents = listOf(
                     LessonContent(
@@ -1020,7 +1071,6 @@ int main() {
                         description = "Learn the step-by-step process of how Quicksort works, including recursion and partitioning.",
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("Here are the steps involved in the Quicksort algorithm:")),
-
                             ContentBlock.Text(createSimpleText("1. Choose a pivot element from the array.")),
                             ContentBlock.Text(createSimpleText("2. Partition the array into two sub-arrays: values less than the pivot on the left, and values greater than the pivot on the right.")),
                             ContentBlock.Text(createSimpleText("3. Recursively apply the same process to the sub-arrays.")),
@@ -1030,16 +1080,23 @@ int main() {
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson8_subs[2],
-                        title = "Manual Run Through",
-                        description = "Walk through the algorithm with an example to better understand its steps.",
+                        title = "Manual Walkthrough",
+                        description = "Walk through an example array to understand Quicksort step by step.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Let’s run Quicksort on an unsorted array: [11, 9, 12, 7, 3]")),
-
-                            ContentBlock.Text(createSimpleText("1. Start with the array: [11, 9, 12, 7, 3]")),
-                            ContentBlock.Text(createSimpleText("2. Choose the pivot element (last element, 3).")),
-                            ContentBlock.Text(createSimpleText("3. Rearrange the elements to have values less than the pivot to its left: [3, 9, 12, 7, 11]")),
-                            ContentBlock.Text(createSimpleText("4. Recursively apply the same process for the sub-arrays.")),
-                            ContentBlock.Text(createSimpleText("After recursively sorting, the array becomes: [3, 7, 9, 11, 12]")),
+                            ContentBlock.Text(createSimpleText("Consider an unsorted array: [10, 7, 8, 9, 1, 5]. We will sort it using Quicksort step-by-step.")),
+                            ContentBlock.Text(createAnnotatedText("Step 1:", listOf("Step 1:"))),
+                            ContentBlock.Text(createSimpleText("Choose the pivot element (5) and partition the array into [1] and [10, 7, 8, 9].")),
+                            ContentBlock.Text(createSimpleText("After partitioning, the array looks like: [1, 5, 10, 7, 8, 9].")),
+                            ContentBlock.Text(createAnnotatedText("Step 2:", listOf("Step 2:"))),
+                            ContentBlock.Text(createSimpleText("Recursively apply Quicksort to the left sub-array [1], which is already sorted.")),
+                            ContentBlock.Text(createSimpleText("Apply Quicksort to the right sub-array [10, 7, 8, 9].")),
+                            ContentBlock.Text(createAnnotatedText("Step 3:", listOf("Step 3:"))),
+                            ContentBlock.Text(createSimpleText("Choose the pivot element (9) and partition the array into [7, 8] and [10].")),
+                            ContentBlock.Text(createSimpleText("After partitioning, the array looks like: [1, 5, 7, 8, 9, 10].")),
+                            ContentBlock.Text(createAnnotatedText("Step 4:", listOf("Step 4:"))),
+                            ContentBlock.Text(createSimpleText("Recursively apply Quicksort to [7, 8], which is already sorted.")),
+                            ContentBlock.Text(createSimpleText("Now, the entire array is sorted: [1, 5, 7, 8, 9, 10].")),
+                            ContentBlock.Text(createSimpleText("Quicksort completes the sorting by recursively sorting smaller sub-arrays efficiently.")),
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
@@ -1059,11 +1116,10 @@ int main() {
                         description = "Learn how to implement the Quicksort algorithm in code.",
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("Here’s how you can implement the Quicksort algorithm in C++:")),
-
                             ContentBlock.Code(
                                 """
                     #include <iostream>
-                    #using namespace std;
+                    using namespace std;
 
                     int partition(int array[], int low, int high) {
                         int pivot = array[high];
@@ -1100,7 +1156,7 @@ int main() {
                     }
                     """.trimIndent()
                             ),
-                            ContentBlock.Text(createSimpleText("In this C++ implementation, the `partition` function selects a pivot and rearranges elements accordingly. The `quicksort` function is recursively called on the sub-arrays.")),
+                            ContentBlock.Text(createSimpleText("In this C++ implementation, the partition function selects a pivot and rearranges elements accordingly. The quicksort function is recursively called on the sub-arrays.")),
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
@@ -1117,19 +1173,16 @@ int main() {
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson8_subs[6],
-                        title = "Quiz: Quicksort Basics",
-                        description = "Test your understanding of the Quicksort algorithm.",
+                        title = "Importance of Quicksort",
+                        description = "Learn why Quicksort is an important and widely used sorting algorithm.",
                         contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "What is the time complexity of the Quicksort algorithm in the best case?",
-                                options = listOf("O(n^2)", "O(n log n)", "O(n)", "O(log n)"),
-                                correctAnswer = "O(n log n)",
-                                userAnswer = null,
-                                isCorrect = false
-                            )
+                            ContentBlock.Text(createSimpleText("Quicksort is important because of its efficiency and flexibility. It is widely used in system-level applications and libraries.")),
+                            ContentBlock.Text(createSimpleText("It performs exceptionally well for large datasets due to its O(n log n) average-case time complexity.")),
+                            ContentBlock.Text(createSimpleText("Quicksort is also versatile and can be adapted to different data types and structures.")),
+                            ContentBlock.Text(createSimpleText("Many built-in sorting functions in programming languages use variations of Quicksort due to its practical performance.")),
                         ),
-                        type = LessonContentType.QUIZ
-                    )
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
                 ),
                 status = LessonStatus.LOCKED
             ),
@@ -1154,8 +1207,8 @@ int main() {
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Conditions for Counting Sort: values must be non-negative integers, and the range of possible values (k) should be smaller than the number of elements (n).",
-                                    listOf("k", "n")
+                                    "Conditions for Counting Sort: values must be non-negative integers, and the range of possible values 'k' should be smaller than the number of elements 'n'.",
+                                    listOf("Conditions for Counting Sort", "'k'", "'n'")
                                 )
                             )
                         ),
@@ -1163,6 +1216,28 @@ int main() {
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson9_subs[1],
+                        title = "Manual Walkthrough",
+                        description = "Walk through an example array to understand Counting Sort step by step.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(createSimpleText("Let's sort the array {2, 3, 0, 2, 3, 2} step-by-step.")),
+                            ContentBlock.Text(createAnnotatedText("Pass 1:", listOf("Pass 1:"))),
+                            ContentBlock.Text(createSimpleText("Count the occurrences of each value in the array.")),
+                            ContentBlock.Text(createSimpleText("Initial array: [2, 3, 0, 2, 3, 2].")),
+                            ContentBlock.Text(createSimpleText("Count array after counting occurrences: [1, 0, 3, 2].")),
+                            ContentBlock.Text(createAnnotatedText("Pass 2:", listOf("Pass 2:"))),
+                            ContentBlock.Text(createSimpleText("Modify the count array to store cumulative counts.")),
+                            ContentBlock.Text(createSimpleText("Cumulative count array: [1, 1, 4, 6].")),
+                            ContentBlock.Text(createAnnotatedText("Pass 3:", listOf("Pass 3:"))),
+                            ContentBlock.Text(createSimpleText("Place each element from the original array into its sorted position.")),
+                            ContentBlock.Text(createSimpleText("Sorted array after placing elements: [0, 2, 2, 2, 3, 3].")),
+                            ContentBlock.Text(createAnnotatedText("Pass 4:", listOf("Pass 4:"))),
+                            ContentBlock.Text(createSimpleText("Counting Sort is complete, and the array is sorted: [0, 2, 2, 2, 3, 3].")),
+                            ContentBlock.Text(createSimpleText("Counting Sort efficiently sorts the array by counting occurrences and leveraging cumulative counts.")),
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSABeginnerStageIds.lesson9_subs[2],
                         title = "How Counting Sort Works",
                         description = "Learn step-by-step how Counting Sort sorts arrays.",
                         contentBlocks = listOf(
@@ -1200,29 +1275,42 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson9_subs[2],
-                        title = "Manual Walkthrough",
-                        description = "Understand Counting Sort through a manual walkthrough.",
+                        id = DSABeginnerStageIds.lesson9_subs[3],
+                        title = "Advantages and Limitations of Counting Sort",
+                        description = "Explore the pros and cons of Counting Sort and understand when to use it.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Let's sort the array {2, 3, 0, 2, 3, 2} step-by-step.")),
-                            ContentBlock.Code(
-                                """
-                    // Initial array
-                    arr = [2, 3, 0, 2, 3, 2]
-                    
-                    // Step 1: Count occurrences
-                    countArray = [1, 0, 3, 2]  // Count values 0, 1, 2, 3
-                    
-                    // Step 2: Cumulative counts
-                    countArray = [1, 1, 4, 6]  // Modify to cumulative counts
-                    
-                    // Step 3: Sort the array
-                    sortedArray = [0, 2, 2, 2, 3, 3]  // Final sorted result
-                    """.trimIndent()
-                            )
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Advantages:",
+                                    listOf("Advantages:")
+                                )
+                            ),
+                            ContentBlock.Text(createSimpleText("1. Works efficiently for small ranges of integers.")),
+                            ContentBlock.Text(createSimpleText("2. Stable sort: maintains relative order of elements with equal keys.")),
+                            ContentBlock.Text(createSimpleText("3. Has a linear time complexity, O(n + k), in most cases.")),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Limitations:",
+                                    listOf("Limitations:")
+                                )
+                            ),
+                            ContentBlock.Text(createSimpleText("1. Not suitable for non-integer or negative values without modifications.")),
+                            ContentBlock.Text(createSimpleText("2. Inefficient for large ranges (k >> n) due to memory consumption.")),
+                            ContentBlock.Text(createSimpleText("3. Cannot handle complex data structures without additional processing."))
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
+                    LessonContent(
+                        id = DSABeginnerStageIds.lesson9_subs[4],
+                        title = "Importance of Counting Sort",
+                        description = "Understand why Counting Sort is significant in certain scenarios.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(createSimpleText("Counting Sort is crucial in scenarios requiring high efficiency and stability for sorting small, non-negative integers.")),
+                            ContentBlock.Text(createSimpleText("Examples include sorting exam scores, categorizing data, or preprocessing for algorithms like Radix Sort.")),
+                            ContentBlock.Text(createSimpleText("Its simplicity and speed make it a valuable tool in competitive programming and specialized applications."))
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    )
                 ),
                 status = LessonStatus.LOCKED
             ),
@@ -1255,31 +1343,26 @@ int main() {
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson10_subs[1],
-                        title = "Step-by-Step Explanation",
-                        description = "Learn how Radix Sort works step by step.",
+                        title = "Manual Walkthrough",
+                        description = "Step through an example to understand how Radix Sort works in practice.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    """
-                        How Radix Sort works:
-                        1. Start with the least significant digit.
-                        2. Sort numbers based on the digit in focus.
-                        3. Move numbers to buckets, merge them back into the array.
-                        4. Progress to the next digit and repeat until all digits are processed.
-                        """.trimIndent(),
-                                    listOf()
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-                    // Example:
-                    Input: [170, 45, 75, 90, 802, 24, 2, 66]
-                    Step 1: Sort by the least significant digit.
-                    Step 2: Group numbers into buckets.
-                    Step 3: Merge numbers from buckets back into the array.
-                    Repeat until the most significant digit is sorted.
-                    """.trimIndent()
-                            )
+                            ContentBlock.Text(createSimpleText("Let's sort the array {170, 45, 75, 90, 802, 24, 2, 66} step-by-step.")),
+                            ContentBlock.Text(createAnnotatedText("Pass 1:", listOf("Pass 1:"))),
+                            ContentBlock.Text(createSimpleText("Process the least significant digit (units place).")),
+                            ContentBlock.Text(createSimpleText("Initial array: [170, 45, 75, 90, 802, 24, 2, 66].")),
+                            ContentBlock.Text(createSimpleText("Buckets after sorting by units place: [170, 90, 802] | [2] | [24] | [45, 75, 66].")),
+                            ContentBlock.Text(createSimpleText("Merged array after Pass 1: [802, 2, 24, 45, 66, 75, 170, 90].")),
+                            ContentBlock.Text(createAnnotatedText("Pass 2:", listOf("Pass 2:"))),
+                            ContentBlock.Text(createSimpleText("Process the tens place.")),
+                            ContentBlock.Text(createSimpleText("Buckets after sorting by tens place: [802, 2] | [24] | [45] | [66] | [75] | [170, 90].")),
+                            ContentBlock.Text(createSimpleText("Merged array after Pass 2: [802, 2, 24, 45, 66, 75, 170, 90].")),
+                            ContentBlock.Text(createAnnotatedText("Pass 3:", listOf("Pass 3:"))),
+                            ContentBlock.Text(createSimpleText("Process the hundreds place.")),
+                            ContentBlock.Text(createSimpleText("Buckets after sorting by hundreds place: [2, 24, 45, 66, 75, 90] | [170] | [802].")),
+                            ContentBlock.Text(createSimpleText("Merged array after Pass 3: [2, 24, 45, 66, 75, 90, 170, 802].")),
+                            ContentBlock.Text(createAnnotatedText("Pass 4:", listOf("Pass 4:"))),
+                            ContentBlock.Text(createSimpleText("Radix Sort is complete, and the array is sorted: [2, 24, 45, 66, 75, 90, 170, 802].")),
+                            ContentBlock.Text(createSimpleText("Radix Sort works by processing digits from the least significant to the most significant, sorting the array step-by-step.")),
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
@@ -1360,31 +1443,18 @@ int main() {
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson10_subs[3],
-                        title = "Quiz",
-                        description = "Test your knowledge with a quiz.",
-                        contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "Which digit is processed first in Radix Sort?",
-                                options = listOf(
-                                    "Most significant digit",
-                                    "Least significant digit",
-                                    "Random digit"
-                                ),
-                                correctAnswer = "Least significant digit",
-                                userAnswer = null,
-                                isCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.QUIZ
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson10_subs[4],
                         title = "Importance of Stable Sorting",
                         description = "Understand why stability is crucial in Radix Sort.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     "Radix Sort relies on stable sorting to maintain the relative order of elements with the same value. This ensures that previously sorted digits are preserved while processing the next digit.",
+                                    listOf()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Importance of Radix Sort: It is a highly efficient algorithm for sorting integers and performs better than comparison-based algorithms in certain scenarios. Understanding it gives you insights into the utility of stable sorting techniques.",
                                     listOf()
                                 )
                             )
@@ -1418,10 +1488,10 @@ int main() {
                                 createAnnotatedText(
                                     """
                         The algorithm works in two main stages:
-                        - **Divide**: Recursively split the array into halves until each sub-array has only one element.
-                        - **Conquer**: Merge the sub-arrays back together, comparing and sorting elements as they are merged.
+                        Divide: Recursively split the array into halves until each sub-array has only one element.
+                        Conquer: Merge the sub-arrays back together, comparing and sorting elements as they are merged.
                         """.trimIndent(),
-                                    listOf()
+                                    listOf("Divide", "Conquer")
                                 )
                             )
                         ),
@@ -1429,31 +1499,26 @@ int main() {
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson11_subs[1],
-                        title = "Step-by-Step Explanation",
-                        description = "Learn how Merge Sort works step by step.",
+                        title = "Manual Walkthrough",
+                        description = "Manually walk through an example to understand how Merge Sort works.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    """
-                        **How Merge Sort works:**
-                        1. Divide the array into two halves.
-                        2. Recursively split each half until each sub-array contains only one element.
-                        3. Merge sub-arrays by comparing their elements and placing the smallest element first.
-                        4. Repeat the merging process until all sub-arrays are combined into a single sorted array.
-                        """.trimIndent(),
-                                    listOf()
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-                    // Example:
-                    Input: [12, 8, 9, 3, 11, 5, 4]
-                    Step 1: Split the array into halves.
-                    Step 2: Recursively split halves into smaller sub-arrays.
-                    Step 3: Merge sub-arrays by comparing and sorting elements.
-                    Result: [3, 4, 5, 8, 9, 11, 12]
-                    """.trimIndent()
-                            )
+                            ContentBlock.Text(createSimpleText("Let's manually sort the array [38, 27, 43, 3, 9, 82, 10] step-by-step.")),
+                            ContentBlock.Text(createAnnotatedText("Pass 1:", listOf("Pass 1:"))),
+                            ContentBlock.Text(createSimpleText("Split the array into two halves: [38, 27, 43] and [3, 9, 82, 10].")),
+                            ContentBlock.Text(createSimpleText("Further split [38, 27, 43] into [38], [27], and [43].")),
+                            ContentBlock.Text(createSimpleText("Further split [3, 9, 82, 10] into [3, 9] and [82, 10].")),
+                            ContentBlock.Text(createSimpleText("Continue dividing until each sub-array has one element.")),
+                            ContentBlock.Text(createAnnotatedText("Pass 2:", listOf("Pass 2:"))),
+                            ContentBlock.Text(createSimpleText("Start merging the divided sub-arrays step-by-step:")),
+                            ContentBlock.Text(createSimpleText("Merge [38] and [27] into [27, 38].")),
+                            ContentBlock.Text(createSimpleText("Merge [27, 38] and [43] into [27, 38, 43].")),
+                            ContentBlock.Text(createSimpleText("Merge [3] and [9] into [3, 9].")),
+                            ContentBlock.Text(createSimpleText("Merge [82] and [10] into [10, 82].")),
+                            ContentBlock.Text(createSimpleText("Merge [3, 9] and [10, 82] into [3, 9, 10, 82].")),
+                            ContentBlock.Text(createSimpleText("Finally, merge [27, 38, 43] and [3, 9, 10, 82] into [3, 9, 10, 27, 38, 43, 82].")),
+                            ContentBlock.Text(createAnnotatedText("Pass 3:", listOf("Pass 3:"))),
+                            ContentBlock.Text(createSimpleText("The array is now fully sorted: [3, 9, 10, 27, 38, 43, 82].")),
+                            ContentBlock.Text(createSimpleText("Merge Sort works by repeatedly dividing the array into halves and then merging them back together in sorted order."))
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
@@ -1518,21 +1583,6 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson11_subs[3],
-                        title = "Quiz",
-                        description = "Test your knowledge with a quiz.",
-                        contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "What is the time complexity of Merge Sort?",
-                                options = listOf("O(n^2)", "O(n log n)", "O(n)"),
-                                correctAnswer = "O(n log n)",
-                                userAnswer = null,
-                                isCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.QUIZ
-                    ),
-                    LessonContent(
                         id = DSABeginnerStageIds.lesson11_subs[4],
                         title = "Advantages of Merge Sort",
                         description = "Learn why Merge Sort is widely used.",
@@ -1541,10 +1591,36 @@ int main() {
                                 createAnnotatedText(
                                     """
                         Merge Sort is known for:
-                        - **Efficiency**: It has a predictable O(n log n) time complexity for all cases.
-                        - **Stability**: It preserves the relative order of equal elements, which is crucial for certain applications.
-                        - **Simplicity**: Its recursive nature makes it conceptually easy to understand.
+                        Efficiency: It has a predictable O(n log n) time complexity for all cases.
+                        Stability: It preserves the relative order of equal elements, which is crucial for certain applications.
+                        Simplicity: Its recursive nature makes it conceptually easy to understand.
                         """.trimIndent(),
+                                    listOf("Efficiency", "Stability", "Simplicity")
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSABeginnerStageIds.lesson11_subs[5],
+                        title = "Importance of Merge Sort",
+                        description = "Understand why Merge Sort is essential in computer science.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Merge Sort is an essential algorithm for understanding divide-and-conquer techniques. It demonstrates how complex problems can be broken down into smaller, manageable tasks and solved efficiently through recursion.",
+                                    listOf()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "The stability of Merge Sort makes it ideal for sorting linked lists and external data storage systems, where maintaining the relative order of equal elements is critical. It is widely used in applications requiring reliable and predictable sorting performance.",
+                                    listOf()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "By learning Merge Sort, you gain a foundation for understanding advanced algorithms in data processing, database management, and scientific computing. Its efficiency and versatility make it a cornerstone in the study of sorting algorithms.",
                                     listOf()
                                 )
                             )
@@ -1617,62 +1693,103 @@ int main() {
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson12_subs[2],
+                        title = "Manual Walkthrough",
+                        description = "Manually walk through an example to understand how Merge Sort works step-by-step.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(createSimpleText("Let's manually sort the array [38, 27, 43, 3, 9, 82, 10] step-by-step.")),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Pass 1:",
+                                    listOf("Pass 1:")
+                                )
+                            ),
+                            ContentBlock.Text(createSimpleText("Step 1: Split the array into two halves: [38, 27, 43] and [3, 9, 82, 10].")),
+                            ContentBlock.Text(createSimpleText("Step 2: Further split [38, 27, 43] into [38], [27], and [43].")),
+                            ContentBlock.Text(createSimpleText("Step 3: Further split [3, 9, 82, 10] into [3, 9] and [82, 10].")),
+                            ContentBlock.Text(createSimpleText("Step 4: Continue dividing until each sub-array has one element.")),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Pass 2:",
+                                    listOf("Pass 2:")
+                                )
+                            ),
+                            ContentBlock.Text(createSimpleText("Step 1: Start merging the smallest divided sub-arrays step-by-step.")),
+                            ContentBlock.Text(createSimpleText("Merge [38] and [27] into [27, 38].")),
+                            ContentBlock.Text(createSimpleText("Merge [27, 38] and [43] into [27, 38, 43].")),
+                            ContentBlock.Text(createSimpleText("Merge [3] and [9] into [3, 9].")),
+                            ContentBlock.Text(createSimpleText("Merge [82] and [10] into [10, 82].")),
+                            ContentBlock.Text(createSimpleText("Merge [3, 9] and [10, 82] into [3, 9, 10, 82].")),
+                            ContentBlock.Text(createSimpleText("Finally, merge [27, 38, 43] and [3, 9, 10, 82] into [3, 9, 10, 27, 38, 43, 82].")),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Pass 3:",
+                                    listOf("Pass 3:")
+                                )
+                            ),
+                            ContentBlock.Text(createSimpleText("The array is now fully sorted: [3, 9, 10, 27, 38, 43, 82].")),
+                            ContentBlock.Text(createSimpleText("Merge Sort works by repeatedly dividing the array into halves and then merging them back together in sorted order."))
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSABeginnerStageIds.lesson12_subs[3],
                         title = "Implementation of Linear Search",
-                        description = "Code example of Linear Search in Python.",
+                        description = "Code example of Linear Search in C++.",
                         contentBlocks = listOf(
                             ContentBlock.Code(
                                 """
-                    # Linear Search Implementation
-                    def linearSearch(arr, targetVal):
-                        for i in range(len(arr)):
-                            if arr[i] == targetVal:
-                                return i
-                        return -1
-                    
-                    # Example Usage
-                    arr = [3, 7, 2, 9, 5]
-                    targetVal = 9
-                    
-                    result = linearSearch(arr, targetVal)
-                    
-                    if result != -1:
-                        print("Value", targetVal, "found at index", result)
-                    else:
-                        print("Value", targetVal, "not found")
+                    // Linear Search Implementation in C++
+                    #include <iostream>
+                    using namespace std;
+
+                    int linearSearch(int arr[], int size, int targetVal) {
+                        for (int i = 0; i < size; i++) {
+                            if (arr[i] == targetVal) {
+                                return i;  // Return index if match found
+                            }
+                        }
+                        return -1;  // Return -1 if target value is not found
+                    }
+
+                    int main() {
+                        int arr[] = {3, 7, 2, 9, 5};
+                        int size = sizeof(arr) / sizeof(arr[0]);
+                        int targetVal = 9;
+
+                        int result = linearSearch(arr, size, targetVal);
+
+                        if (result != -1) {
+                            cout << "Value " << targetVal << " found at index " << result << endl;
+                        } else {
+                            cout << "Value " << targetVal << " not found" << endl;
+                        }
+                        return 0;
+                    }
                     """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson12_subs[3],
-                        title = "Quiz",
-                        description = "Test your knowledge with a quiz.",
-                        contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "What is the time complexity of Linear Search in the worst-case scenario?",
-                                options = listOf("O(1)", "O(log n)", "O(n)", "O(n^2)"),
-                                correctAnswer = "O(n)",
-                                userAnswer = null,
-                                isCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.QUIZ
-                    ),
-                    LessonContent(
                         id = DSABeginnerStageIds.lesson12_subs[4],
-                        title = "Time Complexity",
-                        description = "Understand the time complexity of Linear Search.",
+                        title = "Importance of Linear Search",
+                        description = "Understand why Linear Search is a fundamental algorithm.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    """
-                        - Best Case: O(1), when the target is found at the first index.
-                        - Worst Case: O(n), when the target is not present or at the last index.
-                        - Average Case: O(n), assuming random distribution of values.
-                        
-                        Linear Search is less efficient compared to algorithms like Binary Search for large datasets but is simple and works on unsorted arrays.
-                        """.trimIndent(),
+                                    "Linear Search is an essential algorithm for understanding the basics of search techniques. It introduces the concept of sequential search, where each element is checked one by one, making it straightforward to grasp.",
+                                    listOf()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Its simplicity and applicability to both sorted and unsorted datasets make Linear Search versatile for smaller datasets or when other search methods are not feasible. It provides a clear demonstration of algorithmic problem-solving and iterative logic.",
+                                    listOf()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "By learning Linear Search, you build a strong foundation for exploring more complex algorithms like Binary Search and Hashing. Its step-by-step approach helps reinforce the importance of understanding fundamental algorithms in computer science.",
                                     listOf()
                                 )
                             )
@@ -1711,84 +1828,76 @@ int main() {
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson13_subs[1],
-                        title = "How Binary Search Works",
-                        description = "Step-by-step explanation of Binary Search.",
+                        title = "Manual Walkthrough",
+                        description = "A step-by-step manual walkthrough of the Binary Search algorithm.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    """
-                        How Binary Search works:
-                        1. Start with two pointers: `left` at the beginning and `right` at the end of the array.
-                        2. Calculate the middle index using `(left + right) // 2`.
-                        3. Compare the value at the middle index with the target:
-                            - If equal, return the middle index.
-                            - If the target is smaller, move the `right` pointer to `mid - 1`.
-                            - If the target is larger, move the `left` pointer to `mid + 1`.
-                        4. Repeat steps 2-3 until the target is found or the pointers overlap.
-                        """.trimIndent(),
-                                    listOf()
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-                    // Example:
-                    Array: [1, 3, 5, 7, 9, 11, 13]
-                    Target: 9
-                    
-                    Step 1: Check middle (index 3), value 7 < 9. Adjust `left` to index 4.
-                    Step 2: Check middle (index 5), value 11 > 9. Adjust `right` to index 4.
-                    Step 3: Check middle (index 4), value 9 == 9. Return index 4.
-                    """.trimIndent()
-                            )
+                            ContentBlock.Text(createSimpleText("Let's walk through an example to understand how Binary Search works.")),
+                            ContentBlock.Text(createSimpleText("Array: [1, 3, 5, 7, 9, 11, 13]")),
+                            ContentBlock.Text(createSimpleText("Target: 9")),
+
+                            ContentBlock.Text(createAnnotatedText("Pass 1:", listOf("Pass 1:"))),
+                            ContentBlock.Text(createSimpleText("Step 1: Initialize two pointers. Left pointer = 0, Right pointer = 6.")),
+                            ContentBlock.Text(createSimpleText("Step 2: Calculate the middle index: mid = (0 + 6) // 2 = 3. The value at index 3 is 7.")),
+                            ContentBlock.Text(createSimpleText("Step 3: Since 7 < 9, adjust the left pointer to mid + 1. Left pointer = 4.")),
+
+                            ContentBlock.Text(createAnnotatedText("Pass 2:", listOf("Pass 2:"))),
+                            ContentBlock.Text(createSimpleText("Step 4: Recalculate the middle index: mid = (4 + 6) // 2 = 5. The value at index 5 is 11.")),
+                            ContentBlock.Text(createSimpleText("Step 5: Since 11 > 9, adjust the right pointer to mid - 1. Right pointer = 4.")),
+
+                            ContentBlock.Text(createAnnotatedText("Pass 3:", listOf("Pass 3:"))),
+                            ContentBlock.Text(createSimpleText("Step 6: Now, Left pointer = 4 and Right pointer = 4. Check the middle value at index 4, which is 9. This is a match!")),
+                            ContentBlock.Text(createSimpleText("Step 7: Return index 4 as the target value has been found.")),
+
+                            ContentBlock.Text(createSimpleText("Binary Search efficiently narrows down the search range and finds the target value in logarithmic time.")),
+                            ContentBlock.Text(createSimpleText("The array is sorted, and we use the divide-and-conquer method to reduce the search space at each step."))
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson13_subs[2],
                         title = "Implementation of Binary Search",
-                        description = "Code example of Binary Search in Python.",
+                        description = "Code example of Binary Search in C++.",
                         contentBlocks = listOf(
                             ContentBlock.Code(
                                 """
-                    def binary_search(arr, target):
-                        left, right = 0, len(arr) - 1
-                        while left <= right:
-                            mid = (left + right) // 2
-                            if arr[mid] == target:
-                                return mid
-                            elif arr[mid] < target:
-                                left = mid + 1
-                            else:
-                                right = mid - 1
-                        return -1
-                    
-                    # Example usage
-                    my_array = [1, 3, 5, 7, 9, 11, 13]
-                    target = 9
-                    result = binary_search(my_array, target)
-                    print(f"Target found at index {result}" if result != -1 else "Target not found.")
-                    """.trimIndent()
+            #include <iostream>
+            #include <vector>
+
+            int binary_search(const std::vector<int>& arr, int target) {
+                int left = 0, right = arr.size() - 1;
+                while (left <= right) {
+                    int mid = left + (right - left) / 2;
+                    if (arr[mid] == target) {
+                        return mid;
+                    }
+                    else if (arr[mid] < target) {
+                        left = mid + 1;
+                    }
+                    else {
+                        right = mid - 1;
+                    }
+                }
+                return -1;
+            }
+
+            int main() {
+                std::vector<int> my_array = {1, 3, 5, 7, 9, 11, 13};
+                int target = 9;
+                int result = binary_search(my_array, target);
+                if (result != -1) {
+                    std::cout << "Target found at index " << result << std::endl;
+                } else {
+                    std::cout << "Target not found." << std::endl;
+                }
+                return 0;
+            }
+            """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson13_subs[3],
-                        title = "Quiz",
-                        description = "Test your understanding with a quick quiz.",
-                        contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "What is the time complexity of Binary Search?",
-                                options = listOf("O(n)", "O(n^2)", "O(log n)", "O(1)"),
-                                correctAnswer = "O(log n)",
-                                userAnswer = null,
-                                isCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.QUIZ
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson13_subs[4],
                         title = "Binary Search: Time Complexity",
                         description = "Understand why Binary Search is efficient.",
                         contentBlocks = listOf(
@@ -1796,10 +1905,36 @@ int main() {
                                 createAnnotatedText(
                                     """
                         Binary Search is efficient due to its logarithmic time complexity:
-                        - At each step, it reduces the search area by half.
-                        - Even in the worst-case scenario, it only performs log₂(n) comparisons.
+                        At each step, it reduces the search area by half.
+                        Even in the worst-case scenario, it only performs log₂(n) comparisons.
                         This makes it faster than linear search (O(n)), especially for large datasets.
                         """.trimIndent(),
+                                    listOf()
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSABeginnerStageIds.lesson13_subs[4],
+                        title = "Importance of Binary Search",
+                        description = "Understand why Binary Search is essential in computer science.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Binary Search is a key algorithm that demonstrates the efficiency of divide-and-conquer strategies. It forms the foundation for understanding more advanced algorithms in various areas of computer science, such as searching in databases and file systems.",
+                                    listOf()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "By learning Binary Search, you gain insight into efficient data search techniques, crucial for optimizing algorithms in large-scale applications. It is one of the most commonly used search algorithms and forms the basis for more complex searching strategies.",
+                                    listOf()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Mastering Binary Search is essential for building more complex algorithms and is a stepping stone toward understanding other crucial algorithms, like Hashing and Graph Search algorithms.",
                                     listOf()
                                 )
                             )
@@ -1810,8 +1945,6 @@ int main() {
                 status = LessonStatus.LOCKED
             ),
 
-            // continue from here to add more lessons
-
-        )
+            )
     )
 }
