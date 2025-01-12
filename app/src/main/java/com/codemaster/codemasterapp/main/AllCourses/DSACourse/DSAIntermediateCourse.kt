@@ -218,22 +218,13 @@ fun DSAIntermediateCourse(): Stage {
                     LessonContent(
                         id = DSAIntermediateStageIds.lesson2_subs[3],
                         title = "Basic Operations on Linked Lists",
-                        description = "Learn common operations like insertion, deletion, and traversal.",
+                        description = "Learn common operations like insertion, deletion, search, and traversal.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("1. **Insertion**: Adding a node at the beginning, end, or a specific position.\n2. **Deletion**: Removing a node by value or position.\n3. **Traversal**: Visiting each node to access or modify data.")),
-                            ContentBlock.Code(
-                                """
-                    // Example: Traversing a Linked List
-                    void traverse(struct Node* head) {
-                        struct Node* current = head;
-                        while (current != NULL) {
-                            printf("%d -> ", current->data);
-                            current = current->next;
-                        }
-                        printf("NULL\n");
-                    }
-                    """.trimIndent()
-                            )
+                            ContentBlock.Text(createSimpleText("Linked lists support several basic operations:")),
+                            ContentBlock.Text(createAnnotatedText("Insertion: Add a node at the beginning, end, or a specific position.",listOf("Insertion:"))),
+                            ContentBlock.Text(createAnnotatedText("Deletion: Remove a node by value or position.",listOf("Deletion:"))),
+                            ContentBlock.Text(createAnnotatedText("Search: Locate a node with a specific value by traversing the list.",listOf("Search"))),
+                            ContentBlock.Text(createAnnotatedText("Traversal: Visit each node to access or modify data.",listOf("Traversal:")))
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
