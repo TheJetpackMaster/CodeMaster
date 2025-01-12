@@ -877,38 +877,37 @@ fun DSAIntermediateCourse(): Stage {
                 lessonContents = listOf(
                     LessonContent(
                         id = DSAIntermediateStageIds.lesson5_subs[0],
-                        title = "Introduction to Doubly Linked Lists",
-                        description = "Understand what doubly linked lists are and their fundamental structure.",
+                        title = "Introduction to Circular Linked Lists",
+                        description = "Understand what circular linked lists are and their fundamental structure.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "A doubly linked list is a dynamic data structure composed of nodes where:",
-                                    listOf("doubly linked list")
+                                    "A circular linked list is a dynamic data structure composed of nodes where:",
+                                    listOf("circular linked list")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Each node contains data, a pointer to the next node, and a pointer to the previous node.",
-                                    listOf("data", "next", "previous")
+                                    "Each node contains data and a pointer to the next node. Unlike linear linked lists, the last node points back to the head, forming a circle.",
+                                    listOf("data", "next", "head", "circle")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "The first node (head) has its 'previous' pointer set to NULL, and the last node (tail) has its 'next' pointer set to NULL.",
-                                    listOf("head", "tail", "NULL")
+                                    "In a circular linked list, there is no NULL at the end. Traversal can continue infinitely unless explicitly stopped.",
+                                    listOf("circular linked list", "NULL")
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-                    struct Node {
-                        int data;           // Data in the node
-                        Node* next;         // Pointer to the next node
-                        Node* prev;         // Pointer to the previous node
-                    };
+                struct Node {
+                    int data;       // Data in the node
+                    Node* next;     // Pointer to the next node
+                };
 
-                    // Example: A doubly linked list with three nodes
-                    // NULL <- Node 1 <-> Node 2 <-> Node 3 -> NULL
-                    """.trimIndent()
+                // Example: A circular linked list with three nodes
+                // Node 1 -> Node 2 -> Node 3 -> back to Node 1
+                """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
@@ -916,126 +915,139 @@ fun DSAIntermediateCourse(): Stage {
                     LessonContent(
                         id = DSAIntermediateStageIds.lesson5_subs[1],
                         title = "Manual Walkthrough: Creation and Traversal",
-                        description = "Manually create and traverse a doubly linked list.",
+                        description = "Manually create and traverse a circular linked list.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Let's walk through the process of creating and traversing a doubly linked list step-by-step.")),
+                            ContentBlock.Text(createSimpleText("Let's walk through the process of creating and traversing a circular linked list step-by-step.")),
 
                             ContentBlock.Text(createAnnotatedText("Step 1:", listOf("Step 1:"))),
-                            ContentBlock.Text(createSimpleText("Define a 'Node' structure with data, 'next', and 'prev' pointers.")),
+                            ContentBlock.Text(createSimpleText("Define a 'Node' structure with data and a 'next' pointer.")),
 
                             ContentBlock.Text(createAnnotatedText("Step 2:", listOf("Step 2:"))),
                             ContentBlock.Text(createSimpleText("Dynamically allocate memory for nodes using 'new' and assign data to each node.")),
 
                             ContentBlock.Text(createAnnotatedText("Step 3:", listOf("Step 3:"))),
-                            ContentBlock.Text(createSimpleText("Link the nodes by updating the 'next' and 'prev' pointers to establish two-way connections.")),
+                            ContentBlock.Text(createSimpleText("Link the nodes by updating the 'next' pointers. The 'next' pointer of the last node should point to the head node to form a circular structure.")),
 
                             ContentBlock.Text(createAnnotatedText("Step 4:", listOf("Step 4:"))),
-                            ContentBlock.Text(createSimpleText("Traverse the list starting from the head, moving forward using 'next' pointers, or backward from the tail using 'prev' pointers.")),
+                            ContentBlock.Text(createSimpleText("Traverse the list starting from the head. Continue moving through the 'next' pointers until you return to the head node.")),
 
-                            ContentBlock.Text(createSimpleText("Example: Forward Traversal")),
-                            ContentBlock.Text(createSimpleText("1 <-> 2 <-> 3 -> NULL")),
+                            ContentBlock.Text(createSimpleText("Example: Traversal in a Circular Linked List")),
+                            ContentBlock.Text(createSimpleText("1 -> 2 -> 3 -> back to 1")),
 
-                            ContentBlock.Text(createSimpleText("This walkthrough demonstrates how nodes are linked and traversed in both directions for a dynamic list structure."))
+                            ContentBlock.Text(createSimpleText("This walkthrough demonstrates how nodes are linked in a circular manner and how to traverse the list without encountering NULL."))
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAIntermediateStageIds.lesson5_subs[2],
-                        title = "Operations on Doubly Linked Lists",
+                        title = "Operations on Circular Linked Lists",
                         description = "Learn how to perform basic operations like insertion, deletion, searching, and traversal.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     "Insertion:\n" +
-                                            "Adding a new node involves updating both 'next' and 'prev' pointers to maintain bidirectional links.",
-                                    listOf("Insertion:", "next", "prev")
+                                            "Adding a new node involves updating the 'next' pointers to form a circular structure.",
+                                    listOf("Insertion:", "next")
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-                    void insertAtEnd(Node*& head, int value) {
-                        Node* newNode = new Node{value, nullptr, nullptr};
-                        if (head == nullptr) {
-                            head = newNode;
-                            return;
-                        }
-                        Node* current = head;
-                        while (current->next != nullptr) {
-                            current = current->next;
-                        }
-                        current->next = newNode;
-                        newNode->prev = current;
-                    }
-                    """.trimIndent()
+            void insertAtEnd(Node*& head, int value) {
+                Node* newNode = new Node{value, nullptr};
+                if (head == nullptr) {
+                    head = newNode;
+                    head->next = head; // Circular link
+                    return;
+                }
+                Node* current = head;
+                while (current->next != head) { // Traverse until the last node
+                    current = current->next;
+                }
+                current->next = newNode;
+                newNode->next = head; // Complete the circular link
+            }
+            """.trimIndent()
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     "Deletion:\n" +
-                                            "Deleting a node involves updating the 'next' pointer of the previous node and the 'prev' pointer of the next node.",
+                                            "Deleting a node involves updating the 'next' pointer of the previous node to maintain the circular structure.",
                                     listOf("Deletion:")
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-                    void deleteByValue(Node*& head, int value) {
-                        if (head == nullptr) return;
-                        if (head->data == value) {
+            void deleteByValue(Node*& head, int value) {
+                if (head == nullptr) return;
+                if (head->data == value && head->next == head) {
+                    delete head;
+                    head = nullptr;
+                    return;
+                }
+                Node* current = head;
+                Node* prev = nullptr;
+                do {
+                    if (current->data == value) {
+                        if (prev != nullptr) prev->next = current->next;
+                        else {
+                            // Deleting the head node
                             Node* temp = head;
+                            while (current->next != head) current = current->next;
                             head = head->next;
-                            if (head != nullptr) head->prev = nullptr;
+                            current->next = head;
                             delete temp;
                             return;
                         }
-                        Node* current = head;
-                        while (current != nullptr && current->data != value) {
-                            current = current->next;
-                        }
-                        if (current == nullptr) return;
-                        current->prev->next = current->next;
-                        if (current->next != nullptr) current->next->prev = current->prev;
                         delete current;
+                        return;
                     }
-                    """.trimIndent()
+                    prev = current;
+                    current = current->next;
+                } while (current != head);
+            }
+            """.trimIndent()
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     "Traversal and Searching:\n" +
-                                            "Traversal involves visiting nodes in both forward and backward directions to search or display data.",
+                                            "Traversal involves visiting all nodes by following the 'next' pointers until returning to the head node.",
                                     listOf("Traversal and Searching:")
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-                    void forwardTraverse(Node* head) {
-                        Node* current = head;
-                        while (current != nullptr) {
-                            cout << current->data << " <-> ";
-                            current = current->next;
-                        }
-                        cout << "NULL" << endl;
-                    }
-                    
-                    void backwardTraverse(Node* tail) {
-                        Node* current = tail;
-                        while (current != nullptr) {
-                            cout << current->data << " <-> ";
-                            current = current->prev;
-                        }
-                        cout << "NULL" << endl;
-                    }
-                    """.trimIndent()
+            void traverse(Node* head) {
+                if (head == nullptr) return;
+                Node* current = head;
+                do {
+                    cout << current->data << " -> ";
+                    current = current->next;
+                } while (current != head);
+                cout << "back to head" << endl;
+            }
+            
+            bool search(Node* head, int value) {
+                if (head == nullptr) return false;
+                Node* current = head;
+                do {
+                    if (current->data == value) return true;
+                    current = current->next;
+                } while (current != head);
+                return false;
+            }
+            """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAIntermediateStageIds.lesson5_subs[3],
-                        title = "How Doubly Linked List Operations Work",
-                        description = "Detailed step-by-step breakdown of insertion, deletion, traversal, and searching operations in doubly linked lists.",
+                        title = "How Circular Linked List Operations Work",
+                        description = "Detailed step-by-step breakdown of insertion, deletion, traversal, and searching operations in circular linked lists.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createSimpleText(
-                                    "Let's break down the operations on doubly linked lists step-by-step to understand their mechanics."
+                                    "Let's break down the operations on circular linked lists step-by-step to understand their mechanics."
                                 )
                             ),
                             ContentBlock.Text(
@@ -1048,8 +1060,8 @@ fun DSAIntermediateCourse(): Stage {
                                 createSimpleText(
                                     """
                 1. Start at the head of the list.
-                2. Traverse to the last node where 'next' is NULL.
-                3. Create a new node, set its 'next' to NULL, and 'prev' to the last node.
+                2. Traverse to the last node where 'next' points back to the head.
+                3. Create a new node, set its 'next' to point to the head.
                 4. Update the 'next' of the last node to point to the new node.
                 """.trimIndent()
                                 )
@@ -1064,10 +1076,11 @@ fun DSAIntermediateCourse(): Stage {
                                 createSimpleText(
                                     """
                 1. Check if the head node contains the value.
-                2. If yes, update the head to the next node, set its 'prev' to NULL, and delete the original head.
-                3. If not, traverse the list to find the node containing the value.
-                4. Update the 'next' of the previous node and the 'prev' of the next node to skip the node being deleted.
-                5. Free the memory of the deleted node.
+                2. If yes and it's the only node, delete the node and set the head to NULL.
+                3. If yes and there are more nodes, update the last node's 'next' to point to the next node, set the head to the next node, and delete the original head.
+                4. If not, traverse the list to find the node containing the value.
+                5. Update the 'next' of the previous node to skip the node being deleted.
+                6. Free the memory of the deleted node.
                 """.trimIndent()
                                 )
                             ),
@@ -1083,8 +1096,7 @@ fun DSAIntermediateCourse(): Stage {
                 1. Start at the head node.
                 2. Print the data of the current node.
                 3. Move to the next node using 'next'.
-                4. Repeat until 'next' is NULL.
-                5. Optionally, traverse backward using 'prev' from the last node to the head.
+                4. Repeat until you reach the head node again.
                 """.trimIndent()
                                 )
                             ),
@@ -1101,7 +1113,7 @@ fun DSAIntermediateCourse(): Stage {
                 2. Compare the data of the current node with the target value.
                 3. If found, return true.
                 4. If not, move to the next node using 'next'.
-                5. Repeat until 'next' is NULL or the value is found.
+                5. Repeat until you return to the head node or find the value.
                 """.trimIndent()
                                 )
                             )
@@ -1110,35 +1122,32 @@ fun DSAIntermediateCourse(): Stage {
                     ),
                     LessonContent(
                         id = DSAIntermediateStageIds.lesson5_subs[4],
-                        title = "How to Display Doubly Linked Lists",
-                        description = "Understand the basics of doubly linked lists and how to display them.",
+                        title = "How to Display Circular Linked Lists",
+                        description = "Understand the basics of circular linked lists and how to display them.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createSimpleText(
-                                    "A doubly linked list has nodes with data, a 'next' pointer to the next node, and a 'prev' pointer to the previous node."
+                                    "A circular linked list has nodes with data and a 'next' pointer that connects to the next node. The last node's 'next' pointer links back to the head node, forming a circular structure."
                                 )
                             ),
                             ContentBlock.Text(
                                 createSimpleText(
-                                    "To display, you can start at the head and traverse using the 'next' pointer until NULL. Optionally, you can traverse backward from the tail using the 'prev' pointer."
+                                    "To display, you can start at the head and traverse using the 'next' pointer until you return to the head node, ensuring you don't fall into an infinite loop."
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-            void displayForward(Node* head) {
-                while (head != nullptr) {
-                    cout << head->data << " <-> ";
-                    head = head->next;
+            void displayCircularList(Node* head) {
+                if (head == nullptr) {
+                    cout << "List is empty";
+                    return;
                 }
-                cout << "NULL";
-            }
-
-            void displayBackward(Node* tail) {
-                while (tail != nullptr) {
-                    cout << tail->data << " <-> ";
-                    tail = tail->prev;
-                }
-                cout << "NULL";
+                Node* current = head;
+                do {
+                    cout << current->data << " -> ";
+                    current = current->next;
+                } while (current != head);
+                cout << "(head)";
             }
             """.trimIndent()
                             )
