@@ -452,7 +452,7 @@ fun DSAIntermediateCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = DSAIntermediateStageIds.lesson3_subs[4],
+                        id = DSAIntermediateStageIds.lesson3_subs[3],
                         title = "How Singly Linked List Operations Work",
                         description = "Detailed step-by-step breakdown of insertion, deletion, traversal, and searching operations.",
                         contentBlocks = listOf(
@@ -531,7 +531,7 @@ fun DSAIntermediateCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = DSAIntermediateStageIds.lesson3_subs[5],
+                        id = DSAIntermediateStageIds.lesson3_subs[4],
                         title = " How to display Singly Linked Lists",
                         description = "Understand the basics of singly linked lists and how to display them.",
                         contentBlocks = listOf(
@@ -556,19 +556,13 @@ fun DSAIntermediateCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = DSAIntermediateStageIds.lesson3_subs[3],
+                        id = DSAIntermediateStageIds.lesson3_subs[5],
                         title = "Importance of Singly Linked Lists",
                         description = "Understand why singly linked lists are important and their applications.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Singly linked lists are a foundational data structure with several benefits:\n" +
-                                            "1. **Dynamic Size**: Can grow and shrink dynamically without the need for contiguous memory.\n" +
-                                            "2. **Efficient Insertions/Deletions**: Operations like adding or removing elements are efficient compared to arrays for large datasets.\n" +
-                                            "3. **Applications**: Used in real-world scenarios like:\n" +
-                                            "   - Implementation of stacks and queues.\n" +
-                                            "   - Adjacency lists in graph representations.\n" +
-                                            "   - Efficient memory management in dynamic systems.",
+                                    "Singly linked lists are a fundamental data structure that allow dynamic memory management and efficient insertions and deletions compared to arrays. They are widely used in real-world applications such as implementing stacks, queues, adjacency lists for graph representations, and memory-efficient dynamic systems. Their simplicity and adaptability make them essential for solving complex problems in data structures and algorithms.",
                                     listOf("")
                                 )
                             )
@@ -582,251 +576,156 @@ fun DSAIntermediateCourse(): Stage {
             // lesson 4
             Lesson(
                 id = DSAIntermediateStageIds.lesson4,
-                title = "C Switch Statement",
-                description = "Learn how to use the switch statement to simplify multiple conditional branches in C! 🔄",
+                title = "Doubly Linked Lists",
+                description = "Explore how doubly linked lists work in memory and their key characteristics. 📚",
                 lessonContents = listOf(
                     LessonContent(
                         id = DSAIntermediateStageIds.lesson4_subs[0],
-                        title = "Introduction to Switch Statement",
-                        description = "Understand the syntax and purpose of the switch statement.",
+                        title = "Introduction to Doubly Linked Lists",
+                        description = "Understand what doubly linked lists are and their fundamental structure.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "A switch statement simplifies decision-making by evaluating an expression and matching it against multiple possible conditions, making it easier to choose the correct path based on predefined values.",
-                                    listOf("")
+                                    "A doubly linked list is a dynamic data structure composed of nodes where:",
+                                    listOf("doubly linked list")
                                 )
                             ),
-                            ContentBlock.Text(createAnnotatedText("Syntax:", listOf(""))),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Each node contains data, a pointer to the next node, and a pointer to the previous node.",
+                                    listOf("data", "next", "previous")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "The first node (head) has its 'previous' pointer set to NULL, and the last node (tail) has its 'next' pointer set to NULL.",
+                                    listOf("head", "tail", "NULL")
+                                )
+                            ),
                             ContentBlock.Code(
                                 """
-                    switch (dayOfWeek) {
-                        case 1:
-                            // 'Pizza' for Monday
-                            break;
-                        case 2:
-                            // 'Tacos' for Tuesday
-                            break;
-                        default:
-                            // 'Whatever's in the fridge'
-                    }
-                """.trimIndent()
+                    struct Node {
+                        int data;           // Data in the node
+                        Node* next;         // Pointer to the next node
+                        Node* prev;         // Pointer to the previous node
+                    };
+
+                    // Example: A doubly linked list with three nodes
+                    // NULL <- Node 1 <-> Node 2 <-> Node 3 -> NULL
+                    """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAIntermediateStageIds.lesson4_subs[1],
-                        title = "Switch Case and Default",
-                        description = "Learn how to use case and default in a switch statement.",
+                        title = "Manual Walkthrough: Creation and Traversal",
+                        description = "Manually create and traverse a doubly linked list.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "The default case in a switch statement is used when no conditions match. It's a fallback option, ensuring that a value is always returned, similar to having a Surprise me! option if no specific choice is made.",
-                                    listOf("default")
-                                )
-                            ),
-                            ContentBlock.Text(createAnnotatedText("Example:", listOf(""))),
-                            ContentBlock.Code(
-                                """
-                    int day = 3;
-                    switch (day) {
-                        case 1:
-                            printf("Pizza\n");
-                        case 2:
-                            printf("Tacos\n");
-                        default:
-                            printf("Surprise me!\n");
-                    }
-                """.trimIndent()
-                            )
+                            ContentBlock.Text(createSimpleText("Let's walk through the process of creating and traversing a doubly linked list step-by-step.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 1:", listOf("Step 1:"))),
+                            ContentBlock.Text(createSimpleText("Define a 'Node' structure with data, 'next', and 'prev' pointers.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 2:", listOf("Step 2:"))),
+                            ContentBlock.Text(createSimpleText("Dynamically allocate memory for nodes using 'new' and assign data to each node.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 3:", listOf("Step 3:"))),
+                            ContentBlock.Text(createSimpleText("Link the nodes by updating the 'next' and 'prev' pointers to establish two-way connections.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 4:", listOf("Step 4:"))),
+                            ContentBlock.Text(createSimpleText("Traverse the list starting from the head, moving forward using 'next' pointers, or backward from the tail using 'prev' pointers.")),
+
+                            ContentBlock.Text(createSimpleText("Example: Forward Traversal")),
+                            ContentBlock.Text(createSimpleText("1 <-> 2 <-> 3 -> NULL")),
+
+                            ContentBlock.Text(createSimpleText("This walkthrough demonstrates how nodes are linked and traversed in both directions for a dynamic list structure."))
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAIntermediateStageIds.lesson4_subs[2],
-                        title = "Switch Case and Break",
-                        description = "Learn why the break keyword is used in a switch statement to prevent fall-through.",
+                        title = "Operations on Doubly Linked Lists",
+                        description = "Learn how to perform basic operations like insertion, deletion, searching, and traversal.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "The break keyword is used to exit a switch statement after a matching case is found, preventing the execution from falling through to subsequent cases.",
-                                    listOf("break")
-                                )
-                            ),
-                            ContentBlock.Text(createAnnotatedText("Without break:", listOf(""))),
-                            ContentBlock.Code(
-                                """
-                    int option = 2;
-                    switch (option) {
-                        case 1:
-                            printf("Burger\n");
-                        case 2:
-                            printf("Pizza\n");
-                        case 3:
-                            printf("Salad\n");
-                        default:
-                            printf("Invalid choice\n");
-                    }
-                """.trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Without the break keyword, all case blocks below the matching case will execute, which is known as fall-through. This may lead to unintended results.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(createAnnotatedText("With break:", listOf(""))),
-                            ContentBlock.Code(
-                                """
-                    int option = 2;
-                    switch (option) {
-                        case 1:
-                            printf("Burger\n");
-                            break;
-                        case 2:
-                            printf("Pizza\n");
-                            break;
-                        case 3:
-                            printf("Salad\n");
-                            break;
-                        default:
-                            printf("Invalid choice\n");
-                    }
-                """.trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "The break ensures only the matching case executes and the switch exits immediately.",
-                                    listOf("break")
-                                )
-                            ),
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAIntermediateStageIds.lesson4_subs[3],
-                        title = "Quiz",
-                        description = "Quiz",
-                        contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "Fill in the missing keyword to prevent fall-through in the switch statement:",
-                                incompleteCode = """
-        switch (option) {
-            case 1:
-                printf("Burger\\n");
-                ___;
-            default:
-                printf("Invalid choice\\n");
-        }
-    """.trimIndent(),
-                                correctCode = "break"
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAIntermediateStageIds.lesson4_subs[4],
-                        title = "Real-Life Example",
-                        description = "See how the switch statement is used in practical applications.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Picture a menu with options. The switch statement helps you handle each choice. Pick a meal, any meal!",
-                                    listOf("")
+                                    "Insertion:\n" +
+                                            "Adding a new node involves updating both 'next' and 'prev' pointers to maintain bidirectional links.",
+                                    listOf("Insertion:", "next", "prev")
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-                    int option = 2;
-                    switch (option) {
-                        case 1:
-                            printf("Burger\n");
-                            break;
-                        case 2:
-                            printf("Pizza\n");
-                            break;
-                        case 3:
-                            printf("Salad\n");
-                            break;
-                        default:
-                            printf("Invalid choice\n");
+                    void insertAtEnd(Node*& head, int value) {
+                        Node* newNode = new Node{value, nullptr, nullptr};
+                        if (head == nullptr) {
+                            head = newNode;
+                            return;
+                        }
+                        Node* current = head;
+                        while (current->next != nullptr) {
+                            current = current->next;
+                        }
+                        current->next = newNode;
+                        newNode->prev = current;
                     }
-                """.trimIndent()
+                    """.trimIndent()
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "The switch helps you easily handle menu choices without overcomplicating things.",
-                                    listOf()
+                                    "Deletion:\n" +
+                                            "Deleting a node involves updating the 'next' pointer of the previous node and the 'prev' pointer of the next node.",
+                                    listOf("Deletion:")
                                 )
                             ),
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAIntermediateStageIds.lesson4_subs[5],
-                        title = "Quiz",
-                        description = "Quiz",
-                        contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "Which of the following is the best choice when you need to check multiple conditions based on a single variable?",
-                                options = listOf(
-                                    "Use if...else statements",
-                                    "Use switch statements",
-                                    "Use for loops",
-                                    "Use while loops"
-                                ),
-                                correctAnswer = "Use switch statements"
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                ),
-                status = LessonStatus.LOCKED
-            ),
-
-            // lesson 5
-            Lesson(
-                id = DSAIntermediateStageIds.lesson5,
-                title = "C Loops",
-                description = "Master the while, do-while, and for loops to control repetitive tasks in C!",
-                lessonContents = listOf(
-                    LessonContent(
-                        id = DSAIntermediateStageIds.lesson5_subs[0],
-                        title = "Introduction to Loops",
-                        description = "Learn about the importance of loops and how they help to repeat tasks efficiently in programming.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Loops allow you to execute a block of code repeatedly based on certain conditions, saving time and effort in programming.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(createAnnotatedText("Types of loops:", listOf(""))),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "In this lesson, we will explore three types of loops: while, do-while, and for, each with its unique use case.",
-                                    listOf("while", "do-while", "for")
-                                )
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAIntermediateStageIds.lesson5_subs[1],
-                        title = "While Loop",
-                        description = "Learn how to use the while loop to repeat code as long as a condition is true.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "A while loop continuously executes a block of code as long as a specified condition evaluates to true, controlling the flow of execution until the condition becomes false.",
-                                    listOf("while")
-                                )
-                            ),
-                            ContentBlock.Text(createAnnotatedText("Syntax:", listOf(""))),
                             ContentBlock.Code(
-                                """ 
-                    while (pizzaIsHot) {
-                        // eat the pizza
+                                """
+                    void deleteByValue(Node*& head, int value) {
+                        if (head == nullptr) return;
+                        if (head->data == value) {
+                            Node* temp = head;
+                            head = head->next;
+                            if (head != nullptr) head->prev = nullptr;
+                            delete temp;
+                            return;
+                        }
+                        Node* current = head;
+                        while (current != nullptr && current->data != value) {
+                            current = current->next;
+                        }
+                        if (current == nullptr) return;
+                        current->prev->next = current->next;
+                        if (current->next != nullptr) current->next->prev = current->prev;
+                        delete current;
+                    }
+                    """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Traversal and Searching:\n" +
+                                            "Traversal involves visiting nodes in both forward and backward directions to search or display data.",
+                                    listOf("Traversal and Searching:")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+                    void forwardTraverse(Node* head) {
+                        Node* current = head;
+                        while (current != nullptr) {
+                            cout << current->data << " <-> ";
+                            current = current->next;
+                        }
+                        cout << "NULL" << endl;
+                    }
+                    
+                    void backwardTraverse(Node* tail) {
+                        Node* current = tail;
+                        while (current != nullptr) {
+                            cout << current->data << " <-> ";
+                            current = current->prev;
+                        }
+                        cout << "NULL" << endl;
                     }
                     """.trimIndent()
                             )
@@ -834,22 +733,296 @@ fun DSAIntermediateCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = DSAIntermediateStageIds.lesson5_subs[2],
-                        title = "The Do/While Loop",
-                        description = "Understand the do-while loop where the code runs at least once.",
+                        id = DSAIntermediateStageIds.lesson4_subs[3],
+                        title = "How Doubly Linked List Operations Work",
+                        description = "Detailed step-by-step breakdown of insertion, deletion, traversal, and searching operations in doubly linked lists.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Let's break down the operations on doubly linked lists step-by-step to understand their mechanics."
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Insertion at the End:",
+                                    listOf("Insertion at the End")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                1. Start at the head of the list.
+                2. Traverse to the last node where 'next' is NULL.
+                3. Create a new node, set its 'next' to NULL, and 'prev' to the last node.
+                4. Update the 'next' of the last node to point to the new node.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Deletion by Value:",
+                                    listOf("Deletion by Value")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                1. Check if the head node contains the value.
+                2. If yes, update the head to the next node, set its 'prev' to NULL, and delete the original head.
+                3. If not, traverse the list to find the node containing the value.
+                4. Update the 'next' of the previous node and the 'prev' of the next node to skip the node being deleted.
+                5. Free the memory of the deleted node.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Traversal:",
+                                    listOf("Traversal")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                1. Start at the head node.
+                2. Print the data of the current node.
+                3. Move to the next node using 'next'.
+                4. Repeat until 'next' is NULL.
+                5. Optionally, traverse backward using 'prev' from the last node to the head.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Searching:",
+                                    listOf("Searching")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                1. Start at the head node.
+                2. Compare the data of the current node with the target value.
+                3. If found, return true.
+                4. If not, move to the next node using 'next'.
+                5. Repeat until 'next' is NULL or the value is found.
+                """.trimIndent()
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSAIntermediateStageIds.lesson3_subs[4],
+                        title = "How to Display Doubly Linked Lists",
+                        description = "Understand the basics of doubly linked lists and how to display them.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "A doubly linked list has nodes with data, a 'next' pointer to the next node, and a 'prev' pointer to the previous node."
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "To display, you can start at the head and traverse using the 'next' pointer until NULL. Optionally, you can traverse backward from the tail using the 'prev' pointer."
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+            void displayForward(Node* head) {
+                while (head != nullptr) {
+                    cout << head->data << " <-> ";
+                    head = head->next;
+                }
+                cout << "NULL";
+            }
+
+            void displayBackward(Node* tail) {
+                while (tail != nullptr) {
+                    cout << tail->data << " <-> ";
+                    tail = tail->prev;
+                }
+                cout << "NULL";
+            }
+            """.trimIndent()
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+
+                    LessonContent(
+                        id = DSAIntermediateStageIds.lesson4_subs[5],
+                        title = "Importance of Doubly Linked Lists",
+                        description = "Understand why doubly linked lists are important and their applications.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "A do-while loop executes a block of code at least once and then continues to execute as long as a specified condition is true, ensuring the code runs before checking the condition.",
-                                    listOf("do-while")
+                                    "Doubly linked lists offer improved flexibility over singly linked lists by enabling bidirectional traversal. They are widely used in real-world applications such as implementing navigation systems (e.g., web browsers' forward and back buttons), memory management, and as building blocks for advanced data structures like trees and graphs. Their ability to insert or delete nodes efficiently in both directions makes them invaluable for many algorithms.",
+                                    listOf("")
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    )
+                ),
+                status = LessonStatus.LOCKED
+            ),
+
+
+            // lesson 5
+            Lesson(
+                id = DSAIntermediateStageIds.lesson5,
+                title = "Doubly Linked Lists",
+                description = "Explore how doubly linked lists work in memory and their key characteristics. 📚",
+                lessonContents = listOf(
+                    LessonContent(
+                        id = DSAIntermediateStageIds.lesson5_subs[0],
+                        title = "Introduction to Doubly Linked Lists",
+                        description = "Understand what doubly linked lists are and their fundamental structure.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "A doubly linked list is a dynamic data structure composed of nodes where:",
+                                    listOf("doubly linked list")
                                 )
                             ),
-                            ContentBlock.Text(createAnnotatedText("Syntax:", listOf(""))),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Each node contains data, a pointer to the next node, and a pointer to the previous node.",
+                                    listOf("data", "next", "previous")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "The first node (head) has its 'previous' pointer set to NULL, and the last node (tail) has its 'next' pointer set to NULL.",
+                                    listOf("head", "tail", "NULL")
+                                )
+                            ),
                             ContentBlock.Code(
-                                """ 
-                    do {
-                        // eat the pizza
-                    } while (pizzaIsTasty);
+                                """
+                    struct Node {
+                        int data;           // Data in the node
+                        Node* next;         // Pointer to the next node
+                        Node* prev;         // Pointer to the previous node
+                    };
+
+                    // Example: A doubly linked list with three nodes
+                    // NULL <- Node 1 <-> Node 2 <-> Node 3 -> NULL
+                    """.trimIndent()
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSAIntermediateStageIds.lesson5_subs[1],
+                        title = "Manual Walkthrough: Creation and Traversal",
+                        description = "Manually create and traverse a doubly linked list.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(createSimpleText("Let's walk through the process of creating and traversing a doubly linked list step-by-step.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 1:", listOf("Step 1:"))),
+                            ContentBlock.Text(createSimpleText("Define a 'Node' structure with data, 'next', and 'prev' pointers.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 2:", listOf("Step 2:"))),
+                            ContentBlock.Text(createSimpleText("Dynamically allocate memory for nodes using 'new' and assign data to each node.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 3:", listOf("Step 3:"))),
+                            ContentBlock.Text(createSimpleText("Link the nodes by updating the 'next' and 'prev' pointers to establish two-way connections.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 4:", listOf("Step 4:"))),
+                            ContentBlock.Text(createSimpleText("Traverse the list starting from the head, moving forward using 'next' pointers, or backward from the tail using 'prev' pointers.")),
+
+                            ContentBlock.Text(createSimpleText("Example: Forward Traversal")),
+                            ContentBlock.Text(createSimpleText("1 <-> 2 <-> 3 -> NULL")),
+
+                            ContentBlock.Text(createSimpleText("This walkthrough demonstrates how nodes are linked and traversed in both directions for a dynamic list structure."))
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSAIntermediateStageIds.lesson5_subs[2],
+                        title = "Operations on Doubly Linked Lists",
+                        description = "Learn how to perform basic operations like insertion, deletion, searching, and traversal.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Insertion:\n" +
+                                            "Adding a new node involves updating both 'next' and 'prev' pointers to maintain bidirectional links.",
+                                    listOf("Insertion:", "next", "prev")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+                    void insertAtEnd(Node*& head, int value) {
+                        Node* newNode = new Node{value, nullptr, nullptr};
+                        if (head == nullptr) {
+                            head = newNode;
+                            return;
+                        }
+                        Node* current = head;
+                        while (current->next != nullptr) {
+                            current = current->next;
+                        }
+                        current->next = newNode;
+                        newNode->prev = current;
+                    }
+                    """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Deletion:\n" +
+                                            "Deleting a node involves updating the 'next' pointer of the previous node and the 'prev' pointer of the next node.",
+                                    listOf("Deletion:")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+                    void deleteByValue(Node*& head, int value) {
+                        if (head == nullptr) return;
+                        if (head->data == value) {
+                            Node* temp = head;
+                            head = head->next;
+                            if (head != nullptr) head->prev = nullptr;
+                            delete temp;
+                            return;
+                        }
+                        Node* current = head;
+                        while (current != nullptr && current->data != value) {
+                            current = current->next;
+                        }
+                        if (current == nullptr) return;
+                        current->prev->next = current->next;
+                        if (current->next != nullptr) current->next->prev = current->prev;
+                        delete current;
+                    }
+                    """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Traversal and Searching:\n" +
+                                            "Traversal involves visiting nodes in both forward and backward directions to search or display data.",
+                                    listOf("Traversal and Searching:")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+                    void forwardTraverse(Node* head) {
+                        Node* current = head;
+                        while (current != nullptr) {
+                            cout << current->data << " <-> ";
+                            current = current->next;
+                        }
+                        cout << "NULL" << endl;
+                    }
+                    
+                    void backwardTraverse(Node* tail) {
+                        Node* current = tail;
+                        while (current != nullptr) {
+                            cout << current->data << " <-> ";
+                            current = current->prev;
+                        }
+                        cout << "NULL" << endl;
+                    }
                     """.trimIndent()
                             )
                         ),
@@ -857,122 +1030,136 @@ fun DSAIntermediateCourse(): Stage {
                     ),
                     LessonContent(
                         id = DSAIntermediateStageIds.lesson5_subs[3],
-                        title = "The For Loop",
-                        description = "Learn how the for loop provides a compact way to write loops with initialization, condition, and increment in a single line.",
+                        title = "How Doubly Linked List Operations Work",
+                        description = "Detailed step-by-step breakdown of insertion, deletion, traversal, and searching operations in doubly linked lists.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "A for loop is a control flow statement used for iteration, where the initialization, condition check, and increment are defined to repeat a block of code a specific number of times.",
-                                    listOf("for")
+                                createSimpleText(
+                                    "Let's break down the operations on doubly linked lists step-by-step to understand their mechanics."
                                 )
                             ),
-                            ContentBlock.Text(createAnnotatedText("Syntax:", listOf(""))),
-                            ContentBlock.Code(
-                                """ 
-                    for (int lap = 0; lap < totalLaps; lap++) {
-                        // run the lap
-                    }
-                    """.trimIndent()
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Insertion at the End:",
+                                    listOf("Insertion at the End")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                1. Start at the head of the list.
+                2. Traverse to the last node where 'next' is NULL.
+                3. Create a new node, set its 'next' to NULL, and 'prev' to the last node.
+                4. Update the 'next' of the last node to point to the new node.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Deletion by Value:",
+                                    listOf("Deletion by Value")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                1. Check if the head node contains the value.
+                2. If yes, update the head to the next node, set its 'prev' to NULL, and delete the original head.
+                3. If not, traverse the list to find the node containing the value.
+                4. Update the 'next' of the previous node and the 'prev' of the next node to skip the node being deleted.
+                5. Free the memory of the deleted node.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Traversal:",
+                                    listOf("Traversal")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                1. Start at the head node.
+                2. Print the data of the current node.
+                3. Move to the next node using 'next'.
+                4. Repeat until 'next' is NULL.
+                5. Optionally, traverse backward using 'prev' from the last node to the head.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Searching:",
+                                    listOf("Searching")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                1. Start at the head node.
+                2. Compare the data of the current node with the target value.
+                3. If found, return true.
+                4. If not, move to the next node using 'next'.
+                5. Repeat until 'next' is NULL or the value is found.
+                """.trimIndent()
+                                )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAIntermediateStageIds.lesson5_subs[4],
-                        title = "Quiz",
-                        description = "Quiz",
-                        contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "Fill in the missing part of the code to make the loop run for a total of 10 laps in the race.",
-                                incompleteCode = """ 
-                    for (int lap = ___; lap < 10; lap++) {
-                        printf("Running lap %d\\n", lap + 1);
-                    }
-                    """.trimIndent(),
-                                correctCode = "0",
-                                userInput = null,
-                                isCodeCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAIntermediateStageIds.lesson5_subs[5],
-                        title = "Real-Life Examples",
-                        description = "See practical applications of while, do-while, and for loops.",
+                        title = "How to Display Doubly Linked Lists",
+                        description = "Understand the basics of doubly linked lists and how to display them.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Here are practical examples of while, do-while, and for loops in C, but in a more real-world scenario!",
-                                    listOf("")
+                                createSimpleText(
+                                    "A doubly linked list has nodes with data, a 'next' pointer to the next node, and a 'prev' pointer to the previous node."
                                 )
                             ),
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Example of while loop: Let's eat pizza as long as it’s warm.",
-                                    listOf("while")
+                                createSimpleText(
+                                    "To display, you can start at the head and traverse using the 'next' pointer until NULL. Optionally, you can traverse backward from the tail using the 'prev' pointer."
                                 )
                             ),
                             ContentBlock.Code(
-                                """ 
-                    int pizzaTemperature = 100;
-                    while (pizzaTemperature > 50) {
-                        printf("Pizza is still hot! Eating...\\n");
-                        pizzaTemperature -= 5; // pizza cools down
-                    }
-                    """.trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Example of do-while loop: You’ll always have a first slice, even if it's cold!",
-                                    listOf("do-while")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """ 
-                    int pizzaTemperature = 30;
-                    do {
-                        printf("Eating the pizza slice...\\n");
-                        pizzaTemperature -= 5; // pizza cools down
-                    } while (pizzaTemperature > 20);
-                    """.trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Example of for loop: You’re running a 5-lap race.",
-                                    listOf("for")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """ 
-                    for (int lap = 0; lap < 5; lap++) {
-                        printf("Running lap %d\\n", lap + 1);
-                    }
-                    """.trimIndent()
+                                """
+            void displayForward(Node* head) {
+                while (head != nullptr) {
+                    cout << head->data << " <-> ";
+                    head = head->next;
+                }
+                cout << "NULL";
+            }
+
+            void displayBackward(Node* tail) {
+                while (tail != nullptr) {
+                    cout << tail->data << " <-> ";
+                    tail = tail->prev;
+                }
+                cout << "NULL";
+            }
+            """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
+
                     LessonContent(
-                        id = DSAIntermediateStageIds.lesson5_subs[6],
-                        title = "Quiz",
-                        description = "Quiz",
+                        id = DSAIntermediateStageIds.lesson5_subs[5],
+                        title = "Importance of Doubly Linked Lists",
+                        description = "Understand why doubly linked lists are important and their applications.",
                         contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "In the following code, what is the purpose of 'pizzaTemperature -= 5' inside the loop?",
-                                options = listOf(
-                                    "To increase the temperature of the pizza.",
-                                    "To cool down the pizza by reducing its temperature.",
-                                    "To check if the temperature is greater than 50.",
-                                    "To stop the loop when the temperature reaches 50."
-                                ),
-                                correctAnswer = "To cool down the pizza by reducing its temperature.",
-                                userAnswer = null,
-                                isCorrect = false
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Doubly linked lists offer improved flexibility over singly linked lists by enabling bidirectional traversal. They are widely used in real-world applications such as implementing navigation systems (e.g., web browsers' forward and back buttons), memory management, and as building blocks for advanced data structures like trees and graphs. Their ability to insert or delete nodes efficiently in both directions makes them invaluable for many algorithms.",
+                                    listOf("")
+                                )
                             )
                         ),
-                        type = LessonContentType.QUIZ
-                    ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    )
                 ),
                 status = LessonStatus.LOCKED
             ),
