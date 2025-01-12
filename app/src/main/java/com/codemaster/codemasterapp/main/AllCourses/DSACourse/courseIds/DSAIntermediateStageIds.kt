@@ -27,7 +27,8 @@ object DSAIntermediateStageIds {
         "${lesson1}_sub4",
         "${lesson1}_sub5",
         "${lesson1}_sub6",
-        "${lesson1}_sub7"
+        "${lesson1}_sub7",
+        "${lesson1}_sub8"
     )
 
     // Sub-lesson IDs for lesson 2 - Introduction to OOP
