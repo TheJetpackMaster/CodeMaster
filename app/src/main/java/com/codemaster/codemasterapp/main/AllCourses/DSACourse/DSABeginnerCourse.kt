@@ -1478,10 +1478,10 @@ int main() {
                                 createAnnotatedText(
                                     """
                         The algorithm works in two main stages:
-                        - **Divide**: Recursively split the array into halves until each sub-array has only one element.
-                        - **Conquer**: Merge the sub-arrays back together, comparing and sorting elements as they are merged.
+                        Divide: Recursively split the array into halves until each sub-array has only one element.
+                        Conquer: Merge the sub-arrays back together, comparing and sorting elements as they are merged.
                         """.trimIndent(),
-                                    listOf()
+                                    listOf("Divide","Conquer")
                                 )
                             )
                         ),
@@ -1498,7 +1498,7 @@ int main() {
                             ContentBlock.Text(createSimpleText("Further split [38, 27, 43] into [38], [27], and [43].")),
                             ContentBlock.Text(createSimpleText("Further split [3, 9, 82, 10] into [3, 9] and [82, 10].")),
                             ContentBlock.Text(createSimpleText("Continue dividing until each sub-array has one element.")),
-                            ContentBlock.Text(createAnnotatedText("Pass 2:", listOf("Step 2:"))),
+                            ContentBlock.Text(createAnnotatedText("Pass 2:", listOf("Pass 2:"))),
                             ContentBlock.Text(createSimpleText("Start merging the divided sub-arrays step-by-step:")),
                             ContentBlock.Text(createSimpleText("Merge [38] and [27] into [27, 38].")),
                             ContentBlock.Text(createSimpleText("Merge [27, 38] and [43] into [27, 38, 43].")),
@@ -1506,7 +1506,7 @@ int main() {
                             ContentBlock.Text(createSimpleText("Merge [82] and [10] into [10, 82].")),
                             ContentBlock.Text(createSimpleText("Merge [3, 9] and [10, 82] into [3, 9, 10, 82].")),
                             ContentBlock.Text(createSimpleText("Finally, merge [27, 38, 43] and [3, 9, 10, 82] into [3, 9, 10, 27, 38, 43, 82].")),
-                            ContentBlock.Text(createAnnotatedText("Pass 3:", listOf("Step 3:"))),
+                            ContentBlock.Text(createAnnotatedText("Pass 3:", listOf("Pass 3:"))),
                             ContentBlock.Text(createSimpleText("The array is now fully sorted: [3, 9, 10, 27, 38, 43, 82].")),
                             ContentBlock.Text(createSimpleText("Merge Sort works by repeatedly dividing the array into halves and then merging them back together in sorted order."))
                         ),
@@ -1581,11 +1581,11 @@ int main() {
                                 createAnnotatedText(
                                     """
                         Merge Sort is known for:
-                        - **Efficiency**: It has a predictable O(n log n) time complexity for all cases.
-                        - **Stability**: It preserves the relative order of equal elements, which is crucial for certain applications.
-                        - **Simplicity**: Its recursive nature makes it conceptually easy to understand.
+                        Efficiency: It has a predictable O(n log n) time complexity for all cases.
+                        Stability: It preserves the relative order of equal elements, which is crucial for certain applications.
+                        Simplicity: Its recursive nature makes it conceptually easy to understand.
                         """.trimIndent(),
-                                    listOf()
+                                    listOf("Efficiency","Stability","Simplicity")
                                 )
                             )
                         ),
