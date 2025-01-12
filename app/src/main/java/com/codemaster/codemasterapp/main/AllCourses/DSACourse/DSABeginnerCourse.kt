@@ -230,6 +230,25 @@ Fibonacci Sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21, ...
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson3_subs[1],
+                        title = "Manual Walkthrough",
+                        description = "Step-by-step guide to manually compute Fibonacci numbers.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "To manually calculate Fibonacci numbers:\n\n" +
+                                            "1. Start with 0 and 1.\n" +
+                                            "2. Add the last two numbers: 0 + 1 = 1 (Sequence: 0, 1, 1).\n" +
+                                            "3. Repeat: 1 + 1 = 2, 1 + 2 = 3 (Sequence: 0, 1, 1, 2, 3).\n" +
+                                            "4. Continue this process to generate the sequence.\n\n" +
+                                            "Try calculating the first 10 Fibonacci numbers yourself!"
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.LOCKED
+                    ),
+                    LessonContent(
+                        id = DSABeginnerStageIds.lesson3_subs[2],
                         title = "Fibonacci Algorithm Using Loops",
                         description = "Implement the Fibonacci algorithm using a for loop.",
                         contentBlocks = listOf(
@@ -262,7 +281,7 @@ int main() {
                         status = LessonStatus.LOCKED
                     ),
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson3_subs[2],
+                        id = DSABeginnerStageIds.lesson3_subs[3],
                         title = "Fibonacci Algorithm Using Recursion",
                         description = "Understand and implement the Fibonacci sequence using recursion.",
                         contentBlocks = listOf(
@@ -292,7 +311,7 @@ int main() {
                         status = LessonStatus.LOCKED
                     ),
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson3_subs[3],
+                        id = DSABeginnerStageIds.lesson3_subs[4],
                         title = "Finding the nth Fibonacci Number Using Recursion",
                         description = "Learn how to calculate the nth Fibonacci number with recursion.",
                         contentBlocks = listOf(
@@ -319,21 +338,17 @@ int main() {
                         status = LessonStatus.LOCKED
                     ),
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson3_subs[4],
-                        title = "Quiz",
-                        description = "Test your knowledge of Fibonacci algorithms.",
+                        id = DSABeginnerStageIds.lesson3_subs[5],
+                        title = "Importance of Fibonacci Numbers",
+                        description = "Explore the significance of Fibonacci numbers across various domains.",
                         contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "What is the 6th number in the Fibonacci sequence?",
-                                incompleteCode = """
-Write your answer:___
-                    """.trimIndent(),
-                                correctCode = "8",
-                                userInput = null, // User's input will be captured here
-                                isCodeCorrect = false // Will be updated based on user input
-                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Fibonacci numbers appear in nature (e.g., leaf arrangements, shells), art and architecture (golden ratio), computer science (algorithms, dynamic programming), and finance (trend analysis). They also influence music, astronomy, and other fields, showcasing their widespread impact."
+                                )
+                            )
                         ),
-                        type = LessonContentType.INTERACTIVE,
+                        type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.LOCKED
                     )
                 ),
@@ -343,7 +358,7 @@ Write your answer:___
             // lesson 4
             Lesson(
                 id = DSABeginnerStageIds.lesson4,
-                title = "Find the Lowest Value in an Array",
+                title = "Array",
                 description = "Learn how to implement algorithms to find the smallest value in an array and understand their time complexity.",
                 lessonContents = listOf(
                     LessonContent(
@@ -375,6 +390,49 @@ int main() {
 
                     LessonContent(
                         id = DSABeginnerStageIds.lesson4_subs[1],
+                        title = "Manual Walkthrough",
+                        description = "Learn to manually process elements in an array step-by-step.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "To manually process elements in an array:\n\n" +
+                                            "1. Start by initializing the array with some elements.\n" +
+                                            "2. Loop through the array one element at a time.\n" +
+                                            "3. Perform operations on each element as needed (e.g., summing up values, finding the largest element).\n" +
+                                            "4. Update variables (like a sum or a maximum value) as you go.\n\n" +
+                                            "Example: Consider the array [5, 3, 8, 1, 2]. Walk through the elements to find their sum:\n\n" +
+                                            "   - Start with sum = 0.\n" +
+                                            "   - Add each element to the sum (5 + 3 + 8 + 1 + 2 = 19).\n\n" +
+                                            "Try manually summing the values of an array yourself!"
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+#include <stdio.h>
+
+int main() {
+    int arr[] = {5, 3, 8, 1, 2};
+    int n = sizeof(arr) / sizeof(arr[0]); // Calculate array size
+    int sum = 0;
+
+    // Walkthrough to calculate the sum of elements in the array
+    for (int i = 0; i < n; i++) {
+        sum += arr[i];
+        printf("Current sum after adding %d: %d\\n", arr[i], sum);
+    }
+
+    printf("Total sum: %d\\n", sum);
+    return 0;
+}
+            """.trimIndent()
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.LOCKED
+                    ),
+
+                    LessonContent(
+                        id = DSABeginnerStageIds.lesson4_subs[2],
                         title = "Algorithm: Find the Lowest Value",
                         description = "Learn the algorithm to find the smallest value in an array using iteration.",
                         contentBlocks = listOf(
@@ -410,15 +468,17 @@ int main() {
                     ),
 
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson4_subs[2],
+                        id = DSABeginnerStageIds.lesson4_subs[3],
                         title = "Implementation Details",
                         description = "Break down the algorithm into step-by-step implementation.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
-                                createSimpleText("1. Initialize the minimum value with the first element.\n" +
-                                        "2. Traverse the array from the second element.\n" +
-                                        "3. Compare each element with the current minimum.\n" +
-                                        "4. Update the minimum if a smaller value is found.")
+                                createSimpleText(
+                                    "1. Initialize the minimum value with the first element.\n" +
+                                            "2. Traverse the array from the second element.\n" +
+                                            "3. Compare each element with the current minimum.\n" +
+                                            "4. Update the minimum if a smaller value is found."
+                                )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
@@ -426,7 +486,7 @@ int main() {
                     ),
 
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson4_subs[3],
+                        id = DSABeginnerStageIds.lesson4_subs[4],
                         title = "Algorithm Time Complexity",
                         description = "Understand the time complexity of the algorithm.",
                         contentBlocks = listOf(
@@ -440,51 +500,17 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.LOCKED
                     ),
-
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson4_subs[4],
-                        title = "Quiz",
-                        description = "Test your understanding of finding the smallest value in an array.",
-                        contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "Complete the code to find the smallest value in the array.",
-                                incompleteCode = """
-#include <stdio.h>
-
-int main() {
-    int arr[] = {5, 3, 8, 1, 2};
-    int n = sizeof(arr) / sizeof(arr[0]); // Calculate array size
-    int min = arr[0]; // Initialize min with the first element
-    
-    // Loop through the array to find the minimum value
-    for (int i = 1; i < n; i++) {
-        if (arr[i] < min) {
-            min = ___; 
-        }
-    }
-
-    printf("Lowest value: %d\\n", min); // Print the smallest value
-    return 0;
-}
-            """.trimIndent(),
-                                correctCode = "arr[i]",
-                                userInput = null, // User's input will be captured here
-                                isCodeCorrect = false // Will be updated based on user input
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE,
-                        status = LessonStatus.LOCKED
-                    ),
-
                     LessonContent(
                         id = DSABeginnerStageIds.lesson4_subs[5],
                         title = "Optimizations and Best Practices",
                         description = "Explore ways to optimize the algorithm and common pitfalls to avoid.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
-                                createSimpleText("1. Use a function to modularize the implementation.\n" +
-                                        "2. Handle edge cases, such as an empty array.\n" +
-                                        "3. Avoid unnecessary comparisons to improve efficiency.")
+                                createSimpleText(
+                                    "1. Use a function to modularize the implementation.\n" +
+                                            "2. Handle edge cases, such as an empty array.\n" +
+                                            "3. Avoid unnecessary comparisons to improve efficiency."
+                                )
                             ),
                             ContentBlock.Code(
                                 """
@@ -516,6 +542,20 @@ int main() {
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.LOCKED
+                    ),
+                    LessonContent(
+                        id = DSABeginnerStageIds.lesson4_subs[6],
+                        title = "Importance of Arrays",
+                        description = "Understand why arrays are a fundamental data structure in programming.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Arrays are one of the most essential data structures in programming. They allow for efficient element access by index, as well as optimized memory storage. Arrays form the foundation for many other data structures like stacks and queues. Their simplicity and versatility make them ideal for tasks like sorting, searching, and storing collections of data efficiently."
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.LOCKED
                     )
                 ),
                 status = LessonStatus.LOCKED
@@ -524,348 +564,302 @@ int main() {
             // lesson 5
             Lesson(
                 id = DSABeginnerStageIds.lesson5,
-                title = "C Comments",
-                description = "Master how to use comments in C for better code readability and documentation!",
+                title = "Bubble Sort",
+                description = "Learn the Bubble Sort algorithm, its implementation, and its time complexity.",
                 lessonContents = listOf(
                     LessonContent(
                         id = DSABeginnerStageIds.lesson5_subs[0],
-                        title = "Introduction to Comments",
-                        description = "Understanding comments and their importance in code.",
+                        title = "Introduction to Bubble Sort",
+                        description = "What is Bubble Sort, and how does it work?",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Comments are annotations in the code ignored by the compiler.")),
-                            ContentBlock.Text(createSimpleText("They help explain the purpose or logic of the code.")),
-                            ContentBlock.Text(createSimpleText("Without comments, the code can become harder to understand and maintain.")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Bubble Sort is a simple algorithm that sorts an array by repeatedly comparing and swapping adjacent elements to place higher values in their correct position. This process continues until the array is fully sorted. Learning Bubble Sort builds a foundation for understanding sorting concepts and prepares you for more advanced algorithms."
+                                )
+                            )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson5_subs[1],
-                        title = "Single-Line Comments",
-                        description = "How to use single-line comments in C.",
+                        title = "Manual Walkthrough",
+                        description = "Manually understand how Bubble Sort works by stepping through an example.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Single-line comments start with // and extend to the end of the line.",
-                                    listOf("//")
-                                )
-                            ),
-                            ContentBlock.Text(createSimpleText("Single-line comments are used for brief notes.")),
+                            ContentBlock.Text(createSimpleText("Consider an unsorted array: [7, 12, 9, 11, 3]. We will sort it step by step using Bubble Sort.")),
+                            ContentBlock.Text(createAnnotatedText("Pass 1:", listOf("Pass 1:"))),
+                            ContentBlock.Text(createSimpleText("Step 1: Compare the first two values (7 and 12). No swap is needed, as 7 < 12.")),
+                            ContentBlock.Text(createSimpleText("Step 2: Compare 12 and 9. Swap them to make [7, 9, 12, 11, 3].")),
+                            ContentBlock.Text(createSimpleText("Step 3: Compare 12 and 11. Swap them to make [7, 9, 11, 12, 3].")),
+                            ContentBlock.Text(createSimpleText("Step 4: Compare 12 and 3. Swap them to make [7, 9, 11, 3, 12].")),
+                            ContentBlock.Text(createSimpleText("At the end of Pass 1, the largest value (12) is placed in its correct position.")),
+                            ContentBlock.Text(createAnnotatedText("Pass 2:", listOf("Pass 2:"))),
+                            ContentBlock.Text(createSimpleText("Step 1: Compare 7 and 9. No swap is needed.")),
+                            ContentBlock.Text(createSimpleText("Step 2: Compare 9 and 11. No swap is needed.")),
+                            ContentBlock.Text(createSimpleText("Step 3: Compare 11 and 3. Swap them to make [7, 9, 3, 11, 12].")),
+                            ContentBlock.Text(createSimpleText("At the end of Pass 2, the second largest value (11) is placed in its correct position.")),
+                            ContentBlock.Text(createAnnotatedText("Pass 3:", listOf("Pass 3:"))),
+                            ContentBlock.Text(createSimpleText("Step 1: Compare 7 and 9. No swap is needed.")),
+                            ContentBlock.Text(createSimpleText("Step 2: Compare 9 and 3. Swap them to make [7, 3, 9, 11, 12].")),
+                            ContentBlock.Text(createSimpleText("At the end of Pass 3, the third largest value (9) is in its correct position.")),
+                            ContentBlock.Text(createAnnotatedText("Pass 4:",listOf("Pass 4:"))),
+                            ContentBlock.Text(createSimpleText("Step 1: Compare 7 and 3. Swap them to make [3, 7, 9, 11, 12].")),
+                            ContentBlock.Text(createSimpleText("At the end of Pass 4, the array is fully sorted: [3, 7, 9, 11, 12].")),
+                            ContentBlock.Text(createAnnotatedText("Final Array:",listOf("Final Array:"))),
+                            ContentBlock.Text(createSimpleText("[3, 7, 9, 11, 12].")),
+                            ContentBlock.Text(createSimpleText("Notice that with each pass, the largest unsorted value 'bubbles up' to its correct position."))
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSABeginnerStageIds.lesson5_subs[2],
+                        title = "Bubble Sort Implementation",
+                        description = "Implement Bubble Sort in code.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(createSimpleText("Here’s the code for a basic implementation of Bubble Sort in C++:")),
                             ContentBlock.Code(
                                 """
-#include <stdio.h>
+#include <iostream>
+using namespace std;
 
 int main() {
-    // Print a greeting
-    printf("Hello, World!\n");
+    int my_array[] = {64, 34, 25, 12, 22, 11, 90, 5};
+    int n = sizeof(my_array) / sizeof(my_array[0]);
+
+    for (int i = 0; i < n-1; i++) {
+        for (int j = 0; j < n-i-1; j++) {
+            if (my_array[j] > my_array[j+1]) {
+                swap(my_array[j], my_array[j+1]);
+            }
+        }
+    }
+
+    cout << "Sorted array: ";
+    for (int i = 0; i < n; i++) {
+        cout << my_array[i] << " ";
+    }
+    cout << endl;
     return 0;
 }
-                """.trimIndent()
+                    """.trimIndent()
                             ),
-                            ContentBlock.Text(createSimpleText("Use them for short explanations or annotations in the code.")),
+                            ContentBlock.Text(createSimpleText("The outer loop runs n-1 times, where n is the number of elements in the array.")),
+                            ContentBlock.Text(createSimpleText("The inner loop compares and swaps adjacent elements."))
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson5_subs[3],
-                        title = "Interactive: Add a Single-Line Comment",
-                        description = "Add a single-line comment in the code.",
+                        title = "Bubble Sort Optimization",
+                        description = "Improve the Bubble Sort algorithm.",
                         contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "Fill in the missing code to add a single-line comment.",
-                                incompleteCode = """
-#include <stdio.h>
+                            ContentBlock.Text(createSimpleText("If no swaps are made during a pass, the array is already sorted, and we can stop early.")),
+                            ContentBlock.Code(
+                                """
+#include <iostream>
+using namespace std;
 
 int main() {
-    ___ Print a greeting
-    printf("Hello, World!\\n");
+    int my_array[] = {7, 3, 9, 12, 11};
+    int n = sizeof(my_array) / sizeof(my_array[0]);
+
+    for (int i = 0; i < n-1; i++) {
+        bool swapped = false;
+        for (int j = 0; j < n-i-1; j++) {
+            if (my_array[j] > my_array[j+1]) {
+                swap(my_array[j], my_array[j+1]);
+                swapped = true;
+            }
+        }
+        if (!swapped) {
+            break;
+        }
+    }
+
+    cout << "Sorted array: ";
+    for (int i = 0; i < n; i++) {
+        cout << my_array[i] << " ";
+    }
+    cout << endl;
     return 0;
 }
-            """.trimIndent(),
-                                correctCode = "//",
-                                userInput = null,
-                                isCodeCorrect = false
-                            )
+                    """.trimIndent()
+                            ),
+                            ContentBlock.Text(createSimpleText("This optimization can significantly reduce unnecessary iterations."))
                         ),
-                        type = LessonContentType.INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson5_subs[4],
-                        title = "Multi-Line Comments",
-                        description = "How to use multi-line comments in C.",
+                        title = "Bubble Sort Time Complexity",
+                        description = "Understand the time complexity of Bubble Sort.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Multi-line comments start with /* and end with */, spanning multiple lines.",
-                                    listOf("/*", "*/")
-                                )
-                            ),
-                            ContentBlock.Text(createSimpleText("Use multi-line comments for longer explanations.")),
-                            ContentBlock.Code(
-                                """
-#include <stdio.h>
-
-int main() {
-    /* This code prints "Hello, World!" 
-       It’s part of the beginner’s guide */
-    printf("Hello, World!\n");
-    return 0;
-}
-                """.trimIndent()
-                            ),
-                            ContentBlock.Text(createSimpleText("Keep multi-line comments concise and relevant.")),
+                            ContentBlock.Text(createSimpleText("Bubble Sort has a worst-case and average-case time complexity of O(n^2).")),
+                            ContentBlock.Text(createSimpleText("The best-case time complexity is O(n), which occurs when the array is already sorted.")),
+                            ContentBlock.Text(createSimpleText("Bubble Sort is not suitable for large datasets as it is inefficient compared to other algorithms like Quick Sort or Merge Sort."))
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson5_subs[5],
-                        title = "Nested Comments",
-                        description = "Handling nested comments in C.",
+                        title = "Importance of Bubble Sort",
+                        description = "Why learning Bubble Sort is important.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "C doesn’t support nested multi-line comments (/* /* ... */ */).",
-                                    listOf("/* /* ... */ */")
+                                createSimpleText(
+                                    "Bubble Sort is a simple algorithm that teaches sorting, element comparison, and swapping. It lays the groundwork for more advanced algorithms and helps in understanding loops, conditionals, and algorithmic trade-offs. Despite its inefficiency, it’s useful for debugging and learning basic algorithm design."
                                 )
-                            ),
-                            ContentBlock.Text(createSimpleText("Use single-line comments inside multi-line comments if needed.")),
-                            ContentBlock.Code(
-                                """
-#include <stdio.h>
-
-int main() {
-    /* Multi-line comment
-       // Single-line comment inside it
-       Explaining comments */
-    printf("Hello, World!\n");
-    return 0;
-}
-                """.trimIndent()
-                            ),
-                            ContentBlock.Text(createSimpleText("Avoid complex comment structures to maintain clarity.")),
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson5_subs[6],
-                        title = "Commenting Best Practices",
-                        description = "Best practices for writing effective comments.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Good comments explain the reasoning, not just the action.")),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Explain the purpose of the code, not what it does.",
-                                    listOf("why")
-                                )
-                            ),
-                            ContentBlock.Text(createSimpleText("Avoid redundant comments that repeat the code.")),
-                            ContentBlock.Text(createSimpleText("Update comments to reflect code changes.")),
-                            ContentBlock.Text(createSimpleText("Good Example:")),
-                            ContentBlock.Code(
-                                """
-// Bubble sort is used due to the small size of the input array
-bubbleSort(arr, n);
-                """.trimIndent()
-                            ),
-                            ContentBlock.Text(createSimpleText("Bad Example:")),
-                            ContentBlock.Code(
-                                """
-// Sorting the array
-bubbleSort(arr, n);
-                """.trimIndent()
-                            ),
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson5_subs[7],
-                        title = "Quiz",
-                        description = "Test your knowledge of comments.",
-                        contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "Why do we use comments in code?",
-                                options = listOf(
-                                    "To make the code execute faster",
-                                    "To explain the code for better understanding",
-                                    "To make the code look longer",
-                                    "To remove errors from the code"
-                                ),
-                                correctAnswer = "To explain the code for better understanding",
-                                userAnswer = null,
-                                isCorrect = false
                             )
                         ),
-                        type = LessonContentType.QUIZ
+                        type = LessonContentType.NON_INTERACTIVE
                     )
+
                 ),
                 status = LessonStatus.LOCKED
             ),
 
+
             // lesson 6
             Lesson(
                 id = DSABeginnerStageIds.lesson6,
-                title = "C Variables",
-                description = "Learn how to work with variables in C: declaring, formatting, changing values, and naming! 🎯",
+                title = "Selection Sort",
+                description = "Understand how Selection Sort works: its process, implementation, and optimization! 🔄",
                 lessonContents = listOf(
                     LessonContent(
                         id = DSABeginnerStageIds.lesson6_subs[0],
-                        title = "Creating Variables",
-                        description = "Learn how to declare and initialize variables.",
+                        title = "Introduction to Selection Sort",
+                        description = "Get an introduction to the Selection Sort algorithm and its key concepts.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Variables store data for later use in the program.",
-                                    listOf("")
+                                createSimpleText(
+                                    "Selection Sort is a fundamental sorting algorithm that works by repeatedly selecting the smallest element from the unsorted portion of the array and swapping it with the element at the beginning of the unsorted section."
                                 )
                             ),
-                            ContentBlock.Code(
-                                """
-int age = 25;  // Declaring an integer variable with an initial value
-float temperature = 36.5;  // Declaring a float
-""".trimIndent()
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Although simple to implement, Selection Sort has a time complexity of O(n²), making it less efficient for large datasets compared to algorithms like Merge Sort or Quick Sort."
+                                )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson6_subs[1],
-                        title = "Format Specifiers",
-                        description = "Understand format specifiers for different data types.",
+                        title = "Manual Walkthrough",
+                        description = "Understand Selection Sort step-by-step with a practical example.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Format specifiers ensure correct display of variable types (e.g., integer, float).",
-                                    listOf()
-                                )
-                            ),
+                            ContentBlock.Text(createSimpleText("Consider an unsorted array: [7, 12, 9, 11, 3]. We will sort it step by step using Selection Sort.")),
+                            ContentBlock.Text(createAnnotatedText("Pass 1:", listOf("Pass 1:"))),
+                            ContentBlock.Text(createSimpleText("Step 1: Find the smallest element in the array (3).")),
+                            ContentBlock.Text(createSimpleText("Step 2: Swap 3 with the first element (7).")),
+                            ContentBlock.Text(createSimpleText("Array after Pass 1: [3, 12, 9, 11, 7].")),
+                            ContentBlock.Text(createAnnotatedText("Pass 2:", listOf("Pass 2:"))),
+                            ContentBlock.Text(createSimpleText("Step 1: Look at the unsorted portion [12, 9, 11, 7].")),
+                            ContentBlock.Text(createSimpleText("Step 2: Find the smallest element (7).")),
+                            ContentBlock.Text(createSimpleText("Step 3: Swap 7 with the first element of the unsorted portion (12).")),
+                            ContentBlock.Text(createSimpleText("Array after Pass 2: [3, 7, 9, 11, 12].")),
+                            ContentBlock.Text(createAnnotatedText("Pass 3:", listOf("Pass 3:"))),
+                            ContentBlock.Text(createSimpleText("Step 1: Look at the unsorted portion [9, 11, 12].")),
+                            ContentBlock.Text(createSimpleText("Step 2: Find the smallest element (9). No swap is needed as it’s already in the correct position.")),
+                            ContentBlock.Text(createSimpleText("Array after Pass 3: [3, 7, 9, 11, 12].")),
+                            ContentBlock.Text(createAnnotatedText("Pass 4:", listOf("Pass 4:"))),
+                            ContentBlock.Text(createSimpleText("Step 1: Look at the unsorted portion [11, 12].")),
+                            ContentBlock.Text(createSimpleText("Step 2: Find the smallest element (11). No swap is needed.")),
+                            ContentBlock.Text(createSimpleText("Array after Pass 4: [3, 7, 9, 11, 12].")),
+                            ContentBlock.Text(createAnnotatedText("Final Array:", listOf("Final Array:"))),
+                            ContentBlock.Text(createSimpleText("[3, 7, 9, 11, 12].")),
+                            ContentBlock.Text(createSimpleText("Notice that with each pass, the smallest unsorted value is placed in its correct position, reducing the size of the unsorted portion."))
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSABeginnerStageIds.lesson6_subs[2],
+                        title = "Selection Sort Implementation",
+                        description = "Learn how to implement Selection Sort in C++.",
+                        contentBlocks = listOf(
                             ContentBlock.Code(
                                 """
-int x = 10;
-printf("The value of x is: %d", x);  // %d for integer
-float pi = 3.14;
-printf("Pi is approximately: %.2f", pi);  // %.2f for float
+#include <iostream>
+using namespace std;
+
+int main() {
+    int my_array[] = {64, 25, 12, 22, 11};
+    int n = sizeof(my_array)/sizeof(my_array[0]);
+    
+    for (int i = 0; i < n; i++) {
+        int min_index = i;
+        for (int j = i+1; j < n; j++) {
+            if (my_array[j] < my_array[min_index]) {
+                min_index = j;
+            }
+        }
+        swap(my_array[i], my_array[min_index]);
+    }
+
+    cout << "Sorted array: ";
+    for (int i = 0; i < n; i++) {
+        cout << my_array[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
 """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "This code swaps elements instead of shifting them, making the implementation more efficient."
+                                )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson6_subs[3],
-                        title = "Change Variable Values",
-                        description = "Learn how to update the values of variables.",
+                        title = "Optimizations",
+                        description = "Understand how to optimize Selection Sort using swapping.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("You can change a variable’s value whenever needed.")),
-                            ContentBlock.Code(
-                                """
-int age = 25;
-age = 30;  // Changing the value of age
-""".trimIndent()
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Instead of removing and inserting elements (which causes shifting), swap the smallest element with the first unsorted element."
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "This reduces unnecessary operations and improves the algorithm's efficiency in practice.",
+                                    listOf("")
+                                )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson6_subs[4],
-                        title = "Change Variable Values",
-                        description = "Learn how to update the values of variables.",
-                        contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "Fill in the missing code to reuse the variable age for updating its value.",
-                                incompleteCode = """
-int age = 25;
-___ = 30;  // Update the value of age
-""".trimIndent(),
-                                correctCode = "age",
-                                userInput = null,
-                                isCodeCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson6_subs[5],
-                        title = "Declare Multiple Variables",
-                        description = "Learn how to declare multiple variables in one line.",
+                        title = "Selection Sort Time Complexity",
+                        description = "Analyze the time complexity of Selection Sort.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Declare multiple variables in one line to save space.",
-                                    listOf()
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-int x = 10, y = 20, z = 30;  // Declaring multiple integers
-""".trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson6_subs[6],
-                        title = "Variable Names",
-                        description = "Understand the rules for naming variables.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Use meaningful names for variables.")),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Valid names: age, _count, temperature1. Invalid names: 1age, @count.",
+                                    "Selection Sort runs in O(n²) time because it compares each element to every other element.",
                                     listOf("")
                                 )
                             ),
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Follow conventions like snake_case for readability.",
-                                    listOf("snake_case")
-                                )
-                            ),
-                            ContentBlock.Text(
                                 createSimpleText(
-                                    "Snake case is a naming convention where words are separated by underscores and all letters are lowercase. For example: user_name, total_score."
+                                    "This makes it less efficient than other algorithms like Merge Sort or Quick Sort for larger datasets."
                                 )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson6_subs[7],
-                        title = "Real-Life Example",
-                        description = "A practical example using variables in a program.",
+                        id = DSABeginnerStageIds.lesson6_subs[5],
+                        title = "Importance of Selection Sort",
+                        description = "Explore where and why Selection Sort is used in practical scenarios.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Here’s how you use variables in a program to store and display data:")),
-                            ContentBlock.Code(
-                                """
-#include <stdio.h>
-
-int main() {
-    int age = 25;
-    float height = 5.9;
-
-    printf("Age: %d, Height: %.2f", age, height);
-
-    return 0;
-}
-""".trimIndent()
-                            ),
-                            ContentBlock.Text(createSimpleText("This program uses variables to store age and height and displays them."))
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson6_subs[8],
-                        title = "Quiz",
-                        description = "Quiz",
-                        contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "How can you declare multiple variables in a single line?",
-                                options = listOf(
-                                    "int x, y, z = 10, 20, 30;",
-                                    "int x = 10; int y = 20; int z = 30;",
-                                    "int x = 10, y = 20, z = 30;",
-                                    "int x, y, z = 10;"
-                                ),
-                                correctAnswer = "int x = 10, y = 20, z = 30;",
-                                userAnswer = null,
-                                isCorrect = false
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Selection Sort is valued for its simplicity, making it ideal for educational purposes and small datasets. It sorts in place, requiring no extra memory, and minimizes unnecessary swaps. While not efficient for large datasets, it helps build foundational knowledge for understanding advanced algorithms like Merge Sort and Quick Sort."
+                                )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
@@ -877,223 +871,128 @@ int main() {
             // lesson 7
             Lesson(
                 id = DSABeginnerStageIds.lesson7,
-                title = "C Data Types",
-                description = "Explore the different data types in C: what they are, how they work, and how to convert between them! 🧮🎯",
+                title = "Insertion Sort",
+                description = "Learn about the Insertion Sort algorithm: how it works, its implementation, and how to improve it. 🔄📊",
                 lessonContents = listOf(
                     LessonContent(
                         id = DSABeginnerStageIds.lesson7_subs[0],
-                        title = "Data Types",
-                        description = "Learn about data types in C.",
+                        title = "Insertion Sort Overview",
+                        description = "Introduction to the Insertion Sort algorithm.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "In C, you can store numbers, characters, and more.",
+                                    "Insertion Sort works by gradually building a sorted part of the array, one element at a time. It compares each unsorted element with the sorted part and inserts it into the right position. This process continues until the entire array is sorted.",
                                     listOf("")
                                 )
                             ),
-                            ContentBlock.Text(createSimpleText("Key types include:")),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "1.int: for whole numbers (like your age)",
-                                    listOf("int")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "2.float/double: for numbers with decimals (like the price of your coffee)",
-                                    listOf("float", "double")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "3.char: for characters (like the letter A)",
-                                    listOf("char")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "4.void: when a function doesn't return anything",
-                                    listOf("void")
-                                )
-                            ),
-                            ContentBlock.Text(createSimpleText("Choosing the right type is like choosing the right tool for the job!"))
+                            ContentBlock.Text(createSimpleText("The algorithm's complexity is O(n^2), making it slower for large arrays.")),
+                            ContentBlock.Text(createSimpleText("Insertion Sort works best with small or partially sorted arrays."))
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson7_subs[1],
-                        title = "The char Type",
-                        description = "Learn about the char type for characters.",
+                        title = "Manual Run Through",
+                        description = "Manually walk through the steps of Insertion Sort.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "The char type is used to store a single character such as a letter, digit, or symbol. It is enclosed in single quotes (' ') and occupies 1 byte of memory. Examples include 'A', 'z', and '@'.",
-                                    listOf("' '")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-char letter = 'A';  // A character
-printf("Character: %c", letter);  // Prints A
-            """.trimIndent()
-                            )
+                            ContentBlock.Text(createSimpleText("Let’s manually go through an unsorted array to see how Insertion Sort works:")),
+                            ContentBlock.Text(createSimpleText("Start with an unsorted array: [7, 12, 9, 11, 3]")),
+                            ContentBlock.Text(createSimpleText("Step 1: The first value (7) is considered the sorted part of the array.")),
+                            ContentBlock.Text(createSimpleText("Step 2: The second value (12) is already in the correct place.")),
+                            ContentBlock.Text(createSimpleText("Step 3: Insert the third value (9) into the sorted part, resulting in [7, 9, 12, 11, 3].")),
+                            ContentBlock.Text(createSimpleText("Step 4: Insert 11 into the correct position, resulting in [7, 9, 11, 12, 3].")),
+                            ContentBlock.Text(createSimpleText("Step 5: Insert the last value (3) in front of all values to get the sorted array: [3, 7, 9, 11, 12]."))
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson7_subs[2],
-                        title = "Numeric Types",
-                        description = "Learn how to handle integer and floating-point numbers.",
+                        title = "Insertion Sort Code Implementation",
+                        description = "Learn to implement Insertion Sort in code.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    "In C, numeric types are used to store numbers. Integers (int) represent whole numbers such as 25 or -100. For numbers with decimal points, floating-point types like float and double are used, with double offering higher precision for calculations requiring more accuracy."
-                                )
-                            ),
+                            ContentBlock.Text(createSimpleText("Here’s how you can implement Insertion Sort in C++:")),
                             ContentBlock.Code(
                                 """
-int age = 25;         // Integer (whole number)
-float weight = 65.5;  // Float (decimal number)
-double pi = 3.14159;  // Double (higher precision decimal)
-            """.trimIndent()
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> my_array = {64, 34, 25, 12, 22, 11, 90, 5};
+    int n = my_array.size();
+
+    for (int i = 1; i < n; i++) {
+        int current_value = my_array[i];
+        int insert_index = i;
+        for (int j = i - 1; j >= 0; j--) {
+            if (my_array[j] > current_value) {
+                insert_index = j;
+            }
+        }
+        my_array.insert(my_array.begin() + insert_index, current_value);
+    }
+
+    cout << "Sorted array: ";
+    for (int i = 0; i < n; i++) {
+        cout << my_array[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+                    """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson7_subs[3],
-                        title = "Quiz",
-                        description = "Quiz",
-                        contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "Complete the code to declare a floating-point variable for weight.",
-                                incompleteCode = """
-                    ___ weight = 70.5;  // Declare a variable for weight
-                """.trimIndent(),
-                                correctCode = "float",
-                                userInput = null,
-                                isCodeCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson7_subs[4],
-                        title = "Set Decimal Precision",
-                        description = "Control decimal precision when displaying numbers.",
+                        title = "Insertion Sort Improvement",
+                        description = "Improve the efficiency of Insertion Sort.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createSimpleText(
-                                    "In C, you can control the number of decimal places displayed for floating-point numbers using format specifiers. The %.2f specifier rounds the number to two decimal places when printing, ensuring that the output shows the desired precision without extra digits."
+                                    "One inefficiency in the previous implementation is removing and inserting elements repeatedly, causing unnecessary shifts. Instead, you can directly swap elements to improve efficiency."
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-float price = 10.12345;
-printf("Price: %.2f", price);  // Prints 10.12 (rounded to 2 decimals)
-            """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson7_subs[5],
-                        title = "Get the Memory Size",
-                        description = "Find out how much memory each data type uses.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "In C, you can use the sizeof() operator to determine the memory size of any data type. This is useful for understanding the memory usage of variables in your program.",
-                                    listOf("sizeof()")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-printf("Size of int: %zu bytes", sizeof(int));  // Check memory size of int
-printf("Size of char: %zu bytes", sizeof(char));  // Check memory size of char
-            """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson7_subs[6],
-                        title = "Real-Life Example",
-                        description = "See a real-world example using C data types.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Here’s an example using various data types in a program:")),
-                            ContentBlock.Code(
-                                """
-                #include <stdio.h>
-                
-                int main() {
-                    int age = 25;
-                    float height = 5.9;
-                    char grade = 'A';
-                    
-                    printf("Age: %d, Height: %.1f, Grade: %c", age, height, grade);
-                    
-                    return 0;
-                }
-            """.trimIndent()
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> my_array = {64, 34, 25, 12, 22, 11, 90, 5};
+    int n = my_array.size();
+
+    for (int i = 1; i < n; i++) {
+        int current_value = my_array[i];
+        int j = i - 1;
+        while (j >= 0 && my_array[j] > current_value) {
+            my_array[j + 1] = my_array[j];
+            j--;
+        }
+        my_array[j + 1] = current_value;
+    }
+
+    cout << "Sorted array: ";
+    for (int i = 0; i < n; i++) {
+        cout << my_array[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+                    """.trimIndent()
                             ),
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "This example shows how to use integers, floats, and chars to store and display data.",
-                                    listOf("integers", "floats", "chars")
+                                createSimpleText(
+                                    "This version eliminates the need to pop and insert elements by shifting the values and directly placing the current value in the correct position."
                                 )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson7_subs[7],
-                        title = "Type Conversion",
-                        description = "Learn how to convert between data types.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Sometimes, you need to convert types – like turning a float into an integer.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "For example, adding an integer to a float results in automatic conversion.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-                int num = 5;
-                float result = num + 5.5;  // Implicitly converts int to float
-                printf("Result: %.2f", result);  // Prints 10.50
-            """.trimIndent()
-                            ),
-                            ContentBlock.Text(createSimpleText("Or you can manually convert using a cast:")),
-                            ContentBlock.Code(
-                                """
-                float pi = 3.14;
-                int intPi = (int)pi;  // Explicit conversion from float to int
-                printf("Integer Pi: %d", intPi);  // Prints 3
-            """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson7_subs[8],
-                        title = "Quiz",
-                        description = "Quiz",
-                        contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "What is the result of the following operation?\n\nint num = 5;\nfloat result = num + 5.5;\n\nOptions: ",
-                                options = listOf("10.50", "5.50", "5", "11"),
-                                correctAnswer = "10.50"
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    )
                 ),
                 status = LessonStatus.LOCKED
             ),
@@ -1101,127 +1000,130 @@ printf("Size of char: %zu bytes", sizeof(char));  // Check memory size of char
             // lesson 8
             Lesson(
                 id = DSABeginnerStageIds.lesson8,
-                title = "C Constants",
-                description = "Understand how constants are used in C programs for fixed values that do not change! 🔒",
+                title = "Quicksort Algorithm",
+                description = "Learn the Quicksort algorithm, one of the fastest sorting algorithms, and understand how it works through recursion! 🚀",
                 lessonContents = listOf(
                     LessonContent(
                         id = DSABeginnerStageIds.lesson8_subs[0],
-                        title = "Introduction to Constants",
-                        description = "Learn what constants are and why to use them.",
+                        title = "Introduction to Quicksort",
+                        description = "Understand the fundamentals of the Quicksort algorithm and why it’s efficient.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Constants are fixed values that cannot be modified during program execution.")),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "They improve code readability and maintainability by replacing hard-coded values with meaningful names.",
-                                    listOf("hard-coded")
-                                )
-                            ),
+                            ContentBlock.Text(createSimpleText("Quicksort is a divide-and-conquer algorithm that is often one of the fastest sorting algorithms.")),
+                            ContentBlock.Text(createSimpleText("The algorithm selects a pivot element, then rearranges the other elements so that values smaller than the pivot are to its left, and larger values are to its right.")),
+                            ContentBlock.Text(createSimpleText("It’s efficient due to its divide-and-conquer approach, making it a popular choice for sorting.")),
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson8_subs[1],
-                        title = "Defining Constants",
-                        description = "Learn how to define constants in C using #define and const.",
+                        title = "Quicksort Algorithm Steps",
+                        description = "Learn the step-by-step process of how Quicksort works, including recursion and partitioning.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("There are two common ways to define constants in C:")),
-                            ContentBlock.Text(
-                                createAnnotatedText("1. Using #define:", listOf("#define"))
-                            ),
-                            ContentBlock.Code(
-                                """
-                #define PI 3.14159
-                printf("PI value: %f", PI);  // Output: 3.14159
-                """.trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText("2. Using the const keyword:", listOf("const"))
-                            ),
-                            ContentBlock.Code(
-                                """
-                const int maxLimit = 100;
-                printf("Max limit: %d", maxLimit);  // Output: 100
-                """.trimIndent()
-                            )
+                            ContentBlock.Text(createSimpleText("Here are the steps involved in the Quicksort algorithm:")),
+
+                            ContentBlock.Text(createSimpleText("1. Choose a pivot element from the array.")),
+                            ContentBlock.Text(createSimpleText("2. Partition the array into two sub-arrays: values less than the pivot on the left, and values greater than the pivot on the right.")),
+                            ContentBlock.Text(createSimpleText("3. Recursively apply the same process to the sub-arrays.")),
+                            ContentBlock.Text(createSimpleText("4. Continue until the array is sorted.")),
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson8_subs[2],
-                        title = "Defining Constants",
-                        description = "Learn how to define constants in C using #define and const.",
+                        title = "Manual Run Through",
+                        description = "Walk through the algorithm with an example to better understand its steps.",
                         contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "Complete the code to define a constant for Pi using the #define directive:",
-                                incompleteCode = """
-                ___ PI 3.14159;  // Define constant Pi
-                """.trimIndent(),
-                                correctCode = "#define",
-                                userInput = null,
-                                isCodeCorrect = false
-                            )
+                            ContentBlock.Text(createSimpleText("Let’s run Quicksort on an unsorted array: [11, 9, 12, 7, 3]")),
+
+                            ContentBlock.Text(createSimpleText("1. Start with the array: [11, 9, 12, 7, 3]")),
+                            ContentBlock.Text(createSimpleText("2. Choose the pivot element (last element, 3).")),
+                            ContentBlock.Text(createSimpleText("3. Rearrange the elements to have values less than the pivot to its left: [3, 9, 12, 7, 11]")),
+                            ContentBlock.Text(createSimpleText("4. Recursively apply the same process for the sub-arrays.")),
+                            ContentBlock.Text(createSimpleText("After recursively sorting, the array becomes: [3, 7, 9, 11, 12]")),
                         ),
-                        type = LessonContentType.INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson8_subs[3],
-                        title = "Constant Naming",
-                        description = "Understand naming conventions for constants.",
+                        title = "Recursion in Quicksort",
+                        description = "Understand how recursion is used in the Quicksort algorithm to divide the array into smaller sub-arrays.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Constant names follow variable naming rules, but they are often written in uppercase for clarity.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Example: const int MAX_SPEED = 120;",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(createSimpleText("Uppercase helps identify constants in code easily.")),
+                            ContentBlock.Text(createSimpleText("Quicksort works by repeatedly calling itself on smaller sub-arrays until they are of length 1 or 0, at which point they are considered sorted.")),
+                            ContentBlock.Text(createSimpleText("Recursion helps split the array into smaller and smaller pieces, allowing the algorithm to efficiently sort the entire array.")),
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson8_subs[4],
-                        title = "Real-Life Example",
-                        description = "See a practical example of using constants in a program.",
+                        title = "Quicksort Code Implementation",
+                        description = "Learn how to implement the Quicksort algorithm in code.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Imagine setting a limit on how many times you can hit snooze on your alarm.")),
-                            ContentBlock.Text(createSimpleText("You wouldn’t want to change that limit every day, so use a constant!")),
+                            ContentBlock.Text(createSimpleText("Here’s how you can implement the Quicksort algorithm in C++:")),
+
                             ContentBlock.Code(
                                 """
-                #include <stdio.h>
-                #define MAX_SNOOZES 3
-                
-                int main() {
-                    for(int i = 0; i < MAX_SNOOZES; i++) {
-                        printf("Snooze #%d of %d\n", i + 1, MAX_SNOOZES);
+                    #include <iostream>
+                    #using namespace std;
+
+                    int partition(int array[], int low, int high) {
+                        int pivot = array[high];
+                        int i = low - 1;
+                        for (int j = low; j < high; j++) {
+                            if (array[j] <= pivot) {
+                                i++;
+                                swap(array[i], array[j]);
+                            }
+                        }
+                        swap(array[i + 1], array[high]);
+                        return i + 1;
                     }
-                    return 0;
-                }
-                """.trimIndent()
+
+                    void quicksort(int array[], int low, int high) {
+                        if (low < high) {
+                            int pivotIndex = partition(array, low, high);
+                            quicksort(array, low, pivotIndex - 1);
+                            quicksort(array, pivotIndex + 1, high);
+                        }
+                    }
+
+                    int main() {
+                        int array[] = {64, 34, 25, 12, 22, 11, 90, 5};
+                        int size = sizeof(array) / sizeof(array[0]);
+
+                        quicksort(array, 0, size - 1);
+
+                        cout << "Sorted array: ";
+                        for (int i = 0; i < size; i++) {
+                            cout << array[i] << " ";
+                        }
+                        return 0;
+                    }
+                    """.trimIndent()
                             ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "This program uses the constant MAX_SNOOZES to limit the number of snoozes.",
-                                    listOf("")
-                                )
-                            ),
+                            ContentBlock.Text(createSimpleText("In this C++ implementation, the `partition` function selects a pivot and rearranges elements accordingly. The `quicksort` function is recursively called on the sub-arrays.")),
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson8_subs[5],
-                        title = "Quiz",
-                        description = "Quiz",
+                        title = "Time Complexity of Quicksort",
+                        description = "Understand the time complexity of the Quicksort algorithm in different scenarios.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(createSimpleText("Quicksort has an average-case time complexity of O(n log n), which is much faster than algorithms like Bubble Sort, which have a time complexity of O(n^2).")),
+                            ContentBlock.Text(createSimpleText("However, in the worst case (when the pivot is always the smallest or largest element), the time complexity can degrade to O(n^2).")),
+                            ContentBlock.Text(createSimpleText("But on average, Quicksort is one of the fastest sorting algorithms, especially for large datasets.")),
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSABeginnerStageIds.lesson8_subs[6],
+                        title = "Quiz: Quicksort Basics",
+                        description = "Test your understanding of the Quicksort algorithm.",
                         contentBlocks = listOf(
                             QuizContentBlock(
-                                question = "Which of the following is used to define a constant value that cannot be changed during program execution in C?",
-                                options = listOf("#define", "const", "int", "static"),
-                                correctAnswer = "#define",
+                                question = "What is the time complexity of the Quicksort algorithm in the best case?",
+                                options = listOf("O(n^2)", "O(n log n)", "O(n)", "O(log n)"),
+                                correctAnswer = "O(n log n)",
                                 userAnswer = null,
                                 isCorrect = false
                             )
@@ -1235,259 +1137,117 @@ printf("Size of char: %zu bytes", sizeof(char));  // Check memory size of char
             // lesson 9
             Lesson(
                 id = DSABeginnerStageIds.lesson9,
-                title = "C Operators",
-                description = "Learn the different operators in C used for performing operations on variables and values! 🔧",
+                title = "Counting Sort",
+                description = "Learn how Counting Sort works to efficiently sort arrays of integers! 🔧",
                 lessonContents = listOf(
                     LessonContent(
                         id = DSABeginnerStageIds.lesson9_subs[0],
-                        title = "Introduction to Operators",
-                        description = "Understand operators and their uses.",
+                        title = "Introduction to Counting Sort",
+                        description = "Understand the basics of Counting Sort and its use cases.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Operators are essential for performing operations in a program.")),
+                            ContentBlock.Text(createSimpleText("Counting Sort is an efficient algorithm for sorting integers by counting occurrences.")),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Operators allow you to perform operations on variables and values. They are crucial for calculations, comparisons, and logical operations in your code.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Examples: +, -, *, /, %. Basic yet powerful operators.",
-                                    listOf("+", "-", "*", "/", "%")
-                                )
-                            ),
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson9_subs[1],
-                        title = "Arithmetic Operators",
-                        description = "Learn about arithmetic operators in C.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Arithmetic operators perform mathematical operations like addition, subtraction, multiplication, and division:",
+                                    "Counting Sort does not compare values like other sorting algorithms. Instead, it works by counting occurrences of each value in an array.",
                                     listOf()
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "These operators are used to perform basic mathematical calculations on numeric values, such as adding, subtracting, multiplying, dividing, and finding remainders.",
-                                    listOf("")
+                                    "Conditions for Counting Sort: values must be non-negative integers, and the range of possible values (k) should be smaller than the number of elements (n).",
+                                    listOf("k", "n")
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSABeginnerStageIds.lesson9_subs[1],
+                        title = "How Counting Sort Works",
+                        description = "Learn step-by-step how Counting Sort sorts arrays.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Counting Sort sorts an array in three main steps: counting, modifying, and sorting. Here's how:",
+                                    listOf()
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-                int a = 5, b = 3;
-                int sum = a + b;    // 8
-                int diff = a - b;   // 2
-                int prod = a * b;   // 15
-                int quotient = a / b;  // 1
-                int mod = a % b;    // 2
-            """.trimIndent()
+                    // Step 1: Count occurrences of each value
+                    int[] arr = {2, 3, 0, 2, 3, 2};
+                    int[] countArray = new int[4]; // Range: 0-3
+                    
+                    for (int num : arr) {
+                        countArray[num]++;
+                    }
+                    
+                    // Step 2: Modify countArray to store cumulative counts
+                    for (int i = 1; i < countArray.length; i++) {
+                        countArray[i] += countArray[i - 1];
+                    }
+                    
+                    // Step 3: Sort the array
+                    int[] sortedArray = new int[arr.length];
+                    for (int i = arr.length - 1; i >= 0; i--) {
+                        int num = arr[i];
+                        sortedArray[countArray[num] - 1] = num;
+                        countArray[num]--;
+                    }
+                    """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson9_subs[2],
-                        title = "Quiz",
-                        description = "Quiz",
+                        title = "Manual Walkthrough",
+                        description = "Understand Counting Sort through a manual walkthrough.",
                         contentBlocks = listOf(
-                            InteractiveCodeBlock(
-                                question = "Complete the code to calculate the sum of a and b using the correct operator:",
-                                options = listOf(
-                                    "+",
-                                    "-",
-                                    "*",
-                                    "/"
-                                ),
-                                correctAnswer = "+",
-                                incompleteCode = """
-                int a = 5, b = 3;
-                int sum = a ___ b;  // Fill in the missing operator
-                """.trimIndent(),
-                                userAnswer = null
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson9_subs[3],
-                        title = "Relational Operators",
-                        description = "Learn relational operators for comparison.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Relational operators like >, <, ==, !=, >=, and <= are used to compare values.",
-                                    listOf(">", "<", "==", "!=", ">=", "<=")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "These operators allow us to compare two values and return a boolean result. They help in decision-making processes, such as checking if one value is greater than or equal to another.",
-                                    listOf("")
-                                )
-                            ),
+                            ContentBlock.Text(createSimpleText("Let's sort the array {2, 3, 0, 2, 3, 2} step-by-step.")),
                             ContentBlock.Code(
                                 """
-                int x = 10, y = 20;
-                bool result = (x > y);   // false
-                result = (x < y);        // true  
-                result = (x == y);       // false
-                result = (x != y);       // true
-                result = (x >= y);       // false
-                result = (x <= y);       // true
-            """.trimIndent()
+                    // Initial array
+                    arr = [2, 3, 0, 2, 3, 2]
+                    
+                    // Step 1: Count occurrences
+                    countArray = [1, 0, 3, 2]  // Count values 0, 1, 2, 3
+                    
+                    // Step 2: Cumulative counts
+                    countArray = [1, 1, 4, 6]  // Modify to cumulative counts
+                    
+                    // Step 3: Sort the array
+                    sortedArray = [0, 2, 2, 2, 3, 3]  // Final sorted result
+                    """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson9_subs[4],
-                        title = "Quiz",
-                        description = "Quiz",
-                        contentBlocks = listOf(
-                            InteractiveCodeBlock(
-                                question = "Complete the code to check if x is greater than y:",
-                                options = listOf(
-                                    ">",
-                                    "<",
-                                    "==",
-                                    ">=",
-                                    "<="
-                                ),
-                                correctAnswer = ">",
-                                incompleteCode = """
-                int x = 10, y = 20;
-                bool result = (x ___ y);  // Fill in the missing operator
-                """.trimIndent(),
-                                userAnswer = null
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson9_subs[5],
-                        title = "Logical Operators",
-                        description = "Learn logical operators for combining conditions.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Logical operators &&, ||, and ! are used to combine or negate conditions.",
-                                    listOf("&&", "||", "!")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "These operators allow you to evaluate multiple conditions. The && (AND) operator checks if both conditions are true, || (OR) checks if at least one condition is true, and ! (NOT) negates a condition.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-                int a = 1, b = 0;
-                bool result = (a && b);  // false
-                result = (a || b);       // true  
-                result = !a;             // false
-            """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson9_subs[6],
-                        title = "Quiz",
-                        description = "Quiz",
-                        contentBlocks = listOf(
-                            InteractiveCodeBlock(
-                                question = "Complete the code to check if both a and b are true:",
-                                options = listOf(
-                                    "&&",
-                                    "||",
-                                    "!"
-                                ),
-                                correctAnswer = "&&",
-                                incompleteCode = """
-                int a = 1, b = 0;
-                bool result = (a ___ b);  // Fill in the missing operator
-                """.trimIndent(),
-                                userAnswer = null
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson9_subs[7],
-                        title = "Assignment and Increment/Decrement Operators",
-                        description = "Understand assignment, increment, and decrement operations.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Assignment stores values, and increment/decrement changes values. These are fundamental operations:",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "The assignment operator (=) stores a value into a variable. The increment (++) and decrement (--) operators increase or decrease a variable's value by one, respectively. Additionally, compound assignment operators (+=, -=, *=) modify variables by applying arithmetic operations and then storing the result.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-                int a = 5;
-                a++;  // a becomes 6
-                a--;  // a becomes 5
-                int b = 10;
-                b += 5;  // b becomes 15
-                b *= 2;  // b becomes 30
-            """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson9_subs[8],
-                        title = "Quiz",
-                        description = "Quiz",
-                        contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "What will be the value of a after a += 5; where a = 3?",
-                                options = listOf("3", "5", "8", "10"),
-                                correctAnswer = "8",
-                                userAnswer = null,
-                                isCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.QUIZ
-                    )
                 ),
                 status = LessonStatus.LOCKED
             ),
 
-
             // lesson 10
             Lesson(
                 id = DSABeginnerStageIds.lesson10,
-                title = "C Booleans",
-                description = "Learn how to use booleans in C for conditional statements and logical operations! ✅❌",
+                title = "Radix Sort",
+                description = "Learn how the Radix Sort algorithm works and understand the importance of stable sorting!",
                 lessonContents = listOf(
                     LessonContent(
                         id = DSABeginnerStageIds.lesson10_subs[0],
-                        title = "Introduction to Booleans",
-                        description = "Understand how booleans work in C.",
+                        title = "Introduction to Radix Sort",
+                        description = "Understand the basics of the Radix Sort algorithm.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "A boolean is a binary value: either true (1) or false (0).",
+                                    "The Radix Sort algorithm sorts an array by processing individual digits of the numbers. It starts with the least significant digit (rightmost digit) and progresses to the most significant digit.",
                                     listOf()
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Booleans are used to represent conditions in programming. True means a condition is met, and false means it isn't. They are essential for controlling program flow with conditionals like if and while.",
-                                    listOf("")
+                                    "Radix Sort is a non-comparative sorting algorithm that only works with non-negative integers. It groups numbers into buckets based on their digits, sorts them, and merges them back in sequence.",
+                                    listOf()
                                 )
                             )
                         ),
@@ -1495,117 +1255,141 @@ printf("Size of char: %zu bytes", sizeof(char));  // Check memory size of char
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson10_subs[1],
-                        title = "Basic Boolean Representation",
-                        description = "Learn how booleans are represented as 0 and 1 in C.",
+                        title = "Step-by-Step Explanation",
+                        description = "Learn how Radix Sort works step by step.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "In C, booleans are represented as 0 (false) and 1 (true), enabling binary logic operations. These values are fundamental in decision-making, helping to control the flow of programs using conditions like if-else statements and loops.",
-                                    listOf("")
+                                    """
+                        How Radix Sort works:
+                        1. Start with the least significant digit.
+                        2. Sort numbers based on the digit in focus.
+                        3. Move numbers to buckets, merge them back into the array.
+                        4. Progress to the next digit and repeat until all digits are processed.
+                        """.trimIndent(),
+                                    listOf()
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-                int flag = 1;  // true
-                int isZero = 0;  // false
-            """.trimIndent()
+                    // Example:
+                    Input: [170, 45, 75, 90, 802, 24, 2, 66]
+                    Step 1: Sort by the least significant digit.
+                    Step 2: Group numbers into buckets.
+                    Step 3: Merge numbers from buckets back into the array.
+                    Repeat until the most significant digit is sorted.
+                    """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson10_subs[2],
-                        title = "Quiz",
-                        description = "Quiz",
+                        title = "Implementation of Radix Sort",
+                        description = "Code example of Radix Sort in C++.",
                         contentBlocks = listOf(
-                            InteractiveCodeBlock(
-                                question = "Which of the following is the correct representation of a false boolean value in C?",
-                                options = listOf("0", "1", "true", "false"),
-                                correctAnswer = "0",
-                                incompleteCode = """
-                    int flag = ___;  // Complete the code with the correct representation of a boolean value
-                """.trimIndent(),
-                                userAnswer = null
+                            ContentBlock.Code(
+                                """
+                    #include <iostream>
+                    #include <vector>
+                    using namespace std;
+
+                    // Function to get the maximum value in the array
+                    int getMax(vector<int>& arr) {
+                        int maxVal = arr[0];
+                        for (int num : arr) {
+                            if (num > maxVal) maxVal = num;
+                        }
+                        return maxVal;
+                    }
+
+                    // Counting sort based on the digit represented by exp
+                    void countingSort(vector<int>& arr, int exp) {
+                        int n = arr.size();
+                        vector<int> output(n); // Output array
+                        int count[10] = {0};
+
+                        // Count occurrences of each digit
+                        for (int i = 0; i < n; i++) {
+                            int index = (arr[i] / exp) % 10;
+                            count[index]++;
+                        }
+
+                        // Update count[i] to store actual positions
+                        for (int i = 1; i < 10; i++) {
+                            count[i] += count[i - 1];
+                        }
+
+                        // Build the output array
+                        for (int i = n - 1; i >= 0; i--) {
+                            int index = (arr[i] / exp) % 10;
+                            output[count[index] - 1] = arr[i];
+                            count[index]--;
+                        }
+
+                        // Copy the sorted values back to the original array
+                        for (int i = 0; i < n; i++) {
+                            arr[i] = output[i];
+                        }
+                    }
+
+                    // Radix Sort function
+                    void radixSort(vector<int>& arr) {
+                        int maxVal = getMax(arr);
+
+                        // Perform counting sort for each digit
+                        for (int exp = 1; maxVal / exp > 0; exp *= 10) {
+                            countingSort(arr, exp);
+                        }
+                    }
+
+                    int main() {
+                        vector<int> arr = {170, 45, 75, 90, 802, 24, 2, 66};
+                        radixSort(arr);
+
+                        cout << "Sorted array: ";
+                        for (int num : arr) {
+                            cout << num << " ";
+                        }
+                        return 0;
+                    }
+                    """.trimIndent()
                             )
                         ),
-                        type = LessonContentType.INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson10_subs[3],
-                        title = "Boolean Values",
-                        description = "Learn how to use true and false with the stdbool.h library.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "The stdbool.h library defines the bool type for better readability.",
-                                    listOf("stdbool.h")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-                    #include <stdbool.h>
-                    
-                    bool isEven = true;   // true (1)
-                    bool isOdd = false;   // false (0)
-                """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson10_subs[4],
-                        title = "Boolean Operations",
-                        description = "Use booleans in logical operations.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Logical operations combine conditions:")),
-                            ContentBlock.Code(
-                                """
-                    bool a = true, b = false;
-                    bool result = a && b;  // false (AND)
-                    result = a || b;       // true (OR)
-                    result = !a;           // false (NOT)
-                """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson10_subs[5],
-                        title = "Boolean in Conditional Statements",
-                        description = "Using booleans in if and while statements.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Booleans control program flow, such as in conditionals:")),
-                            ContentBlock.Code(
-                                """
-                    if (isEven) {
-                        printf("Even number\n");
-                    } else {
-                        printf("Odd number\n");
-                    }
-                    
-                    while (!isOdd) {
-                        printf("Still not odd\n");
-                        isOdd = true; // Update condition
-                    }
-                """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson10_subs[6],
                         title = "Quiz",
-                        description = "Quiz",
+                        description = "Test your knowledge with a quiz.",
                         contentBlocks = listOf(
                             QuizContentBlock(
-                                question = "What is the result of !true in boolean logic?",
-                                options = listOf("true", "false", "undefined", "error"),
-                                correctAnswer = "false", // NOT true is false
-                                userAnswer = null, // User hasn't answered yet
-                                isCorrect = false // Initially, the answer is incorrect
+                                question = "Which digit is processed first in Radix Sort?",
+                                options = listOf(
+                                    "Most significant digit",
+                                    "Least significant digit",
+                                    "Random digit"
+                                ),
+                                correctAnswer = "Least significant digit",
+                                userAnswer = null,
+                                isCorrect = false
                             )
                         ),
                         type = LessonContentType.QUIZ
+                    ),
+                    LessonContent(
+                        id = DSABeginnerStageIds.lesson10_subs[4],
+                        title = "Importance of Stable Sorting",
+                        description = "Understand why stability is crucial in Radix Sort.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Radix Sort relies on stable sorting to maintain the relative order of elements with the same value. This ensures that previously sorted digits are preserved while processing the next digit.",
+                                    listOf()
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
                     )
                 ),
                 status = LessonStatus.LOCKED
@@ -1614,70 +1398,156 @@ printf("Size of char: %zu bytes", sizeof(char));  // Check memory size of char
             // lesson 11
             Lesson(
                 id = DSABeginnerStageIds.lesson11,
-                title = "Recap",
-                description = "Review important topics from this stage and prepare for the next stage in your C programming journey! 🧠💻",
+                title = "Merge Sort",
+                description = "Learn how the Merge Sort algorithm works and explore its divide-and-conquer approach to sorting!",
                 lessonContents = listOf(
                     LessonContent(
                         id = DSABeginnerStageIds.lesson11_subs[0],
-                        title = "C Syntax Overview",
-                        description = "Review the basic syntax of C programming. Remember to focus on semicolons, curly braces, and the structure of main().",
+                        title = "Introduction to Merge Sort",
+                        description = "Understand the basics of the Merge Sort algorithm.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("C programs begin with the main function, and statements are terminated with a semicolon. Curly braces are used to define code blocks. In C, each function must be defined within these braces, and the program starts execution from the main function. The use of semicolons is essential to mark the end of statements, making the program syntactically correct.")),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                        Merge Sort is a divide-and-conquer sorting algorithm that breaks down an array into smaller arrays, sorts them, and merges them back to produce the final sorted array. It is known for its efficiency and stability.
+                        """.trimIndent(),
+                                    listOf()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                        The algorithm works in two main stages:
+                        - **Divide**: Recursively split the array into halves until each sub-array has only one element.
+                        - **Conquer**: Merge the sub-arrays back together, comparing and sorting elements as they are merged.
+                        """.trimIndent(),
+                                    listOf()
+                                )
+                            )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson11_subs[1],
-                        title = "Understanding Statements",
-                        description = "Statements are the building blocks of your program. Each statement performs a task, like declaring variables or performing operations.",
+                        title = "Step-by-Step Explanation",
+                        description = "Learn how Merge Sort works step by step.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("In C, statements like variable declarations and expressions are used to perform tasks. Each statement can represent an action like assigning values, performing arithmetic operations, or calling functions. Statements must end with a semicolon to be syntactically correct. For example, declaring variables, performing assignments, or displaying results all count as statements in C.")),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                        **How Merge Sort works:**
+                        1. Divide the array into two halves.
+                        2. Recursively split each half until each sub-array contains only one element.
+                        3. Merge sub-arrays by comparing their elements and placing the smallest element first.
+                        4. Repeat the merging process until all sub-arrays are combined into a single sorted array.
+                        """.trimIndent(),
+                                    listOf()
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+                    // Example:
+                    Input: [12, 8, 9, 3, 11, 5, 4]
+                    Step 1: Split the array into halves.
+                    Step 2: Recursively split halves into smaller sub-arrays.
+                    Step 3: Merge sub-arrays by comparing and sorting elements.
+                    Result: [3, 4, 5, 8, 9, 11, 12]
+                    """.trimIndent()
+                            )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson11_subs[2],
-                        title = "Working with Variables and Data Types",
-                        description = "Variables store data values in a program. Review the common data types such as int, char, float, and double.",
+                        title = "Implementation of Merge Sort",
+                        description = "Code example of Merge Sort in C++.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("In C, variables are assigned specific data types, which determine the kind of data they can hold. For example, an int can store whole numbers, a char can store single characters, and float and double are used to store decimal numbers with varying precision. Properly choosing the data type ensures that data is stored efficiently and correctly.")),
+                            ContentBlock.Code(
+                                """
+                    #include <iostream>
+                    #include <vector>
+                    using namespace std;
+
+                    // Function to merge two sub-arrays
+                    void merge(vector<int>& arr, int left, int mid, int right) {
+                        int n1 = mid - left + 1;
+                        int n2 = right - mid;
+
+                        vector<int> L(n1), R(n2);
+
+                        for (int i = 0; i < n1; i++) L[i] = arr[left + i];
+                        for (int i = 0; i < n2; i++) R[i] = arr[mid + 1 + i];
+
+                        int i = 0, j = 0, k = left;
+                        while (i < n1 && j < n2) {
+                            if (L[i] <= R[j]) {
+                                arr[k] = L[i];
+                                i++;
+                            } else {
+                                arr[k] = R[j];
+                                j++;
+                            }
+                            k++;
+                        }
+
+                        while (i < n1) arr[k++] = L[i++];
+                        while (j < n2) arr[k++] = R[j++];
+                    }
+
+                    // Recursive Merge Sort function
+                    void mergeSort(vector<int>& arr, int left, int right) {
+                        if (left >= right) return;
+
+                        int mid = left + (right - left) / 2;
+                        mergeSort(arr, left, mid);
+                        mergeSort(arr, mid + 1, right);
+                        merge(arr, left, mid, right);
+                    }
+
+                    int main() {
+                        vector<int> arr = {12, 8, 9, 3, 11, 5, 4};
+                        mergeSort(arr, 0, arr.size() - 1);
+
+                        cout << "Sorted array: ";
+                        for (int num : arr) cout << num << " ";
+                        return 0;
+                    }
+                    """.trimIndent()
+                            )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson11_subs[3],
-                        title = "Using Operators in C",
-                        description = "Operators are used to perform operations on variables and values. Refresh your knowledge on arithmetic, comparison, and logical operators.",
+                        title = "Quiz",
+                        description = "Test your knowledge with a quiz.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Operators in C help perform operations such as addition, subtraction, comparison, and logical operations. Arithmetic operators like +, -, *, and / perform basic mathematical calculations. Comparison operators like ==, !=, >, <, >=, and <= allow for value comparisons. Logical operators like && (AND), || (OR), and ! (NOT) help evaluate multiple conditions together.")),
+                            QuizContentBlock(
+                                question = "What is the time complexity of Merge Sort?",
+                                options = listOf("O(n^2)", "O(n log n)", "O(n)"),
+                                correctAnswer = "O(n log n)",
+                                userAnswer = null,
+                                isCorrect = false
+                            )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.QUIZ
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson11_subs[4],
-                        title = "Booleans and Logical Operations",
-                        description = "Booleans represent true/false values. Logical operations help combine multiple conditions.",
+                        title = "Advantages of Merge Sort",
+                        description = "Learn why Merge Sort is widely used.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Booleans can be used in logical operations like AND (&&), OR (||), and NOT (!) to combine multiple conditions. Logical operations help make decisions based on multiple criteria, for example, checking if both conditions are true or if at least one condition is true.")),
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson11_subs[5],
-                        title = "Conditional Statements",
-                        description = "Conditional statements such as if, else if, and while control program flow based on conditions.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Conditional statements are used to control the flow of the program by executing code based on whether certain conditions are true or false. For example, if statements allow you to run code when a condition is true, while else lets you run alternative code when the condition is false. The while loop repeatedly executes code as long as the given condition is true.")),
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson11_subs[6],
-                        title = "Your Next Step",
-                        description = "Great job! You've covered some important concepts in C programming. Keep practicing and researching on your own to build stronger skills.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("You’re ready for the next stage! Keep practicing and exploring, and don’t hesitate to dive deeper into topics that interest you.")),
-                            ContentBlock.Text(createSimpleText("Programming is all about practice and learning from experience. Keep coding and have fun! 🚀"))
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                        Merge Sort is known for:
+                        - **Efficiency**: It has a predictable O(n log n) time complexity for all cases.
+                        - **Stability**: It preserves the relative order of equal elements, which is crucial for certain applications.
+                        - **Simplicity**: Its recursive nature makes it conceptually easy to understand.
+                        """.trimIndent(),
+                                    listOf()
+                                )
+                            )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     )
@@ -1688,106 +1558,251 @@ printf("Size of char: %zu bytes", sizeof(char));  // Check memory size of char
             // lesson 12
             Lesson(
                 id = DSABeginnerStageIds.lesson12,
-                title = "Quiz",
-                description = "Test your knowledge of the topics covered in this stage! 🧠💻",
+                title = "Linear Search",
+                description = "Learn the fundamentals of Linear Search and understand how to implement it.",
                 lessonContents = listOf(
                     LessonContent(
                         id = DSABeginnerStageIds.lesson12_subs[0],
-                        title = "Quiz: C Syntax Overview",
-                        description = "Answer the questions related to C syntax.",
+                        title = "Introduction to Linear Search",
+                        description = "Understand the basics of the Linear Search algorithm.",
                         contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "What is the entry point of a C program?",
-                                options = listOf("main", "start", "begin", "beginning"),
-                                correctAnswer = "main"
-
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "The Linear Search algorithm searches through an array and returns the index of the value it searches for. It is one of the simplest and easiest search algorithms to understand and implement.",
+                                    listOf()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Linear Search works on both sorted and unsorted arrays. However, it is less efficient than other search algorithms, such as Binary Search, especially for large datasets.",
+                                    listOf()
+                                )
                             )
                         ),
-                        type = LessonContentType.QUIZ
+                        type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson12_subs[1],
-                        title = "Quiz: Understanding Statements",
-                        description = "Test your knowledge of statements in C.",
+                        title = "How Linear Search Works",
+                        description = "Learn step-by-step how Linear Search operates.",
                         contentBlocks = listOf(
-                            QuizContentBlock(
-
-                                question = "What is the purpose of a statement in C?",
-                                options = listOf(
-                                    "Declare variables",
-                                    "Perform tasks",
-                                    "Both A and B",
-                                    "None of the above"
-                                ),
-                                correctAnswer = "Both A and B"
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                        Steps for Linear Search:
+                        1. Start from the first element of the array.
+                        2. Compare the current element with the target value.
+                        3. If a match is found, return the index of the element.
+                        4. If no match is found after checking all elements, return -1.
+                        """.trimIndent(),
+                                    listOf()
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+                    Example:
+                    Array: [12, 8, 9, 11, 5, 11]
+                    Target: 11
+                    
+                    Step 1: Check element at index 0 → 12 (Not a match)
+                    Step 2: Check element at index 1 → 8 (Not a match)
+                    Step 3: Check element at index 2 → 9 (Not a match)
+                    Step 4: Check element at index 3 → 11 (Match found!)
+                    
+                    Result: Target found at index 3.
+                    """.trimIndent()
                             )
                         ),
-                        type = LessonContentType.QUIZ
+                        type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson12_subs[2],
-                        title = "Quiz: Working with Variables and Data Types",
-                        description = "Answer the questions about variables and data types in C.",
+                        title = "Implementation of Linear Search",
+                        description = "Code example of Linear Search in Python.",
                         contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "Which data type is used to store decimal numbers in C?",
-                                options = listOf("int", "float", "char", "double"),
-                                correctAnswer = "float"
+                            ContentBlock.Code(
+                                """
+                    # Linear Search Implementation
+                    def linearSearch(arr, targetVal):
+                        for i in range(len(arr)):
+                            if arr[i] == targetVal:
+                                return i
+                        return -1
+                    
+                    # Example Usage
+                    arr = [3, 7, 2, 9, 5]
+                    targetVal = 9
+                    
+                    result = linearSearch(arr, targetVal)
+                    
+                    if result != -1:
+                        print("Value", targetVal, "found at index", result)
+                    else:
+                        print("Value", targetVal, "not found")
+                    """.trimIndent()
                             )
                         ),
-                        type = LessonContentType.QUIZ
+                        type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson12_subs[3],
-                        title = "Quiz: Using Operators in C",
-                        description = "Test your knowledge of operators in C.",
+                        title = "Quiz",
+                        description = "Test your knowledge with a quiz.",
                         contentBlocks = listOf(
                             QuizContentBlock(
-                                question = "What operator is used for addition in C?",
-                                options = listOf("+", "-", "*", "/"),
-                                correctAnswer = "+"
+                                question = "What is the time complexity of Linear Search in the worst-case scenario?",
+                                options = listOf("O(1)", "O(log n)", "O(n)", "O(n^2)"),
+                                correctAnswer = "O(n)",
+                                userAnswer = null,
+                                isCorrect = false
                             )
                         ),
                         type = LessonContentType.QUIZ
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson12_subs[4],
-                        title = "Quiz: Booleans and Logical Operations",
-                        description = "Answer questions related to booleans and logical operations in C.",
+                        title = "Time Complexity",
+                        description = "Understand the time complexity of Linear Search.",
                         contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "Which of the following is used for logical AND operation in C?",
-                                options = listOf("&&", "&", "||", "|"),
-                                correctAnswer = "&&"
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                        - Best Case: O(1), when the target is found at the first index.
+                        - Worst Case: O(n), when the target is not present or at the last index.
+                        - Average Case: O(n), assuming random distribution of values.
+                        
+                        Linear Search is less efficient compared to algorithms like Binary Search for large datasets but is simple and works on unsorted arrays.
+                        """.trimIndent(),
+                                    listOf()
+                                )
                             )
                         ),
-                        type = LessonContentType.QUIZ
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson12_subs[5],
-                        title = "Quiz: Conditional Statements",
-                        description = "Test your knowledge of conditional statements in C.",
-                        contentBlocks = listOf(
-                            QuizContentBlock(
+                        type = LessonContentType.NON_INTERACTIVE
+                    )
+                ),
+                status = LessonStatus.LOCKED
+            ),
 
-                                question = "Which of the following is a valid C conditional statement?",
-                                options = listOf(
-                                    "if",
-                                    "switch",
-                                    "while",
-                                    "all of the above"
-                                ),
-                                correctAnswer = "all of the above"
+            // lesson 13
+            Lesson(
+                id = DSABeginnerStageIds.lesson13,
+                title = "Binary Search",
+                description = "Learn how the Binary Search algorithm works and why it is faster than linear search for sorted arrays.",
+                lessonContents = listOf(
+                    LessonContent(
+                        id = DSABeginnerStageIds.lesson13_subs[0],
+                        title = "Introduction to Binary Search",
+                        description = "Understand the basics of the Binary Search algorithm.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Binary Search is an efficient algorithm for finding a target value within a sorted array. It reduces the search area by half at each step, resulting in a logarithmic time complexity.",
+                                    listOf()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Unlike linear search, Binary Search requires the input array to be sorted. It uses a divide-and-conquer approach to locate the target value.",
+                                    listOf()
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSABeginnerStageIds.lesson13_subs[1],
+                        title = "How Binary Search Works",
+                        description = "Step-by-step explanation of Binary Search.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                        How Binary Search works:
+                        1. Start with two pointers: `left` at the beginning and `right` at the end of the array.
+                        2. Calculate the middle index using `(left + right) // 2`.
+                        3. Compare the value at the middle index with the target:
+                            - If equal, return the middle index.
+                            - If the target is smaller, move the `right` pointer to `mid - 1`.
+                            - If the target is larger, move the `left` pointer to `mid + 1`.
+                        4. Repeat steps 2-3 until the target is found or the pointers overlap.
+                        """.trimIndent(),
+                                    listOf()
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+                    // Example:
+                    Array: [1, 3, 5, 7, 9, 11, 13]
+                    Target: 9
+                    
+                    Step 1: Check middle (index 3), value 7 < 9. Adjust `left` to index 4.
+                    Step 2: Check middle (index 5), value 11 > 9. Adjust `right` to index 4.
+                    Step 3: Check middle (index 4), value 9 == 9. Return index 4.
+                    """.trimIndent()
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSABeginnerStageIds.lesson13_subs[2],
+                        title = "Implementation of Binary Search",
+                        description = "Code example of Binary Search in Python.",
+                        contentBlocks = listOf(
+                            ContentBlock.Code(
+                                """
+                    def binary_search(arr, target):
+                        left, right = 0, len(arr) - 1
+                        while left <= right:
+                            mid = (left + right) // 2
+                            if arr[mid] == target:
+                                return mid
+                            elif arr[mid] < target:
+                                left = mid + 1
+                            else:
+                                right = mid - 1
+                        return -1
+                    
+                    # Example usage
+                    my_array = [1, 3, 5, 7, 9, 11, 13]
+                    target = 9
+                    result = binary_search(my_array, target)
+                    print(f"Target found at index {result}" if result != -1 else "Target not found.")
+                    """.trimIndent()
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSABeginnerStageIds.lesson13_subs[3],
+                        title = "Quiz",
+                        description = "Test your understanding with a quick quiz.",
+                        contentBlocks = listOf(
+                            QuizContentBlock(
+                                question = "What is the time complexity of Binary Search?",
+                                options = listOf("O(n)", "O(n^2)", "O(log n)", "O(1)"),
+                                correctAnswer = "O(log n)",
+                                userAnswer = null,
+                                isCorrect = false
                             )
                         ),
                         type = LessonContentType.QUIZ
                     ),
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson12_subs[6],
-                        title = "Stage Completed",
-                        description = "You’ve completed this stage, now prepare for the next one!",
+                        id = DSABeginnerStageIds.lesson13_subs[4],
+                        title = "Binary Search: Time Complexity",
+                        description = "Understand why Binary Search is efficient.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Great job completing this stage! Keep practicing and move on to the next stage to further improve your C programming skills. 🚀"))
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                        Binary Search is efficient due to its logarithmic time complexity:
+                        - At each step, it reduces the search area by half.
+                        - Even in the worst-case scenario, it only performs log₂(n) comparisons.
+                        This makes it faster than linear search (O(n)), especially for large datasets.
+                        """.trimIndent(),
+                                    listOf()
+                                )
+                            )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     )
