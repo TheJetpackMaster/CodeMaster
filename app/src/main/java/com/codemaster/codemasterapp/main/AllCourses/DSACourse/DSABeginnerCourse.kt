@@ -1208,7 +1208,7 @@ int main() {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     "Conditions for Counting Sort: values must be non-negative integers, and the range of possible values 'k' should be smaller than the number of elements 'n'.",
-                                    listOf("Conditions for Counting Sort","'k'", "'n'")
+                                    listOf("Conditions for Counting Sort", "'k'", "'n'")
                                 )
                             )
                         ),
@@ -1279,11 +1279,21 @@ int main() {
                         title = "Advantages and Limitations of Counting Sort",
                         description = "Explore the pros and cons of Counting Sort and understand when to use it.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("Advantages:", listOf("Advantages:"))),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Advantages:",
+                                    listOf("Advantages:")
+                                )
+                            ),
                             ContentBlock.Text(createSimpleText("1. Works efficiently for small ranges of integers.")),
                             ContentBlock.Text(createSimpleText("2. Stable sort: maintains relative order of elements with equal keys.")),
                             ContentBlock.Text(createSimpleText("3. Has a linear time complexity, O(n + k), in most cases.")),
-                            ContentBlock.Text(createAnnotatedText("Limitations:", listOf("Limitations:"))),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Limitations:",
+                                    listOf("Limitations:")
+                                )
+                            ),
                             ContentBlock.Text(createSimpleText("1. Not suitable for non-integer or negative values without modifications.")),
                             ContentBlock.Text(createSimpleText("2. Inefficient for large ranges (k >> n) due to memory consumption.")),
                             ContentBlock.Text(createSimpleText("3. Cannot handle complex data structures without additional processing."))
@@ -1481,7 +1491,7 @@ int main() {
                         Divide: Recursively split the array into halves until each sub-array has only one element.
                         Conquer: Merge the sub-arrays back together, comparing and sorting elements as they are merged.
                         """.trimIndent(),
-                                    listOf("Divide","Conquer")
+                                    listOf("Divide", "Conquer")
                                 )
                             )
                         ),
@@ -1585,7 +1595,7 @@ int main() {
                         Stability: It preserves the relative order of equal elements, which is crucial for certain applications.
                         Simplicity: Its recursive nature makes it conceptually easy to understand.
                         """.trimIndent(),
-                                    listOf("Efficiency","Stability","Simplicity")
+                                    listOf("Efficiency", "Stability", "Simplicity")
                                 )
                             )
                         ),
@@ -1712,32 +1722,56 @@ int main() {
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson12_subs[3],
-                        title = "Quiz",
-                        description = "Test your knowledge with a quiz.",
+                        title = "Manual Walkthrough of Merge Sort",
+                        description = "Manually walk through an example to understand how Merge Sort works step-by-step.",
                         contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "What is the time complexity of Linear Search in the worst-case scenario?",
-                                options = listOf("O(1)", "O(log n)", "O(n)", "O(n^2)"),
-                                correctAnswer = "O(n)",
-                                userAnswer = null,
-                                isCorrect = false
-                            )
+                            ContentBlock.Text(createSimpleText("Let's manually sort the array [38, 27, 43, 3, 9, 82, 10] step-by-step.")),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Pass 1: Dividing the array",
+                                    listOf("Pass 1:")
+                                )
+                            ),
+                            ContentBlock.Text(createSimpleText("Step 1: Split the array into two halves: [38, 27, 43] and [3, 9, 82, 10].")),
+                            ContentBlock.Text(createSimpleText("Step 2: Further split [38, 27, 43] into [38], [27], and [43].")),
+                            ContentBlock.Text(createSimpleText("Step 3: Further split [3, 9, 82, 10] into [3, 9] and [82, 10].")),
+                            ContentBlock.Text(createSimpleText("Step 4: Continue dividing until each sub-array has one element.")),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Pass 2: Merging sub-arrays",
+                                    listOf("Pass 2:")
+                                )
+                            ),
+                            ContentBlock.Text(createSimpleText("Step 1: Start merging the smallest divided sub-arrays step-by-step.")),
+                            ContentBlock.Text(createSimpleText("Merge [38] and [27] into [27, 38].")),
+                            ContentBlock.Text(createSimpleText("Merge [27, 38] and [43] into [27, 38, 43].")),
+                            ContentBlock.Text(createSimpleText("Merge [3] and [9] into [3, 9].")),
+                            ContentBlock.Text(createSimpleText("Merge [82] and [10] into [10, 82].")),
+                            ContentBlock.Text(createSimpleText("Merge [3, 9] and [10, 82] into [3, 9, 10, 82].")),
+                            ContentBlock.Text(createSimpleText("Finally, merge [27, 38, 43] and [3, 9, 10, 82] into [3, 9, 10, 27, 38, 43, 82].")),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Pass 3: Fully sorted array",
+                                    listOf("Pass 3:")
+                                )
+                            ),
+                            ContentBlock.Text(createSimpleText("The array is now fully sorted: [3, 9, 10, 27, 38, 43, 82].")),
+                            ContentBlock.Text(createSimpleText("Merge Sort works by repeatedly dividing the array into halves and then merging them back together in sorted order."))
                         ),
-                        type = LessonContentType.QUIZ
+                        type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson12_subs[4],
-                        title = "Time Complexity",
-                        description = "Understand the time complexity of Linear Search.",
+                        title = "Importance of Linear Search",
+                        description = "Understand why Linear Search is a fundamental algorithm.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        - Best Case: O(1), when the target is found at the first index.
-                        - Worst Case: O(n), when the target is not present or at the last index.
-                        - Average Case: O(n), assuming random distribution of values.
-                        
-                        Linear Search is less efficient compared to algorithms like Binary Search for large datasets but is simple and works on unsorted arrays.
+                        - Linear Search is one of the simplest search algorithms.
+                        - It forms the foundation for understanding more advanced search techniques.
+                        - It works effectively for small datasets or unsorted data where other search methods may not be applicable.
+                        - Provides a clear demonstration of algorithmic problem-solving.
                         """.trimIndent(),
                                     listOf()
                                 )
@@ -1748,6 +1782,7 @@ int main() {
                 ),
                 status = LessonStatus.LOCKED
             ),
+
 
             // lesson 13
             Lesson(
