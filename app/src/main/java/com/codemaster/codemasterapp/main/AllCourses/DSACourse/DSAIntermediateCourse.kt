@@ -122,7 +122,12 @@ fun DSAIntermediateCourse(): Stage {
                             ),
                             //ContentBlock.Image(R.drawable.link_list),
                             ContentBlock.Text(createSimpleText("Key Components:")),
-                            ContentBlock.Text(createAnnotatedText("Data: The actual value or information stored in the node.", listOf("Data:"))),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Data: The actual value or information stored in the node.",
+                                    listOf("Data:")
+                                )
+                            ),
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     "Pointer/Link: A reference to the next node in the sequence.",
@@ -146,7 +151,12 @@ fun DSAIntermediateCourse(): Stage {
                         description = "Understand the different types of linked lists and their use cases.",
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("Linked lists come in various forms depending on how nodes are linked. The three main types are:")),
-                            ContentBlock.Text(createAnnotatedText("Singly Linked List: Each node points to the next node.", listOf("Singly Linked List:"))),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Singly Linked List: Each node points to the next node.",
+                                    listOf("Singly Linked List:")
+                                )
+                            ),
                             ContentBlock.Code(
                                 """
             // Example: Singly Linked List
@@ -162,7 +172,12 @@ fun DSAIntermediateCourse(): Stage {
             head->next = NULL; // Points to NULL as it's the last node
             """.trimIndent()
                             ),
-                            ContentBlock.Text(createAnnotatedText("Doubly Linked List: Each node points to both the next and the previous node.",listOf("Doubly Linked List:"))),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Doubly Linked List: Each node points to both the next and the previous node.",
+                                    listOf("Doubly Linked List:")
+                                )
+                            ),
                             ContentBlock.Code(
                                 """
             // Example: Doubly Linked List
@@ -180,7 +195,12 @@ fun DSAIntermediateCourse(): Stage {
             head->prev = NULL; // Points to NULL as it's the first node
             """.trimIndent()
                             ),
-                            ContentBlock.Text(createAnnotatedText("Circular Linked List: The last node points back to the first node, forming a loop.",listOf("Circular Linked List:"))),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Circular Linked List: The last node points back to the first node, forming a loop.",
+                                    listOf("Circular Linked List:")
+                                )
+                            ),
                             ContentBlock.Code(
                                 """
             // Example: Circular Linked List
@@ -210,7 +230,8 @@ fun DSAIntermediateCourse(): Stage {
                         title = "Linked Lists vs Arrays",
                         description = "Explore the differences between linked lists and arrays.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText(
+                            ContentBlock.Text(
+                                createSimpleText(
                                     "Arrays have a fixed size and allow fast random access but are less flexible for resizing. Linked lists dynamically allocate memory, making them better for frequent insertions and deletions but slower to access elements since traversal is required."
                                 )
                             )
@@ -223,10 +244,30 @@ fun DSAIntermediateCourse(): Stage {
                         description = "Learn common operations like insertion, deletion, search, and traversal.",
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("Linked lists support several basic operations:")),
-                            ContentBlock.Text(createAnnotatedText("Insertion: Add a node at the beginning, end, or a specific position.",listOf("Insertion:"))),
-                            ContentBlock.Text(createAnnotatedText("Deletion: Remove a node by value or position.",listOf("Deletion:"))),
-                            ContentBlock.Text(createAnnotatedText("Search: Locate a node with a specific value by traversing the list.",listOf("Search"))),
-                            ContentBlock.Text(createAnnotatedText("Traversal: Visit each node to access or modify data.",listOf("Traversal:")))
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Insertion: Add a node at the beginning, end, or a specific position.",
+                                    listOf("Insertion:")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Deletion: Remove a node by value or position.",
+                                    listOf("Deletion:")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Search: Locate a node with a specific value by traversing the list.",
+                                    listOf("Search")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Traversal: Visit each node to access or modify data.",
+                                    listOf("Traversal:")
+                                )
+                            )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
@@ -235,8 +276,18 @@ fun DSAIntermediateCourse(): Stage {
                         title = "Advantages and Limitations",
                         description = "Understand why and when to use linked lists.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("Advantages:\nDynamic size: No need to define the size beforehand.\nEfficient insertion and deletion.",listOf("Advantages:"))),
-                            ContentBlock.Text(createAnnotatedText("Limitations:\nHigher memory usage (extra pointers).\nSequential access: No direct access to elements.",listOf("Limitations")))
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Advantages:\nDynamic size: No need to define the size beforehand.\nEfficient insertion and deletion.",
+                                    listOf("Advantages:")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Limitations:\nHigher memory usage (extra pointers).\nSequential access: No direct access to elements.",
+                                    listOf("Limitations")
+                                )
+                            )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     )
@@ -257,20 +308,20 @@ fun DSAIntermediateCourse(): Stage {
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "A singly linked list is a dynamic data structure composed of nodes where:" ,
+                                    "A singly linked list is a dynamic data structure composed of nodes where:",
                                     listOf("singly linked list")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                            "Each node contains data and a pointer to the next node.",
-                                    listOf("data","pointer")
+                                    "Each node contains data and a pointer to the next node.",
+                                    listOf("data", "pointer")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                            "The first node is called the head, and the last node has a pointer to NULL, indicating the end of the list.",
-                                    listOf("head","NULL")
+                                    "The first node is called the head, and the last node has a pointer to NULL, indicating the end of the list.",
+                                    listOf("head", "NULL")
                                 )
                             ),
                             ContentBlock.Code(
@@ -290,57 +341,26 @@ fun DSAIntermediateCourse(): Stage {
                     LessonContent(
                         id = DSAIntermediateStageIds.lesson3_subs[1],
                         title = "Manual Walkthrough: Creation and Traversal",
-                        description = "Manually create and traverse a singly linked list in C++.",
+                        description = "Manually create and traverse a singly linked list.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "To manually create a linked list in C++:\n" +
-                                            "1. Define a `Node` structure.\n" +
-                                            "2. Dynamically allocate memory for nodes using `new`.\n" +
-                                            "3. Link the nodes using pointers and traverse them to display the list.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-                    #include <iostream>
-                    using namespace std;
+                            ContentBlock.Text(createSimpleText("Let's walk through the process of creating and traversing a singly linked list step-by-step.")),
 
-                    struct Node {
-                        int data;
-                        Node* next;
-                    };
+                            ContentBlock.Text(createAnnotatedText("Pass 1:", listOf("Pass 1:"))),
+                            ContentBlock.Text(createSimpleText("Define a 'Node' structure that holds data and a pointer to the next node.")),
 
-                    int main() {
-                        // Create nodes
-                        Node* head = new Node{3, nullptr};
-                        Node* second = new Node{5, nullptr};
-                        Node* third = new Node{7, nullptr};
+                            ContentBlock.Text(createAnnotatedText("Pass 2:", listOf("Pass 2:"))),
+                            ContentBlock.Text(createSimpleText("Dynamically allocate memory for nodes using 'new' and assign data to each node.")),
 
-                        // Link nodes
-                        head->next = second;
-                        second->next = third;
+                            ContentBlock.Text(createAnnotatedText("Pass 3:", listOf("Pass 3:"))),
+                            ContentBlock.Text(createSimpleText("Link the nodes by assigning the 'next' pointer of one node to the address of the next node.")),
 
-                        // Traverse the list
-                        Node* current = head;
-                        while (current != nullptr) {
-                            cout << current->data << " -> ";
-                            current = current->next;
-                        }
-                        cout << "NULL" << endl;
+                            ContentBlock.Text(createAnnotatedText("Pass 4:", listOf("Pass 4:"))),
+                            ContentBlock.Text(createSimpleText("Traverse the list starting from the head. Print the data of each node until you reach the end of the list (where 'next' is 'NULL').")),
 
-                        return 0;
-                    }
-                    """.trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Output:\n" +
-                                            "`3 -> 5 -> 7 -> NULL`\n\n" +
-                                            "The arrows (`->`) indicate the pointers connecting each node.",
-                                    listOf("")
-                                )
-                            )
+                            ContentBlock.Text(createSimpleText("Example:")),
+                            ContentBlock.Text(createSimpleText("1 -> 2 -> 3 -> NULL")),
+
+                            ContentBlock.Text(createSimpleText("This walkthrough demonstrates how nodes are linked and traversed to represent a dynamic list structure."))
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
@@ -351,9 +371,9 @@ fun DSAIntermediateCourse(): Stage {
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "### 1. Insertion:\n" +
-                                            "Adding a new node at the end of the list involves traversing to the last node and updating its `next` pointer.",
-                                    listOf("")
+                                    "Insertion:\n" +
+                                            "Adding a new node at the end of the list involves traversing to the last node and updating its 'next' pointer.",
+                                    listOf("Insertion:", "next")
                                 )
                             ),
                             ContentBlock.Code(
@@ -374,9 +394,9 @@ fun DSAIntermediateCourse(): Stage {
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "### 2. Deletion:\n" +
+                                    "Deletion:\n" +
                                             "Deleting a node involves finding the node to be removed and updating the pointer of the previous node.",
-                                    listOf("")
+                                    listOf("Deletion:")
                                 )
                             ),
                             ContentBlock.Code(
@@ -402,9 +422,9 @@ fun DSAIntermediateCourse(): Stage {
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "### 3. Traversal and Searching:\n" +
+                                    "Traversal and Searching:\n" +
                                             "Traversal involves visiting all nodes sequentially to search or display data.",
-                                    listOf("")
+                                    listOf("Traversal and Searching:")
                                 )
                             ),
                             ContentBlock.Code(
@@ -427,6 +447,147 @@ fun DSAIntermediateCourse(): Stage {
                         return false;
                     }
                     """.trimIndent()
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSAIntermediateStageIds.lesson3_subs[4],
+                        title = "Step-by-Step: How Singly Linked List Operations Work",
+                        description = "Detailed step-by-step breakdown of insertion, deletion, traversal, and searching operations.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Let's break down the operations on singly linked lists step-by-step to understand their mechanics."
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Insertion at the End:",
+                                    listOf("Insertion at the End")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                1. Start at the head of the list.
+                2. Traverse to the last node where 'next' is NULL.
+                3. Create a new node and set its 'next' to NULL.
+                4. Update the 'next' of the last node to point to the new node.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+            // Example of inserting 5 into a list:
+            // Before: 1 -> 2 -> 3 -> NULL
+            Node* newNode = new Node{5, nullptr};
+            Node* current = head;
+            while (current->next != nullptr) {
+                current = current->next;
+            }
+            current->next = newNode;
+            // After: 1 -> 2 -> 3 -> 5 -> NULL
+            """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Deletion by Value:",
+                                    listOf("Deletion by Value")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                1. Check if the head node contains the value.
+                2. If yes, update the head to the next node and delete the original head.
+                3. If not, traverse the list to find the node containing the value.
+                4. Update the 'next' of the previous node to skip the node being deleted.
+                5. Free the memory of the deleted node.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+            // Example of deleting 2 from a list:
+            // Before: 1 -> 2 -> 3 -> NULL
+            Node* current = head;
+            if (head->data == 2) {
+                head = head->next;
+                delete current;
+            } else {
+                while (current->next != nullptr && current->next->data != 2) {
+                    current = current->next;
+                }
+                if (current->next != nullptr) {
+                    Node* temp = current->next;
+                    current->next = current->next->next;
+                    delete temp;
+                }
+            }
+            // After: 1 -> 3 -> NULL
+            """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Traversal:",
+                                    listOf("Traversal")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                1. Start at the head node.
+                2. Print the data of the current node.
+                3. Move to the next node.
+                4. Repeat until 'next' is NULL.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+            // Example of traversing the list:
+            Node* current = head;
+            while (current != nullptr) {
+                cout << current->data << " -> ";
+                current = current->next;
+            }
+            cout << "NULL";
+            // Output: 1 -> 3 -> NULL
+            """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Searching:",
+                                    listOf("Searching")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                1. Start at the head node.
+                2. Compare the data of the current node with the target value.
+                3. If found, return true.
+                4. If not, move to the next node.
+                5. Repeat until 'next' is NULL or the value is found.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+            // Example of searching for 3 in the list:
+            Node* current = head;
+            bool found = false;
+            while (current != nullptr) {
+                if (current->data == 3) {
+                    found = true;
+                    break;
+                }
+                current = current->next;
+            }
+            cout << (found ? "Found" : "Not Found");
+            // Output: Found
+            """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
