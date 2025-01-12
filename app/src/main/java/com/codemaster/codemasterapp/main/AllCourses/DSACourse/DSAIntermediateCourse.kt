@@ -12,6 +12,7 @@ import com.codemaster.codemasterapp.main.data.LessonContent
 import com.codemaster.codemasterapp.main.data.LessonContentType
 import com.codemaster.codemasterapp.main.data.LessonStatus
 import com.codemaster.codemasterapp.main.data.Stage
+import com.codemaster.codemasterapp.R
 
 fun DSAIntermediateCourse(): Stage {
     return Stage(
@@ -119,6 +120,7 @@ fun DSAIntermediateCourse(): Stage {
                                     listOf("")
                                 )
                             ),
+                            //ContentBlock.Image(R.drawable.link_list),
                             ContentBlock.Text(createSimpleText("Key Components:")),
                             ContentBlock.Text(createAnnotatedText("Data: The actual value or information stored in the node.", listOf("Data:"))),
                             ContentBlock.Text(
@@ -245,151 +247,209 @@ fun DSAIntermediateCourse(): Stage {
             // Lesson 3
             Lesson(
                 id = DSAIntermediateStageIds.lesson3,
-                title = "C If ... Else Nested",
-                description = "Learn how to nest if...else statements to create more complex decision-making structures in C! 🧩",
+                title = "Singly Linked Lists",
+                description = "Explore how singly linked lists work in memory and their key characteristics. 📚",
                 lessonContents = listOf(
                     LessonContent(
                         id = DSAIntermediateStageIds.lesson3_subs[0],
-                        title = "Introduction to Nested If...Else",
-                        description = "Learn the basics of nesting if...else statements.",
+                        title = "Introduction to Singly Linked Lists",
+                        description = "Understand what singly linked lists are and their fundamental structure.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "A nested if...else statement allows multiple layers of decision-making by placing one if...else block inside another, enabling more specific conditions to be handled.",
-                                    listOf("")
+                                    "A singly linked list is a dynamic data structure composed of nodes where:" ,
+                                    listOf("singly linked list")
                                 )
                             ),
-                            ContentBlock.Text(createAnnotatedText("Syntax:", listOf(""))),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                            "Each node contains data and a pointer to the next node.",
+                                    listOf("data","pointer")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                            "The first node is called the head, and the last node has a pointer to NULL, indicating the end of the list.",
+                                    listOf("head","NULL")
+                                )
+                            ),
                             ContentBlock.Code(
                                 """
-                if (condition1) {
-                    if (condition2) {
-                        // code if condition1 and condition2 are true
-                    } else {
-                        // code if condition1 is true, but condition2 is false
-                    }
-                } else {
-                    // code if condition1 is false
-                }
-                """.trimIndent()
+            struct Node {
+                int data;           // Data in the node
+                Node* next;         // Pointer to the next node
+            };
+
+            // Example: A singly linked list with three nodes
+            // Node 1 -> Node 2 -> Node 3 -> NULL
+            """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAIntermediateStageIds.lesson3_subs[1],
-                        title = "Nesting Multiple If...Else",
-                        description = "Learn how to nest multiple if...else statements within each other.",
+                        title = "Manual Walkthrough: Creation and Traversal",
+                        description = "Manually create and traverse a singly linked list in C++.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Nesting multiple if...else statements allows for complex decision-making. Each decision is evaluated based on a prior condition, enabling logic flow where one condition depends on the outcome of another.",
+                                    "To manually create a linked list in C++:\n" +
+                                            "1. Define a `Node` structure.\n" +
+                                            "2. Dynamically allocate memory for nodes using `new`.\n" +
+                                            "3. Link the nodes using pointers and traverse them to display the list.",
                                     listOf("")
                                 )
                             ),
-                            ContentBlock.Text(createAnnotatedText("Example:", listOf(""))),
                             ContentBlock.Code(
                                 """
-                int weather = 1; // 1 for sunny, 0 for rainy
-                int mood = 1; // 1 for happy, 0 for grumpy
+                    #include <iostream>
+                    using namespace std;
 
-                if (weather == 1) {
-                    if (mood == 1) {
-                        printf("Go for a picnic!\n");
-                    } else {
-                        printf("Stay in and watch a movie.\n");
+                    struct Node {
+                        int data;
+                        Node* next;
+                    };
+
+                    int main() {
+                        // Create nodes
+                        Node* head = new Node{3, nullptr};
+                        Node* second = new Node{5, nullptr};
+                        Node* third = new Node{7, nullptr};
+
+                        // Link nodes
+                        head->next = second;
+                        second->next = third;
+
+                        // Traverse the list
+                        Node* current = head;
+                        while (current != nullptr) {
+                            cout << current->data << " -> ";
+                            current = current->next;
+                        }
+                        cout << "NULL" << endl;
+
+                        return 0;
                     }
-                } else {
-                    if (mood == 1) {
-                        printf("Go to the museum!\n");
-                    } else {
-                        printf("Order pizza and sleep.\n");
-                    }
-                }
-                """.trimIndent()
+                    """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Output:\n" +
+                                            "`3 -> 5 -> 7 -> NULL`\n\n" +
+                                            "The arrows (`->`) indicate the pointers connecting each node.",
+                                    listOf("")
+                                )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAIntermediateStageIds.lesson3_subs[2],
-                        title = "Quiz",
-                        description = "Quiz",
+                        title = "Operations on Singly Linked Lists",
+                        description = "Learn how to perform basic operations like insertion, deletion, searching, and traversal.",
                         contentBlocks = listOf(
-                            InteractiveCodeBlock(
-                                question = "What should replace the blank (?) to check nested condition?",
-                                options = listOf("else if", "if", "else", "switch"),
-                                correctAnswer = "if",
-                                incompleteCode = """
-                if (weather == 1) {
-                    ? (mood == 1) {
-                        printf("Go for a picnic!\\n");
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "### 1. Insertion:\n" +
+                                            "Adding a new node at the end of the list involves traversing to the last node and updating its `next` pointer.",
+                                    listOf("")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+                    void insertAtEnd(Node*& head, int value) {
+                        Node* newNode = new Node{value, nullptr};
+                        if (head == nullptr) {
+                            head = newNode;
+                            return;
+                        }
+                        Node* current = head;
+                        while (current->next != nullptr) {
+                            current = current->next;
+                        }
+                        current->next = newNode;
                     }
-                } else {
-                    printf("Order pizza and sleep.\\n");
-                }
-            """.trimIndent(),
-                                userAnswer = null
+                    """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "### 2. Deletion:\n" +
+                                            "Deleting a node involves finding the node to be removed and updating the pointer of the previous node.",
+                                    listOf("")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+                    void deleteByValue(Node*& head, int value) {
+                        if (head == nullptr) return;
+                        if (head->data == value) {
+                            Node* temp = head;
+                            head = head->next;
+                            delete temp;
+                            return;
+                        }
+                        Node* current = head;
+                        while (current->next != nullptr && current->next->data != value) {
+                            current = current->next;
+                        }
+                        if (current->next == nullptr) return;
+                        Node* temp = current->next;
+                        current->next = current->next->next;
+                        delete temp;
+                    }
+                    """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "### 3. Traversal and Searching:\n" +
+                                            "Traversal involves visiting all nodes sequentially to search or display data.",
+                                    listOf("")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+                    void traverse(Node* head) {
+                        Node* current = head;
+                        while (current != nullptr) {
+                            cout << current->data << " -> ";
+                            current = current->next;
+                        }
+                        cout << "NULL" << endl;
+                    }
+                    
+                    bool search(Node* head, int value) {
+                        Node* current = head;
+                        while (current != nullptr) {
+                            if (current->data == value) return true;
+                            current = current->next;
+                        }
+                        return false;
+                    }
+                    """.trimIndent()
                             )
                         ),
-                        type = LessonContentType.INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAIntermediateStageIds.lesson3_subs[3],
-                        title = "Real-Life Example",
-                        description = "See how nested if...else statements are used in practical scenarios.",
+                        title = "Importance of Singly Linked Lists",
+                        description = "Understand why singly linked lists are important and their applications.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Imagine using nested if...else to decide whether to let someone into a VIP party.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-                bool isVIP = true;
-                bool isInvited = false;
-
-                if (isInvited) {
-                    if (isVIP) {
-                        printf("Welcome to the VIP lounge!\n");
-                    } else {
-                        printf("Enjoy the main event!\n");
-                    }
-                } else {
-                    printf("Sorry, this party is invite-only.\n");
-                }
-                """.trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Here, the first check ensures the person is invited, and the second checks if they get VIP access.",
+                                    "Singly linked lists are a foundational data structure with several benefits:\n" +
+                                            "1. **Dynamic Size**: Can grow and shrink dynamically without the need for contiguous memory.\n" +
+                                            "2. **Efficient Insertions/Deletions**: Operations like adding or removing elements are efficient compared to arrays for large datasets.\n" +
+                                            "3. **Applications**: Used in real-world scenarios like:\n" +
+                                            "   - Implementation of stacks and queues.\n" +
+                                            "   - Adjacency lists in graph representations.\n" +
+                                            "   - Efficient memory management in dynamic systems.",
                                     listOf("")
                                 )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAIntermediateStageIds.lesson3_subs[4],
-                        title = "Quiz",
-                        description = "Quiz",
-                        contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "What is the main purpose of using a nested if...else statement?",
-                                options = listOf(
-                                    "To handle multiple conditions within conditions.",
-                                    "To iterate over a collection of elements.",
-                                    "To check syntax errors in code.",
-                                    "To perform repetitive tasks efficiently."
-                                ),
-                                correctAnswer = "To handle multiple conditions within conditions.",
-                                userAnswer = null,
-                                isCorrect = false
-                            )
-
-                        ),
-                        type = LessonContentType.QUIZ
                     )
                 ),
                 status = LessonStatus.LOCKED
