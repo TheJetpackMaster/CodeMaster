@@ -1215,6 +1215,28 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
+                        id = DSABeginnerStageIds.lesson9_subs[2],
+                        title = "Manual Walkthrough",
+                        description = "Walk through an example array to understand Counting Sort step by step.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(createSimpleText("Let's sort the array {2, 3, 0, 2, 3, 2} step-by-step.")),
+                            ContentBlock.Text(createAnnotatedText("Step 1:", listOf("Step 1:"))),
+                            ContentBlock.Text(createSimpleText("Count the occurrences of each value in the array.")),
+                            ContentBlock.Text(createSimpleText("Initial array: [2, 3, 0, 2, 3, 2].")),
+                            ContentBlock.Text(createSimpleText("Count array after counting occurrences: [1, 0, 3, 2].")),
+                            ContentBlock.Text(createAnnotatedText("Step 2:", listOf("Step 2:"))),
+                            ContentBlock.Text(createSimpleText("Modify the count array to store cumulative counts.")),
+                            ContentBlock.Text(createSimpleText("Cumulative count array: [1, 1, 4, 6].")),
+                            ContentBlock.Text(createAnnotatedText("Step 3:", listOf("Step 3:"))),
+                            ContentBlock.Text(createSimpleText("Place each element from the original array into its sorted position.")),
+                            ContentBlock.Text(createSimpleText("Sorted array after placing elements: [0, 2, 2, 2, 3, 3].")),
+                            ContentBlock.Text(createAnnotatedText("Step 4:", listOf("Step 4:"))),
+                            ContentBlock.Text(createSimpleText("Counting Sort is complete, and the array is sorted: [0, 2, 2, 2, 3, 3].")),
+                            ContentBlock.Text(createSimpleText("Counting Sort efficiently sorts the array by counting occurrences and leveraging cumulative counts.")),
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
                         id = DSABeginnerStageIds.lesson9_subs[1],
                         title = "How Counting Sort Works",
                         description = "Learn step-by-step how Counting Sort sorts arrays.",
@@ -1253,29 +1275,32 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson9_subs[2],
-                        title = "Manual Walkthrough",
-                        description = "Understand Counting Sort through a manual walkthrough.",
+                        id = DSABeginnerStageIds.lesson9_subs[3],
+                        title = "Advantages and Limitations of Counting Sort",
+                        description = "Explore the pros and cons of Counting Sort and understand when to use it.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Let's sort the array {2, 3, 0, 2, 3, 2} step-by-step.")),
-                            ContentBlock.Code(
-                                """
-                    // Initial array
-                    arr = [2, 3, 0, 2, 3, 2]
-                    
-                    // Step 1: Count occurrences
-                    countArray = [1, 0, 3, 2]  // Count values 0, 1, 2, 3
-                    
-                    // Step 2: Cumulative counts
-                    countArray = [1, 1, 4, 6]  // Modify to cumulative counts
-                    
-                    // Step 3: Sort the array
-                    sortedArray = [0, 2, 2, 2, 3, 3]  // Final sorted result
-                    """.trimIndent()
-                            )
+                            ContentBlock.Text(createSimpleText("**Advantages:**")),
+                            ContentBlock.Text(createSimpleText("1. Works efficiently for small ranges of integers.")),
+                            ContentBlock.Text(createSimpleText("2. Stable sort: maintains relative order of elements with equal keys.")),
+                            ContentBlock.Text(createSimpleText("3. Has a linear time complexity, O(n + k), in most cases.")),
+                            ContentBlock.Text(createSimpleText("**Limitations:**")),
+                            ContentBlock.Text(createSimpleText("1. Not suitable for non-integer or negative values without modifications.")),
+                            ContentBlock.Text(createSimpleText("2. Inefficient for large ranges (k >> n) due to memory consumption.")),
+                            ContentBlock.Text(createSimpleText("3. Cannot handle complex data structures without additional processing."))
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
+                    LessonContent(
+                        id = DSABeginnerStageIds.lesson9_subs[4],
+                        title = "Importance of Counting Sort",
+                        description = "Understand why Counting Sort is significant in certain scenarios.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(createSimpleText("Counting Sort is crucial in scenarios requiring high efficiency and stability for sorting small, non-negative integers.")),
+                            ContentBlock.Text(createSimpleText("Examples include sorting exam scores, categorizing data, or preprocessing for algorithms like Radix Sort.")),
+                            ContentBlock.Text(createSimpleText("Its simplicity and speed make it a valuable tool in competitive programming and specialized applications."))
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    )
                 ),
                 status = LessonStatus.LOCKED
             ),
