@@ -453,7 +453,7 @@ fun DSAIntermediateCourse(): Stage {
                     ),
                     LessonContent(
                         id = DSAIntermediateStageIds.lesson3_subs[4],
-                        title = "Step-by-Step: How Singly Linked List Operations Work",
+                        title = "How Singly Linked List Operations Work",
                         description = "Detailed step-by-step breakdown of insertion, deletion, traversal, and searching operations.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -477,19 +477,6 @@ fun DSAIntermediateCourse(): Stage {
                 """.trimIndent()
                                 )
                             ),
-                            ContentBlock.Code(
-                                """
-            // Example of inserting 5 into a list:
-            // Before: 1 -> 2 -> 3 -> NULL
-            Node* newNode = new Node{5, nullptr};
-            Node* current = head;
-            while (current->next != nullptr) {
-                current = current->next;
-            }
-            current->next = newNode;
-            // After: 1 -> 2 -> 3 -> 5 -> NULL
-            """.trimIndent()
-                            ),
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     "Deletion by Value:",
@@ -507,27 +494,6 @@ fun DSAIntermediateCourse(): Stage {
                 """.trimIndent()
                                 )
                             ),
-                            ContentBlock.Code(
-                                """
-            // Example of deleting 2 from a list:
-            // Before: 1 -> 2 -> 3 -> NULL
-            Node* current = head;
-            if (head->data == 2) {
-                head = head->next;
-                delete current;
-            } else {
-                while (current->next != nullptr && current->next->data != 2) {
-                    current = current->next;
-                }
-                if (current->next != nullptr) {
-                    Node* temp = current->next;
-                    current->next = current->next->next;
-                    delete temp;
-                }
-            }
-            // After: 1 -> 3 -> NULL
-            """.trimIndent()
-                            ),
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     "Traversal:",
@@ -543,18 +509,6 @@ fun DSAIntermediateCourse(): Stage {
                 4. Repeat until 'next' is NULL.
                 """.trimIndent()
                                 )
-                            ),
-                            ContentBlock.Code(
-                                """
-            // Example of traversing the list:
-            Node* current = head;
-            while (current != nullptr) {
-                cout << current->data << " -> ";
-                current = current->next;
-            }
-            cout << "NULL";
-            // Output: 1 -> 3 -> NULL
-            """.trimIndent()
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
@@ -573,20 +527,29 @@ fun DSAIntermediateCourse(): Stage {
                 """.trimIndent()
                                 )
                             ),
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSAIntermediateStageIds.lesson3_subs[5],
+                        title = " How to display Singly Linked Lists",
+                        description = "Understand the basics of singly linked lists and how to display them.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createSimpleText("A singly linked list has nodes with data and a next pointer to the next node or NULL.")
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText("To display, start at the head and print each node until NULL.")
+                            ),
                             ContentBlock.Code(
                                 """
-            // Example of searching for 3 in the list:
-            Node* current = head;
-            bool found = false;
-            while (current != nullptr) {
-                if (current->data == 3) {
-                    found = true;
-                    break;
+            void display(Node* head) {
+                while (head != nullptr) {
+                    cout << head->data << " -> ";
+                    head = head->next;
                 }
-                current = current->next;
+                cout << "NULL";
             }
-            cout << (found ? "Found" : "Not Found");
-            // Output: Found
             """.trimIndent()
                             )
                         ),
