@@ -1215,7 +1215,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson9_subs[2],
+                        id = DSABeginnerStageIds.lesson9_subs[1],
                         title = "Manual Walkthrough",
                         description = "Walk through an example array to understand Counting Sort step by step.",
                         contentBlocks = listOf(
@@ -1237,7 +1237,7 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = DSABeginnerStageIds.lesson9_subs[1],
+                        id = DSABeginnerStageIds.lesson9_subs[2],
                         title = "How Counting Sort Works",
                         description = "Learn step-by-step how Counting Sort sorts arrays.",
                         contentBlocks = listOf(
@@ -1279,11 +1279,11 @@ int main() {
                         title = "Advantages and Limitations of Counting Sort",
                         description = "Explore the pros and cons of Counting Sort and understand when to use it.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("**Advantages:**")),
+                            ContentBlock.Text(createSimpleText("Advantages:")),
                             ContentBlock.Text(createSimpleText("1. Works efficiently for small ranges of integers.")),
                             ContentBlock.Text(createSimpleText("2. Stable sort: maintains relative order of elements with equal keys.")),
                             ContentBlock.Text(createSimpleText("3. Has a linear time complexity, O(n + k), in most cases.")),
-                            ContentBlock.Text(createSimpleText("**Limitations:**")),
+                            ContentBlock.Text(createSimpleText("Limitations:")),
                             ContentBlock.Text(createSimpleText("1. Not suitable for non-integer or negative values without modifications.")),
                             ContentBlock.Text(createSimpleText("2. Inefficient for large ranges (k >> n) due to memory consumption.")),
                             ContentBlock.Text(createSimpleText("3. Cannot handle complex data structures without additional processing."))
@@ -1333,30 +1333,32 @@ int main() {
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson10_subs[1],
-                        title = "Step-by-Step Explanation",
-                        description = "Learn how Radix Sort works step by step.",
+                        title = "Manual Walkthrough",
+                        description = "Step through an example to understand how Radix Sort works in practice.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        How Radix Sort works:
-                        1. Start with the least significant digit.
-                        2. Sort numbers based on the digit in focus.
-                        3. Move numbers to buckets, merge them back into the array.
-                        4. Progress to the next digit and repeat until all digits are processed.
+                        Let's walk through an example of Radix Sort:
+                        
+                        **Initial Array**: [170, 45, 75, 90, 802, 24, 2, 66]
+
+                        - **Step 1**: Process the least significant digit (units place):
+                          Buckets: [170, 90, 802] | [2] | [24] | [45, 75, 66]
+                          Merged: [802, 2, 24, 45, 66, 75, 170, 90]
+                        
+                        - **Step 2**: Process the tens place:
+                          Buckets: [802, 2] | [24] | [45] | [66] | [75] | [170, 90]
+                          Merged: [802, 2, 24, 45, 66, 75, 170, 90]
+                        
+                        - **Step 3**: Process the hundreds place:
+                          Buckets: [2, 24, 45, 66, 75, 90] | [170] | [802]
+                          Merged: [2, 24, 45, 66, 75, 90, 170, 802]
+                        
+                        **Final Sorted Array**: [2, 24, 45, 66, 75, 90, 170, 802]
                         """.trimIndent(),
                                     listOf()
                                 )
-                            ),
-                            ContentBlock.Code(
-                                """
-                    // Example:
-                    Input: [170, 45, 75, 90, 802, 24, 2, 66]
-                    Step 1: Sort by the least significant digit.
-                    Step 2: Group numbers into buckets.
-                    Step 3: Merge numbers from buckets back into the array.
-                    Repeat until the most significant digit is sorted.
-                    """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
@@ -1438,31 +1440,18 @@ int main() {
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson10_subs[3],
-                        title = "Quiz",
-                        description = "Test your knowledge with a quiz.",
-                        contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "Which digit is processed first in Radix Sort?",
-                                options = listOf(
-                                    "Most significant digit",
-                                    "Least significant digit",
-                                    "Random digit"
-                                ),
-                                correctAnswer = "Least significant digit",
-                                userAnswer = null,
-                                isCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.QUIZ
-                    ),
-                    LessonContent(
-                        id = DSABeginnerStageIds.lesson10_subs[4],
                         title = "Importance of Stable Sorting",
                         description = "Understand why stability is crucial in Radix Sort.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     "Radix Sort relies on stable sorting to maintain the relative order of elements with the same value. This ensures that previously sorted digits are preserved while processing the next digit.",
+                                    listOf()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Importance of Radix Sort: It is a highly efficient algorithm for sorting integers and performs better than comparison-based algorithms in certain scenarios. Understanding it gives you insights into the utility of stable sorting techniques.",
                                     listOf()
                                 )
                             )
