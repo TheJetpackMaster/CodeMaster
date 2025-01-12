@@ -1051,7 +1051,7 @@ int main() {
             // lesson 8
             Lesson(
                 id = DSABeginnerStageIds.lesson8,
-                title = "Quick Sort ",
+                title = "Quick Sort",
                 description = "Learn the Quicksort algorithm, one of the fastest sorting algorithms, and understand how it works through recursion! 🚀",
                 lessonContents = listOf(
                     LessonContent(
@@ -1071,7 +1071,6 @@ int main() {
                         description = "Learn the step-by-step process of how Quicksort works, including recursion and partitioning.",
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("Here are the steps involved in the Quicksort algorithm:")),
-
                             ContentBlock.Text(createSimpleText("1. Choose a pivot element from the array.")),
                             ContentBlock.Text(createSimpleText("2. Partition the array into two sub-arrays: values less than the pivot on the left, and values greater than the pivot on the right.")),
                             ContentBlock.Text(createSimpleText("3. Recursively apply the same process to the sub-arrays.")),
@@ -1081,16 +1080,23 @@ int main() {
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson8_subs[2],
-                        title = "Manual Run Through",
-                        description = "Walk through the algorithm with an example to better understand its steps.",
+                        title = "Manual Walkthrough",
+                        description = "Walk through an example array to understand Quicksort step by step.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Let’s run Quicksort on an unsorted array: [11, 9, 12, 7, 3]")),
-
-                            ContentBlock.Text(createSimpleText("1. Start with the array: [11, 9, 12, 7, 3]")),
-                            ContentBlock.Text(createSimpleText("2. Choose the pivot element (last element, 3).")),
-                            ContentBlock.Text(createSimpleText("3. Rearrange the elements to have values less than the pivot to its left: [3, 9, 12, 7, 11]")),
-                            ContentBlock.Text(createSimpleText("4. Recursively apply the same process for the sub-arrays.")),
-                            ContentBlock.Text(createSimpleText("After recursively sorting, the array becomes: [3, 7, 9, 11, 12]")),
+                            ContentBlock.Text(createSimpleText("Consider an unsorted array: [10, 7, 8, 9, 1, 5]. We will sort it using Quicksort step-by-step.")),
+                            ContentBlock.Text(createAnnotatedText("Step 1:", listOf("Step 1:"))),
+                            ContentBlock.Text(createSimpleText("Choose the pivot element (5) and partition the array into [1] and [10, 7, 8, 9].")),
+                            ContentBlock.Text(createSimpleText("After partitioning, the array looks like: [1, 5, 10, 7, 8, 9].")),
+                            ContentBlock.Text(createAnnotatedText("Step 2:", listOf("Step 2:"))),
+                            ContentBlock.Text(createSimpleText("Recursively apply Quicksort to the left sub-array [1], which is already sorted.")),
+                            ContentBlock.Text(createSimpleText("Apply Quicksort to the right sub-array [10, 7, 8, 9].")),
+                            ContentBlock.Text(createAnnotatedText("Step 3:", listOf("Step 3:"))),
+                            ContentBlock.Text(createSimpleText("Choose the pivot element (9) and partition the array into [7, 8] and [10].")),
+                            ContentBlock.Text(createSimpleText("After partitioning, the array looks like: [1, 5, 7, 8, 9, 10].")),
+                            ContentBlock.Text(createAnnotatedText("Step 4:", listOf("Step 4:"))),
+                            ContentBlock.Text(createSimpleText("Recursively apply Quicksort to [7, 8], which is already sorted.")),
+                            ContentBlock.Text(createSimpleText("Now, the entire array is sorted: [1, 5, 7, 8, 9, 10].")),
+                            ContentBlock.Text(createSimpleText("Quicksort completes the sorting by recursively sorting smaller sub-arrays efficiently.")),
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
@@ -1110,11 +1116,10 @@ int main() {
                         description = "Learn how to implement the Quicksort algorithm in code.",
                         contentBlocks = listOf(
                             ContentBlock.Text(createSimpleText("Here’s how you can implement the Quicksort algorithm in C++:")),
-
                             ContentBlock.Code(
                                 """
                     #include <iostream>
-                    #using namespace std;
+                    using namespace std;
 
                     int partition(int array[], int low, int high) {
                         int pivot = array[high];
@@ -1168,19 +1173,16 @@ int main() {
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson8_subs[6],
-                        title = "Quiz: Quicksort Basics",
-                        description = "Test your understanding of the Quicksort algorithm.",
+                        title = "Importance of Quicksort",
+                        description = "Learn why Quicksort is an important and widely used sorting algorithm.",
                         contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "What is the time complexity of the Quicksort algorithm in the best case?",
-                                options = listOf("O(n^2)", "O(n log n)", "O(n)", "O(log n)"),
-                                correctAnswer = "O(n log n)",
-                                userAnswer = null,
-                                isCorrect = false
-                            )
+                            ContentBlock.Text(createSimpleText("Quicksort is important because of its efficiency and flexibility. It is widely used in system-level applications and libraries.")),
+                            ContentBlock.Text(createSimpleText("It performs exceptionally well for large datasets due to its O(n log n) average-case time complexity.")),
+                            ContentBlock.Text(createSimpleText("Quicksort is also versatile and can be adapted to different data types and structures.")),
+                            ContentBlock.Text(createSimpleText("Many built-in sorting functions in programming languages use variations of Quicksort due to its practical performance.")),
                         ),
-                        type = LessonContentType.QUIZ
-                    )
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
                 ),
                 status = LessonStatus.LOCKED
             ),
