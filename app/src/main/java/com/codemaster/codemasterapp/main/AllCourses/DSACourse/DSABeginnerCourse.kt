@@ -601,10 +601,15 @@ int main() {
                             ContentBlock.Text(createSimpleText("Step 1: Compare 7 and 9. No swap is needed.")),
                             ContentBlock.Text(createSimpleText("Step 2: Compare 9 and 3. Swap them to make [7, 3, 9, 11, 12].")),
                             ContentBlock.Text(createSimpleText("At the end of Pass 3, the third largest value (9) is in its correct position.")),
-                            ContentBlock.Text(createAnnotatedText("Pass 4:",listOf("Pass 4:"))),
+                            ContentBlock.Text(createAnnotatedText("Pass 4:", listOf("Pass 4:"))),
                             ContentBlock.Text(createSimpleText("Step 1: Compare 7 and 3. Swap them to make [3, 7, 9, 11, 12].")),
                             ContentBlock.Text(createSimpleText("At the end of Pass 4, the array is fully sorted: [3, 7, 9, 11, 12].")),
-                            ContentBlock.Text(createAnnotatedText("Final Array:",listOf("Final Array:"))),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Final Array:",
+                                    listOf("Final Array:")
+                                )
+                            ),
                             ContentBlock.Text(createSimpleText("[3, 7, 9, 11, 12].")),
                             ContentBlock.Text(createSimpleText("Notice that with each pass, the largest unsorted value 'bubbles up' to its correct position."))
                         ),
@@ -765,7 +770,12 @@ int main() {
                             ContentBlock.Text(createSimpleText("Step 1: Look at the unsorted portion [11, 12].")),
                             ContentBlock.Text(createSimpleText("Step 2: Find the smallest element (11). No swap is needed.")),
                             ContentBlock.Text(createSimpleText("Array after Pass 4: [3, 7, 9, 11, 12].")),
-                            ContentBlock.Text(createAnnotatedText("Final Array:", listOf("Final Array:"))),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Final Array:",
+                                    listOf("Final Array:")
+                                )
+                            ),
                             ContentBlock.Text(createSimpleText("[3, 7, 9, 11, 12].")),
                             ContentBlock.Text(createSimpleText("Notice that with each pass, the smallest unsorted value is placed in its correct position, reducing the size of the unsorted portion."))
                         ),
@@ -876,32 +886,55 @@ int main() {
                 lessonContents = listOf(
                     LessonContent(
                         id = DSABeginnerStageIds.lesson7_subs[0],
-                        title = "Insertion Sort Overview",
-                        description = "Introduction to the Insertion Sort algorithm.",
+                        title = "Introduction to Insertion Sort",
+                        description = "Get an introduction to the Insertion Sort algorithm and its basics.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Insertion Sort works by gradually building a sorted part of the array, one element at a time. It compares each unsorted element with the sorted part and inserts it into the right position. This process continues until the entire array is sorted.",
-                                    listOf("")
+                                createSimpleText(
+                                    "Insertion Sort is a simple and intuitive sorting algorithm that processes the array one element at a time, inserting each into its proper position in the sorted part of the array."
                                 )
                             ),
-                            ContentBlock.Text(createSimpleText("The algorithm's complexity is O(n^2), making it slower for large arrays.")),
-                            ContentBlock.Text(createSimpleText("Insertion Sort works best with small or partially sorted arrays."))
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "While it has a time complexity of O(n²), making it less suitable for large datasets, its simplicity and effectiveness on small or nearly sorted arrays make it a valuable tool."
+                                )
+                            )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSABeginnerStageIds.lesson7_subs[1],
-                        title = "Manual Run Through",
-                        description = "Manually walk through the steps of Insertion Sort.",
+                        title = "Manual Walkthrough",
+                        description = "Manually walk through the steps of Insertion Sort to understand its process.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Let’s manually go through an unsorted array to see how Insertion Sort works:")),
-                            ContentBlock.Text(createSimpleText("Start with an unsorted array: [7, 12, 9, 11, 3]")),
-                            ContentBlock.Text(createSimpleText("Step 1: The first value (7) is considered the sorted part of the array.")),
-                            ContentBlock.Text(createSimpleText("Step 2: The second value (12) is already in the correct place.")),
-                            ContentBlock.Text(createSimpleText("Step 3: Insert the third value (9) into the sorted part, resulting in [7, 9, 12, 11, 3].")),
-                            ContentBlock.Text(createSimpleText("Step 4: Insert 11 into the correct position, resulting in [7, 9, 11, 12, 3].")),
-                            ContentBlock.Text(createSimpleText("Step 5: Insert the last value (3) in front of all values to get the sorted array: [3, 7, 9, 11, 12]."))
+                            ContentBlock.Text(createSimpleText("Consider an unsorted array: [7, 12, 9, 11, 3]. We will sort it step by step using Insertion Sort.")),
+                            ContentBlock.Text(createAnnotatedText("Pass 1:", listOf("Pass 1:"))),
+                            ContentBlock.Text(createSimpleText("Treat the first value (7) as sorted.")),
+                            ContentBlock.Text(createSimpleText("Sorted array after Step 1: [7].")),
+                            ContentBlock.Text(createAnnotatedText("Pass 2:", listOf("Pass 2:"))),
+                            ContentBlock.Text(createSimpleText("Compare and insert 12 into the correct position in the sorted portion.")),
+                            ContentBlock.Text(createSimpleText("Sorted array after Step 2: [7, 12].")),
+                            ContentBlock.Text(createAnnotatedText("Pass 3:", listOf("Pass 3:"))),
+                            ContentBlock.Text(createSimpleText("Compare and insert 9 into the correct position in the sorted portion.")),
+                            ContentBlock.Text(createSimpleText("Sorted array after Step 3: [7, 9, 12].")),
+                            ContentBlock.Text(createAnnotatedText("Pass 4:", listOf("Pass 4:"))),
+                            ContentBlock.Text(createSimpleText("Compare and insert 11 into the correct position in the sorted portion.")),
+                            ContentBlock.Text(createSimpleText("Sorted array after Step 4: [7, 9, 11, 12].")),
+                            ContentBlock.Text(createAnnotatedText("Pass 5:", listOf("Pass 5:"))),
+                            ContentBlock.Text(createSimpleText("Compare and insert 3 into the correct position in the sorted portion.")),
+                            ContentBlock.Text(createSimpleText("Sorted array after Step 5: [3, 7, 9, 11, 12].")),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Final Array:",
+                                    listOf("Final Array:")
+                                )
+                            ),
+                            ContentBlock.Text(createSimpleText("[3, 7, 9, 11, 12].")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "With each step, the next element from the unsorted portion is inserted into the correct position in the sorted portion, gradually forming the fully sorted array."
+                                )
+                            )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
@@ -923,13 +956,12 @@ int main() {
 
     for (int i = 1; i < n; i++) {
         int current_value = my_array[i];
-        int insert_index = i;
-        for (int j = i - 1; j >= 0; j--) {
-            if (my_array[j] > current_value) {
-                insert_index = j;
-            }
+        int j = i - 1;
+        while (j >= 0 && my_array[j] > current_value) {
+            my_array[j + 1] = my_array[j];
+            j--;
         }
-        my_array.insert(my_array.begin() + insert_index, current_value);
+        my_array[j + 1] = current_value;
     }
 
     cout << "Sorted array: ";
@@ -993,6 +1025,25 @@ int main() {
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
+
+                    LessonContent(
+                        id = DSABeginnerStageIds.lesson7_subs[4],
+                        title = "Importance of Insertion Sort",
+                        description = "Understand the significance of learning Insertion Sort.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Insertion Sort is a foundational algorithm that helps learners understand key concepts like iterative sorting and in-place operations. It’s simple to grasp, making it a great starting point for learning more advanced sorting techniques."
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Although not efficient for large datasets, it shines when working with small or nearly sorted arrays and is often used in introductory programming courses."
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    )
                 ),
                 status = LessonStatus.LOCKED
             ),
