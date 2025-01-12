@@ -233,36 +233,10 @@ fun DSAIntermediateCourse(): Stage {
                         title = "Advantages and Limitations",
                         description = "Understand why and when to use linked lists.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("**Advantages:**\n- Dynamic size: No need to define the size beforehand.\n- Efficient insertion and deletion.\n\n**Limitations:**\n- Higher memory usage (extra pointers).\n- Sequential access: No direct access to elements."))
+                            ContentBlock.Text(createAnnotatedText("Advantages:\nDynamic size: No need to define the size beforehand.\nEfficient insertion and deletion.",listOf("Advantages:"))),
+                            ContentBlock.Text(createAnnotatedText("Limitations:\nHigher memory usage (extra pointers).\nSequential access: No direct access to elements.",listOf("Limitations")))
                         ),
                         type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAIntermediateStageIds.lesson2_subs[5],
-                        title = "Quiz",
-                        description = "Test your understanding of linked lists.",
-                        contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = """
-                    Which of the following is **not true** about linked lists?
-                    
-                    1. They allow dynamic memory allocation.
-                    2. They use less memory than arrays for the same number of elements.
-                    3. They do not require elements to be stored contiguously.
-                    4. Insertion and deletion can be performed in O(1) time.
-                    """.trimIndent(),
-                                options = listOf(
-                                    "1. They allow dynamic memory allocation.",
-                                    "2. They use less memory than arrays for the same number of elements.",
-                                    "3. They do not require elements to be stored contiguously.",
-                                    "4. Insertion and deletion can be performed in O(1) time."
-                                ),
-                                correctAnswer = "2. They use less memory than arrays for the same number of elements.",
-                                userAnswer = null,
-                                isCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.QUIZ
                     )
                 ),
                 status = LessonStatus.ACTIVE
