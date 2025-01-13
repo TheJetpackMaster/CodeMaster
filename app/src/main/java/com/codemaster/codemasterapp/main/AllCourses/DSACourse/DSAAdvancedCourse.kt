@@ -3909,7 +3909,11 @@ Graph detection refers to the process of identifying the existence of specific s
 1. **Cycle Detection**: Identifying if a graph contains cycles (circular paths).
 2. **Connected Components**: Identifying if a graph is connected or if it consists of multiple disconnected subgraphs.
                     """,
-                                    listOf("graph detection", "cycle detection", "connected components")
+                                    listOf(
+                                        "graph detection",
+                                        "cycle detection",
+                                        "connected components"
+                                    )
                                 )
                             ),
                             ContentBlock.Text(
@@ -4001,10 +4005,10 @@ fun findConnectedComponents(graph: Map<Int, List<Int>>): List<List<Int>> {
                     ),
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson12_subs[1],
-                        title = "Manual Walkthrough of Graph Traversal",
-                        description = "Understand and manually implement Graph Traversal techniques like BFS and DFS.",
+                        title = "Manual Walkthrough of Graph Detection",
+                        description = "Understand and manually implement Graph Detection techniques like Cycle Detection and Connected Components.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("In this lesson, we will explore Graph Traversal techniques and understand how algorithms like Depth-First Search (DFS) and Breadth-First Search (BFS) work.")),
+                            ContentBlock.Text(createSimpleText("In this lesson, we will explore Graph Detection techniques and understand how algorithms for detecting properties like cycles and connected components work.")),
 
                             ContentBlock.Text(createAnnotatedText("Step 1:", listOf("Step 1"))),
                             ContentBlock.Text(createSimpleText("Define the Graph structure. A Graph consists of vertices (nodes) and edges (connections between nodes). Graphs can be directed or undirected, and weighted or unweighted.")),
@@ -4078,38 +4082,38 @@ fun findConnectedComponents(graph: Map<Int, List<Int>>): List<List<Int>> {
                                 )
                             ),
 
-                            ContentBlock.Text(createSimpleText("Understanding these representations helps analyze the Graph's properties and apply algorithms like BFS, DFS, Dijkstra's, and more.")),
+                            ContentBlock.Text(createSimpleText("Understanding these representations helps analyze the Graph's properties and apply algorithms like Cycle Detection, Connected Components, and more.")),
 
-                            // New section for graph traversal algorithms
+                            // New section for graph detection algorithms
 
                             ContentBlock.Text(createAnnotatedText("Step 6:", listOf("Step 6"))),
-                            ContentBlock.Text(createSimpleText("Now, let's explore graph traversal techniques. The two most common are Depth-First Search (DFS) and Breadth-First Search (BFS).")),
+                            ContentBlock.Text(createSimpleText("Now, let's explore graph detection techniques. The two most common are Cycle Detection and Finding Connected Components.")),
 
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Depth-First Search (DFS):",
-                                    listOf("DFS")
+                                    "Cycle Detection:",
+                                    listOf("Cycle Detection")
                                 )
                             ),
-                            ContentBlock.Text(createSimpleText("DFS is a traversal algorithm where you start at a node and explore as far as possible along each branch before backtracking.")),
-                            ContentBlock.Text(createSimpleText("DFS can be implemented recursively or using a stack.")),
-                            ContentBlock.Text(createSimpleText("Example DFS traversal from node A:")),
-                            ContentBlock.Text(createSimpleText("DFS: A -> B -> D -> C")),
+                            ContentBlock.Text(createSimpleText("Cycle detection is an algorithm used to identify if a graph contains any cycles (circular paths). A cycle occurs when a node is revisited after traversing through other nodes.")),
+                            ContentBlock.Text(createSimpleText("Cycle detection can be implemented using Depth-First Search (DFS) or Union-Find algorithms.")),
+                            ContentBlock.Text(createSimpleText("Example of cycle detection in a graph:")),
+                            ContentBlock.Text(createSimpleText("Graph: A -> B -> C -> D -> A (Cycle detected)")),
 
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Breadth-First Search (BFS):",
-                                    listOf("BFS")
+                                    "Connected Components:",
+                                    listOf("Connected Components")
                                 )
                             ),
-                            ContentBlock.Text(createSimpleText("BFS is a traversal algorithm where you start at a node and explore all its neighbors first, before moving to the next level.")),
-                            ContentBlock.Text(createSimpleText("BFS is implemented using a queue.")),
-                            ContentBlock.Text(createSimpleText("Example BFS traversal from node A:")),
-                            ContentBlock.Text(createSimpleText("BFS: A -> B -> C -> D")),
+                            ContentBlock.Text(createSimpleText("Connected components refer to subgraphs in which there is a path between every pair of vertices. If the graph is disconnected, it will have multiple connected components.")),
+                            ContentBlock.Text(createSimpleText("Connected component detection is typically done using DFS or BFS.")),
+                            ContentBlock.Text(createSimpleText("Example of finding connected components:")),
+                            ContentBlock.Text(createSimpleText("Graph: Components: [A, B, C], [D]")),
 
-                            ContentBlock.Text(createSimpleText("Both DFS and BFS are fundamental for exploring graphs and can be applied in various algorithms, such as finding the shortest path or detecting cycles.")),
+                            ContentBlock.Text(createSimpleText("Both cycle detection and connected component detection are essential techniques for analyzing graphs, especially in network analysis and graph theory.")),
 
-                            ContentBlock.Text(createSimpleText("Understanding how to traverse a graph helps in solving problems efficiently and is crucial for algorithms like Dijkstra’s, Prim’s, and more.")),
+                            ContentBlock.Text(createSimpleText("Understanding graph properties like cycles and connectivity is fundamental for solving problems such as detecting deadlocks in systems, finding isolated subgraphs, or determining if a network is fully connected.")),
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
