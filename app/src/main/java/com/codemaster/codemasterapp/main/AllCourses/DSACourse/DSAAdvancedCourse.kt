@@ -2,6 +2,7 @@ package com.codemaster.codemasterapp.main.AllCourses.DSACourse
 
 
 import com.codemaster.codemasterapp.main.AllCourses.DSACourse.courseIds.DSAAdvancedStageIds
+import com.codemaster.codemasterapp.main.AllCourses.DSACourse.courseIds.DSAIntermediateStageIds
 import com.codemaster.codemasterapp.main.AllCourses.helperFuntions.createAnnotatedText
 import com.codemaster.codemasterapp.main.AllCourses.helperFuntions.createSimpleText
 import com.codemaster.codemasterapp.main.data.ContentBlock
@@ -82,515 +83,361 @@ fun DSAAdvancedCourse(): Stage {
                 status = LessonStatus.ACTIVE
             ),
 
-
             // lesson 2
             Lesson(
                 id = DSAAdvancedStageIds.lesson2,
-                title = "C Functions",
-                description = "Learn how functions in C improve code reusability and modularity! 🧑‍💻",
+                title = "Trees",
+                description = "Dive into the concept of Trees, their structure, types, and operations, and understand their importance in advanced data structures. 🌳",
                 lessonContents = listOf(
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson2_subs[0],
-                        title = "Introduction to Functions",
-                        description = "Understand functions, their syntax, and how they modularize code.",
+                        title = "Introduction to Trees",
+                        description = "Learn about the structure and components of Trees.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "A function in C is a block of code that performs a specific task. It helps promote reusability and maintainability by organizing the code.",
-                                    listOf("function")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Functions can take inputs (parameters) and return outputs (return values), making your code modular and easier to debug.",
-                                    listOf("parameters", "return values")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-                    returnType functionName(parameters) {
-                        // Code to execute
-                    }
-                """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson2_subs[1],
-                        title = "Predefined Functions",
-                        description = "Explore built-in functions like printf and scanf.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "C provides several built-in functions, such as printf() for displaying output and scanf() for accepting input from the user.",
-                                    listOf("printf()", "scanf()")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Using predefined functions helps avoid reinventing the wheel, saving time and reducing errors.",
+                                    "A Tree is a hierarchical data structure consisting of nodes, where each node has a value and pointers to its child nodes. Trees are widely used in various applications such as searching, sorting, and representing hierarchical data.",
                                     listOf("")
                                 )
                             ),
+                            ContentBlock.Text(createSimpleText("Key Components:")),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Root: The topmost node in a tree, serving as the starting point.",
+                                    listOf("Root:")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Child: Nodes directly connected to a node via edges.",
+                                    listOf("Child:")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Parent: A node with a child.",
+                                    listOf("Parent:")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Leaf: A node with no children.",
+                                    listOf("Leaf:")
+                                )
+                            ),
                             ContentBlock.Code(
                                 """
-                    #include <stdio.h>
-                    int main() {
-                        printf("Hello, world!");
-                        return 0;
-                    }
-                """.trimIndent()
+                    struct Node {
+                        int data;
+                        struct Node* left;
+                        struct Node* right;
+                    };
+                    """.trimIndent()
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.ACTIVE
+                    ),
+                    LessonContent(
+                        id = DSAAdvancedStageIds.lesson2_subs[1],
+                        title = "Types of Trees",
+                        description = "Understand the different types of trees and their use cases.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(createSimpleText("Trees come in various forms depending on their structure and properties:")),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Binary Tree: A tree where each node has at most two children, referred to as left and right.",
+                                    listOf("Binary Tree:")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+                    struct Node {
+                        int data; 
+                        struct Node* left; // Left child
+                        struct Node* right; // Right child
+                    };
+
+                    // Example usage:
+                    struct Node* root = NULL;
+                    root = (struct Node*)malloc(sizeof(struct Node));
+                    root->data = 10;
+                    root->left = NULL;
+                    root->right = NULL;
+                    """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Binary Search Tree (BST): A binary tree with the property that for each node, values in the left subtree are smaller, and values in the right subtree are larger.",
+                                    listOf("Binary Search Tree (BST):")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "AVL Tree: A self-balancing binary search tree where the height difference between left and right subtrees of any node is at most one.",
+                                    listOf("AVL Tree:")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Heap: A tree-based structure where the parent node is either greater (Max-Heap) or smaller (Min-Heap) than its children.",
+                                    listOf("Heap:")
+                                )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson2_subs[2],
-                        title = "Create a Function",
-                        description = "Learn to define custom functions.",
+                        title = "Tree Traversals",
+                        description = "Learn common traversal methods used in trees.",
                         contentBlocks = listOf(
+                            ContentBlock.Text(createSimpleText("Tree traversals help visit each node in a systematic way. Common traversal methods are:")),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Custom functions allow you to group code logically and reuse it whenever needed. They help make the program more modular and organized.",
-                                    listOf("Custom functions")
+                                    "Inorder: Visit the left subtree, root node, and then the right subtree.",
+                                    listOf("Inorder:")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Preorder: Visit the root node, then the left and right subtrees.",
+                                    listOf("Preorder:")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Postorder: Visit the left and right subtrees, then the root node.",
+                                    listOf("Postorder:")
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-                    int add(int a, int b) {
-                        return a + b;
+                    void inorderTraversal(struct Node* root) {
+                        if (root != NULL) {
+                            inorderTraversal(root->left);  // Visit left subtree
+                            printf("%d ", root->data);    // Visit root
+                            inorderTraversal(root->right); // Visit right subtree
+                        }
                     }
-                """.trimIndent()
+                    """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson2_subs[3],
-                        title = "Quiz",
-                        description = "Quiz",
+                        title = "Applications of Trees",
+                        description = "Explore how trees are used in real-world scenarios.",
                         contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "Complete the function to return the sum of two integers.",
-                                incompleteCode = """
-        int add(int a, int b) {
-            return ___;
-        }
-    """.trimIndent(),
-                                correctCode = "a + b",
-                                userInput = null,
-                                isCodeCorrect = false
+                            ContentBlock.Text(createSimpleText("Trees are fundamental in various applications, such as:")),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "File Systems: Representing hierarchical file and folder structures.",
+                                    listOf("File Systems:")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Databases: Indexing and searching using Binary Search Trees (BST) and B-trees.",
+                                    listOf("Databases:")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Networking: Representing routing paths in hierarchical networks.",
+                                    listOf("Networking:")
+                                )
                             )
                         ),
-                        type = LessonContentType.INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson2_subs[4],
-                        title = "Call a Function (Way 1)",
-                        description = "Learn how to call a function by defining it at the top and calling it in main().",
+                        title = "Advantages and Limitations",
+                        description = "Understand why and when to use trees.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "In this approach, the function is defined above main() and called within main(). This method is more modular and allows reuse throughout the program.",
-                                    listOf("main()")
+                                    "Advantages:\nEfficient searching and sorting algorithms.\nNatural representation of hierarchical data.",
+                                    listOf("Advantages:")
                                 )
                             ),
-                            ContentBlock.Code(
-                                """
-                // Function Definition
-                int add(int a, int b) {
-                    return a + b;
-                }
-
-                int main() {
-                    int result = add(5, 3); // Function call
-                    printf("Sum: %d", result);
-                    return 0;
-                }
-            """.trimIndent()
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Limitations:\nComplex to implement compared to arrays and linked lists.\nMore memory usage due to pointers.",
+                                    listOf("Limitations:")
+                                )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
-                    ),
-
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson2_subs[5],
-                        title = "Call a Function (Way 2)",
-                        description = "Learn how to define a function within main() and call it in main().",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Here, you declare the function above main(), but define it inside main() after it's called. This works for functions used only within main(), but reduces flexibility.",
-                                    listOf("main()")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-                int add(int a, int b);  // Function declaration
-
-                int main() {
-                    int result = add(5, 3); // Function call
-                    printf("Sum: %d", result);
-                    return 0;
-                }
-
-                int add(int a, int b) {  // Function definition
-                    return a + b;
-                }
-            """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson2_subs[6],
-                        title = "Quiz",
-                        description = "Quiz",
-                        contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "Complete the function call inside main() to use the add function.",
-                                incompleteCode = """
-        int add(int a, int b);  // Function declaration
-
-        int main() {
-            int result = ___(5, 3); // Function call
-            printf("Sum: %d", result);
-            return 0;
-        }
-
-        int add(int a, int b) {  // Function definition
-            return a + b;
-        }
-    """.trimIndent(),
-                                correctCode = "add",
-                                userInput = null,
-                                isCodeCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson2_subs[7],
-                        title = "Real-Life Example of Functions",
-                        description = "See how functions can be used in real-world scenarios.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Functions are essential for organizing tasks in real-world projects. They help break down complex processes into manageable parts.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "For example, a banking system might use functions to check balances, withdraw funds, and deposit money, making the code easier to maintain and expand.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-                    #include <stdio.h>
-                    void checkBalance(float balance) {
-                        printf("Balance: %.2f\n", balance);
-                    }
-                    void withdraw(float* balance, float amount) {
-                        if (*balance >= amount) {
-                            *balance -= amount;
-                        }
-                    }
-                    int main() {
-                        float balance = 1000.00;
-                        checkBalance(balance);
-                        return 0;
-                    }
-                """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson2_subs[8],
-                        title = "Quiz",
-                        description = "Quiz",
-                        contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "What is the main benefit of using functions in C programming?",
-                                options = listOf(
-                                    "Functions help avoid code repetition by allowing code reuse.",
-                                    "Functions make the program run faster.",
-                                    "Functions increase the memory usage.",
-                                    "Functions make the code more complex."
-                                ),
-                                correctAnswer = "Functions help avoid code repetition by allowing code reuse.",
-                                userAnswer = null,
-                                isCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.QUIZ
                     )
                 ),
-                status = LessonStatus.LOCKED
+                status = LessonStatus.ACTIVE
             ),
-
 
             // lesson 3
             Lesson(
                 id = DSAAdvancedStageIds.lesson3,
-                title = "C Functions: Data Types",
-                description = "Learn how different data types are used in C functions! 🧑‍💻",
+                title = "Binary Trees",
+                description = "Dive into the concept of binary trees, their structure, operations, and how they differ from other tree data structures. 🌳",
                 lessonContents = listOf(
                     LessonContent(
-                        id =  DSAAdvancedStageIds.lesson3_subs[0],
-                        title = "Function Data Types Overview",
-                        description = "Learn about the role of data types in functions and how they define the return value.",
+                        id = DSAAdvancedStageIds.lesson3_subs[0],
+                        title = "Introduction to Binary Trees",
+                        description = "Learn about the structure and components of binary trees.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "In C, function data types define the type of value a function will return. The function's return type is specified before its name in the function declaration.",
-                                    listOf("function", "return type", "declaration")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Functions can return a variety of data types such as int, float, char, void, and others. These types help define the kind of value the function outputs, allowing proper handling of the returned value in the program.",
-                                    listOf("int", "float", "char", "void")
-                                )
-                            ),
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id =  DSAAdvancedStageIds.lesson3_subs[1],
-                        title = "int Data Type",
-                        description = "Learn how the int data type is used in functions.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "The int data type is used for functions that return integer values. Integer values are whole numbers, which can be positive, negative, or zero.",
-                                    listOf("int", "integer", "whole numbers")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Example: Function returning an integer:",
+                                    "A Binary Tree is a hierarchical data structure where each node has at most two children, referred to as the left child and the right child. This structure is widely used in applications such as searching, sorting, and hierarchical data representation.",
                                     listOf("")
+                                )
+                            ),
+                            ContentBlock.Text(createSimpleText("Key Components:")),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Node: The fundamental unit of the tree containing data.",
+                                    listOf("Node:")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Left Child: A pointer/reference to the left subtree of the node.",
+                                    listOf("Left Child:")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Right Child: A pointer/reference to the right subtree of the node.",
+                                    listOf("Right Child:")
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-                int add(int a, int b) {
-                    return a + b;
-                }
-                """.trimIndent()
+                    struct Node {
+                        int data;
+                        struct Node* left;
+                        struct Node* right;
+                    };
+                    """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id =  DSAAdvancedStageIds.lesson3_subs[2],
-                        title = "float Data Type",
-                        description = "Understand the use of the float data type in functions.",
+                        id = DSAAdvancedStageIds.lesson3_subs[1],
+                        title = "Manual Walkthrough: Creation and Traversal",
+                        description = "Manually create and traverse a binary tree.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(createSimpleText("Let's walk through the process of creating and traversing a binary tree step-by-step.")),
+
+                            ContentBlock.Text(createAnnotatedText("Pass 1:", listOf("Pass 1:"))),
+                            ContentBlock.Text(createSimpleText("Define a 'Node' structure that holds data and pointers to the left and right child nodes.")),
+
+                            ContentBlock.Text(createAnnotatedText("Pass 2:", listOf("Pass 2:"))),
+                            ContentBlock.Text(createSimpleText("Dynamically allocate memory for nodes using 'new' and assign data to each node.")),
+
+                            ContentBlock.Text(createAnnotatedText("Pass 3:", listOf("Pass 3:"))),
+                            ContentBlock.Text(createSimpleText("Link the nodes by assigning the 'left' and 'right' pointers of a parent node to its respective child nodes.")),
+
+                            ContentBlock.Text(createAnnotatedText("Pass 4:", listOf("Pass 4:"))),
+                            ContentBlock.Text(createSimpleText("Traverse the tree using one of the traversal methods (Inorder, Preorder, Postorder, or Level Order). Print the data of each node during traversal.")),
+
+                            ContentBlock.Text(createSimpleText("Example:")),
+                            ContentBlock.Text(createSimpleText("Tree Structure:")),
+                            ContentBlock.Text(createSimpleText("""
+          1
+         / \
+        2   3
+       / \
+      4   5
+        """.trimIndent())),
+
+                            ContentBlock.Text(createSimpleText("Example Traversal:")),
+                            ContentBlock.Text(createSimpleText("""
+        Inorder: 4 -> 2 -> 5 -> 1 -> 3
+        Preorder: 1 -> 2 -> 4 -> 5 -> 3
+        Postorder: 4 -> 5 -> 2 -> 3 -> 1
+        Level Order: 1 -> 2 -> 3 -> 4 -> 5
+        """.trimIndent())),
+
+                            ContentBlock.Text(createSimpleText("This walkthrough demonstrates how nodes in a binary tree are linked and traversed to represent hierarchical data structures."))
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSAAdvancedStageIds.lesson3_subs[2],
+                        title = "Binary Trees vs Linked Lists",
+                        description = "Explore the differences between binary trees and linked lists.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "The float data type is used for functions that return floating-point numbers. These are numbers that can contain decimals, allowing for more precise calculations.",
-                                    listOf("float", "floating-point")
+                                createSimpleText(
+                                    "Linked lists are linear structures with sequential connections, whereas binary trees are hierarchical structures. Binary trees allow for more complex relationships between data, enabling operations like search and insertion to be performed more efficiently in some cases."
                                 )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Example: Function returning a float value:",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-                float divide(float a, float b) {
-                    return a / b;
-                }
-                """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id =  DSAAdvancedStageIds.lesson3_subs[3],
-                        title = "char Data Type",
-                        description = "Explore how the char data type is used in functions.",
+                        id = DSAAdvancedStageIds.lesson3_subs[3],
+                        title = "Basic Operations on Binary Trees",
+                        description = "Learn common operations like insertion, deletion, traversal, and searching.",
                         contentBlocks = listOf(
+                            ContentBlock.Text(createSimpleText("Binary trees support several fundamental operations:")),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "The char data type is used for functions that return a single character. A char represents a single letter, number, or symbol in C.",
-                                    listOf("char", "character", "symbol")
+                                    "Insertion: Add a node at the correct position to maintain the tree's structure.",
+                                    listOf("Insertion:")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Example: Function returning a character:",
-                                    listOf("")
+                                    "Deletion: Remove a node and restructure the tree if necessary.",
+                                    listOf("Deletion:")
                                 )
                             ),
-                            ContentBlock.Code(
-                                """
-                char getGrade(int score) {
-                    if (score >= 90) return 'A';
-                    else if (score >= 80) return 'B';
-                    else return 'C';
-                }
-                """.trimIndent()
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Traversal: Visit nodes in a specific order (e.g., inorder, preorder, or postorder).",
+                                    listOf("Traversal:")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Search: Find a node with a specific value in the tree.",
+                                    listOf("Search:")
+                                )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id =  DSAAdvancedStageIds.lesson3_subs[4],
-                        title = "Quiz",
-                        description = "Quiz",
-                        contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "What is the correct return type for a function that returns a floating-point value?",
-                                incompleteCode = """
-            ___ divide(float a, float b) {
-                return a / b;
-            }
-        """.trimIndent(),
-                                correctCode = "float",
-                                userInput = null,
-                                isCodeCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                    LessonContent(
-                        id =  DSAAdvancedStageIds.lesson3_subs[5],
-                        title = "void Data Type",
-                        description = "Learn how the void data type works for functions that don't return a value.",
+                        id = DSAAdvancedStageIds.lesson3_subs[4],
+                        title = "Advantages and Limitations",
+                        description = "Understand why and when to use binary trees.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "The void data type is used for functions that do not return any value. Functions with the void return type are typically used for actions rather than calculations.",
-                                    listOf("void", "not return")
+                                    "Advantages:\nEfficient searching and insertion in balanced trees.\nHierarchical representation is ideal for many applications.",
+                                    listOf("Advantages:")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Example: A function that doesn't return anything:",
-                                    listOf("")
+                                    "Limitations:\nUnbalanced trees can degrade performance.\nRequire additional memory for pointers.",
+                                    listOf("Limitations:")
                                 )
-                            ),
-                            ContentBlock.Code(
-                                """
-                void printMessage() {
-                    printf("Hello, World!\\n");
-                }
-                """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id =  DSAAdvancedStageIds.lesson3_subs[6],
-                        title = "Quiz",
-                        description = "Quiz",
-                        contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "Which return type should be used for a function that doesn't return any value?",
-                                incompleteCode = """
-            ___ printMessage() {
-                printf("Hello, World!\\n");
-            }
-        """.trimIndent(),
-                                correctCode = "void",
-                                userInput = null,
-                                isCodeCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                    LessonContent(
-                        id =  DSAAdvancedStageIds.lesson3_subs[7],
-                        title = "Real-Life Example of Function Data Types",
-                        description = "See how different function data types can be used in a practical, real-world scenario.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Let's consider a real-life scenario of a simple calculator program that uses different function data types to perform various operations. In this example, we will see the use of int, float, and void data types.",
-                                    listOf("int", "float", "void")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "This program will include functions that use the int, float, and void data types to handle addition, division, and display messages.",
-                                    listOf("addition", "division", "display messages")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Example: A calculator with different functions for addition, division, and a message display:",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-                #include <stdio.h>
-
-                // int data type for addition
-                int add(int a, int b) {
-                    return a + b;
-                }
-
-                // float data type for division
-                float divide(float a, float b) {
-                    return a / b;
-                }
-
-                // void data type for displaying a message
-                void displayMessage() {
-                    printf("Welcome to the Calculator!\\n");
-                }
-
-                int main() {
-                    int sum = add(5, 3);    // Calling the add function
-                    printf("Sum: %d\\n", sum);
-
-                    float result = divide(10.0, 2.0);    // Calling the divide function
-                    printf("Result: %.2f\\n", result);
-
-                    displayMessage();   // Calling the display message function
-                    return 0;
-                }
-                """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id =  DSAAdvancedStageIds.lesson3_subs[8],
-                        title = "Quiz",
-                        description = "Quiz",
-                        contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "Why do we specify a data type for a function's return value?",
-                                options = listOf(
-                                    "To define the size of the function",
-                                    "To ensure the function returns the correct type of value",
-                                    "To optimize memory usage",
-                                    "To make the function compatible with all types of data"
-                                ),
-                                correctAnswer = "To ensure the function returns the correct type of value",
-                                userAnswer = null,
-                                isCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.QUIZ
                     )
                 ),
-                status = LessonStatus.LOCKED
+                status = LessonStatus.ACTIVE
             ),
 
             // lesson 4
             Lesson(
-                id =  DSAAdvancedStageIds.lesson4,
+                id = DSAAdvancedStageIds.lesson4,
                 title = "C Function Parameters",
                 description = "Learn about function parameters and how they work in C functions! 🧑‍💻",
                 lessonContents = listOf(
@@ -1433,7 +1280,12 @@ int main() {
                         title = "Intro to C Math Functions",
                         description = "Understand the math.h library.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("The math.h library provides basic math functions like square roots, powers, and trigonometry.", listOf("math.h"))),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "The math.h library provides basic math functions like square roots, powers, and trigonometry.",
+                                    listOf("math.h")
+                                )
+                            ),
                             ContentBlock.Code("""#include <math.h>""")
                         ),
                         type = LessonContentType.NON_INTERACTIVE
@@ -1444,9 +1296,24 @@ int main() {
                         description = "Learn basic functions like sqrt(), pow(), and abs().",
                         contentBlocks = listOf(
                             ContentBlock.Text(createAnnotatedText("Common functions include:")),
-                            ContentBlock.Text(createAnnotatedText("1. sqrt(x) - Square root of x.", listOf("sqrt(x)"))),
-                            ContentBlock.Text(createAnnotatedText("2. pow(x, y) - x raised to the power of y.", listOf("pow(x, y)"))),
-                            ContentBlock.Text(createAnnotatedText("3. fabs(x) - Absolute value of x.", listOf("fabs(x)"))),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "1. sqrt(x) - Square root of x.",
+                                    listOf("sqrt(x)")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "2. pow(x, y) - x raised to the power of y.",
+                                    listOf("pow(x, y)")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "3. fabs(x) - Absolute value of x.",
+                                    listOf("fabs(x)")
+                                )
+                            ),
                             ContentBlock.Code(
                                 """#include <stdio.h>
 #include <math.h>
@@ -1464,7 +1331,12 @@ int main() {
                         title = "Trigonometric Functions",
                         description = "Use functions like sin(), cos(), and tan().",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("Functions like sin(), cos(), and tan() work with radians.", listOf("sin()", "cos()", "tan()"))),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Functions like sin(), cos(), and tan() work with radians.",
+                                    listOf("sin()", "cos()", "tan()")
+                                )
+                            ),
                             ContentBlock.Text(createAnnotatedText("Example:")),
                             ContentBlock.Code(
                                 """#include <stdio.h>
@@ -1482,7 +1354,12 @@ int main() {
                         title = "Logarithmic & Exponential",
                         description = "Learn log(), log10(), and exp().",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("Use log(), log10(), and exp() for logarithmic and exponential calculations.", listOf("log()", "log10()", "exp()"))),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Use log(), log10(), and exp() for logarithmic and exponential calculations.",
+                                    listOf("log()", "log10()", "exp()")
+                                )
+                            ),
                             ContentBlock.Code(
                                 """#include <stdio.h>
 #include <math.h>
@@ -1499,10 +1376,30 @@ int main() {
                         title = "Rounding Functions",
                         description = "Explore round(), floor(), and ceil().",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("Rounding functions include:", listOf("round", "floor", "ceil"))),
-                            ContentBlock.Text(createAnnotatedText("1. round(x) - Rounds x to the nearest integer.", listOf("round(x)"))),
-                            ContentBlock.Text(createAnnotatedText("2. floor(x) - Largest integer less than or equal to x.", listOf("floor(x)"))),
-                            ContentBlock.Text(createAnnotatedText("3. ceil(x) - Smallest integer greater than or equal to x.", listOf("ceil(x)"))),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Rounding functions include:",
+                                    listOf("round", "floor", "ceil")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "1. round(x) - Rounds x to the nearest integer.",
+                                    listOf("round(x)")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "2. floor(x) - Largest integer less than or equal to x.",
+                                    listOf("floor(x)")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "3. ceil(x) - Smallest integer greater than or equal to x.",
+                                    listOf("ceil(x)")
+                                )
+                            ),
                             ContentBlock.Code(
                                 """#include <stdio.h>
 #include <math.h>
@@ -1519,7 +1416,12 @@ int main() {
                         title = "Real Life Example",
                         description = "See how C math functions are used in real-world applications.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("In real-life applications, C math functions are used in various fields such as engineering, computer graphics, and physics simulations.", listOf(""))),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "In real-life applications, C math functions are used in various fields such as engineering, computer graphics, and physics simulations.",
+                                    listOf("")
+                                )
+                            ),
                             ContentBlock.Text(createAnnotatedText("For example, calculating the trajectory of a moving object or creating a 3D model involves mathematical computations using functions from math.h.")),
                             ContentBlock.Code(
                                 """#include <stdio.h>
@@ -1541,7 +1443,12 @@ int main() {
                         contentBlocks = listOf(
                             QuizContentBlock(
                                 question = "Why do we use the math.h library in C?",
-                                options = listOf("For math operations", "For input/output functions", "For string manipulation", "For data structures"),
+                                options = listOf(
+                                    "For math operations",
+                                    "For input/output functions",
+                                    "For string manipulation",
+                                    "For data structures"
+                                ),
                                 correctAnswer = "For math operations"
                             )
                         ),
@@ -1563,9 +1470,24 @@ int main() {
                         title = "Introduction to Memory Addresses",
                         description = "Introduction to memory addresses and how variables are stored in memory.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("In C, each variable has a memory address, where data is stored.", listOf("memory address"))),
-                            ContentBlock.Text(createAnnotatedText("Memory addresses are unique for accessing and manipulating data.", listOf(""))),
-                            ContentBlock.Text(createAnnotatedText("Use the & operator to access the memory address of a variable.", listOf("operator", "&"))),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "In C, each variable has a memory address, where data is stored.",
+                                    listOf("memory address")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Memory addresses are unique for accessing and manipulating data.",
+                                    listOf("")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Use the & operator to access the memory address of a variable.",
+                                    listOf("operator", "&")
+                                )
+                            ),
                             ContentBlock.Code(
                                 """
 int num = 10;
@@ -1580,9 +1502,24 @@ printf("Memory address of num: %p\n", &num);
                         title = "What is a Memory Address?",
                         description = "Learn what a memory address is and how it relates to variable storage.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("A memory address is a unique identifier for a location in memory.", listOf("identifier", "memory"))),
-                            ContentBlock.Text(createAnnotatedText("Memory addresses are key for data access and manipulation.", listOf(""))),
-                            ContentBlock.Text(createAnnotatedText("The %p specifier prints a memory address.", listOf("%p"))),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "A memory address is a unique identifier for a location in memory.",
+                                    listOf("identifier", "memory")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Memory addresses are key for data access and manipulation.",
+                                    listOf("")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "The %p specifier prints a memory address.",
+                                    listOf("%p")
+                                )
+                            ),
                             ContentBlock.Code(
                                 """
 int num = 10;
@@ -1597,9 +1534,24 @@ printf("Address of num: %p\n", &num);
                         title = "Variables and Their Memory Locations",
                         description = "Understand how variables are stored at specific memory locations.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("Variables are stored in memory locations identified by memory addresses.", listOf(""))),
-                            ContentBlock.Text(createAnnotatedText("Stack stores local variables, heap stores dynamically allocated memory.", listOf("Stack", "heap"))),
-                            ContentBlock.Text(createAnnotatedText("Access a variable’s address using the & operator.", listOf("&"))),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Variables are stored in memory locations identified by memory addresses.",
+                                    listOf("")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Stack stores local variables, heap stores dynamically allocated memory.",
+                                    listOf("Stack", "heap")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Access a variable’s address using the & operator.",
+                                    listOf("&")
+                                )
+                            ),
                             ContentBlock.Code(
                                 """
 int num = 10;  // Stack
@@ -1614,9 +1566,24 @@ printf("%p", &num);
                         title = "How Variables are Stored in Memory",
                         description = "Learn how variables are physically stored in memory and allocated.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("Variables are allocated memory by the compiler at specific locations.", listOf("compiler"))),
-                            ContentBlock.Text(createAnnotatedText("Stack and heap manage memory for local and dynamic variables.", listOf("Stack", "heap"))),
-                            ContentBlock.Text(createAnnotatedText("The operating system handles memory allocation during program execution.", listOf(""))),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Variables are allocated memory by the compiler at specific locations.",
+                                    listOf("compiler")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Stack and heap manage memory for local and dynamic variables.",
+                                    listOf("Stack", "heap")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "The operating system handles memory allocation during program execution.",
+                                    listOf("")
+                                )
+                            ),
                             ContentBlock.Code(
                                 """
 int num = 10;  // Stored on the stack
@@ -1630,9 +1597,24 @@ int num = 10;  // Stored on the stack
                         title = "Basic Use of the & (Address-of) Operator",
                         description = "Understand how to use the & operator to access the memory address.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("The & operator is used to get the memory address of a variable.", listOf("&"))),
-                            ContentBlock.Text(createAnnotatedText("This operator helps when working with memory locations.", listOf(""))),
-                            ContentBlock.Text(createAnnotatedText("& returns the address of the variable.", listOf("address", "&"))),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "The & operator is used to get the memory address of a variable.",
+                                    listOf("&")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "This operator helps when working with memory locations.",
+                                    listOf("")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "& returns the address of the variable.",
+                                    listOf("address", "&")
+                                )
+                            ),
                             ContentBlock.Code(
                                 """
 int num = 10;
@@ -1647,9 +1629,24 @@ printf("Memory address of num: %p\n", &num);
                         title = "Real-life Example of Dynamic Memory Usage",
                         description = "Understand dynamic memory allocation in real applications.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("Dynamic memory allocation is crucial for efficient memory management.", listOf(""))),
-                            ContentBlock.Text(createAnnotatedText("It is used in applications like image processing, where data size is unknown.", listOf(""))),
-                            ContentBlock.Text(createAnnotatedText("Memory is allocated and freed at runtime as needed.", listOf(""))),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Dynamic memory allocation is crucial for efficient memory management.",
+                                    listOf("")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "It is used in applications like image processing, where data size is unknown.",
+                                    listOf("")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Memory is allocated and freed at runtime as needed.",
+                                    listOf("")
+                                )
+                            ),
                             ContentBlock.Code(
                                 """
 int width = 1024;
@@ -1692,9 +1689,24 @@ if (imageData != NULL) {
                         title = "Introduction to Pointers",
                         description = "An introduction to what pointers are and why they are important in C programming.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("In C, a pointer is a variable that stores the memory address of another variable.", listOf("pointer", "memory address"))),
-                            ContentBlock.Text(createAnnotatedText("Pointers are essential in C programming as they allow direct manipulation of memory, efficient function calls, and dynamic memory allocation.", listOf(""))),
-                            ContentBlock.Text(createAnnotatedText("Understanding pointers helps you better manage memory and work with complex data structures.", listOf(""))),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "In C, a pointer is a variable that stores the memory address of another variable.",
+                                    listOf("pointer", "memory address")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Pointers are essential in C programming as they allow direct manipulation of memory, efficient function calls, and dynamic memory allocation.",
+                                    listOf("")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Understanding pointers helps you better manage memory and work with complex data structures.",
+                                    listOf("")
+                                )
+                            ),
                             ContentBlock.Code(
                                 """
 // Example: Basic pointer declaration
@@ -1714,9 +1726,24 @@ printf("Value of num using pointer: %d\n", *ptr);
                         title = "Creating Pointers",
                         description = "Learn how to create pointers and assign them to variables. This is the fundamental step in understanding pointers.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("To create a pointer in C, you use the * symbol. A pointer stores the memory address of a variable.", listOf("pointer","*"))),
-                            ContentBlock.Text(createAnnotatedText("You can assign a pointer the address of a variable using the & operator.", listOf("&"))),
-                            ContentBlock.Text(createAnnotatedText("A pointer is typically declared as: type* pointerName; .", listOf("type* pointerName;"))),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "To create a pointer in C, you use the * symbol. A pointer stores the memory address of a variable.",
+                                    listOf("pointer", "*")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "You can assign a pointer the address of a variable using the & operator.",
+                                    listOf("&")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "A pointer is typically declared as: type* pointerName; .",
+                                    listOf("type* pointerName;")
+                                )
+                            ),
                             ContentBlock.Code(
                                 """
 // Example: Creating a pointer
@@ -1752,8 +1779,18 @@ printf("Value at the address: %d\n", *ptr);  // Dereferencing the pointer to get
                         title = "Pointers & Arrays",
                         description = "Learn how pointers and arrays are closely related in C.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("Arrays and pointers are closely related in C. The name of an array is a constant pointer to its first element.", listOf("array", "pointer", "constant"))),
-                            ContentBlock.Text(createAnnotatedText("You can use pointers to access array elements by incrementing the pointer.", listOf())),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Arrays and pointers are closely related in C. The name of an array is a constant pointer to its first element.",
+                                    listOf("array", "pointer", "constant")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "You can use pointers to access array elements by incrementing the pointer.",
+                                    listOf()
+                                )
+                            ),
                             ContentBlock.Code(
                                 """
 int arr[] = {1, 2, 3};
@@ -1769,8 +1806,18 @@ printf("%d\n", *(ptr + 1));  // Prints the second element of the array
                         title = "Pointer Arithmetic",
                         description = "Explore pointer arithmetic and how to manipulate pointer values.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("Pointers in C allow arithmetic operations like addition or subtraction.", listOf("pointer arithmetic"))),
-                            ContentBlock.Text(createAnnotatedText("When you increment or decrement a pointer, it moves by the size of the type it points to.", listOf())),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Pointers in C allow arithmetic operations like addition or subtraction.",
+                                    listOf("pointer arithmetic")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "When you increment or decrement a pointer, it moves by the size of the type it points to.",
+                                    listOf()
+                                )
+                            ),
                             ContentBlock.Code(
                                 """
 int arr[] = {1, 2, 3};
@@ -1806,8 +1853,18 @@ printf("%d\n", *(ptr + ___));  // Fill in the blank
                         title = "Pointers to Pointers",
                         description = "Understand pointers that point to other pointers and how to work with them.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("A pointer to a pointer is a pointer that stores the address of another pointer.", listOf("pointer to pointer", "address", "dereferencing"))),
-                            ContentBlock.Text(createAnnotatedText("You can access the value of a pointer to a pointer by dereferencing it twice.", listOf())),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "A pointer to a pointer is a pointer that stores the address of another pointer.",
+                                    listOf("pointer to pointer", "address", "dereferencing")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "You can access the value of a pointer to a pointer by dereferencing it twice.",
+                                    listOf()
+                                )
+                            ),
                             ContentBlock.Code(
                                 """
 int num = 10;
@@ -1824,8 +1881,18 @@ printf("%d\n", **ptr2);  // Dereferencing twice to access num's value
                         title = "Pointer & Function Arguments",
                         description = "Learn how to pass pointers to functions and manipulate data through them.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("Pointers are commonly used to pass large structures or arrays to functions, as they allow modification of data directly.", listOf("pass by pointer"))),
-                            ContentBlock.Text(createAnnotatedText("Passing a pointer to a function allows that function to modify the original data.", listOf())),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Pointers are commonly used to pass large structures or arrays to functions, as they allow modification of data directly.",
+                                    listOf("pass by pointer")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Passing a pointer to a function allows that function to modify the original data.",
+                                    listOf()
+                                )
+                            ),
                             ContentBlock.Code(
                                 """
 void updateValue(int* ptr) {
@@ -1867,9 +1934,24 @@ printf("%d\n", ___);  // Fill in the blank to access 'num' using pointer to poin
                         title = "Real-Life Example of Pointers",
                         description = "Learn how pointers can be used in real-world applications, such as dynamic memory management or handling large data.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("Pointers are used for efficient memory management, especially with large data that shouldn't be copied.", listOf())),
-                            ContentBlock.Text(createAnnotatedText("In games or simulations, pointers pass large structures like player data without copying them, improving efficiency.", listOf())),
-                            ContentBlock.Text(createAnnotatedText("For example, passing a player's game state via pointers avoids the overhead of copying data.", listOf())),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Pointers are used for efficient memory management, especially with large data that shouldn't be copied.",
+                                    listOf()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "In games or simulations, pointers pass large structures like player data without copying them, improving efficiency.",
+                                    listOf()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "For example, passing a player's game state via pointers avoids the overhead of copying data.",
+                                    listOf()
+                                )
+                            ),
                             ContentBlock.Code(
                                 """
 // Example: Game with player's data
@@ -1929,7 +2011,12 @@ int main() {
                         title = "Introduction to Structures",
                         description = "Understand the basics of structures in C.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("Structures allow grouping of different data types into a single unit. It's useful when you need to represent real-world entities.", listOf("Structures"))),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Structures allow grouping of different data types into a single unit. It's useful when you need to represent real-world entities.",
+                                    listOf("Structures")
+                                )
+                            ),
                             ContentBlock.Text(createAnnotatedText("Syntax:", listOf(""))),
                             ContentBlock.Code(
                                 """struct StructureName {
@@ -1946,7 +2033,12 @@ int main() {
                         title = "Creating a Structure",
                         description = "Learn how to define and initialize a structure.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("To create a structure, you define it with the struct keyword and then create an instance of it.", listOf(""))),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "To create a structure, you define it with the struct keyword and then create an instance of it.",
+                                    listOf("")
+                                )
+                            ),
                             ContentBlock.Text(createAnnotatedText("Example:", listOf(""))),
                             ContentBlock.Code(
                                 """struct Person {
@@ -1969,7 +2061,12 @@ int main() {
                         title = "Accessing Structure Members",
                         description = "Learn how to access and modify structure members.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("Structure members can be accessed using the dot operator(.).", listOf("dot operator", "."))),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Structure members can be accessed using the dot operator(.).",
+                                    listOf("dot operator", ".")
+                                )
+                            ),
                             ContentBlock.Text(createAnnotatedText("Example:", listOf(""))),
                             ContentBlock.Code(
                                 """struct Person {
@@ -2009,7 +2106,12 @@ int main() {
                         title = "Nested Structures",
                         description = "Learn how to define structures within structures.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("You can define a structure inside another structure.", listOf(""))),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "You can define a structure inside another structure.",
+                                    listOf("")
+                                )
+                            ),
                             ContentBlock.Text(createAnnotatedText("Example:", listOf(""))),
                             ContentBlock.Code(
                                 """struct Address {
@@ -2040,7 +2142,12 @@ int main() {
                         title = "Pointers to Structures",
                         description = "Understand how to use pointers with structures.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("Pointers can be used to reference structures. To access members via pointers, use the arrow operator (->).", listOf("Pointers", "->", "arrow operator"))),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Pointers can be used to reference structures. To access members via pointers, use the arrow operator (->).",
+                                    listOf("Pointers", "->", "arrow operator")
+                                )
+                            ),
                             ContentBlock.Text(createAnnotatedText("Example:", listOf(""))),
                             ContentBlock.Code(
                                 """struct Person {
@@ -2083,7 +2190,12 @@ struct Person {
                         title = "Real-Life Example of Structures",
                         description = "An advanced example of structures with arrays and functions.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("In this example, we'll use structures with arrays and pass them to functions.", listOf(""))),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "In this example, we'll use structures with arrays and pass them to functions.",
+                                    listOf("")
+                                )
+                            ),
                             ContentBlock.Text(createAnnotatedText("Example:", listOf(""))),
                             ContentBlock.Code(
                                 """#include <stdio.h>
@@ -3011,7 +3123,12 @@ int main() {
                         contentBlocks = listOf(
                             QuizContentBlock(
                                 question = "What is the consequence of failing to free dynamically allocated memory?",
-                                options = listOf("Memory leaks", "Segmentation fault", "Memory fragmentation", "Out of memory error"),
+                                options = listOf(
+                                    "Memory leaks",
+                                    "Segmentation fault",
+                                    "Memory fragmentation",
+                                    "Out of memory error"
+                                ),
                                 correctAnswer = "Memory leaks",
                                 userAnswer = null,
                                 isCorrect = false
