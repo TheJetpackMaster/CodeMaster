@@ -1,6 +1,8 @@
 package com.codemaster.codemasterapp.main.AllCourses.DSACourse
 
-import com.codemaster.codemasterapp.main.AllCourses.CLangCourse.courseIds.CAdvancedStageIds
+
+import com.codemaster.codemasterapp.main.AllCourses.DSACourse.courseIds.DSAAdvancedStageIds
+import com.codemaster.codemasterapp.main.AllCourses.DSACourse.courseIds.DSAIntermediateStageIds
 import com.codemaster.codemasterapp.main.AllCourses.helperFuntions.createAnnotatedText
 import com.codemaster.codemasterapp.main.AllCourses.helperFuntions.createSimpleText
 import com.codemaster.codemasterapp.main.data.ContentBlock
@@ -14,658 +16,646 @@ import com.codemaster.codemasterapp.main.data.Stage
 
 fun DSAAdvancedCourse(): Stage {
     return Stage(
-        id = CAdvancedStageIds.stageId,
+        id = DSAAdvancedStageIds.stageId,
         title = "Advanced",
         lessons = listOf(
 
             // lesson 1
             Lesson(
-                id = CAdvancedStageIds.lesson1,
-                title = "Welcome to Advanced Programming",
-                description = "Take your programming skills to the next level by mastering functions, memory management, pointers, and more.",
+                id = DSAAdvancedStageIds.lesson1,
+                title = "Welcome to Advanced DSA",
+                description = "Take your programming skills to the next level by mastering advanced data structures like Trees and Graphs.",
                 lessonContents = listOf(
                     LessonContent(
-                        id = CAdvancedStageIds.lesson1_subs[0],
+                        id = DSAAdvancedStageIds.lesson1_subs[0],
                         title = "Overview",
-                        description = "Explore the key advanced topics that will shape your programming expertise.",
+                        description = "Explore the fundamental concepts of Trees and Graphs, essential for solving complex problems.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("In this lesson, you'll learn about the power of functions, memory addresses, pointers, file operations, enums, and memory management. Mastering these concepts will help you write more efficient, modular, and scalable programs.")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "In this lesson, you'll dive into the structure and implementation of Trees and Graphs. You will learn about traversal algorithms, shortest path techniques, graph representations, and more. Mastering these concepts will enhance your ability to solve advanced computational problems efficiently."
+                                )
+                            ),
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
                         status = LessonStatus.ACTIVE
                     ),
                     LessonContent(
-                        id = CAdvancedStageIds.lesson1_subs[1],
+                        id = DSAAdvancedStageIds.lesson1_subs[1],
                         title = "Stay Inspired",
-                        description = "Encouragement to keep you motivated as you tackle complex programming challenges.",
+                        description = "Motivation to keep you focused as you tackle complex data structures.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("By mastering advanced concepts like memory management and pointers, you unlock the ability to write efficient and high-performance programs. Embrace the complexity, as each challenge is an opportunity to deepen your understanding of how computers work.")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Trees and Graphs are the backbone of many algorithms in computer science. By understanding these structures, you'll be able to design and implement solutions for real-world problems like networking, pathfinding, and hierarchical data representation. Remember, every challenge is a step closer to mastery."
+                                )
+                            ),
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = CAdvancedStageIds.lesson1_subs[2],
+                        id = DSAAdvancedStageIds.lesson1_subs[2],
                         title = "Effective Learning Strategies",
-                        description = "Tips for mastering challenging advanced topics and becoming a better programmer.",
+                        description = "Tips for mastering Trees and Graphs and becoming a better problem-solver.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Practice writing and testing functions, manipulating pointers, and managing memory. Break complex problems into smaller steps, and don’t be afraid to revisit concepts as you deepen your understanding. Debugging and optimizing code is crucial at this stage.")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Practice by implementing various tree and graph algorithms, such as Depth-First Search (DFS), Breadth-First Search (BFS), and Dijkstra's algorithm. Visualize these structures to better understand their behavior and break down complex problems into smaller steps. Revisiting the basics and testing edge cases is crucial for deep comprehension."
+                                )
+                            ),
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = CAdvancedStageIds.lesson1_subs[3],
+                        id = DSAAdvancedStageIds.lesson1_subs[3],
                         title = "Ready to Begin",
-                        description = "Prepare yourself for diving deep into advanced topics in the upcoming lessons.",
+                        description = "Prepare yourself to explore advanced data structures and algorithms.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("As you advance, focus on writing programs that utilize pointers, manage memory effectively, and work with files. Learning how to manipulate memory and handle resources properly is essential to becoming a skilled programmer.")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "In the upcoming lessons, you’ll work on constructing and traversing trees, implementing graph algorithms, and solving problems involving connectivity and shortest paths. Sharpen your analytical skills and get ready to tackle some of the most challenging topics in computer science!"
+                                )
+                            ),
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     )
                 ),
                 status = LessonStatus.ACTIVE
             ),
-
 
             // lesson 2
             Lesson(
-                id = CAdvancedStageIds.lesson2,
-                title = "C Functions",
-                description = "Learn how functions in C improve code reusability and modularity! 🧑‍💻",
+                id = DSAAdvancedStageIds.lesson2,
+                title = "Trees",
+                description = "Dive into the concept of Trees, their structure, types, and operations, and understand their importance in advanced data structures. 🌳",
                 lessonContents = listOf(
                     LessonContent(
-                        id = CAdvancedStageIds.lesson2_subs[0],
-                        title = "Introduction to Functions",
-                        description = "Understand functions, their syntax, and how they modularize code.",
+                        id = DSAAdvancedStageIds.lesson2_subs[0],
+                        title = "Introduction to Trees",
+                        description = "Learn about the structure and components of Trees.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "A function in C is a block of code that performs a specific task. It helps promote reusability and maintainability by organizing the code.",
-                                    listOf("function")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Functions can take inputs (parameters) and return outputs (return values), making your code modular and easier to debug.",
-                                    listOf("parameters", "return values")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-                    returnType functionName(parameters) {
-                        // Code to execute
-                    }
-                """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson2_subs[1],
-                        title = "Predefined Functions",
-                        description = "Explore built-in functions like printf and scanf.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "C provides several built-in functions, such as printf() for displaying output and scanf() for accepting input from the user.",
-                                    listOf("printf()", "scanf()")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Using predefined functions helps avoid reinventing the wheel, saving time and reducing errors.",
+                                    "A Tree is a hierarchical data structure consisting of nodes, where each node has a value and pointers to its child nodes. Trees are widely used in various applications such as searching, sorting, and representing hierarchical data.",
                                     listOf("")
                                 )
                             ),
+                            ContentBlock.Text(createSimpleText("Key Components:")),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Root: The topmost node in a tree, serving as the starting point.",
+                                    listOf("Root:")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Child: Nodes directly connected to a node via edges.",
+                                    listOf("Child:")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Parent: A node with a child.",
+                                    listOf("Parent:")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Leaf: A node with no children.",
+                                    listOf("Leaf:")
+                                )
+                            ),
                             ContentBlock.Code(
                                 """
-                    #include <stdio.h>
-                    int main() {
-                        printf("Hello, world!");
-                        return 0;
-                    }
-                """.trimIndent()
+                    struct Node {
+                        int data;
+                        struct Node* left;
+                        struct Node* right;
+                    };
+                    """.trimIndent()
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+                        status = LessonStatus.ACTIVE
+                    ),
+                    LessonContent(
+                        id = DSAAdvancedStageIds.lesson2_subs[1],
+                        title = "Types of Trees",
+                        description = "Understand the different types of trees and their use cases.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(createSimpleText("Trees come in various forms depending on their structure and properties:")),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Binary Tree: A tree where each node has at most two children, referred to as left and right.",
+                                    listOf("Binary Tree:")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+                    struct Node {
+                        int data; 
+                        struct Node* left; // Left child
+                        struct Node* right; // Right child
+                    };
+
+                    // Example usage:
+                    struct Node* root = NULL;
+                    root = (struct Node*)malloc(sizeof(struct Node));
+                    root->data = 10;
+                    root->left = NULL;
+                    root->right = NULL;
+                    """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Binary Search Tree (BST): A binary tree with the property that for each node, values in the left subtree are smaller, and values in the right subtree are larger.",
+                                    listOf("Binary Search Tree (BST):")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "AVL Tree: A self-balancing binary search tree where the height difference between left and right subtrees of any node is at most one.",
+                                    listOf("AVL Tree:")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Heap: A tree-based structure where the parent node is either greater (Max-Heap) or smaller (Min-Heap) than its children.",
+                                    listOf("Heap:")
+                                )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = CAdvancedStageIds.lesson2_subs[2],
-                        title = "Create a Function",
-                        description = "Learn to define custom functions.",
+                        id = DSAAdvancedStageIds.lesson2_subs[2],
+                        title = "Tree Traversals",
+                        description = "Learn common traversal methods used in trees.",
                         contentBlocks = listOf(
+                            ContentBlock.Text(createSimpleText("Tree traversals help visit each node in a systematic way. Common traversal methods are:")),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Custom functions allow you to group code logically and reuse it whenever needed. They help make the program more modular and organized.",
-                                    listOf("Custom functions")
+                                    "Inorder: Visit the left subtree, root node, and then the right subtree.",
+                                    listOf("Inorder:")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Preorder: Visit the root node, then the left and right subtrees.",
+                                    listOf("Preorder:")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Postorder: Visit the left and right subtrees, then the root node.",
+                                    listOf("Postorder:")
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-                    int add(int a, int b) {
-                        return a + b;
-                    }
-                """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson2_subs[3],
-                        title = "Quiz",
-                        description = "Quiz",
-                        contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "Complete the function to return the sum of two integers.",
-                                incompleteCode = """
-        int add(int a, int b) {
-            return ___;
-        }
-    """.trimIndent(),
-                                correctCode = "a + b",
-                                userInput = null,
-                                isCodeCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson2_subs[4],
-                        title = "Call a Function (Way 1)",
-                        description = "Learn how to call a function by defining it at the top and calling it in main().",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "In this approach, the function is defined above main() and called within main(). This method is more modular and allows reuse throughout the program.",
-                                    listOf("main()")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-                // Function Definition
-                int add(int a, int b) {
-                    return a + b;
-                }
-
-                int main() {
-                    int result = add(5, 3); // Function call
-                    printf("Sum: %d", result);
-                    return 0;
-                }
-            """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson2_subs[5],
-                        title = "Call a Function (Way 2)",
-                        description = "Learn how to define a function within main() and call it in main().",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Here, you declare the function above main(), but define it inside main() after it's called. This works for functions used only within main(), but reduces flexibility.",
-                                    listOf("main()")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-                int add(int a, int b);  // Function declaration
-
-                int main() {
-                    int result = add(5, 3); // Function call
-                    printf("Sum: %d", result);
-                    return 0;
-                }
-
-                int add(int a, int b) {  // Function definition
-                    return a + b;
-                }
-            """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson2_subs[6],
-                        title = "Quiz",
-                        description = "Quiz",
-                        contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "Complete the function call inside main() to use the add function.",
-                                incompleteCode = """
-        int add(int a, int b);  // Function declaration
-
-        int main() {
-            int result = ___(5, 3); // Function call
-            printf("Sum: %d", result);
-            return 0;
-        }
-
-        int add(int a, int b) {  // Function definition
-            return a + b;
-        }
-    """.trimIndent(),
-                                correctCode = "add",
-                                userInput = null,
-                                isCodeCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson2_subs[7],
-                        title = "Real-Life Example of Functions",
-                        description = "See how functions can be used in real-world scenarios.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Functions are essential for organizing tasks in real-world projects. They help break down complex processes into manageable parts.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "For example, a banking system might use functions to check balances, withdraw funds, and deposit money, making the code easier to maintain and expand.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-                    #include <stdio.h>
-                    void checkBalance(float balance) {
-                        printf("Balance: %.2f\n", balance);
-                    }
-                    void withdraw(float* balance, float amount) {
-                        if (*balance >= amount) {
-                            *balance -= amount;
+                    void inorderTraversal(struct Node* root) {
+                        if (root != NULL) {
+                            inorderTraversal(root->left);  // Visit left subtree
+                            printf("%d ", root->data);    // Visit root
+                            inorderTraversal(root->right); // Visit right subtree
                         }
                     }
-                    int main() {
-                        float balance = 1000.00;
-                        checkBalance(balance);
-                        return 0;
-                    }
-                """.trimIndent()
+                    """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = CAdvancedStageIds.lesson2_subs[8],
-                        title = "Quiz",
-                        description = "Quiz",
+                        id = DSAAdvancedStageIds.lesson2_subs[3],
+                        title = "Applications of Trees",
+                        description = "Explore how trees are used in real-world scenarios.",
                         contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "What is the main benefit of using functions in C programming?",
-                                options = listOf(
-                                    "Functions help avoid code repetition by allowing code reuse.",
-                                    "Functions make the program run faster.",
-                                    "Functions increase the memory usage.",
-                                    "Functions make the code more complex."
-                                ),
-                                correctAnswer = "Functions help avoid code repetition by allowing code reuse.",
-                                userAnswer = null,
-                                isCorrect = false
+                            ContentBlock.Text(createSimpleText("Trees are fundamental in various applications, such as:")),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "File Systems: Representing hierarchical file and folder structures.",
+                                    listOf("File Systems:")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Databases: Indexing and searching using Binary Search Trees (BST) and B-trees.",
+                                    listOf("Databases:")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Networking: Representing routing paths in hierarchical networks.",
+                                    listOf("Networking:")
+                                )
                             )
                         ),
-                        type = LessonContentType.QUIZ
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSAAdvancedStageIds.lesson2_subs[4],
+                        title = "Advantages and Limitations",
+                        description = "Understand why and when to use trees.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Advantages:\nEfficient searching and sorting algorithms.\nNatural representation of hierarchical data.",
+                                    listOf("Advantages:")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Limitations:\nComplex to implement compared to arrays and linked lists.\nMore memory usage due to pointers.",
+                                    listOf("Limitations:")
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
                     )
                 ),
                 status = LessonStatus.ACTIVE
             ),
 
-
             // lesson 3
             Lesson(
-                id = CAdvancedStageIds.lesson3,
-                title = "C Functions: Data Types",
-                description = "Learn how different data types are used in C functions! 🧑‍💻",
+                id = DSAAdvancedStageIds.lesson3,
+                title = "Binary Trees",
+                description = "Dive into the concept of binary trees, their structure, operations, and how they differ from other tree data structures. 🌳",
                 lessonContents = listOf(
                     LessonContent(
-                        id =  CAdvancedStageIds.lesson3_subs[0],
-                        title = "Function Data Types Overview",
-                        description = "Learn about the role of data types in functions and how they define the return value.",
+                        id = DSAAdvancedStageIds.lesson3_subs[0],
+                        title = "Introduction to Binary Trees",
+                        description = "Learn about the structure and components of binary trees.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "In C, function data types define the type of value a function will return. The function's return type is specified before its name in the function declaration.",
-                                    listOf("function", "return type", "declaration")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Functions can return a variety of data types such as int, float, char, void, and others. These types help define the kind of value the function outputs, allowing proper handling of the returned value in the program.",
-                                    listOf("int", "float", "char", "void")
-                                )
-                            ),
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id =  CAdvancedStageIds.lesson3_subs[1],
-                        title = "int Data Type",
-                        description = "Learn how the int data type is used in functions.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "The int data type is used for functions that return integer values. Integer values are whole numbers, which can be positive, negative, or zero.",
-                                    listOf("int", "integer", "whole numbers")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Example: Function returning an integer:",
+                                    "A Binary Tree is a hierarchical data structure where each node has at most two children, referred to as the left child and the right child. This structure is widely used in applications such as searching, sorting, and hierarchical data representation.",
                                     listOf("")
+                                )
+                            ),
+                            ContentBlock.Text(createSimpleText("Key Components:")),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Node: The fundamental unit of the tree containing data.",
+                                    listOf("Node:")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Left Child: A pointer/reference to the left subtree of the node.",
+                                    listOf("Left Child:")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Right Child: A pointer/reference to the right subtree of the node.",
+                                    listOf("Right Child:")
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-                int add(int a, int b) {
-                    return a + b;
-                }
-                """.trimIndent()
+                    struct Node {
+                        int data;
+                        struct Node* left;
+                        struct Node* right;
+                    };
+                    """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id =  CAdvancedStageIds.lesson3_subs[2],
-                        title = "float Data Type",
-                        description = "Understand the use of the float data type in functions.",
+                        id = DSAAdvancedStageIds.lesson3_subs[1],
+                        title = "Manual Walkthrough: Creation and Traversal",
+                        description = "Manually create and traverse a binary tree.",
                         contentBlocks = listOf(
+                            ContentBlock.Text(createSimpleText("Let's walk through the process of creating and traversing a binary tree step-by-step.")),
+
+                            ContentBlock.Text(createAnnotatedText("Pass 1:", listOf("Pass 1:"))),
+                            ContentBlock.Text(createSimpleText("Define a 'Node' structure that holds data and pointers to the left and right child nodes.")),
+
+                            ContentBlock.Text(createAnnotatedText("Pass 2:", listOf("Pass 2:"))),
+                            ContentBlock.Text(createSimpleText("Dynamically allocate memory for nodes using 'new' and assign data to each node.")),
+
+                            ContentBlock.Text(createAnnotatedText("Pass 3:", listOf("Pass 3:"))),
+                            ContentBlock.Text(createSimpleText("Link the nodes by assigning the 'left' and 'right' pointers of a parent node to its respective child nodes.")),
+
+                            ContentBlock.Text(createAnnotatedText("Pass 4:", listOf("Pass 4:"))),
+                            ContentBlock.Text(createSimpleText("Traverse the tree using one of the traversal methods (Inorder, Preorder, Postorder, or Level Order). Print the data of each node during traversal.")),
+
+                            ContentBlock.Text(createSimpleText("Example:")),
+                            ContentBlock.Text(createSimpleText("Tree Structure:")),
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "The float data type is used for functions that return floating-point numbers. These are numbers that can contain decimals, allowing for more precise calculations.",
-                                    listOf("float", "floating-point")
+                                createSimpleText(
+                                    """
+          1
+         / \
+        2   3
+       / \
+      4   5
+        """.trimIndent()
                                 )
                             ),
+
+                            ContentBlock.Text(createSimpleText("Example Traversal:")),
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Example: Function returning a float value:",
-                                    listOf("")
+                                createSimpleText(
+                                    """
+        Inorder: 4 -> 2 -> 5 -> 1 -> 3
+        Preorder: 1 -> 2 -> 4 -> 5 -> 3
+        Postorder: 4 -> 5 -> 2 -> 3 -> 1
+        Level Order: 1 -> 2 -> 3 -> 4 -> 5
+        """.trimIndent()
                                 )
                             ),
-                            ContentBlock.Code(
-                                """
-                float divide(float a, float b) {
-                    return a / b;
-                }
-                """.trimIndent()
-                            )
+
+                            ContentBlock.Text(createSimpleText("This walkthrough demonstrates how nodes in a binary tree are linked and traversed to represent hierarchical data structures."))
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id =  CAdvancedStageIds.lesson3_subs[3],
-                        title = "char Data Type",
-                        description = "Explore how the char data type is used in functions.",
+                        id = DSAAdvancedStageIds.lesson3_subs[2],
+                        title = "Operations on Binary Trees",
+                        description = "Learn how to perform basic operations like insertion, deletion, searching, and traversal on binary trees.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "The char data type is used for functions that return a single character. A char represents a single letter, number, or symbol in C.",
-                                    listOf("char", "character", "symbol")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Example: Function returning a character:",
-                                    listOf("")
+                                    "Insertion:\n" +
+                                            "Adding a new node to a binary tree involves finding the appropriate position and updating the parent node's left or right pointer.",
+                                    listOf("Insertion:", "left", "right")
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-                char getGrade(int score) {
-                    if (score >= 90) return 'A';
-                    else if (score >= 80) return 'B';
-                    else return 'C';
+            struct Node {
+                int data;
+                Node* left;
+                Node* right;
+                Node(int value) : data(value), left(nullptr), right(nullptr) {}
+            };
+
+            Node* insert(Node* root, int value) {
+                if (root == nullptr) {
+                    return new Node(value);
                 }
-                """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id =  CAdvancedStageIds.lesson3_subs[4],
-                        title = "Quiz",
-                        description = "Quiz",
-                        contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "What is the correct return type for a function that returns a floating-point value?",
-                                incompleteCode = """
-            ___ divide(float a, float b) {
-                return a / b;
+                if (value < root->data) {
+                    root->left = insert(root->left, value);
+                } else {
+                    root->right = insert(root->right, value);
+                }
+                return root;
             }
-        """.trimIndent(),
-                                correctCode = "float",
-                                userInput = null,
-                                isCodeCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                    LessonContent(
-                        id =  CAdvancedStageIds.lesson3_subs[5],
-                        title = "void Data Type",
-                        description = "Learn how the void data type works for functions that don't return a value.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "The void data type is used for functions that do not return any value. Functions with the void return type are typically used for actions rather than calculations.",
-                                    listOf("void", "not return")
-                                )
+            """.trimIndent()
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Example: A function that doesn't return anything:",
-                                    listOf("")
+                                    "Deletion:\n" +
+                                            "Deleting a node involves finding the node and handling three cases: no children, one child, or two children.",
+                                    listOf("Deletion:")
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-                void printMessage() {
-                    printf("Hello, World!\\n");
-                }
-                """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id =  CAdvancedStageIds.lesson3_subs[6],
-                        title = "Quiz",
-                        description = "Quiz",
-                        contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "Which return type should be used for a function that doesn't return any value?",
-                                incompleteCode = """
-            ___ printMessage() {
-                printf("Hello, World!\\n");
+            Node* findMin(Node* root) {
+                while (root->left != nullptr) root = root->left;
+                return root;
             }
-        """.trimIndent(),
-                                correctCode = "void",
-                                userInput = null,
-                                isCodeCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                    LessonContent(
-                        id =  CAdvancedStageIds.lesson3_subs[7],
-                        title = "Real-Life Example of Function Data Types",
-                        description = "See how different function data types can be used in a practical, real-world scenario.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Let's consider a real-life scenario of a simple calculator program that uses different function data types to perform various operations. In this example, we will see the use of int, float, and void data types.",
-                                    listOf("int", "float", "void")
-                                )
+
+            Node* deleteNode(Node* root, int value) {
+                if (root == nullptr) return root;
+                if (value < root->data) {
+                    root->left = deleteNode(root->left, value);
+                } else if (value > root->data) {
+                    root->right = deleteNode(root->right, value);
+                } else {
+                    if (root->left == nullptr) {
+                        Node* temp = root->right;
+                        delete root;
+                        return temp;
+                    } else if (root->right == nullptr) {
+                        Node* temp = root->left;
+                        delete root;
+                        return temp;
+                    }
+                    Node* temp = findMin(root->right);
+                    root->data = temp->data;
+                    root->right = deleteNode(root->right, temp->data);
+                }
+                return root;
+            }
+            """.trimIndent()
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "This program will include functions that use the int, float, and void data types to handle addition, division, and display messages.",
-                                    listOf("addition", "division", "display messages")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Example: A calculator with different functions for addition, division, and a message display:",
-                                    listOf("")
+                                    "Traversal and Searching:\n" +
+                                            "Traversal involves visiting all nodes in a specific order. Searching finds whether a value exists in the tree.",
+                                    listOf("Traversal and Searching:")
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-                #include <stdio.h>
+            void inorder(Node* root) {
+                if (root == nullptr) return;
+                inorder(root->left);
+                cout << root->data << " ";
+                inorder(root->right);
+            }
 
-                // int data type for addition
-                int add(int a, int b) {
-                    return a + b;
-                }
-
-                // float data type for division
-                float divide(float a, float b) {
-                    return a / b;
-                }
-
-                // void data type for displaying a message
-                void displayMessage() {
-                    printf("Welcome to the Calculator!\\n");
-                }
-
-                int main() {
-                    int sum = add(5, 3);    // Calling the add function
-                    printf("Sum: %d\\n", sum);
-
-                    float result = divide(10.0, 2.0);    // Calling the divide function
-                    printf("Result: %.2f\\n", result);
-
-                    displayMessage();   // Calling the display message function
-                    return 0;
-                }
-                """.trimIndent()
+            bool search(Node* root, int value) {
+                if (root == nullptr) return false;
+                if (root->data == value) return true;
+                if (value < root->data) return search(root->left, value);
+                return search(root->right, value);
+            }
+            """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id =  CAdvancedStageIds.lesson3_subs[8],
-                        title = "Quiz",
-                        description = "Quiz",
+                        id = DSAAdvancedStageIds.lesson3_subs[3],
+                        title = "How Binary Tree Operations Work",
+                        description = "Detailed step-by-step breakdown of insertion, deletion, traversal, and searching operations in binary trees.",
                         contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "Why do we specify a data type for a function's return value?",
-                                options = listOf(
-                                    "To define the size of the function",
-                                    "To ensure the function returns the correct type of value",
-                                    "To optimize memory usage",
-                                    "To make the function compatible with all types of data"
-                                ),
-                                correctAnswer = "To ensure the function returns the correct type of value",
-                                userAnswer = null,
-                                isCorrect = false
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Let's break down the operations on binary trees step-by-step to understand their mechanics."
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Insertion:",
+                                    listOf("Insertion")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                1. Start at the root of the tree.
+                2. Compare the value with the current node's data.
+                3. If the value is smaller, move to the left child; if larger, move to the right child.
+                4. Repeat until a NULL position is found.
+                5. Create a new node at the NULL position.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Deletion:",
+                                    listOf("Deletion")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                1. Locate the node to be deleted.
+                2. Handle cases:
+                   a. No children: Remove the node.
+                   b. One child: Replace the node with its child.
+                   c. Two children: Replace the node with its in-order successor (smallest in the right subtree).
+                3. Update the tree structure accordingly.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Traversal:",
+                                    listOf("Traversal")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                1. Choose a traversal method (Inorder, Preorder, Postorder, Level Order).
+                2. Visit nodes in the specified order and perform an action (e.g., print data).
+                3. Recursively or iteratively traverse the tree.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Searching:",
+                                    listOf("Searching")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                1. Start at the root node.
+                2. Compare the value with the current node's data.
+                3. If equal, return true.
+                4. If smaller, search in the left subtree; if larger, search in the right subtree.
+                5. Repeat until the value is found or a NULL node is reached.
+                """.trimIndent()
+                                )
                             )
                         ),
-                        type = LessonContentType.QUIZ
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSAAdvancedStageIds.lesson3_subs[4],
+                        title = "How to Display Binary Trees",
+                        description = "Understand the basics of binary trees and how to display them.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createSimpleText("A binary tree is a hierarchical data structure where each node has at most two children, referred to as the left child and the right child.")
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText("To display, traverse the tree using methods like Inorder, Preorder, or Postorder traversal to access all nodes.")
+                            ),
+                            ContentBlock.Code(
+                                """
+            void inorderTraversal(Node* root) {
+                if (root == nullptr) return;
+                inorderTraversal(root->left);   // Visit left subtree
+                cout << root->data << " ";     // Print data
+                inorderTraversal(root->right); // Visit right subtree
+            }
+            
+            void preorderTraversal(Node* root) {
+                if (root == nullptr) return;
+                cout << root->data << " ";     // Print data
+                preorderTraversal(root->left); // Visit left subtree
+                preorderTraversal(root->right); // Visit right subtree
+            }
+            
+            void postorderTraversal(Node* root) {
+                if (root == nullptr) return;
+                postorderTraversal(root->left);  // Visit left subtree
+                postorderTraversal(root->right); // Visit right subtree
+                cout << root->data << " ";       // Print data
+            }
+            """.trimIndent()
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSAAdvancedStageIds.lesson3_subs[5],
+                        title = "Importance of Binary Trees",
+                        description = "Understand why binary trees are important and their applications.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Binary trees are a fundamental data structure used in a wide range of applications due to their hierarchical nature. They support efficient searching, insertion, and deletion operations. Common applications include binary search trees for fast lookup, heaps for priority queues, syntax trees for compilers, and decision trees for machine learning algorithms. Their recursive structure makes them suitable for solving complex computational problems in data structures and algorithms.",
+                                    listOf(
+                                        "Binary trees",
+                                        "Binary search trees",
+                                        "heaps",
+                                        "decision trees"
+                                    )
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
                     )
+
                 ),
-                status = LessonStatus.LOCKED
+                status = LessonStatus.ACTIVE
             ),
 
             // lesson 4
             Lesson(
-                id =  CAdvancedStageIds.lesson4,
-                title = "C Function Parameters",
-                description = "Learn about function parameters and how they work in C functions! 🧑‍💻",
+                id = DSAAdvancedStageIds.lesson4,
+                title = "Preorder Traversal",
+                description = "Dive into the concept of preorder traversal, its process, and applications in hierarchical data structures. 🌳",
                 lessonContents = listOf(
                     LessonContent(
-                        id = CAdvancedStageIds.lesson4_subs[0],
-                        title = "Introduction to Parameters",
-                        description = "Get introduced to function parameters and understand their importance in C.",
+                        id = DSAAdvancedStageIds.lesson4_subs[0],
+                        title = "Introduction to Preorder Traversal",
+                        description = "Learn about the process of visiting nodes in preorder traversal.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "In C, function parameters are variables defined in the function declaration. They are placeholders for the values that will be passed to the function.",
-                                    listOf("parameters", "variables", "declaration")
+                                    "Preorder traversal is a tree traversal method where the nodes are visited in the following order:\n1. Visit the root node.\n2. Traverse the left subtree in preorder.\n3. Traverse the right subtree in preorder.",
+                                    listOf(
+                                        "Preorder traversal",
+                                        "root",
+                                        "left subtree",
+                                        "right subtree"
+                                    )
+                                )
+                            ),
+                            ContentBlock.Text(createSimpleText("Key Characteristics:")),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Recursive Nature: The process naturally lends itself to recursive implementation.",
+                                    listOf("Recursive Nature:")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Parameters allow functions to be more flexible and reusable by enabling the passing of different values when the function is called.",
-                                    listOf("flexible", "reusable")
+                                    "Iterative Implementation: Stack data structures can be used for an iterative approach.",
+                                    listOf("Iterative Implementation:")
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-                    void greet(char name[]) {
-                        printf("Hello, %s!\n", name);
-                    }
-                    int main() {
-                        greet("Alice");  // 'Alice' is passed as an argument
-                        return 0;
-                    }
-                    """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson4_subs[1],
-                        title = "Multiple Parameters",
-                        description = "Understand how to pass multiple parameters to a function.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "A function can accept multiple parameters, separated by commas.",
-                                    listOf("multiple parameters", "comma-separated")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Example with multiple parameters:",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-                int add(int a, int b) {
-                    return a + b;
-                }
-
-                int main() {
-                    int result = add(5, 10);  // 5 and 10 are arguments for a and b
-                    printf("Result: %d\n", result);
-                    return 0;
-                }
-                """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson4_subs[2],
-                        title = "Non-Parameter Functions",
-                        description = "Learn about functions that do not take any parameters.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "In C, some functions do not take parameters. These are called non-parameter functions.",
-                                    listOf("non-parameter functions")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "A non-parameter function does not require any input values when it is called. This is useful for simple operations that do not depend on input data.",
-                                    listOf("simple operations", "no input")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-                    void greet() {
-                        printf("Hello, World!\n");
-                    }
-                    int main() {
-                        greet();  // No arguments are passed
-                        return 0;
+                    void preorderTraversal(Node* root) {
+                        if (root == nullptr) return;
+                        cout << root->data << " ";    // Visit the root
+                        preorderTraversal(root->left); // Traverse the left subtree
+                        preorderTraversal(root->right); // Traverse the right subtree
                     }
                     """.trimIndent()
                             )
@@ -673,436 +663,702 @@ fun DSAAdvancedCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = CAdvancedStageIds.lesson4_subs[3],
-                        title = "Arguments in Functions",
-                        description = "Understand the difference between parameters and arguments, and how arguments are passed to functions during a function call in C.",
+                        id = DSAAdvancedStageIds.lesson4_subs[1],
+                        title = "Manual Walkthrough",
+                        description = "Manually create a binary tree and perform a preorder traversal.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "In C, arguments are the values that are passed to the function when it is called.",
-                                    listOf("arguments", "values", "function")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Arguments are used to provide input to functions. These values are passed in the function call and can be used within the function.",
-                                    listOf("input", "passed")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Example of using arguments in a function call:",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-void greet(char name[]) {
-    printf("Hello, %s!\n", name);
-}
+                            ContentBlock.Text(createSimpleText("Let's walk through the process of creating a binary tree and performing a preorder traversal step-by-step.")),
 
-int main() {
-    greet("Alice");  // "Alice" is the argument passed to the function
-    return 0;
-}
-""".trimIndent()
-                            )
+                            ContentBlock.Text(createAnnotatedText("Pass 1:", listOf("Pass 1:"))),
+                            ContentBlock.Text(createSimpleText("Define a 'Node' structure that holds data and pointers to the left and right child nodes.")),
+
+                            ContentBlock.Text(createAnnotatedText("Pass 2:", listOf("Pass 2:"))),
+                            ContentBlock.Text(createSimpleText("Dynamically allocate memory for nodes using 'new' and assign data to each node.")),
+
+                            ContentBlock.Text(createAnnotatedText("Pass 3:", listOf("Pass 3:"))),
+                            ContentBlock.Text(createSimpleText("Link the nodes by assigning the 'left' and 'right' pointers of a parent node to its respective child nodes.")),
+
+                            ContentBlock.Text(createAnnotatedText("Pass 4:", listOf("Pass 4:"))),
+                            ContentBlock.Text(createSimpleText("Perform a preorder traversal on the binary tree:")),
+                            ContentBlock.Text(createSimpleText("1. Visit the root node first.")),
+                            ContentBlock.Text(createSimpleText("2. Recursively traverse the left subtree.")),
+                            ContentBlock.Text(createSimpleText("3. Recursively traverse the right subtree.")),
+
+                            ContentBlock.Text(createSimpleText("Example:")),
+                            ContentBlock.Text(createSimpleText("Tree Structure:")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+          1
+         / \
+        2   3
+       / \
+      4   5
+                """.trimIndent()
+                                )
+                            ),
+
+                            ContentBlock.Text(createSimpleText("Example Preorder Traversal:")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+        Preorder: 1 -> 2 -> 4 -> 5 -> 3
+                """.trimIndent()
+                                )
+                            ),
+
+                            ContentBlock.Text(createSimpleText("This walkthrough demonstrates how to create and traverse a binary tree using the preorder traversal method to process nodes in a hierarchical structure."))
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = CAdvancedStageIds.lesson4_subs[4],
-                        title = "Quiz",
-                        description = "Quiz",
+                        id = DSAAdvancedStageIds.lesson4_subs[2],
+                        title = "Operations on Binary Trees: Preorder Traversal",
+                        description = "Learn how to perform basic operations like insertion, deletion, searching, and specifically preorder traversal on binary trees.",
                         contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "Fill in the missing code to complete the 'add' function that takes two integer parameters.",
-                                incompleteCode = """
-        int add(___a, int b) {  // Fill in the parameters for the add function
-            return a + b;
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Insertion:\n" +
+                                            "Adding a new node to a binary tree involves finding the appropriate position and updating the parent node's left or right pointer.",
+                                    listOf("Insertion:", "left", "right")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+        struct Node {
+            int data;
+            Node* left;
+            Node* right;
+            Node(int value) : data(value), left(nullptr), right(nullptr) {}
+        };
+
+        Node* insert(Node* root, int value) {
+            if (root == nullptr) {
+                return new Node(value);
+            }
+            if (value < root->data) {
+                root->left = insert(root->left, value);
+            } else {
+                root->right = insert(root->right, value);
+            }
+            return root;
         }
-        int main() {
-            int result = add(5, 10);  // 5 and 10 are arguments
-            printf("Result: %d\n", result);
-            return 0;
+        """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Deletion:\n" +
+                                            "Deleting a node involves finding the node and handling three cases: no children, one child, or two children.",
+                                    listOf("Deletion:")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+        Node* findMin(Node* root) {
+            while (root->left != nullptr) root = root->left;
+            return root;
         }
-    """.trimIndent(),
-                                correctCode = "int"
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson4_subs[5],
-                        title = "Pass Arrays as Function Parameters",
-                        description = "Learn how to pass arrays to functions in C.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "In C, you can pass arrays to functions as parameters.",
-                                    listOf("arrays")
-                                )
+
+        Node* deleteNode(Node* root, int value) {
+            if (root == nullptr) return root;
+            if (value < root->data) {
+                root->left = deleteNode(root->left, value);
+            } else if (value > root->data) {
+                root->right = deleteNode(root->right, value);
+            } else {
+                if (root->left == nullptr) {
+                    Node* temp = root->right;
+                    delete root;
+                    return temp;
+                } else if (root->right == nullptr) {
+                    Node* temp = root->left;
+                    delete root;
+                    return temp;
+                }
+                Node* temp = findMin(root->right);
+                root->data = temp->data;
+                root->right = deleteNode(root->right, temp->data);
+            }
+            return root;
+        }
+        """.trimIndent()
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Arrays are passed by reference, meaning the function can modify the original array.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Example of passing an array as a function parameter:",
-                                    listOf("")
+                                    "Preorder Traversal and Searching:\n" +
+                                            "Preorder traversal visits nodes in the order: root, left subtree, right subtree. Searching finds whether a value exists in the tree.",
+                                    listOf("Preorder Traversal", "Searching:")
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-                void printArray(int arr[], int size) {
-                    for (int i = 0; i < size; i++) {
-                        printf("%d ", arr[i]);
-                    }
-                    printf("\n");
-                }
+        void preorder(Node* root) {
+            if (root == nullptr) return;
+            cout << root->data << " ";  // Visit root
+            preorder(root->left);      // Traverse left subtree
+            preorder(root->right);     // Traverse right subtree
+        }
 
-                int main() {
-                    int numbers[] = {1, 2, 3, 4};
-                    printArray(numbers, 4);
-                    return 0;
-                }
-                """.trimIndent()
+        bool search(Node* root, int value) {
+            if (root == nullptr) return false;
+            if (root->data == value) return true;
+            if (value < root->data) return search(root->left, value);
+            return search(root->right, value);
+        }
+        """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Example Preorder Traversal:\n" +
+                                            "Consider the binary tree:\n\n" +
+                                            """
+                1
+               / \
+              2   3
+             / \
+            4   5
+                        """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Preorder Traversal Sequence:\n" +
+                                            "1 -> 2 -> 4 -> 5 -> 3"
+                                )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = CAdvancedStageIds.lesson4_subs[6],
-                        title = "Return Values from Functions",
-                        description = "Learn how functions return values to the caller.",
+                        id = DSAAdvancedStageIds.lesson4_subs[3],
+                        title = "How Binary Tree Operations Work: Preorder Focus",
+                        description = "Detailed step-by-step breakdown of insertion, deletion, preorder traversal, and searching operations in binary trees.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Functions in C can return values to the calling code.",
-                                    listOf("return values")
+                                createSimpleText(
+                                    "Let's break down the operations on binary trees step-by-step to understand their mechanics, with a focus on preorder traversal."
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "The return type is specified in the function declaration, and the return value is given with the return keyword.",
-                                    listOf("return keyword")
+                                    "Insertion:",
+                                    listOf("Insertion")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+            1. Start at the root of the tree.
+            2. Compare the value with the current node's data.
+            3. If the value is smaller, move to the left child; if larger, move to the right child.
+            4. Repeat until a NULL position is found.
+            5. Create a new node at the NULL position.
+            """.trimIndent()
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Example: A function that returns an integer value:",
-                                    listOf("")
+                                    "Deletion:",
+                                    listOf("Deletion")
                                 )
                             ),
-                            ContentBlock.Code(
-                                """
-                int multiply(int a, int b) {
-                    return a * b;
-                }
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+            1. Locate the node to be deleted.
+            2. Handle cases:
+               a. No children: Remove the node.
+               b. One child: Replace the node with its child.
+               c. Two children: Replace the node with its in-order successor (smallest in the right subtree).
+            3. Update the tree structure accordingly.
+            """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Preorder Traversal:",
+                                    listOf("Preorder Traversal")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+            1. Preorder traversal visits nodes in the following order:
+               a. Visit the root node.
+               b. Traverse the left subtree.
+               c. Traverse the right subtree.
+            2. The sequence is Root -> Left -> Right.
+            3. Perform an action (e.g., print node data) when visiting each node.
+            """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Example Preorder Traversal:\n" +
+                                            """
+                Consider the binary tree:
 
-                int main() {
-                    int result = multiply(4, 5);
-                    printf("Product: %d\n", result);
-                    return 0;
-                }
+                    1
+                   / \
+                  2   3
+                 / \
+                4   5
+
+                Preorder Traversal Sequence:
+                1 -> 2 -> 4 -> 5 -> 3
                 """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Searching:",
+                                    listOf("Searching")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+            1. Start at the root node.
+            2. Compare the value with the current node's data.
+            3. If equal, return true.
+            4. If smaller, search in the left subtree; if larger, search in the right subtree.
+            5. Repeat until the value is found or a NULL node is reached.
+            """.trimIndent()
+                                )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = CAdvancedStageIds.lesson4_subs[7],
-                        title = "Quiz",
-                        description = "Quiz",
-                        contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "Fill in the missing  keyword in the 'multiply' function.",
-                                incompleteCode = """
-                int multiply(int a, int b) {  // Function definition
-                    ___ a * b;  // Missing return keyword
-                }
-                int main() {
-                    int result = multiply(4, 5);
-                    printf("Product: %d\n", result);
-                    return 0;
-                }
-            """.trimIndent(),
-                                correctCode = "return"
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson4_subs[8],
-                        title = "Real-Life Example of Function Parameters",
-                        description = "Understand the use of function parameters with a real-life example.",
+                        id = DSAAdvancedStageIds.lesson4_subs[4],
+                        title = "How to Display Binary Trees: Traversal Methods",
+                        description = "Understand the basics of binary trees and how to display them using various traversal methods.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Let's consider a real-world example: A function to calculate the area of a rectangle.",
-                                    listOf("")
-                                )
+                                createSimpleText("A binary tree is a hierarchical data structure where each node has at most two children, referred to as the left child and the right child.")
                             ),
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "The function will take two parameters: length and width, and return the calculated area.",
-                                    listOf("")
-                                )
+                                createSimpleText("To display a binary tree, traverse it using methods like Preorder, Inorder, or Postorder traversal to access all nodes.")
                             ),
-                            ContentBlock.Text(createAnnotatedText("Example:", listOf(""))),
                             ContentBlock.Code(
                                 """
-                #include <stdio.h>
+        void preorderTraversal(Node* root) {
+            if (root == nullptr) return;
+            cout << root->data << " ";     // Print data
+            preorderTraversal(root->left); // Visit left subtree
+            preorderTraversal(root->right); // Visit right subtree
+        }
 
-                // Function to calculate the area of a rectangle
-                int calculateArea(int length, int width) {
-                    return length * width;
-                }
+        void inorderTraversal(Node* root) {
+            if (root == nullptr) return;
+            inorderTraversal(root->left);   // Visit left subtree
+            cout << root->data << " ";     // Print data
+            inorderTraversal(root->right); // Visit right subtree
+        }
 
-                int main() {
-                    int length = 5, width = 3;
-                    int area = calculateArea(length, width);  // Passing length and width as arguments
-                    printf("Area of the rectangle: %d\n", area);
-                    return 0;
-                }
-                """.trimIndent()
+        void postorderTraversal(Node* root) {
+            if (root == nullptr) return;
+            postorderTraversal(root->left);  // Visit left subtree
+            postorderTraversal(root->right); // Visit right subtree
+            cout << root->data << " ";       // Print data
+        }
+        """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+            Example Preorder Traversal:
+            
+            Tree:
+
+                1
+               / \
+              2   3
+             / \
+            4   5
+
+            Preorder Sequence: 1 -> 2 -> 4 -> 5 -> 3
+            """.trimIndent()
+                                )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = CAdvancedStageIds.lesson4_subs[9],
-                        title = "Quiz",
-                        description = "Quiz",
+                        id = DSAAdvancedStageIds.lesson4_subs[5],
+                        title = "Importance of Preorder Traversal",
+                        description = "Understand why preorder traversal is important and its applications in binary trees.",
                         contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "What is a function parameter in C?",
-                                options = listOf(
-                                    "A variable used to pass values into the function",
-                                    "A value that the function returns",
-                                    "A statement inside the function body",
-                                    "The function's return type"
-                                ),
-                                correctAnswer = "A variable used to pass values into the function"
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Preorder traversal is a fundamental technique in binary trees where nodes are visited in the order: root, left subtree, and right subtree. It is crucial for applications like tree serialization and deserialization, prefix notation in expression trees, cloning binary trees, and serving as the foundation for depth-first search algorithms."
+                                )
                             )
                         ),
-                        type = LessonContentType.QUIZ
+                        type = LessonContentType.NON_INTERACTIVE
                     )
                 ),
-                status = LessonStatus.LOCKED
+                status = LessonStatus.ACTIVE
             ),
 
             // lesson 5
             Lesson(
-                id = CAdvancedStageIds.lesson5,
-                title = "C Variable Scope",
-                description = "Understand how variables behave inside and outside functions in C.",
+                id = DSAAdvancedStageIds.lesson5,
+                title = "Inorder Traversal",
+                description = "Dive into the concept of inorder traversal, its process, and applications in hierarchical data structures. 🌳",
                 lessonContents = listOf(
                     LessonContent(
-                        id = CAdvancedStageIds.lesson5_subs[0],
-                        title = "Introduction to Variable Scope",
-                        description = "Get a fundamental understanding of variable scope and its significance in C programming.",
+                        id = DSAAdvancedStageIds.lesson5_subs[0],
+                        title = "Introduction to Inorder Traversal",
+                        description = "Learn about the process of visiting nodes in inorder traversal.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Variable scope defines where a variable can be accessed or modified in your program. In C, variables are categorized by their scope, which determines their visibility and lifetime.",
-                                    listOf("accessed", "modified")
+                                    "Inorder traversal is a tree traversal method where the nodes are visited in the following order:\n1. Traverse the left subtree in inorder.\n2. Visit the root node.\n3. Traverse the right subtree in inorder.",
+                                    listOf(
+                                        "Inorder traversal",
+                                        "root",
+                                        "left subtree",
+                                        "right subtree"
+                                    )
+                                )
+                            ),
+                            ContentBlock.Text(createSimpleText("Key Characteristics:")),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Recursive Nature: The process naturally lends itself to recursive implementation.",
+                                    listOf("Recursive Nature:")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Scope is crucial to avoid conflicts, manage memory efficiently, and maintain code clarity. The two main types of scope in C are local scope and global scope. Let's explore each in detail.",
-                                    listOf("local scope", "global scope")
-                                )
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson5_subs[1],
-                        title = "Local Scope",
-                        description = "Learn how local variables are restricted to the function they're declared in.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Variables declared inside a function are local and only accessible within that function.",
-                                    listOf("accessible")
+                                    "Iterative Implementation: Stack data structures can be used for an iterative approach.",
+                                    listOf("Iterative Implementation:")
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-                    void myFunction() {
-                        int x = 10;  // Local variable
-                        printf("%d\n", x);  // Accessible inside the function
-                    }
-                    int main() {
-                        // printf("%d\n", x);  // Error: x is not accessible here
-                        myFunction();
-                        return 0;
-                    }
-                    """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson5_subs[2],
-                        title = "Global Scope",
-                        description = "Understand the accessibility of global variables across functions.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Global variables are declared outside functions and can be accessed anywhere in the program.",
-                                    listOf("accessed")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-                    int x = 10;  // Global variable
-                    void myFunction() {
-                        printf("%d\n", x);  // Accessible here
-                    }
-                    int main() {
-                        printf("%d\n", x);  // Accessible here as well
-                        myFunction();
-                        return 0;
-                    }
-                    """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson5_subs[3],
-                        title = "Quiz",
-                        description = "Quiz",
-                        contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "In the following code, fill in the blank to make 'x' a global variable with the value 20.",
-                                incompleteCode = """
-            ___ x = 20;  // Global variable
-            void display() {
-                printf("%d\n", x);  // Accessible here
+            void inorderTraversal(Node* root) {
+                if (root == nullptr) return;
+                inorderTraversal(root->left);  // Traverse the left subtree
+                cout << root->data << " ";     // Visit the root
+                inorderTraversal(root->right); // Traverse the right subtree
             }
-            int main() {
-                display();
-                return 0;
-            }
-        """.trimIndent(),
-                                correctCode = "int",
-                                userInput = null,
-                                isCodeCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson5_subs[4],
-                        title = "Naming Variables",
-                        description = "Explore how naming works and the impact of scope in C.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Variable names must start with a letter or an underscore. They are case-sensitive and cannot be C keywords.",
-                                    listOf("letter", "underscore")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Important: If the same name is used for a variable inside and outside a function, C treats them as separate variables.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-                    int x = 10;  // Global variable
-                    void myFunction() {
-                        int x = 5;  // Local variable
-                        printf("Local x: %d\n", x);  // Prints 5
-                    }
-                    int main() {
-                        printf("Global x: %d\n", x);  // Prints 10
-                        myFunction();
-                        return 0;
-                    }
-                    """.trimIndent()
+            """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = CAdvancedStageIds.lesson5_subs[5],
-                        title = "Quiz",
-                        description = "Quiz",
+                        id = DSAAdvancedStageIds.lesson5_subs[1],
+                        title = "Manual Walkthrough",
+                        description = "Manually create a binary tree and perform an inorder traversal.",
                         contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "Complete the code to ensure the global variable 'score' is modified by the 'increaseScore' function.",
-                                incompleteCode = """
-            int score = 0;  // Global variable
-            void increaseScore(int points) {
-                ___ += points;  // Modify global score
-            }
-        """.trimIndent(),
-                                correctCode = "score",
-                                userInput = null,
-                                isCodeCorrect = false
-                            )
+                            ContentBlock.Text(createSimpleText("Let's walk through the process of creating a binary tree and performing an inorder traversal step-by-step.")),
+
+                            ContentBlock.Text(createAnnotatedText("Pass 1:", listOf("Pass 1:"))),
+                            ContentBlock.Text(createSimpleText("Define a 'Node' structure that holds data and pointers to the left and right child nodes.")),
+
+                            ContentBlock.Text(createAnnotatedText("Pass 2:", listOf("Pass 2:"))),
+                            ContentBlock.Text(createSimpleText("Dynamically allocate memory for nodes using 'new' and assign data to each node.")),
+
+                            ContentBlock.Text(createAnnotatedText("Pass 3:", listOf("Pass 3:"))),
+                            ContentBlock.Text(createSimpleText("Link the nodes by assigning the 'left' and 'right' pointers of a parent node to its respective child nodes.")),
+
+                            ContentBlock.Text(createAnnotatedText("Pass 4:", listOf("Pass 4:"))),
+                            ContentBlock.Text(createSimpleText("Perform an inorder traversal on the binary tree:")),
+                            ContentBlock.Text(createSimpleText("1. Traverse the left subtree first.")),
+                            ContentBlock.Text(createSimpleText("2. Visit the root node.")),
+                            ContentBlock.Text(createSimpleText("3. Recursively traverse the right subtree.")),
+
+                            ContentBlock.Text(createSimpleText("Example:")),
+                            ContentBlock.Text(createSimpleText("Tree Structure:")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+      1
+     / \
+    2   3
+   / \
+  4   5
+            """.trimIndent()
+                                )
+                            ),
+
+                            ContentBlock.Text(createSimpleText("Example Inorder Traversal:")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+    Inorder: 4 -> 2 -> 5 -> 1 -> 3
+            """.trimIndent()
+                                )
+                            ),
+
+                            ContentBlock.Text(createSimpleText("This walkthrough demonstrates how to create and traverse a binary tree using the inorder traversal method to process nodes in a hierarchical structure."))
                         ),
-                        type = LessonContentType.INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = CAdvancedStageIds.lesson5_subs[6],
-                        title = "Real-Life Example",
-                        description = "See practical examples of variable scope.",
+                        id = DSAAdvancedStageIds.lesson5_subs[2],
+                        title = "Operations on Binary Trees: Inorder Traversal",
+                        description = "Learn how to perform basic operations like insertion, deletion, searching, and specifically inorder traversal on binary trees.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "In a game, we can use global variables to track scores and local variables to compute values within specific functions.",
-                                    listOf("")
+                                    "Insertion:\n" +
+                                            "Adding a new node to a binary tree involves finding the appropriate position and updating the parent node's left or right pointer.",
+                                    listOf("Insertion:", "left", "right")
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-                    int score = 0;  // Global variable
-                    void increaseScore(int points) {
-                        score += points;  // Modify global score
-                    }
-                    void showScore() {
-                        printf("Current score: %d\n", score);  // Access global score
-                    }
-                    int main() {
-                        int roundScore = 10;  // Local variable
-                        increaseScore(roundScore);  // Pass local score
-                        showScore();
-                        return 0;
-                    }
+        struct Node {
+            int data;
+            Node* left;
+            Node* right;
+            Node(int value) : data(value), left(nullptr), right(nullptr) {}
+        };
+
+        Node* insert(Node* root, int value) {
+            if (root == nullptr) {
+                return new Node(value);
+            }
+            if (value < root->data) {
+                root->left = insert(root->left, value);
+            } else {
+                root->right = insert(root->right, value);
+            }
+            return root;
+        }
+        """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Deletion:\n" +
+                                            "Deleting a node involves finding the node and handling three cases: no children, one child, or two children.",
+                                    listOf("Deletion:")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+        Node* findMin(Node* root) {
+            while (root->left != nullptr) root = root->left;
+            return root;
+        }
+
+        Node* deleteNode(Node* root, int value) {
+            if (root == nullptr) return root;
+            if (value < root->data) {
+                root->left = deleteNode(root->left, value);
+            } else if (value > root->data) {
+                root->right = deleteNode(root->right, value);
+            } else {
+                if (root->left == nullptr) {
+                    Node* temp = root->right;
+                    delete root;
+                    return temp;
+                } else if (root->right == nullptr) {
+                    Node* temp = root->left;
+                    delete root;
+                    return temp;
+                }
+                Node* temp = findMin(root->right);
+                root->data = temp->data;
+                root->right = deleteNode(root->right, temp->data);
+            }
+            return root;
+        }
+        """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Inorder Traversal and Searching:\n" +
+                                            "Inorder traversal visits nodes in the order: left subtree, root, right subtree. Searching finds whether a value exists in the tree.",
+                                    listOf("Inorder Traversal", "Searching:")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+        void inorder(Node* root) {
+            if (root == nullptr) return;
+            inorder(root->left);  // Traverse left subtree
+            cout << root->data << " ";  // Visit root
+            inorder(root->right);  // Traverse right subtree
+        }
+
+        bool search(Node* root, int value) {
+            if (root == nullptr) return false;
+            if (root->data == value) return true;
+            if (value < root->data) return search(root->left, value);
+            return search(root->right, value);
+        }
+        """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Example Inorder Traversal:\n" +
+                                            "Consider the binary tree:\n\n" +
+                                            """
+            1
+           / \
+          2   3
+         / \
+        4   5
                     """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Inorder Traversal Sequence:\n" +
+                                            "4 -> 2 -> 5 -> 1 -> 3"
+                                )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = CAdvancedStageIds.lesson5_subs[7],
-                        title = "Quiz",
-                        description = "Quiz",
+                        id = DSAAdvancedStageIds.lesson5_subs[3],
+                        title = "How Binary Tree Operations Work: Inorder Focus",
+                        description = "Detailed step-by-step breakdown of insertion, deletion, inorder traversal, and searching operations in binary trees.",
                         contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "What is variable scope in C?",
-                                options = listOf(
-                                    "The data type of a variable",
-                                    "The lifetime and visibility of a variable",
-                                    "The memory size of a variable",
-                                    "The naming convention of a variable"
-                                ),
-                                correctAnswer = "The lifetime and visibility of a variable",
-                                userAnswer = null,
-                                isCorrect = false
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Let's break down the operations on binary trees step-by-step to understand their mechanics, with a focus on inorder traversal."
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Insertion:",
+                                    listOf("Insertion")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+        1. Start at the root of the tree.
+        2. Compare the value with the current node's data.
+        3. If the value is smaller, move to the left child; if larger, move to the right child.
+        4. Repeat until a NULL position is found.
+        5. Create a new node at the NULL position.
+                        """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Deletion:",
+                                    listOf("Deletion")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+        1. Locate the node to be deleted.
+        2. Handle cases:
+           a. No children: Remove the node.
+           b. One child: Replace the node with its child.
+           c. Two children: Replace the node with its in-order successor (smallest in the right subtree).
+        3. Update the tree structure accordingly.
+                        """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Inorder Traversal:",
+                                    listOf("Inorder Traversal")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+        1. Start at the root node.
+        2. Traverse the left subtree first.
+        3. Visit the root node.
+        4. Traverse the right subtree last.
+        5. Repeat the process recursively for all subtrees.
+                        """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Searching:",
+                                    listOf("Searching")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Searching follows a similar pattern to insertion but returns true or false based on whether the value is found."
+                                )
                             )
                         ),
-                        type = LessonContentType.QUIZ
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSAAdvancedStageIds.lesson5_subs[4],
+                        title = "How to Display Binary Trees: Traversal Methods",
+                        description = "Understand the basics of binary trees and how to display them using various traversal methods, focusing on inorder traversal.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createSimpleText("A binary tree is a hierarchical data structure where each node has at most two children, referred to as the left child and the right child.")
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText("To display a binary tree, traverse it using methods like Preorder, Inorder, or Postorder traversal to access all nodes. For this lesson, we'll focus on inorder traversal.")
+                            ),
+                            ContentBlock.Code(
+                                """
+        void preorderTraversal(Node* root) {
+            if (root == nullptr) return;
+            cout << root->data << " ";     // Print data
+            preorderTraversal(root->left); // Visit left subtree
+            preorderTraversal(root->right); // Visit right subtree
+        }
+
+        void inorderTraversal(Node* root) {
+            if (root == nullptr) return;
+            inorderTraversal(root->left);   // Visit left subtree
+            cout << root->data << " ";     // Print data
+            inorderTraversal(root->right); // Visit right subtree
+        }
+
+        void postorderTraversal(Node* root) {
+            if (root == nullptr) return;
+            postorderTraversal(root->left);  // Visit left subtree
+            postorderTraversal(root->right); // Visit right subtree
+            cout << root->data << " ";       // Print data
+        }
+        """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+            Example Inorder Traversal:
+            
+            Tree:
+
+                1
+               / \
+              2   3
+             / \
+            4   5
+
+            Inorder Sequence: 4 -> 2 -> 5 -> 1 -> 3
+            """.trimIndent()
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSAAdvancedStageIds.lesson5_subs[5],
+                        title = "Importance of Inorder Traversal",
+                        description = "Understand why inorder traversal is important and its applications in binary trees.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Inorder traversal is a critical technique for processing binary trees. It processes nodes in the order: left subtree, root, right subtree. This traversal is especially useful in applications like Binary Search Trees (BST), where inorder traversal of a BST yields nodes in sorted order, Expression Trees, where it helps evaluate arithmetic expressions by ensuring operands are processed in the correct order, and Tree Traversal Algorithms, as it serves as the foundation for several depth-first search (DFS) algorithms and tree-related algorithms."
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
                     )
                 ),
                 status = LessonStatus.LOCKED
@@ -1110,52 +1366,46 @@ int main() {
 
             // lesson 6
             Lesson(
-                id = CAdvancedStageIds.lesson6,
-                title = "C Recursion",
-                description = "Understand recursion in C and use it effectively.",
+                id = DSAAdvancedStageIds.lesson6,
+                title = "Postorder Traversal",
+                description = "Dive into the concept of postorder traversal, its process, and applications in hierarchical data structures. 🌳",
                 lessonContents = listOf(
                     LessonContent(
-                        id = CAdvancedStageIds.lesson6_subs[0],
-                        title = "Introduction to Recursion",
-                        description = "Learn the definition of recursion in C.",
+                        id = DSAAdvancedStageIds.lesson6_subs[0],
+                        title = "Introduction to Postorder Traversal",
+                        description = "Learn about the process of visiting nodes in postorder traversal.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Recursion in C is when a function calls itself to solve smaller instances of a problem.",
-                                    listOf("Recursion")
+                                    "Postorder traversal is a tree traversal method where the nodes are visited in the following order:\n1. Traverse the left subtree in postorder.\n2. Traverse the right subtree in postorder.\n3. Visit the root node.",
+                                    listOf(
+                                        "Postorder traversal",
+                                        "root",
+                                        "left subtree",
+                                        "right subtree"
+                                    )
+                                )
+                            ),
+                            ContentBlock.Text(createSimpleText("Key Characteristics:")),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Recursive Nature: The process naturally lends itself to recursive implementation.",
+                                    listOf("Recursive Nature:")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "A recursive function has two parts:",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "1.Base Case: Stops recursion to prevent infinite calls.",
-                                    listOf("Base Case")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "2.Recursive Case: Calls itself to solve the subproblem.",
-                                    listOf("Recursive Case")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Example of recursion:",
-                                    listOf("")
+                                    "Iterative Implementation: Stack data structures can be used for an iterative approach.",
+                                    listOf("Iterative Implementation:")
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-            int factorial(int n) {
-                if (n == 0)  // Base case
-                    return 1;
-                else
-                    return n * factorial(n - 1);  // Recursive call
+            void postorderTraversal(Node* root) {
+                if (root == nullptr) return;
+                postorderTraversal(root->left);  // Traverse the left subtree
+                postorderTraversal(root->right); // Traverse the right subtree
+                cout << root->data << " ";      // Visit the root
             }
             """.trimIndent()
                             )
@@ -1163,243 +1413,229 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = CAdvancedStageIds.lesson6_subs[1],
-                        title = "Base Case in Recursion",
-                        description = "Understand the base case's importance.",
+                        id = DSAAdvancedStageIds.lesson6_subs[1],
+                        title = "Manual Walkthrough",
+                        description = "Manually create a binary tree and perform a postorder traversal.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "The base case is crucial. It defines when recursion should stop.",
-                                    listOf("base case")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Without it, the function calls itself indefinitely, causing a stack overflow.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Example of a base case:",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-                    int factorial(int n) {
-                        if (n == 0)  // Base case
-                            return 1;
-                        return n * factorial(n - 1);  // Recursive case
-                    }
-                    """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson6_subs[2],
-                        title = "Recursive Case in Recursion",
-                        description = "See a recursive function in action.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "The recursive case is when a function solves a small part of a problem by calling itself. Let's see an example of calculating factorial using recursion.",
-                                    listOf("recursive case")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Factorial (n!) is the multiplication of all integers from 1 to n. By definition, 0! = 1.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Here is an example:",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-            #include <stdio.h>
-            
-            int factorial(int n) {
-                if (n == 0)
-                    return 1;  // Base case
-                else
-                    return n * factorial(n - 1);  // Recursive case
-            }
+                            ContentBlock.Text(createSimpleText("Let's walk through the process of creating a binary tree and performing a postorder traversal step-by-step.")),
 
-            int main() {
-                int result = factorial(5);
-                printf("Factorial of 5 is %d\n", result);  // Output: 120
-                return 0;
-            }
-            """.trimIndent()
-                            )
+                            ContentBlock.Text(createAnnotatedText("Pass 1:", listOf("Pass 1:"))),
+                            ContentBlock.Text(createSimpleText("Define a 'Node' structure that holds data and pointers to the left and right child nodes.")),
+
+                            ContentBlock.Text(createAnnotatedText("Pass 2:", listOf("Pass 2:"))),
+                            ContentBlock.Text(createSimpleText("Dynamically allocate memory for nodes using 'new' and assign data to each node.")),
+
+                            ContentBlock.Text(createAnnotatedText("Pass 3:", listOf("Pass 3:"))),
+                            ContentBlock.Text(createSimpleText("Link the nodes by assigning the 'left' and 'right' pointers of a parent node to its respective child nodes.")),
+
+                            ContentBlock.Text(createAnnotatedText("Pass 4:", listOf("Pass 4:"))),
+                            ContentBlock.Text(createSimpleText("Perform a postorder traversal on the binary tree:")),
+                            ContentBlock.Text(createSimpleText("1. Traverse the left subtree first.")),
+                            ContentBlock.Text(createSimpleText("2. Traverse the right subtree next.")),
+                            ContentBlock.Text(createSimpleText("3. Visit the root node last.")),
+
+                            ContentBlock.Text(createSimpleText("Example:")),
+                            ContentBlock.Text(createSimpleText("Tree Structure:")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+      1
+     / \
+    2   3
+   / \
+  4   5
+                        """.trimIndent()
+                                )
+                            ),
+
+                            ContentBlock.Text(createSimpleText("Example Postorder Traversal:")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+    Postorder: 4 -> 5 -> 2 -> 3 -> 1
+                        """.trimIndent()
+                                )
+                            ),
+
+                            ContentBlock.Text(createSimpleText("This walkthrough demonstrates how to create and traverse a binary tree using the postorder traversal method to process nodes in a hierarchical structure."))
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = CAdvancedStageIds.lesson6_subs[3],
-                        title = "Quiz",
-                        description = "Quiz",
+                        id = DSAAdvancedStageIds.lesson6_subs[2],
+                        title = "Operations on Binary Trees: Postorder Traversal",
+                        description = "Learn how to perform basic operations like insertion, deletion, searching, and specifically postorder traversal on binary trees.",
                         contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "What should be the return value for the base case in a factorial function?",
-                                incompleteCode = """
-        int factorial(int n) {
-            if (n == 0)  // Base case
-                return ___;  // What should be returned here?
-            else
-                return n * factorial(n - 1);  // Recursive case
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Postorder Traversal and Searching:\n" +
+                                            "Postorder traversal visits nodes in the order: left subtree, right subtree, root node. Searching finds whether a value exists in the tree.",
+                                    listOf("Postorder Traversal", "Searching:")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+        void postorder(Node* root) {
+            if (root == nullptr) return;
+            postorder(root->left);  // Traverse left subtree
+            postorder(root->right); // Traverse right subtree
+            cout << root->data << " ";  // Visit root
         }
-    """.trimIndent(),
-                                correctCode = "1", // The correct answer for the base case is '1'
-                                userInput = null,
-                                isCodeCorrect = false
+
+        bool search(Node* root, int value) {
+            if (root == nullptr) return false;
+            if (root->data == value) return true;
+            if (value < root->data) return search(root->left, value);
+            return search(root->right, value);
+        }
+        """.trimIndent()
                             )
                         ),
-                        type = LessonContentType.INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = CAdvancedStageIds.lesson6_subs[4],
-                        title = "Recursive vs Iterative Solutions",
-                        description = "Compare recursion and iteration.",
+                        id = DSAAdvancedStageIds.lesson6_subs[3],
+                        title = "How Binary Tree Operations Work: Postorder Focus",
+                        description = "Detailed step-by-step breakdown of insertion, deletion, postorder traversal, and searching operations in binary trees.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Recursion can often be replaced with iteration using loops.",
-                                    listOf("Recursion")
+                                createSimpleText(
+                                    "Let's break down the operations on binary trees step-by-step to understand their mechanics, with a focus on postorder traversal."
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Example of factorial using recursion:",
-                                    listOf("recursion")
+                                    "Insertion:",
+                                    listOf("Insertion")
                                 )
                             ),
-                            ContentBlock.Code(
-                                """
-                    int factorial(int n) {
-                        if (n == 0) return 1;
-                        return n * factorial(n - 1);
-                    }
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+    1. Start at the root of the tree.
+    2. Compare the value with the current node's data.
+    3. If the value is smaller, move to the left child; if larger, move to the right child.
+    4. Repeat until a NULL position is found.
+    5. Create a new node at the NULL position.
                     """.trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Example of factorial using iteration:",
-                                    listOf("iteration")
                                 )
                             ),
-                            ContentBlock.Code(
-                                """
-                    int factorial(int n) {
-                        int result = 1;
-                        for (int i = 1; i <= n; i++) {
-                            result *= i;
-                        }
-                        return result;
-                    }
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Deletion:",
+                                    listOf("Deletion")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+    1. Locate the node to be deleted.
+    2. Handle cases:
+       a. No children: Remove the node.
+       b. One child: Replace the node with its child.
+       c. Two children: Replace the node with its in-order successor (smallest in the right subtree).
+    3. Update the tree structure accordingly.
                     """.trimIndent()
+                                )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Recursion is simpler to write, but iteration is often more memory-efficient.",
-                                    listOf("")
+                                    "Postorder Traversal:",
+                                    listOf("Postorder Traversal")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+    1. Start at the root node.
+    2. Traverse the left subtree first.
+    3. Traverse the right subtree next.
+    4. Visit the root node last.
+    5. Repeat the process recursively for all subtrees.
+                    """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Searching:",
+                                    listOf("Searching")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Searching follows a similar pattern to insertion but returns true or false based on whether the value is found."
                                 )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = CAdvancedStageIds.lesson6_subs[5],
-                        title = "Quiz",
-                        description = "Quiz",
-                        contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "In the following code snippet for calculating factorial, which value should be returned? Choose the correct one.",
-                                incompleteCode = """
-            int factorial(int n) {
-                int result = 1;
-                for (int i = 1; i <= n; i++) {
-                    result *= i;
-                }
-                return ___;
-            }
-            """.trimIndent(),
-                                correctCode = "result", // The correct answer is 'result' to be returned in the iterative approach
-                                userInput = null,
-                                isCodeCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson6_subs[6],
-                        title = "Real-Life Example of Recursion",
-                        description = "Apply recursion in real-world scenarios.",
+                        id = DSAAdvancedStageIds.lesson6_subs[4],
+                        title = "How to Display Binary Trees: Traversal Methods",
+                        description = "Understand the basics of binary trees and how to display them using various traversal methods, focusing on postorder traversal.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "A real-world example of recursion is directory traversal.",
-                                    listOf("")
-                                )
+                                createSimpleText("A binary tree is a hierarchical data structure where each node has at most two children, referred to as the left child and the right child.")
                             ),
-                            ContentBlock.Text(createAnnotatedText("Example:", listOf())),
+                            ContentBlock.Text(
+                                createSimpleText("To display a binary tree, traverse it using methods like Preorder, Inorder, or Postorder traversal to access all nodes. For this lesson, we'll focus on postorder traversal.")
+                            ),
                             ContentBlock.Code(
                                 """
-                    #include <stdio.h>
-                    #include <dirent.h>
-                    
-                    void listFiles(const char *path) {
-                        struct dirent *entry;
-                        DIR *dp = opendir(path);
-                        if (dp == NULL) {
-                            printf("Unable to open directory %s\n", path);
-                            return;
-                        }
+    void preorderTraversal(Node* root) {
+        if (root == nullptr) return;
+        cout << root->data << " ";     // Print data
+        preorderTraversal(root->left); // Visit left subtree
+        preorderTraversal(root->right); // Visit right subtree
+    }
 
-                        while ((entry = readdir(dp)) != NULL) {
-                            if (entry->d_type == DT_DIR) {
-                                if (strcmp(entry->d_name, ".") != 0 && strcmp(entry->d_name, "..") != 0) {
-                                    listFiles(entry->d_name);  // Recursive call
-                                }
-                            } else {
-                                printf("%s\n", entry->d_name);  // Print file name
-                            }
-                        }
-                        closedir(dp);
-                    }
+    void inorderTraversal(Node* root) {
+        if (root == nullptr) return;
+        inorderTraversal(root->left);   // Visit left subtree
+        cout << root->data << " ";     // Print data
+        inorderTraversal(root->right); // Visit right subtree
+    }
 
-                    int main() {
-                        listFiles("my_folder");  // Start traversal
-                        return 0;
-                    }
-                    """.trimIndent()
+    void postorderTraversal(Node* root) {
+        if (root == nullptr) return;
+        postorderTraversal(root->left);  // Visit left subtree
+        postorderTraversal(root->right); // Visit right subtree
+        cout << root->data << " ";       // Print data
+    }
+    """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+        Example Postorder Traversal:
+        
+        Tree:
+
+            1
+           / \
+          2   3
+         / \
+        4   5
+
+        Postorder Sequence: 4 -> 5 -> 2 -> 3 -> 1
+        """.trimIndent()
+                                )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = CAdvancedStageIds.lesson6_subs[7],
-                        title = "Quiz",
-                        description = "Quiz",
+                        id = DSAAdvancedStageIds.lesson6_subs[5],
+                        title = "Importance of Postorder Traversal",
+                        description = "Understand why postorder traversal is important and its applications in binary trees.",
                         contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "What is the base case in recursion?",
-                                options = listOf(
-                                    "The condition that triggers the recursive function",
-                                    "The condition that causes the recursion to stop",
-                                    "The first function call in recursion",
-                                    "The condition that loops continuously"
-                                ),
-                                correctAnswer = "The condition that causes the recursion to stop"
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Postorder traversal is a critical technique for processing binary trees. It processes nodes in the order: left subtree, right subtree, root. This traversal is especially useful in applications like tree deletion (processing child nodes before the root ensures safe deletion), Expression Trees (where postorder helps evaluate expressions by ensuring operations are executed in the correct order), and Tree Traversal Algorithms, as it serves as the foundation for depth-first search (DFS) algorithms and other tree-related operations."
+                                )
                             )
                         ),
-                        type = LessonContentType.QUIZ
+                        type = LessonContentType.NON_INTERACTIVE
                     )
                 ),
                 status = LessonStatus.LOCKED
@@ -1407,128 +1643,335 @@ int main() {
 
             // lesson 7
             Lesson(
-                id = CAdvancedStageIds.lesson7,
-                title = "C Math Functions",
-                description = "Learn basic math functions in C.",
+                id = DSAAdvancedStageIds.lesson7,
+                title = "Array Representation of Binary Trees",
+                description = "Learn about representing binary trees using arrays, their structure, and efficient implementations. 🌳",
                 lessonContents = listOf(
                     LessonContent(
-                        id = CAdvancedStageIds.lesson7_subs[0],
-                        title = "Intro to C Math Functions",
-                        description = "Understand the math.h library.",
+                        id = DSAAdvancedStageIds.lesson7_subs[0],
+                        title = "Introduction to Array Representation",
+                        description = "Understand how binary trees can be represented using arrays.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("The math.h library provides basic math functions like square roots, powers, and trigonometry.", listOf("math.h"))),
-                            ContentBlock.Code("""#include <math.h>""")
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson7_subs[1],
-                        title = "Common Math Functions",
-                        description = "Learn basic functions like sqrt(), pow(), and abs().",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("Common functions include:")),
-                            ContentBlock.Text(createAnnotatedText("1. sqrt(x) - Square root of x.", listOf("sqrt(x)"))),
-                            ContentBlock.Text(createAnnotatedText("2. pow(x, y) - x raised to the power of y.", listOf("pow(x, y)"))),
-                            ContentBlock.Text(createAnnotatedText("3. fabs(x) - Absolute value of x.", listOf("fabs(x)"))),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "In the array representation of a binary tree:\n" +
+                                            "1. The root is stored at index 0.\n" +
+                                            "2. For a node at index i:\n" +
+                                            "   a. The left child is stored at index 2*i + 1.\n" +
+                                            "   b. The right child is stored at index 2*i + 2.\n" +
+                                            "3. If a node has no child, the corresponding array element is left empty or set to null.",
+                                    listOf(
+                                        "array representation",
+                                        "root",
+                                        "left child",
+                                        "right child"
+                                    )
+                                )
+                            ),
+                            ContentBlock.Text(createSimpleText("Advantages:")),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Efficient Memory Usage: No need for pointers, reducing memory overhead.",
+                                    listOf("Efficient Memory Usage")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Random Access: Easy access to parent and child nodes using index arithmetic.",
+                                    listOf("Random Access")
+                                )
+                            ),
                             ContentBlock.Code(
-                                """#include <stdio.h>
-#include <math.h>
-int main() {
-    printf("sqrt(9) = %.2f\n", sqrt(9));
-    printf("pow(2, 3) = %.2f\n", pow(2, 3));
-    return 0;
-}"""
+                                """
+        // Example of array representation
+        int[] tree = {1, 2, 3, 4, 5}; // Binary tree representation
+        
+        // Accessing nodes
+        int root = tree[0];           // Root node
+        int leftChild = tree[2 * 0 + 1]; // Left child of root
+        int rightChild = tree[2 * 0 + 2]; // Right child of root
+                    """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = CAdvancedStageIds.lesson7_subs[2],
-                        title = "Trigonometric Functions",
-                        description = "Use functions like sin(), cos(), and tan().",
+                        id = DSAAdvancedStageIds.lesson7_subs[1],
+                        title = "Manual Walkthrough",
+                        description = "Manually create and understand the array representation of a binary tree.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("Functions like sin(), cos(), and tan() work with radians.", listOf("sin()", "cos()", "tan()"))),
-                            ContentBlock.Text(createAnnotatedText("Example:")),
+                            ContentBlock.Text(createSimpleText("Let's manually create a binary tree and represent it using an array.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 1:", listOf("Step 1"))),
+                            ContentBlock.Text(createSimpleText("Define the binary tree structure.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 2:", listOf("Step 2"))),
+                            ContentBlock.Text(createSimpleText("List the nodes level by level from top to bottom and left to right.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 3:", listOf("Step 3"))),
+                            ContentBlock.Text(createSimpleText("Fill an array where index 0 represents the root, index 1 is the left child, and index 2 is the right child.")),
+
+                            ContentBlock.Text(createSimpleText("Example Tree:")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+          1
+         / \
+        2   3
+       / \
+      4   5
+                        """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(createSimpleText("Array Representation: [1, 2, 3, 4, 5]")),
+
+                            ContentBlock.Text(createSimpleText("This representation simplifies node access and operations.")),
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSAAdvancedStageIds.lesson7_subs[2],
+                        title = "Basic Operations on Binary Trees (Array Implementation)",
+                        description = "Learn how to perform insertion, deletion, and search operations using an array-based binary tree representation.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Array-based Operations:\n" +
+                                            "1. Insertion: Add a node to the next available index.\n" +
+                                            "2. Deletion: Remove a node by replacing it with the last node and adjusting the array.\n" +
+                                            "3. Searching: Traverse the array to find a specific value.",
+                                    listOf(
+                                        "Array-based Operations",
+                                        "Insertion",
+                                        "Deletion",
+                                        "Searching"
+                                    )
+                                )
+                            ),
                             ContentBlock.Code(
-                                """#include <stdio.h>
-#include <math.h>
-int main() {
-    printf("sin(1) = %.2f\n", sin(1));
-    return 0;
-}"""
+                                """
+        // Example: Array operations
+        int[] tree = new int[7]; // Binary tree array
+        
+        // Insertion
+        tree[0] = 1; // Root
+        tree[1] = 2; // Left child of root
+        tree[2] = 3; // Right child of root
+
+        // Deletion (replace with last node)
+        tree[1] = tree[2];
+        tree[2] = 0; // Set last node to null/0
+
+        // Searching
+        for (int i = 0; i < tree.length; i++) {
+            if (tree[i] == 3) {
+                System.out.println("Found at index: " + i);
+            }
+        }
+                    """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = CAdvancedStageIds.lesson7_subs[3],
-                        title = "Logarithmic & Exponential",
-                        description = "Learn log(), log10(), and exp().",
+                        id = DSAAdvancedStageIds.lesson7_subs[3],
+                        title = "How Binary Tree Operations Work: Array Implementation Focus",
+                        description = "Detailed step-by-step breakdown of insertion, deletion, and traversal operations in binary trees using array representation.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("Use log(), log10(), and exp() for logarithmic and exponential calculations.", listOf("log()", "log10()", "exp()"))),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Let's break down the operations on binary trees step-by-step to understand their mechanics, with a focus on array implementation."
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Array Representation of Binary Trees:",
+                                    listOf("Array Representation")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+    A binary tree can be represented as an array where:
+    1. The root node is stored at index 0.
+    2. For a node at index `i`:
+       a. Left child is at index `2*i + 1`.
+       b. Right child is at index `2*i + 2`.
+    3. Parent of a node at index `i` is at index `(i-1)/2` (integer division).
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Insertion:",
+                                    listOf("Insertion")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+    1. Insert the element at the first available position in the array.
+    2. Maintain the tree's completeness property by filling the levels from left to right.
+    3. Update the array size if needed.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Deletion:",
+                                    listOf("Deletion")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+    1. Replace the node to be deleted with the last element in the array.
+    2. Remove the last element from the array.
+    3. Reorganize the tree if necessary to maintain its structure.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Traversal:",
+                                    listOf("Traversal")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+    Traversal in array representation follows the same order as the logical tree structure:
+    1. Preorder: Access the current node, then traverse left and right subtrees.
+    2. Inorder: Traverse the left subtree, access the current node, then traverse the right subtree.
+    3. Postorder: Traverse left and right subtrees, then access the current node.
+    Use the array indices to guide the traversal.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Searching:",
+                                    listOf("Searching")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Search for a value by iterating through the array. Return true if found, else return false."
+                                )
+                            ),
                             ContentBlock.Code(
-                                """#include <stdio.h>
-#include <math.h>
-int main() {
-    printf("log(2.718) = %.2f\n", log(2.718));
-    return 0;
-}"""
+                                """
+// Example Code for Traversal (Preorder)
+void preorderTraversal(int[] tree, int index) {
+    if (index >= tree.length || tree[index] == -1) return;
+    System.out.print(tree[index] + " ");  // Access the current node
+    preorderTraversal(tree, 2 * index + 1);  // Traverse left subtree
+    preorderTraversal(tree, 2 * index + 2);  // Traverse right subtree
+}
+            """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = CAdvancedStageIds.lesson7_subs[4],
-                        title = "Rounding Functions",
-                        description = "Explore round(), floor(), and ceil().",
+                        id = DSAAdvancedStageIds.lesson7_subs[4],
+                        title = "How to Represent Binary Trees: Array Implementation",
+                        description = "Understand the basics of binary trees and how to represent them using an array-based approach.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("Rounding functions include:", listOf("round", "floor", "ceil"))),
-                            ContentBlock.Text(createAnnotatedText("1. round(x) - Rounds x to the nearest integer.", listOf("round(x)"))),
-                            ContentBlock.Text(createAnnotatedText("2. floor(x) - Largest integer less than or equal to x.", listOf("floor(x)"))),
-                            ContentBlock.Text(createAnnotatedText("3. ceil(x) - Smallest integer greater than or equal to x.", listOf("ceil(x)"))),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "A binary tree is a hierarchical data structure where each node has at most two children, referred to as the left child and the right child."
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+    In an array representation of binary trees:
+    1. The root node is stored at index 0.
+    2. For a node at index `i`:
+       a. The left child is stored at index `2*i + 1`.
+       b. The right child is stored at index `2*i + 2`.
+    3. The parent of a node at index `i` is located at index `(i-1)/2` (integer division).
+    This representation simplifies binary tree operations and allows efficient traversal.
+                """.trimIndent()
+                                )
+                            ),
                             ContentBlock.Code(
-                                """#include <stdio.h>
-#include <math.h>
-int main() {
-    printf("round(2.7) = %.2f\n", round(2.7));
-    return 0;
-}"""
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson7_subs[5],
-                        title = "Real Life Example",
-                        description = "See how C math functions are used in real-world applications.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("In real-life applications, C math functions are used in various fields such as engineering, computer graphics, and physics simulations.", listOf(""))),
-                            ContentBlock.Text(createAnnotatedText("For example, calculating the trajectory of a moving object or creating a 3D model involves mathematical computations using functions from math.h.")),
+                                """
+    // Example of Array Representation:
+    // Tree:
+    //        1
+    //       / \
+    //      2   3
+    //     / \
+    //    4   5
+    //
+    // Array: [1, 2, 3, 4, 5]
+
+    // Index Relations:
+    // Root (1) - Index 0
+    // Left Child of 1 (2) - Index 1
+    // Right Child of 1 (3) - Index 2
+    // Left Child of 2 (4) - Index 3
+    // Right Child of 2 (5) - Index 4
+    """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+    Traversal in Array Representation:
+    1. Preorder: Start from the root and use indices to traverse left and right subtrees recursively.
+    2. Inorder: Traverse left subtree, then visit the root, followed by the right subtree.
+    3. Postorder: Traverse left and right subtrees first, then visit the root.
+                """.trimIndent()
+                                )
+                            ),
                             ContentBlock.Code(
-                                """#include <stdio.h>
-#include <math.h>
-int main() {
-    double angle = 45.0; // Angle in degrees
-    double radian = angle * M_PI / 180.0; // Convert to radians
-    printf("sin(45 degrees) = %.2f\n", sin(radian));
-    return 0;
-}"""
+                                """
+    // Example Code for Preorder Traversal:
+    void preorderTraversal(int[] tree, int index) {
+        if (index >= tree.length || tree[index] == -1) return; // Check boundary and null
+        System.out.print(tree[index] + " ");  // Visit the current node
+        preorderTraversal(tree, 2 * index + 1);  // Traverse left subtree
+        preorderTraversal(tree, 2 * index + 2);  // Traverse right subtree
+    }
+    """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+    Example Traversals:
+    
+    Tree: 
+        1
+       / \
+      2   3
+     / \
+    4   5
+
+    Array: [1, 2, 3, 4, 5]
+
+    Preorder Sequence: 1 -> 2 -> 4 -> 5 -> 3
+    Inorder Sequence: 4 -> 2 -> 5 -> 1 -> 3
+    Postorder Sequence: 4 -> 5 -> 2 -> 3 -> 1
+                """.trimIndent()
+                                )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = CAdvancedStageIds.lesson7_subs[6],
-                        title = "Quiz",
-                        description = "Quiz",
+                        id = DSAAdvancedStageIds.lesson7_subs[5],
+                        title = "Importance of Array Representation",
+                        description = "Understand why array representation is important and its applications in binary trees.",
                         contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "Why do we use the math.h library in C?",
-                                options = listOf("For math operations", "For input/output functions", "For string manipulation", "For data structures"),
-                                correctAnswer = "For math operations"
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Array representation of binary trees is crucial for simplifying tree operations and reducing memory overhead. It minimizes memory usage by avoiding extra pointers for child and parent links, allows instantaneous access to any node or its children/parent using index calculations, and simplifies traversal algorithms due to predictable index relationships. This approach is widely used in implementing heaps, tree-based search algorithms, and compact data storage techniques."
+                                )
                             )
                         ),
-                        type = LessonContentType.QUIZ
+                        type = LessonContentType.NON_INTERACTIVE
                     )
                 ),
                 status = LessonStatus.LOCKED
@@ -1537,340 +1980,239 @@ int main() {
 
             // lesson 8
             Lesson(
-                id = CAdvancedStageIds.lesson8,
-                title = "C Memory Address",
-                description = "Dive into memory addresses in C and understand how variables are stored in memory! 🧠",
+                id = DSAAdvancedStageIds.lesson8,
+                title = "Binary Search Trees (BSTs)",
+                description = "Dive deep into binary search trees, their properties, and efficient operations for data management. 🌲",
                 lessonContents = listOf(
                     LessonContent(
-                        id = CAdvancedStageIds.lesson8_subs[0],
-                        title = "Introduction to Memory Addresses",
-                        description = "Introduction to memory addresses and how variables are stored in memory.",
+                        id = DSAAdvancedStageIds.lesson8_subs[0],
+                        title = "Introduction to Binary Search Trees",
+                        description = "Understand the basics of binary search trees and their unique properties.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("In C, each variable has a memory address, where data is stored.", listOf("memory address"))),
-                            ContentBlock.Text(createAnnotatedText("Memory addresses are unique for accessing and manipulating data.", listOf(""))),
-                            ContentBlock.Text(createAnnotatedText("Use the & operator to access the memory address of a variable.", listOf("operator", "&"))),
-                            ContentBlock.Code(
-                                """
-int num = 10;
-printf("Memory address of num: %p\n", &num);
-                    """.trimIndent()
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                        A Binary Search Tree (BST) is a special type of binary tree where:
+                        1. Each node contains a key.
+                        2. The left subtree of a node contains keys smaller than the node's key.
+                        3. The right subtree of a node contains keys larger than the node's key.
+                        4. Both subtrees must also be BSTs.
+                        """,
+                                    listOf(
+                                        "Binary Search Tree",
+                                        "key",
+                                        "left subtree",
+                                        "right subtree"
+                                    )
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                        Advantages:
+                        - Allows efficient searching, insertion, and deletion.
+                        - Inorder traversal gives a sorted sequence of keys.
+                        """,
+                                    listOf("efficient searching", "inorder traversal")
+                                )
+                            ),
+                            ContentBlock.Text(createSimpleText("Example Structure:")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                            Example BST:
+                                  10
+                                 /  \
+                                5   20
+                               / \
+                              2   8
+                        """
+                                )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = CAdvancedStageIds.lesson8_subs[1],
-                        title = "What is a Memory Address?",
-                        description = "Learn what a memory address is and how it relates to variable storage.",
+                        id = DSAAdvancedStageIds.lesson8_subs[1],
+                        title = "Manual Walkthrough of a Binary Search Tree (BST)",
+                        description = "Manually create and understand the array representation of a Binary Search Tree (BST).",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("A memory address is a unique identifier for a location in memory.", listOf("identifier", "memory"))),
-                            ContentBlock.Text(createAnnotatedText("Memory addresses are key for data access and manipulation.", listOf(""))),
-                            ContentBlock.Text(createAnnotatedText("The %p specifier prints a memory address.", listOf("%p"))),
-                            ContentBlock.Code(
-                                """
-int num = 10;
-printf("Address of num: %p\n", &num);
-                    """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson8_subs[2],
-                        title = "Variables and Their Memory Locations",
-                        description = "Understand how variables are stored at specific memory locations.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("Variables are stored in memory locations identified by memory addresses.", listOf(""))),
-                            ContentBlock.Text(createAnnotatedText("Stack stores local variables, heap stores dynamically allocated memory.", listOf("Stack", "heap"))),
-                            ContentBlock.Text(createAnnotatedText("Access a variable’s address using the & operator.", listOf("&"))),
-                            ContentBlock.Code(
-                                """
-int num = 10;  // Stack
-printf("%p", &num);
-                    """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson8_subs[3],
-                        title = "How Variables are Stored in Memory",
-                        description = "Learn how variables are physically stored in memory and allocated.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("Variables are allocated memory by the compiler at specific locations.", listOf("compiler"))),
-                            ContentBlock.Text(createAnnotatedText("Stack and heap manage memory for local and dynamic variables.", listOf("Stack", "heap"))),
-                            ContentBlock.Text(createAnnotatedText("The operating system handles memory allocation during program execution.", listOf(""))),
-                            ContentBlock.Code(
-                                """
-int num = 10;  // Stored on the stack
-                    """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson8_subs[4],
-                        title = "Basic Use of the & (Address-of) Operator",
-                        description = "Understand how to use the & operator to access the memory address.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("The & operator is used to get the memory address of a variable.", listOf("&"))),
-                            ContentBlock.Text(createAnnotatedText("This operator helps when working with memory locations.", listOf(""))),
-                            ContentBlock.Text(createAnnotatedText("& returns the address of the variable.", listOf("address", "&"))),
-                            ContentBlock.Code(
-                                """
-int num = 10;
-printf("Memory address of num: %p\n", &num);
-                    """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson8_subs[5],
-                        title = "Real-life Example of Dynamic Memory Usage",
-                        description = "Understand dynamic memory allocation in real applications.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("Dynamic memory allocation is crucial for efficient memory management.", listOf(""))),
-                            ContentBlock.Text(createAnnotatedText("It is used in applications like image processing, where data size is unknown.", listOf(""))),
-                            ContentBlock.Text(createAnnotatedText("Memory is allocated and freed at runtime as needed.", listOf(""))),
-                            ContentBlock.Code(
-                                """
-int width = 1024;
-int height = 768;
-int *imageData = (int *)malloc(width * height * sizeof(int));
+                            ContentBlock.Text(createSimpleText("Let's manually create a Binary Search Tree (BST) and represent it using an array.")),
 
-if (imageData != NULL) {
-    free(imageData);
-}
-                    """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson8_subs[6],
-                        title = "Quiz",
-                        description = "Quiz",
-                        contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "Which operator in C is used to get the memory address of a variable?",
-                                options = listOf("&", "%p", "*", "->"),
-                                correctAnswer = "&"
-                            )
-                        ),
-                        type = LessonContentType.QUIZ
-                    )
-                ),
-                status = LessonStatus.LOCKED
-            ),
+                            ContentBlock.Text(createAnnotatedText("Step 1:", listOf("Step 1"))),
+                            ContentBlock.Text(createSimpleText("Define the Binary Search Tree (BST) structure. A BST is a binary tree where each node satisfies the property:")),
+                            ContentBlock.Text(createSimpleText("For a node with value `X`, all values in the left subtree are less than `X` and all values in the right subtree are greater than `X`.")),
 
-            // Lesson 9
-            Lesson(
-                id = CAdvancedStageIds.lesson9,
-                title = "C Pointers",
-                description = "Master pointers in C, including creating pointers and their relationship with arrays! 🔑",
-                lessonContents = listOf(
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson9_subs[0],
-                        title = "Introduction to Pointers",
-                        description = "An introduction to what pointers are and why they are important in C programming.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("In C, a pointer is a variable that stores the memory address of another variable.", listOf("pointer", "memory address"))),
-                            ContentBlock.Text(createAnnotatedText("Pointers are essential in C programming as they allow direct manipulation of memory, efficient function calls, and dynamic memory allocation.", listOf(""))),
-                            ContentBlock.Text(createAnnotatedText("Understanding pointers helps you better manage memory and work with complex data structures.", listOf(""))),
-                            ContentBlock.Code(
-                                """
-// Example: Basic pointer declaration
-int num = 10;
-int* ptr;  // Pointer to an integer
-ptr = &num;  // 'ptr' now holds the address of 'num'
-printf("Value of num using pointer: %d\n", *ptr);
+                            ContentBlock.Text(createAnnotatedText("Step 2:", listOf("Step 2"))),
+                            ContentBlock.Text(createSimpleText("Insert values into the BST by comparing each value to the current node and deciding whether to go left or right.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 3:", listOf("Step 3"))),
+                            ContentBlock.Text(createSimpleText("List the nodes level by level (from top to bottom and left to right), ensuring the BST structure is preserved.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 4:", listOf("Step 4"))),
+                            ContentBlock.Text(createSimpleText("Fill an array where index 0 represents the root, index 1 is the left child, and index 2 is the right child, and so on. This array representation is not always ideal for BSTs, but it's useful for understanding structure.")),
+
+                            ContentBlock.Text(createSimpleText("Example BST:")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+          10
+         /  \
+        5    15
+       / \     \
+      2   7     20
                 """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
+                                )
+                            ),
+                            ContentBlock.Text(createSimpleText("Array Representation: [10, 5, 15, 2, 7, null, 20]")),
+                            ContentBlock.Text(createSimpleText("Note: `null` is used to represent absent nodes to preserve the structure in the array representation.")),
 
-                    // Creating Pointers
+                            ContentBlock.Text(createSimpleText("This representation simplifies visualization but is less practical for dynamic operations like insertions and deletions in a BST. Understanding this can help bridge concepts between BSTs and heaps.")),
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
                     LessonContent(
-                        id = CAdvancedStageIds.lesson9_subs[1],
-                        title = "Creating Pointers",
-                        description = "Learn how to create pointers and assign them to variables. This is the fundamental step in understanding pointers.",
+                        id = DSAAdvancedStageIds.lesson8_subs[2],
+                        title = "Basic Operations on Binary Search Trees (Array Implementation)",
+                        description = "Learn how to perform insertion, deletion, and search operations using an array-based Binary Search Tree (BST) representation.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("To create a pointer in C, you use the * symbol. A pointer stores the memory address of a variable.", listOf("pointer","*"))),
-                            ContentBlock.Text(createAnnotatedText("You can assign a pointer the address of a variable using the & operator.", listOf("&"))),
-                            ContentBlock.Text(createAnnotatedText("A pointer is typically declared as: type* pointerName; .", listOf("type* pointerName;"))),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Array-based BST Operations:\n" +
+                                            "1. Insertion: Place the new value in the appropriate position following BST properties.\n" +
+                                            "2. Deletion: Remove a value while preserving BST properties.\n" +
+                                            "3. Searching: Traverse the array to find a specific value, considering BST rules.",
+                                    listOf(
+                                        "Array-based BST Operations",
+                                        "Insertion",
+                                        "Deletion",
+                                        "Searching"
+                                    )
+                                )
+                            ),
                             ContentBlock.Code(
                                 """
-// Example: Creating a pointer
-int num = 20;
-int* ptr;  // Declaring a pointer to an integer
-ptr = &num;  // Assign the address of num to ptr
-
-// Display the address and the value stored at that address
-printf("Address of num: %p\n", (void*)ptr);  // Prints address
-printf("Value at the address: %d\n", *ptr);  // Dereferencing the pointer to get the value
-                """.trimIndent()
+        // Example: Array-based BST Operations
+        int[] bst = new int[7]; // Binary Search Tree array
+        
+        // Insertion
+        bst[0] = 10; // Root
+        bst[1] = 5;  // Left child of root
+        bst[2] = 15; // Right child of root
+        
+        // Deletion (simple example: replacing with the last element)
+        bst[1] = bst[2];
+        bst[2] = -1; // Set last node to null/-1
+        
+        // Searching
+        for (int i = 0; i < bst.length; i++) {
+            if (bst[i] == 15) {
+                System.out.println("Found at index: " + i);
+            }
+        }
+            """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = CAdvancedStageIds.lesson9_subs[2],
-                        title = "Quiz",
-                        description = "Quiz",
+                        id = DSAAdvancedStageIds.lesson8_subs[3],
+                        title = "How Binary Search Tree Operations Work: Array Implementation Focus",
+                        description = "Detailed step-by-step breakdown of insertion, deletion, and traversal operations in Binary Search Trees (BSTs) using array representation.",
                         contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "What operator is used to get the address of a variable and assign it to a pointer?",
-                                incompleteCode = "ptr = ___num;",
-                                correctCode = "&",
-                                userInput = null,
-                                isCodeCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson9_subs[3],
-                        title = "Pointers & Arrays",
-                        description = "Learn how pointers and arrays are closely related in C.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("Arrays and pointers are closely related in C. The name of an array is a constant pointer to its first element.", listOf("array", "pointer", "constant"))),
-                            ContentBlock.Text(createAnnotatedText("You can use pointers to access array elements by incrementing the pointer.", listOf())),
-                            ContentBlock.Code(
-                                """
-int arr[] = {1, 2, 3};
-int* ptr = arr;  // Pointer to the first element of arr
-printf("%d\n", *(ptr + 1));  // Prints the second element of the array
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Let's break down the operations on Binary Search Trees (BSTs) step-by-step to understand their mechanics, focusing on array implementation."
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Array Representation of Binary Search Trees:",
+                                    listOf("Array Representation")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+    A Binary Search Tree (BST) can be represented as an array where:
+    1. The root node is stored at index 0.
+    2. For a node at index `i`:
+       a. Left child is at index `2*i + 1`.
+       b. Right child is at index `2*i + 2`.
+    3. Parent of a node at index `i` is at index `(i-1)/2` (integer division).
+    4. Values follow BST rules: left < parent < right.
                 """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson9_subs[4],
-                        title = "Pointer Arithmetic",
-                        description = "Explore pointer arithmetic and how to manipulate pointer values.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("Pointers in C allow arithmetic operations like addition or subtraction.", listOf("pointer arithmetic"))),
-                            ContentBlock.Text(createAnnotatedText("When you increment or decrement a pointer, it moves by the size of the type it points to.", listOf())),
-                            ContentBlock.Code(
-                                """
-int arr[] = {1, 2, 3};
-int* ptr = arr;
-ptr++;  // Moves to the next element of the array
-printf("%d\n", *ptr);  // Prints the second element of the array
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Insertion:",
+                                    listOf("Insertion")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+    1. Compare the new value with the current node.
+    2. If the new value is smaller, move to the left child; otherwise, move to the right child.
+    3. Repeat until an empty position is found.
+    4. Insert the value at the first available position while maintaining BST properties.
                 """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson9_subs[5],
-                        title = "Quiz",
-                        description = "Quiz",
-                        contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "Fill in the missing code to print the third element of the array using pointer arithmetic.",
-                                incompleteCode = """
-int arr[] = {1, 2, 3};
-int* ptr = arr;
-printf("%d\n", *(ptr + ___));  // Fill in the blank
-                """.trimIndent(),
-                                correctCode = "2", // The correct answer is 2 to print the third element (index 2)
-                                userInput = null,
-                                isCodeCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson9_subs[6],
-                        title = "Pointers to Pointers",
-                        description = "Understand pointers that point to other pointers and how to work with them.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("A pointer to a pointer is a pointer that stores the address of another pointer.", listOf("pointer to pointer", "address", "dereferencing"))),
-                            ContentBlock.Text(createAnnotatedText("You can access the value of a pointer to a pointer by dereferencing it twice.", listOf())),
-                            ContentBlock.Code(
-                                """
-int num = 10;
-int* ptr = &num;
-int** ptr2 = &ptr;  // Pointer to pointer
-printf("%d\n", **ptr2);  // Dereferencing twice to access num's value
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Deletion:",
+                                    listOf("Deletion")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+    1. Locate the node to be deleted.
+    2. Replace the node:
+       a. If it has no children, simply remove it.
+       b. If it has one child, replace it with its child.
+       c. If it has two children, replace it with its in-order successor or predecessor.
+    3. Adjust the tree to maintain BST properties.
                 """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson9_subs[7],
-                        title = "Pointer & Function Arguments",
-                        description = "Learn how to pass pointers to functions and manipulate data through them.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("Pointers are commonly used to pass large structures or arrays to functions, as they allow modification of data directly.", listOf("pass by pointer"))),
-                            ContentBlock.Text(createAnnotatedText("Passing a pointer to a function allows that function to modify the original data.", listOf())),
-                            ContentBlock.Code(
-                                """
-void updateValue(int* ptr) {
-    *ptr = 20;  // Changes the value of the variable pointed to
-}
-
-int main() {
-    int num = 10;
-    updateValue(&num);
-    printf("Updated value: %d\n", num);  // Prints 20
-}
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Traversal:",
+                                    listOf("Traversal")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+    Traversal in BSTs follows the array indices and BST rules:
+    1. Preorder: Access the current node, then traverse left and right subtrees.
+    2. Inorder: Traverse the left subtree, access the current node, then traverse the right subtree.
+    3. Postorder: Traverse left and right subtrees, then access the current node.
                 """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson9_subs[8],
-                        title = "Quiz",
-                        description = "Quiz",
-                        contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "Fill in the missing part to correctly dereference the pointer to pointer and print the value of 'num'.",
-                                incompleteCode = """
-int num = 10;
-int* ptr = &num;
-int** ptr2 = &ptr;  // Pointer to pointer
-printf("%d\n", ___);  // Fill in the blank to access 'num' using pointer to pointer
-                """.trimIndent(),
-                                correctCode = "**ptr2", // Correct answer is dereferencing ptr2 twice
-                                userInput = null,
-                                isCodeCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson9_subs[9],
-                        title = "Real-Life Example of Pointers",
-                        description = "Learn how pointers can be used in real-world applications, such as dynamic memory management or handling large data.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("Pointers are used for efficient memory management, especially with large data that shouldn't be copied.", listOf())),
-                            ContentBlock.Text(createAnnotatedText("In games or simulations, pointers pass large structures like player data without copying them, improving efficiency.", listOf())),
-                            ContentBlock.Text(createAnnotatedText("For example, passing a player's game state via pointers avoids the overhead of copying data.", listOf())),
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Searching:",
+                                    listOf("Searching")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Search for a value by starting at the root. Compare the value with the current node, and move left or right based on the BST property until the value is found or the tree is exhausted."
+                                )
+                            ),
                             ContentBlock.Code(
                                 """
-// Example: Game with player's data
-typedef struct {
-    int health;
-    int score;
-    char name[50];
-} Player;
-
-void updatePlayerStats(Player* p) {
-    p->health -= 10;  // Update health directly
-    p->score += 100;   // Update score directly
-}
-
-int main() {
-    Player player1 = {100, 0, "Alice"};
-    updatePlayerStats(&player1);  // Pass pointer
-    printf("Updated stats - Health: %d, Score: %d\n", player1.health, player1.score);
+// Example Code for Inorder Traversal
+void inorderTraversal(int[] bst, int index) {
+    if (index >= bst.length || bst[index] == -1) return;
+    inorderTraversal(bst, 2 * index + 1);  // Traverse left subtree
+    System.out.print(bst[index] + " ");   // Access the current node
+    inorderTraversal(bst, 2 * index + 2);  // Traverse right subtree
 }
             """.trimIndent()
                             )
@@ -1878,24 +2220,576 @@ int main() {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = CAdvancedStageIds.lesson9_subs[10],
-                        title = "Quiz",
-                        description = "Quiz",
+                        id = DSAAdvancedStageIds.lesson8_subs[4],
+                        title = "How to Represent Binary Search Trees: Array Implementation",
+                        description = "Understand the basics of Binary Search Trees (BSTs) and how to represent them using an array-based approach.",
                         contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "What does a pointer in C store?",
-                                options = listOf(
-                                    "The value of a variable",
-                                    "The memory address of a variable",
-                                    "The size of a variable",
-                                    "The name of a variable"
-                                ),
-                                correctAnswer = "The memory address of a variable",
-                                userAnswer = null,
-                                isCorrect = false
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "A Binary Search Tree (BST) is a hierarchical data structure where each node has at most two children. The left subtree contains nodes with values smaller than the parent, and the right subtree contains nodes with values larger than the parent."
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+    In an array representation of BSTs:
+    1. The root node is stored at index 0.
+    2. For a node at index `i`:
+       a. The left child is stored at index `2*i + 1`.
+       b. The right child is stored at index `2*i + 2`.
+    3. The parent of a node at index `i` is located at index `(i-1)/2` (integer division).
+    This representation simplifies BST operations like insertion and traversal, especially when the tree is complete.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+    // Example of Array Representation of a BST:
+    // BST:
+    //        4
+    //       / \
+    //      2   6
+    //     / \   \
+    //    1   3   7
+    //
+    // Array: [4, 2, 6, 1, 3, -1, 7]
+
+    // Index Relations:
+    // Root (4) - Index 0
+    // Left Child of 4 (2) - Index 1
+    // Right Child of 4 (6) - Index 2
+    // Left Child of 2 (1) - Index 3
+    // Right Child of 2 (3) - Index 4
+    // Right Child of 6 (7) - Index 6
+    """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+    Traversal in BST (Array Representation):
+    1. Preorder: Start from the root and recursively traverse left and right subtrees.
+    2. Inorder: Traverse the left subtree, then visit the root, followed by the right subtree (yields sorted order in BST).
+    3. Postorder: Traverse the left and right subtrees first, then visit the root.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+    // Example Code for Inorder Traversal:
+    void inorderTraversal(int[] bst, int index) {
+        if (index >= bst.length || bst[index] == -1) return; // Check boundary and null
+        inorderTraversal(bst, 2 * index + 1);  // Traverse left subtree
+        System.out.print(bst[index] + " ");  // Visit the current node
+        inorderTraversal(bst, 2 * index + 2);  // Traverse right subtree
+    }
+    """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+    Example Traversals:
+    
+    BST: 
+        4
+       / \
+      2   6
+     / \   \
+    1   3   7
+
+    Array: [4, 2, 6, 1, 3, -1, 7]
+
+    Preorder Sequence: 4 -> 2 -> 1 -> 3 -> 6 -> 7
+    Inorder Sequence: 1 -> 2 -> 3 -> 4 -> 6 -> 7 (sorted)
+    Postorder Sequence: 1 -> 3 -> 2 -> 7 -> 6 -> 4
+                """.trimIndent()
+                                )
                             )
                         ),
-                        type = LessonContentType.QUIZ
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+
+                    LessonContent(
+                        id = DSAAdvancedStageIds.lesson8_subs[5],
+                        title = "Importance of Array Representation in Binary Search Trees",
+                        description = "Understand why array representation is important and its applications in Binary Search Trees (BSTs).",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Array representation of Binary Search Trees (BSTs) simplifies operations like traversal, searching, and insertion. It leverages the ordered nature of BSTs to enable efficient data access and manipulation. By avoiding extra pointers for child and parent links, this approach reduces memory overhead. It is particularly useful in applications like heaps, search optimization, and compact data storage techniques where maintaining order is crucial."
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    )
+                ),
+                status = LessonStatus.LOCKED
+            ),
+
+            // Lesson 9
+            Lesson(
+                id = DSAAdvancedStageIds.lesson9,
+                title = "AVL Trees",
+                description = "Explore AVL Trees, their properties, and how they maintain balance for efficient data management. 🌲",
+                lessonContents = listOf(
+                    LessonContent(
+                        id = DSAAdvancedStageIds.lesson9_subs[0],
+                        title = "Introduction to AVL Trees",
+                        description = "Learn the fundamentals of AVL Trees and their balancing mechanism.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                        An AVL Tree is a self-balancing Binary Search Tree (BST) where:
+                        1. The height difference (balance factor) between the left and right subtrees of any node is at most 1.
+                        2. Balancing is achieved through rotations during insertions and deletions.
+                        """,
+                                    listOf("AVL Tree", "balance factor", "rotations")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                        Advantages:
+                        - Ensures O(log N) height, making operations like search, insertion, and deletion consistently efficient.
+                        - Prevents worst-case scenarios of skewed BSTs.
+                        """,
+                                    listOf("O(log N)", "search", "insertion", "deletion")
+                                )
+                            ),
+                            ContentBlock.Text(createSimpleText("Example Structure:")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                        Example AVL Tree:
+                                  30
+                                 /  \
+                               20    40
+                              /        \
+                            10         50
+                        """.trimIndent()
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSAAdvancedStageIds.lesson9_subs[1],
+                        title = "Manual Walkthrough of an AVL Tree",
+                        description = "Manually create and understand the balance property and array representation of an AVL Tree.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(createSimpleText("Let's manually create an AVL Tree and understand its balance property.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 1:", listOf("Step 1"))),
+                            ContentBlock.Text(createSimpleText("Define the AVL Tree structure. An AVL Tree is a self-balancing Binary Search Tree (BST) where the height difference between the left and right subtrees of any node (the balance factor) is at most 1.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 2:", listOf("Step 2"))),
+                            ContentBlock.Text(createSimpleText("Insert values into the AVL Tree while maintaining the BST property. After each insertion, check the balance factor of every node.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 3:", listOf("Step 3"))),
+                            ContentBlock.Text(createSimpleText("If the balance factor of a node exceeds 1 or falls below -1, apply rotations to restore balance. Types of rotations: LL, RR, LR, RL.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 4:", listOf("Step 4"))),
+                            ContentBlock.Text(createSimpleText("List the nodes level by level (from top to bottom and left to right), ensuring the AVL Tree remains balanced.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 5:", listOf("Step 5"))),
+                            ContentBlock.Text(createSimpleText("Optionally, represent the tree using an array where index 0 represents the root, index 1 is the left child, and index 2 is the right child, and so on. This is not commonly used for AVL Trees but can help visualize the structure.")),
+
+                            ContentBlock.Text(createSimpleText("Example AVL Tree:")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+          10
+         /  \
+        5    20
+       / \   / \
+      2   7 15  25
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(createSimpleText("Array Representation: [10, 5, 20, 2, 7, 15, 25]")),
+
+                            ContentBlock.Text(createSimpleText("Let's demonstrate insertion and rotations to maintain balance in an AVL Tree:")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                Example:
+                Insert values: [10, 20, 30]
+                
+                Step 1: Insert 10:
+                Tree:
+                      10
+                
+                Step 2: Insert 20:
+                Tree:
+                      10
+                        \
+                        20
+                
+                Step 3: Insert 30 (Unbalanced: Balance Factor of root = -2):
+                Apply RR Rotation:
+                      20
+                     /  \
+                    10   30
+                """.trimIndent()
+                                )
+                            ),
+
+                            ContentBlock.Text(createSimpleText("This representation helps understand how AVL Trees maintain balance during insertions and deletions while ensuring efficient operations.")),
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSAAdvancedStageIds.lesson9_subs[2],
+                        title = "Balancing AVL Trees with Rotations",
+                        description = "Understand how AVL Trees maintain balance using rotations.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Rotations are used to restore balance in AVL Trees when nodes are added or removed. Types of rotations:"
+                                )
+                            ),
+                            ContentBlock.Text(createSimpleText("1. Single Right Rotation (LL Rotation)")),
+                            ContentBlock.Code(
+                                """
+                    // Example of LL Rotation:
+                    // Before Rotation:
+                          30
+                         /
+                        20
+                       /
+                      10
+                    
+                    // After Rotation:
+                          20
+                         /  \
+                        10   30
+                    """.trimIndent()
+                            ),
+                            ContentBlock.Text(createSimpleText("2. Single Left Rotation (RR Rotation)")),
+                            ContentBlock.Code(
+                                """
+                    // Example of RR Rotation:
+                    // Before Rotation:
+                          10
+                            \
+                            20
+                              \
+                              30
+                    
+                    // After Rotation:
+                          20
+                         /  \
+                        10   30
+                    """.trimIndent()
+                            ),
+                            ContentBlock.Text(createSimpleText("3. Left-Right Rotation (LR Rotation)")),
+                            ContentBlock.Code(
+                                """
+                    // Example of LR Rotation:
+                    // Before Rotation:
+                          30
+                         /
+                        10
+                          \
+                          20
+                    
+                    // After Rotation:
+                          20
+                         /  \
+                        10   30
+                    """.trimIndent()
+                            ),
+                            ContentBlock.Text(createSimpleText("4. Right-Left Rotation (RL Rotation)")),
+                            ContentBlock.Code(
+                                """
+                    // Example of RL Rotation:
+                    // Before Rotation:
+                          10
+                            \
+                            30
+                           /
+                          20
+                    
+                    // After Rotation:
+                          20
+                         /  \
+                        10   30
+                    """.trimIndent()
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSAAdvancedStageIds.lesson9_subs[3],
+                        title = "Basic Operations on AVL Trees",
+                        description = "Learn how to perform insertion, deletion, and search operations in AVL Trees, ensuring balanced tree structures.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "AVL Tree Operations:\n" +
+                                            "1. Insertion: Add nodes while maintaining the balance property.\n" +
+                                            "2. Deletion: Remove nodes and rebalance the tree if necessary.\n" +
+                                            "3. Searching: Traverse the tree to find specific values efficiently.",
+                                    listOf(
+                                        "AVL Tree Operations",
+                                        "Insertion",
+                                        "Deletion",
+                                        "Searching"
+                                    )
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+            // Example: AVL Tree Node Structure and Operations
+            class AVLNode {
+                int key, height;
+                AVLNode left, right;
+                AVLNode(int key) {
+                    this.key = key;
+                    this.height = 1;
+                }
+            }
+            
+            // Get the height of a node
+            int height(AVLNode node) {
+                return node == null ? 0 : node.height;
+            }
+            
+            // Rotate operations
+            AVLNode rightRotate(AVLNode y) {
+                AVLNode x = y.left;
+                AVLNode T2 = x.right;
+                
+                // Perform rotation
+                x.right = y;
+                y.left = T2;
+                
+                // Update heights
+                y.height = Math.max(height(y.left), height(y.right)) + 1;
+                x.height = Math.max(height(x.left), height(x.right)) + 1;
+                
+                return x; // Return new root
+            }
+            
+            AVLNode leftRotate(AVLNode x) {
+                AVLNode y = x.right;
+                AVLNode T2 = y.left;
+                
+                // Perform rotation
+                y.left = x;
+                x.right = T2;
+                
+                // Update heights
+                x.height = Math.max(height(x.left), height(x.right)) + 1;
+                y.height = Math.max(height(y.left), height(y.right)) + 1;
+                
+                return y; // Return new root
+            }
+            
+            // Balance factor
+            int getBalance(AVLNode node) {
+                return node == null ? 0 : height(node.left) - height(node.right);
+            }
+            """.trimIndent()
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSAAdvancedStageIds.lesson9_subs[4],
+                        title = "How AVL Tree Operations Work",
+                        description = "Detailed step-by-step breakdown of insertion, deletion, rotation, and traversal operations in AVL Trees.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Let's break down AVL Tree operations step-by-step to understand how balancing and rotations ensure efficient performance."
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "AVL Tree Basics:",
+                                    listOf("AVL Tree Basics")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                1. AVL Trees are height-balanced binary search trees.
+                2. For every node, the difference in height between its left and right subtrees is at most 1.
+                3. Rotations (left, right, left-right, right-left) are used to restore balance.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Insertion:",
+                                    listOf("Insertion")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                1. Insert a new node using standard BST insertion.
+                2. Calculate the balance factor of each ancestor node.
+                3. Apply rotations to maintain balance:
+                   a. Left-Left (LL) case: Perform a single right rotation.
+                   b. Right-Right (RR) case: Perform a single left rotation.
+                   c. Left-Right (LR) case: Perform a left rotation, followed by a right rotation.
+                   d. Right-Left (RL) case: Perform a right rotation, followed by a left rotation.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Deletion:",
+                                    listOf("Deletion")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                1. Locate and remove the node using standard BST deletion.
+                2. Update the height of affected nodes.
+                3. Rebalance the tree by applying rotations as needed.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Traversal:",
+                                    listOf("Traversal")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                Traversal methods in AVL Trees are the same as in BSTs:
+                1. Preorder: Access the current node, then traverse left and right subtrees.
+                2. Inorder: Traverse the left subtree, access the current node, then traverse the right subtree.
+                3. Postorder: Traverse left and right subtrees, then access the current node.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+            // Example Code: AVL Tree Insertion with Rotations
+            AVLNode insert(AVLNode node, int key) {
+                // Standard BST insertion
+                if (node == null) return new AVLNode(key);
+                if (key < node.key) node.left = insert(node.left, key);
+                else if (key > node.key) node.right = insert(node.right, key);
+                else return node; // Duplicate keys not allowed
+                
+                // Update height
+                node.height = 1 + Math.max(height(node.left), height(node.right));
+                
+                // Get balance factor
+                int balance = getBalance(node);
+                
+                // Perform rotations
+                if (balance > 1 && key < node.left.key) return rightRotate(node);
+                if (balance < -1 && key > node.right.key) return leftRotate(node);
+                if (balance > 1 && key > node.left.key) {
+                    node.left = leftRotate(node.left);
+                    return rightRotate(node);
+                }
+                if (balance < -1 && key < node.right.key) {
+                    node.right = rightRotate(node.right);
+                    return leftRotate(node);
+                }
+                
+                return node; // Return unchanged node if balanced
+            }
+            """.trimIndent()
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSAAdvancedStageIds.lesson9_subs[5],
+                        title = "How to Represent AVL Trees",
+                        description = "Understand the structure of AVL Trees and their unique properties that ensure balanced binary search operations.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "An AVL Tree is a self-balancing binary search tree where the difference between the heights of the left and right subtrees of any node is at most one. This property ensures that AVL Trees remain balanced, leading to efficient search, insertion, and deletion operations."
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+    Key Properties of AVL Trees:
+    1. Each node stores an additional piece of information: its height.
+    2. The balance factor of a node is calculated as the height of the left subtree minus the height of the right subtree.
+    3. If the balance factor is not in the range [-1, 0, 1], rotations are performed to restore balance.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+    // Example: AVL Tree Rotations and Balance
+    class AVLNode {
+        int value;
+        int height;
+        AVLNode left, right;
+
+        AVLNode(int value) {
+            this.value = value;
+            this.height = 1;
+        }
+    }
+
+    int getHeight(AVLNode node) {
+        return node == null ? 0 : node.height;
+    }
+
+    int getBalanceFactor(AVLNode node) {
+        return node == null ? 0 : getHeight(node.left) - getHeight(node.right);
+    }
+
+    // Update height of a node
+    void updateHeight(AVLNode node) {
+        node.height = 1 + Math.max(getHeight(node.left), getHeight(node.right));
+    }
+            """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+    Example:
+        Insert nodes 10, 20, 30 into an empty AVL Tree.
+        1. Insert 10: No imbalance.
+        2. Insert 20: No imbalance.
+        3. Insert 30: Balance factor of node 10 becomes -2, triggering a left rotation.
+        The AVL Tree balances itself automatically after each insertion or deletion.
+                """.trimIndent()
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSAAdvancedStageIds.lesson9_subs[6],
+                        title = "Importance of AVL Trees",
+                        description = "Learn why AVL Trees are critical for maintaining efficient operations in dynamic datasets.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "AVL Trees ensure that the height of the tree remains logarithmic in the number of nodes. This guarantees efficient operations like searching, insertion, and deletion with a time complexity of O(log n)."
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+    Applications of AVL Trees:
+    1. Database Indexing: AVL Trees provide fast data retrieval by maintaining a balanced structure.
+    2. Memory Management: Used in dynamic memory allocation to quickly find free memory blocks.
+    3. Networking: In routing algorithms where balanced data structures optimize pathfinding.
+                """.trimIndent()
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
                     )
                 ),
                 status = LessonStatus.LOCKED
@@ -1903,216 +2797,530 @@ int main() {
 
             // lesson 10
             Lesson(
-                id = CAdvancedStageIds.lesson10,
-                title = "C Structures",
-                description = "Learn how to use structures (structs) in C to group different types of data.",
+                id = DSAAdvancedStageIds.lesson10,
+                title = "Graphs: Concepts and Traversals",
+                description = "Explore graph theory, its types, and algorithms for traversal like BFS and DFS. 🌐",
                 lessonContents = listOf(
                     LessonContent(
-                        id = CAdvancedStageIds.lesson10_subs[0],
-                        title = "Introduction to Structures",
-                        description = "Understand the basics of structures in C.",
+                        id = DSAAdvancedStageIds.lesson10_subs[0],
+                        title = "Introduction to Graphs",
+                        description = "Learn the basics of graph theory, including terminology and common types of graphs.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("Structures allow grouping of different data types into a single unit. It's useful when you need to represent real-world entities.", listOf("Structures"))),
-                            ContentBlock.Text(createAnnotatedText("Syntax:", listOf(""))),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                A graph is a data structure consisting of:
+                1. Nodes (or vertices) that represent entities.
+                2. Edges that represent connections or relationships between the nodes.
+                """,
+                                    listOf("graph", "nodes", "edges")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                Types of Graphs:
+                - Undirected: Edges have no direction.
+                - Directed (Digraph): Edges have a specific direction.
+                - Weighted: Edges have weights representing cost or distance.
+                - Unweighted: All edges are considered equal.
+                """.trimIndent()
+                                )
+                            ),
                             ContentBlock.Code(
-                                """struct StructureName {
-    dataType member1;
-    dataType member2;
-    // more members
-};"""
+                                """
+            // Example: Graph Representation
+            // Adjacency List for an undirected graph:
+            // 0 - 1 - 2
+            //     |
+            //     3
+            
+            val graph = mutableMapOf(
+                0 to listOf(1),
+                1 to listOf(0, 2, 3),
+                2 to listOf(1),
+                3 to listOf(1)
+            )
+                    """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = CAdvancedStageIds.lesson10_subs[1],
-                        title = "Creating a Structure",
-                        description = "Learn how to define and initialize a structure.",
+                        id = DSAAdvancedStageIds.lesson10_subs[1],
+                        title = "Manual Walkthrough of a Graph",
+                        description = "Manually create and understand the structure and representation of a Graph.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("To create a structure, you define it with the struct keyword and then create an instance of it.", listOf(""))),
-                            ContentBlock.Text(createAnnotatedText("Example:", listOf(""))),
-                            ContentBlock.Code(
-                                """struct Person {
-    char name[50];
-    int age;
-}; 
+                            ContentBlock.Text(createSimpleText("Let's manually create a Graph and understand its structure and different representations.")),
 
-int main() {
-    struct Person p1;
-    p1.age = 25;
-    strcpy(p1.name, "Alice");
-    return 0;
-}"""
+                            ContentBlock.Text(createAnnotatedText("Step 1:", listOf("Step 1"))),
+                            ContentBlock.Text(createSimpleText("Define the Graph structure. A Graph consists of vertices (nodes) and edges (connections between nodes). Graphs can be directed or undirected, and weighted or unweighted.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 2:", listOf("Step 2"))),
+                            ContentBlock.Text(createSimpleText("Create a Graph by adding vertices and connecting them with edges. Specify whether the edges are directed or undirected and whether they have weights.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 3:", listOf("Step 3"))),
+                            ContentBlock.Text(createSimpleText("Choose a representation for the Graph. Common representations include:")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                - Adjacency Matrix: A 2D array where the value at [i][j] indicates the presence and weight of an edge between vertex i and vertex j.
+                - Adjacency List: A collection where each vertex stores a list of its connected vertices and their edge weights.
+                - Edge List: A list of all edges, where each edge is represented as a tuple (start_vertex, end_vertex, weight).
+                """.trimIndent()
+                                )
+                            ),
+
+                            ContentBlock.Text(createAnnotatedText("Step 4:", listOf("Step 4"))),
+                            ContentBlock.Text(createSimpleText("Visualize the Graph. Draw the vertices and edges to understand the structure and relationships between nodes.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 5:", listOf("Step 5"))),
+                            ContentBlock.Text(createSimpleText("Example of creating and representing a Graph:")),
+
+                            ContentBlock.Text(createSimpleText("Graph:")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                Vertices: [A, B, C, D]
+                Edges:
+                - A -> B (Weight: 1)
+                - A -> C (Weight: 3)
+                - B -> D (Weight: 4)
+                - C -> D (Weight: 2)
+                """.trimIndent()
+                                )
+                            ),
+
+                            ContentBlock.Text(createSimpleText("Adjacency Matrix:")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                  A  B  C  D
+                A  0  1  3  0
+                B  0  0  0  4
+                C  0  0  0  2
+                D  0  0  0  0
+                """.trimIndent()
+                                )
+                            ),
+
+                            ContentBlock.Text(createSimpleText("Adjacency List:")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                A: [(B, 1), (C, 3)]
+                B: [(D, 4)]
+                C: [(D, 2)]
+                D: []
+                """.trimIndent()
+                                )
+                            ),
+
+                            ContentBlock.Text(createSimpleText("Edge List:")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                [(A, B, 1), (A, C, 3), (B, D, 4), (C, D, 2)]
+                """.trimIndent()
+                                )
+                            ),
+
+                            ContentBlock.Text(createSimpleText("Understanding these representations helps analyze the Graph's properties and apply algorithms like BFS, DFS, Dijkstra's, and more.")),
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSAAdvancedStageIds.lesson10_subs[2],
+                        title = "Basic Operations on Graphs",
+                        description = "Learn how to perform essential operations like adding vertices, adding edges, and traversing a Graph using BFS and DFS.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Graph Operations:\n" +
+                                            "1. Add Vertex: Introduce a new node into the graph.\n" +
+                                            "2. Add Edge: Connect two vertices with an edge (directed or undirected).\n" +
+                                            "3. BFS Traversal: Explore the graph level by level starting from a given vertex.\n" +
+                                            "4. DFS Traversal: Explore as deep as possible in the graph starting from a given vertex.",
+                                    listOf(
+                                        "Graph Operations",
+                                        "Add Vertex",
+                                        "Add Edge",
+                                        "BFS Traversal",
+                                        "DFS Traversal"
+                                    )
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+            // Example: Graph Representation and Operations
+            import java.util.*;
+
+            class Graph {
+                private int vertices; // Number of vertices
+                private LinkedList<Integer>[] adjList; // Adjacency list
+
+                // Constructor
+                Graph(int vertices) {
+                    this.vertices = vertices;
+                    adjList = new LinkedList[vertices];
+                    for (int i = 0; i < vertices; i++) {
+                        adjList[i] = new LinkedList<>();
+                    }
+                }
+
+                // Add an edge
+                void addEdge(int src, int dest) {
+                    adjList[src].add(dest); // For directed graph
+                    // Uncomment the next line for undirected graph
+                    // adjList[dest].add(src);
+                }
+
+                // BFS Traversal
+                void bfs(int start) {
+                    boolean[] visited = new boolean[vertices];
+                    Queue<Integer> queue = new LinkedList<>();
+                    
+                    visited[start] = true;
+                    queue.add(start);
+                    
+                    while (!queue.isEmpty()) {
+                        int vertex = queue.poll();
+                        System.out.print(vertex + " ");
+                        
+                        for (int neighbor : adjList[vertex]) {
+                            if (!visited[neighbor]) {
+                                visited[neighbor] = true;
+                                queue.add(neighbor);
+                            }
+                        }
+                    }
+                }
+
+                // DFS Traversal
+                void dfs(int start) {
+                    boolean[] visited = new boolean[vertices];
+                    dfsUtil(start, visited);
+                }
+
+                private void dfsUtil(int vertex, boolean[] visited) {
+                    visited[vertex] = true;
+                    System.out.print(vertex + " ");
+                    
+                    for (int neighbor : adjList[vertex]) {
+                        if (!visited[neighbor]) {
+                            dfsUtil(neighbor, visited);
+                        }
+                    }
+                }
+            }
+
+            // Example Usage:
+            public static void main(String[] args) {
+                Graph graph = new Graph(5); // 5 vertices: 0, 1, 2, 3, 4
+                graph.addEdge(0, 1);
+                graph.addEdge(0, 2);
+                graph.addEdge(1, 3);
+                graph.addEdge(2, 4);
+
+                System.out.println("BFS starting from vertex 0:");
+                graph.bfs(0);
+
+                System.out.println("\nDFS starting from vertex 0:");
+                graph.dfs(0);
+            }
+            """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = CAdvancedStageIds.lesson10_subs[2],
-                        title = "Accessing Structure Members",
-                        description = "Learn how to access and modify structure members.",
+                        id = DSAAdvancedStageIds.lesson10_subs[3],
+                        title = "How Graph Operations Work",
+                        description = "Detailed step-by-step breakdown of graph operations like adding vertices, adding edges, and performing graph traversals using BFS and DFS.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("Structure members can be accessed using the dot operator(.).", listOf("dot operator", "."))),
-                            ContentBlock.Text(createAnnotatedText("Example:", listOf(""))),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Let's break down the essential graph operations step-by-step to understand how graph traversal techniques like BFS and DFS help explore graphs."
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Graph Basics:",
+                                    listOf("Graph Basics")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                1. A graph consists of vertices (nodes) and edges (connections between nodes).
+                2. Graphs can be either directed or undirected.
+                3. The adjacency list or adjacency matrix is used to represent graphs.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Adding Vertices and Edges:",
+                                    listOf("Adding Vertices", "Adding Edges")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                1. Adding a vertex: A new node is introduced into the graph.
+                2. Adding an edge: A connection (edge) is established between two vertices.
+                3. For directed graphs, edges have a direction from one vertex to another.
+                4. For undirected graphs, edges connect two vertices without a direction.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Graph Traversal:",
+                                    listOf("Graph Traversal")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                Graph traversal involves visiting all vertices and edges in a specific manner. The most common traversal techniques are:
+                1. **BFS (Breadth-First Search):** Explores level by level, visiting all nodes at the current level before moving to the next.
+                2. **DFS (Depth-First Search):** Explores as deeply as possible along each branch before backtracking.
+                """.trimIndent()
+                                )
+                            ),
                             ContentBlock.Code(
-                                """struct Person {
-    char name[50];
-    int age;
-}; 
+                                """
+            // Example Code: Graph Traversal Using BFS and DFS
+            import java.util.*;
 
-int main() {
-    struct Person p1 = {"Alice", 25};
-    printf("Name: %s, Age: %d", p1.name, p1.age);
-    return 0;
-}"""
-                            )
+            class Graph {
+                private int vertices; // Number of vertices
+                private LinkedList<Integer>[] adjList; // Adjacency list
+
+                // Constructor
+                Graph(int vertices) {
+                    this.vertices = vertices;
+                    adjList = new LinkedList[vertices];
+                    for (int i = 0; i < vertices; i++) {
+                        adjList[i] = new LinkedList<>();
+                    }
+                }
+
+                // Add an edge
+                void addEdge(int src, int dest) {
+                    adjList[src].add(dest); // For directed graph
+                    // Uncomment the next line for undirected graph
+                    // adjList[dest].add(src);
+                }
+
+                // BFS Traversal
+                void bfs(int start) {
+                    boolean[] visited = new boolean[vertices];
+                    Queue<Integer> queue = new LinkedList<>();
+                    
+                    visited[start] = true;
+                    queue.add(start);
+                    
+                    while (!queue.isEmpty()) {
+                        int vertex = queue.poll();
+                        System.out.print(vertex + " ");
+                        
+                        for (int neighbor : adjList[vertex]) {
+                            if (!visited[neighbor]) {
+                                visited[neighbor] = true;
+                                queue.add(neighbor);
+                            }
+                        }
+                    }
+                }
+
+                // DFS Traversal
+                void dfs(int start) {
+                    boolean[] visited = new boolean[vertices];
+                    dfsUtil(start, visited);
+                }
+
+                private void dfsUtil(int vertex, boolean[] visited) {
+                    visited[vertex] = true;
+                    System.out.print(vertex + " ");
+                    
+                    for (int neighbor : adjList[vertex]) {
+                        if (!visited[neighbor]) {
+                            dfsUtil(neighbor, visited);
+                        }
+                    }
+                }
+            }
+
+            // Example Usage:
+            public static void main(String[] args) {
+                Graph graph = new Graph(5); // 5 vertices: 0, 1, 2, 3, 4
+                graph.addEdge(0, 1);
+                graph.addEdge(0, 2);
+                graph.addEdge(1, 3);
+                graph.addEdge(2, 4);
+
+                System.out.println("BFS starting from vertex 0:");
+                graph.bfs(0);
+
+                System.out.println("\nDFS starting from vertex 0:");
+                graph.dfs(0);
+            }
+            """.trimIndent()
+                            ),
+                            ContentBlock.Text(createSimpleText("In this example, we first create a graph with 5 vertices and add some edges. Then, we perform BFS and DFS starting from vertex 0.")),
+
+                            ContentBlock.Text(createSimpleText("### BFS Traversal:")),
+                            ContentBlock.Text(createSimpleText("BFS explores the graph level by level, visiting all nodes at the current level before moving to the next.")),
+                            ContentBlock.Text(createSimpleText("For example, in BFS starting from vertex 0, the traversal order will be: 0, 1, 2, 3, 4.")),
+
+                            ContentBlock.Text(createSimpleText("### DFS Traversal:")),
+                            ContentBlock.Text(createSimpleText("DFS explores as deeply as possible along each branch before backtracking.")),
+                            ContentBlock.Text(createSimpleText("For example, in DFS starting from vertex 0, the traversal order will be: 0, 1, 3, 2, 4.")),
+
+                            ContentBlock.Text(createSimpleText("Both BFS and DFS are essential graph traversal algorithms used for exploring graphs and solving various graph problems.")),
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = CAdvancedStageIds.lesson10_subs[3],
-                        title = "Quiz",
-                        description = "Quiz",
+                        id = DSAAdvancedStageIds.lesson10_subs[4],
+                        title = "How to Represent Graphs",
+                        description = "Understand the different ways to represent graphs and their properties, enabling efficient traversal and operations.",
                         contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "What keyword is used to define a structure in C?",
-                                incompleteCode = """___ Person {
-    char name[50];
-    int age;
-};""",
-                                correctCode = "struct",
-                                userInput = null,
-                                isCodeCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson10_subs[4],
-                        title = "Nested Structures",
-                        description = "Learn how to define structures within structures.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("You can define a structure inside another structure.", listOf(""))),
-                            ContentBlock.Text(createAnnotatedText("Example:", listOf(""))),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Graphs can be represented in multiple ways depending on the type of graph (directed, undirected, weighted, unweighted). Common representations include adjacency matrix and adjacency list, each having its unique advantages and trade-offs."
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+    Key Properties of Graph Representations:
+    1. **Adjacency Matrix**: A 2D array where each cell indicates the presence (or weight) of an edge between two vertices.
+    2. **Adjacency List**: A list where each index represents a vertex and contains a list of all adjacent vertices.
+    3. The choice of representation depends on the graph's density and the operations you need to perform.
+                """.trimIndent()
+                                )
+                            ),
                             ContentBlock.Code(
-                                """struct Address {
-    char street[100];
-    char city[50];
-}; 
+                                """
+    // Example: Graph Representation
+    import java.util.*;
 
-struct Person {
-    char name[50];
-    int age;
-    struct Address address;
-};
+    // Adjacency Matrix Representation
+    class AdjacencyMatrixGraph {
+        int[][] matrix;
+        int vertices;
 
-int main() {
-    struct Person p1;
-    strcpy(p1.name, "Alice");
-    p1.age = 25;
-    strcpy(p1.address.street, "123 Main St");
-    strcpy(p1.address.city, "Wonderland");
-    return 0;
-}"""
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson10_subs[5],
-                        title = "Pointers to Structures",
-                        description = "Understand how to use pointers with structures.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("Pointers can be used to reference structures. To access members via pointers, use the arrow operator (->).", listOf("Pointers", "->", "arrow operator"))),
-                            ContentBlock.Text(createAnnotatedText("Example:", listOf(""))),
-                            ContentBlock.Code(
-                                """struct Person {
-    char name[50];
-    int age;
-}; 
+        AdjacencyMatrixGraph(int vertices) {
+            this.vertices = vertices;
+            this.matrix = new int[vertices][vertices];
+        }
 
-int main() {
-    struct Person p1 = {"Alice", 25};
-    struct Person *ptr = &p1;
-    printf("Name: %s, Age: %d", ptr->name, ptr->age);
-    return 0;
-}"""
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson10_subs[6],
-                        title = "Quiz",
-                        description = "Quiz",
-                        contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "What type should the address member in the Person structure be?",
-                                incompleteCode = """
-struct Person {
-    char name[50];
-    int age;
-   struct ___;
-};""",
-                                correctCode = "address",
-                                userInput = null,
-                                isCodeCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson10_subs[7],
-                        title = "Real-Life Example of Structures",
-                        description = "An advanced example of structures with arrays and functions.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("In this example, we'll use structures with arrays and pass them to functions.", listOf(""))),
-                            ContentBlock.Text(createAnnotatedText("Example:", listOf(""))),
-                            ContentBlock.Code(
-                                """#include <stdio.h>
+        void addEdge(int src, int dest) {
+            matrix[src][dest] = 1; // For weighted graph, set weight instead of 1
+            // Uncomment for undirected graph
+            // matrix[dest][src] = 1;
+        }
 
-struct Student {
-    char name[50];
-    int marks[5];
-};
-
-void printStudent(struct Student s) {
-    printf("Name: %s\n", s.name);
-    printf("Marks: ");
-    for(int i = 0; i < 5; i++) {
-        printf("%d ", s.marks[i]);
+        void printMatrix() {
+            for (int i = 0; i < vertices; i++) {
+                System.out.println(Arrays.toString(matrix[i]));
+            }
+        }
     }
-    printf("\\n");
-}
 
-int main() {
-    struct Student s1 = {"Alice", {80, 90, 85, 70, 95}};
-    printStudent(s1);
-    return 0;
-}"""
+    // Adjacency List Representation
+    class AdjacencyListGraph {
+        LinkedList<Integer>[] adjList;
+        int vertices;
+
+        AdjacencyListGraph(int vertices) {
+            this.vertices = vertices;
+            adjList = new LinkedList[vertices];
+            for (int i = 0; i < vertices; i++) {
+                adjList[i] = new LinkedList<>();
+            }
+        }
+
+        void addEdge(int src, int dest) {
+            adjList[src].add(dest);
+            // Uncomment for undirected graph
+            // adjList[dest].add(src);
+        }
+
+        void printList() {
+            for (int i = 0; i < vertices; i++) {
+                System.out.print(i + ": ");
+                for (int neighbor : adjList[i]) {
+                    System.out.print(neighbor + " ");
+                }
+                System.out.println();
+            }
+        }
+    }
+
+    // Example Usage:
+    public static void main(String[] args) {
+        // Adjacency Matrix
+        AdjacencyMatrixGraph matrixGraph = new AdjacencyMatrixGraph(5);
+        matrixGraph.addEdge(0, 1);
+        matrixGraph.addEdge(0, 4);
+        matrixGraph.addEdge(1, 2);
+        matrixGraph.printMatrix();
+
+        // Adjacency List
+        AdjacencyListGraph listGraph = new AdjacencyListGraph(5);
+        listGraph.addEdge(0, 1);
+        listGraph.addEdge(0, 4);
+        listGraph.addEdge(1, 2);
+        listGraph.printList();
+    }
+            """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+    Example:
+        Represent a graph with 5 vertices and edges:
+        - 0 → 1
+        - 0 → 4
+        - 1 → 2
+        
+        Using Adjacency Matrix:
+        [
+            [0, 1, 0, 0, 1],
+            [0, 0, 1, 0, 0],
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0]
+        ]
+        
+        Using Adjacency List:
+        0: 1 4
+        1: 2
+        2:
+        3:
+        4:
+                """.trimIndent()
+                                )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = CAdvancedStageIds.lesson10_subs[8],
-                        title = "Quiz",
-                        description = "Quiz",
+                        id = DSAAdvancedStageIds.lesson10_subs[5],
+                        title = "Importance of Graphs",
+                        description = "Understand the critical role graphs play in representing and solving complex real-world problems across various domains.",
                         contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "Why do we use 'struct' in C programming?",
-                                options = listOf(
-                                    "To group related data together",
-                                    "To create dynamic memory allocation",
-                                    "To define classes",
-                                    "To handle memory addresses"
-                                ),
-                                correctAnswer = "To group related data together",
-                                userAnswer = null,
-                                isCorrect = false
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Graphs are fundamental data structures that model relationships between entities, making them versatile tools for solving real-world problems in networking, navigation, and data organization. They are used in applications like social networks to represent connections between users, GPS systems for route optimization, web crawling for search engine indexing, and dependency management for build systems or package managers. Graphs also play a crucial role in designing and optimizing communication networks and understanding biological relationships like protein-protein interactions. The key benefits of graphs include their ability to efficiently represent complex relationships, the availability of optimized algorithms like Dijkstra's and Kruskal's for solving critical problems, and their flexibility to model directed and undirected relationships with weighted and unweighted edges."
+                                )
                             )
                         ),
-                        type = LessonContentType.QUIZ
+                        type = LessonContentType.NON_INTERACTIVE
                     )
                 ),
                 status = LessonStatus.LOCKED
@@ -2120,950 +3328,1344 @@ int main() {
 
             // lesson 11
             Lesson(
-                id = CAdvancedStageIds.lesson11,
-                title = "C Files",
-                description = "Learn advanced file handling techniques in C, including creating, reading, writing, and closing files.",
+                id = DSAAdvancedStageIds.lesson11,
+                title = "Graphs Traversals",
+                description = "Learn the core graph traversal techniques, including BFS and DFS, and how to apply them to explore graphs. 🌐",
                 lessonContents = listOf(
                     LessonContent(
-                        id = CAdvancedStageIds.lesson11_subs[0],
-                        title = "Introduction to File Handling",
+                        id = DSAAdvancedStageIds.lesson11_subs[0],
+                        title = "Introduction to Graph Traversals",
+                        description = "Explore the importance of graph traversals and the basic algorithms: BFS (Breadth-First Search) and DFS (Depth-First Search).",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "File handling in C allows programs to perform operations like reading and writing files using file pointers. File handling is crucial for data persistence.",
-                                    listOf("file handling", "file pointers")
+                                    """
+A graph traversal refers to visiting all the vertices or nodes in a graph. There are two main types of graph traversals:
+1. **Breadth-First Search (BFS)**: Explores all vertices at the present depth level before moving on to vertices at the next depth level.
+2. **Depth-First Search (DFS)**: Explores as far as possible along each branch before backing up.
+                    """,
+                                    listOf("BFS", "DFS", "graph traversal")
                                 )
                             ),
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "The stdio.h header provides necessary functions for file operations.",
-                                    listOf("stdio.h")
-                                )
-                            ),
-                            ContentBlock.Code("#include <stdio.h>")
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson11_subs[1],
-                        title = "Creating a File",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "The fopen() function is used to create and open files. Mode w writes to a text file, and wb writes to a binary file.",
-                                    listOf("fopen()", "writes", "binary")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Here’s how you can create a file and write to it.",
-                                    listOf()
+                                createSimpleText(
+                                    """
+BFS is implemented using a queue, where vertices are visited in levels. DFS is typically implemented using recursion or a stack, exploring deeper into the graph before moving to the next branch.
+                    """.trimIndent()
                                 )
                             ),
                             ContentBlock.Code(
-                                """#include <stdio.h>
+                                """
+// Graph Representation for BFS and DFS
+// Adjacency List for an undirected graph:
+// 0 - 1 - 2
+//     |
+//     3
 
-int main() {
-    FILE *file = fopen("example.txt", "w");
-    if (file == NULL) {
-        printf("Error opening file.\n");
-        return 1;
-    }
-    fprintf(file, "Hello, world!");
-    fclose(file);
-    return 0;
-}"""
+val graph = mutableMapOf(
+    0 to listOf(1),
+    1 to listOf(0, 2, 3),
+    2 to listOf(1),
+    3 to listOf(1)
+)
+                    """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = CAdvancedStageIds.lesson11_subs[2],
-                        title = "Reading from a File",
+                        id = DSAAdvancedStageIds.lesson11_subs[1],
+                        title = "Manual Walkthrough of Graph Traversal",
+                        description = "Understand and manually implement Graph Traversal techniques like BFS and DFS.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Use fopen() in r mode to open files for reading. Functions like fscanf(), fgets(), or fgetc() can retrieve file content.",
-                                    listOf("fopen()", "fscanf()", "fgets()", "fgetc()")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Example of reading a file line-by-line:",
-                                    listOf()
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """#include <stdio.h>
+                            ContentBlock.Text(createSimpleText("In this lesson, we will explore Graph Traversal techniques and understand how algorithms like Depth-First Search (DFS) and Breadth-First Search (BFS) work.")),
 
-int main() {
-    FILE *file = fopen("example.txt", "r");
-    char str[100];
-    if (file == NULL) {
-        printf("Error opening file.\n");
-        return 1;
-    }
-    fgets(str, sizeof(str), file);
-    printf("%s", str);
-    fclose(file);
-    return 0;
-}"""
-                            )
+                            ContentBlock.Text(createAnnotatedText("Step 1:", listOf("Step 1"))),
+                            ContentBlock.Text(createSimpleText("Define the Graph structure. A Graph consists of vertices (nodes) and edges (connections between nodes). Graphs can be directed or undirected, and weighted or unweighted.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 2:", listOf("Step 2"))),
+                            ContentBlock.Text(createSimpleText("Create a Graph by adding vertices and connecting them with edges. Specify whether the edges are directed or undirected and whether they have weights.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 3:", listOf("Step 3"))),
+                            ContentBlock.Text(createSimpleText("Choose a representation for the Graph. Common representations include:")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                - Adjacency Matrix: A 2D array where the value at [i][j] indicates the presence and weight of an edge between vertex i and vertex j.
+                - Adjacency List: A collection where each vertex stores a list of its connected vertices and their edge weights.
+                - Edge List: A list of all edges, where each edge is represented as a tuple (start_vertex, end_vertex, weight).
+                """.trimIndent()
+                                )
+                            ),
+
+                            ContentBlock.Text(createAnnotatedText("Step 4:", listOf("Step 4"))),
+                            ContentBlock.Text(createSimpleText("Visualize the Graph. Draw the vertices and edges to understand the structure and relationships between nodes.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 5:", listOf("Step 5"))),
+                            ContentBlock.Text(createSimpleText("Example of creating and representing a Graph:")),
+
+                            ContentBlock.Text(createSimpleText("Graph:")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                Vertices: [A, B, C, D]
+                Edges:
+                - A -> B (Weight: 1)
+                - A -> C (Weight: 3)
+                - B -> D (Weight: 4)
+                - C -> D (Weight: 2)
+                """.trimIndent()
+                                )
+                            ),
+
+                            ContentBlock.Text(createSimpleText("Adjacency Matrix:")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                  A  B  C  D
+                A  0  1  3  0
+                B  0  0  0  4
+                C  0  0  0  2
+                D  0  0  0  0
+                """.trimIndent()
+                                )
+                            ),
+
+                            ContentBlock.Text(createSimpleText("Adjacency List:")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                A: [(B, 1), (C, 3)]
+                B: [(D, 4)]
+                C: [(D, 2)]
+                D: []
+                """.trimIndent()
+                                )
+                            ),
+
+                            ContentBlock.Text(createSimpleText("Edge List:")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                [(A, B, 1), (A, C, 3), (B, D, 4), (C, D, 2)]
+                """.trimIndent()
+                                )
+                            ),
+
+                            ContentBlock.Text(createSimpleText("Understanding these representations helps analyze the Graph's properties and apply algorithms like BFS, DFS, Dijkstra's, and more.")),
+
+                            // New section for graph traversal algorithms
+
+                            ContentBlock.Text(createAnnotatedText("Step 6:", listOf("Step 6"))),
+                            ContentBlock.Text(createSimpleText("Now, let's explore graph traversal techniques. The two most common are Depth-First Search (DFS) and Breadth-First Search (BFS).")),
+
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Depth-First Search (DFS):",
+                                    listOf("DFS")
+                                )
+                            ),
+                            ContentBlock.Text(createSimpleText("DFS is a traversal algorithm where you start at a node and explore as far as possible along each branch before backtracking.")),
+                            ContentBlock.Text(createSimpleText("DFS can be implemented recursively or using a stack.")),
+                            ContentBlock.Text(createSimpleText("Example DFS traversal from node A:")),
+                            ContentBlock.Text(createSimpleText("DFS: A -> B -> D -> C")),
+
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Breadth-First Search (BFS):",
+                                    listOf("BFS")
+                                )
+                            ),
+                            ContentBlock.Text(createSimpleText("BFS is a traversal algorithm where you start at a node and explore all its neighbors first, before moving to the next level.")),
+                            ContentBlock.Text(createSimpleText("BFS is implemented using a queue.")),
+                            ContentBlock.Text(createSimpleText("Example BFS traversal from node A:")),
+                            ContentBlock.Text(createSimpleText("BFS: A -> B -> C -> D")),
+
+                            ContentBlock.Text(createSimpleText("Both DFS and BFS are fundamental for exploring graphs and can be applied in various algorithms, such as finding the shortest path or detecting cycles.")),
+
+                            ContentBlock.Text(createSimpleText("Understanding how to traverse a graph helps in solving problems efficiently and is crucial for algorithms like Dijkstra’s, Prim’s, and more.")),
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = CAdvancedStageIds.lesson11_subs[3],
-                        title = "Quiz",
-                        contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "Complete the code to create and write to a file using fopen() with write mode.",
-                                incompleteCode = """
-FILE *file = fopen("example.txt", ___);
-if (file == NULL) {
-    printf("Error opening file.\n");
-    return 1;
-}
-""",
-                                correctCode = "w",
-                                userInput = null,
-                                isCodeCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson11_subs[4],
-                        title = "Writing to a File",
+                        id = DSAAdvancedStageIds.lesson11_subs[2],
+                        title = "Basic Graph Traversal Operations",
+                        description = "Learn how to perform essential graph traversal operations using BFS and DFS algorithms.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Use modes like w (overwrite) or a (append) with fopen() for writing. Functions like fprintf(), fputs(), or fwrite() handle file writing.",
-                                    listOf("fopen()", "fprintf()", "fputs()", "fwrite()")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Here’s an example of writing to a file:",
-                                    listOf()
+                                    "Graph Traversal Operations:\n" +
+                                            "1. BFS Traversal: Explore the graph level by level starting from a given vertex.\n" +
+                                            "2. DFS Traversal: Explore as deep as possible in the graph starting from a given vertex.",
+                                    listOf(
+                                        "Graph Traversal Operations",
+                                        "BFS Traversal",
+                                        "DFS Traversal"
+                                    )
                                 )
                             ),
                             ContentBlock.Code(
-                                """#include <stdio.h>
+                                """
+            // Example: Graph Traversal Using BFS and DFS
+            import java.util.*;
 
-int main() {
-    FILE *file = fopen("example.txt", "w");
-    if (file == NULL) {
-        printf("Error opening file.\n");
-        return 1;
-    }
-    fprintf(file, "Hello, world!");
-    fclose(file);
-    return 0;
-}"""
-                            )
+            class Graph {
+                private int vertices; // Number of vertices
+                private LinkedList<Integer>[] adjList; // Adjacency list
+
+                // Constructor
+                Graph(int vertices) {
+                    this.vertices = vertices;
+                    adjList = new LinkedList[vertices];
+                    for (int i = 0; i < vertices; i++) {
+                        adjList[i] = new LinkedList<>();
+                    }
+                }
+
+                // Add an edge
+                void addEdge(int src, int dest) {
+                    adjList[src].add(dest); // For directed graph
+                    // Uncomment the next line for undirected graph
+                    // adjList[dest].add(src);
+                }
+
+                // BFS Traversal
+                void bfs(int start) {
+                    boolean[] visited = new boolean[vertices];
+                    Queue<Integer> queue = new LinkedList<>();
+                    
+                    visited[start] = true;
+                    queue.add(start);
+                    
+                    while (!queue.isEmpty()) {
+                        int vertex = queue.poll();
+                        System.out.print(vertex + " ");
+                        
+                        for (int neighbor : adjList[vertex]) {
+                            if (!visited[neighbor]) {
+                                visited[neighbor] = true;
+                                queue.add(neighbor);
+                            }
+                        }
+                    }
+                }
+
+                // DFS Traversal
+                void dfs(int start) {
+                    boolean[] visited = new boolean[vertices];
+                    dfsUtil(start, visited);
+                }
+
+                private void dfsUtil(int vertex, boolean[] visited) {
+                    visited[vertex] = true;
+                    System.out.print(vertex + " ");
+                    
+                    for (int neighbor : adjList[vertex]) {
+                        if (!visited[neighbor]) {
+                            dfsUtil(neighbor, visited);
+                        }
+                    }
+                }
+            }
+
+            // Example Usage:
+            public static void main(String[] args) {
+                Graph graph = new Graph(5); // 5 vertices: 0, 1, 2, 3, 4
+                graph.addEdge(0, 1);
+                graph.addEdge(0, 2);
+                graph.addEdge(1, 3);
+                graph.addEdge(2, 4);
+
+                System.out.println("BFS starting from vertex 0:");
+                graph.bfs(0);
+
+                System.out.println("\nDFS starting from vertex 0:");
+                graph.dfs(0);
+            }
+            """.trimIndent()
+                            ),
+                            ContentBlock.Text(createSimpleText("In this example, we first create a graph with 5 vertices and add some edges. Then, we perform BFS and DFS starting from vertex 0.")),
+
+                            ContentBlock.Text(createSimpleText("### BFS Traversal:")),
+                            ContentBlock.Text(createSimpleText("BFS explores the graph level by level, visiting all nodes at the current level before moving to the next.")),
+                            ContentBlock.Text(createSimpleText("For example, in BFS starting from vertex 0, the traversal order will be: 0, 1, 2, 3, 4.")),
+
+                            ContentBlock.Text(createSimpleText("### DFS Traversal:")),
+                            ContentBlock.Text(createSimpleText("DFS explores as deeply as possible along each branch before backtracking.")),
+                            ContentBlock.Text(createSimpleText("For example, in DFS starting from vertex 0, the traversal order will be: 0, 1, 3, 2, 4.")),
+
+                            ContentBlock.Text(createSimpleText("Both BFS and DFS are fundamental traversal algorithms used for exploring graphs and solving problems like finding the shortest path or detecting cycles.")),
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = CAdvancedStageIds.lesson11_subs[5],
-                        title = "Closing a File",
+                        id = DSAAdvancedStageIds.lesson11_subs[3],
+                        title = "How Graph Traversal Works",
+                        description = "Detailed step-by-step breakdown of graph traversal techniques such as BFS and DFS, including graph construction and traversal examples.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Use fclose() to close a file and ensure data integrity by flushing buffers.",
-                                    listOf("fclose()")
+                                createSimpleText(
+                                    "Let's break down the essential graph traversal techniques step-by-step to understand how BFS and DFS help explore graphs."
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Example demonstrating file closure:",
-                                    listOf()
+                                    "Graph Basics:",
+                                    listOf("Graph Basics")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                1. A graph consists of vertices (nodes) and edges (connections between nodes).
+                2. Graphs can be either directed or undirected.
+                3. The adjacency list or adjacency matrix is used to represent graphs.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Graph Construction:",
+                                    listOf("Adding Vertices", "Adding Edges")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                1. Adding a vertex: A new node is introduced into the graph.
+                2. Adding an edge: A connection (edge) is established between two vertices.
+                3. For directed graphs, edges have a direction from one vertex to another.
+                4. For undirected graphs, edges connect two vertices without a direction.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Graph Traversal Techniques:",
+                                    listOf("Graph Traversal", "BFS", "DFS")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                Graph traversal involves visiting all vertices and edges in a specific manner. The most common traversal techniques are:
+                1. **BFS (Breadth-First Search):** Explores level by level, visiting all nodes at the current level before moving to the next.
+                2. **DFS (Depth-First Search):** Explores as deeply as possible along each branch before backtracking.
+                """.trimIndent()
                                 )
                             ),
                             ContentBlock.Code(
-                                """#include <stdio.h>
+                                """
+            // Example Code: Graph Traversal Using BFS and DFS
+            import java.util.*;
 
-int main() {
-    FILE *file = fopen("example.txt", "w");
-    if (file == NULL) {
-        printf("Error opening file.\n");
-        return 1;
-    }
-    fprintf(file, "Hello, world!");
-    fclose(file);
-    return 0;
-}"""
-                            )
+            class Graph {
+                private int vertices; // Number of vertices
+                private LinkedList<Integer>[] adjList; // Adjacency list
+
+                // Constructor
+                Graph(int vertices) {
+                    this.vertices = vertices;
+                    adjList = new LinkedList[vertices];
+                    for (int i = 0; i < vertices; i++) {
+                        adjList[i] = new LinkedList<>();
+                    }
+                }
+
+                // Add an edge
+                void addEdge(int src, int dest) {
+                    adjList[src].add(dest); // For directed graph
+                    // Uncomment the next line for undirected graph
+                    // adjList[dest].add(src);
+                }
+
+                // BFS Traversal
+                void bfs(int start) {
+                    boolean[] visited = new boolean[vertices];
+                    Queue<Integer> queue = new LinkedList<>();
+                    
+                    visited[start] = true;
+                    queue.add(start);
+                    
+                    while (!queue.isEmpty()) {
+                        int vertex = queue.poll();
+                        System.out.print(vertex + " ");
+                        
+                        for (int neighbor : adjList[vertex]) {
+                            if (!visited[neighbor]) {
+                                visited[neighbor] = true;
+                                queue.add(neighbor);
+                            }
+                        }
+                    }
+                }
+
+                // DFS Traversal
+                void dfs(int start) {
+                    boolean[] visited = new boolean[vertices];
+                    dfsUtil(start, visited);
+                }
+
+                private void dfsUtil(int vertex, boolean[] visited) {
+                    visited[vertex] = true;
+                    System.out.print(vertex + " ");
+                    
+                    for (int neighbor : adjList[vertex]) {
+                        if (!visited[neighbor]) {
+                            dfsUtil(neighbor, visited);
+                        }
+                    }
+                }
+            }
+
+            // Example Usage:
+            public static void main(String[] args) {
+                Graph graph = new Graph(5); // 5 vertices: 0, 1, 2, 3, 4
+                graph.addEdge(0, 1);
+                graph.addEdge(0, 2);
+                graph.addEdge(1, 3);
+                graph.addEdge(2, 4);
+
+                System.out.println("BFS starting from vertex 0:");
+                graph.bfs(0);
+
+                System.out.println("\nDFS starting from vertex 0:");
+                graph.dfs(0);
+            }
+            """.trimIndent()
+                            ),
+                            ContentBlock.Text(createSimpleText("In this example, we first create a graph with 5 vertices and add some edges. Then, we perform BFS and DFS starting from vertex 0.")),
+
+                            ContentBlock.Text(createSimpleText("### BFS Traversal:")),
+                            ContentBlock.Text(createSimpleText("BFS explores the graph level by level, visiting all nodes at the current level before moving to the next.")),
+                            ContentBlock.Text(createSimpleText("For example, in BFS starting from vertex 0, the traversal order will be: 0, 1, 2, 3, 4.")),
+
+                            ContentBlock.Text(createSimpleText("### DFS Traversal:")),
+                            ContentBlock.Text(createSimpleText("DFS explores as deeply as possible along each branch before backtracking.")),
+                            ContentBlock.Text(createSimpleText("For example, in DFS starting from vertex 0, the traversal order will be: 0, 1, 3, 2, 4.")),
+
+                            ContentBlock.Text(createSimpleText("Both BFS and DFS are essential graph traversal algorithms used for exploring graphs and solving various graph problems.")),
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = CAdvancedStageIds.lesson11_subs[6],
-                        title = "File Error Handling",
+                        id = DSAAdvancedStageIds.lesson11_subs[4],
+                        title = "How to Represent Graphs",
+                        description = "Understand the different ways to represent graphs and their properties, enabling efficient traversal and operations.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Always check file operations for errors. Use functions like ferror() to identify issues.",
-                                    listOf("ferror()")
+                                createSimpleText(
+                                    "Graphs can be represented in multiple ways depending on the type of graph (directed, undirected, weighted, unweighted). Common representations include adjacency matrix and adjacency list, each having its unique advantages and trade-offs."
                                 )
                             ),
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Example demonstrating error handling during file access:",
-                                    listOf()
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """#include <stdio.h>
-
-int main() {
-    FILE *file = fopen("nonexistent.txt", "r");
-    if (file == NULL) {
-        printf("Error opening file.\n");
-        return 1;
-    }
-    fclose(file);
-    return 0;
-}"""
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson11_subs[7],
-                        title = "Quiz",
-                        contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "What mode should be used with fopen() to append content to an existing file?",
-                                incompleteCode = "FILE *file = fopen(\"example.txt\", ___);",
-                                correctCode = "a",
-                                userInput = null,
-                                isCodeCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson11_subs[8],
-                        title = "Real-Life Example of File Handling",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "A real-world application demonstrates managing student records using file handling in C.",
-                                    listOf()
+                                createSimpleText(
+                                    """
+    Key Properties of Graph Representations:
+    1. **Adjacency Matrix**: A 2D array where each cell indicates the presence (or weight) of an edge between two vertices.
+    2. **Adjacency List**: A list where each index represents a vertex and contains a list of all adjacent vertices.
+    3. The choice of representation depends on the graph's density and the operations you need to perform.
+                """.trimIndent()
                                 )
                             ),
                             ContentBlock.Code(
-                                """#include <stdio.h>
-#include <stdlib.h>
+                                """
+    // Example: Graph Representation
+    import java.util.*;
 
-struct Student {
-    char name[50];
-    int rollNumber;
-    float marks;
-};
+    // Adjacency Matrix Representation
+    class AdjacencyMatrixGraph {
+        int[][] matrix;
+        int vertices;
 
-void addStudent(FILE *file) {
-    struct Student s;
-    printf("Enter name: ");
-    scanf("%s", s.name);
-    printf("Enter roll number: ");
-    scanf("%d", &s.rollNumber);
-    printf("Enter marks: ");
-    scanf("%f", &s.marks);
-    fwrite(&s, sizeof(struct Student), 1, file);
-    printf("Student added successfully.\n");
-}
-
-void viewStudents(FILE *file) {
-    struct Student s;
-    rewind(file);
-    while (fread(&s, sizeof(struct Student), 1, file)) {
-        printf("Name: %s, Roll Number: %d, Marks: %.2f\n", s.name, s.rollNumber, s.marks);
-    }
-}
-
-int main() {
-    FILE *file = fopen("students.dat", "wb+");
-    if (file == NULL) {
-        printf("Error opening file.\n");
-        return 1;
-    }
-
-    int choice;
-    do {
-        printf("1. Add Student\n2. View Students\n3. Exit\nEnter your choice: ");
-        scanf("%d", &choice);
-        switch (choice) {
-            case 1:
-                addStudent(file);
-                break;
-            case 2:
-                viewStudents(file);
-                break;
-            case 3:
-                fclose(file);
-                printf("Exiting program.\n");
-                break;
-            default:
-                printf("Invalid choice.\n");
+        AdjacencyMatrixGraph(int vertices) {
+            this.vertices = vertices;
+            this.matrix = new int[vertices][vertices];
         }
-    } while (choice != 3);
 
-    return 0;
-}"""
+        void addEdge(int src, int dest) {
+            matrix[src][dest] = 1; // For weighted graph, set weight instead of 1
+            // Uncomment for undirected graph
+            // matrix[dest][src] = 1;
+        }
+
+        void printMatrix() {
+            for (int i = 0; i < vertices; i++) {
+                System.out.println(Arrays.toString(matrix[i]));
+            }
+        }
+    }
+
+    // Adjacency List Representation
+    class AdjacencyListGraph {
+        LinkedList<Integer>[] adjList;
+        int vertices;
+
+        AdjacencyListGraph(int vertices) {
+            this.vertices = vertices;
+            adjList = new LinkedList[vertices];
+            for (int i = 0; i < vertices; i++) {
+                adjList[i] = new LinkedList<>();
+            }
+        }
+
+        void addEdge(int src, int dest) {
+            adjList[src].add(dest);
+            // Uncomment for undirected graph
+            // adjList[dest].add(src);
+        }
+
+        void printList() {
+            for (int i = 0; i < vertices; i++) {
+                System.out.print(i + ": ");
+                for (int neighbor : adjList[i]) {
+                    System.out.print(neighbor + " ");
+                }
+                System.out.println();
+            }
+        }
+    }
+
+    // Example Usage:
+    public static void main(String[] args) {
+        // Adjacency Matrix
+        AdjacencyMatrixGraph matrixGraph = new AdjacencyMatrixGraph(5);
+        matrixGraph.addEdge(0, 1);
+        matrixGraph.addEdge(0, 4);
+        matrixGraph.addEdge(1, 2);
+        matrixGraph.printMatrix();
+
+        // Adjacency List
+        AdjacencyListGraph listGraph = new AdjacencyListGraph(5);
+        listGraph.addEdge(0, 1);
+        listGraph.addEdge(0, 4);
+        listGraph.addEdge(1, 2);
+        listGraph.printList();
+    }
+            """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+    Example:
+        Represent a graph with 5 vertices and edges:
+        - 0 → 1
+        - 0 → 4
+        - 1 → 2
+        
+        Using Adjacency Matrix:
+        [
+            [0, 1, 0, 0, 1],
+            [0, 0, 1, 0, 0],
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0]
+        ]
+        
+        Using Adjacency List:
+        0: 1 4
+        1: 2
+        2:
+        3:
+        4:
+                """.trimIndent()
+                                )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = CAdvancedStageIds.lesson11_subs[9],
-                        title = "Quiz",
+                        id = DSAAdvancedStageIds.lesson11_subs[5],
+                        title = "Importance of Graphs",
+                        description = "Understand the critical role graphs play in representing and solving complex real-world problems across various domains.",
                         contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "What is a file in the context of C programming?",
-                                options = listOf(
-                                    "A temporary storage used by the program",
-                                    "A collection of instructions executed by the CPU",
-                                    "A collection of data stored on a storage device",
-                                    "A program that helps manage memory"
-                                ),
-                                correctAnswer = "A collection of data stored on a storage device",
-                                userAnswer = null,
-                                isCorrect = false
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Graphs are fundamental data structures that model relationships between entities, making them versatile tools for solving real-world problems in networking, navigation, and data organization. They are used in applications like social networks to represent connections between users, GPS systems for route optimization, web crawling for search engine indexing, and dependency management for build systems or package managers. Graphs also play a crucial role in designing and optimizing communication networks and understanding biological relationships like protein-protein interactions. The key benefits of graphs include their ability to efficiently represent complex relationships, the availability of optimized algorithms like Dijkstra's and Kruskal's for solving critical problems, and their flexibility to model directed and undirected relationships with weighted and unweighted edges."
+                                )
                             )
                         ),
-                        type = LessonContentType.QUIZ
+                        type = LessonContentType.NON_INTERACTIVE
                     )
                 ),
-                status = LessonStatus.ACTIVE
+                status = LessonStatus.LOCKED
             ),
 
             // Lesson 12
             Lesson(
-                id = CAdvancedStageIds.lesson12,
-                title = "C Enumeration (enum)",
-                description = "Learn advanced techniques for using enums in C, including defining enums, changing their values, and using them in switch statements.",
+                id = DSAAdvancedStageIds.lesson12,
+                title = "Graph Detection",
+                description = "Learn how to detect graphs and their properties, including cycle detection and connected components. 🌐",
                 lessonContents = listOf(
                     LessonContent(
-                        id = CAdvancedStageIds.lesson12_subs[0],
-                        title = "Introduction to Enums",
+                        id = DSAAdvancedStageIds.lesson12_subs[0],
+                        title = "Introduction to Graph Detection",
+                        description = "Explore the importance of detecting graphs and identifying their properties, such as cycles and connectivity.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Enums in C are used to define a set of named integer constants. They improve code readability and provide better organization.",
-                                    listOf("Enums")
+                                    """
+Graph detection refers to the process of identifying the existence of specific structures or patterns within a graph. In graph detection, we focus on detecting cycles, connectivity, and other important properties. The key concepts we will cover include:
+1. **Cycle Detection**: Identifying if a graph contains cycles (circular paths).
+2. **Connected Components**: Identifying if a graph is connected or if it consists of multiple disconnected subgraphs.
+                    """,
+                                    listOf(
+                                        "graph detection",
+                                        "cycle detection",
+                                        "connected components"
+                                    )
                                 )
                             ),
-                            ContentBlock.Text(createAnnotatedText("Syntax:", listOf(""))),
-                            ContentBlock.Code(
-                                """enum EnumName {
-    CONSTANT_1,
-    CONSTANT_2,
-    CONSTANT_3
-};"""
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+Graph detection is crucial in understanding the nature of a graph and can be applied to solve problems such as detecting loops in a network, identifying isolated nodes, or checking if a graph is fully connected.
+                    """.trimIndent()
+                                )
                             ),
-                            ContentBlock.Text(createAnnotatedText("Example:", listOf(""))),
                             ContentBlock.Code(
-                                """#include <stdio.h>
+                                """
+// Graph Representation for Cycle Detection and Connected Components
+// Adjacency List for an undirected graph:
+// 0 - 1 - 2
+//     |
+//     3
 
-enum Day { Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday };
+val graph = mutableMapOf(
+    0 to listOf(1),
+    1 to listOf(0, 2, 3),
+    2 to listOf(1),
+    3 to listOf(1)
+)
 
-int main() {
-    enum Day today = Wednesday;
-    printf("Today is %d\\n", today);
-    return 0;
-}"""
-                            )
+// Function to check if a graph has a cycle using DFS
+fun hasCycle(graph: Map<Int, List<Int>>): Boolean {
+    val visited = mutableSetOf<Int>()
+    val recStack = mutableSetOf<Int>()
+
+    fun dfs(v: Int): Boolean {
+        if (v in recStack) return true
+        if (v in visited) return false
+
+        visited.add(v)
+        recStack.add(v)
+
+        for (neighbor in graph[v] ?: emptyList()) {
+            if (dfs(neighbor)) return true
+        }
+
+        recStack.remove(v)
+        return false
+    }
+
+    for (vertex in graph.keys) {
+        if (dfs(vertex)) return true
+    }
+    return false
+}
+
+// Function to find connected components using DFS
+fun findConnectedComponents(graph: Map<Int, List<Int>>): List<List<Int>> {
+    val visited = mutableSetOf<Int>()
+    val components = mutableListOf<List<Int>>()
+
+    fun dfs(v: Int, component: MutableList<Int>) {
+        visited.add(v)
+        component.add(v)
+        for (neighbor in graph[v] ?: emptyList()) {
+            if (neighbor !in visited) dfs(neighbor, component)
+        }
+    }
+
+    for (vertex in graph.keys) {
+        if (vertex !in visited) {
+            val component = mutableListOf<Int>()
+            dfs(vertex, component)
+            components.add(component)
+        }
+    }
+
+    return components
+}
+                    """.trimIndent()
+                            ),
+                            ContentBlock.Text(createSimpleText("In this example, we use a graph represented by an adjacency list to detect cycles and find connected components.")),
+
+                            ContentBlock.Text(createSimpleText("### Cycle Detection:")),
+                            ContentBlock.Text(createSimpleText("Cycle detection is important for identifying loops in a graph. In the provided example, the `hasCycle` function uses DFS to check for cycles in the graph.")),
+                            ContentBlock.Text(createSimpleText("For example, in the graph above, there is no cycle, so the function will return `false`.")),
+
+                            ContentBlock.Text(createSimpleText("### Connected Components:")),
+                            ContentBlock.Text(createSimpleText("Connected components are subgraphs in which there is a path between every pair of vertices. The `findConnectedComponents` function helps identify these components in the graph.")),
+                            ContentBlock.Text(createSimpleText("For the given graph, it would return a single connected component containing all the vertices.")),
+
+                            ContentBlock.Text(createSimpleText("Both cycle detection and connected component analysis are vital tools for detecting properties within graphs, such as network loops or disconnected subgraphs.")),
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = CAdvancedStageIds.lesson12_subs[1],
-                        title = "Changing Enum Values",
+                        id = DSAAdvancedStageIds.lesson12_subs[1],
+                        title = "Manual Walkthrough of Graph Detection",
+                        description = "Understand and manually implement Graph Detection techniques like Cycle Detection and Connected Components.",
                         contentBlocks = listOf(
+                            ContentBlock.Text(createSimpleText("In this lesson, we will explore Graph Detection techniques and understand how algorithms for detecting properties like cycles and connected components work.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 1:", listOf("Step 1"))),
+                            ContentBlock.Text(createSimpleText("Define the Graph structure. A Graph consists of vertices (nodes) and edges (connections between nodes). Graphs can be directed or undirected, and weighted or unweighted.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 2:", listOf("Step 2"))),
+                            ContentBlock.Text(createSimpleText("Create a Graph by adding vertices and connecting them with edges. Specify whether the edges are directed or undirected and whether they have weights.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 3:", listOf("Step 3"))),
+                            ContentBlock.Text(createSimpleText("Choose a representation for the Graph. Common representations include:")),
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "You can change the underlying integer values of an enum. By default, the first value is 0, and each subsequent value increments by 1.",
-                                    listOf("0", "1")
+                                createSimpleText(
+                                    """
+                - Adjacency Matrix: A 2D array where the value at [i][j] indicates the presence and weight of an edge between vertex i and vertex j.
+                - Adjacency List: A collection where each vertex stores a list of its connected vertices and their edge weights.
+                - Edge List: A list of all edges, where each edge is represented as a tuple (start_vertex, end_vertex, weight).
+                """.trimIndent()
                                 )
                             ),
-                            ContentBlock.Text(createAnnotatedText("Example:", listOf(""))),
-                            ContentBlock.Code(
-                                """#include <stdio.h>
 
-enum Day { Sunday = 1, Monday = 2, Tuesday = 4, Wednesday = 8, Thursday = 16 };
+                            ContentBlock.Text(createAnnotatedText("Step 4:", listOf("Step 4"))),
+                            ContentBlock.Text(createSimpleText("Visualize the Graph. Draw the vertices and edges to understand the structure and relationships between nodes.")),
 
-int main() {
-    enum Day today = Tuesday;
-    printf("Today is %d\\n", today);
-    return 0;
-}"""
+                            ContentBlock.Text(createAnnotatedText("Step 5:", listOf("Step 5"))),
+                            ContentBlock.Text(createSimpleText("Example of creating and representing a Graph:")),
+
+                            ContentBlock.Text(createSimpleText("Graph:")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                Vertices: [A, B, C, D]
+                Edges:
+                - A -> B (Weight: 1)
+                - A -> C (Weight: 3)
+                - B -> D (Weight: 4)
+                - C -> D (Weight: 2)
+                """.trimIndent()
+                                )
                             ),
+
+                            ContentBlock.Text(createSimpleText("Adjacency Matrix:")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                  A  B  C  D
+                A  0  1  3  0
+                B  0  0  0  4
+                C  0  0  0  2
+                D  0  0  0  0
+                """.trimIndent()
+                                )
+                            ),
+
+                            ContentBlock.Text(createSimpleText("Adjacency List:")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                A: [(B, 1), (C, 3)]
+                B: [(D, 4)]
+                C: [(D, 2)]
+                D: []
+                """.trimIndent()
+                                )
+                            ),
+
+                            ContentBlock.Text(createSimpleText("Edge List:")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                [(A, B, 1), (A, C, 3), (B, D, 4), (C, D, 2)]
+                """.trimIndent()
+                                )
+                            ),
+
+                            ContentBlock.Text(createSimpleText("Understanding these representations helps analyze the Graph's properties and apply algorithms like Cycle Detection, Connected Components, and more.")),
+
+                            // New section for graph detection algorithms
+
+                            ContentBlock.Text(createAnnotatedText("Step 6:", listOf("Step 6"))),
+                            ContentBlock.Text(createSimpleText("Now, let's explore graph detection techniques. The two most common are Cycle Detection and Finding Connected Components.")),
+
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "In the above code, Sunday starts at 1, Monday at 2, Tuesday at 4, etc.",
-                                    listOf("")
+                                    "Cycle Detection:",
+                                    listOf("Cycle Detection")
                                 )
-                            )
+                            ),
+                            ContentBlock.Text(createSimpleText("Cycle detection is an algorithm used to identify if a graph contains any cycles (circular paths). A cycle occurs when a node is revisited after traversing through other nodes.")),
+                            ContentBlock.Text(createSimpleText("Cycle detection can be implemented using Depth-First Search (DFS) or Union-Find algorithms.")),
+                            ContentBlock.Text(createSimpleText("Example of cycle detection in a graph:")),
+                            ContentBlock.Text(createSimpleText("Graph: A -> B -> C -> D -> A (Cycle detected)")),
+
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Connected Components:",
+                                    listOf("Connected Components")
+                                )
+                            ),
+                            ContentBlock.Text(createSimpleText("Connected components refer to subgraphs in which there is a path between every pair of vertices. If the graph is disconnected, it will have multiple connected components.")),
+                            ContentBlock.Text(createSimpleText("Connected component detection is typically done using DFS or BFS.")),
+                            ContentBlock.Text(createSimpleText("Example of finding connected components:")),
+                            ContentBlock.Text(createSimpleText("Graph: Components: [A, B, C], [D]")),
+
+                            ContentBlock.Text(createSimpleText("Both cycle detection and connected component detection are essential techniques for analyzing graphs, especially in network analysis and graph theory.")),
+
+                            ContentBlock.Text(createSimpleText("Understanding graph properties like cycles and connectivity is fundamental for solving problems such as detecting deadlocks in systems, finding isolated subgraphs, or determining if a network is fully connected.")),
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = CAdvancedStageIds.lesson12_subs[2],
-                        title = "Quiz",
-                        contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "Complete the missing part in code.",
-                                incompleteCode = """___ Day {
-    Sunday, 
-    Monday, 
-    Tuesday, 
-    Wednesday, 
-    Thursday, 
-    Friday, 
-    Saturday
-};""",
-                                correctCode = "enum"
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson12_subs[3],
-                        title = "Enum in Switch Statement",
+                        id = DSAAdvancedStageIds.lesson12_subs[2],
+                        title = "Basic Graph Detection Operations",
+                        description = "Learn how to perform essential graph detection operations to identify key graph properties like cycles, connectivity, and bipartiteness.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Enums work well with switch statements, as you can match specific enum values to execute corresponding code.",
-                                    listOf("statements")
+                                    "Graph Detection Operations:\n" +
+                                            "1. Cycle Detection: Identify whether a graph contains any cycles.\n" +
+                                            "2. Connectivity Detection: Check if all vertices are connected in the graph.\n" +
+                                            "3. Bipartiteness Detection: Check if a graph can be colored using two colors without any two adjacent vertices sharing the same color.",
+                                    listOf(
+                                        "Graph Detection Operations",
+                                        "Cycle Detection",
+                                        "Connectivity Detection",
+                                        "Bipartiteness Detection"
+                                    )
                                 )
                             ),
-                            ContentBlock.Text(createAnnotatedText("Example:", listOf(""))),
                             ContentBlock.Code(
-                                """#include <stdio.h>
+                                """
+            // Example: Graph Detection Operations (Cycle, Connectivity, and Bipartiteness)
+            import java.util.*;
 
-enum Day { Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday };
+            class Graph {
+                private int vertices; // Number of vertices
+                private LinkedList<Integer>[] adjList; // Adjacency list
 
-int main() {
-    enum Day today = Wednesday;
-    
-    switch(today) {
-        case Sunday:
-            printf("It's Sunday\\n");
-            break;
-        case Wednesday:
-            printf("It's Wednesday\\n");
-            break;
-        default:
-            printf("It's a weekday\\n");
-    }
-    return 0;
-}"""
-                            )
+                // Constructor
+                Graph(int vertices) {
+                    this.vertices = vertices;
+                    adjList = new LinkedList[vertices];
+                    for (int i = 0; i < vertices; i++) {
+                        adjList[i] = new LinkedList<>();
+                    }
+                }
+
+                // Add an edge
+                void addEdge(int src, int dest) {
+                    adjList[src].add(dest); // For directed graph
+                    adjList[dest].add(src); // For undirected graph
+                }
+
+                // Detect if the graph has a cycle
+                boolean hasCycle() {
+                    boolean[] visited = new boolean[vertices];
+                    for (int i = 0; i < vertices; i++) {
+                        if (!visited[i] && dfsCycle(i, -1, visited)) {
+                            return true;
+                        }
+                    }
+                    return false;
+                }
+
+                private boolean dfsCycle(int vertex, int parent, boolean[] visited) {
+                    visited[vertex] = true;
+                    for (int neighbor : adjList[vertex]) {
+                        if (!visited[neighbor]) {
+                            if (dfsCycle(neighbor, vertex, visited)) {
+                                return true;
+                            }
+                        } else if (neighbor != parent) {
+                            return true;
+                        }
+                    }
+                    return false;
+                }
+
+                // Check if the graph is connected
+                boolean isConnected() {
+                    boolean[] visited = new boolean[vertices];
+                    dfsConnected(0, visited);
+                    for (boolean v : visited) {
+                        if (!v) return false;
+                    }
+                    return true;
+                }
+
+                private void dfsConnected(int vertex, boolean[] visited) {
+                    visited[vertex] = true;
+                    for (int neighbor : adjList[vertex]) {
+                        if (!visited[neighbor]) {
+                            dfsConnected(neighbor, visited);
+                        }
+                    }
+                }
+
+                // Check if the graph is bipartite
+                boolean isBipartite() {
+                    int[] color = new int[vertices];
+                    Arrays.fill(color, -1);
+
+                    for (int i = 0; i < vertices; i++) {
+                        if (color[i] == -1 && !bfsBipartite(i, color)) {
+                            return false;
+                        }
+                    }
+                    return true;
+                }
+
+                private boolean bfsBipartite(int start, int[] color) {
+                    Queue<Integer> queue = new LinkedList<>();
+                    queue.add(start);
+                    color[start] = 0;
+
+                    while (!queue.isEmpty()) {
+                        int node = queue.poll();
+                        for (int neighbor : adjList[node]) {
+                            if (color[neighbor] == -1) {
+                                color[neighbor] = 1 - color[node];
+                                queue.add(neighbor);
+                            } else if (color[neighbor] == color[node]) {
+                                return false; // Found a conflict
+                            }
+                        }
+                    }
+                    return true;
+                }
+            }
+
+            // Example Usage:
+            public static void main(String[] args) {
+                Graph graph = new Graph(5); // 5 vertices: 0, 1, 2, 3, 4
+                graph.addEdge(0, 1);
+                graph.addEdge(1, 2);
+                graph.addEdge(2, 0); // Adds a cycle
+                graph.addEdge(3, 4);
+
+                System.out.println("Cycle detected: " + graph.hasCycle());
+                System.out.println("Graph is connected: " + graph.isConnected());
+                System.out.println("Graph is bipartite: " + graph.isBipartite());
+            }
+            """.trimIndent()
+                            ),
+                            ContentBlock.Text(createSimpleText("In this example, we perform operations to detect cycles, connectivity, and bipartiteness in a graph with 5 vertices.")),
+
+                            ContentBlock.Text(createSimpleText("### Cycle Detection:")),
+                            ContentBlock.Text(createSimpleText("Cycle detection helps identify whether the graph contains any cycles (i.e., paths that start and end at the same vertex).")),
+                            ContentBlock.Text(createSimpleText("For example, in the graph above, there is a cycle between vertices 0, 1, and 2.")),
+
+                            ContentBlock.Text(createSimpleText("### Connectivity Detection:")),
+                            ContentBlock.Text(createSimpleText("Connectivity detection checks if all vertices in the graph are reachable from each other.")),
+                            ContentBlock.Text(createSimpleText("In the graph above, vertices 0, 1, 2 form one connected component, while 3 and 4 form another.")),
+
+                            ContentBlock.Text(createSimpleText("### Bipartiteness Detection:")),
+                            ContentBlock.Text(createSimpleText("Bipartiteness detection checks whether the graph can be colored using two colors such that no two adjacent vertices share the same color.")),
+                            ContentBlock.Text(createSimpleText("In the example graph, if we can color the vertices without conflicts, the graph is bipartite.")),
+
+                            ContentBlock.Text(createSimpleText("These graph detection operations are foundational for identifying key properties and solving problems such as cycle detection in network design, graph connectivity, and graph coloring for scheduling problems.")),
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = CAdvancedStageIds.lesson12_subs[4],
-                        title = "Enum with Bit Flags",
+                        id = DSAAdvancedStageIds.lesson12_subs[3],
+                        title = "How Graph Detection Works",
+                        description = "Detailed step-by-step breakdown of graph detection techniques such as cycle detection, bipartite graph detection, and detecting connected components.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "You can use enums with bit flags for efficient storage and checking multiple conditions.",
-                                    listOf("bit flags")
+                                createSimpleText(
+                                    "Let's break down the essential graph detection techniques step-by-step to understand how BFS and DFS help detect key properties in graphs."
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Bitwise OR | and AND & operations are used to combine or check flags.",
-                                    listOf("|", "&")
+                                    "Graph Basics:",
+                                    listOf("Graph Basics")
                                 )
                             ),
-                            ContentBlock.Text(createAnnotatedText("Example:", listOf(""))),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                1. A graph consists of vertices (nodes) and edges (connections between nodes).
+                2. Graphs can be either directed or undirected.
+                3. The adjacency list or adjacency matrix is used to represent graphs.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Graph Construction:",
+                                    listOf("Adding Vertices", "Adding Edges")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                1. Adding a vertex: A new node is introduced into the graph.
+                2. Adding an edge: A connection (edge) is established between two vertices.
+                3. For directed graphs, edges have a direction from one vertex to another.
+                4. For undirected graphs, edges connect two vertices without a direction.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Graph Detection Techniques:",
+                                    listOf(
+                                        "Cycle Detection",
+                                        "Bipartite Graph Detection",
+                                        "Connected Components"
+                                    )
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                Graph detection involves finding important properties of the graph, such as:
+                1. **Cycle Detection:** Detect if a graph contains cycles (a path that starts and ends at the same vertex).
+                2. **Bipartite Graph Detection:** Detect if a graph can be divided into two disjoint sets where each edge connects a vertex from one set to the other.
+                3. **Connected Components Detection:** Detect the distinct subgraphs in an undirected graph where there is a path between every pair of vertices.
+                """.trimIndent()
+                                )
+                            ),
                             ContentBlock.Code(
-                                """#include <stdio.h>
+                                """
+// Example Code: Graph Detection Techniques
+import java.util.*;
 
-enum Permissions {
-    READ = 1 << 0,    // 0001
-    WRITE = 1 << 1,   // 0010
-    EXECUTE = 1 << 2  // 0100
-};
+class Graph {
+    private int vertices; // Number of vertices
+    private LinkedList<Integer>[] adjList; // Adjacency list
 
-int main() {
-    int userPermissions = READ | WRITE;  // User has read and write permissions
-    if (userPermissions & READ) {
-        printf("User has read permissions\\n");
+    // Constructor
+    Graph(int vertices) {
+        this.vertices = vertices;
+        adjList = new LinkedList[vertices];
+        for (int i = 0; i < vertices; i++) {
+            adjList[i] = new LinkedList<>();
+        }
     }
-    if (userPermissions & EXECUTE) {
-        printf("User has execute permissions\\n");
-    } else {
-        printf("User does not have execute permissions\\n");
+
+    // Add an edge
+    void addEdge(int src, int dest) {
+        adjList[src].add(dest); // For directed graph
+        // Uncomment the next line for undirected graph
+        // adjList[dest].add(src);
     }
-    return 0;
-}"""
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson12_subs[5],
-                        title = "Quiz",
-                        contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "Complete the switch statement to print the correct message for today (assuming today = Wednesday):",
-                                incompleteCode = """enum Day { Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday };
 
-int main() {
-    enum ___ today = Wednesday;
-    
-    switch(today) {
-        case Sunday:
-            printf("It's Sunday\\n");
-            break;
-        case Wednesday:
-            printf("It's Wednesday\\n");
-            break;
-        default:
-            printf("It's a weekday\\n");
+    // Cycle Detection using DFS
+    boolean isCyclic() {
+        boolean[] visited = new boolean[vertices];
+        boolean[] recursionStack = new boolean[vertices];
+
+        for (int i = 0; i < vertices; i++) {
+            if (isCyclicUtil(i, visited, recursionStack)) {
+                return true;
+            }
+        }
+        return false;
     }
-    return 0;
-}""",
-                                correctCode = "Day"
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson12_subs[6],
-                        title = "Real-life Example of Enums",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("Enums can represent user roles in a system, improving clarity and managing permissions efficiently.")),
-                            ContentBlock.Text(createAnnotatedText("Example:", listOf(""))),
-                            ContentBlock.Code(
-                                """#include <stdio.h>
 
-// Enum for user roles
-enum UserRole {
-    ADMIN,
-    MODERATOR,
-    USER,
-    GUEST
-};
+    private boolean isCyclicUtil(int vertex, boolean[] visited, boolean[] recursionStack) {
+        if (recursionStack[vertex]) return true;
+        if (visited[vertex]) return false;
 
-void printUserRole(enum UserRole role) {
-    switch(role) {
-        case ADMIN: printf("Admin privileges\\n"); break;
-        case MODERATOR: printf("Moderator privileges\\n"); break;
-        case USER: printf("User privileges\\n"); break;
-        case GUEST: printf("Guest privileges\\n"); break;
-        default: printf("Unknown role\\n");
+        visited[vertex] = true;
+        recursionStack[vertex] = true;
+
+        for (int neighbor : adjList[vertex]) {
+            if (isCyclicUtil(neighbor, visited, recursionStack)) {
+                return true;
+            }
+        }
+
+        recursionStack[vertex] = false;
+        return false;
+    }
+
+    // Bipartite Graph Detection using BFS
+    boolean isBipartite() {
+        int[] colors = new int[vertices];
+        Arrays.fill(colors, -1); // -1 indicates no color assigned
+
+        for (int i = 0; i < vertices; i++) {
+            if (colors[i] == -1 && !bfsCheckBipartite(i, colors)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean bfsCheckBipartite(int start, int[] colors) {
+        Queue<Integer> queue = new LinkedList<>();
+        queue.add(start);
+        colors[start] = 0; // Assign initial color
+
+        while (!queue.isEmpty()) {
+            int vertex = queue.poll();
+
+            for (int neighbor : adjList[vertex]) {
+                if (colors[neighbor] == -1) {
+                    colors[neighbor] = 1 - colors[vertex]; // Alternate color
+                    queue.add(neighbor);
+                } else if (colors[neighbor] == colors[vertex]) {
+                    return false; // Same color on both ends of an edge
+                }
+            }
+        }
+        return true;
+    }
+
+    // Connected Components using DFS
+    void findConnectedComponents() {
+        boolean[] visited = new boolean[vertices];
+        int componentCount = 0;
+
+        for (int i = 0; i < vertices; i++) {
+            if (!visited[i]) {
+                dfsConnectedComponent(i, visited);
+                componentCount++;
+            }
+        }
+
+        System.out.println("Number of connected components: " + componentCount);
+    }
+
+    private void dfsConnectedComponent(int vertex, boolean[] visited) {
+        visited[vertex] = true;
+
+        for (int neighbor : adjList[vertex]) {
+            if (!visited[neighbor]) {
+                dfsConnectedComponent(neighbor, visited);
+            }
+        }
     }
 }
 
-int main() {
-    printUserRole(ADMIN);
-    printUserRole(GUEST);
-    return 0;
-}"""
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "This example shows how enums make role management and code readability simpler.",
-                                    listOf("")
-                                )
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson12_subs[7],
-                        title = "Quiz",
-                        contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "Which of the following is an example of enum declaration?",
-                                options = listOf(
-                                    "int days = 7;",
-                                    "enum Day { Sunday, Monday, Tuesday };",
-                                    "const Day = { Sunday, Monday, Tuesday };",
-                                    "Day[] days = { Sunday, Monday, Tuesday };"
-                                ),
-                                correctAnswer = "enum Day { Sunday, Monday, Tuesday };"
-                            )
-                        ),
-                        type = LessonContentType.QUIZ
-                    ),
-                ),
-                status = LessonStatus.LOCKED
-            ),
+// Example Usage:
+public class Main {
+    public static void main(String[] args) {
+        Graph graph = new Graph(5); // 5 vertices: 0, 1, 2, 3, 4
+        graph.addEdge(0, 1);
+        graph.addEdge(1, 2);
+        graph.addEdge(3, 4);
 
-            // lesson 13
-            Lesson(
-                id = CAdvancedStageIds.lesson13,
-                title = "C Memory Management",
-                description = "Master memory management in C, including dynamic memory allocation, deallocation, and handling memory efficiently.",
-                lessonContents = listOf(
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson13_subs[0],
-                        title = "Introduction to Memory Management",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Memory management in C is a crucial concept that involves managing the allocation, use, and deallocation of memory resources. Efficient memory management ensures optimal performance, prevents memory leaks, and avoids issues like fragmentation.",
-                                    listOf("Memory management")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Memory in C is divided into three sections: the stack, heap, and data segment.",
-                                    listOf("stack", "heap")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "1.Stack: Used for local variables, automatically managed, limited size.",
-                                    listOf(
-                                        "Stack",
-                                    )
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "2.Heap: Used for dynamic memory allocation, manually managed.",
-                                    listOf("Heap")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "3.Data Segment: Used for global and static variables.",
-                                    listOf("Data Segment")
-                                )
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson13_subs[1],
-                        title = "Dynamic Memory Allocation",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "C provides functions for dynamic memory allocation, allowing memory to be allocated at runtime.",
-                                    listOf("dynamic memory allocation")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Functions:",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "1.malloc(): Allocates uninitialized memory.",
-                                    listOf("malloc()")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "2.calloc(): Allocates zero-initialized memory.",
-                                    listOf("calloc()")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "3.realloc(): Resizes previously allocated memory.",
-                                    listOf("realloc()")
-                                )
-                            ),
-                            ContentBlock.Text(createAnnotatedText("Example:", listOf(""))),
-                            ContentBlock.Code(
-                                """#include <stdio.h>
-#include <stdlib.h>
+        // Detect if graph contains a cycle
+        System.out.println("Graph contains cycle: " + graph.isCyclic());
 
-int main() {
-    int *arr = (int*)malloc(5 * sizeof(int));  // malloc allocates 5 integers
-    if (arr == NULL) {
-        printf("Memory allocation failed\\n");
-        return 1;
+        // Detect if graph is bipartite
+        System.out.println("Graph is bipartite: " + graph.isBipartite());
+
+        // Find connected components
+        graph.findConnectedComponents();
     }
-    arr[0] = 10;
-    arr[1] = 20;
-    printf("arr[0]: %d, arr[1]: %d\\n", arr[0], arr[1]);
-
-    // Reallocate memory
-    arr = (int*)realloc(arr, 10 * sizeof(int));  // realloc resizes the array
-    if (arr == NULL) {
-        printf("Memory reallocation failed\\n");
-        return 1;
-    }
-    arr[5] = 50;
-    printf("arr[5]: %d\\n", arr[5]);
-
-    free(arr);  // Free memory
-    return 0;
-}"""
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson13_subs[2],
-                        title = "Quiz",
-                        contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "What is the function used for dynamic memory allocation in C that allocates uninitialized memory?",
-                                incompleteCode = """int *arr = (int*)___(5 * sizeof(int));""",
-                                correctCode = "malloc",
-                                userInput = null,
-                                isCodeCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson13_subs[3],
-                        title = "Memory Deallocation",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Memory allocated dynamically using malloc, calloc, or realloc should be deallocated using free().",
-                                    listOf(
-                                        "free()",
-                                    )
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Failure to free memory can cause memory leaks, leading to resource wastage.",
-                                    listOf("memory leaks")
-                                )
-                            ),
-                            ContentBlock.Text(createAnnotatedText("Example:", listOf(""))),
-                            ContentBlock.Code(
-                                """#include <stdio.h>
-#include <stdlib.h>
-
-int main() {
-    int *ptr = (int*)malloc(sizeof(int));
-    *ptr = 100;
-    printf("Value: %d\\n", *ptr);
-    
-    free(ptr);  // Always free dynamically allocated memory
-    return 0;
-}"""
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson13_subs[4],
-                        title = "Memory Leaks and Optimization",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Memory leaks occur when dynamically allocated memory is not freed, causing wasted resources and possible application crashes.",
-                                    listOf(
-                                        "application crashes"
-                                    )
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Best Practices:",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "1.Always pair malloc/calloc/realloc with free.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "2.Use tools like Valgrind to detect memory leaks.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "3.Consider using smart pointers in C++ to automate memory management.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Example of a memory leak:",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """#include <stdio.h>
-#include <stdlib.h>
-
-int main() {
-    int *arr = (int*)malloc(5 * sizeof(int));
-    // Memory is not freed, causing a memory leak
-    return 0;
-}"""
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson13_subs[5],
-                        title = "Quiz",
-                        contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "In the following code, what is the missing step after malloc to avoid a memory leak?",
-                                incompleteCode = """int *ptr = (int*)malloc(sizeof(int));  ___(ptr);""",
-                                correctCode = "free",
-                                userInput = null,
-                                isCodeCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson13_subs[6],
-                        title = "Real-Life Memory Management Examples",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Efficient memory management is crucial in large apps like games and browsers.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "1.Memory Pools: Pre-allocate memory for reuse to reduce allocation overhead.",
-                                    listOf(
-                                    )
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "2.Games: Memory pools manage textures, reusing memory instead of reallocating it frequently.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "3.Browsers: Allocate memory for tabs, freeing it when closed to ensure smooth performance.",
-                                    listOf(
-                                    )
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Example: Memory pool for game textures:",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """#include <stdio.h>
-#include <stdlib.h>
-
-#define POOL_SIZE 1024
-char texture_pool[POOL_SIZE];
-
-void* allocate_texture(size_t size) {
-    static size_t offset = 0;
-    if (offset + size > POOL_SIZE) return NULL;
-    void* ptr = texture_pool + offset;
-    offset += size;
-    return ptr;
 }
+            """.trimIndent()
+                            ),
+                            ContentBlock.Text(createSimpleText("In this example, we first create a graph with 5 vertices and add some edges. Then, we detect cycles, check if the graph is bipartite, and find connected components.")),
 
-int main() {
-    char* texture = (char*)allocate_texture(100);
-    if (texture == NULL) {
-        printf("Texture pool exhausted\\n");
+                            ContentBlock.Text(createSimpleText("### Cycle Detection:")),
+                            ContentBlock.Text(createSimpleText("Cycle detection identifies if a graph contains a cycle, which is a path that starts and ends at the same vertex.")),
+                            ContentBlock.Text(createSimpleText("For example, if a cycle is detected, the graph has a cycle, otherwise, it doesn't.")),
+
+                            ContentBlock.Text(createSimpleText("### Bipartite Graph Detection:")),
+                            ContentBlock.Text(createSimpleText("Bipartite graph detection checks if a graph can be divided into two sets such that every edge connects vertices from different sets.")),
+                            ContentBlock.Text(createSimpleText("For example, if the graph is bipartite, it means we can color the graph using two colors such that no two adjacent vertices share the same color.")),
+
+                            ContentBlock.Text(createSimpleText("### Connected Components Detection:")),
+                            ContentBlock.Text(createSimpleText("Connected components detection finds distinct subgraphs where each subgraph is connected within itself.")),
+                            ContentBlock.Text(createSimpleText("For example, if the graph is disconnected, it will have multiple connected components.")),
+
+                            ContentBlock.Text(createSimpleText("These graph detection techniques are essential for solving problems like cycle detection, bipartite graph identification, and finding connected components in a graph.")),
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSAAdvancedStageIds.lesson12_subs[4],
+                        title = "How to Detect Graph Properties",
+                        description = "Understand how to detect various graph properties such as cycles, connected components, and bipartiteness, enabling efficient graph analysis.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Detecting graph properties is crucial for understanding the structure of a graph. In this lesson, we'll cover how to detect properties like cycles, connected components, and whether a graph is bipartite."
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+    Key Properties to Detect in Graphs:
+    1. **Cycles**: A cycle exists if there is a path from a vertex back to itself.
+    2. **Connected Components**: A graph is fully connected if there is a path between every pair of vertices.
+    3. **Bipartiteness**: A graph is bipartite if its vertices can be divided into two disjoint sets such that no two vertices within the same set are adjacent.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+// Example: Graph Detection
+import java.util.*;
+
+// Detecting Cycles in a Directed Graph using DFS
+class Graph {
+    int vertices;
+    LinkedList<Integer>[] adjList;
+
+    Graph(int vertices) {
+        this.vertices = vertices;
+        adjList = new LinkedList[vertices];
+        for (int i = 0; i < vertices; i++) {
+            adjList[i] = new LinkedList<>();
+        }
     }
-    return 0;
-}"""
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson13_subs[7],
-                        title = "Quiz",
-                        contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "What is the consequence of failing to free dynamically allocated memory?",
-                                options = listOf("Memory leaks", "Segmentation fault", "Memory fragmentation", "Out of memory error"),
-                                correctAnswer = "Memory leaks",
-                                userAnswer = null,
-                                isCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                ),
-                status = LessonStatus.LOCKED
-            ),
 
+    void addEdge(int src, int dest) {
+        adjList[src].add(dest);
+    }
 
-            // lesson 14
-            Lesson(
-                id = CAdvancedStageIds.lesson14,
-                title = "Advanced Recap",
-                description = "A brief recap of advanced programming concepts in C, focusing on memory management, pointers, and other complex topics.",
-                lessonContents = listOf(
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson14_subs[0],
-                        title = "Introduction and Encouragement",
-                        description = "Let's revisit advanced concepts that will solidify your skills in C programming. These topics are the building blocks of efficient, high-performance applications.",
-                        contentBlocks = listOf(
+    // Detect cycle using DFS
+    boolean detectCycle() {
+        boolean[] visited = new boolean[vertices];
+        boolean[] inStack = new boolean[vertices]; // Keeps track of recursion stack
+
+        for (int i = 0; i < vertices; i++) {
+            if (detectCycleUtil(i, visited, inStack)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean detectCycleUtil(int vertex, boolean[] visited, boolean[] inStack) {
+        if (inStack[vertex]) return true;
+        if (visited[vertex]) return false;
+
+        visited[vertex] = true;
+        inStack[vertex] = true;
+
+        for (int neighbor : adjList[vertex]) {
+            if (detectCycleUtil(neighbor, visited, inStack)) {
+                return true;
+            }
+        }
+
+        inStack[vertex] = false; // Remove from recursion stack
+        return false;
+    }
+
+    // Detect connected components (for undirected graph)
+    void detectConnectedComponents() {
+        boolean[] visited = new boolean[vertices];
+
+        for (int i = 0; i < vertices; i++) {
+            if (!visited[i]) {
+                bfs(i, visited);
+                System.out.println();
+            }
+        }
+    }
+
+    private void bfs(int start, boolean[] visited) {
+        Queue<Integer> queue = new LinkedList<>();
+        visited[start] = true;
+        queue.add(start);
+
+        while (!queue.isEmpty()) {
+            int vertex = queue.poll();
+            System.out.print(vertex + " ");
+
+            for (int neighbor : adjList[vertex]) {
+                if (!visited[neighbor]) {
+                    visited[neighbor] = true;
+                    queue.add(neighbor);
+                }
+            }
+        }
+    }
+
+    // Detect if the graph is bipartite
+    boolean isBipartite() {
+        int[] colors = new int[vertices];
+        Arrays.fill(colors, -1); // -1 means no color assigned
+
+        for (int i = 0; i < vertices; i++) {
+            if (colors[i] == -1 && !bfsBipartite(i, colors)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean bfsBipartite(int start, int[] colors) {
+        Queue<Integer> queue = new LinkedList<>();
+        colors[start] = 1; // Assign a color
+
+        queue.add(start);
+        while (!queue.isEmpty()) {
+            int vertex = queue.poll();
+
+            for (int neighbor : adjList[vertex]) {
+                if (colors[neighbor] == -1) {
+                    // Assign alternate color
+                    colors[neighbor] = 1 - colors[vertex];
+                    queue.add(neighbor);
+                } else if (colors[neighbor] == colors[vertex]) {
+                    return false; // Same color, not bipartite
+                }
+            }
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        Graph graph = new Graph(5); // Create a graph with 5 vertices
+        graph.addEdge(0, 1);
+        graph.addEdge(1, 2);
+        graph.addEdge(2, 0); // Creating a cycle
+
+        System.out.println("Cycle detected: " + graph.detectCycle());
+
+        graph.detectConnectedComponents();
+
+        System.out.println("Graph is bipartite: " + graph.isBipartite());
+    }
+}
+            """.trimIndent()
+                            ),
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "You're now venturing into more intricate areas of programming. Pointers, memory management, and file handling are not just concepts but essential tools that will allow you to write efficient, scalable, and performant code. Keep pushing forward, the mastery of these topics will elevate your programming to the next level.",
-                                    listOf("efficiency", "scalable", "performance")
+                                createSimpleText(
+                                    """
+    Example Usage:
+        In this example, we create a graph with 5 vertices and edges:
+        - 0 → 1
+        - 1 → 2
+        - 2 → 0 (creating a cycle)
+        
+        The graph will detect if there is a cycle, detect the connected components, and determine if the graph is bipartite.
+        
+    Cycle Detection:
+        The graph contains a cycle since vertex 0, 1, and 2 form a cycle (0 → 1 → 2 → 0).
+        
+    Connected Components:
+        The graph may be split into different components if there are disconnected vertices.
+
+    Bipartiteness:
+        The graph is bipartite if it is possible to color it with two colors such that no two adjacent vertices share the same color. In this example, the graph will determine whether the graph can be split into two sets without conflict.
+                """.trimIndent()
                                 )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = CAdvancedStageIds.lesson14_subs[1],
-                        title = "Pointers and Memory Management",
-                        description = "Understanding pointers and memory management is critical for writing optimized code. Pointers give you direct access to memory, and mastering memory allocation and deallocation allows for efficient resource usage.",
+                        id = DSAAdvancedStageIds.lesson12_subs[5],
+                        title = "Importance of Graph Detection",
+                        description = "Learn how detecting key properties in graphs, like cycles and connected components, helps optimize solutions in real-world problems.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Pointers are powerful tools that allow direct manipulation of memory. Mastering pointers, along with dynamic memory allocation (`malloc`, `calloc`) and deallocation (`free`), is essential for handling resources efficiently. Proper memory management ensures that your programs are not only functional but optimized for performance and reliability.",
-                                    listOf("pointers", "memory allocation", "dynamic memory")
-                                )
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson14_subs[2],
-                        title = "Enums and Advanced Data Structures",
-                        description = "Enums allow you to work with sets of named constants, while advanced data structures like structs and linked lists enable you to manage complex data efficiently.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Enums improve code readability by associating names with constant values, making your programs easier to understand and maintain. Pairing enums with structs and linked lists further enhances your ability to manage and process complex datasets efficiently.",
-                                    listOf("enums", "structs", "linked lists")
-                                )
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson14_subs[3],
-                        title = "Keep Going! Your Next Challenge Awaits",
-                        description = "You’ve gained mastery over advanced topics like pointers and memory management. These concepts will support the most complex tasks you’ll encounter. As you continue, your ability to write efficient and scalable code will grow exponentially.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "You're well-equipped to tackle larger projects and more challenging problems. Keep pushing forward—advanced topics like multithreading, system-level programming, and optimization are next on your journey. Stay focused and continue growing as a programmer.",
-                                    listOf("next challenge", "growth")
+                                createSimpleText(
+                                    "Graph detection is crucial for identifying key properties such as cycles, connected components, and bipartiteness. These properties help solve real-world problems in networking, routing, social networks, and logistics by optimizing paths, detecting redundant routes, and improving matching tasks like resource allocation. Applications include preventing loops in communication networks, optimizing network performance, identifying groups of related users in social networks, and ensuring efficient resource distribution in logistics."
                                 )
                             )
                         ),
@@ -3072,118 +4674,6 @@ int main() {
                 ),
                 status = LessonStatus.LOCKED
             ),
-
-            // lesson 15
-            Lesson(
-                id = CAdvancedStageIds.lesson15,
-                title = "Advanced Quiz",
-                description = "Test your advanced knowledge of C programming concepts such as memory management, pointers, structs, and file I/O! 🧠💻",
-                lessonContents = listOf(
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson15_subs[0],
-                        title = "Quiz: Pointers and Memory Management",
-                        description = "Answer questions about pointers, dynamic memory allocation, and memory management techniques in C.",
-                        contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "What is the purpose of malloc() in C?",
-                                options = listOf(
-                                    "Allocates memory dynamically",
-                                    "Frees dynamically allocated memory",
-                                    "Returns a pointer to a string",
-                                    "Creates an array of fixed size"
-                                ),
-                                correctAnswer = "Allocates memory dynamically"
-                            ),
-                        ),
-                        type = LessonContentType.QUIZ
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson15_subs[1],
-                        title = "Quiz: Structs and Enums",
-                        description = "Test your understanding of structs, enums, and their applications in C.",
-                        contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "How do you define a struct in C?",
-                                options = listOf(
-                                    "struct name { int x; float y; };",
-                                    "struct { int x, float y; } name;",
-                                    "struct { int x, float y; };",
-                                    "int struct name { x; y; };"
-                                ),
-                                correctAnswer = "struct name { int x; float y; };"
-                            ),
-                        ),
-                        type = LessonContentType.QUIZ
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson15_subs[2],
-                        title = "Quiz: File I/O and Error Handling",
-                        description = "Answer questions about file input/output and error handling in C.",
-                        contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "What does fopen() return if it fails to open a file?",
-                                options = listOf(
-                                    "NULL",
-                                    "0",
-                                    "An error message",
-                                    "File pointer"
-                                ),
-                                correctAnswer = "NULL"
-                            ),
-
-                            ),
-                        type = LessonContentType.QUIZ
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson15_subs[3],
-                        title = "Quiz: Advanced Data Structures",
-                        description = "Test your understanding of advanced data structures like linked lists and trees.",
-                        contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "Which of the following is the correct way to define a node in a singly linked list?",
-                                options = listOf(
-                                    "struct node { int data; struct node *next; };",
-                                    "struct node { int data; node *next; };",
-                                    "struct { int data, struct node *next; };",
-                                    "int node { data; next; };"
-                                ),
-                                correctAnswer = "struct node { int data; struct node *next; };"
-                            ),
-
-                            ),
-                        type = LessonContentType.QUIZ
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson15_subs[4],
-                        title = "Quiz: Multithreading and Concurrency",
-                        description = "Test your knowledge of multithreading and concurrency concepts in C.",
-                        contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "Which function is used to create a thread in C?",
-                                options = listOf(
-                                    "pthread_create()",
-                                    "thread_create()",
-                                    "create_thread()",
-                                    "create_task()"
-                                ),
-                                correctAnswer = "pthread_create()"
-                            ),
-
-                            ),
-                        type = LessonContentType.QUIZ
-                    ),
-                    LessonContent(
-                        id = CAdvancedStageIds.lesson15_subs[5],
-                        title = "Stage Completed",
-                        description = "You’ve completed this stage, now prepare for the next one!",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Fantastic! You've successfully completed this stage. Continue practicing and get ready for the next stage to master advanced C programming concepts. 🚀"))
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    )
-                ),
-                status = LessonStatus.LOCKED
-            )
 
 
             // continue from here
