@@ -868,7 +868,6 @@ fun DSAIntermediateCourse(): Stage {
                 status = LessonStatus.LOCKED
             ),
 
-
             // lesson 5
             Lesson(
                 id = DSAIntermediateStageIds.lesson5,
@@ -1176,242 +1175,306 @@ fun DSAIntermediateCourse(): Stage {
             // lesson 6
             Lesson(
                 id = DSAIntermediateStageIds.lesson6,
-                title = "C Nested Loops",
-                description = "Learn how to use nested loops in C for complex tasks and control flows! 🔄🔄",
+                title = "Stacks",
+                description = "Dive into the world of stacks, understanding their properties, operations, and practical applications. 📚",
                 lessonContents = listOf(
                     LessonContent(
                         id = DSAIntermediateStageIds.lesson6_subs[0],
-                        title = "Nested For Loops",
-                        description = "Learn how to use a for loop inside another for loop.",
+                        title = "Introduction to Stacks",
+                        description = "Understand what stacks are and their fundamental structure.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Nested for loops involve an outer loop iterating through elements, and an inner loop iterating through a subset of elements, allowing for multi-level iteration over a collection or data structure.",
+                                    "A stack is a linear data structure that operates on the principle of Last In, First Out (LIFO):",
+                                    listOf("stack", "linear data structure", "LIFO")
                                 )
                             ),
-                            ContentBlock.Text(createAnnotatedText("Syntax:", listOf(""))),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "In a stack, elements are added (pushed) and removed (popped) only from the top. Think of a stack of plates where the top plate is always accessed first.",
+                                    listOf("pushed", "popped", "top", "stack of plates")
+                                )
+                            ),
                             ContentBlock.Code(
                                 """
-for (int i = 0; i < tables; i++) {
-    for (int j = 0; j < seats; j++) {
-        // Perform action for seat at table
-    }
-}
-""".trimIndent()
+                    struct Stack {
+                        int arr[MAX_SIZE];   // Array to hold stack elements
+                        int top;             // Index of the top element
+                    };
+                    
+                    // Example: Stack operations
+                    Stack s;
+                    s.top = -1; // Initialize stack
+                    """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAIntermediateStageIds.lesson6_subs[1],
-                        title = "Nested While Loops",
-                        description = "Learn how to use a while loop inside another while loop.",
+                        title = "Manual Walkthrough: Creation and Operations",
+                        description = "Manually create and perform basic operations on a stack.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Nested while loops involve an outer loop controlling the higher-level iteration, and an inner loop performing repetitive tasks for each iteration of the outer loop, allowing for multi-level iteration and task execution.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(createAnnotatedText("Syntax:", listOf(""))),
-                            ContentBlock.Code(
-                                """
-while (level < maxLevel) {
-    while (task < maxTasks) {
-        // Perform action for task in level
-    }
-}
-""".trimIndent()
-                            )
+                            ContentBlock.Text(createSimpleText("Let's walk through the process of creating and performing basic operations on a stack step-by-step.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 1:", listOf("Step 1:"))),
+                            ContentBlock.Text(createSimpleText("Define a stack structure using an array or a linked list to store elements. Include a variable (e.g., 'top') to track the topmost element.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 2:", listOf("Step 2:"))),
+                            ContentBlock.Text(createSimpleText("Initialize the stack by setting the 'top' variable to -1 (for array-based implementation) or NULL (for linked list-based implementation).")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 3:", listOf("Step 3:"))),
+                            ContentBlock.Text(createSimpleText("Implement the Push operation to add an element to the top of the stack. For an array, increment 'top' and assign the new value. For a linked list, create a new node and update pointers.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 4:", listOf("Step 4:"))),
+                            ContentBlock.Text(createSimpleText("Implement the Pop operation to remove the top element. For an array, access the element at 'top' and decrement 'top'. For a linked list, remove the node at the top and update the head pointer.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 5:", listOf("Step 5:"))),
+                            ContentBlock.Text(createSimpleText("Implement the Peek operation to view the top element without removing it. Access the element at 'top' for an array or the head node for a linked list.")),
+
+                            ContentBlock.Text(createAnnotatedText("Example: Operations on a Stack", listOf("Operations on a Stack"))),
+                            ContentBlock.Code("""
+            // Array-based stack implementation
+            struct Stack {
+                int arr[100];
+                int top = -1;
+            };
+
+            void push(Stack& s, int value) {
+                if (s.top == 99) {
+                    cout << "Stack Overflow";
+                    return;
+                }
+                s.arr[++s.top] = value;
+            }
+
+            int pop(Stack& s) {
+                if (s.top == -1) {
+                    cout << "Stack Underflow";
+                    return -1;
+                }
+                return s.arr[s.top--];
+            }
+
+            int peek(const Stack& s) {
+                if (s.top == -1) {
+                    cout << "Stack is empty";
+                    return -1;
+                }
+                return s.arr[s.top];
+            }
+        """.trimIndent()),
+
+                            ContentBlock.Text(createSimpleText("This walkthrough demonstrates how elements are pushed, popped, and accessed in a stack using simple operations.")),
+
+                            ContentBlock.Text(createAnnotatedText("Key Points to Remember:", listOf("Key Points"))),
+                            ContentBlock.Text(createSimpleText("""
+            1. A stack operates on the LIFO (Last In, First Out) principle.
+            2. Push adds an element to the top.
+            3. Pop removes the top element.
+            4. Peek retrieves the top element without removing it.
+        """.trimIndent()))
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAIntermediateStageIds.lesson6_subs[2],
-                        title = "For in While Loops",
-                        description = "Learn how to nest a for loop inside a while loop.",
+                        title = "Operations on Stack",
+                        description = "Learn how to perform basic operations like Push, Pop, Peek, and Traversal.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "A while loop executes as long as a condition is true, whereas a for loop iterates a fixed number of times. The while loop is used for indefinite iteration, while the for loop is used for definite iteration, like incrementing a counter or iterating over a range.",
-                                    listOf("")
+                                    "Push Operation:\n" +
+                                            "Adding a new element to the top of the stack involves updating the 'top' pointer.",
+                                    listOf("Push Operation:", "top")
                                 )
                             ),
-                            ContentBlock.Text(createAnnotatedText("Syntax:", listOf())),
                             ContentBlock.Code(
                                 """
-while (gameOn) {
-    for (int i = 0; i < players; i++) {
-        // Update score for player
-    }
-}
-""".trimIndent()
+            void push(Stack& s, int value) {
+                if (s.top == MAX_SIZE - 1) { // Stack overflow
+                    cout << "Stack Overflow" << endl;
+                    return;
+                }
+                s.arr[++s.top] = value; // Increment top and add value
+            }
+            """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Pop Operation:\n" +
+                                            "Removing the top element involves accessing and decrementing the 'top' pointer.",
+                                    listOf("Pop Operation:")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+            int pop(Stack& s) {
+                if (s.top == -1) { // Stack underflow
+                    cout << "Stack Underflow" << endl;
+                    return -1;
+                }
+                return s.arr[s.top--]; // Access and decrement top
+            }
+            """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Peek Operation:\n" +
+                                            "Retrieving the top element without removing it involves accessing the 'top' pointer.",
+                                    listOf("Peek Operation:")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+            int peek(const Stack& s) {
+                if (s.top == -1) { // Stack is empty
+                    cout << "Stack is empty" << endl;
+                    return -1;
+                }
+                return s.arr[s.top]; // Access top
+            }
+            """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Traversal:\n" +
+                                            "Iterating over the stack involves visiting each element from the bottom to the top.",
+                                    listOf("Traversal:")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+            void traverse(const Stack& s) {
+                if (s.top == -1) { // Stack is empty
+                    cout << "Stack is empty" << endl;
+                    return;
+                }
+                for (int i = 0; i <= s.top; ++i) {
+                    cout << s.arr[i] << " ";
+                }
+                cout << endl;
+            }
+            """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAIntermediateStageIds.lesson6_subs[3],
-                        title = "While in For Loops",
-                        description = "Learn how to nest a while loop inside a for loop.",
+                        title = "How Stack Operations Work",
+                        description = "Detailed step-by-step breakdown of Push, Pop, Peek, and Traversal operations in a stack.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "A for loop iterates over a collection or range, while a while loop continues execution as long as a condition is true. The for loop handles predefined iterations, and the while loop manages ongoing conditions within each iteration.",
-                                    listOf("")
+                                createSimpleText(
+                                    "Let's break down the operations on stacks step-by-step to understand their mechanics."
                                 )
                             ),
-                            ContentBlock.Text(createAnnotatedText("Syntax:", listOf())),
-                            ContentBlock.Code(
-                                """
-for (int i = 0; i < rooms; i++) {
-    while (notClean) {
-        // Clean the room
-    }
-}
-""".trimIndent()
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Push Operation:",
+                                    listOf("Push Operation")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                1. Check if the stack is full (overflow condition).
+                2. If not full, increment the 'top' pointer.
+                3. Insert the new element at the position pointed to by 'top'.
+                4. Operation complete.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Pop Operation:",
+                                    listOf("Pop Operation")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                1. Check if the stack is empty (underflow condition).
+                2. If not empty, retrieve the element at the position pointed to by 'top'.
+                3. Decrement the 'top' pointer to remove the element from the stack.
+                4. Return the retrieved element.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Peek Operation:",
+                                    listOf("Peek Operation")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                1. Check if the stack is empty.
+                2. If not empty, return the element at the position pointed to by 'top' without modifying the stack.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Traversal:",
+                                    listOf("Traversal")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                1. Start from the bottom of the stack (index 0).
+                2. Iterate through each element up to the 'top' pointer.
+                3. Print each element during the traversal.
+                """.trimIndent()
+                                )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAIntermediateStageIds.lesson6_subs[4],
-                        title = "Nested Do-While Loops",
-                        description = "Learn how to use a do-while loop inside another do-while loop.",
+                        title = "How to Display Stacks",
+                        description = "Understand how to display elements in a stack.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Do-while loops guarantee that a block of code runs at least once, as the condition is checked after the first iteration. It ensures the task executes before the condition is evaluated for further iterations.",
-                                    listOf("")
+                                createSimpleText(
+                                    "To display a stack, iterate from the 'top' index to 0, printing each element. This way, the last added element is displayed first."
                                 )
                             ),
-                            ContentBlock.Text(createAnnotatedText("Syntax:", listOf())),
                             ContentBlock.Code(
                                 """
-do {
-    do {
-        // Perform action
-    } while (innerCondition);
-} while (outerCondition);
-""".trimIndent()
+                    void displayStack(Stack& s) {
+                        if (s.top == -1) {
+                            cout << "Stack is empty";
+                            return;
+                        }
+                        for (int i = s.top; i >= 0; --i) {
+                            cout << s.arr[i] << " ";
+                        }
+                        cout << endl;
+                    }
+                    """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAIntermediateStageIds.lesson6_subs[5],
-                        title = "Real-Life Examples",
-                        description = "See practical examples of nested loops in action.",
+                        title = "Importance of Stacks",
+                        description = "Understand the significance of stacks and their role in computer science.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Practical applications of nested loops include:",
+                                    "Stacks are fundamental to many algorithms and processes in computer science. Their LIFO nature is essential in tasks like function call management, expression evaluation, and backtracking algorithms. They enable efficient memory usage and provide simple yet powerful data management for linear tasks.",
                                     listOf("")
                                 )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "1.Nested for loops: Serve dishes to every table at a banquet.",
-                                    listOf("Nested for loops")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-for (int i = 0; i < tables; i++) {
-    for (int j = 0; j < dishes; j++) {
-        // Serve dish to table
-    }
-}
-""".trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "2.Nested while loops: Park cars in a multi-floor garage.",
-                                    listOf("Nested while loops")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-int floor = 0;
-while (floor < totalFloors) {
-    int spot = 0;
-    while (spot < spotsPerFloor) {
-        // Park car in spot
-    }
-}
-""".trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "3.For in while loop: Manage tasks for multiple projects.",
-                                    listOf("For", "while loop")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-int project = 0;
-while (project < totalProjects) {
-    for (int task = 0; task < tasksPerProject; task++) {
-        // Complete task for project
-    }
-}
-""".trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "4.While in for loop: Fill boxes with items until they're full.",
-                                    listOf("While", "for loop")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-for (int box = 0; box < totalBoxes; box++) {
-    while (notFull) {
-        // Add item to box
-    }
-}
-""".trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "5.Nested do-while loops: Clean each table in a café.",
-                                    listOf("Nested do-while loops")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-int table = 0;
-do {
-    int chair = 0;
-    do {
-        // Clean chair
-    } while (chair < chairsPerTable);
-    table++;
-} while (table < totalTables);
-""".trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAIntermediateStageIds.lesson6_subs[6],
-                        title = "Quiz",
-                        description = "Quiz",
-                        contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "Why would you use nested loops in programming?",
-                                options = listOf(
-                                    "To handle multiple levels of iteration where each level performs a task within the other.",
-                                    "To avoid the need for conditions in loops.",
-                                    "To improve the performance of a single loop.",
-                                    "To simplify the logic of a single loop."
-                                ),
-                                correctAnswer = "To handle multiple levels of iteration where each level performs a task within the other."
-                            ),
-                        ),
-                        type = LessonContentType.QUIZ
                     )
-
                 ),
                 status = LessonStatus.LOCKED
             ),
@@ -1419,206 +1482,315 @@ do {
             // lesson 7
             Lesson(
                 id = DSAIntermediateStageIds.lesson7,
-                title = "C Break and Continue",
-                description = "Master the break and continue statements to control loop flow in C! 🛑➡️",
+                title = "Queues",
+                description = "Dive into the world of queues, understanding their properties, operations, and practical applications. 📚",
                 lessonContents = listOf(
                     LessonContent(
                         id = DSAIntermediateStageIds.lesson7_subs[0],
-                        title = "Basic Break Statement",
-                        description = "Learn the simple use of the break statement in loops.",
+                        title = "Introduction to Queues",
+                        description = "Understand what queues are and their fundamental structure.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "The break statement terminates the current loop or switch statement, similar to exiting a loop early when a certain condition is met, such as encountering a specific case.",
-                                    listOf("break")
+                                    "A queue is a linear data structure that operates on the principle of First In, First Out (FIFO):",
+                                    listOf("queue", "linear data structure", "FIFO")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "In a queue, elements are added (enqueued) at the rear and removed (dequeued) from the front. Think of a line of people waiting to get into a movie theater where the first person in line is served first.",
+                                    listOf("enqueued", "dequeued", "rear", "front", "line of people")
                                 )
                             ),
                             ContentBlock.Code(
-                                """ 
-while (isPartyOn) {
-    if (bossStartsDancing) {
-        break;  // Leave the party (exit loop) right away
-    }
-    enjoySnacks();
-}
-"""
+                                """
+                    struct Queue {
+                        int arr[MAX_SIZE];   // Array to hold queue elements
+                        int front;           // Index of the front element
+                        int rear;            // Index of the rear element
+                    };
+                    
+                    // Example: Queue initialization
+                    Queue q;
+                    q.front = -1; // Initialize queue
+                    q.rear = -1;
+                    """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAIntermediateStageIds.lesson7_subs[1],
-                        title = "Basic Continue Statement",
-                        description = "Understand the basic usage of continue to skip loop iterations.",
+                        title = "Manual Walkthrough: Creation and Operations",
+                        description = "Manually create and perform basic operations on a queue.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "The continue statement skips the current iteration of a loop and moves to the next iteration, similar to skipping a step in a sequence when a condition is met.",
-                                    listOf("continue")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """ 
-for (int dish = 0; dish < buffetSize; dish++) {
-    if (dish == spicyCurry) {
-        continue;  // Skip the spicy curry and go to the next dish
-    }
-    eat(dish);
-}
-"""
-                            )
+                            ContentBlock.Text(createSimpleText("Let's walk through the process of creating and performing basic operations on a queue step-by-step.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 1:", listOf("Step 1:"))),
+                            ContentBlock.Text(createSimpleText("Define a queue structure using an array or a linked list to store elements. Include variables (e.g., 'front' and 'rear') to track the start and end of the queue.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 2:", listOf("Step 2:"))),
+                            ContentBlock.Text(createSimpleText("Initialize the queue by setting 'front' and 'rear' to -1 (for array-based implementation) or NULL (for linked list-based implementation).")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 3:", listOf("Step 3:"))),
+                            ContentBlock.Text(createSimpleText("Implement the Enqueue operation to add an element to the rear of the queue. For an array, increment 'rear' and assign the new value. For a linked list, create a new node and update pointers.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 4:", listOf("Step 4:"))),
+                            ContentBlock.Text(createSimpleText("Implement the Dequeue operation to remove the front element. For an array, access the element at 'front' and increment 'front'. For a linked list, remove the front node and update the head pointer.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 5:", listOf("Step 5:"))),
+                            ContentBlock.Text(createSimpleText("Implement the Peek operation to view the front element without removing it. Access the element at 'front' for an array or the head node for a linked list.")),
+
+                            ContentBlock.Text(createAnnotatedText("Example: Operations on a Queue", listOf("Operations on a Queue"))),
+                            ContentBlock.Code("""
+            // Array-based queue implementation
+            struct Queue {
+                int arr[100];
+                int front = -1, rear = -1;
+            };
+
+            void enqueue(Queue& q, int value) {
+                if (q.rear == 99) {
+                    cout << "Queue Overflow";
+                    return;
+                }
+                if (q.front == -1) q.front = 0; // Initialize front if first element is added
+                q.arr[++q.rear] = value;
+            }
+
+            int dequeue(Queue& q) {
+                if (q.front == -1 || q.front > q.rear) {
+                    cout << "Queue Underflow";
+                    return -1;
+                }
+                return q.arr[q.front++];
+            }
+
+            int peek(const Queue& q) {
+                if (q.front == -1 || q.front > q.rear) {
+                    cout << "Queue is empty";
+                    return -1;
+                }
+                return q.arr[q.front];
+            }
+        """.trimIndent()),
+
+                            ContentBlock.Text(createSimpleText("This walkthrough demonstrates how elements are enqueued, dequeued, and accessed in a queue using simple operations.")),
+
+                            ContentBlock.Text(createAnnotatedText("Key Points to Remember:", listOf("Key Points"))),
+                            ContentBlock.Text(createSimpleText("""
+            1. A queue operates on the FIFO (First In, First Out) principle.
+            2. Enqueue adds an element to the rear.
+            3. Dequeue removes the front element.
+            4. Peek retrieves the front element without removing it.
+        """.trimIndent()))
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAIntermediateStageIds.lesson7_subs[2],
-                        title = "Break in Nested Loops",
-                        description = "Learn how to use break in nested loops.",
+                        title = "Operations on Queue",
+                        description = "Learn how to perform basic operations like Enqueue, Dequeue, Peek, and Traversal.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "In nested loops, the break statement terminates the innermost loop, similar to exiting a loop when a specific condition is met, such as finding the target element.",
-                                    listOf("break")
+                                    "Enqueue Operation:\n" +
+                                            "Adding a new element to the rear of the queue involves updating the 'rear' pointer.",
+                                    listOf("Enqueue Operation:", "rear")
                                 )
                             ),
                             ContentBlock.Code(
-                                """ 
-for (int section = 0; section < 5; section++) {
-    for (int spot = 0; spot < 10; spot++) {
-        if (foundKey(section, spot)) {
-            break;  // Stop searching this section
-        }
-    }
-}
-"""
+                                """
+            void enqueue(Queue& q, int value) {
+                if (q.rear == MAX_SIZE - 1) { // Queue overflow
+                    cout << "Queue Overflow" << endl;
+                    return;
+                }
+                if (q.front == -1) q.front = 0; // Initialize front if first element
+                q.arr[++q.rear] = value; // Increment rear and add value
+            }
+            """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Dequeue Operation:\n" +
+                                            "Removing the front element involves accessing and incrementing the 'front' pointer.",
+                                    listOf("Dequeue Operation:")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+            int dequeue(Queue& q) {
+                if (q.front == -1 || q.front > q.rear) { // Queue underflow
+                    cout << "Queue Underflow" << endl;
+                    return -1;
+                }
+                return q.arr[q.front++]; // Access and increment front
+            }
+            """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Peek Operation:\n" +
+                                            "Retrieving the front element without removing it involves accessing the 'front' pointer.",
+                                    listOf("Peek Operation:")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+            int peek(const Queue& q) {
+                if (q.front == -1 || q.front > q.rear) { // Queue is empty
+                    cout << "Queue is empty" << endl;
+                    return -1;
+                }
+                return q.arr[q.front]; // Access front
+            }
+            """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Traversal:\n" +
+                                            "Iterating over the queue involves visiting each element from the front to the rear.",
+                                    listOf("Traversal:")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+            void traverse(const Queue& q) {
+                if (q.front == -1 || q.front > q.rear) { // Queue is empty
+                    cout << "Queue is empty" << endl;
+                    return;
+                }
+                for (int i = q.front; i <= q.rear; ++i) {
+                    cout << q.arr[i] << " ";
+                }
+                cout << endl;
+            }
+            """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAIntermediateStageIds.lesson7_subs[3],
-                        title = "Quiz",
-                        description = "Quiz",
+                        title = "How Queue Operations Work",
+                        description = "Detailed step-by-step breakdown of Enqueue, Dequeue, Peek, and Traversal operations in a queue.",
                         contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "What is the correct statement to exit the current loop and stop further iterations in a nested loop?",
-                                incompleteCode = """
-                for (int section = 0; section < 5; section++) {
-                    for (int spot = 0; spot < 10; spot++) {
-                        if (foundKey(section, spot)) {
-                            ___;  // What statement should go here to exit the loop?
-                        }
-                    }
-                }
-            """.trimIndent(),
-                                correctCode = "break", // The correct code to complete the missing part
-                                userInput = null, // Placeholder for user input
-                                isCodeCorrect = false // Initially set to false, can be updated based on user input
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Let's break down the operations on queues step-by-step to understand their mechanics."
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Enqueue Operation:",
+                                    listOf("Enqueue Operation")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                1. Check if the queue is full (overflow condition).
+                2. If not full, increment the 'rear' pointer.
+                3. Insert the new element at the position pointed to by 'rear'.
+                4. If the queue was previously empty, initialize the 'front' pointer to the first element.
+                5. Operation complete.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Dequeue Operation:",
+                                    listOf("Dequeue Operation")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                1. Check if the queue is empty (underflow condition).
+                2. If not empty, retrieve the element at the position pointed to by 'front'.
+                3. Increment the 'front' pointer to remove the element from the queue.
+                4. If the queue becomes empty, reset 'front' and 'rear' pointers to -1.
+                5. Return the retrieved element.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Peek Operation:",
+                                    listOf("Peek Operation")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                1. Check if the queue is empty.
+                2. If not empty, return the element at the position pointed to by 'front' without modifying the queue.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Traversal:",
+                                    listOf("Traversal")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                1. Start from the 'front' pointer.
+                2. Iterate through each element up to the 'rear' pointer.
+                3. Print each element during the traversal.
+                """.trimIndent()
+                                )
                             )
                         ),
-                        type = LessonContentType.INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAIntermediateStageIds.lesson7_subs[4],
-                        title = "Continue in Nested Loops",
-                        description = "See how to use continue in nested loops to skip iterations.",
+                        title = "How to Display Queues",
+                        description = "Understand how to display elements in a queue.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "In nested loops, the continue statement skips the current iteration of the innermost loop and proceeds to the next iteration, similar to skipping a condition and continuing the loop.",
-                                    listOf("continue")
+                                createSimpleText(
+                                    "To display a queue, iterate from the 'front' index to the 'rear' index, printing each element in order. This way, elements are displayed in the order they were added."
                                 )
                             ),
                             ContentBlock.Code(
-                                """ 
-for (int street = 0; street < 5; street++) {
-    for (int house = 0; house < 10; house++) {
-        if (isNoisyHouse(street, house)) {
-            continue;  // Skip noisy house and move to next
-        }
-        collectCandy(house);
-    }
-}
-"""
+                                """
+            void displayQueue(Queue& q) {
+                if (q.front == -1 || q.front > q.rear) {
+                    cout << "Queue is empty";
+                    return;
+                }
+                for (int i = q.front; i <= q.rear; ++i) {
+                    cout << q.arr[i] << " ";
+                }
+                cout << endl;
+            }
+            """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAIntermediateStageIds.lesson7_subs[5],
-                        title = "Quiz",
-                        description = "Quiz",
-                        contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "What statement should go inside the loop to skip the noisy house and continue to the next one?",
-                                incompleteCode = """
-                for (int street = 0; street < 5; street++) {
-                    for (int house = 0; house < 10; house++) {
-                        if (isNoisyHouse(street, house)) {
-                            ___;  // What statement should go here to skip the noisy house?
-                        }
-                        collectCandy(house);
-                    }
-                }
-            """.trimIndent(),
-                                correctCode = "continue", // The correct code to complete the missing part
-                                userInput = null, // Placeholder for user input
-                                isCodeCorrect = false // Initially set to false, can be updated based on user input
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAIntermediateStageIds.lesson7_subs[6],
-                        title = "Real-Life Examples",
-                        description = "Check out practical examples of break and continue in loops.",
+                        title = "Importance of Queues",
+                        description = "Understand the significance of queues and their role in computer science.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Imagine you're in a zombie apocalypse. Use break to escape when you find a safe house and continue to skip areas full of zombies.",
+                                    """
+                Queues are fundamental to many algorithms and processes in computer science. Their FIFO nature is essential in tasks like task scheduling, resource management, and breadth-first search (BFS) algorithms. They provide efficient data handling for linear tasks where order is crucial, such as print job management and process scheduling in operating systems.
+                """.trimIndent(),
                                     listOf("")
                                 )
-                            ),
-                            ContentBlock.Code(
-                                """ 
-while (true) {
-    if (isSafeHouseFound()) {
-        break;  // Escape to the safe house
-    }
-    moveToNextLocation();
-}
-
-for (int location = 0; location < 10; location++) {
-    if (isZombieArea(location)) {
-        continue;  // Skip zombie areas
-    }
-    loot(location);
-}
-"""
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAIntermediateStageIds.lesson7_subs[7],
-                        title = "Quiz",
-                        description = "Quiz",
-                        contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "What is the correct statement to exit the current loop and stop further iterations in a nested loop?",
-                                options = listOf(
-                                    "break",
-                                    ";",
-                                    "int",
-                                    "0"
-                                ),
-                                correctAnswer = "break", // The correct answer option
-                                userAnswer = null, // Placeholder for user input
-                                isCorrect = false // Initially set to false, can be updated based on user input
-                            )
-                        ),
-                        type = LessonContentType.QUIZ
-                    ),
+                    )
+
                 ),
                 status = LessonStatus.LOCKED
             ),
@@ -1626,209 +1798,280 @@ for (int location = 0; location < 10; location++) {
             // lesson 8
             Lesson(
                 id = DSAIntermediateStageIds.lesson8,
-                title = "C Arrays",
-                description = "Master arrays in C for efficient data storage and access! 🗃️",
+                title = "Hash Tables",
+                description = "Explore the powerful world of hash tables, understanding their structure, operations, and practical applications. 📚",
                 lessonContents = listOf(
                     LessonContent(
                         id = DSAIntermediateStageIds.lesson8_subs[0],
-                        title = "Introduction to Arrays",
-                        description = "Learn how arrays store similar data in sequence.",
+                        title = "Introduction to Hash Tables",
+                        description = "Understand what hash tables are and their fundamental structure.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "An array is a data structure that stores multiple elements in a sequential order, and each element can be accessed using its index, which identifies its position in the array.",
-                                    listOf("array")
+                                    "A hash table is a data structure that stores key-value pairs for efficient lookup, insertion, and deletion using a hash function:",
+                                    listOf("hash table", "data structure", "hash function")
                                 )
                             ),
-                            ContentBlock.Code("int sales[7];  // An array to track sales for 7 days.")
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "In a hash table, a hash function computes an index from a key, and the value is stored at that index. It is commonly used for tasks requiring fast access, such as dictionaries and caches.",
+                                    listOf("hash function", "index", "key-value pair")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+                    struct HashTable {
+                        int arr[MAX_SIZE];   // Array to hold values
+                        bool occupied[MAX_SIZE]; // Tracks whether a slot is occupied
+                        int hash(int key) {
+                            return key % MAX_SIZE; // Simple hash function
+                        }
+                    };
+                    
+                    // Example: HashTable initialization
+                    HashTable ht;
+                    for (int i = 0; i < MAX_SIZE; ++i) {
+                        ht.occupied[i] = false; // Initialize slots as empty
+                    }
+                    """.trimIndent()
+                            )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAIntermediateStageIds.lesson8_subs[1],
-                        title = "Array Declaration and Initialization",
-                        description = "Learn how to create and fill arrays.",
+                        title = "Manual Walkthrough: Creation and Operations",
+                        description = "Manually create and perform basic operations on a hash table.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "In programming, you can declare an array by specifying its type and size without initializing its values, or you can initialize it by assigning values immediately. The array size is fixed once defined, but the values (elements) within can be modified.",
-                                    listOf("")
-                                )
-                            ),
+                            ContentBlock.Text(createSimpleText("Let's walk through the process of creating and performing basic operations on a hash table step-by-step.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 1:", listOf("Step 1:"))),
+                            ContentBlock.Text(createSimpleText("Define a hash table structure with an array to store values and a way to track occupancy.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 2:", listOf("Step 2:"))),
+                            ContentBlock.Text(createSimpleText("Initialize the hash table by marking all slots as unoccupied.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 3:", listOf("Step 3:"))),
+                            ContentBlock.Text(createSimpleText("Implement the Insert operation to add a key-value pair. Use the hash function to compute an index, and handle collisions if necessary.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 4:", listOf("Step 4:"))),
+                            ContentBlock.Text(createSimpleText("Implement the Search operation to find a value using a key. Compute the hash and check the corresponding slot.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 5:", listOf("Step 5:"))),
+                            ContentBlock.Text(createSimpleText("Implement the Delete operation to remove a key-value pair. Mark the slot as unoccupied.")),
+
+                            ContentBlock.Text(createAnnotatedText("Example: Operations on a Hash Table", listOf("Operations on a Hash Table"))),
                             ContentBlock.Code(
                                 """
-                int donuts[5] = {10, 20, 30, 40, 50};  // Declared and filled with numbers.
-                int donuts[] = {10, 20};  // Size inferred: 2 boxes.
-                """.trimIndent()
+                    // Hash table implementation
+                    struct HashTable {
+                        int arr[MAX_SIZE];
+                        bool occupied[MAX_SIZE];
+                    };
+
+                    void insert(HashTable& ht, int key, int value) {
+                        int index = key % MAX_SIZE;
+                        while (ht.occupied[index]) {
+                            index = (index + 1) % MAX_SIZE; // Handle collision
+                        }
+                        ht.arr[index] = value;
+                        ht.occupied[index] = true;
+                    }
+
+                    int search(HashTable& ht, int key) {
+                        int index = key % MAX_SIZE;
+                        while (ht.occupied[index] && ht.arr[index] != key) {
+                            index = (index + 1) % MAX_SIZE; // Check next slot
+                        }
+                        return ht.occupied[index] ? ht.arr[index] : -1;
+                    }
+                    """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAIntermediateStageIds.lesson8_subs[2],
-                        title = "Accessing Array Elements",
-                        description = "How to get or change array elements using their index.",
+                        title = "Operations on Hash Tables",
+                        description = "Learn how to perform basic operations like Insert, Search, and Delete.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "In an array, elements are accessed using indices (0, 1, 2), which determine the position of each element in the data structure. The index allows direct retrieval or modification of the value stored at that position.",
-                                    listOf("")
+                                    "Insert Operation:\n" +
+                                            "Adding a key-value pair involves computing the hash and resolving any collisions.",
+                                    listOf("Insert Operation:")
                                 )
-
                             ),
                             ContentBlock.Code(
                                 """
-                int donuts[3] = {10, 20, 30};
-                printf("%d", donuts[0]);  // Check Box 0: 10 donuts.
-                donuts[1] = 25;  // Restock Box 1 with 25 donuts.
-                """.trimIndent()
+                    void insert(HashTable& ht, int key, int value) {
+                        int index = key % MAX_SIZE;
+                        while (ht.occupied[index]) {
+                            index = (index + 1) % MAX_SIZE; // Resolve collision
+                        }
+                        ht.arr[index] = value;
+                        ht.occupied[index] = true;
+                    }
+                    """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Search Operation:\n" +
+                                            "Finding a value involves computing the hash and checking the corresponding slot.",
+                                    listOf("Search Operation:")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+                    int search(HashTable& ht, int key) {
+                        int index = key % MAX_SIZE;
+                        while (ht.occupied[index] && ht.arr[index] != key) {
+                            index = (index + 1) % MAX_SIZE; // Check next slot
+                        }
+                        return ht.occupied[index] ? ht.arr[index] : -1;
+                    }
+                    """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAIntermediateStageIds.lesson8_subs[3],
-                        title = "Quiz",
-                        description = "Quiz",
-                        contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "What is the correct way to initialize an array with 5 elements?",
-                                incompleteCode = "int donuts[___] = {10, 20, 30, 40, 50};  // Declared and filled with numbers.",
-                                correctCode = "5"
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAIntermediateStageIds.lesson8_subs[4],
-                        title = "Array Size",
-                        description = "Find out how many elements an array can hold.",
+                        title = "How Hash Table Operations Work",
+                        description = "Detailed step-by-step breakdown of Insert, Search, Delete, and Traversal operations in a hash table.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "The array size is determined by allocating a fixed amount of memory for a specific number of elements. By calculating the total memory available and dividing it by the memory required for each element, you can determine the array's capacity, just like calculating how many elements fit into a fixed memory space.",
-                                    listOf("")
+                                createSimpleText(
+                                    "Let's break down the operations on hash tables step-by-step to understand their mechanics."
                                 )
                             ),
-                            ContentBlock.Code(
-                                """
-                int boxes[6];
-                int count = sizeof(boxes) / sizeof(boxes[0]);
-                printf("Total boxes: %d", count);
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Insert Operation:",
+                                    listOf("Insert Operation")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                1. Compute the hash value of the key using a hash function.
+                2. Determine the index in the hash table using the hash value.
+                3. Check if the index is empty:
+                   If empty, insert the key-value pair at this index.
+                   If occupied (collision), use a collision resolution technique (e.g., chaining or open addressing).
+                4. Operation complete.
                 """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Search Operation:",
+                                    listOf("Search Operation")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                1. Compute the hash value of the key using the hash function.
+                2. Determine the index in the hash table using the hash value.
+                3. Check the index:
+                   If the index is empty, the key is not present.
+                   If not empty, compare the stored key with the desired key:
+                     If a match is found, return the associated value.
+                     If a collision occurred, traverse the linked list or probe further as per the resolution method.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Delete Operation:",
+                                    listOf("Delete Operation")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                1. Compute the hash value of the key to be deleted using the hash function.
+                2. Determine the index in the hash table using the hash value.
+                3. Check the index:
+                   If empty, the key is not present.
+                   If not empty, compare the stored key with the desired key:
+                     If a match is found, delete the key-value pair.
+                     If a collision occurred, traverse the linked list or probe further to locate and delete the key.
+                4. Handle any necessary reorganization (e.g., rehashing) depending on the collision resolution strategy.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Traversal:",
+                                    listOf("Traversal")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                1. Iterate through each index in the hash table.
+                2. For each index, check if it contains any entries:
+                   If empty, skip to the next index.
+                   If occupied, retrieve and print the key-value pairs stored at this index.
+                3. Continue until all indices have been traversed.
+                """.trimIndent()
+                                )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = DSAIntermediateStageIds.lesson8_subs[5],
-                        title = "2D array",
-                        description = "Organize data in rows and columns.",
+                        id = DSAIntermediateStageIds.lesson7_subs[4],
+                        title = "How to Display Hash Tables",
+                        description = "Understand how to display elements in a hash table.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "An array of arrays (2D array) organizes data in a matrix-like structure. Rows represent one dimension (e.g., flavor), and columns represent another dimension (e.g., color). You can access a specific element by specifying its row and column indices, like 'array[1][0]!'",
-                                    listOf("2D array")
+                                createSimpleText(
+                                    "To display a hash table, iterate through each index and print the keys and values stored at each position. For indices with collisions, display all entries in the chain or handle as per the collision resolution technique."
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-                int display[2][3] = {
-                    {1, 2, 3},  // Chocolate donuts
-                    {4, 5, 6}   // Vanilla donuts
-                };
-                printf("Donuts: %d", display[0][2]);  // Chocolate, column 2.
-                """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAIntermediateStageIds.lesson8_subs[6],
-                        title = "Array Operations",
-                        description = "Sort or search elements in arrays.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Sorting algorithms help organize data in a specific order, such as ascending or descending. Searching algorithms allow you to find specific elements in a sorted or unsorted data structure, like searching for a value in an array or list.",
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-                int donuts[5] = {5, 2, 4, 1, 3};
-                // Bubble sort to organize boxes.
-                for (int i = 0; i < 4; i++) {
-                    for (int j = 0; j < 4 - i; j++) {
-                        if (donuts[j] > donuts[j + 1]) {
-                            int temp = donuts[j];
-                            donuts[j] = donuts[j + 1];
-                            donuts[j + 1] = temp;
+            void displayHashTable(HashTable& ht) {
+                for (int i = 0; i < ht.size; ++i) {
+                    cout << "Index " << i << ": ";
+                    if (ht.table[i].empty()) {
+                        cout << "Empty" << endl;
+                    } else {
+                        for (auto& pair : ht.table[i]) {
+                            cout << "{" << pair.key << ": " << pair.value << "} ";
                         }
+                        cout << endl;
                     }
                 }
-                // Search for a box with 3 donuts.
-                int target = 3;
-                for (int i = 0; i < 5; i++) {
-                    if (donuts[i] == target) printf("Found at index %d", i);
-                }
-                """.trimIndent()
+            }
+            """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = DSAIntermediateStageIds.lesson8_subs[7],
-                        title = "Quiz",
-                        description = "Quiz",
-                        contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "How do you access an element in a multidimensional array?",
-                                incompleteCode = "int display[2][3] = {{1, 2, 3}, {4, 5, 6}};\nprintf(\"Donuts: %d\", display[___][2]);  // Access second row, third column",
-                                correctCode = "0"
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = "intermediate_c8_sub9",
-                        title = "Real-Life Example with Arrays",
-                        description = "Track and analyze data using arrays.",
+                        id = DSAIntermediateStageIds.lesson7_subs[5],
+                        title = "Importance of Hash Tables",
+                        description = "Understand the significance of hash tables and their role in computer science.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Imagine you’re tracking donut sales for a week. Each day, you record the total donuts sold. With an array, you can easily calculate the total or average sales for the week. It’s like being a donut shop data analyst!"
+                                    """
+                Hash tables are crucial in computer science for efficient data storage and retrieval. Their constant average-time complexity for insert, search, and delete operations makes them indispensable in scenarios like symbol tables in compilers, caching, database indexing, and sets/maps implementations. Their ability to handle large datasets effectively supports critical tasks where performance is paramount.
+                """.trimIndent(),
+                                    listOf("")
                                 )
-                            ),
-                            ContentBlock.Code(
-                                """
-                float weeklySales[7] = {100.5, 110.2, 120.8, 130.1, 125.4, 115.6, 108.9};
-                float total = 0;
-                for (int i = 0; i < 7; i++) total += weeklySales[i];
-                float avg = total / 7;
-                printf("Average sales: %.2f", avg);
-                """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAIntermediateStageIds.lesson8_subs[8],
-                        title = "Quiz",
-                        description = "Quiz",
-                        contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "How do you calculate the total number of elements in an array?",
-                                options = listOf(
-                                    "sizeof(array) / sizeof(array[0])",
-                                    "array[0] * sizeof(array)",
-                                    "sizeof(array)",
-                                    "sizeof(array[0])"
-                                ),
-                                correctAnswer = "sizeof(array) / sizeof(array[0])"
-                            )
-                        ),
-                        type = LessonContentType.QUIZ
                     )
+
+
+
+
                 ),
                 status = LessonStatus.LOCKED
             ),
