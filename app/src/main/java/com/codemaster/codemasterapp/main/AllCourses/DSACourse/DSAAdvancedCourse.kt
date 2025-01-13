@@ -4484,124 +4484,174 @@ public class Main {
                     ),
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson12_subs[4],
-                        title = "How to Represent Graphs",
-                        description = "Understand the different ways to represent graphs and their properties, enabling efficient traversal and operations.",
+                        title = "How to Detect Graph Properties",
+                        description = "Understand how to detect various graph properties such as cycles, connected components, and bipartiteness, enabling efficient graph analysis.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createSimpleText(
-                                    "Graphs can be represented in multiple ways depending on the type of graph (directed, undirected, weighted, unweighted). Common representations include adjacency matrix and adjacency list, each having its unique advantages and trade-offs."
+                                    "Detecting graph properties is crucial for understanding the structure of a graph. In this lesson, we'll cover how to detect properties like cycles, connected components, and whether a graph is bipartite."
                                 )
                             ),
                             ContentBlock.Text(
                                 createSimpleText(
                                     """
-    Key Properties of Graph Representations:
-    1. **Adjacency Matrix**: A 2D array where each cell indicates the presence (or weight) of an edge between two vertices.
-    2. **Adjacency List**: A list where each index represents a vertex and contains a list of all adjacent vertices.
-    3. The choice of representation depends on the graph's density and the operations you need to perform.
+    Key Properties to Detect in Graphs:
+    1. **Cycles**: A cycle exists if there is a path from a vertex back to itself.
+    2. **Connected Components**: A graph is fully connected if there is a path between every pair of vertices.
+    3. **Bipartiteness**: A graph is bipartite if its vertices can be divided into two disjoint sets such that no two vertices within the same set are adjacent.
                 """.trimIndent()
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-    // Example: Graph Representation
-    import java.util.*;
+// Example: Graph Detection
+import java.util.*;
 
-    // Adjacency Matrix Representation
-    class AdjacencyMatrixGraph {
-        int[][] matrix;
-        int vertices;
+// Detecting Cycles in a Directed Graph using DFS
+class Graph {
+    int vertices;
+    LinkedList<Integer>[] adjList;
 
-        AdjacencyMatrixGraph(int vertices) {
-            this.vertices = vertices;
-            this.matrix = new int[vertices][vertices];
-        }
-
-        void addEdge(int src, int dest) {
-            matrix[src][dest] = 1; // For weighted graph, set weight instead of 1
-            // Uncomment for undirected graph
-            // matrix[dest][src] = 1;
-        }
-
-        void printMatrix() {
-            for (int i = 0; i < vertices; i++) {
-                System.out.println(Arrays.toString(matrix[i]));
-            }
+    Graph(int vertices) {
+        this.vertices = vertices;
+        adjList = new LinkedList[vertices];
+        for (int i = 0; i < vertices; i++) {
+            adjList[i] = new LinkedList<>();
         }
     }
 
-    // Adjacency List Representation
-    class AdjacencyListGraph {
-        LinkedList<Integer>[] adjList;
-        int vertices;
+    void addEdge(int src, int dest) {
+        adjList[src].add(dest);
+    }
 
-        AdjacencyListGraph(int vertices) {
-            this.vertices = vertices;
-            adjList = new LinkedList[vertices];
-            for (int i = 0; i < vertices; i++) {
-                adjList[i] = new LinkedList<>();
+    // Detect cycle using DFS
+    boolean detectCycle() {
+        boolean[] visited = new boolean[vertices];
+        boolean[] inStack = new boolean[vertices]; // Keeps track of recursion stack
+
+        for (int i = 0; i < vertices; i++) {
+            if (detectCycleUtil(i, visited, inStack)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean detectCycleUtil(int vertex, boolean[] visited, boolean[] inStack) {
+        if (inStack[vertex]) return true;
+        if (visited[vertex]) return false;
+
+        visited[vertex] = true;
+        inStack[vertex] = true;
+
+        for (int neighbor : adjList[vertex]) {
+            if (detectCycleUtil(neighbor, visited, inStack)) {
+                return true;
             }
         }
 
-        void addEdge(int src, int dest) {
-            adjList[src].add(dest);
-            // Uncomment for undirected graph
-            // adjList[dest].add(src);
-        }
+        inStack[vertex] = false; // Remove from recursion stack
+        return false;
+    }
 
-        void printList() {
-            for (int i = 0; i < vertices; i++) {
-                System.out.print(i + ": ");
-                for (int neighbor : adjList[i]) {
-                    System.out.print(neighbor + " ");
-                }
+    // Detect connected components (for undirected graph)
+    void detectConnectedComponents() {
+        boolean[] visited = new boolean[vertices];
+
+        for (int i = 0; i < vertices; i++) {
+            if (!visited[i]) {
+                bfs(i, visited);
                 System.out.println();
             }
         }
     }
 
-    // Example Usage:
-    public static void main(String[] args) {
-        // Adjacency Matrix
-        AdjacencyMatrixGraph matrixGraph = new AdjacencyMatrixGraph(5);
-        matrixGraph.addEdge(0, 1);
-        matrixGraph.addEdge(0, 4);
-        matrixGraph.addEdge(1, 2);
-        matrixGraph.printMatrix();
+    private void bfs(int start, boolean[] visited) {
+        Queue<Integer> queue = new LinkedList<>();
+        visited[start] = true;
+        queue.add(start);
 
-        // Adjacency List
-        AdjacencyListGraph listGraph = new AdjacencyListGraph(5);
-        listGraph.addEdge(0, 1);
-        listGraph.addEdge(0, 4);
-        listGraph.addEdge(1, 2);
-        listGraph.printList();
+        while (!queue.isEmpty()) {
+            int vertex = queue.poll();
+            System.out.print(vertex + " ");
+
+            for (int neighbor : adjList[vertex]) {
+                if (!visited[neighbor]) {
+                    visited[neighbor] = true;
+                    queue.add(neighbor);
+                }
+            }
+        }
     }
+
+    // Detect if the graph is bipartite
+    boolean isBipartite() {
+        int[] colors = new int[vertices];
+        Arrays.fill(colors, -1); // -1 means no color assigned
+
+        for (int i = 0; i < vertices; i++) {
+            if (colors[i] == -1 && !bfsBipartite(i, colors)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean bfsBipartite(int start, int[] colors) {
+        Queue<Integer> queue = new LinkedList<>();
+        colors[start] = 1; // Assign a color
+
+        queue.add(start);
+        while (!queue.isEmpty()) {
+            int vertex = queue.poll();
+
+            for (int neighbor : adjList[vertex]) {
+                if (colors[neighbor] == -1) {
+                    // Assign alternate color
+                    colors[neighbor] = 1 - colors[vertex];
+                    queue.add(neighbor);
+                } else if (colors[neighbor] == colors[vertex]) {
+                    return false; // Same color, not bipartite
+                }
+            }
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        Graph graph = new Graph(5); // Create a graph with 5 vertices
+        graph.addEdge(0, 1);
+        graph.addEdge(1, 2);
+        graph.addEdge(2, 0); // Creating a cycle
+
+        System.out.println("Cycle detected: " + graph.detectCycle());
+
+        graph.detectConnectedComponents();
+
+        System.out.println("Graph is bipartite: " + graph.isBipartite());
+    }
+}
             """.trimIndent()
                             ),
                             ContentBlock.Text(
                                 createSimpleText(
                                     """
-    Example:
-        Represent a graph with 5 vertices and edges:
+    Example Usage:
+        In this example, we create a graph with 5 vertices and edges:
         - 0 → 1
-        - 0 → 4
         - 1 → 2
+        - 2 → 0 (creating a cycle)
         
-        Using Adjacency Matrix:
-        [
-            [0, 1, 0, 0, 1],
-            [0, 0, 1, 0, 0],
-            [0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0]
-        ]
+        The graph will detect if there is a cycle, detect the connected components, and determine if the graph is bipartite.
         
-        Using Adjacency List:
-        0: 1 4
-        1: 2
-        2:
-        3:
-        4:
+    Cycle Detection:
+        The graph contains a cycle since vertex 0, 1, and 2 form a cycle (0 → 1 → 2 → 0).
+        
+    Connected Components:
+        The graph may be split into different components if there are disconnected vertices.
+
+    Bipartiteness:
+        The graph is bipartite if it is possible to color it with two colors such that no two adjacent vertices share the same color. In this example, the graph will determine whether the graph can be split into two sets without conflict.
                 """.trimIndent()
                                 )
                             )
