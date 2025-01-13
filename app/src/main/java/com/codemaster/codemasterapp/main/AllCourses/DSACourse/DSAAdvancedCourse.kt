@@ -3894,34 +3894,34 @@ val graph = mutableMapOf(
             // Lesson 12
             Lesson(
                 id = DSAAdvancedStageIds.lesson12,
-                title = "Graphs Traversals",
-                description = "Learn the core graph traversal techniques, including BFS and DFS, and how to apply them to explore graphs. 🌐",
+                title = "Graph Detection",
+                description = "Learn how to detect graphs and their properties, including cycle detection and connected components. 🌐",
                 lessonContents = listOf(
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson12_subs[0],
-                        title = "Introduction to Graph Traversals",
-                        description = "Explore the importance of graph traversals and the basic algorithms: BFS (Breadth-First Search) and DFS (Depth-First Search).",
+                        title = "Introduction to Graph Detection",
+                        description = "Explore the importance of detecting graphs and identifying their properties, such as cycles and connectivity.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-A graph traversal refers to visiting all the vertices or nodes in a graph. There are two main types of graph traversals:
-1. **Breadth-First Search (BFS)**: Explores all vertices at the present depth level before moving on to vertices at the next depth level.
-2. **Depth-First Search (DFS)**: Explores as far as possible along each branch before backing up.
+Graph detection refers to the process of identifying the existence of specific structures or patterns within a graph. In graph detection, we focus on detecting cycles, connectivity, and other important properties. The key concepts we will cover include:
+1. **Cycle Detection**: Identifying if a graph contains cycles (circular paths).
+2. **Connected Components**: Identifying if a graph is connected or if it consists of multiple disconnected subgraphs.
                     """,
-                                    listOf("BFS", "DFS", "graph traversal")
+                                    listOf("graph detection", "cycle detection", "connected components")
                                 )
                             ),
                             ContentBlock.Text(
                                 createSimpleText(
                                     """
-BFS is implemented using a queue, where vertices are visited in levels. DFS is typically implemented using recursion or a stack, exploring deeper into the graph before moving to the next branch.
+Graph detection is crucial in understanding the nature of a graph and can be applied to solve problems such as detecting loops in a network, identifying isolated nodes, or checking if a graph is fully connected.
                     """.trimIndent()
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-// Graph Representation for BFS and DFS
+// Graph Representation for Cycle Detection and Connected Components
 // Adjacency List for an undirected graph:
 // 0 - 1 - 2
 //     |
@@ -3933,8 +3933,69 @@ val graph = mutableMapOf(
     2 to listOf(1),
     3 to listOf(1)
 )
+
+// Function to check if a graph has a cycle using DFS
+fun hasCycle(graph: Map<Int, List<Int>>): Boolean {
+    val visited = mutableSetOf<Int>()
+    val recStack = mutableSetOf<Int>()
+
+    fun dfs(v: Int): Boolean {
+        if (v in recStack) return true
+        if (v in visited) return false
+
+        visited.add(v)
+        recStack.add(v)
+
+        for (neighbor in graph[v] ?: emptyList()) {
+            if (dfs(neighbor)) return true
+        }
+
+        recStack.remove(v)
+        return false
+    }
+
+    for (vertex in graph.keys) {
+        if (dfs(vertex)) return true
+    }
+    return false
+}
+
+// Function to find connected components using DFS
+fun findConnectedComponents(graph: Map<Int, List<Int>>): List<List<Int>> {
+    val visited = mutableSetOf<Int>()
+    val components = mutableListOf<List<Int>>()
+
+    fun dfs(v: Int, component: MutableList<Int>) {
+        visited.add(v)
+        component.add(v)
+        for (neighbor in graph[v] ?: emptyList()) {
+            if (neighbor !in visited) dfs(neighbor, component)
+        }
+    }
+
+    for (vertex in graph.keys) {
+        if (vertex !in visited) {
+            val component = mutableListOf<Int>()
+            dfs(vertex, component)
+            components.add(component)
+        }
+    }
+
+    return components
+}
                     """.trimIndent()
-                            )
+                            ),
+                            ContentBlock.Text(createSimpleText("In this example, we use a graph represented by an adjacency list to detect cycles and find connected components.")),
+
+                            ContentBlock.Text(createSimpleText("### Cycle Detection:")),
+                            ContentBlock.Text(createSimpleText("Cycle detection is important for identifying loops in a graph. In the provided example, the `hasCycle` function uses DFS to check for cycles in the graph.")),
+                            ContentBlock.Text(createSimpleText("For example, in the graph above, there is no cycle, so the function will return `false`.")),
+
+                            ContentBlock.Text(createSimpleText("### Connected Components:")),
+                            ContentBlock.Text(createSimpleText("Connected components are subgraphs in which there is a path between every pair of vertices. The `findConnectedComponents` function helps identify these components in the graph.")),
+                            ContentBlock.Text(createSimpleText("For the given graph, it would return a single connected component containing all the vertices.")),
+
+                            ContentBlock.Text(createSimpleText("Both cycle detection and connected component analysis are vital tools for detecting properties within graphs, such as network loops or disconnected subgraphs.")),
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
