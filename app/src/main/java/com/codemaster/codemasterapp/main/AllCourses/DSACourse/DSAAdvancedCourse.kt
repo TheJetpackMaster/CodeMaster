@@ -345,21 +345,29 @@ fun DSAAdvancedCourse(): Stage {
 
                             ContentBlock.Text(createSimpleText("Example:")),
                             ContentBlock.Text(createSimpleText("Tree Structure:")),
-                            ContentBlock.Text(createSimpleText("""
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
           1
          / \
         2   3
        / \
       4   5
-        """.trimIndent())),
+        """.trimIndent()
+                                )
+                            ),
 
                             ContentBlock.Text(createSimpleText("Example Traversal:")),
-                            ContentBlock.Text(createSimpleText("""
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
         Inorder: 4 -> 2 -> 5 -> 1 -> 3
         Preorder: 1 -> 2 -> 4 -> 5 -> 3
         Postorder: 4 -> 5 -> 2 -> 3 -> 1
         Level Order: 1 -> 2 -> 3 -> 4 -> 5
-        """.trimIndent())),
+        """.trimIndent()
+                                )
+                            ),
 
                             ContentBlock.Text(createSimpleText("This walkthrough demonstrates how nodes in a binary tree are linked and traversed to represent hierarchical data structures."))
                         ),
@@ -367,45 +375,178 @@ fun DSAAdvancedCourse(): Stage {
                     ),
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson3_subs[2],
-                        title = "Binary Trees vs Linked Lists",
-                        description = "Explore the differences between binary trees and linked lists.",
+                        title = "Operations on Binary Trees",
+                        description = "Learn how to perform basic operations like insertion, deletion, searching, and traversal on binary trees.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
-                                createSimpleText(
-                                    "Linked lists are linear structures with sequential connections, whereas binary trees are hierarchical structures. Binary trees allow for more complex relationships between data, enabling operations like search and insertion to be performed more efficiently in some cases."
+                                createAnnotatedText(
+                                    "Insertion:\n" +
+                                            "Adding a new node to a binary tree involves finding the appropriate position and updating the parent node's left or right pointer.",
+                                    listOf("Insertion:", "left", "right")
                                 )
+                            ),
+                            ContentBlock.Code(
+                                """
+            struct Node {
+                int data;
+                Node* left;
+                Node* right;
+                Node(int value) : data(value), left(nullptr), right(nullptr) {}
+            };
+
+            Node* insert(Node* root, int value) {
+                if (root == nullptr) {
+                    return new Node(value);
+                }
+                if (value < root->data) {
+                    root->left = insert(root->left, value);
+                } else {
+                    root->right = insert(root->right, value);
+                }
+                return root;
+            }
+            """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Deletion:\n" +
+                                            "Deleting a node involves finding the node and handling three cases: no children, one child, or two children.",
+                                    listOf("Deletion:")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+            Node* findMin(Node* root) {
+                while (root->left != nullptr) root = root->left;
+                return root;
+            }
+
+            Node* deleteNode(Node* root, int value) {
+                if (root == nullptr) return root;
+                if (value < root->data) {
+                    root->left = deleteNode(root->left, value);
+                } else if (value > root->data) {
+                    root->right = deleteNode(root->right, value);
+                } else {
+                    if (root->left == nullptr) {
+                        Node* temp = root->right;
+                        delete root;
+                        return temp;
+                    } else if (root->right == nullptr) {
+                        Node* temp = root->left;
+                        delete root;
+                        return temp;
+                    }
+                    Node* temp = findMin(root->right);
+                    root->data = temp->data;
+                    root->right = deleteNode(root->right, temp->data);
+                }
+                return root;
+            }
+            """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Traversal and Searching:\n" +
+                                            "Traversal involves visiting all nodes in a specific order. Searching finds whether a value exists in the tree.",
+                                    listOf("Traversal and Searching:")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+            void inorder(Node* root) {
+                if (root == nullptr) return;
+                inorder(root->left);
+                cout << root->data << " ";
+                inorder(root->right);
+            }
+
+            bool search(Node* root, int value) {
+                if (root == nullptr) return false;
+                if (root->data == value) return true;
+                if (value < root->data) return search(root->left, value);
+                return search(root->right, value);
+            }
+            """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson3_subs[3],
-                        title = "Basic Operations on Binary Trees",
-                        description = "Learn common operations like insertion, deletion, traversal, and searching.",
+                        title = "How Binary Tree Operations Work",
+                        description = "Detailed step-by-step breakdown of insertion, deletion, traversal, and searching operations in binary trees.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Binary trees support several fundamental operations:")),
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Insertion: Add a node at the correct position to maintain the tree's structure.",
-                                    listOf("Insertion:")
+                                createSimpleText(
+                                    "Let's break down the operations on binary trees step-by-step to understand their mechanics."
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Deletion: Remove a node and restructure the tree if necessary.",
-                                    listOf("Deletion:")
+                                    "Insertion:",
+                                    listOf("Insertion")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                1. Start at the root of the tree.
+                2. Compare the value with the current node's data.
+                3. If the value is smaller, move to the left child; if larger, move to the right child.
+                4. Repeat until a NULL position is found.
+                5. Create a new node at the NULL position.
+                """.trimIndent()
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Traversal: Visit nodes in a specific order (e.g., inorder, preorder, or postorder).",
-                                    listOf("Traversal:")
+                                    "Deletion:",
+                                    listOf("Deletion")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                1. Locate the node to be deleted.
+                2. Handle cases:
+                   a. No children: Remove the node.
+                   b. One child: Replace the node with its child.
+                   c. Two children: Replace the node with its in-order successor (smallest in the right subtree).
+                3. Update the tree structure accordingly.
+                """.trimIndent()
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Search: Find a node with a specific value in the tree.",
-                                    listOf("Search:")
+                                    "Traversal:",
+                                    listOf("Traversal")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                1. Choose a traversal method (Inorder, Preorder, Postorder, Level Order).
+                2. Visit nodes in the specified order and perform an action (e.g., print data).
+                3. Recursively or iteratively traverse the tree.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Searching:",
+                                    listOf("Searching")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                1. Start at the root node.
+                2. Compare the value with the current node's data.
+                3. If equal, return true.
+                4. If smaller, search in the left subtree; if larger, search in the right subtree.
+                5. Repeat until the value is found or a NULL node is reached.
+                """.trimIndent()
                                 )
                             )
                         ),
@@ -413,19 +554,444 @@ fun DSAAdvancedCourse(): Stage {
                     ),
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson3_subs[4],
-                        title = "Advantages and Limitations",
-                        description = "Understand why and when to use binary trees.",
+                        title = "How to Display Binary Trees",
+                        description = "Understand the basics of binary trees and how to display them.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createSimpleText("A binary tree is a hierarchical data structure where each node has at most two children, referred to as the left child and the right child.")
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText("To display, traverse the tree using methods like Inorder, Preorder, or Postorder traversal to access all nodes.")
+                            ),
+                            ContentBlock.Code(
+                                """
+            void inorderTraversal(Node* root) {
+                if (root == nullptr) return;
+                inorderTraversal(root->left);   // Visit left subtree
+                cout << root->data << " ";     // Print data
+                inorderTraversal(root->right); // Visit right subtree
+            }
+            
+            void preorderTraversal(Node* root) {
+                if (root == nullptr) return;
+                cout << root->data << " ";     // Print data
+                preorderTraversal(root->left); // Visit left subtree
+                preorderTraversal(root->right); // Visit right subtree
+            }
+            
+            void postorderTraversal(Node* root) {
+                if (root == nullptr) return;
+                postorderTraversal(root->left);  // Visit left subtree
+                postorderTraversal(root->right); // Visit right subtree
+                cout << root->data << " ";       // Print data
+            }
+            """.trimIndent()
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSAAdvancedStageIds.lesson3_subs[5],
+                        title = "Importance of Binary Trees",
+                        description = "Understand why binary trees are important and their applications.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Advantages:\nEfficient searching and insertion in balanced trees.\nHierarchical representation is ideal for many applications.",
-                                    listOf("Advantages:")
+                                    "Binary trees are a fundamental data structure used in a wide range of applications due to their hierarchical nature. They support efficient searching, insertion, and deletion operations. Common applications include binary search trees for fast lookup, heaps for priority queues, syntax trees for compilers, and decision trees for machine learning algorithms. Their recursive structure makes them suitable for solving complex computational problems in data structures and algorithms.",
+                                    listOf(
+                                        "Binary trees",
+                                        "Binary search trees",
+                                        "heaps",
+                                        "decision trees"
+                                    )
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    )
+
+                ),
+                status = LessonStatus.ACTIVE
+            ),
+
+            // lesson 4
+            Lesson(
+                id = DSAAdvancedStageIds.lesson4,
+                title = "Preorder Traversal",
+                description = "Dive into the concept of preorder traversal, its process, and applications in hierarchical data structures. 🌳",
+                lessonContents = listOf(
+                    LessonContent(
+                        id = DSAAdvancedStageIds.lesson4_subs[0],
+                        title = "Introduction to Preorder Traversal",
+                        description = "Learn about the process of visiting nodes in preorder traversal.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Preorder traversal is a tree traversal method where the nodes are visited in the following order:\n1. Visit the root node.\n2. Traverse the left subtree in preorder.\n3. Traverse the right subtree in preorder.",
+                                    listOf(
+                                        "Preorder traversal",
+                                        "root",
+                                        "left subtree",
+                                        "right subtree"
+                                    )
+                                )
+                            ),
+                            ContentBlock.Text(createSimpleText("Key Characteristics:")),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Recursive Nature: The process naturally lends itself to recursive implementation.",
+                                    listOf("Recursive Nature:")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Limitations:\nUnbalanced trees can degrade performance.\nRequire additional memory for pointers.",
-                                    listOf("Limitations:")
+                                    "Iterative Implementation: Stack data structures can be used for an iterative approach.",
+                                    listOf("Iterative Implementation:")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+                    void preorderTraversal(Node* root) {
+                        if (root == nullptr) return;
+                        cout << root->data << " ";    // Visit the root
+                        preorderTraversal(root->left); // Traverse the left subtree
+                        preorderTraversal(root->right); // Traverse the right subtree
+                    }
+                    """.trimIndent()
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSAAdvancedStageIds.lesson4_subs[1],
+                        title = "Manual Walkthrough",
+                        description = "Manually create a binary tree and perform a preorder traversal.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(createSimpleText("Let's walk through the process of creating a binary tree and performing a preorder traversal step-by-step.")),
+
+                            ContentBlock.Text(createAnnotatedText("Pass 1:", listOf("Pass 1:"))),
+                            ContentBlock.Text(createSimpleText("Define a 'Node' structure that holds data and pointers to the left and right child nodes.")),
+
+                            ContentBlock.Text(createAnnotatedText("Pass 2:", listOf("Pass 2:"))),
+                            ContentBlock.Text(createSimpleText("Dynamically allocate memory for nodes using 'new' and assign data to each node.")),
+
+                            ContentBlock.Text(createAnnotatedText("Pass 3:", listOf("Pass 3:"))),
+                            ContentBlock.Text(createSimpleText("Link the nodes by assigning the 'left' and 'right' pointers of a parent node to its respective child nodes.")),
+
+                            ContentBlock.Text(createAnnotatedText("Pass 4:", listOf("Pass 4:"))),
+                            ContentBlock.Text(createSimpleText("Perform a preorder traversal on the binary tree:")),
+                            ContentBlock.Text(createSimpleText("1. Visit the root node first.")),
+                            ContentBlock.Text(createSimpleText("2. Recursively traverse the left subtree.")),
+                            ContentBlock.Text(createSimpleText("3. Recursively traverse the right subtree.")),
+
+                            ContentBlock.Text(createSimpleText("Example:")),
+                            ContentBlock.Text(createSimpleText("Tree Structure:")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+          1
+         / \
+        2   3
+       / \
+      4   5
+                """.trimIndent()
+                                )
+                            ),
+
+                            ContentBlock.Text(createSimpleText("Example Preorder Traversal:")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+        Preorder: 1 -> 2 -> 4 -> 5 -> 3
+                """.trimIndent()
+                                )
+                            ),
+
+                            ContentBlock.Text(createSimpleText("This walkthrough demonstrates how to create and traverse a binary tree using the preorder traversal method to process nodes in a hierarchical structure."))
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSAAdvancedStageIds.lesson4_subs[2],
+                        title = "Operations on Binary Trees: Preorder Traversal",
+                        description = "Learn how to perform basic operations like insertion, deletion, searching, and specifically preorder traversal on binary trees.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Insertion:\n" +
+                                            "Adding a new node to a binary tree involves finding the appropriate position and updating the parent node's left or right pointer.",
+                                    listOf("Insertion:", "left", "right")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+        struct Node {
+            int data;
+            Node* left;
+            Node* right;
+            Node(int value) : data(value), left(nullptr), right(nullptr) {}
+        };
+
+        Node* insert(Node* root, int value) {
+            if (root == nullptr) {
+                return new Node(value);
+            }
+            if (value < root->data) {
+                root->left = insert(root->left, value);
+            } else {
+                root->right = insert(root->right, value);
+            }
+            return root;
+        }
+        """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Deletion:\n" +
+                                            "Deleting a node involves finding the node and handling three cases: no children, one child, or two children.",
+                                    listOf("Deletion:")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+        Node* findMin(Node* root) {
+            while (root->left != nullptr) root = root->left;
+            return root;
+        }
+
+        Node* deleteNode(Node* root, int value) {
+            if (root == nullptr) return root;
+            if (value < root->data) {
+                root->left = deleteNode(root->left, value);
+            } else if (value > root->data) {
+                root->right = deleteNode(root->right, value);
+            } else {
+                if (root->left == nullptr) {
+                    Node* temp = root->right;
+                    delete root;
+                    return temp;
+                } else if (root->right == nullptr) {
+                    Node* temp = root->left;
+                    delete root;
+                    return temp;
+                }
+                Node* temp = findMin(root->right);
+                root->data = temp->data;
+                root->right = deleteNode(root->right, temp->data);
+            }
+            return root;
+        }
+        """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Preorder Traversal and Searching:\n" +
+                                            "Preorder traversal visits nodes in the order: root, left subtree, right subtree. Searching finds whether a value exists in the tree.",
+                                    listOf("Preorder Traversal", "Searching:")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+        void preorder(Node* root) {
+            if (root == nullptr) return;
+            cout << root->data << " ";  // Visit root
+            preorder(root->left);      // Traverse left subtree
+            preorder(root->right);     // Traverse right subtree
+        }
+
+        bool search(Node* root, int value) {
+            if (root == nullptr) return false;
+            if (root->data == value) return true;
+            if (value < root->data) return search(root->left, value);
+            return search(root->right, value);
+        }
+        """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Example Preorder Traversal:\n" +
+                                            "Consider the binary tree:\n\n" +
+                                            """
+                1
+               / \
+              2   3
+             / \
+            4   5
+                        """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Preorder Traversal Sequence:\n" +
+                                            "1 -> 2 -> 4 -> 5 -> 3"
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSAAdvancedStageIds.lesson4_subs[3],
+                        title = "How Binary Tree Operations Work: Preorder Focus",
+                        description = "Detailed step-by-step breakdown of insertion, deletion, preorder traversal, and searching operations in binary trees.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Let's break down the operations on binary trees step-by-step to understand their mechanics, with a focus on preorder traversal."
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Insertion:",
+                                    listOf("Insertion")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+            1. Start at the root of the tree.
+            2. Compare the value with the current node's data.
+            3. If the value is smaller, move to the left child; if larger, move to the right child.
+            4. Repeat until a NULL position is found.
+            5. Create a new node at the NULL position.
+            """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Deletion:",
+                                    listOf("Deletion")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+            1. Locate the node to be deleted.
+            2. Handle cases:
+               a. No children: Remove the node.
+               b. One child: Replace the node with its child.
+               c. Two children: Replace the node with its in-order successor (smallest in the right subtree).
+            3. Update the tree structure accordingly.
+            """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Preorder Traversal:",
+                                    listOf("Preorder Traversal")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+            1. Preorder traversal visits nodes in the following order:
+               a. Visit the root node.
+               b. Traverse the left subtree.
+               c. Traverse the right subtree.
+            2. The sequence is Root -> Left -> Right.
+            3. Perform an action (e.g., print node data) when visiting each node.
+            """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Example Preorder Traversal:\n" +
+                                            """
+                Consider the binary tree:
+
+                    1
+                   / \
+                  2   3
+                 / \
+                4   5
+
+                Preorder Traversal Sequence:
+                1 -> 2 -> 4 -> 5 -> 3
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Searching:",
+                                    listOf("Searching")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+            1. Start at the root node.
+            2. Compare the value with the current node's data.
+            3. If equal, return true.
+            4. If smaller, search in the left subtree; if larger, search in the right subtree.
+            5. Repeat until the value is found or a NULL node is reached.
+            """.trimIndent()
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSAAdvancedStageIds.lesson4_subs[4],
+                        title = "How to Display Binary Trees: Traversal Methods",
+                        description = "Understand the basics of binary trees and how to display them using various traversal methods.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createSimpleText("A binary tree is a hierarchical data structure where each node has at most two children, referred to as the left child and the right child.")
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText("To display a binary tree, traverse it using methods like Preorder, Inorder, or Postorder traversal to access all nodes.")
+                            ),
+                            ContentBlock.Code(
+                                """
+        void preorderTraversal(Node* root) {
+            if (root == nullptr) return;
+            cout << root->data << " ";     // Print data
+            preorderTraversal(root->left); // Visit left subtree
+            preorderTraversal(root->right); // Visit right subtree
+        }
+
+        void inorderTraversal(Node* root) {
+            if (root == nullptr) return;
+            inorderTraversal(root->left);   // Visit left subtree
+            cout << root->data << " ";     // Print data
+            inorderTraversal(root->right); // Visit right subtree
+        }
+
+        void postorderTraversal(Node* root) {
+            if (root == nullptr) return;
+            postorderTraversal(root->left);  // Visit left subtree
+            postorderTraversal(root->right); // Visit right subtree
+            cout << root->data << " ";       // Print data
+        }
+        """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+            Example Preorder Traversal:
+            
+            Tree:
+
+                1
+               / \
+              2   3
+             / \
+            4   5
+
+            Preorder Sequence: 1 -> 2 -> 4 -> 5 -> 3
+            """.trimIndent()
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSAAdvancedStageIds.lesson4_subs[5],
+                        title = "Importance of Preorder Traversal",
+                        description = "Understand why preorder traversal is important and its applications in binary trees.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Preorder traversal is a fundamental technique in binary trees where nodes are visited in the order: root, left subtree, and right subtree. It is crucial for applications like tree serialization and deserialization, prefix notation in expression trees, cloning binary trees, and serving as the foundation for depth-first search algorithms."
                                 )
                             )
                         ),
@@ -435,538 +1001,364 @@ fun DSAAdvancedCourse(): Stage {
                 status = LessonStatus.ACTIVE
             ),
 
-            // lesson 4
-            Lesson(
-                id = DSAAdvancedStageIds.lesson4,
-                title = "C Function Parameters",
-                description = "Learn about function parameters and how they work in C functions! 🧑‍💻",
-                lessonContents = listOf(
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson4_subs[0],
-                        title = "Introduction to Parameters",
-                        description = "Get introduced to function parameters and understand their importance in C.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "In C, function parameters are variables defined in the function declaration. They are placeholders for the values that will be passed to the function.",
-                                    listOf("parameters", "variables", "declaration")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Parameters allow functions to be more flexible and reusable by enabling the passing of different values when the function is called.",
-                                    listOf("flexible", "reusable")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-                    void greet(char name[]) {
-                        printf("Hello, %s!\n", name);
-                    }
-                    int main() {
-                        greet("Alice");  // 'Alice' is passed as an argument
-                        return 0;
-                    }
-                    """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson4_subs[1],
-                        title = "Multiple Parameters",
-                        description = "Understand how to pass multiple parameters to a function.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "A function can accept multiple parameters, separated by commas.",
-                                    listOf("multiple parameters", "comma-separated")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Example with multiple parameters:",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-                int add(int a, int b) {
-                    return a + b;
-                }
-
-                int main() {
-                    int result = add(5, 10);  // 5 and 10 are arguments for a and b
-                    printf("Result: %d\n", result);
-                    return 0;
-                }
-                """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson4_subs[2],
-                        title = "Non-Parameter Functions",
-                        description = "Learn about functions that do not take any parameters.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "In C, some functions do not take parameters. These are called non-parameter functions.",
-                                    listOf("non-parameter functions")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "A non-parameter function does not require any input values when it is called. This is useful for simple operations that do not depend on input data.",
-                                    listOf("simple operations", "no input")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-                    void greet() {
-                        printf("Hello, World!\n");
-                    }
-                    int main() {
-                        greet();  // No arguments are passed
-                        return 0;
-                    }
-                    """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson4_subs[3],
-                        title = "Arguments in Functions",
-                        description = "Understand the difference between parameters and arguments, and how arguments are passed to functions during a function call in C.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "In C, arguments are the values that are passed to the function when it is called.",
-                                    listOf("arguments", "values", "function")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Arguments are used to provide input to functions. These values are passed in the function call and can be used within the function.",
-                                    listOf("input", "passed")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Example of using arguments in a function call:",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-void greet(char name[]) {
-    printf("Hello, %s!\n", name);
-}
-
-int main() {
-    greet("Alice");  // "Alice" is the argument passed to the function
-    return 0;
-}
-""".trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson4_subs[4],
-                        title = "Quiz",
-                        description = "Quiz",
-                        contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "Fill in the missing code to complete the 'add' function that takes two integer parameters.",
-                                incompleteCode = """
-        int add(___a, int b) {  // Fill in the parameters for the add function
-            return a + b;
-        }
-        int main() {
-            int result = add(5, 10);  // 5 and 10 are arguments
-            printf("Result: %d\n", result);
-            return 0;
-        }
-    """.trimIndent(),
-                                correctCode = "int"
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson4_subs[5],
-                        title = "Pass Arrays as Function Parameters",
-                        description = "Learn how to pass arrays to functions in C.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "In C, you can pass arrays to functions as parameters.",
-                                    listOf("arrays")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Arrays are passed by reference, meaning the function can modify the original array.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Example of passing an array as a function parameter:",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-                void printArray(int arr[], int size) {
-                    for (int i = 0; i < size; i++) {
-                        printf("%d ", arr[i]);
-                    }
-                    printf("\n");
-                }
-
-                int main() {
-                    int numbers[] = {1, 2, 3, 4};
-                    printArray(numbers, 4);
-                    return 0;
-                }
-                """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson4_subs[6],
-                        title = "Return Values from Functions",
-                        description = "Learn how functions return values to the caller.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Functions in C can return values to the calling code.",
-                                    listOf("return values")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "The return type is specified in the function declaration, and the return value is given with the return keyword.",
-                                    listOf("return keyword")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Example: A function that returns an integer value:",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-                int multiply(int a, int b) {
-                    return a * b;
-                }
-
-                int main() {
-                    int result = multiply(4, 5);
-                    printf("Product: %d\n", result);
-                    return 0;
-                }
-                """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson4_subs[7],
-                        title = "Quiz",
-                        description = "Quiz",
-                        contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "Fill in the missing  keyword in the 'multiply' function.",
-                                incompleteCode = """
-                int multiply(int a, int b) {  // Function definition
-                    ___ a * b;  // Missing return keyword
-                }
-                int main() {
-                    int result = multiply(4, 5);
-                    printf("Product: %d\n", result);
-                    return 0;
-                }
-            """.trimIndent(),
-                                correctCode = "return"
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson4_subs[8],
-                        title = "Real-Life Example of Function Parameters",
-                        description = "Understand the use of function parameters with a real-life example.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Let's consider a real-world example: A function to calculate the area of a rectangle.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "The function will take two parameters: length and width, and return the calculated area.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(createAnnotatedText("Example:", listOf(""))),
-                            ContentBlock.Code(
-                                """
-                #include <stdio.h>
-
-                // Function to calculate the area of a rectangle
-                int calculateArea(int length, int width) {
-                    return length * width;
-                }
-
-                int main() {
-                    int length = 5, width = 3;
-                    int area = calculateArea(length, width);  // Passing length and width as arguments
-                    printf("Area of the rectangle: %d\n", area);
-                    return 0;
-                }
-                """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson4_subs[9],
-                        title = "Quiz",
-                        description = "Quiz",
-                        contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "What is a function parameter in C?",
-                                options = listOf(
-                                    "A variable used to pass values into the function",
-                                    "A value that the function returns",
-                                    "A statement inside the function body",
-                                    "The function's return type"
-                                ),
-                                correctAnswer = "A variable used to pass values into the function"
-                            )
-                        ),
-                        type = LessonContentType.QUIZ
-                    )
-                ),
-                status = LessonStatus.LOCKED
-            ),
-
             // lesson 5
             Lesson(
                 id = DSAAdvancedStageIds.lesson5,
-                title = "C Variable Scope",
-                description = "Understand how variables behave inside and outside functions in C.",
+                title = "Inorder Traversal",
+                description = "Dive into the concept of inorder traversal, its process, and applications in hierarchical data structures. 🌳",
                 lessonContents = listOf(
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson5_subs[0],
-                        title = "Introduction to Variable Scope",
-                        description = "Get a fundamental understanding of variable scope and its significance in C programming.",
+                        title = "Introduction to Inorder Traversal",
+                        description = "Learn about the process of visiting nodes in inorder traversal.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Variable scope defines where a variable can be accessed or modified in your program. In C, variables are categorized by their scope, which determines their visibility and lifetime.",
-                                    listOf("accessed", "modified")
+                                    "Inorder traversal is a tree traversal method where the nodes are visited in the following order:\n1. Traverse the left subtree in inorder.\n2. Visit the root node.\n3. Traverse the right subtree in inorder.",
+                                    listOf(
+                                        "Inorder traversal",
+                                        "root",
+                                        "left subtree",
+                                        "right subtree"
+                                    )
+                                )
+                            ),
+                            ContentBlock.Text(createSimpleText("Key Characteristics:")),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Recursive Nature: The process naturally lends itself to recursive implementation.",
+                                    listOf("Recursive Nature:")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Scope is crucial to avoid conflicts, manage memory efficiently, and maintain code clarity. The two main types of scope in C are local scope and global scope. Let's explore each in detail.",
-                                    listOf("local scope", "global scope")
+                                    "Iterative Implementation: Stack data structures can be used for an iterative approach.",
+                                    listOf("Iterative Implementation:")
                                 )
+                            ),
+                            ContentBlock.Code(
+                                """
+            void inorderTraversal(Node* root) {
+                if (root == nullptr) return;
+                inorderTraversal(root->left);  // Traverse the left subtree
+                cout << root->data << " ";     // Visit the root
+                inorderTraversal(root->right); // Traverse the right subtree
+            }
+            """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson5_subs[1],
-                        title = "Local Scope",
-                        description = "Learn how local variables are restricted to the function they're declared in.",
+                        title = "Manual Walkthrough",
+                        description = "Manually create a binary tree and perform an inorder traversal.",
                         contentBlocks = listOf(
+                            ContentBlock.Text(createSimpleText("Let's walk through the process of creating a binary tree and performing an inorder traversal step-by-step.")),
+
+                            ContentBlock.Text(createAnnotatedText("Pass 1:", listOf("Pass 1:"))),
+                            ContentBlock.Text(createSimpleText("Define a 'Node' structure that holds data and pointers to the left and right child nodes.")),
+
+                            ContentBlock.Text(createAnnotatedText("Pass 2:", listOf("Pass 2:"))),
+                            ContentBlock.Text(createSimpleText("Dynamically allocate memory for nodes using 'new' and assign data to each node.")),
+
+                            ContentBlock.Text(createAnnotatedText("Pass 3:", listOf("Pass 3:"))),
+                            ContentBlock.Text(createSimpleText("Link the nodes by assigning the 'left' and 'right' pointers of a parent node to its respective child nodes.")),
+
+                            ContentBlock.Text(createAnnotatedText("Pass 4:", listOf("Pass 4:"))),
+                            ContentBlock.Text(createSimpleText("Perform an inorder traversal on the binary tree:")),
+                            ContentBlock.Text(createSimpleText("1. Traverse the left subtree first.")),
+                            ContentBlock.Text(createSimpleText("2. Visit the root node.")),
+                            ContentBlock.Text(createSimpleText("3. Recursively traverse the right subtree.")),
+
+                            ContentBlock.Text(createSimpleText("Example:")),
+                            ContentBlock.Text(createSimpleText("Tree Structure:")),
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Variables declared inside a function are local and only accessible within that function.",
-                                    listOf("accessible")
+                                createSimpleText(
+                                    """
+      1
+     / \
+    2   3
+   / \
+  4   5
+            """.trimIndent()
                                 )
                             ),
-                            ContentBlock.Code(
-                                """
-                    void myFunction() {
-                        int x = 10;  // Local variable
-                        printf("%d\n", x);  // Accessible inside the function
-                    }
-                    int main() {
-                        // printf("%d\n", x);  // Error: x is not accessible here
-                        myFunction();
-                        return 0;
-                    }
-                    """.trimIndent()
-                            )
+
+                            ContentBlock.Text(createSimpleText("Example Inorder Traversal:")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+    Inorder: 4 -> 2 -> 5 -> 1 -> 3
+            """.trimIndent()
+                                )
+                            ),
+
+                            ContentBlock.Text(createSimpleText("This walkthrough demonstrates how to create and traverse a binary tree using the inorder traversal method to process nodes in a hierarchical structure."))
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson5_subs[2],
-                        title = "Global Scope",
-                        description = "Understand the accessibility of global variables across functions.",
+                        title = "Operations on Binary Trees: Inorder Traversal",
+                        description = "Learn how to perform basic operations like insertion, deletion, searching, and specifically inorder traversal on binary trees.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Global variables are declared outside functions and can be accessed anywhere in the program.",
-                                    listOf("accessed")
+                                    "Insertion:\n" +
+                                            "Adding a new node to a binary tree involves finding the appropriate position and updating the parent node's left or right pointer.",
+                                    listOf("Insertion:", "left", "right")
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-                    int x = 10;  // Global variable
-                    void myFunction() {
-                        printf("%d\n", x);  // Accessible here
-                    }
-                    int main() {
-                        printf("%d\n", x);  // Accessible here as well
-                        myFunction();
-                        return 0;
-                    }
+        struct Node {
+            int data;
+            Node* left;
+            Node* right;
+            Node(int value) : data(value), left(nullptr), right(nullptr) {}
+        };
+
+        Node* insert(Node* root, int value) {
+            if (root == nullptr) {
+                return new Node(value);
+            }
+            if (value < root->data) {
+                root->left = insert(root->left, value);
+            } else {
+                root->right = insert(root->right, value);
+            }
+            return root;
+        }
+        """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Deletion:\n" +
+                                            "Deleting a node involves finding the node and handling three cases: no children, one child, or two children.",
+                                    listOf("Deletion:")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+        Node* findMin(Node* root) {
+            while (root->left != nullptr) root = root->left;
+            return root;
+        }
+
+        Node* deleteNode(Node* root, int value) {
+            if (root == nullptr) return root;
+            if (value < root->data) {
+                root->left = deleteNode(root->left, value);
+            } else if (value > root->data) {
+                root->right = deleteNode(root->right, value);
+            } else {
+                if (root->left == nullptr) {
+                    Node* temp = root->right;
+                    delete root;
+                    return temp;
+                } else if (root->right == nullptr) {
+                    Node* temp = root->left;
+                    delete root;
+                    return temp;
+                }
+                Node* temp = findMin(root->right);
+                root->data = temp->data;
+                root->right = deleteNode(root->right, temp->data);
+            }
+            return root;
+        }
+        """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Inorder Traversal and Searching:\n" +
+                                            "Inorder traversal visits nodes in the order: left subtree, root, right subtree. Searching finds whether a value exists in the tree.",
+                                    listOf("Inorder Traversal", "Searching:")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+        void inorder(Node* root) {
+            if (root == nullptr) return;
+            inorder(root->left);  // Traverse left subtree
+            cout << root->data << " ";  // Visit root
+            inorder(root->right);  // Traverse right subtree
+        }
+
+        bool search(Node* root, int value) {
+            if (root == nullptr) return false;
+            if (root->data == value) return true;
+            if (value < root->data) return search(root->left, value);
+            return search(root->right, value);
+        }
+        """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Example Inorder Traversal:\n" +
+                                            "Consider the binary tree:\n\n" +
+                                            """
+            1
+           / \
+          2   3
+         / \
+        4   5
                     """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Inorder Traversal Sequence:\n" +
+                                            "4 -> 2 -> 5 -> 1 -> 3"
+                                )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson5_subs[3],
-                        title = "Quiz",
-                        description = "Quiz",
+                        title = "How Binary Tree Operations Work: Inorder Focus",
+                        description = "Detailed step-by-step breakdown of insertion, deletion, inorder traversal, and searching operations in binary trees.",
                         contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "In the following code, fill in the blank to make 'x' a global variable with the value 20.",
-                                incompleteCode = """
-            ___ x = 20;  // Global variable
-            void display() {
-                printf("%d\n", x);  // Accessible here
-            }
-            int main() {
-                display();
-                return 0;
-            }
-        """.trimIndent(),
-                                correctCode = "int",
-                                userInput = null,
-                                isCodeCorrect = false
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Let's break down the operations on binary trees step-by-step to understand their mechanics, with a focus on inorder traversal."
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Insertion:",
+                                    listOf("Insertion")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+        1. Start at the root of the tree.
+        2. Compare the value with the current node's data.
+        3. If the value is smaller, move to the left child; if larger, move to the right child.
+        4. Repeat until a NULL position is found.
+        5. Create a new node at the NULL position.
+                        """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Deletion:",
+                                    listOf("Deletion")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+        1. Locate the node to be deleted.
+        2. Handle cases:
+           a. No children: Remove the node.
+           b. One child: Replace the node with its child.
+           c. Two children: Replace the node with its in-order successor (smallest in the right subtree).
+        3. Update the tree structure accordingly.
+                        """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Inorder Traversal:",
+                                    listOf("Inorder Traversal")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+        1. Start at the root node.
+        2. Traverse the left subtree first.
+        3. Visit the root node.
+        4. Traverse the right subtree last.
+        5. Repeat the process recursively for all subtrees.
+                        """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Searching:",
+                                    listOf("Searching")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Searching follows a similar pattern to insertion but returns true or false based on whether the value is found."
+                                )
                             )
                         ),
-                        type = LessonContentType.INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson5_subs[4],
-                        title = "Naming Variables",
-                        description = "Explore how naming works and the impact of scope in C.",
+                        title = "How to Display Binary Trees: Traversal Methods",
+                        description = "Understand the basics of binary trees and how to display them using various traversal methods, focusing on inorder traversal.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Variable names must start with a letter or an underscore. They are case-sensitive and cannot be C keywords.",
-                                    listOf("letter", "underscore")
-                                )
+                                createSimpleText("A binary tree is a hierarchical data structure where each node has at most two children, referred to as the left child and the right child.")
                             ),
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Important: If the same name is used for a variable inside and outside a function, C treats them as separate variables.",
-                                    listOf("")
-                                )
+                                createSimpleText("To display a binary tree, traverse it using methods like Preorder, Inorder, or Postorder traversal to access all nodes. For this lesson, we'll focus on inorder traversal.")
                             ),
                             ContentBlock.Code(
                                 """
-                    int x = 10;  // Global variable
-                    void myFunction() {
-                        int x = 5;  // Local variable
-                        printf("Local x: %d\n", x);  // Prints 5
-                    }
-                    int main() {
-                        printf("Global x: %d\n", x);  // Prints 10
-                        myFunction();
-                        return 0;
-                    }
-                    """.trimIndent()
+        void preorderTraversal(Node* root) {
+            if (root == nullptr) return;
+            cout << root->data << " ";     // Print data
+            preorderTraversal(root->left); // Visit left subtree
+            preorderTraversal(root->right); // Visit right subtree
+        }
+
+        void inorderTraversal(Node* root) {
+            if (root == nullptr) return;
+            inorderTraversal(root->left);   // Visit left subtree
+            cout << root->data << " ";     // Print data
+            inorderTraversal(root->right); // Visit right subtree
+        }
+
+        void postorderTraversal(Node* root) {
+            if (root == nullptr) return;
+            postorderTraversal(root->left);  // Visit left subtree
+            postorderTraversal(root->right); // Visit right subtree
+            cout << root->data << " ";       // Print data
+        }
+        """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+            Example Inorder Traversal:
+            
+            Tree:
+
+                1
+               / \
+              2   3
+             / \
+            4   5
+
+            Inorder Sequence: 4 -> 2 -> 5 -> 1 -> 3
+            """.trimIndent()
+                                )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson5_subs[5],
-                        title = "Quiz",
-                        description = "Quiz",
-                        contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "Complete the code to ensure the global variable 'score' is modified by the 'increaseScore' function.",
-                                incompleteCode = """
-            int score = 0;  // Global variable
-            void increaseScore(int points) {
-                ___ += points;  // Modify global score
-            }
-        """.trimIndent(),
-                                correctCode = "score",
-                                userInput = null,
-                                isCodeCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson5_subs[6],
-                        title = "Real-Life Example",
-                        description = "See practical examples of variable scope.",
+                        title = "Importance of Inorder Traversal",
+                        description = "Understand why inorder traversal is important and its applications in binary trees.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "In a game, we can use global variables to track scores and local variables to compute values within specific functions.",
-                                    listOf("")
+                                createSimpleText(
+                                    "Inorder traversal is a critical technique for processing binary trees. It processes nodes in the order: left subtree, root, right subtree. This traversal is especially useful in applications like Binary Search Trees (BST), where inorder traversal of a BST yields nodes in sorted order, Expression Trees, where it helps evaluate arithmetic expressions by ensuring operands are processed in the correct order, and Tree Traversal Algorithms, as it serves as the foundation for several depth-first search (DFS) algorithms and tree-related algorithms."
                                 )
-                            ),
-                            ContentBlock.Code(
-                                """
-                    int score = 0;  // Global variable
-                    void increaseScore(int points) {
-                        score += points;  // Modify global score
-                    }
-                    void showScore() {
-                        printf("Current score: %d\n", score);  // Access global score
-                    }
-                    int main() {
-                        int roundScore = 10;  // Local variable
-                        increaseScore(roundScore);  // Pass local score
-                        showScore();
-                        return 0;
-                    }
-                    """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson5_subs[7],
-                        title = "Quiz",
-                        description = "Quiz",
-                        contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "What is variable scope in C?",
-                                options = listOf(
-                                    "The data type of a variable",
-                                    "The lifetime and visibility of a variable",
-                                    "The memory size of a variable",
-                                    "The naming convention of a variable"
-                                ),
-                                correctAnswer = "The lifetime and visibility of a variable",
-                                userAnswer = null,
-                                isCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.QUIZ
                     )
                 ),
                 status = LessonStatus.LOCKED
@@ -975,51 +1367,45 @@ int main() {
             // lesson 6
             Lesson(
                 id = DSAAdvancedStageIds.lesson6,
-                title = "C Recursion",
-                description = "Understand recursion in C and use it effectively.",
+                title = "Postorder Traversal",
+                description = "Dive into the concept of postorder traversal, its process, and applications in hierarchical data structures. 🌳",
                 lessonContents = listOf(
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson6_subs[0],
-                        title = "Introduction to Recursion",
-                        description = "Learn the definition of recursion in C.",
+                        title = "Introduction to Postorder Traversal",
+                        description = "Learn about the process of visiting nodes in postorder traversal.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Recursion in C is when a function calls itself to solve smaller instances of a problem.",
-                                    listOf("Recursion")
+                                    "Postorder traversal is a tree traversal method where the nodes are visited in the following order:\n1. Traverse the left subtree in postorder.\n2. Traverse the right subtree in postorder.\n3. Visit the root node.",
+                                    listOf(
+                                        "Postorder traversal",
+                                        "root",
+                                        "left subtree",
+                                        "right subtree"
+                                    )
+                                )
+                            ),
+                            ContentBlock.Text(createSimpleText("Key Characteristics:")),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Recursive Nature: The process naturally lends itself to recursive implementation.",
+                                    listOf("Recursive Nature:")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "A recursive function has two parts:",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "1.Base Case: Stops recursion to prevent infinite calls.",
-                                    listOf("Base Case")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "2.Recursive Case: Calls itself to solve the subproblem.",
-                                    listOf("Recursive Case")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Example of recursion:",
-                                    listOf("")
+                                    "Iterative Implementation: Stack data structures can be used for an iterative approach.",
+                                    listOf("Iterative Implementation:")
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-            int factorial(int n) {
-                if (n == 0)  // Base case
-                    return 1;
-                else
-                    return n * factorial(n - 1);  // Recursive call
+            void postorderTraversal(Node* root) {
+                if (root == nullptr) return;
+                postorderTraversal(root->left);  // Traverse the left subtree
+                postorderTraversal(root->right); // Traverse the right subtree
+                cout << root->data << " ";      // Visit the root
             }
             """.trimIndent()
                             )
@@ -1028,151 +1414,211 @@ int main() {
                     ),
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson6_subs[1],
-                        title = "Base Case in Recursion",
-                        description = "Understand the base case's importance.",
+                        title = "Manual Walkthrough",
+                        description = "Manually create a binary tree and perform a postorder traversal.",
                         contentBlocks = listOf(
+                            ContentBlock.Text(createSimpleText("Let's walk through the process of creating a binary tree and performing a postorder traversal step-by-step.")),
+
+                            ContentBlock.Text(createAnnotatedText("Pass 1:", listOf("Pass 1:"))),
+                            ContentBlock.Text(createSimpleText("Define a 'Node' structure that holds data and pointers to the left and right child nodes.")),
+
+                            ContentBlock.Text(createAnnotatedText("Pass 2:", listOf("Pass 2:"))),
+                            ContentBlock.Text(createSimpleText("Dynamically allocate memory for nodes using 'new' and assign data to each node.")),
+
+                            ContentBlock.Text(createAnnotatedText("Pass 3:", listOf("Pass 3:"))),
+                            ContentBlock.Text(createSimpleText("Link the nodes by assigning the 'left' and 'right' pointers of a parent node to its respective child nodes.")),
+
+                            ContentBlock.Text(createAnnotatedText("Pass 4:", listOf("Pass 4:"))),
+                            ContentBlock.Text(createSimpleText("Perform a postorder traversal on the binary tree:")),
+                            ContentBlock.Text(createSimpleText("1. Traverse the left subtree first.")),
+                            ContentBlock.Text(createSimpleText("2. Traverse the right subtree next.")),
+                            ContentBlock.Text(createSimpleText("3. Visit the root node last.")),
+
+                            ContentBlock.Text(createSimpleText("Example:")),
+                            ContentBlock.Text(createSimpleText("Tree Structure:")),
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "The base case is crucial. It defines when recursion should stop.",
-                                    listOf("base case")
+                                createSimpleText(
+                                    """
+      1
+     / \
+    2   3
+   / \
+  4   5
+                        """.trimIndent()
                                 )
                             ),
+
+                            ContentBlock.Text(createSimpleText("Example Postorder Traversal:")),
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Without it, the function calls itself indefinitely, causing a stack overflow.",
-                                    listOf("")
+                                createSimpleText(
+                                    """
+    Postorder: 4 -> 5 -> 2 -> 3 -> 1
+                        """.trimIndent()
                                 )
                             ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Example of a base case:",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-                    int factorial(int n) {
-                        if (n == 0)  // Base case
-                            return 1;
-                        return n * factorial(n - 1);  // Recursive case
-                    }
-                    """.trimIndent()
-                            )
+
+                            ContentBlock.Text(createSimpleText("This walkthrough demonstrates how to create and traverse a binary tree using the postorder traversal method to process nodes in a hierarchical structure."))
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson6_subs[2],
-                        title = "Recursive Case in Recursion",
-                        description = "See a recursive function in action.",
+                        title = "Operations on Binary Trees: Postorder Traversal",
+                        description = "Learn how to perform basic operations like insertion, deletion, searching, and specifically postorder traversal on binary trees.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "The recursive case is when a function solves a small part of a problem by calling itself. Let's see an example of calculating factorial using recursion.",
-                                    listOf("recursive case")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Factorial (n!) is the multiplication of all integers from 1 to n. By definition, 0! = 1.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Here is an example:",
-                                    listOf("")
+                                    "Postorder Traversal and Searching:\n" +
+                                            "Postorder traversal visits nodes in the order: left subtree, right subtree, root node. Searching finds whether a value exists in the tree.",
+                                    listOf("Postorder Traversal", "Searching:")
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-            #include <stdio.h>
-            
-            int factorial(int n) {
-                if (n == 0)
-                    return 1;  // Base case
-                else
-                    return n * factorial(n - 1);  // Recursive case
-            }
+        void postorder(Node* root) {
+            if (root == nullptr) return;
+            postorder(root->left);  // Traverse left subtree
+            postorder(root->right); // Traverse right subtree
+            cout << root->data << " ";  // Visit root
+        }
 
-            int main() {
-                int result = factorial(5);
-                printf("Factorial of 5 is %d\n", result);  // Output: 120
-                return 0;
-            }
-            """.trimIndent()
+        bool search(Node* root, int value) {
+            if (root == nullptr) return false;
+            if (root->data == value) return true;
+            if (value < root->data) return search(root->left, value);
+            return search(root->right, value);
+        }
+        """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson6_subs[3],
-                        title = "Quiz",
-                        description = "Quiz",
+                        title = "How Binary Tree Operations Work: Inorder Focus",
+                        description = "Detailed step-by-step breakdown of insertion, deletion, inorder traversal, and searching operations in binary trees.",
                         contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "What should be the return value for the base case in a factorial function?",
-                                incompleteCode = """
-        int factorial(int n) {
-            if (n == 0)  // Base case
-                return ___;  // What should be returned here?
-            else
-                return n * factorial(n - 1);  // Recursive case
-        }
-    """.trimIndent(),
-                                correctCode = "1", // The correct answer for the base case is '1'
-                                userInput = null,
-                                isCodeCorrect = false
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Let's break down the operations on binary trees step-by-step to understand their mechanics, with a focus on inorder traversal."
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Insertion:",
+                                    listOf("Insertion")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+        1. Start at the root of the tree.
+        2. Compare the value with the current node's data.
+        3. If the value is smaller, move to the left child; if larger, move to the right child.
+        4. Repeat until a NULL position is found.
+        5. Create a new node at the NULL position.
+                        """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Deletion:",
+                                    listOf("Deletion")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+        1. Locate the node to be deleted.
+        2. Handle cases:
+           a. No children: Remove the node.
+           b. One child: Replace the node with its child.
+           c. Two children: Replace the node with its in-order successor (smallest in the right subtree).
+        3. Update the tree structure accordingly.
+                        """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Inorder Traversal:",
+                                    listOf("Inorder Traversal")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+        1. Start at the root node.
+        2. Traverse the left subtree first.
+        3. Visit the root node.
+        4. Traverse the right subtree last.
+        5. Repeat the process recursively for all subtrees.
+                        """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Searching:",
+                                    listOf("Searching")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Searching follows a similar pattern to insertion but returns true or false based on whether the value is found."
+                                )
                             )
                         ),
-                        type = LessonContentType.INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson6_subs[4],
-                        title = "Recursive vs Iterative Solutions",
-                        description = "Compare recursion and iteration.",
+                        title = "How to Display Binary Trees: Traversal Methods",
+                        description = "Understand the basics of binary trees and how to display them using various traversal methods, focusing on inorder traversal.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Recursion can often be replaced with iteration using loops.",
-                                    listOf("Recursion")
-                                )
+                                createSimpleText("A binary tree is a hierarchical data structure where each node has at most two children, referred to as the left child and the right child.")
                             ),
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Example of factorial using recursion:",
-                                    listOf("recursion")
-                                )
+                                createSimpleText("To display a binary tree, traverse it using methods like Preorder, Inorder, or Postorder traversal to access all nodes. For this lesson, we'll focus on inorder traversal.")
                             ),
                             ContentBlock.Code(
                                 """
-                    int factorial(int n) {
-                        if (n == 0) return 1;
-                        return n * factorial(n - 1);
-                    }
-                    """.trimIndent()
+        void preorderTraversal(Node* root) {
+            if (root == nullptr) return;
+            cout << root->data << " ";     // Print data
+            preorderTraversal(root->left); // Visit left subtree
+            preorderTraversal(root->right); // Visit right subtree
+        }
+
+        void inorderTraversal(Node* root) {
+            if (root == nullptr) return;
+            inorderTraversal(root->left);   // Visit left subtree
+            cout << root->data << " ";     // Print data
+            inorderTraversal(root->right); // Visit right subtree
+        }
+
+        void postorderTraversal(Node* root) {
+            if (root == nullptr) return;
+            postorderTraversal(root->left);  // Visit left subtree
+            postorderTraversal(root->right); // Visit right subtree
+            cout << root->data << " ";       // Print data
+        }
+        """.trimIndent()
                             ),
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Example of factorial using iteration:",
-                                    listOf("iteration")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-                    int factorial(int n) {
-                        int result = 1;
-                        for (int i = 1; i <= n; i++) {
-                            result *= i;
-                        }
-                        return result;
-                    }
-                    """.trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Recursion is simpler to write, but iteration is often more memory-efficient.",
-                                    listOf("")
+                                createSimpleText(
+                                    """
+            Example Inorder Traversal:
+            
+            Tree:
+
+                1
+               / \
+              2   3
+             / \
+            4   5
+
+            Inorder Sequence: 4 -> 2 -> 5 -> 1 -> 3
+            """.trimIndent()
                                 )
                             )
                         ),
@@ -1180,90 +1626,16 @@ int main() {
                     ),
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson6_subs[5],
-                        title = "Quiz",
-                        description = "Quiz",
-                        contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "In the following code snippet for calculating factorial, which value should be returned? Choose the correct one.",
-                                incompleteCode = """
-            int factorial(int n) {
-                int result = 1;
-                for (int i = 1; i <= n; i++) {
-                    result *= i;
-                }
-                return ___;
-            }
-            """.trimIndent(),
-                                correctCode = "result", // The correct answer is 'result' to be returned in the iterative approach
-                                userInput = null,
-                                isCodeCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson6_subs[6],
-                        title = "Real-Life Example of Recursion",
-                        description = "Apply recursion in real-world scenarios.",
+                        title = "Importance of Inorder Traversal",
+                        description = "Understand why inorder traversal is important and its applications in binary trees.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "A real-world example of recursion is directory traversal.",
-                                    listOf("")
+                                createSimpleText(
+                                    "Inorder traversal is a critical technique for processing binary trees. It processes nodes in the order: left subtree, root, right subtree. This traversal is especially useful in applications like Binary Search Trees (BST), where inorder traversal of a BST yields nodes in sorted order, Expression Trees, where it helps evaluate arithmetic expressions by ensuring operands are processed in the correct order, and Tree Traversal Algorithms, as it serves as the foundation for several depth-first search (DFS) algorithms and tree-related algorithms."
                                 )
-                            ),
-                            ContentBlock.Text(createAnnotatedText("Example:", listOf())),
-                            ContentBlock.Code(
-                                """
-                    #include <stdio.h>
-                    #include <dirent.h>
-                    
-                    void listFiles(const char *path) {
-                        struct dirent *entry;
-                        DIR *dp = opendir(path);
-                        if (dp == NULL) {
-                            printf("Unable to open directory %s\n", path);
-                            return;
-                        }
-
-                        while ((entry = readdir(dp)) != NULL) {
-                            if (entry->d_type == DT_DIR) {
-                                if (strcmp(entry->d_name, ".") != 0 && strcmp(entry->d_name, "..") != 0) {
-                                    listFiles(entry->d_name);  // Recursive call
-                                }
-                            } else {
-                                printf("%s\n", entry->d_name);  // Print file name
-                            }
-                        }
-                        closedir(dp);
-                    }
-
-                    int main() {
-                        listFiles("my_folder");  // Start traversal
-                        return 0;
-                    }
-                    """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson6_subs[7],
-                        title = "Quiz",
-                        description = "Quiz",
-                        contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "What is the base case in recursion?",
-                                options = listOf(
-                                    "The condition that triggers the recursive function",
-                                    "The condition that causes the recursion to stop",
-                                    "The first function call in recursion",
-                                    "The condition that loops continuously"
-                                ),
-                                correctAnswer = "The condition that causes the recursion to stop"
-                            )
-                        ),
-                        type = LessonContentType.QUIZ
                     )
                 ),
                 status = LessonStatus.LOCKED
