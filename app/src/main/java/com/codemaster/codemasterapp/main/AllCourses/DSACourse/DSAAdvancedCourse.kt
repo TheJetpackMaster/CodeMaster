@@ -4440,7 +4440,7 @@ val graph = mutableMapOf(
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = DSAAdvancedStageIds.lesson11_subs[5],
+                        id = DSAAdvancedStageIds.lesson12_subs[5],
                         title = "Importance of Graphs",
                         description = "Understand the critical role graphs play in representing and solving complex real-world problems across various domains.",
                         contentBlocks = listOf(
