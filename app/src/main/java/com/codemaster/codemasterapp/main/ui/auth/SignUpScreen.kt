@@ -13,6 +13,8 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.ClickableText
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
@@ -32,9 +34,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.focus.FocusDirection
+import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
@@ -86,6 +92,8 @@ fun SignUpScreen(navController: NavController) {
     }
 }
 
+
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SignUpScreenContent(
@@ -95,7 +103,11 @@ fun SignUpScreenContent(
     var username by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
-    var ConfirmPassword by remember { mutableStateOf("") }
+    var confirmPassword by remember { mutableStateOf("") }
+
+
+    // FocusManager to clear focus on "Done"
+    val focusManager = LocalFocusManager.current
 
     // Load Lottie composition
     val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.signup))
@@ -106,7 +118,6 @@ fun SignUpScreenContent(
         iterations = LottieConstants.IterateForever // Infinite loop
     )
 
-
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
@@ -116,7 +127,6 @@ fun SignUpScreenContent(
                 start = 18.dp, end = 18.dp,
             )
             .verticalScroll(rememberScrollState())
-
     ) {
         LottieAnimation(
             composition = composition,
@@ -158,11 +168,20 @@ fun SignUpScreenContent(
                         contentDescription = "Username Icon",
                         tint = Color.Gray
                     )
-                }
+                },
+                keyboardActions = KeyboardActions(
+                    onNext = {
+                        focusManager.moveFocus(focusDirection = FocusDirection.Down)
+                    }
+                ),
+                keyboardOptions = KeyboardOptions(
+                    imeAction = ImeAction.Next
+                ),
             )
 
             Spacer(modifier = Modifier.height(12.dp))
 
+            // Email TextField
             AuthInputField(
                 value = email,
                 onValueChange = { email = it },
@@ -170,14 +189,21 @@ fun SignUpScreenContent(
                 leadingIcon = {
                     Icon(
                         imageVector = Icons.Default.Email,
-                        contentDescription = "Username Icon",
+                        contentDescription = "Email Icon",
                         tint = Color.Gray
                     )
-                }
+                },
+                keyboardActions = KeyboardActions(
+                    onNext = {focusManager.moveFocus(focusDirection = FocusDirection.Down) }
+                ),
+                keyboardOptions = KeyboardOptions(
+                    imeAction = ImeAction.Next
+                ),
             )
 
             Spacer(modifier = Modifier.height(12.dp))
 
+            // Password TextField
             AuthInputField(
                 value = password,
                 onValueChange = { password = it },
@@ -185,26 +211,41 @@ fun SignUpScreenContent(
                 leadingIcon = {
                     Icon(
                         imageVector = Icons.Default.Lock,
-                        contentDescription = "Username Icon",
+                        contentDescription = "Password Icon",
                         tint = Color.Gray
                     )
-                }
+                },
+                keyboardActions = KeyboardActions(
+                    onNext = { focusManager.moveFocus(focusDirection = FocusDirection.Down)}
+                ),
+                keyboardOptions = KeyboardOptions(
+                    imeAction = ImeAction.Next
+                ),
             )
 
             Spacer(modifier = Modifier.height(12.dp))
 
-            // Password TextField
+            // Confirm Password TextField
             AuthInputField(
-                value = ConfirmPassword,
-                onValueChange = { ConfirmPassword = it },
+                value = confirmPassword,
+                onValueChange = { confirmPassword = it },
                 hint = "Confirm Password",
                 leadingIcon = {
                     Icon(
                         imageVector = Icons.Default.Lock,
-                        contentDescription = "Username Icon",
+                        contentDescription = "Confirm Password Icon",
                         tint = Color.Gray
                     )
-                }
+                },
+
+                keyboardActions = KeyboardActions(
+                    onDone = {
+                        focusManager.clearFocus()
+                    }
+                ),
+                keyboardOptions = KeyboardOptions(
+                    imeAction = ImeAction.Done
+                ),
             )
 
             Spacer(modifier = Modifier.height(8.dp))
@@ -214,7 +255,6 @@ fun SignUpScreenContent(
                 textAlign = TextAlign.Start
             )
         }
-
 
         Spacer(modifier = Modifier.weight(1f))
         Spacer(Modifier.height(12.dp))
@@ -228,8 +268,6 @@ fun SignUpScreenContent(
             innerModifier = Modifier.fillMaxWidth(),
             modifier = Modifier.shadow(2.dp, shape = CircleShape)
         )
-
-        //Spacer(modifier = Modifier.height(16.dp))
 
         Row(
             modifier = Modifier
@@ -262,7 +300,6 @@ fun SignUpScreenContent(
                     textAlign = TextAlign.Center
                 ),
                 onClick = { offset ->
-                    // Handle click on "Sign Up"
                     annotatedString.getStringAnnotations(
                         tag = "LOGIN",
                         start = offset,

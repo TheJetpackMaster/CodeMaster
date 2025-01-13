@@ -57,6 +57,9 @@ fun PreRegistrationScreen(navController: NavController) {
             },
             onSignupClick = {
                 navController.navigate(AuthRoutes.SignUpScreen.route)
+            },
+            onGuestClick = {
+                navController.navigate(AuthRoutes.GuestScreen.route)
             }
         )
 
@@ -67,6 +70,7 @@ fun PreRegistrationScreen(navController: NavController) {
 fun PreRegistrationScreenContent(
     onLoginClick: () -> Unit,
     onSignupClick: () -> Unit,
+    onGuestClick:()-> Unit
 ) {
     // Load Lottie composition
     val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.preregistration))
@@ -122,13 +126,25 @@ fun PreRegistrationScreenContent(
             modifier = Modifier.shadow(2.dp, shape = CircleShape)
         )
 
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(12.dp))
 
         // Signup Button with Transparent Background and Black Border
         AuthActionButton(
             text = "Sing Up",
             onClick = {
                 onSignupClick()
+            },
+            modifier = Modifier
+                .shadow(2.dp, shape = CircleShape)
+        )
+
+        Spacer(modifier = Modifier.height(12.dp))
+
+        // Guest Button
+        AuthActionButton(
+            text = "Guest",
+            onClick = {
+                onGuestClick()
             },
             gradientColors = listOf(
                 Color.Transparent,

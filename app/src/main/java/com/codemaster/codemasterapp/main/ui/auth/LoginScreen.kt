@@ -22,6 +22,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.ClickableText
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Person
@@ -36,7 +38,10 @@ import androidx.compose.runtime.*
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.focus.FocusDirection
+import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.withStyle
 import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
@@ -101,6 +106,9 @@ fun LoginScreenContent(
 ) {
     var username by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
+
+    // FocusManager to clear focus on "Done"
+    val focusManager = LocalFocusManager.current
 
     // Load Lottie composition
     val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.login))
@@ -167,7 +175,15 @@ fun LoginScreenContent(
                         contentDescription = "Username Icon",
                         tint = Color.Gray
                     )
-                }
+                },
+                keyboardActions = KeyboardActions(
+                    onNext = {
+                        focusManager.moveFocus(focusDirection = FocusDirection.Down)
+                    }
+                ),
+                keyboardOptions = KeyboardOptions(
+                    imeAction = ImeAction.Next
+                ),
             )
 
             Spacer(modifier = Modifier.height(12.dp))
@@ -183,7 +199,16 @@ fun LoginScreenContent(
                         contentDescription = "Username Icon",
                         tint = Color.Gray
                     )
-                }
+                },
+                keyboardActions = KeyboardActions(
+                    onDone = {
+                        focusManager.clearFocus()
+                        onLoginClick()
+                    }
+                ),
+                keyboardOptions = KeyboardOptions(
+                    imeAction = ImeAction.Done
+                ),
             )
 
             // forget Password

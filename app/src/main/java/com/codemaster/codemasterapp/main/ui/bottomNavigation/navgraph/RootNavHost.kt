@@ -26,7 +26,7 @@ fun RootNavHost(
 
     // Main NavHost (for the entire app)
     NavHost(
-        navController = navController, startDestination = BottomNavRoutes.BOTTOM_ROOT.route,
+        navController = navController, startDestination = AuthRoutes.AUTH_ROOT.route,
         route = "ROOT"
     ) {
         authNavHost(navController)
