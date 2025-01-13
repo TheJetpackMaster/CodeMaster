@@ -48,6 +48,7 @@ import com.codemaster.codemasterapp.main.data.LessonStatus
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.RootNavHost
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.BottomNavRoutes
 import com.codemaster.codemasterapp.main.ui.viewModels.CourseViewModel
+import com.codemaster.codemasterapp.main.ui.viewModels.UserProfileViewModel
 import kotlinx.coroutines.flow.StateFlow
 import kotlin.random.Random
 
@@ -57,6 +58,7 @@ import kotlin.random.Random
 fun MainScreen(
     courseViewModel: CourseViewModel,
     noteViewModel: NoteViewModel,
+    userProfileViewModel: UserProfileViewModel,
     context: Context,
     courses:List<Course> = emptyList<Course>(),
     allLessonsStatus: State<Map<String, LessonStatus>>
@@ -158,6 +160,7 @@ fun MainScreen(
                 navController = navController,
                 courseViewModel = courseViewModel,
                 noteViewModel = noteViewModel,
+                userProfileViewModel = userProfileViewModel,
                 courses = courses,
                 allLessonsStatus = allLessonsStatus
             )

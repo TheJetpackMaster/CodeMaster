@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import com.codemaster.codemasterapp.main.DataBase.NoteViewModel
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.MainScreen
 import com.codemaster.codemasterapp.main.ui.viewModels.CourseViewModel
+import com.codemaster.codemasterapp.main.ui.viewModels.UserProfileViewModel
 import com.codemaster.codemasterapp.ui.theme.CodeMasterTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -23,6 +24,7 @@ class MainActivity : ComponentActivity() {
 
         val courseViewModel: CourseViewModel by viewModels()
         val noteViewModel: NoteViewModel by viewModels()
+        val userProfileViewModel : UserProfileViewModel by viewModels()
 
         enableEdgeToEdge()
 
@@ -36,6 +38,7 @@ class MainActivity : ComponentActivity() {
                     MainScreen(
                         courseViewModel = courseViewModel,
                         noteViewModel = noteViewModel,
+                        userProfileViewModel = userProfileViewModel,
                         context = this@MainActivity,
                         courses = courses,
                         allLessonsStatus = allLessonStatus

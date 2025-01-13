@@ -1,5 +1,7 @@
 package com.codemaster.codemasterapp.main.ui.userProfileDetails
 
+import android.net.Uri
+import android.util.Log
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -27,6 +29,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -36,6 +39,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.PathEffect
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
@@ -43,9 +47,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.NavController
+import coil.compose.rememberImagePainter
+import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
+import com.bumptech.glide.integration.compose.GlideImage
 import com.codemaster.codemasterapp.R
 import com.codemaster.codemasterapp.main.DataBase.NoteViewModel
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.ProfileRoutes
+import com.codemaster.codemasterapp.main.ui.viewModels.UserProfileViewModel
 
 
 val profileSectionGradient = Brush.verticalGradient(
@@ -90,7 +98,8 @@ val liveSupportButtonColors = Brush.horizontalGradient(
 @Composable
 fun UserProfileScreen(
     navController: NavController,
-    noteViewModel: NoteViewModel
+    noteViewModel: NoteViewModel,
+    userProfileViewModel: UserProfileViewModel
 ) {
     Column(
         modifier = Modifier
@@ -158,7 +167,9 @@ fun UserProfileScreen(
             Spacer(Modifier.height(14.dp))
 
             //User Profile Section
-            UserProfileSection()
+            UserProfileSection(
+                userProfileViewModel = userProfileViewModel
+            )
 
             Spacer(modifier = Modifier.height(16.dp))
 
@@ -223,53 +234,53 @@ fun UserProfileScreen(
                 }
             }
 
-            Spacer(modifier = Modifier.height(16.dp))
-
-            // Stats Section
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp),
-                horizontalArrangement = Arrangement.spacedBy(8.dp)
-            ) {
-                StatsCard(
-                    iconRes = R.drawable.person, // Replace with correct icons
-                    value = "0",
-                    label = "Gems",
-                    modifier = Modifier.weight(1f)
-                )
-                StatsCard(
-                    iconRes = R.drawable.person, // Replace with correct icons
-                    value = "0",
-                    label = "Social Index",
-                    modifier = Modifier.weight(1f)
-                )
-            }
-
-            Spacer(modifier = Modifier.height(12.dp))
-
-            // Stats Section
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp),
-                horizontalArrangement = Arrangement.spacedBy(8.dp)
-            ) {
-
-                StatsCard(
-                    iconRes = R.drawable.person, // Replace with correct icons
-                    value = "0",
-                    label = "Days Streak",
-                    modifier = Modifier.weight(1f)
-                )
-                StatsCard(
-                    iconRes = R.drawable.person, // Replace with correct icons
-                    value = "0%",
-                    label = "Accuracy",
-                    modifier = Modifier.weight(1f)
-                )
-
-            }
+//            Spacer(modifier = Modifier.height(16.dp))
+//
+//            // Stats Section
+//            Row(
+//                modifier = Modifier
+//                    .fillMaxWidth()
+//                    .padding(horizontal = 16.dp),
+//                horizontalArrangement = Arrangement.spacedBy(8.dp)
+//            ) {
+//                StatsCard(
+//                    iconRes = R.drawable.person, // Replace with correct icons
+//                    value = "0",
+//                    label = "Gems",
+//                    modifier = Modifier.weight(1f)
+//                )
+//                StatsCard(
+//                    iconRes = R.drawable.person, // Replace with correct icons
+//                    value = "0",
+//                    label = "Social Index",
+//                    modifier = Modifier.weight(1f)
+//                )
+//            }
+//
+//            Spacer(modifier = Modifier.height(12.dp))
+//
+//            // Stats Section
+//            Row(
+//                modifier = Modifier
+//                    .fillMaxWidth()
+//                    .padding(horizontal = 16.dp),
+//                horizontalArrangement = Arrangement.spacedBy(8.dp)
+//            ) {
+//
+//                StatsCard(
+//                    iconRes = R.drawable.person, // Replace with correct icons
+//                    value = "0",
+//                    label = "Days Streak",
+//                    modifier = Modifier.weight(1f)
+//                )
+//                StatsCard(
+//                    iconRes = R.drawable.person, // Replace with correct icons
+//                    value = "0%",
+//                    label = "Accuracy",
+//                    modifier = Modifier.weight(1f)
+//                )
+//
+//            }
 
             Spacer(modifier = Modifier.height(16.dp))
 
@@ -352,8 +363,12 @@ fun SavedNoteCard(tittle: String, description: String, onClick: () -> Unit) {
 }
 
 
+@OptIn(ExperimentalGlideComposeApi::class)
 @Composable
-fun UserProfileSection() {
+fun UserProfileSection(userProfileViewModel: UserProfileViewModel) {
+
+    val guestProfile = userProfileViewModel.guestProfile.collectAsState()
+
     Box(
         modifier = Modifier
             .padding(horizontal = 12.dp)
@@ -364,8 +379,6 @@ fun UserProfileSection() {
                 brush = profileSectionGradient,
                 shape = RoundedCornerShape(16.dp)
             )
-
-
     ) {
         // Background with gradient and wave
         Canvas(
@@ -375,7 +388,6 @@ fun UserProfileSection() {
         ) {
             val width = size.width
             val height = size.height
-
 
             // Wave path
             val wavePath = Path().apply {
@@ -406,11 +418,9 @@ fun UserProfileSection() {
                 .size(44.dp)
                 .padding(12.dp)
                 .clickable(onClick = {
-
+                    // Handle edit profile click
                 })
-
         )
-
 
         // Profile content
         Column(
@@ -436,12 +446,17 @@ fun UserProfileSection() {
                         ),
                     )
                 }
-                Image(
-                    painter = painterResource(R.drawable.person), // Replace with your avatar resource
+
+                Log.d("image",guestProfile.value?.profilePicture.toString())
+
+                GlideImage(
+                    model = guestProfile.value?.profilePicture,
                     contentDescription = "Profile Picture",
                     modifier = Modifier
-                        .size(80.dp)
-                        .clip(CircleShape)
+                        .fillMaxSize()
+                        .padding(6.dp)
+                        .clip(CircleShape),
+                    contentScale = ContentScale.FillBounds
                 )
             }
 
@@ -449,7 +464,7 @@ fun UserProfileSection() {
 
             // Username
             Text(
-                text = "Anonymous",
+                text = guestProfile.value?.username.toString(),
                 style = MaterialTheme.typography.titleMedium.copy(
                     color = Color.White,
                     fontWeight = FontWeight.Bold
@@ -459,7 +474,7 @@ fun UserProfileSection() {
             // Followers and Following
             Spacer(modifier = Modifier.height(4.dp))
             Text(
-                text = "0 Followers  |  0 Following",
+                text = "Guest Account",
                 style = MaterialTheme.typography.bodySmall.copy(
                     color = Color.Gray
                 )
@@ -469,251 +484,46 @@ fun UserProfileSection() {
 }
 
 
-@Composable
-fun StatsCard(
-    iconRes: Int, value: String, label: String,
-    modifier: Modifier = Modifier
-) {
-
-
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
-        modifier = modifier
-            .height(100.dp)
-            .shadow(elevation = 3.dp, shape = RoundedCornerShape(8.dp))
-            .background(
-                brush = statsCardGradient,
-                shape = RoundedCornerShape(8.dp)
-            )
-            .padding(12.dp)
-
-    ) {
-        Icon(
-            painter = painterResource(iconRes),
-            contentDescription = label,
-            tint = Color.White,
-            modifier = Modifier.size(28.dp)
-        )
-        Spacer(modifier = Modifier.height(8.dp))
-        Text(
-            text = value,
-            style = MaterialTheme.typography.titleMedium.copy(
-                color = Color.White,
-                fontWeight = FontWeight.Bold
-            )
-        )
-        Spacer(modifier = Modifier.height(4.dp))
-        Text(
-            text = label,
-            style = MaterialTheme.typography.bodySmall.copy(color = Color.Gray)
-        )
-    }
-}
-
-
-//
-//@Composable
-//fun UserProfileScreen(
-//    navController: NavController
-//) {
-//    Column(
-//        modifier = Modifier
-//            .fillMaxSize()
-//            .background(Color(0xFF121212)) // Dark background
-//            .padding(16.dp)
-//    ) {
-//        // Header with Title and Settings Button
-//        Row(
-//            modifier = Modifier
-//                .fillMaxWidth()
-//                .padding(bottom = 16.dp),
-//            horizontalArrangement = Arrangement.SpaceBetween,
-//            verticalAlignment = Alignment.CenterVertically
-//        ) {
-//            Text(
-//                text = "Profile",
-//                style = MaterialTheme.typography.titleLarge,
-//                color = Color.White
-//            )
-//            IconButton(onClick = { /* Handle settings click */ }) {
-//                Icon(
-//                    painter = painterResource(R.drawable.person), // Replace with settings icon
-//                    contentDescription = "Settings",
-//                    tint = Color.White
-//                )
-//            }
-//        }
-//
-//        // User Avatar, Name, Followers, and Following
-//        Box(
-//            modifier = Modifier
-//                .fillMaxWidth()
-//                .background(Color(0xFF1E1E1E), shape = RoundedCornerShape(8.dp))
-//                .padding(16.dp)
-//        ) {
-//            Column(horizontalAlignment = Alignment.CenterHorizontally) {
-//                Box(
-//                    modifier = Modifier.size(100.dp),
-//                    contentAlignment = Alignment.Center
-//                ) {
-//                    Image(
-//                        painter = painterResource(R.drawable.person), // Replace with avatar icon
-//                        contentDescription = "User Avatar",
-//                        modifier = Modifier
-//                            .clip(CircleShape)
-//                            .background(Color(0xFFEDEDED))
-//                            .size(100.dp)
-//                    )
-//                    IconButton(
-//                        onClick = { /* Handle edit profile image */ },
-//                        modifier = Modifier
-//                            .align(Alignment.BottomEnd)
-//                            .background(Color.White, shape = CircleShape)
-//                            .padding(4.dp)
-//                    ) {
-//                        Icon(
-//                            painter = painterResource(R.drawable.badge), // Replace with edit icon
-//                            contentDescription = "Edit Profile Picture",
-//                            tint = Color(0xFF1E88E5)
-//                        )
-//                    }
-//                }
-//
-//                Spacer(modifier = Modifier.height(8.dp))
-//                Text(
-//                    text = "Anonymous",
-//                    style = MaterialTheme.typography.titleMedium,
-//                    color = Color.White
-//                )
-//                Spacer(modifier = Modifier.height(4.dp))
-//                Text(
-//                    text = "0 Followers  |  0 Following",
-//                    style = MaterialTheme.typography.bodySmall,
-//                    color = Color.Gray
-//                )
-//            }
-//        }
-//
-//        Spacer(modifier = Modifier.height(16.dp))
-//
-//        // Premium Upgrade Section
-//        Box(
-//            modifier = Modifier
-//                .fillMaxWidth()
-//                .background(Color(0xFFFFD700), shape = RoundedCornerShape(8.dp))
-//                .padding(16.dp)
-//        ) {
-//            Row(
-//                horizontalArrangement = Arrangement.SpaceBetween,
-//                verticalAlignment = Alignment.CenterVertically
-//            ) {
-//                Column {
-//                    Text(
-//                        text = "Upgrade to Premium",
-//                        style = MaterialTheme.typography.titleMedium,
-//                        color = Color.Black
-//                    )
-//                    Text(
-//                        text = "Get more premium courses",
-//                        style = MaterialTheme.typography.bodySmall,
-//                        color = Color.DarkGray
-//                    )
-//                }
-//                Button(
-//                    onClick = { /* Handle Try Pro */ },
-//                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF43A047))
-//                ) {
-//                    Text(text = "Try Pro")
-//                }
-//            }
-//        }
-//
-//        Spacer(modifier = Modifier.height(16.dp))
-//
-//        // Stats Section
-//        Row(
-//            modifier = Modifier.fillMaxWidth(),
-//            horizontalArrangement = Arrangement.SpaceBetween
-//        ) {
-//            StatsCard(
-//                iconRes = R.drawable.person, // Replace with fire icon
-//                value = "0",
-//                label = "Days Streak",
-//                modifier = Modifier.weight(1f)
-//            )
-//            StatsCard(
-//                iconRes = R.drawable.person, // Replace with accuracy icon
-//                value = "0%",
-//                label = "Question Accuracy",
-//                modifier = Modifier.weight(1f)
-//            )
-//            StatsCard(
-//                iconRes = R.drawable.badge, // Replace with gem icon
-//                value = "0",
-//                label = "Total Gems",
-//                modifier = Modifier.weight(1f)
-//            )
-//            StatsCard(
-//                iconRes = R.drawable.person, // Replace with social index icon
-//                value = "0",
-//                label = "Social Index",
-//                modifier = Modifier.weight(1f)
-//            )
-//        }
-//
-//        Spacer(modifier = Modifier.height(16.dp))
-//
-//        // Live Support Button
-//        Box(
-//            modifier = Modifier
-//                .fillMaxWidth()
-//                .background(Color(0xFF1E88E5), shape = RoundedCornerShape(8.dp))
-//                .clickable { /* Handle live support click */ }
-//                .padding(16.dp),
-//            contentAlignment = Alignment.Center
-//        ) {
-//            Text(
-//                text = "Live Support",
-//                style = MaterialTheme.typography.titleMedium,
-//                color = Color.White
-//            )
-//        }
-//    }
-//}
 //
 //@Composable
 //fun StatsCard(
 //    iconRes: Int, value: String, label: String,
 //    modifier: Modifier = Modifier
 //) {
+//
+//
 //    Column(
 //        horizontalAlignment = Alignment.CenterHorizontally,
+//        verticalArrangement = Arrangement.Center,
 //        modifier = modifier
-//            .background(Color(0xFF1E1E1E), shape = RoundedCornerShape(8.dp))
-//            .padding(8.dp)
+//            .height(100.dp)
+//            .shadow(elevation = 3.dp, shape = RoundedCornerShape(8.dp))
+//            .background(
+//                brush = statsCardGradient,
+//                shape = RoundedCornerShape(8.dp)
+//            )
+//            .padding(12.dp)
+//
 //    ) {
 //        Icon(
 //            painter = painterResource(iconRes),
 //            contentDescription = label,
 //            tint = Color.White,
-//            modifier = Modifier.size(32.dp)
+//            modifier = Modifier.size(28.dp)
 //        )
-//        Spacer(modifier = Modifier.height(4.dp))
+//        Spacer(modifier = Modifier.height(8.dp))
 //        Text(
 //            text = value,
-//            style = MaterialTheme.typography.titleMedium,
-//            color = Color.White
+//            style = MaterialTheme.typography.titleMedium.copy(
+//                color = Color.White,
+//                fontWeight = FontWeight.Bold
+//            )
 //        )
 //        Spacer(modifier = Modifier.height(4.dp))
 //        Text(
 //            text = label,
-//            style = MaterialTheme.typography.bodySmall,
-//            color = Color.Gray
+//            style = MaterialTheme.typography.bodySmall.copy(color = Color.Gray)
 //        )
 //    }
 //}
-
-
-
-
+//
