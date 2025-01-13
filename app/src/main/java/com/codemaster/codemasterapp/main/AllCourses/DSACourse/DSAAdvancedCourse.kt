@@ -4660,12 +4660,12 @@ class Graph {
                     ),
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson12_subs[5],
-                        title = "Importance of Graphs",
-                        description = "Understand the critical role graphs play in representing and solving complex real-world problems across various domains.",
+                        title = "Importance of Graph Detection",
+                        description = "Learn how detecting key properties in graphs, like cycles and connected components, helps optimize solutions in real-world problems.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createSimpleText(
-                                    "Graphs are fundamental data structures that model relationships between entities, making them versatile tools for solving real-world problems in networking, navigation, and data organization. They are used in applications like social networks to represent connections between users, GPS systems for route optimization, web crawling for search engine indexing, and dependency management for build systems or package managers. Graphs also play a crucial role in designing and optimizing communication networks and understanding biological relationships like protein-protein interactions. The key benefits of graphs include their ability to efficiently represent complex relationships, the availability of optimized algorithms like Dijkstra's and Kruskal's for solving critical problems, and their flexibility to model directed and undirected relationships with weighted and unweighted edges."
+                                    "Graph detection is crucial for identifying key properties such as cycles, connected components, and bipartiteness. These properties help solve real-world problems in networking, routing, social networks, and logistics by optimizing paths, detecting redundant routes, and improving matching tasks like resource allocation. Applications include preventing loops in communication networks, optimizing network performance, identifying groups of related users in social networks, and ensuring efficient resource distribution in logistics."
                                 )
                             )
                         ),
