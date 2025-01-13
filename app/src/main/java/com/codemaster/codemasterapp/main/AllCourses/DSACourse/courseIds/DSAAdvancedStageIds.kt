@@ -40,6 +40,8 @@ object DSAAdvancedStageIds {
         "${lesson2}_sub5",
         "${lesson2}_sub6",
         "${lesson2}_sub7",
+        "${lesson2}_sub8",
+        "${lesson2}_sub9",
     )
 
     // Sub-lesson IDs for lesson 3 - Classes & Objects in DSA
@@ -65,6 +67,8 @@ object DSAAdvancedStageIds {
         "${lesson4}_sub5",
         "${lesson4}_sub6",
         "${lesson4}_sub7",
+        "${lesson4}_sub8",
+        "${lesson4}_sub9",
     )
 
     // Sub-lesson IDs for lesson 5 - Constructors in DSA
@@ -142,7 +146,9 @@ object DSAAdvancedStageIds {
         "${lesson10}_sub4",
         "${lesson10}_sub5",
         "${lesson10}_sub6",
-        "${lesson10}_sub7"
+        "${lesson10}_sub7",
+        "${lesson10}_sub8",
+        "${lesson10}_sub9"
     )
 
     // Sub-lesson IDs for lesson 11 - Inheritance in DSA
@@ -153,7 +159,10 @@ object DSAAdvancedStageIds {
         "${lesson11}_sub4",
         "${lesson11}_sub5",
         "${lesson11}_sub6",
-        "${lesson11}_sub7"
+        "${lesson11}_sub7",
+        "${lesson11}_sub8",
+        "${lesson11}_sub9",
+        "${lesson11}_sub10"
     )
 
     // Sub-lesson IDs for lesson 12 - Inheritance in DSA
@@ -164,7 +173,10 @@ object DSAAdvancedStageIds {
         "${lesson12}_sub4",
         "${lesson12}_sub5",
         "${lesson12}_sub6",
-        "${lesson12}_sub7"
+        "${lesson12}_sub7",
+        "${lesson12}_sub8",
+        "${lesson12}_sub9",
+        "${lesson12}_sub10",
     )
 
     // Sub-lesson IDs for lesson 12 - Inheritance in DSA
@@ -175,7 +187,10 @@ object DSAAdvancedStageIds {
         "${lesson13}_sub4",
         "${lesson13}_sub5",
         "${lesson13}_sub6",
-        "${lesson13}_sub7"
+        "${lesson13}_sub7",
+        "${lesson13}_sub8",
+        "${lesson13}_sub9",
+        "${lesson13}_sub10"
     )
 
 }
