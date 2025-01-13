@@ -1495,12 +1495,12 @@ fun DSAAdvancedCourse(): Stage {
                     ),
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson6_subs[3],
-                        title = "How Binary Tree Operations Work: Inorder Focus",
-                        description = "Detailed step-by-step breakdown of insertion, deletion, inorder traversal, and searching operations in binary trees.",
+                        title = "How Binary Tree Operations Work: Postorder Focus",
+                        description = "Detailed step-by-step breakdown of insertion, deletion, postorder traversal, and searching operations in binary trees.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createSimpleText(
-                                    "Let's break down the operations on binary trees step-by-step to understand their mechanics, with a focus on inorder traversal."
+                                    "Let's break down the operations on binary trees step-by-step to understand their mechanics, with a focus on postorder traversal."
                                 )
                             ),
                             ContentBlock.Text(
@@ -1512,12 +1512,12 @@ fun DSAAdvancedCourse(): Stage {
                             ContentBlock.Text(
                                 createSimpleText(
                                     """
-        1. Start at the root of the tree.
-        2. Compare the value with the current node's data.
-        3. If the value is smaller, move to the left child; if larger, move to the right child.
-        4. Repeat until a NULL position is found.
-        5. Create a new node at the NULL position.
-                        """.trimIndent()
+    1. Start at the root of the tree.
+    2. Compare the value with the current node's data.
+    3. If the value is smaller, move to the left child; if larger, move to the right child.
+    4. Repeat until a NULL position is found.
+    5. Create a new node at the NULL position.
+                    """.trimIndent()
                                 )
                             ),
                             ContentBlock.Text(
@@ -1529,30 +1529,30 @@ fun DSAAdvancedCourse(): Stage {
                             ContentBlock.Text(
                                 createSimpleText(
                                     """
-        1. Locate the node to be deleted.
-        2. Handle cases:
-           a. No children: Remove the node.
-           b. One child: Replace the node with its child.
-           c. Two children: Replace the node with its in-order successor (smallest in the right subtree).
-        3. Update the tree structure accordingly.
-                        """.trimIndent()
+    1. Locate the node to be deleted.
+    2. Handle cases:
+       a. No children: Remove the node.
+       b. One child: Replace the node with its child.
+       c. Two children: Replace the node with its in-order successor (smallest in the right subtree).
+    3. Update the tree structure accordingly.
+                    """.trimIndent()
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Inorder Traversal:",
-                                    listOf("Inorder Traversal")
+                                    "Postorder Traversal:",
+                                    listOf("Postorder Traversal")
                                 )
                             ),
                             ContentBlock.Text(
                                 createSimpleText(
                                     """
-        1. Start at the root node.
-        2. Traverse the left subtree first.
-        3. Visit the root node.
-        4. Traverse the right subtree last.
-        5. Repeat the process recursively for all subtrees.
-                        """.trimIndent()
+    1. Start at the root node.
+    2. Traverse the left subtree first.
+    3. Traverse the right subtree next.
+    4. Visit the root node last.
+    5. Repeat the process recursively for all subtrees.
+                    """.trimIndent()
                                 )
                             ),
                             ContentBlock.Text(
@@ -1572,53 +1572,53 @@ fun DSAAdvancedCourse(): Stage {
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson6_subs[4],
                         title = "How to Display Binary Trees: Traversal Methods",
-                        description = "Understand the basics of binary trees and how to display them using various traversal methods, focusing on inorder traversal.",
+                        description = "Understand the basics of binary trees and how to display them using various traversal methods, focusing on postorder traversal.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createSimpleText("A binary tree is a hierarchical data structure where each node has at most two children, referred to as the left child and the right child.")
                             ),
                             ContentBlock.Text(
-                                createSimpleText("To display a binary tree, traverse it using methods like Preorder, Inorder, or Postorder traversal to access all nodes. For this lesson, we'll focus on inorder traversal.")
+                                createSimpleText("To display a binary tree, traverse it using methods like Preorder, Inorder, or Postorder traversal to access all nodes. For this lesson, we'll focus on postorder traversal.")
                             ),
                             ContentBlock.Code(
                                 """
-        void preorderTraversal(Node* root) {
-            if (root == nullptr) return;
-            cout << root->data << " ";     // Print data
-            preorderTraversal(root->left); // Visit left subtree
-            preorderTraversal(root->right); // Visit right subtree
-        }
+    void preorderTraversal(Node* root) {
+        if (root == nullptr) return;
+        cout << root->data << " ";     // Print data
+        preorderTraversal(root->left); // Visit left subtree
+        preorderTraversal(root->right); // Visit right subtree
+    }
 
-        void inorderTraversal(Node* root) {
-            if (root == nullptr) return;
-            inorderTraversal(root->left);   // Visit left subtree
-            cout << root->data << " ";     // Print data
-            inorderTraversal(root->right); // Visit right subtree
-        }
+    void inorderTraversal(Node* root) {
+        if (root == nullptr) return;
+        inorderTraversal(root->left);   // Visit left subtree
+        cout << root->data << " ";     // Print data
+        inorderTraversal(root->right); // Visit right subtree
+    }
 
-        void postorderTraversal(Node* root) {
-            if (root == nullptr) return;
-            postorderTraversal(root->left);  // Visit left subtree
-            postorderTraversal(root->right); // Visit right subtree
-            cout << root->data << " ";       // Print data
-        }
-        """.trimIndent()
+    void postorderTraversal(Node* root) {
+        if (root == nullptr) return;
+        postorderTraversal(root->left);  // Visit left subtree
+        postorderTraversal(root->right); // Visit right subtree
+        cout << root->data << " ";       // Print data
+    }
+    """.trimIndent()
                             ),
                             ContentBlock.Text(
                                 createSimpleText(
                                     """
-            Example Inorder Traversal:
-            
-            Tree:
+        Example Postorder Traversal:
+        
+        Tree:
 
-                1
-               / \
-              2   3
-             / \
-            4   5
+            1
+           / \
+          2   3
+         / \
+        4   5
 
-            Inorder Sequence: 4 -> 2 -> 5 -> 1 -> 3
-            """.trimIndent()
+        Postorder Sequence: 4 -> 5 -> 2 -> 3 -> 1
+        """.trimIndent()
                                 )
                             )
                         ),
@@ -1626,12 +1626,12 @@ fun DSAAdvancedCourse(): Stage {
                     ),
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson6_subs[5],
-                        title = "Importance of Inorder Traversal",
-                        description = "Understand why inorder traversal is important and its applications in binary trees.",
+                        title = "Importance of Postorder Traversal",
+                        description = "Understand why postorder traversal is important and its applications in binary trees.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createSimpleText(
-                                    "Inorder traversal is a critical technique for processing binary trees. It processes nodes in the order: left subtree, root, right subtree. This traversal is especially useful in applications like Binary Search Trees (BST), where inorder traversal of a BST yields nodes in sorted order, Expression Trees, where it helps evaluate arithmetic expressions by ensuring operands are processed in the correct order, and Tree Traversal Algorithms, as it serves as the foundation for several depth-first search (DFS) algorithms and tree-related algorithms."
+                                    "Postorder traversal is a critical technique for processing binary trees. It processes nodes in the order: left subtree, right subtree, root. This traversal is especially useful in applications like tree deletion (processing child nodes before the root ensures safe deletion), Expression Trees (where postorder helps evaluate expressions by ensuring operations are executed in the correct order), and Tree Traversal Algorithms, as it serves as the foundation for depth-first search (DFS) algorithms and other tree-related operations."
                                 )
                             )
                         ),
@@ -1644,187 +1644,324 @@ fun DSAAdvancedCourse(): Stage {
             // lesson 7
             Lesson(
                 id = DSAAdvancedStageIds.lesson7,
-                title = "C Math Functions",
-                description = "Learn basic math functions in C.",
+                title = "Array Representation of Binary Trees",
+                description = "Learn about representing binary trees using arrays, their structure, and efficient implementations. 🌳",
                 lessonContents = listOf(
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson7_subs[0],
-                        title = "Intro to C Math Functions",
-                        description = "Understand the math.h library.",
+                        title = "Introduction to Array Representation",
+                        description = "Understand how binary trees can be represented using arrays.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "The math.h library provides basic math functions like square roots, powers, and trigonometry.",
-                                    listOf("math.h")
+                                    "In the array representation of a binary tree:\n" +
+                                            "1. The root is stored at index 0.\n" +
+                                            "2. For a node at index i:\n" +
+                                            "   a. The left child is stored at index 2*i + 1.\n" +
+                                            "   b. The right child is stored at index 2*i + 2.\n" +
+                                            "3. If a node has no child, the corresponding array element is left empty or set to null.",
+                                    listOf("array representation", "root", "left child", "right child")
                                 )
                             ),
-                            ContentBlock.Code("""#include <math.h>""")
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson7_subs[1],
-                        title = "Common Math Functions",
-                        description = "Learn basic functions like sqrt(), pow(), and abs().",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("Common functions include:")),
+                            ContentBlock.Text(createSimpleText("Advantages:")),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "1. sqrt(x) - Square root of x.",
-                                    listOf("sqrt(x)")
+                                    "Efficient Memory Usage: No need for pointers, reducing memory overhead.",
+                                    listOf("Efficient Memory Usage")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "2. pow(x, y) - x raised to the power of y.",
-                                    listOf("pow(x, y)")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "3. fabs(x) - Absolute value of x.",
-                                    listOf("fabs(x)")
+                                    "Random Access: Easy access to parent and child nodes using index arithmetic.",
+                                    listOf("Random Access")
                                 )
                             ),
                             ContentBlock.Code(
-                                """#include <stdio.h>
-#include <math.h>
-int main() {
-    printf("sqrt(9) = %.2f\n", sqrt(9));
-    printf("pow(2, 3) = %.2f\n", pow(2, 3));
-    return 0;
-}"""
+                                """
+        // Example of array representation
+        int[] tree = {1, 2, 3, 4, 5}; // Binary tree representation
+        
+        // Accessing nodes
+        int root = tree[0];           // Root node
+        int leftChild = tree[2 * 0 + 1]; // Left child of root
+        int rightChild = tree[2 * 0 + 2]; // Right child of root
+                    """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
+                        id = DSAAdvancedStageIds.lesson7_subs[1],
+                        title = "Manual Walkthrough",
+                        description = "Manually create and understand the array representation of a binary tree.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(createSimpleText("Let's manually create a binary tree and represent it using an array.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 1:", listOf("Step 1"))),
+                            ContentBlock.Text(createSimpleText("Define the binary tree structure.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 2:", listOf("Step 2"))),
+                            ContentBlock.Text(createSimpleText("List the nodes level by level from top to bottom and left to right.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 3:", listOf("Step 3"))),
+                            ContentBlock.Text(createSimpleText("Fill an array where index 0 represents the root, index 1 is the left child, and index 2 is the right child.")),
+
+                            ContentBlock.Text(createSimpleText("Example Tree:")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+          1
+         / \
+        2   3
+       / \
+      4   5
+                        """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(createSimpleText("Array Representation: [1, 2, 3, 4, 5]")),
+
+                            ContentBlock.Text(createSimpleText("This representation simplifies node access and operations.")),
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
                         id = DSAAdvancedStageIds.lesson7_subs[2],
-                        title = "Trigonometric Functions",
-                        description = "Use functions like sin(), cos(), and tan().",
+                        title = "Basic Operations on Binary Trees (Array Implementation)",
+                        description = "Learn how to perform insertion, deletion, and search operations using an array-based binary tree representation.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Functions like sin(), cos(), and tan() work with radians.",
-                                    listOf("sin()", "cos()", "tan()")
+                                    "Array-based Operations:\n" +
+                                            "1. Insertion: Add a node to the next available index.\n" +
+                                            "2. Deletion: Remove a node by replacing it with the last node and adjusting the array.\n" +
+                                            "3. Searching: Traverse the array to find a specific value.",
+                                    listOf("Array-based Operations", "Insertion", "Deletion", "Searching")
                                 )
                             ),
-                            ContentBlock.Text(createAnnotatedText("Example:")),
                             ContentBlock.Code(
-                                """#include <stdio.h>
-#include <math.h>
-int main() {
-    printf("sin(1) = %.2f\n", sin(1));
-    return 0;
-}"""
+                                """
+        // Example: Array operations
+        int[] tree = new int[7]; // Binary tree array
+        
+        // Insertion
+        tree[0] = 1; // Root
+        tree[1] = 2; // Left child of root
+        tree[2] = 3; // Right child of root
+
+        // Deletion (replace with last node)
+        tree[1] = tree[2];
+        tree[2] = 0; // Set last node to null/0
+
+        // Searching
+        for (int i = 0; i < tree.length; i++) {
+            if (tree[i] == 3) {
+                System.out.println("Found at index: " + i);
+            }
+        }
+                    """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson7_subs[3],
-                        title = "Logarithmic & Exponential",
-                        description = "Learn log(), log10(), and exp().",
+                        title = "How Binary Tree Operations Work: Array Implementation Focus",
+                        description = "Detailed step-by-step breakdown of insertion, deletion, and traversal operations in binary trees using array representation.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
+                                createSimpleText(
+                                    "Let's break down the operations on binary trees step-by-step to understand their mechanics, with a focus on array implementation."
+                                )
+                            ),
+                            ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Use log(), log10(), and exp() for logarithmic and exponential calculations.",
-                                    listOf("log()", "log10()", "exp()")
+                                    "Array Representation of Binary Trees:",
+                                    listOf("Array Representation")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+    A binary tree can be represented as an array where:
+    1. The root node is stored at index 0.
+    2. For a node at index `i`:
+       a. Left child is at index `2*i + 1`.
+       b. Right child is at index `2*i + 2`.
+    3. Parent of a node at index `i` is at index `(i-1)/2` (integer division).
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Insertion:",
+                                    listOf("Insertion")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+    1. Insert the element at the first available position in the array.
+    2. Maintain the tree's completeness property by filling the levels from left to right.
+    3. Update the array size if needed.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Deletion:",
+                                    listOf("Deletion")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+    1. Replace the node to be deleted with the last element in the array.
+    2. Remove the last element from the array.
+    3. Reorganize the tree if necessary to maintain its structure.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Traversal:",
+                                    listOf("Traversal")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+    Traversal in array representation follows the same order as the logical tree structure:
+    1. Preorder: Access the current node, then traverse left and right subtrees.
+    2. Inorder: Traverse the left subtree, access the current node, then traverse the right subtree.
+    3. Postorder: Traverse left and right subtrees, then access the current node.
+    Use the array indices to guide the traversal.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Searching:",
+                                    listOf("Searching")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Search for a value by iterating through the array. Return true if found, else return false."
                                 )
                             ),
                             ContentBlock.Code(
-                                """#include <stdio.h>
-#include <math.h>
-int main() {
-    printf("log(2.718) = %.2f\n", log(2.718));
-    return 0;
-}"""
+                                """
+// Example Code for Traversal (Preorder)
+void preorderTraversal(int[] tree, int index) {
+    if (index >= tree.length || tree[index] == -1) return;
+    System.out.print(tree[index] + " ");  // Access the current node
+    preorderTraversal(tree, 2 * index + 1);  // Traverse left subtree
+    preorderTraversal(tree, 2 * index + 2);  // Traverse right subtree
+}
+            """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson7_subs[4],
-                        title = "Rounding Functions",
-                        description = "Explore round(), floor(), and ceil().",
+                        title = "How to Represent Binary Trees: Array Implementation",
+                        description = "Understand the basics of binary trees and how to represent them using an array-based approach.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Rounding functions include:",
-                                    listOf("round", "floor", "ceil")
+                                createSimpleText(
+                                    "A binary tree is a hierarchical data structure where each node has at most two children, referred to as the left child and the right child."
                                 )
                             ),
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "1. round(x) - Rounds x to the nearest integer.",
-                                    listOf("round(x)")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "2. floor(x) - Largest integer less than or equal to x.",
-                                    listOf("floor(x)")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "3. ceil(x) - Smallest integer greater than or equal to x.",
-                                    listOf("ceil(x)")
+                                createSimpleText(
+                                    """
+    In an array representation of binary trees:
+    1. The root node is stored at index 0.
+    2. For a node at index `i`:
+       a. The left child is stored at index `2*i + 1`.
+       b. The right child is stored at index `2*i + 2`.
+    3. The parent of a node at index `i` is located at index `(i-1)/2` (integer division).
+    This representation simplifies binary tree operations and allows efficient traversal.
+                """.trimIndent()
                                 )
                             ),
                             ContentBlock.Code(
-                                """#include <stdio.h>
-#include <math.h>
-int main() {
-    printf("round(2.7) = %.2f\n", round(2.7));
-    return 0;
-}"""
+                                """
+    // Example of Array Representation:
+    // Tree:
+    //        1
+    //       / \
+    //      2   3
+    //     / \
+    //    4   5
+    //
+    // Array: [1, 2, 3, 4, 5]
+
+    // Index Relations:
+    // Root (1) - Index 0
+    // Left Child of 1 (2) - Index 1
+    // Right Child of 1 (3) - Index 2
+    // Left Child of 2 (4) - Index 3
+    // Right Child of 2 (5) - Index 4
+    """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+    Traversal in Array Representation:
+    1. Preorder: Start from the root and use indices to traverse left and right subtrees recursively.
+    2. Inorder: Traverse left subtree, then visit the root, followed by the right subtree.
+    3. Postorder: Traverse left and right subtrees first, then visit the root.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+    // Example Code for Preorder Traversal:
+    void preorderTraversal(int[] tree, int index) {
+        if (index >= tree.length || tree[index] == -1) return; // Check boundary and null
+        System.out.print(tree[index] + " ");  // Visit the current node
+        preorderTraversal(tree, 2 * index + 1);  // Traverse left subtree
+        preorderTraversal(tree, 2 * index + 2);  // Traverse right subtree
+    }
+    """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+    Example Traversals:
+    
+    Tree: 
+        1
+       / \
+      2   3
+     / \
+    4   5
+
+    Array: [1, 2, 3, 4, 5]
+
+    Preorder Sequence: 1 -> 2 -> 4 -> 5 -> 3
+    Inorder Sequence: 4 -> 2 -> 5 -> 1 -> 3
+    Postorder Sequence: 4 -> 5 -> 2 -> 3 -> 1
+                """.trimIndent()
+                                )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson7_subs[5],
-                        title = "Real Life Example",
-                        description = "See how C math functions are used in real-world applications.",
+                        title = "Importance of Array Representation",
+                        description = "Understand why array representation is important and its applications in binary trees.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "In real-life applications, C math functions are used in various fields such as engineering, computer graphics, and physics simulations.",
-                                    listOf("")
+                                createSimpleText(
+                                    "Array representation of binary trees is crucial for simplifying tree operations and reducing memory overhead. It minimizes memory usage by avoiding extra pointers for child and parent links, allows instantaneous access to any node or its children/parent using index calculations, and simplifies traversal algorithms due to predictable index relationships. This approach is widely used in implementing heaps, tree-based search algorithms, and compact data storage techniques."
                                 )
-                            ),
-                            ContentBlock.Text(createAnnotatedText("For example, calculating the trajectory of a moving object or creating a 3D model involves mathematical computations using functions from math.h.")),
-                            ContentBlock.Code(
-                                """#include <stdio.h>
-#include <math.h>
-int main() {
-    double angle = 45.0; // Angle in degrees
-    double radian = angle * M_PI / 180.0; // Convert to radians
-    printf("sin(45 degrees) = %.2f\n", sin(radian));
-    return 0;
-}"""
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson7_subs[6],
-                        title = "Quiz",
-                        description = "Quiz",
-                        contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "Why do we use the math.h library in C?",
-                                options = listOf(
-                                    "For math operations",
-                                    "For input/output functions",
-                                    "For string manipulation",
-                                    "For data structures"
-                                ),
-                                correctAnswer = "For math operations"
-                            )
-                        ),
-                        type = LessonContentType.QUIZ
                     )
                 ),
                 status = LessonStatus.LOCKED
@@ -1834,36 +1971,47 @@ int main() {
             // lesson 8
             Lesson(
                 id = DSAAdvancedStageIds.lesson8,
-                title = "C Memory Address",
-                description = "Dive into memory addresses in C and understand how variables are stored in memory! 🧠",
+                title = "Array Representation of Binary Trees",
+                description = "Learn about representing binary trees using arrays, their structure, and efficient implementations. 🌳",
                 lessonContents = listOf(
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson8_subs[0],
-                        title = "Introduction to Memory Addresses",
-                        description = "Introduction to memory addresses and how variables are stored in memory.",
+                        title = "Introduction to Array Representation",
+                        description = "Understand how binary trees can be represented using arrays.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "In C, each variable has a memory address, where data is stored.",
-                                    listOf("memory address")
+                                    "In the array representation of a binary tree:\n" +
+                                            "1. The root is stored at index 0.\n" +
+                                            "2. For a node at index i:\n" +
+                                            "   a. The left child is stored at index 2*i + 1.\n" +
+                                            "   b. The right child is stored at index 2*i + 2.\n" +
+                                            "3. If a node has no child, the corresponding array element is left empty or set to null.",
+                                    listOf("array representation", "root", "left child", "right child")
+                                )
+                            ),
+                            ContentBlock.Text(createSimpleText("Advantages:")),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Efficient Memory Usage: No need for pointers, reducing memory overhead.",
+                                    listOf("Efficient Memory Usage")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Memory addresses are unique for accessing and manipulating data.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Use the & operator to access the memory address of a variable.",
-                                    listOf("operator", "&")
+                                    "Random Access: Easy access to parent and child nodes using index arithmetic.",
+                                    listOf("Random Access")
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-int num = 10;
-printf("Memory address of num: %p\n", &num);
+        // Example of array representation
+        int[] tree = {1, 2, 3, 4, 5}; // Binary tree representation
+        
+        // Accessing nodes
+        int root = tree[0];           // Root node
+        int leftChild = tree[2 * 0 + 1]; // Left child of root
+        int rightChild = tree[2 * 0 + 2]; // Right child of root
                     """.trimIndent()
                             )
                         ),
@@ -1871,180 +2019,276 @@ printf("Memory address of num: %p\n", &num);
                     ),
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson8_subs[1],
-                        title = "What is a Memory Address?",
-                        description = "Learn what a memory address is and how it relates to variable storage.",
+                        title = "Manual Walkthrough",
+                        description = "Manually create and understand the array representation of a binary tree.",
                         contentBlocks = listOf(
+                            ContentBlock.Text(createSimpleText("Let's manually create a binary tree and represent it using an array.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 1:", listOf("Step 1"))),
+                            ContentBlock.Text(createSimpleText("Define the binary tree structure.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 2:", listOf("Step 2"))),
+                            ContentBlock.Text(createSimpleText("List the nodes level by level from top to bottom and left to right.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 3:", listOf("Step 3"))),
+                            ContentBlock.Text(createSimpleText("Fill an array where index 0 represents the root, index 1 is the left child, and index 2 is the right child.")),
+
+                            ContentBlock.Text(createSimpleText("Example Tree:")),
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "A memory address is a unique identifier for a location in memory.",
-                                    listOf("identifier", "memory")
+                                createSimpleText(
+                                    """
+          1
+         / \
+        2   3
+       / \
+      4   5
+                        """.trimIndent()
                                 )
                             ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Memory addresses are key for data access and manipulation.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "The %p specifier prints a memory address.",
-                                    listOf("%p")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-int num = 10;
-printf("Address of num: %p\n", &num);
-                    """.trimIndent()
-                            )
+                            ContentBlock.Text(createSimpleText("Array Representation: [1, 2, 3, 4, 5]")),
+
+                            ContentBlock.Text(createSimpleText("This representation simplifies node access and operations.")),
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson8_subs[2],
-                        title = "Variables and Their Memory Locations",
-                        description = "Understand how variables are stored at specific memory locations.",
+                        title = "Basic Operations on Binary Trees (Array Implementation)",
+                        description = "Learn how to perform insertion, deletion, and search operations using an array-based binary tree representation.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Variables are stored in memory locations identified by memory addresses.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Stack stores local variables, heap stores dynamically allocated memory.",
-                                    listOf("Stack", "heap")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Access a variable’s address using the & operator.",
-                                    listOf("&")
+                                    "Array-based Operations:\n" +
+                                            "1. Insertion: Add a node to the next available index.\n" +
+                                            "2. Deletion: Remove a node by replacing it with the last node and adjusting the array.\n" +
+                                            "3. Searching: Traverse the array to find a specific value.",
+                                    listOf("Array-based Operations", "Insertion", "Deletion", "Searching")
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-int num = 10;  // Stack
-printf("%p", &num);
-                    """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson8_subs[3],
-                        title = "How Variables are Stored in Memory",
-                        description = "Learn how variables are physically stored in memory and allocated.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Variables are allocated memory by the compiler at specific locations.",
-                                    listOf("compiler")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Stack and heap manage memory for local and dynamic variables.",
-                                    listOf("Stack", "heap")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "The operating system handles memory allocation during program execution.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-int num = 10;  // Stored on the stack
-                    """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson8_subs[4],
-                        title = "Basic Use of the & (Address-of) Operator",
-                        description = "Understand how to use the & operator to access the memory address.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "The & operator is used to get the memory address of a variable.",
-                                    listOf("&")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "This operator helps when working with memory locations.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "& returns the address of the variable.",
-                                    listOf("address", "&")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-int num = 10;
-printf("Memory address of num: %p\n", &num);
-                    """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson8_subs[5],
-                        title = "Real-life Example of Dynamic Memory Usage",
-                        description = "Understand dynamic memory allocation in real applications.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Dynamic memory allocation is crucial for efficient memory management.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "It is used in applications like image processing, where data size is unknown.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Memory is allocated and freed at runtime as needed.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-int width = 1024;
-int height = 768;
-int *imageData = (int *)malloc(width * height * sizeof(int));
+        // Example: Array operations
+        int[] tree = new int[7]; // Binary tree array
+        
+        // Insertion
+        tree[0] = 1; // Root
+        tree[1] = 2; // Left child of root
+        tree[2] = 3; // Right child of root
 
-if (imageData != NULL) {
-    free(imageData);
-}
+        // Deletion (replace with last node)
+        tree[1] = tree[2];
+        tree[2] = 0; // Set last node to null/0
+
+        // Searching
+        for (int i = 0; i < tree.length; i++) {
+            if (tree[i] == 3) {
+                System.out.println("Found at index: " + i);
+            }
+        }
                     """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = DSAAdvancedStageIds.lesson8_subs[6],
-                        title = "Quiz",
-                        description = "Quiz",
+                        id = DSAAdvancedStageIds.lesson7_subs[3],
+                        title = "How Binary Tree Operations Work: Array Implementation Focus",
+                        description = "Detailed step-by-step breakdown of insertion, deletion, and traversal operations in binary trees using array representation.",
                         contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "Which operator in C is used to get the memory address of a variable?",
-                                options = listOf("&", "%p", "*", "->"),
-                                correctAnswer = "&"
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Let's break down the operations on binary trees step-by-step to understand their mechanics, with a focus on array implementation."
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Array Representation of Binary Trees:",
+                                    listOf("Array Representation")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+    A binary tree can be represented as an array where:
+    1. The root node is stored at index 0.
+    2. For a node at index `i`:
+       a. Left child is at index `2*i + 1`.
+       b. Right child is at index `2*i + 2`.
+    3. Parent of a node at index `i` is at index `(i-1)/2` (integer division).
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Insertion:",
+                                    listOf("Insertion")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+    1. Insert the element at the first available position in the array.
+    2. Maintain the tree's completeness property by filling the levels from left to right.
+    3. Update the array size if needed.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Deletion:",
+                                    listOf("Deletion")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+    1. Replace the node to be deleted with the last element in the array.
+    2. Remove the last element from the array.
+    3. Reorganize the tree if necessary to maintain its structure.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Traversal:",
+                                    listOf("Traversal")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+    Traversal in array representation follows the same order as the logical tree structure:
+    1. Preorder: Access the current node, then traverse left and right subtrees.
+    2. Inorder: Traverse the left subtree, access the current node, then traverse the right subtree.
+    3. Postorder: Traverse left and right subtrees, then access the current node.
+    Use the array indices to guide the traversal.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Searching:",
+                                    listOf("Searching")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Search for a value by iterating through the array. Return true if found, else return false."
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+// Example Code for Traversal (Preorder)
+void preorderTraversal(int[] tree, int index) {
+    if (index >= tree.length || tree[index] == -1) return;
+    System.out.print(tree[index] + " ");  // Access the current node
+    preorderTraversal(tree, 2 * index + 1);  // Traverse left subtree
+    preorderTraversal(tree, 2 * index + 2);  // Traverse right subtree
+}
+            """.trimIndent()
                             )
                         ),
-                        type = LessonContentType.QUIZ
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSAAdvancedStageIds.lesson7_subs[4],
+                        title = "How to Represent Binary Trees: Array Implementation",
+                        description = "Understand the basics of binary trees and how to represent them using an array-based approach.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "A binary tree is a hierarchical data structure where each node has at most two children, referred to as the left child and the right child."
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+    In an array representation of binary trees:
+    1. The root node is stored at index 0.
+    2. For a node at index `i`:
+       a. The left child is stored at index `2*i + 1`.
+       b. The right child is stored at index `2*i + 2`.
+    3. The parent of a node at index `i` is located at index `(i-1)/2` (integer division).
+    This representation simplifies binary tree operations and allows efficient traversal.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+    // Example of Array Representation:
+    // Tree:
+    //        1
+    //       / \
+    //      2   3
+    //     / \
+    //    4   5
+    //
+    // Array: [1, 2, 3, 4, 5]
+
+    // Index Relations:
+    // Root (1) - Index 0
+    // Left Child of 1 (2) - Index 1
+    // Right Child of 1 (3) - Index 2
+    // Left Child of 2 (4) - Index 3
+    // Right Child of 2 (5) - Index 4
+    """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+    Traversal in Array Representation:
+    1. Preorder: Start from the root and use indices to traverse left and right subtrees recursively.
+    2. Inorder: Traverse left subtree, then visit the root, followed by the right subtree.
+    3. Postorder: Traverse left and right subtrees first, then visit the root.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+    // Example Code for Preorder Traversal:
+    void preorderTraversal(int[] tree, int index) {
+        if (index >= tree.length || tree[index] == -1) return; // Check boundary and null
+        System.out.print(tree[index] + " ");  // Visit the current node
+        preorderTraversal(tree, 2 * index + 1);  // Traverse left subtree
+        preorderTraversal(tree, 2 * index + 2);  // Traverse right subtree
+    }
+    """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+    Example Traversals:
+    
+    Tree: 
+        1
+       / \
+      2   3
+     / \
+    4   5
+
+    Array: [1, 2, 3, 4, 5]
+
+    Preorder Sequence: 1 -> 2 -> 4 -> 5 -> 3
+    Inorder Sequence: 4 -> 2 -> 5 -> 1 -> 3
+    Postorder Sequence: 4 -> 5 -> 2 -> 3 -> 1
+                """.trimIndent()
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSAAdvancedStageIds.lesson7_subs[5],
+                        title = "Importance of Array Representation",
+                        description = "Understand why array representation is important and its applications in binary trees.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Array representation of binary trees is crucial for simplifying tree operations and reducing memory overhead. It minimizes memory usage by avoiding extra pointers for child and parent links, allows instantaneous access to any node or its children/parent using index calculations, and simplifies traversal algorithms due to predictable index relationships. This approach is widely used in implementing heaps, tree-based search algorithms, and compact data storage techniques."
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
                     )
                 ),
                 status = LessonStatus.LOCKED
