@@ -93,5 +93,11 @@ dependencies {
     //Gson
     implementation ("com.google.code.gson:gson:2.8.9")
 
+    //Coil
+    implementation("io.coil-kt:coil-compose:2.6.0")
+
+    //Glide
+    implementation("com.github.bumptech.glide:compose:1.0.0-beta01")
+
 
 }

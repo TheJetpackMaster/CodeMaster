@@ -1,13 +1,17 @@
 package com.codemaster.codemasterapp.main.DataBase
 
+
+
 import android.content.Context
-import androidx.room.Room
 import com.codemaster.codemasterapp.main.DataBase.continueLearningprogressDB.UserLearningProgressDB
 import com.codemaster.codemasterapp.main.DataBase.continueLearningprogressDB.UserLearningProgressDao
 import com.codemaster.codemasterapp.main.DataBase.continueLearningprogressDB.UserLearningProgressRepository
 import com.codemaster.codemasterapp.main.DataBase.lessonStatusDB.LessonStatusDB
 import com.codemaster.codemasterapp.main.DataBase.lessonStatusDB.LessonStatusDao
 import com.codemaster.codemasterapp.main.DataBase.lessonStatusDB.LessonStatusRepo
+import com.codemaster.codemasterapp.main.DataBase.userProfileDB.UserProfileDB
+import com.codemaster.codemasterapp.main.DataBase.userProfileDB.UserProfileDao
+import com.codemaster.codemasterapp.main.DataBase.userProfileDB.UserProfileRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -73,4 +77,24 @@ object AppModule {
     fun provideUserLearningProgressRepository(userLearningProgressDao: UserLearningProgressDao): UserLearningProgressRepository {
         return UserLearningProgressRepository(userLearningProgressDao)
     }
+
+
+    //User profile
+    @Provides
+    @Singleton
+    fun provideUserProfileDatabase(@ApplicationContext context: Context): UserProfileDB {
+        return UserProfileDB.getDatabase(context)
+    }
+
+    @Provides
+    fun provideUserProfileDao(database: UserProfileDB): UserProfileDao {
+        return database.userProfileDao()
+    }
+
+    @Provides
+    @Singleton
+    fun provideUserProfileRepository(userProfileDao: UserProfileDao): UserProfileRepository {
+        return UserProfileRepository(userProfileDao)
+    }
+
 }

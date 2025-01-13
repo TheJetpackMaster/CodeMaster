@@ -15,11 +15,13 @@ import com.codemaster.codemasterapp.main.ui.userProfileDetails.NoteScreen
 import com.codemaster.codemasterapp.main.ui.userProfileDetails.SettingScreen
 import com.codemaster.codemasterapp.main.ui.userProfileDetails.UserProfileScreen
 import com.codemaster.codemasterapp.main.ui.viewModels.CourseViewModel
+import com.codemaster.codemasterapp.main.ui.viewModels.UserProfileViewModel
 
 fun NavGraphBuilder.profileNavHost(
     navController: NavController,
     noteViewModel: NoteViewModel,
-    courseViewModel: CourseViewModel
+    courseViewModel: CourseViewModel,
+    userProfileViewModel: UserProfileViewModel
 ) {
     navigation(
         startDestination = ProfileRoutes.UserProfileScreen.route,
@@ -50,7 +52,10 @@ fun NavGraphBuilder.profileNavHost(
                 ) + fadeOut(animationSpec = tween(150))
             }
         ) {
-            UserProfileScreen(navController, noteViewModel)
+            UserProfileScreen(
+                navController,
+                noteViewModel,
+                userProfileViewModel)
         }
 
         composable(ProfileRoutes.SettingsScreen.route,

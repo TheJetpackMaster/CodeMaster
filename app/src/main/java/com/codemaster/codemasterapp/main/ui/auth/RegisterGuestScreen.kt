@@ -1,7 +1,15 @@
 package com.codemaster.codemasterapp.main.ui.auth
 
+import android.app.Activity
+import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.net.Uri
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -36,6 +44,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.focus.FocusDirection
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
@@ -50,12 +59,24 @@ import com.codemaster.codemasterapp.R
 import com.codemaster.codemasterapp.main.ui.auth.components.AuthActionButton
 import com.codemaster.codemasterapp.main.ui.auth.components.AuthBasicTopBar
 import com.codemaster.codemasterapp.main.ui.auth.components.AuthInputField
+import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.BottomNavRoutes
+import com.codemaster.codemasterapp.main.ui.viewModels.UserProfileViewModel
 import com.codemaster.codemasterapp.ui.theme.greenishPython
+import java.io.ByteArrayOutputStream
+import java.io.InputStream
+
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun RegisterGuestScreen(navController: NavController) {
+fun RegisterGuestScreen(
+    userProfileViewModel: UserProfileViewModel,
+    navController: NavController
+) {
+
+
+    val context = LocalContext.current
+    val sharedPreferences = context.getSharedPreferences("AppPrefs", Context.MODE_PRIVATE)
 
     Scaffold(
         topBar = {
@@ -69,46 +90,54 @@ fun RegisterGuestScreen(navController: NavController) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(
-                    Color(0xFF576cd6)
-                )
+                .background(Color(0xFF576cd6))
                 .padding(paddingValues),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-
             GuestScreenContent(
-                onContinue = {
+                onContinue = { firstName, lastName, imageByteArray ->
+                    val fullName = "$firstName $lastName"
+                    userProfileViewModel.createOrUpdateGuestProfile(name = fullName, profilePictureUrl = imageByteArray)
+                    navController.navigate(BottomNavRoutes.BOTTOM_ROOT.route)
 
+                    // Update isSignedUp in SharedPreferences
+                    sharedPreferences.edit().putBoolean("isSignedUp", true).apply()
                 }
             )
-
         }
     }
 }
 
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun GuestScreenContent(
-    onContinue: () -> Unit
+    onContinue: (firstName: String, lastName: String, imageByteArray: ByteArray?) -> Unit
 ) {
     var firstName by remember { mutableStateOf("") }
     var lastName by remember { mutableStateOf("") }
+    var imageUri by remember { mutableStateOf<Uri?>(null) }
+    var imageByteArray by remember { mutableStateOf<ByteArray?>(null) }
 
-    // FocusManager to clear focus on "Done"
     val focusManager = LocalFocusManager.current
+    val context = LocalContext.current
 
+    // Register the image picker launcher
+    val pickImageLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.GetContent(),
+        onResult = { uri: Uri? ->
+            imageUri = uri
+            imageByteArray = uri?.let { uriToByteArray(context, it) }
+        }
+    )
 
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
         modifier = Modifier
             .fillMaxSize()
-            .padding(
-                top = 0.dp,
-                start = 18.dp, end = 18.dp, bottom = 24.dp
-            )
+            .padding(top = 0.dp, start = 18.dp, end = 18.dp, bottom = 24.dp)
             .verticalScroll(rememberScrollState())
-
     ) {
         Spacer(modifier = Modifier.weight(.2f))
 
@@ -118,24 +147,27 @@ fun GuestScreenContent(
                 .clip(CircleShape)
                 .background(Color.LightGray.copy(.55f))
                 .border(1.dp, greenishPython, CircleShape),
-            contentAlignment = Alignment.Center
+            contentAlignment = Alignment.Center,
+            content = {
+                Icon(
+                    imageVector = Icons.Default.Add,
+                    tint = Color.Black,
+                    contentDescription = "Add Image",
+                    modifier = Modifier.clickable {
+                        pickImageLauncher.launch("image/*")
+                    }
+                )
+            }
+        )
 
-        ) {
-            Icon(
-                imageVector = Icons.Default.Add,
-                tint = Color.Black,
-                contentDescription = ""
-            )
-        }
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
                 .padding(top = 24.dp)
                 .fillMaxSize()
-
         ) {
             Spacer(modifier = Modifier.height(4.dp))
-            // Welcome Text
+
             Text(
                 text = "Welcome Back",
                 style = MaterialTheme.typography.headlineMedium.copy(
@@ -151,11 +183,11 @@ fun GuestScreenContent(
             )
             Spacer(modifier = Modifier.height(24.dp))
 
-            // First Name
+            // First Name Input
             AuthInputField(
                 value = firstName,
                 onValueChange = { firstName = it },
-                hint = "first name",
+                hint = "First Name",
                 leadingIcon = {
                     Icon(
                         imageVector = Icons.Default.Person,
@@ -164,22 +196,18 @@ fun GuestScreenContent(
                     )
                 },
                 keyboardActions = KeyboardActions(
-                    onNext = {
-                        focusManager.moveFocus(focusDirection = FocusDirection.Next)
-                    }
+                    onNext = { focusManager.moveFocus(focusDirection = FocusDirection.Next) }
                 ),
-                keyboardOptions = KeyboardOptions(
-                    imeAction = ImeAction.Next
-                ),
+                keyboardOptions = KeyboardOptions(imeAction = ImeAction.Next)
             )
 
             Spacer(modifier = Modifier.height(12.dp))
 
-            // Last Name
+            // Last Name Input
             AuthInputField(
                 value = lastName,
                 onValueChange = { lastName = it },
-                hint = "last name",
+                hint = "Last Name",
                 leadingIcon = {
                     Icon(
                         imageVector = Icons.Default.Person,
@@ -187,31 +215,35 @@ fun GuestScreenContent(
                         tint = Color.Gray
                     )
                 },
-                keyboardActions = KeyboardActions(
-                    onDone = {
-                        focusManager.clearFocus()
-                    }
-                ),
-                keyboardOptions = KeyboardOptions(
-                    imeAction = ImeAction.Done
-                ),
+                keyboardActions = KeyboardActions(onDone = { focusManager.clearFocus() }),
+                keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done)
             )
-
         }
 
         Spacer(modifier = Modifier.weight(1f))
 
-        // Login Button
+        // Continue Button
         AuthActionButton(
             text = "Continue",
             onClick = {
-                onContinue()
+                onContinue(firstName, lastName, imageByteArray)
             },
             innerModifier = Modifier.fillMaxWidth(),
             modifier = Modifier.shadow(2.dp, shape = CircleShape)
         )
-
     }
 }
 
 
+fun uriToByteArray(context: Context, uri: Uri): ByteArray? {
+    return try {
+        val inputStream: InputStream? = context.contentResolver.openInputStream(uri)
+        val bitmap = BitmapFactory.decodeStream(inputStream)
+        val outputStream = ByteArrayOutputStream()
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream)
+        outputStream.toByteArray()
+    } catch (e: Exception) {
+        e.printStackTrace()
+        null
+    }
+}
