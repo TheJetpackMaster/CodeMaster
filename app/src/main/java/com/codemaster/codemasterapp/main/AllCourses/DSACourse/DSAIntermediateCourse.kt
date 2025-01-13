@@ -1154,21 +1154,21 @@ fun DSAIntermediateCourse(): Stage {
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
-
                     LessonContent(
                         id = DSAIntermediateStageIds.lesson5_subs[5],
-                        title = "Importance of Doubly Linked Lists",
-                        description = "Understand why doubly linked lists are important and their applications.",
+                        title = "Importance of Circular Linked Lists",
+                        description = "Understand why circular linked lists are important and their applications.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Doubly linked lists offer improved flexibility over singly linked lists by enabling bidirectional traversal. They are widely used in real-world applications such as implementing navigation systems (e.g., web browsers' forward and back buttons), memory management, and as building blocks for advanced data structures like trees and graphs. Their ability to insert or delete nodes efficiently in both directions makes them invaluable for many algorithms.",
+                                    "Circular linked lists provide a seamless way to manage data where the end connects back to the start. This circular structure is ideal for scenarios requiring continuous traversal without reaching a null end, such as implementing task schedulers, managing buffers in real-time systems (e.g., multimedia streaming), or creating round-robin algorithms for resource allocation. The circular nature eliminates the need to reset pointers manually, improving efficiency and flexibility.",
                                     listOf("")
                                 )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     )
+
                 ),
                 status = LessonStatus.LOCKED
             ),
