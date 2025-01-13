@@ -1660,7 +1660,12 @@ fun DSAAdvancedCourse(): Stage {
                                             "   a. The left child is stored at index 2*i + 1.\n" +
                                             "   b. The right child is stored at index 2*i + 2.\n" +
                                             "3. If a node has no child, the corresponding array element is left empty or set to null.",
-                                    listOf("array representation", "root", "left child", "right child")
+                                    listOf(
+                                        "array representation",
+                                        "root",
+                                        "left child",
+                                        "right child"
+                                    )
                                 )
                             ),
                             ContentBlock.Text(createSimpleText("Advantages:")),
@@ -1735,7 +1740,12 @@ fun DSAAdvancedCourse(): Stage {
                                             "1. Insertion: Add a node to the next available index.\n" +
                                             "2. Deletion: Remove a node by replacing it with the last node and adjusting the array.\n" +
                                             "3. Searching: Traverse the array to find a specific value.",
-                                    listOf("Array-based Operations", "Insertion", "Deletion", "Searching")
+                                    listOf(
+                                        "Array-based Operations",
+                                        "Insertion",
+                                        "Deletion",
+                                        "Searching"
+                                    )
                                 )
                             ),
                             ContentBlock.Code(
@@ -1971,150 +1981,166 @@ void preorderTraversal(int[] tree, int index) {
             // lesson 8
             Lesson(
                 id = DSAAdvancedStageIds.lesson8,
-                title = "Array Representation of Binary Trees",
-                description = "Learn about representing binary trees using arrays, their structure, and efficient implementations. 🌳",
+                title = "Binary Search Trees (BSTs)",
+                description = "Dive deep into binary search trees, their properties, and efficient operations for data management. 🌲",
                 lessonContents = listOf(
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson8_subs[0],
-                        title = "Introduction to Array Representation",
-                        description = "Understand how binary trees can be represented using arrays.",
+                        title = "Introduction to Binary Search Trees",
+                        description = "Understand the basics of binary search trees and their unique properties.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "In the array representation of a binary tree:\n" +
-                                            "1. The root is stored at index 0.\n" +
-                                            "2. For a node at index i:\n" +
-                                            "   a. The left child is stored at index 2*i + 1.\n" +
-                                            "   b. The right child is stored at index 2*i + 2.\n" +
-                                            "3. If a node has no child, the corresponding array element is left empty or set to null.",
-                                    listOf("array representation", "root", "left child", "right child")
+                                    """
+                        A Binary Search Tree (BST) is a special type of binary tree where:
+                        1. Each node contains a key.
+                        2. The left subtree of a node contains keys smaller than the node's key.
+                        3. The right subtree of a node contains keys larger than the node's key.
+                        4. Both subtrees must also be BSTs.
+                        """,
+                                    listOf(
+                                        "Binary Search Tree",
+                                        "key",
+                                        "left subtree",
+                                        "right subtree"
+                                    )
                                 )
                             ),
-                            ContentBlock.Text(createSimpleText("Advantages:")),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Efficient Memory Usage: No need for pointers, reducing memory overhead.",
-                                    listOf("Efficient Memory Usage")
+                                    """
+                        Advantages:
+                        - Allows efficient searching, insertion, and deletion.
+                        - Inorder traversal gives a sorted sequence of keys.
+                        """,
+                                    listOf("efficient searching", "inorder traversal")
                                 )
                             ),
+                            ContentBlock.Text(createSimpleText("Example Structure:")),
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Random Access: Easy access to parent and child nodes using index arithmetic.",
-                                    listOf("Random Access")
+                                createSimpleText(
+                                    """
+                            Example BST:
+                                  10
+                                 /  \
+                                5   20
+                               / \
+                              2   8
+                        """
                                 )
-                            ),
-                            ContentBlock.Code(
-                                """
-        // Example of array representation
-        int[] tree = {1, 2, 3, 4, 5}; // Binary tree representation
-        
-        // Accessing nodes
-        int root = tree[0];           // Root node
-        int leftChild = tree[2 * 0 + 1]; // Left child of root
-        int rightChild = tree[2 * 0 + 2]; // Right child of root
-                    """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson8_subs[1],
-                        title = "Manual Walkthrough",
-                        description = "Manually create and understand the array representation of a binary tree.",
+                        title = "Manual Walkthrough of a Binary Search Tree (BST)",
+                        description = "Manually create and understand the array representation of a Binary Search Tree (BST).",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createSimpleText("Let's manually create a binary tree and represent it using an array.")),
+                            ContentBlock.Text(createSimpleText("Let's manually create a Binary Search Tree (BST) and represent it using an array.")),
 
                             ContentBlock.Text(createAnnotatedText("Step 1:", listOf("Step 1"))),
-                            ContentBlock.Text(createSimpleText("Define the binary tree structure.")),
+                            ContentBlock.Text(createSimpleText("Define the Binary Search Tree (BST) structure. A BST is a binary tree where each node satisfies the property:")),
+                            ContentBlock.Text(createSimpleText("For a node with value `X`, all values in the left subtree are less than `X` and all values in the right subtree are greater than `X`.")),
 
                             ContentBlock.Text(createAnnotatedText("Step 2:", listOf("Step 2"))),
-                            ContentBlock.Text(createSimpleText("List the nodes level by level from top to bottom and left to right.")),
+                            ContentBlock.Text(createSimpleText("Insert values into the BST by comparing each value to the current node and deciding whether to go left or right.")),
 
                             ContentBlock.Text(createAnnotatedText("Step 3:", listOf("Step 3"))),
-                            ContentBlock.Text(createSimpleText("Fill an array where index 0 represents the root, index 1 is the left child, and index 2 is the right child.")),
+                            ContentBlock.Text(createSimpleText("List the nodes level by level (from top to bottom and left to right), ensuring the BST structure is preserved.")),
 
-                            ContentBlock.Text(createSimpleText("Example Tree:")),
+                            ContentBlock.Text(createAnnotatedText("Step 4:", listOf("Step 4"))),
+                            ContentBlock.Text(createSimpleText("Fill an array where index 0 represents the root, index 1 is the left child, and index 2 is the right child, and so on. This array representation is not always ideal for BSTs, but it's useful for understanding structure.")),
+
+                            ContentBlock.Text(createSimpleText("Example BST:")),
                             ContentBlock.Text(
                                 createSimpleText(
                                     """
-          1
-         / \
-        2   3
-       / \
-      4   5
-                        """.trimIndent()
+          10
+         /  \
+        5    15
+       / \     \
+      2   7     20
+                """.trimIndent()
                                 )
                             ),
-                            ContentBlock.Text(createSimpleText("Array Representation: [1, 2, 3, 4, 5]")),
+                            ContentBlock.Text(createSimpleText("Array Representation: [10, 5, 15, 2, 7, null, 20]")),
+                            ContentBlock.Text(createSimpleText("Note: `null` is used to represent absent nodes to preserve the structure in the array representation.")),
 
-                            ContentBlock.Text(createSimpleText("This representation simplifies node access and operations.")),
+                            ContentBlock.Text(createSimpleText("This representation simplifies visualization but is less practical for dynamic operations like insertions and deletions in a BST. Understanding this can help bridge concepts between BSTs and heaps.")),
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson8_subs[2],
-                        title = "Basic Operations on Binary Trees (Array Implementation)",
-                        description = "Learn how to perform insertion, deletion, and search operations using an array-based binary tree representation.",
+                        title = "Basic Operations on Binary Search Trees (Array Implementation)",
+                        description = "Learn how to perform insertion, deletion, and search operations using an array-based Binary Search Tree (BST) representation.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Array-based Operations:\n" +
-                                            "1. Insertion: Add a node to the next available index.\n" +
-                                            "2. Deletion: Remove a node by replacing it with the last node and adjusting the array.\n" +
-                                            "3. Searching: Traverse the array to find a specific value.",
-                                    listOf("Array-based Operations", "Insertion", "Deletion", "Searching")
+                                    "Array-based BST Operations:\n" +
+                                            "1. Insertion: Place the new value in the appropriate position following BST properties.\n" +
+                                            "2. Deletion: Remove a value while preserving BST properties.\n" +
+                                            "3. Searching: Traverse the array to find a specific value, considering BST rules.",
+                                    listOf(
+                                        "Array-based BST Operations",
+                                        "Insertion",
+                                        "Deletion",
+                                        "Searching"
+                                    )
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-        // Example: Array operations
-        int[] tree = new int[7]; // Binary tree array
+        // Example: Array-based BST Operations
+        int[] bst = new int[7]; // Binary Search Tree array
         
         // Insertion
-        tree[0] = 1; // Root
-        tree[1] = 2; // Left child of root
-        tree[2] = 3; // Right child of root
-
-        // Deletion (replace with last node)
-        tree[1] = tree[2];
-        tree[2] = 0; // Set last node to null/0
-
+        bst[0] = 10; // Root
+        bst[1] = 5;  // Left child of root
+        bst[2] = 15; // Right child of root
+        
+        // Deletion (simple example: replacing with the last element)
+        bst[1] = bst[2];
+        bst[2] = -1; // Set last node to null/-1
+        
         // Searching
-        for (int i = 0; i < tree.length; i++) {
-            if (tree[i] == 3) {
+        for (int i = 0; i < bst.length; i++) {
+            if (bst[i] == 15) {
                 System.out.println("Found at index: " + i);
             }
         }
-                    """.trimIndent()
+            """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = DSAAdvancedStageIds.lesson7_subs[3],
-                        title = "How Binary Tree Operations Work: Array Implementation Focus",
-                        description = "Detailed step-by-step breakdown of insertion, deletion, and traversal operations in binary trees using array representation.",
+                        id = DSAAdvancedStageIds.lesson8_subs[3],
+                        title = "How Binary Search Tree Operations Work: Array Implementation Focus",
+                        description = "Detailed step-by-step breakdown of insertion, deletion, and traversal operations in Binary Search Trees (BSTs) using array representation.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createSimpleText(
-                                    "Let's break down the operations on binary trees step-by-step to understand their mechanics, with a focus on array implementation."
+                                    "Let's break down the operations on Binary Search Trees (BSTs) step-by-step to understand their mechanics, focusing on array implementation."
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Array Representation of Binary Trees:",
+                                    "Array Representation of Binary Search Trees:",
                                     listOf("Array Representation")
                                 )
                             ),
                             ContentBlock.Text(
                                 createSimpleText(
                                     """
-    A binary tree can be represented as an array where:
+    A Binary Search Tree (BST) can be represented as an array where:
     1. The root node is stored at index 0.
     2. For a node at index `i`:
        a. Left child is at index `2*i + 1`.
        b. Right child is at index `2*i + 2`.
     3. Parent of a node at index `i` is at index `(i-1)/2` (integer division).
+    4. Values follow BST rules: left < parent < right.
                 """.trimIndent()
                                 )
                             ),
@@ -2127,9 +2153,10 @@ void preorderTraversal(int[] tree, int index) {
                             ContentBlock.Text(
                                 createSimpleText(
                                     """
-    1. Insert the element at the first available position in the array.
-    2. Maintain the tree's completeness property by filling the levels from left to right.
-    3. Update the array size if needed.
+    1. Compare the new value with the current node.
+    2. If the new value is smaller, move to the left child; otherwise, move to the right child.
+    3. Repeat until an empty position is found.
+    4. Insert the value at the first available position while maintaining BST properties.
                 """.trimIndent()
                                 )
                             ),
@@ -2142,9 +2169,12 @@ void preorderTraversal(int[] tree, int index) {
                             ContentBlock.Text(
                                 createSimpleText(
                                     """
-    1. Replace the node to be deleted with the last element in the array.
-    2. Remove the last element from the array.
-    3. Reorganize the tree if necessary to maintain its structure.
+    1. Locate the node to be deleted.
+    2. Replace the node:
+       a. If it has no children, simply remove it.
+       b. If it has one child, replace it with its child.
+       c. If it has two children, replace it with its in-order successor or predecessor.
+    3. Adjust the tree to maintain BST properties.
                 """.trimIndent()
                                 )
                             ),
@@ -2157,11 +2187,10 @@ void preorderTraversal(int[] tree, int index) {
                             ContentBlock.Text(
                                 createSimpleText(
                                     """
-    Traversal in array representation follows the same order as the logical tree structure:
+    Traversal in BSTs follows the array indices and BST rules:
     1. Preorder: Access the current node, then traverse left and right subtrees.
     2. Inorder: Traverse the left subtree, access the current node, then traverse the right subtree.
     3. Postorder: Traverse left and right subtrees, then access the current node.
-    Use the array indices to guide the traversal.
                 """.trimIndent()
                                 )
                             ),
@@ -2173,17 +2202,17 @@ void preorderTraversal(int[] tree, int index) {
                             ),
                             ContentBlock.Text(
                                 createSimpleText(
-                                    "Search for a value by iterating through the array. Return true if found, else return false."
+                                    "Search for a value by starting at the root. Compare the value with the current node, and move left or right based on the BST property until the value is found or the tree is exhausted."
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-// Example Code for Traversal (Preorder)
-void preorderTraversal(int[] tree, int index) {
-    if (index >= tree.length || tree[index] == -1) return;
-    System.out.print(tree[index] + " ");  // Access the current node
-    preorderTraversal(tree, 2 * index + 1);  // Traverse left subtree
-    preorderTraversal(tree, 2 * index + 2);  // Traverse right subtree
+// Example Code for Inorder Traversal
+void inorderTraversal(int[] bst, int index) {
+    if (index >= bst.length || bst[index] == -1) return;
+    inorderTraversal(bst, 2 * index + 1);  // Traverse left subtree
+    System.out.print(bst[index] + " ");   // Access the current node
+    inorderTraversal(bst, 2 * index + 2);  // Traverse right subtree
 }
             """.trimIndent()
                             )
@@ -2191,66 +2220,67 @@ void preorderTraversal(int[] tree, int index) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = DSAAdvancedStageIds.lesson7_subs[4],
-                        title = "How to Represent Binary Trees: Array Implementation",
-                        description = "Understand the basics of binary trees and how to represent them using an array-based approach.",
+                        id = DSAAdvancedStageIds.lesson8_subs[4],
+                        title = "How to Represent Binary Search Trees: Array Implementation",
+                        description = "Understand the basics of Binary Search Trees (BSTs) and how to represent them using an array-based approach.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createSimpleText(
-                                    "A binary tree is a hierarchical data structure where each node has at most two children, referred to as the left child and the right child."
+                                    "A Binary Search Tree (BST) is a hierarchical data structure where each node has at most two children. The left subtree contains nodes with values smaller than the parent, and the right subtree contains nodes with values larger than the parent."
                                 )
                             ),
                             ContentBlock.Text(
                                 createSimpleText(
                                     """
-    In an array representation of binary trees:
+    In an array representation of BSTs:
     1. The root node is stored at index 0.
     2. For a node at index `i`:
        a. The left child is stored at index `2*i + 1`.
        b. The right child is stored at index `2*i + 2`.
     3. The parent of a node at index `i` is located at index `(i-1)/2` (integer division).
-    This representation simplifies binary tree operations and allows efficient traversal.
+    This representation simplifies BST operations like insertion and traversal, especially when the tree is complete.
                 """.trimIndent()
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-    // Example of Array Representation:
-    // Tree:
-    //        1
+    // Example of Array Representation of a BST:
+    // BST:
+    //        4
     //       / \
-    //      2   3
-    //     / \
-    //    4   5
+    //      2   6
+    //     / \   \
+    //    1   3   7
     //
-    // Array: [1, 2, 3, 4, 5]
+    // Array: [4, 2, 6, 1, 3, -1, 7]
 
     // Index Relations:
-    // Root (1) - Index 0
-    // Left Child of 1 (2) - Index 1
-    // Right Child of 1 (3) - Index 2
-    // Left Child of 2 (4) - Index 3
-    // Right Child of 2 (5) - Index 4
+    // Root (4) - Index 0
+    // Left Child of 4 (2) - Index 1
+    // Right Child of 4 (6) - Index 2
+    // Left Child of 2 (1) - Index 3
+    // Right Child of 2 (3) - Index 4
+    // Right Child of 6 (7) - Index 6
     """.trimIndent()
                             ),
                             ContentBlock.Text(
                                 createSimpleText(
                                     """
-    Traversal in Array Representation:
-    1. Preorder: Start from the root and use indices to traverse left and right subtrees recursively.
-    2. Inorder: Traverse left subtree, then visit the root, followed by the right subtree.
-    3. Postorder: Traverse left and right subtrees first, then visit the root.
+    Traversal in BST (Array Representation):
+    1. Preorder: Start from the root and recursively traverse left and right subtrees.
+    2. Inorder: Traverse the left subtree, then visit the root, followed by the right subtree (yields sorted order in BST).
+    3. Postorder: Traverse the left and right subtrees first, then visit the root.
                 """.trimIndent()
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-    // Example Code for Preorder Traversal:
-    void preorderTraversal(int[] tree, int index) {
-        if (index >= tree.length || tree[index] == -1) return; // Check boundary and null
-        System.out.print(tree[index] + " ");  // Visit the current node
-        preorderTraversal(tree, 2 * index + 1);  // Traverse left subtree
-        preorderTraversal(tree, 2 * index + 2);  // Traverse right subtree
+    // Example Code for Inorder Traversal:
+    void inorderTraversal(int[] bst, int index) {
+        if (index >= bst.length || bst[index] == -1) return; // Check boundary and null
+        inorderTraversal(bst, 2 * index + 1);  // Traverse left subtree
+        System.out.print(bst[index] + " ");  // Visit the current node
+        inorderTraversal(bst, 2 * index + 2);  // Traverse right subtree
     }
     """.trimIndent()
                             ),
@@ -2259,32 +2289,33 @@ void preorderTraversal(int[] tree, int index) {
                                     """
     Example Traversals:
     
-    Tree: 
-        1
+    BST: 
+        4
        / \
-      2   3
-     / \
-    4   5
+      2   6
+     / \   \
+    1   3   7
 
-    Array: [1, 2, 3, 4, 5]
+    Array: [4, 2, 6, 1, 3, -1, 7]
 
-    Preorder Sequence: 1 -> 2 -> 4 -> 5 -> 3
-    Inorder Sequence: 4 -> 2 -> 5 -> 1 -> 3
-    Postorder Sequence: 4 -> 5 -> 2 -> 3 -> 1
+    Preorder Sequence: 4 -> 2 -> 1 -> 3 -> 6 -> 7
+    Inorder Sequence: 1 -> 2 -> 3 -> 4 -> 6 -> 7 (sorted)
+    Postorder Sequence: 1 -> 3 -> 2 -> 7 -> 6 -> 4
                 """.trimIndent()
                                 )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
+
                     LessonContent(
-                        id = DSAAdvancedStageIds.lesson7_subs[5],
-                        title = "Importance of Array Representation",
-                        description = "Understand why array representation is important and its applications in binary trees.",
+                        id = DSAAdvancedStageIds.lesson8_subs[5],
+                        title = "Importance of Array Representation in Binary Search Trees",
+                        description = "Understand why array representation is important and its applications in Binary Search Trees (BSTs).",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createSimpleText(
-                                    "Array representation of binary trees is crucial for simplifying tree operations and reducing memory overhead. It minimizes memory usage by avoiding extra pointers for child and parent links, allows instantaneous access to any node or its children/parent using index calculations, and simplifies traversal algorithms due to predictable index relationships. This approach is widely used in implementing heaps, tree-based search algorithms, and compact data storage techniques."
+                                    "Array representation of Binary Search Trees (BSTs) simplifies operations like traversal, searching, and insertion. It leverages the ordered nature of BSTs to enable efficient data access and manipulation. By avoiding extra pointers for child and parent links, this approach reduces memory overhead. It is particularly useful in applications like heaps, search optimization, and compact data storage techniques where maintaining order is crucial."
                                 )
                             )
                         ),
@@ -2297,320 +2328,468 @@ void preorderTraversal(int[] tree, int index) {
             // Lesson 9
             Lesson(
                 id = DSAAdvancedStageIds.lesson9,
-                title = "C Pointers",
-                description = "Master pointers in C, including creating pointers and their relationship with arrays! 🔑",
+                title = "AVL Trees",
+                description = "Explore AVL Trees, their properties, and how they maintain balance for efficient data management. 🌲",
                 lessonContents = listOf(
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson9_subs[0],
-                        title = "Introduction to Pointers",
-                        description = "An introduction to what pointers are and why they are important in C programming.",
+                        title = "Introduction to AVL Trees",
+                        description = "Learn the fundamentals of AVL Trees and their balancing mechanism.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "In C, a pointer is a variable that stores the memory address of another variable.",
-                                    listOf("pointer", "memory address")
+                                    """
+                        An AVL Tree is a self-balancing Binary Search Tree (BST) where:
+                        1. The height difference (balance factor) between the left and right subtrees of any node is at most 1.
+                        2. Balancing is achieved through rotations during insertions and deletions.
+                        """,
+                                    listOf("AVL Tree", "balance factor", "rotations")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Pointers are essential in C programming as they allow direct manipulation of memory, efficient function calls, and dynamic memory allocation.",
-                                    listOf("")
+                                    """
+                        Advantages:
+                        - Ensures O(log N) height, making operations like search, insertion, and deletion consistently efficient.
+                        - Prevents worst-case scenarios of skewed BSTs.
+                        """,
+                                    listOf("O(log N)", "search", "insertion", "deletion")
                                 )
                             ),
+                            ContentBlock.Text(createSimpleText("Example Structure:")),
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Understanding pointers helps you better manage memory and work with complex data structures.",
-                                    listOf("")
+                                createSimpleText(
+                                    """
+                        Example AVL Tree:
+                                  30
+                                 /  \
+                               20    40
+                              /        \
+                            10         50
+                        """.trimIndent()
                                 )
-                            ),
-                            ContentBlock.Code(
-                                """
-// Example: Basic pointer declaration
-int num = 10;
-int* ptr;  // Pointer to an integer
-ptr = &num;  // 'ptr' now holds the address of 'num'
-printf("Value of num using pointer: %d\n", *ptr);
-                """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
-
-                    // Creating Pointers
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson9_subs[1],
-                        title = "Creating Pointers",
-                        description = "Learn how to create pointers and assign them to variables. This is the fundamental step in understanding pointers.",
+                        title = "Manual Walkthrough of an AVL Tree",
+                        description = "Manually create and understand the balance property and array representation of an AVL Tree.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "To create a pointer in C, you use the * symbol. A pointer stores the memory address of a variable.",
-                                    listOf("pointer", "*")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "You can assign a pointer the address of a variable using the & operator.",
-                                    listOf("&")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "A pointer is typically declared as: type* pointerName; .",
-                                    listOf("type* pointerName;")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-// Example: Creating a pointer
-int num = 20;
-int* ptr;  // Declaring a pointer to an integer
-ptr = &num;  // Assign the address of num to ptr
+                            ContentBlock.Text(createSimpleText("Let's manually create an AVL Tree and understand its balance property.")),
 
-// Display the address and the value stored at that address
-printf("Address of num: %p\n", (void*)ptr);  // Prints address
-printf("Value at the address: %d\n", *ptr);  // Dereferencing the pointer to get the value
+                            ContentBlock.Text(createAnnotatedText("Step 1:", listOf("Step 1"))),
+                            ContentBlock.Text(createSimpleText("Define the AVL Tree structure. An AVL Tree is a self-balancing Binary Search Tree (BST) where the height difference between the left and right subtrees of any node (the balance factor) is at most 1.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 2:", listOf("Step 2"))),
+                            ContentBlock.Text(createSimpleText("Insert values into the AVL Tree while maintaining the BST property. After each insertion, check the balance factor of every node.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 3:", listOf("Step 3"))),
+                            ContentBlock.Text(createSimpleText("If the balance factor of a node exceeds 1 or falls below -1, apply rotations to restore balance. Types of rotations: LL, RR, LR, RL.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 4:", listOf("Step 4"))),
+                            ContentBlock.Text(createSimpleText("List the nodes level by level (from top to bottom and left to right), ensuring the AVL Tree remains balanced.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 5:", listOf("Step 5"))),
+                            ContentBlock.Text(createSimpleText("Optionally, represent the tree using an array where index 0 represents the root, index 1 is the left child, and index 2 is the right child, and so on. This is not commonly used for AVL Trees but can help visualize the structure.")),
+
+                            ContentBlock.Text(createSimpleText("Example AVL Tree:")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+          10
+         /  \
+        5    20
+       / \   / \
+      2   7 15  25
                 """.trimIndent()
-                            )
+                                )
+                            ),
+                            ContentBlock.Text(createSimpleText("Array Representation: [10, 5, 20, 2, 7, 15, 25]")),
+
+                            ContentBlock.Text(createSimpleText("Let's demonstrate insertion and rotations to maintain balance in an AVL Tree:")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                Example:
+                Insert values: [10, 20, 30]
+                
+                Step 1: Insert 10:
+                Tree:
+                      10
+                
+                Step 2: Insert 20:
+                Tree:
+                      10
+                        \
+                        20
+                
+                Step 3: Insert 30 (Unbalanced: Balance Factor of root = -2):
+                Apply RR Rotation:
+                      20
+                     /  \
+                    10   30
+                """.trimIndent()
+                                )
+                            ),
+
+                            ContentBlock.Text(createSimpleText("This representation helps understand how AVL Trees maintain balance during insertions and deletions while ensuring efficient operations.")),
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson9_subs[2],
-                        title = "Quiz",
-                        description = "Quiz",
+                        title = "Balancing AVL Trees with Rotations",
+                        description = "Understand how AVL Trees maintain balance using rotations.",
                         contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "What operator is used to get the address of a variable and assign it to a pointer?",
-                                incompleteCode = "ptr = ___num;",
-                                correctCode = "&",
-                                userInput = null,
-                                isCodeCorrect = false
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Rotations are used to restore balance in AVL Trees when nodes are added or removed. Types of rotations:"
+                                )
+                            ),
+                            ContentBlock.Text(createSimpleText("1. Single Right Rotation (LL Rotation)")),
+                            ContentBlock.Code(
+                                """
+                    // Example of LL Rotation:
+                    // Before Rotation:
+                          30
+                         /
+                        20
+                       /
+                      10
+                    
+                    // After Rotation:
+                          20
+                         /  \
+                        10   30
+                    """.trimIndent()
+                            ),
+                            ContentBlock.Text(createSimpleText("2. Single Left Rotation (RR Rotation)")),
+                            ContentBlock.Code(
+                                """
+                    // Example of RR Rotation:
+                    // Before Rotation:
+                          10
+                            \
+                            20
+                              \
+                              30
+                    
+                    // After Rotation:
+                          20
+                         /  \
+                        10   30
+                    """.trimIndent()
+                            ),
+                            ContentBlock.Text(createSimpleText("3. Left-Right Rotation (LR Rotation)")),
+                            ContentBlock.Code(
+                                """
+                    // Example of LR Rotation:
+                    // Before Rotation:
+                          30
+                         /
+                        10
+                          \
+                          20
+                    
+                    // After Rotation:
+                          20
+                         /  \
+                        10   30
+                    """.trimIndent()
+                            ),
+                            ContentBlock.Text(createSimpleText("4. Right-Left Rotation (RL Rotation)")),
+                            ContentBlock.Code(
+                                """
+                    // Example of RL Rotation:
+                    // Before Rotation:
+                          10
+                            \
+                            30
+                           /
+                          20
+                    
+                    // After Rotation:
+                          20
+                         /  \
+                        10   30
+                    """.trimIndent()
                             )
                         ),
-                        type = LessonContentType.INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson9_subs[3],
-                        title = "Pointers & Arrays",
-                        description = "Learn how pointers and arrays are closely related in C.",
+                        title = "Basic Operations on AVL Trees",
+                        description = "Learn how to perform insertion, deletion, and search operations in AVL Trees, ensuring balanced tree structures.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Arrays and pointers are closely related in C. The name of an array is a constant pointer to its first element.",
-                                    listOf("array", "pointer", "constant")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "You can use pointers to access array elements by incrementing the pointer.",
-                                    listOf()
+                                    "AVL Tree Operations:\n" +
+                                            "1. Insertion: Add nodes while maintaining the balance property.\n" +
+                                            "2. Deletion: Remove nodes and rebalance the tree if necessary.\n" +
+                                            "3. Searching: Traverse the tree to find specific values efficiently.",
+                                    listOf(
+                                        "AVL Tree Operations",
+                                        "Insertion",
+                                        "Deletion",
+                                        "Searching"
+                                    )
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-int arr[] = {1, 2, 3};
-int* ptr = arr;  // Pointer to the first element of arr
-printf("%d\n", *(ptr + 1));  // Prints the second element of the array
-                """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson9_subs[4],
-                        title = "Pointer Arithmetic",
-                        description = "Explore pointer arithmetic and how to manipulate pointer values.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Pointers in C allow arithmetic operations like addition or subtraction.",
-                                    listOf("pointer arithmetic")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "When you increment or decrement a pointer, it moves by the size of the type it points to.",
-                                    listOf()
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-int arr[] = {1, 2, 3};
-int* ptr = arr;
-ptr++;  // Moves to the next element of the array
-printf("%d\n", *ptr);  // Prints the second element of the array
-                """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson9_subs[5],
-                        title = "Quiz",
-                        description = "Quiz",
-                        contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "Fill in the missing code to print the third element of the array using pointer arithmetic.",
-                                incompleteCode = """
-int arr[] = {1, 2, 3};
-int* ptr = arr;
-printf("%d\n", *(ptr + ___));  // Fill in the blank
-                """.trimIndent(),
-                                correctCode = "2", // The correct answer is 2 to print the third element (index 2)
-                                userInput = null,
-                                isCodeCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson9_subs[6],
-                        title = "Pointers to Pointers",
-                        description = "Understand pointers that point to other pointers and how to work with them.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "A pointer to a pointer is a pointer that stores the address of another pointer.",
-                                    listOf("pointer to pointer", "address", "dereferencing")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "You can access the value of a pointer to a pointer by dereferencing it twice.",
-                                    listOf()
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-int num = 10;
-int* ptr = &num;
-int** ptr2 = &ptr;  // Pointer to pointer
-printf("%d\n", **ptr2);  // Dereferencing twice to access num's value
-                """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson9_subs[7],
-                        title = "Pointer & Function Arguments",
-                        description = "Learn how to pass pointers to functions and manipulate data through them.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Pointers are commonly used to pass large structures or arrays to functions, as they allow modification of data directly.",
-                                    listOf("pass by pointer")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Passing a pointer to a function allows that function to modify the original data.",
-                                    listOf()
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-void updateValue(int* ptr) {
-    *ptr = 20;  // Changes the value of the variable pointed to
-}
-
-int main() {
-    int num = 10;
-    updateValue(&num);
-    printf("Updated value: %d\n", num);  // Prints 20
-}
-                """.trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson9_subs[8],
-                        title = "Quiz",
-                        description = "Quiz",
-                        contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "Fill in the missing part to correctly dereference the pointer to pointer and print the value of 'num'.",
-                                incompleteCode = """
-int num = 10;
-int* ptr = &num;
-int** ptr2 = &ptr;  // Pointer to pointer
-printf("%d\n", ___);  // Fill in the blank to access 'num' using pointer to pointer
-                """.trimIndent(),
-                                correctCode = "**ptr2", // Correct answer is dereferencing ptr2 twice
-                                userInput = null,
-                                isCodeCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson9_subs[9],
-                        title = "Real-Life Example of Pointers",
-                        description = "Learn how pointers can be used in real-world applications, such as dynamic memory management or handling large data.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Pointers are used for efficient memory management, especially with large data that shouldn't be copied.",
-                                    listOf()
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "In games or simulations, pointers pass large structures like player data without copying them, improving efficiency.",
-                                    listOf()
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "For example, passing a player's game state via pointers avoids the overhead of copying data.",
-                                    listOf()
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-// Example: Game with player's data
-typedef struct {
-    int health;
-    int score;
-    char name[50];
-} Player;
-
-void updatePlayerStats(Player* p) {
-    p->health -= 10;  // Update health directly
-    p->score += 100;   // Update score directly
-}
-
-int main() {
-    Player player1 = {100, 0, "Alice"};
-    updatePlayerStats(&player1);  // Pass pointer
-    printf("Updated stats - Health: %d, Score: %d\n", player1.health, player1.score);
-}
+            // Example: AVL Tree Node Structure and Operations
+            class AVLNode {
+                int key, height;
+                AVLNode left, right;
+                AVLNode(int key) {
+                    this.key = key;
+                    this.height = 1;
+                }
+            }
+            
+            // Get the height of a node
+            int height(AVLNode node) {
+                return node == null ? 0 : node.height;
+            }
+            
+            // Rotate operations
+            AVLNode rightRotate(AVLNode y) {
+                AVLNode x = y.left;
+                AVLNode T2 = x.right;
+                
+                // Perform rotation
+                x.right = y;
+                y.left = T2;
+                
+                // Update heights
+                y.height = Math.max(height(y.left), height(y.right)) + 1;
+                x.height = Math.max(height(x.left), height(x.right)) + 1;
+                
+                return x; // Return new root
+            }
+            
+            AVLNode leftRotate(AVLNode x) {
+                AVLNode y = x.right;
+                AVLNode T2 = y.left;
+                
+                // Perform rotation
+                y.left = x;
+                x.right = T2;
+                
+                // Update heights
+                x.height = Math.max(height(x.left), height(x.right)) + 1;
+                y.height = Math.max(height(y.left), height(y.right)) + 1;
+                
+                return y; // Return new root
+            }
+            
+            // Balance factor
+            int getBalance(AVLNode node) {
+                return node == null ? 0 : height(node.left) - height(node.right);
+            }
             """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = DSAAdvancedStageIds.lesson9_subs[10],
-                        title = "Quiz",
-                        description = "Quiz",
+                        id = DSAAdvancedStageIds.lesson9_subs[4],
+                        title = "How AVL Tree Operations Work",
+                        description = "Detailed step-by-step breakdown of insertion, deletion, rotation, and traversal operations in AVL Trees.",
                         contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "What does a pointer in C store?",
-                                options = listOf(
-                                    "The value of a variable",
-                                    "The memory address of a variable",
-                                    "The size of a variable",
-                                    "The name of a variable"
-                                ),
-                                correctAnswer = "The memory address of a variable",
-                                userAnswer = null,
-                                isCorrect = false
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Let's break down AVL Tree operations step-by-step to understand how balancing and rotations ensure efficient performance."
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "AVL Tree Basics:",
+                                    listOf("AVL Tree Basics")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                1. AVL Trees are height-balanced binary search trees.
+                2. For every node, the difference in height between its left and right subtrees is at most 1.
+                3. Rotations (left, right, left-right, right-left) are used to restore balance.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Insertion:",
+                                    listOf("Insertion")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                1. Insert a new node using standard BST insertion.
+                2. Calculate the balance factor of each ancestor node.
+                3. Apply rotations to maintain balance:
+                   a. Left-Left (LL) case: Perform a single right rotation.
+                   b. Right-Right (RR) case: Perform a single left rotation.
+                   c. Left-Right (LR) case: Perform a left rotation, followed by a right rotation.
+                   d. Right-Left (RL) case: Perform a right rotation, followed by a left rotation.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Deletion:",
+                                    listOf("Deletion")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                1. Locate and remove the node using standard BST deletion.
+                2. Update the height of affected nodes.
+                3. Rebalance the tree by applying rotations as needed.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Traversal:",
+                                    listOf("Traversal")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                Traversal methods in AVL Trees are the same as in BSTs:
+                1. Preorder: Access the current node, then traverse left and right subtrees.
+                2. Inorder: Traverse the left subtree, access the current node, then traverse the right subtree.
+                3. Postorder: Traverse left and right subtrees, then access the current node.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+            // Example Code: AVL Tree Insertion with Rotations
+            AVLNode insert(AVLNode node, int key) {
+                // Standard BST insertion
+                if (node == null) return new AVLNode(key);
+                if (key < node.key) node.left = insert(node.left, key);
+                else if (key > node.key) node.right = insert(node.right, key);
+                else return node; // Duplicate keys not allowed
+                
+                // Update height
+                node.height = 1 + Math.max(height(node.left), height(node.right));
+                
+                // Get balance factor
+                int balance = getBalance(node);
+                
+                // Perform rotations
+                if (balance > 1 && key < node.left.key) return rightRotate(node);
+                if (balance < -1 && key > node.right.key) return leftRotate(node);
+                if (balance > 1 && key > node.left.key) {
+                    node.left = leftRotate(node.left);
+                    return rightRotate(node);
+                }
+                if (balance < -1 && key < node.right.key) {
+                    node.right = rightRotate(node.right);
+                    return leftRotate(node);
+                }
+                
+                return node; // Return unchanged node if balanced
+            }
+            """.trimIndent()
                             )
                         ),
-                        type = LessonContentType.QUIZ
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSAAdvancedStageIds.lesson9_subs[5],
+                        title = "How to Represent AVL Trees",
+                        description = "Understand the structure of AVL Trees and their unique properties that ensure balanced binary search operations.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "An AVL Tree is a self-balancing binary search tree where the difference between the heights of the left and right subtrees of any node is at most one. This property ensures that AVL Trees remain balanced, leading to efficient search, insertion, and deletion operations."
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+    Key Properties of AVL Trees:
+    1. Each node stores an additional piece of information: its height.
+    2. The balance factor of a node is calculated as the height of the left subtree minus the height of the right subtree.
+    3. If the balance factor is not in the range [-1, 0, 1], rotations are performed to restore balance.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+    // Example: AVL Tree Rotations and Balance
+    class AVLNode {
+        int value;
+        int height;
+        AVLNode left, right;
+
+        AVLNode(int value) {
+            this.value = value;
+            this.height = 1;
+        }
+    }
+
+    int getHeight(AVLNode node) {
+        return node == null ? 0 : node.height;
+    }
+
+    int getBalanceFactor(AVLNode node) {
+        return node == null ? 0 : getHeight(node.left) - getHeight(node.right);
+    }
+
+    // Update height of a node
+    void updateHeight(AVLNode node) {
+        node.height = 1 + Math.max(getHeight(node.left), getHeight(node.right));
+    }
+            """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+    Example:
+        Insert nodes 10, 20, 30 into an empty AVL Tree.
+        1. Insert 10: No imbalance.
+        2. Insert 20: No imbalance.
+        3. Insert 30: Balance factor of node 10 becomes -2, triggering a left rotation.
+        The AVL Tree balances itself automatically after each insertion or deletion.
+                """.trimIndent()
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSAAdvancedStageIds.lesson9_subs[6],
+                        title = "Importance of AVL Trees",
+                        description = "Learn why AVL Trees are critical for maintaining efficient operations in dynamic datasets.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "AVL Trees ensure that the height of the tree remains logarithmic in the number of nodes. This guarantees efficient operations like searching, insertion, and deletion with a time complexity of O(log n)."
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+    Applications of AVL Trees:
+    1. Database Indexing: AVL Trees provide fast data retrieval by maintaining a balanced structure.
+    2. Memory Management: Used in dynamic memory allocation to quickly find free memory blocks.
+    3. Networking: In routing algorithms where balanced data structures optimize pathfinding.
+                """.trimIndent()
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
                     )
                 ),
                 status = LessonStatus.LOCKED
@@ -2619,245 +2798,529 @@ int main() {
             // lesson 10
             Lesson(
                 id = DSAAdvancedStageIds.lesson10,
-                title = "C Structures",
-                description = "Learn how to use structures (structs) in C to group different types of data.",
+                title = "Graphs: Concepts and Traversals",
+                description = "Explore graph theory, its types, and algorithms for traversal like BFS and DFS. 🌐",
                 lessonContents = listOf(
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson10_subs[0],
-                        title = "Introduction to Structures",
-                        description = "Understand the basics of structures in C.",
+                        title = "Introduction to Graphs",
+                        description = "Learn the basics of graph theory, including terminology and common types of graphs.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Structures allow grouping of different data types into a single unit. It's useful when you need to represent real-world entities.",
-                                    listOf("Structures")
+                                    """
+                A graph is a data structure consisting of:
+                1. Nodes (or vertices) that represent entities.
+                2. Edges that represent connections or relationships between the nodes.
+                """,
+                                    listOf("graph", "nodes", "edges")
                                 )
                             ),
-                            ContentBlock.Text(createAnnotatedText("Syntax:", listOf(""))),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                Types of Graphs:
+                - Undirected: Edges have no direction.
+                - Directed (Digraph): Edges have a specific direction.
+                - Weighted: Edges have weights representing cost or distance.
+                - Unweighted: All edges are considered equal.
+                """.trimIndent()
+                                )
+                            ),
                             ContentBlock.Code(
-                                """struct StructureName {
-    dataType member1;
-    dataType member2;
-    // more members
-};"""
+                                """
+            // Example: Graph Representation
+            // Adjacency List for an undirected graph:
+            // 0 - 1 - 2
+            //     |
+            //     3
+            
+            val graph = mutableMapOf(
+                0 to listOf(1),
+                1 to listOf(0, 2, 3),
+                2 to listOf(1),
+                3 to listOf(1)
+            )
+                    """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson10_subs[1],
-                        title = "Creating a Structure",
-                        description = "Learn how to define and initialize a structure.",
+                        title = "Manual Walkthrough of a Graph",
+                        description = "Manually create and understand the structure and representation of a Graph.",
                         contentBlocks = listOf(
+                            ContentBlock.Text(createSimpleText("Let's manually create a Graph and understand its structure and different representations.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 1:", listOf("Step 1"))),
+                            ContentBlock.Text(createSimpleText("Define the Graph structure. A Graph consists of vertices (nodes) and edges (connections between nodes). Graphs can be directed or undirected, and weighted or unweighted.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 2:", listOf("Step 2"))),
+                            ContentBlock.Text(createSimpleText("Create a Graph by adding vertices and connecting them with edges. Specify whether the edges are directed or undirected and whether they have weights.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 3:", listOf("Step 3"))),
+                            ContentBlock.Text(createSimpleText("Choose a representation for the Graph. Common representations include:")),
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "To create a structure, you define it with the struct keyword and then create an instance of it.",
-                                    listOf("")
+                                createSimpleText(
+                                    """
+                - Adjacency Matrix: A 2D array where the value at [i][j] indicates the presence and weight of an edge between vertex i and vertex j.
+                - Adjacency List: A collection where each vertex stores a list of its connected vertices and their edge weights.
+                - Edge List: A list of all edges, where each edge is represented as a tuple (start_vertex, end_vertex, weight).
+                """.trimIndent()
                                 )
                             ),
-                            ContentBlock.Text(createAnnotatedText("Example:", listOf(""))),
-                            ContentBlock.Code(
-                                """struct Person {
-    char name[50];
-    int age;
-}; 
 
-int main() {
-    struct Person p1;
-    p1.age = 25;
-    strcpy(p1.name, "Alice");
-    return 0;
-}"""
-                            )
+                            ContentBlock.Text(createAnnotatedText("Step 4:", listOf("Step 4"))),
+                            ContentBlock.Text(createSimpleText("Visualize the Graph. Draw the vertices and edges to understand the structure and relationships between nodes.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 5:", listOf("Step 5"))),
+                            ContentBlock.Text(createSimpleText("Example of creating and representing a Graph:")),
+
+                            ContentBlock.Text(createSimpleText("Graph:")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                Vertices: [A, B, C, D]
+                Edges:
+                - A -> B (Weight: 1)
+                - A -> C (Weight: 3)
+                - B -> D (Weight: 4)
+                - C -> D (Weight: 2)
+                """.trimIndent()
+                                )
+                            ),
+
+                            ContentBlock.Text(createSimpleText("Adjacency Matrix:")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                  A  B  C  D
+                A  0  1  3  0
+                B  0  0  0  4
+                C  0  0  0  2
+                D  0  0  0  0
+                """.trimIndent()
+                                )
+                            ),
+
+                            ContentBlock.Text(createSimpleText("Adjacency List:")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                A: [(B, 1), (C, 3)]
+                B: [(D, 4)]
+                C: [(D, 2)]
+                D: []
+                """.trimIndent()
+                                )
+                            ),
+
+                            ContentBlock.Text(createSimpleText("Edge List:")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                [(A, B, 1), (A, C, 3), (B, D, 4), (C, D, 2)]
+                """.trimIndent()
+                                )
+                            ),
+
+                            ContentBlock.Text(createSimpleText("Understanding these representations helps analyze the Graph's properties and apply algorithms like BFS, DFS, Dijkstra's, and more.")),
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson10_subs[2],
-                        title = "Accessing Structure Members",
-                        description = "Learn how to access and modify structure members.",
+                        title = "Basic Operations on Graphs",
+                        description = "Learn how to perform essential operations like adding vertices, adding edges, and traversing a Graph using BFS and DFS.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Structure members can be accessed using the dot operator(.).",
-                                    listOf("dot operator", ".")
+                                    "Graph Operations:\n" +
+                                            "1. Add Vertex: Introduce a new node into the graph.\n" +
+                                            "2. Add Edge: Connect two vertices with an edge (directed or undirected).\n" +
+                                            "3. BFS Traversal: Explore the graph level by level starting from a given vertex.\n" +
+                                            "4. DFS Traversal: Explore as deep as possible in the graph starting from a given vertex.",
+                                    listOf(
+                                        "Graph Operations",
+                                        "Add Vertex",
+                                        "Add Edge",
+                                        "BFS Traversal",
+                                        "DFS Traversal"
+                                    )
                                 )
                             ),
-                            ContentBlock.Text(createAnnotatedText("Example:", listOf(""))),
                             ContentBlock.Code(
-                                """struct Person {
-    char name[50];
-    int age;
-}; 
+                                """
+            // Example: Graph Representation and Operations
+            import java.util.*;
 
-int main() {
-    struct Person p1 = {"Alice", 25};
-    printf("Name: %s, Age: %d", p1.name, p1.age);
-    return 0;
-}"""
+            class Graph {
+                private int vertices; // Number of vertices
+                private LinkedList<Integer>[] adjList; // Adjacency list
+
+                // Constructor
+                Graph(int vertices) {
+                    this.vertices = vertices;
+                    adjList = new LinkedList[vertices];
+                    for (int i = 0; i < vertices; i++) {
+                        adjList[i] = new LinkedList<>();
+                    }
+                }
+
+                // Add an edge
+                void addEdge(int src, int dest) {
+                    adjList[src].add(dest); // For directed graph
+                    // Uncomment the next line for undirected graph
+                    // adjList[dest].add(src);
+                }
+
+                // BFS Traversal
+                void bfs(int start) {
+                    boolean[] visited = new boolean[vertices];
+                    Queue<Integer> queue = new LinkedList<>();
+                    
+                    visited[start] = true;
+                    queue.add(start);
+                    
+                    while (!queue.isEmpty()) {
+                        int vertex = queue.poll();
+                        System.out.print(vertex + " ");
+                        
+                        for (int neighbor : adjList[vertex]) {
+                            if (!visited[neighbor]) {
+                                visited[neighbor] = true;
+                                queue.add(neighbor);
+                            }
+                        }
+                    }
+                }
+
+                // DFS Traversal
+                void dfs(int start) {
+                    boolean[] visited = new boolean[vertices];
+                    dfsUtil(start, visited);
+                }
+
+                private void dfsUtil(int vertex, boolean[] visited) {
+                    visited[vertex] = true;
+                    System.out.print(vertex + " ");
+                    
+                    for (int neighbor : adjList[vertex]) {
+                        if (!visited[neighbor]) {
+                            dfsUtil(neighbor, visited);
+                        }
+                    }
+                }
+            }
+
+            // Example Usage:
+            public static void main(String[] args) {
+                Graph graph = new Graph(5); // 5 vertices: 0, 1, 2, 3, 4
+                graph.addEdge(0, 1);
+                graph.addEdge(0, 2);
+                graph.addEdge(1, 3);
+                graph.addEdge(2, 4);
+
+                System.out.println("BFS starting from vertex 0:");
+                graph.bfs(0);
+
+                System.out.println("\nDFS starting from vertex 0:");
+                graph.dfs(0);
+            }
+            """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson10_subs[3],
-                        title = "Quiz",
-                        description = "Quiz",
+                        title = "How Graph Operations Work",
+                        description = "Detailed step-by-step breakdown of graph operations like adding vertices, adding edges, and performing graph traversals using BFS and DFS.",
                         contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "What keyword is used to define a structure in C?",
-                                incompleteCode = """___ Person {
-    char name[50];
-    int age;
-};""",
-                                correctCode = "struct",
-                                userInput = null,
-                                isCodeCorrect = false
-                            )
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Let's break down the essential graph operations step-by-step to understand how graph traversal techniques like BFS and DFS help explore graphs."
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Graph Basics:",
+                                    listOf("Graph Basics")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                1. A graph consists of vertices (nodes) and edges (connections between nodes).
+                2. Graphs can be either directed or undirected.
+                3. The adjacency list or adjacency matrix is used to represent graphs.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Adding Vertices and Edges:",
+                                    listOf("Adding Vertices", "Adding Edges")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                1. Adding a vertex: A new node is introduced into the graph.
+                2. Adding an edge: A connection (edge) is established between two vertices.
+                3. For directed graphs, edges have a direction from one vertex to another.
+                4. For undirected graphs, edges connect two vertices without a direction.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Graph Traversal:",
+                                    listOf("Graph Traversal")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                Graph traversal involves visiting all vertices and edges in a specific manner. The most common traversal techniques are:
+                1. **BFS (Breadth-First Search):** Explores level by level, visiting all nodes at the current level before moving to the next.
+                2. **DFS (Depth-First Search):** Explores as deeply as possible along each branch before backtracking.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+            // Example Code: Graph Traversal Using BFS and DFS
+            import java.util.*;
+
+            class Graph {
+                private int vertices; // Number of vertices
+                private LinkedList<Integer>[] adjList; // Adjacency list
+
+                // Constructor
+                Graph(int vertices) {
+                    this.vertices = vertices;
+                    adjList = new LinkedList[vertices];
+                    for (int i = 0; i < vertices; i++) {
+                        adjList[i] = new LinkedList<>();
+                    }
+                }
+
+                // Add an edge
+                void addEdge(int src, int dest) {
+                    adjList[src].add(dest); // For directed graph
+                    // Uncomment the next line for undirected graph
+                    // adjList[dest].add(src);
+                }
+
+                // BFS Traversal
+                void bfs(int start) {
+                    boolean[] visited = new boolean[vertices];
+                    Queue<Integer> queue = new LinkedList<>();
+                    
+                    visited[start] = true;
+                    queue.add(start);
+                    
+                    while (!queue.isEmpty()) {
+                        int vertex = queue.poll();
+                        System.out.print(vertex + " ");
+                        
+                        for (int neighbor : adjList[vertex]) {
+                            if (!visited[neighbor]) {
+                                visited[neighbor] = true;
+                                queue.add(neighbor);
+                            }
+                        }
+                    }
+                }
+
+                // DFS Traversal
+                void dfs(int start) {
+                    boolean[] visited = new boolean[vertices];
+                    dfsUtil(start, visited);
+                }
+
+                private void dfsUtil(int vertex, boolean[] visited) {
+                    visited[vertex] = true;
+                    System.out.print(vertex + " ");
+                    
+                    for (int neighbor : adjList[vertex]) {
+                        if (!visited[neighbor]) {
+                            dfsUtil(neighbor, visited);
+                        }
+                    }
+                }
+            }
+
+            // Example Usage:
+            public static void main(String[] args) {
+                Graph graph = new Graph(5); // 5 vertices: 0, 1, 2, 3, 4
+                graph.addEdge(0, 1);
+                graph.addEdge(0, 2);
+                graph.addEdge(1, 3);
+                graph.addEdge(2, 4);
+
+                System.out.println("BFS starting from vertex 0:");
+                graph.bfs(0);
+
+                System.out.println("\nDFS starting from vertex 0:");
+                graph.dfs(0);
+            }
+            """.trimIndent()
+                            ),
+                            ContentBlock.Text(createSimpleText("In this example, we first create a graph with 5 vertices and add some edges. Then, we perform BFS and DFS starting from vertex 0.")),
+
+                            ContentBlock.Text(createSimpleText("### BFS Traversal:")),
+                            ContentBlock.Text(createSimpleText("BFS explores the graph level by level, visiting all nodes at the current level before moving to the next.")),
+                            ContentBlock.Text(createSimpleText("For example, in BFS starting from vertex 0, the traversal order will be: 0, 1, 2, 3, 4.")),
+
+                            ContentBlock.Text(createSimpleText("### DFS Traversal:")),
+                            ContentBlock.Text(createSimpleText("DFS explores as deeply as possible along each branch before backtracking.")),
+                            ContentBlock.Text(createSimpleText("For example, in DFS starting from vertex 0, the traversal order will be: 0, 1, 3, 2, 4.")),
+
+                            ContentBlock.Text(createSimpleText("Both BFS and DFS are essential graph traversal algorithms used for exploring graphs and solving various graph problems.")),
                         ),
-                        type = LessonContentType.INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson10_subs[4],
-                        title = "Nested Structures",
-                        description = "Learn how to define structures within structures.",
+                        title = "How to Represent Graphs",
+                        description = "Understand the different ways to represent graphs and their properties, enabling efficient traversal and operations.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "You can define a structure inside another structure.",
-                                    listOf("")
+                                createSimpleText(
+                                    "Graphs can be represented in multiple ways depending on the type of graph (directed, undirected, weighted, unweighted). Common representations include adjacency matrix and adjacency list, each having its unique advantages and trade-offs."
                                 )
                             ),
-                            ContentBlock.Text(createAnnotatedText("Example:", listOf(""))),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+    Key Properties of Graph Representations:
+    1. **Adjacency Matrix**: A 2D array where each cell indicates the presence (or weight) of an edge between two vertices.
+    2. **Adjacency List**: A list where each index represents a vertex and contains a list of all adjacent vertices.
+    3. The choice of representation depends on the graph's density and the operations you need to perform.
+                """.trimIndent()
+                                )
+                            ),
                             ContentBlock.Code(
-                                """struct Address {
-    char street[100];
-    char city[50];
-}; 
+                                """
+    // Example: Graph Representation
+    import java.util.*;
 
-struct Person {
-    char name[50];
-    int age;
-    struct Address address;
-};
+    // Adjacency Matrix Representation
+    class AdjacencyMatrixGraph {
+        int[][] matrix;
+        int vertices;
 
-int main() {
-    struct Person p1;
-    strcpy(p1.name, "Alice");
-    p1.age = 25;
-    strcpy(p1.address.street, "123 Main St");
-    strcpy(p1.address.city, "Wonderland");
-    return 0;
-}"""
+        AdjacencyMatrixGraph(int vertices) {
+            this.vertices = vertices;
+            this.matrix = new int[vertices][vertices];
+        }
+
+        void addEdge(int src, int dest) {
+            matrix[src][dest] = 1; // For weighted graph, set weight instead of 1
+            // Uncomment for undirected graph
+            // matrix[dest][src] = 1;
+        }
+
+        void printMatrix() {
+            for (int i = 0; i < vertices; i++) {
+                System.out.println(Arrays.toString(matrix[i]));
+            }
+        }
+    }
+
+    // Adjacency List Representation
+    class AdjacencyListGraph {
+        LinkedList<Integer>[] adjList;
+        int vertices;
+
+        AdjacencyListGraph(int vertices) {
+            this.vertices = vertices;
+            adjList = new LinkedList[vertices];
+            for (int i = 0; i < vertices; i++) {
+                adjList[i] = new LinkedList<>();
+            }
+        }
+
+        void addEdge(int src, int dest) {
+            adjList[src].add(dest);
+            // Uncomment for undirected graph
+            // adjList[dest].add(src);
+        }
+
+        void printList() {
+            for (int i = 0; i < vertices; i++) {
+                System.out.print(i + ": ");
+                for (int neighbor : adjList[i]) {
+                    System.out.print(neighbor + " ");
+                }
+                System.out.println();
+            }
+        }
+    }
+
+    // Example Usage:
+    public static void main(String[] args) {
+        // Adjacency Matrix
+        AdjacencyMatrixGraph matrixGraph = new AdjacencyMatrixGraph(5);
+        matrixGraph.addEdge(0, 1);
+        matrixGraph.addEdge(0, 4);
+        matrixGraph.addEdge(1, 2);
+        matrixGraph.printMatrix();
+
+        // Adjacency List
+        AdjacencyListGraph listGraph = new AdjacencyListGraph(5);
+        listGraph.addEdge(0, 1);
+        listGraph.addEdge(0, 4);
+        listGraph.addEdge(1, 2);
+        listGraph.printList();
+    }
+            """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+    Example:
+        Represent a graph with 5 vertices and edges:
+        - 0 → 1
+        - 0 → 4
+        - 1 → 2
+        
+        Using Adjacency Matrix:
+        [
+            [0, 1, 0, 0, 1],
+            [0, 0, 1, 0, 0],
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0]
+        ]
+        
+        Using Adjacency List:
+        0: 1 4
+        1: 2
+        2:
+        3:
+        4:
+                """.trimIndent()
+                                )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson10_subs[5],
-                        title = "Pointers to Structures",
-                        description = "Understand how to use pointers with structures.",
+                        title = "Importance of Graphs",
+                        description = "Understand the critical role graphs play in representing and solving complex real-world problems across various domains.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Pointers can be used to reference structures. To access members via pointers, use the arrow operator (->).",
-                                    listOf("Pointers", "->", "arrow operator")
+                                createSimpleText(
+                                    "Graphs are fundamental data structures that model relationships between entities, making them versatile tools for solving real-world problems in networking, navigation, and data organization. They are used in applications like social networks to represent connections between users, GPS systems for route optimization, web crawling for search engine indexing, and dependency management for build systems or package managers. Graphs also play a crucial role in designing and optimizing communication networks and understanding biological relationships like protein-protein interactions. The key benefits of graphs include their ability to efficiently represent complex relationships, the availability of optimized algorithms like Dijkstra's and Kruskal's for solving critical problems, and their flexibility to model directed and undirected relationships with weighted and unweighted edges."
                                 )
-                            ),
-                            ContentBlock.Text(createAnnotatedText("Example:", listOf(""))),
-                            ContentBlock.Code(
-                                """struct Person {
-    char name[50];
-    int age;
-}; 
-
-int main() {
-    struct Person p1 = {"Alice", 25};
-    struct Person *ptr = &p1;
-    printf("Name: %s, Age: %d", ptr->name, ptr->age);
-    return 0;
-}"""
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson10_subs[6],
-                        title = "Quiz",
-                        description = "Quiz",
-                        contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "What type should the address member in the Person structure be?",
-                                incompleteCode = """
-struct Person {
-    char name[50];
-    int age;
-   struct ___;
-};""",
-                                correctCode = "address",
-                                userInput = null,
-                                isCodeCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson10_subs[7],
-                        title = "Real-Life Example of Structures",
-                        description = "An advanced example of structures with arrays and functions.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "In this example, we'll use structures with arrays and pass them to functions.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(createAnnotatedText("Example:", listOf(""))),
-                            ContentBlock.Code(
-                                """#include <stdio.h>
-
-struct Student {
-    char name[50];
-    int marks[5];
-};
-
-void printStudent(struct Student s) {
-    printf("Name: %s\n", s.name);
-    printf("Marks: ");
-    for(int i = 0; i < 5; i++) {
-        printf("%d ", s.marks[i]);
-    }
-    printf("\\n");
-}
-
-int main() {
-    struct Student s1 = {"Alice", {80, 90, 85, 70, 95}};
-    printStudent(s1);
-    return 0;
-}"""
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson10_subs[8],
-                        title = "Quiz",
-                        description = "Quiz",
-                        contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "Why do we use 'struct' in C programming?",
-                                options = listOf(
-                                    "To group related data together",
-                                    "To create dynamic memory allocation",
-                                    "To define classes",
-                                    "To handle memory addresses"
-                                ),
-                                correctAnswer = "To group related data together",
-                                userAnswer = null,
-                                isCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.QUIZ
                     )
                 ),
                 status = LessonStatus.LOCKED
@@ -2866,323 +3329,566 @@ int main() {
             // lesson 11
             Lesson(
                 id = DSAAdvancedStageIds.lesson11,
-                title = "C Files",
-                description = "Learn advanced file handling techniques in C, including creating, reading, writing, and closing files.",
+                title = "Graphs Traversals",
+                description = "Learn the core graph traversal techniques, including BFS and DFS, and how to apply them to explore graphs. 🌐",
                 lessonContents = listOf(
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson11_subs[0],
-                        title = "Introduction to File Handling",
+                        title = "Introduction to Graph Traversals",
+                        description = "Explore the importance of graph traversals and the basic algorithms: BFS (Breadth-First Search) and DFS (Depth-First Search).",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "File handling in C allows programs to perform operations like reading and writing files using file pointers. File handling is crucial for data persistence.",
-                                    listOf("file handling", "file pointers")
+                                    """
+A graph traversal refers to visiting all the vertices or nodes in a graph. There are two main types of graph traversals:
+1. **Breadth-First Search (BFS)**: Explores all vertices at the present depth level before moving on to vertices at the next depth level.
+2. **Depth-First Search (DFS)**: Explores as far as possible along each branch before backing up.
+                    """,
+                                    listOf("BFS", "DFS", "graph traversal")
                                 )
                             ),
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "The stdio.h header provides necessary functions for file operations.",
-                                    listOf("stdio.h")
+                                createSimpleText(
+                                    """
+BFS is implemented using a queue, where vertices are visited in levels. DFS is typically implemented using recursion or a stack, exploring deeper into the graph before moving to the next branch.
+                    """.trimIndent()
                                 )
                             ),
-                            ContentBlock.Code("#include <stdio.h>")
+                            ContentBlock.Code(
+                                """
+// Graph Representation for BFS and DFS
+// Adjacency List for an undirected graph:
+// 0 - 1 - 2
+//     |
+//     3
+
+val graph = mutableMapOf(
+    0 to listOf(1),
+    1 to listOf(0, 2, 3),
+    2 to listOf(1),
+    3 to listOf(1)
+)
+                    """.trimIndent()
+                            )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson11_subs[1],
-                        title = "Creating a File",
+                        title = "Manual Walkthrough of Graph Traversal",
+                        description = "Understand and manually implement Graph Traversal techniques like BFS and DFS.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "The fopen() function is used to create and open files. Mode w writes to a text file, and wb writes to a binary file.",
-                                    listOf("fopen()", "writes", "binary")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Here’s how you can create a file and write to it.",
-                                    listOf()
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """#include <stdio.h>
+                            ContentBlock.Text(createSimpleText("In this lesson, we will explore Graph Traversal techniques and understand how algorithms like Depth-First Search (DFS) and Breadth-First Search (BFS) work.")),
 
-int main() {
-    FILE *file = fopen("example.txt", "w");
-    if (file == NULL) {
-        printf("Error opening file.\n");
-        return 1;
-    }
-    fprintf(file, "Hello, world!");
-    fclose(file);
-    return 0;
-}"""
-                            )
+                            ContentBlock.Text(createAnnotatedText("Step 1:", listOf("Step 1"))),
+                            ContentBlock.Text(createSimpleText("Define the Graph structure. A Graph consists of vertices (nodes) and edges (connections between nodes). Graphs can be directed or undirected, and weighted or unweighted.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 2:", listOf("Step 2"))),
+                            ContentBlock.Text(createSimpleText("Create a Graph by adding vertices and connecting them with edges. Specify whether the edges are directed or undirected and whether they have weights.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 3:", listOf("Step 3"))),
+                            ContentBlock.Text(createSimpleText("Choose a representation for the Graph. Common representations include:")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                - Adjacency Matrix: A 2D array where the value at [i][j] indicates the presence and weight of an edge between vertex i and vertex j.
+                - Adjacency List: A collection where each vertex stores a list of its connected vertices and their edge weights.
+                - Edge List: A list of all edges, where each edge is represented as a tuple (start_vertex, end_vertex, weight).
+                """.trimIndent()
+                                )
+                            ),
+
+                            ContentBlock.Text(createAnnotatedText("Step 4:", listOf("Step 4"))),
+                            ContentBlock.Text(createSimpleText("Visualize the Graph. Draw the vertices and edges to understand the structure and relationships between nodes.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 5:", listOf("Step 5"))),
+                            ContentBlock.Text(createSimpleText("Example of creating and representing a Graph:")),
+
+                            ContentBlock.Text(createSimpleText("Graph:")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                Vertices: [A, B, C, D]
+                Edges:
+                - A -> B (Weight: 1)
+                - A -> C (Weight: 3)
+                - B -> D (Weight: 4)
+                - C -> D (Weight: 2)
+                """.trimIndent()
+                                )
+                            ),
+
+                            ContentBlock.Text(createSimpleText("Adjacency Matrix:")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                  A  B  C  D
+                A  0  1  3  0
+                B  0  0  0  4
+                C  0  0  0  2
+                D  0  0  0  0
+                """.trimIndent()
+                                )
+                            ),
+
+                            ContentBlock.Text(createSimpleText("Adjacency List:")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                A: [(B, 1), (C, 3)]
+                B: [(D, 4)]
+                C: [(D, 2)]
+                D: []
+                """.trimIndent()
+                                )
+                            ),
+
+                            ContentBlock.Text(createSimpleText("Edge List:")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                [(A, B, 1), (A, C, 3), (B, D, 4), (C, D, 2)]
+                """.trimIndent()
+                                )
+                            ),
+
+                            ContentBlock.Text(createSimpleText("Understanding these representations helps analyze the Graph's properties and apply algorithms like BFS, DFS, Dijkstra's, and more.")),
+
+                            // New section for graph traversal algorithms
+
+                            ContentBlock.Text(createAnnotatedText("Step 6:", listOf("Step 6"))),
+                            ContentBlock.Text(createSimpleText("Now, let's explore graph traversal techniques. The two most common are Depth-First Search (DFS) and Breadth-First Search (BFS).")),
+
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Depth-First Search (DFS):",
+                                    listOf("DFS")
+                                )
+                            ),
+                            ContentBlock.Text(createSimpleText("DFS is a traversal algorithm where you start at a node and explore as far as possible along each branch before backtracking.")),
+                            ContentBlock.Text(createSimpleText("DFS can be implemented recursively or using a stack.")),
+                            ContentBlock.Text(createSimpleText("Example DFS traversal from node A:")),
+                            ContentBlock.Text(createSimpleText("DFS: A -> B -> D -> C")),
+
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Breadth-First Search (BFS):",
+                                    listOf("BFS")
+                                )
+                            ),
+                            ContentBlock.Text(createSimpleText("BFS is a traversal algorithm where you start at a node and explore all its neighbors first, before moving to the next level.")),
+                            ContentBlock.Text(createSimpleText("BFS is implemented using a queue.")),
+                            ContentBlock.Text(createSimpleText("Example BFS traversal from node A:")),
+                            ContentBlock.Text(createSimpleText("BFS: A -> B -> C -> D")),
+
+                            ContentBlock.Text(createSimpleText("Both DFS and BFS are fundamental for exploring graphs and can be applied in various algorithms, such as finding the shortest path or detecting cycles.")),
+
+                            ContentBlock.Text(createSimpleText("Understanding how to traverse a graph helps in solving problems efficiently and is crucial for algorithms like Dijkstra’s, Prim’s, and more.")),
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson11_subs[2],
-                        title = "Reading from a File",
+                        title = "Basic Graph Traversal Operations",
+                        description = "Learn how to perform essential graph traversal operations using BFS and DFS algorithms.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Use fopen() in r mode to open files for reading. Functions like fscanf(), fgets(), or fgetc() can retrieve file content.",
-                                    listOf("fopen()", "fscanf()", "fgets()", "fgetc()")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Example of reading a file line-by-line:",
-                                    listOf()
+                                    "Graph Traversal Operations:\n" +
+                                            "1. BFS Traversal: Explore the graph level by level starting from a given vertex.\n" +
+                                            "2. DFS Traversal: Explore as deep as possible in the graph starting from a given vertex.",
+                                    listOf(
+                                        "Graph Traversal Operations",
+                                        "BFS Traversal",
+                                        "DFS Traversal"
+                                    )
                                 )
                             ),
                             ContentBlock.Code(
-                                """#include <stdio.h>
+                                """
+            // Example: Graph Traversal Using BFS and DFS
+            import java.util.*;
 
-int main() {
-    FILE *file = fopen("example.txt", "r");
-    char str[100];
-    if (file == NULL) {
-        printf("Error opening file.\n");
-        return 1;
-    }
-    fgets(str, sizeof(str), file);
-    printf("%s", str);
-    fclose(file);
-    return 0;
-}"""
-                            )
+            class Graph {
+                private int vertices; // Number of vertices
+                private LinkedList<Integer>[] adjList; // Adjacency list
+
+                // Constructor
+                Graph(int vertices) {
+                    this.vertices = vertices;
+                    adjList = new LinkedList[vertices];
+                    for (int i = 0; i < vertices; i++) {
+                        adjList[i] = new LinkedList<>();
+                    }
+                }
+
+                // Add an edge
+                void addEdge(int src, int dest) {
+                    adjList[src].add(dest); // For directed graph
+                    // Uncomment the next line for undirected graph
+                    // adjList[dest].add(src);
+                }
+
+                // BFS Traversal
+                void bfs(int start) {
+                    boolean[] visited = new boolean[vertices];
+                    Queue<Integer> queue = new LinkedList<>();
+                    
+                    visited[start] = true;
+                    queue.add(start);
+                    
+                    while (!queue.isEmpty()) {
+                        int vertex = queue.poll();
+                        System.out.print(vertex + " ");
+                        
+                        for (int neighbor : adjList[vertex]) {
+                            if (!visited[neighbor]) {
+                                visited[neighbor] = true;
+                                queue.add(neighbor);
+                            }
+                        }
+                    }
+                }
+
+                // DFS Traversal
+                void dfs(int start) {
+                    boolean[] visited = new boolean[vertices];
+                    dfsUtil(start, visited);
+                }
+
+                private void dfsUtil(int vertex, boolean[] visited) {
+                    visited[vertex] = true;
+                    System.out.print(vertex + " ");
+                    
+                    for (int neighbor : adjList[vertex]) {
+                        if (!visited[neighbor]) {
+                            dfsUtil(neighbor, visited);
+                        }
+                    }
+                }
+            }
+
+            // Example Usage:
+            public static void main(String[] args) {
+                Graph graph = new Graph(5); // 5 vertices: 0, 1, 2, 3, 4
+                graph.addEdge(0, 1);
+                graph.addEdge(0, 2);
+                graph.addEdge(1, 3);
+                graph.addEdge(2, 4);
+
+                System.out.println("BFS starting from vertex 0:");
+                graph.bfs(0);
+
+                System.out.println("\nDFS starting from vertex 0:");
+                graph.dfs(0);
+            }
+            """.trimIndent()
+                            ),
+                            ContentBlock.Text(createSimpleText("In this example, we first create a graph with 5 vertices and add some edges. Then, we perform BFS and DFS starting from vertex 0.")),
+
+                            ContentBlock.Text(createSimpleText("### BFS Traversal:")),
+                            ContentBlock.Text(createSimpleText("BFS explores the graph level by level, visiting all nodes at the current level before moving to the next.")),
+                            ContentBlock.Text(createSimpleText("For example, in BFS starting from vertex 0, the traversal order will be: 0, 1, 2, 3, 4.")),
+
+                            ContentBlock.Text(createSimpleText("### DFS Traversal:")),
+                            ContentBlock.Text(createSimpleText("DFS explores as deeply as possible along each branch before backtracking.")),
+                            ContentBlock.Text(createSimpleText("For example, in DFS starting from vertex 0, the traversal order will be: 0, 1, 3, 2, 4.")),
+
+                            ContentBlock.Text(createSimpleText("Both BFS and DFS are fundamental traversal algorithms used for exploring graphs and solving problems like finding the shortest path or detecting cycles.")),
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson11_subs[3],
-                        title = "Quiz",
-                        contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "Complete the code to create and write to a file using fopen() with write mode.",
-                                incompleteCode = """
-FILE *file = fopen("example.txt", ___);
-if (file == NULL) {
-    printf("Error opening file.\n");
-    return 1;
-}
-""",
-                                correctCode = "w",
-                                userInput = null,
-                                isCodeCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson11_subs[4],
-                        title = "Writing to a File",
+                        title = "How Graph Traversal Works",
+                        description = "Detailed step-by-step breakdown of graph traversal techniques such as BFS and DFS, including graph construction and traversal examples.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Use modes like w (overwrite) or a (append) with fopen() for writing. Functions like fprintf(), fputs(), or fwrite() handle file writing.",
-                                    listOf("fopen()", "fprintf()", "fputs()", "fwrite()")
+                                createSimpleText(
+                                    "Let's break down the essential graph traversal techniques step-by-step to understand how BFS and DFS help explore graphs."
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Here’s an example of writing to a file:",
-                                    listOf()
+                                    "Graph Basics:",
+                                    listOf("Graph Basics")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                1. A graph consists of vertices (nodes) and edges (connections between nodes).
+                2. Graphs can be either directed or undirected.
+                3. The adjacency list or adjacency matrix is used to represent graphs.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Graph Construction:",
+                                    listOf("Adding Vertices", "Adding Edges")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                1. Adding a vertex: A new node is introduced into the graph.
+                2. Adding an edge: A connection (edge) is established between two vertices.
+                3. For directed graphs, edges have a direction from one vertex to another.
+                4. For undirected graphs, edges connect two vertices without a direction.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Graph Traversal Techniques:",
+                                    listOf("Graph Traversal", "BFS", "DFS")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                Graph traversal involves visiting all vertices and edges in a specific manner. The most common traversal techniques are:
+                1. **BFS (Breadth-First Search):** Explores level by level, visiting all nodes at the current level before moving to the next.
+                2. **DFS (Depth-First Search):** Explores as deeply as possible along each branch before backtracking.
+                """.trimIndent()
                                 )
                             ),
                             ContentBlock.Code(
-                                """#include <stdio.h>
+                                """
+            // Example Code: Graph Traversal Using BFS and DFS
+            import java.util.*;
 
-int main() {
-    FILE *file = fopen("example.txt", "w");
-    if (file == NULL) {
-        printf("Error opening file.\n");
-        return 1;
+            class Graph {
+                private int vertices; // Number of vertices
+                private LinkedList<Integer>[] adjList; // Adjacency list
+
+                // Constructor
+                Graph(int vertices) {
+                    this.vertices = vertices;
+                    adjList = new LinkedList[vertices];
+                    for (int i = 0; i < vertices; i++) {
+                        adjList[i] = new LinkedList<>();
+                    }
+                }
+
+                // Add an edge
+                void addEdge(int src, int dest) {
+                    adjList[src].add(dest); // For directed graph
+                    // Uncomment the next line for undirected graph
+                    // adjList[dest].add(src);
+                }
+
+                // BFS Traversal
+                void bfs(int start) {
+                    boolean[] visited = new boolean[vertices];
+                    Queue<Integer> queue = new LinkedList<>();
+                    
+                    visited[start] = true;
+                    queue.add(start);
+                    
+                    while (!queue.isEmpty()) {
+                        int vertex = queue.poll();
+                        System.out.print(vertex + " ");
+                        
+                        for (int neighbor : adjList[vertex]) {
+                            if (!visited[neighbor]) {
+                                visited[neighbor] = true;
+                                queue.add(neighbor);
+                            }
+                        }
+                    }
+                }
+
+                // DFS Traversal
+                void dfs(int start) {
+                    boolean[] visited = new boolean[vertices];
+                    dfsUtil(start, visited);
+                }
+
+                private void dfsUtil(int vertex, boolean[] visited) {
+                    visited[vertex] = true;
+                    System.out.print(vertex + " ");
+                    
+                    for (int neighbor : adjList[vertex]) {
+                        if (!visited[neighbor]) {
+                            dfsUtil(neighbor, visited);
+                        }
+                    }
+                }
+            }
+
+            // Example Usage:
+            public static void main(String[] args) {
+                Graph graph = new Graph(5); // 5 vertices: 0, 1, 2, 3, 4
+                graph.addEdge(0, 1);
+                graph.addEdge(0, 2);
+                graph.addEdge(1, 3);
+                graph.addEdge(2, 4);
+
+                System.out.println("BFS starting from vertex 0:");
+                graph.bfs(0);
+
+                System.out.println("\nDFS starting from vertex 0:");
+                graph.dfs(0);
+            }
+            """.trimIndent()
+                            ),
+                            ContentBlock.Text(createSimpleText("In this example, we first create a graph with 5 vertices and add some edges. Then, we perform BFS and DFS starting from vertex 0.")),
+
+                            ContentBlock.Text(createSimpleText("### BFS Traversal:")),
+                            ContentBlock.Text(createSimpleText("BFS explores the graph level by level, visiting all nodes at the current level before moving to the next.")),
+                            ContentBlock.Text(createSimpleText("For example, in BFS starting from vertex 0, the traversal order will be: 0, 1, 2, 3, 4.")),
+
+                            ContentBlock.Text(createSimpleText("### DFS Traversal:")),
+                            ContentBlock.Text(createSimpleText("DFS explores as deeply as possible along each branch before backtracking.")),
+                            ContentBlock.Text(createSimpleText("For example, in DFS starting from vertex 0, the traversal order will be: 0, 1, 3, 2, 4.")),
+
+                            ContentBlock.Text(createSimpleText("Both BFS and DFS are essential graph traversal algorithms used for exploring graphs and solving various graph problems.")),
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSAAdvancedStageIds.lesson11_subs[4],
+                        title = "How to Represent Graphs",
+                        description = "Understand the different ways to represent graphs and their properties, enabling efficient traversal and operations.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Graphs can be represented in multiple ways depending on the type of graph (directed, undirected, weighted, unweighted). Common representations include adjacency matrix and adjacency list, each having its unique advantages and trade-offs."
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+    Key Properties of Graph Representations:
+    1. **Adjacency Matrix**: A 2D array where each cell indicates the presence (or weight) of an edge between two vertices.
+    2. **Adjacency List**: A list where each index represents a vertex and contains a list of all adjacent vertices.
+    3. The choice of representation depends on the graph's density and the operations you need to perform.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+    // Example: Graph Representation
+    import java.util.*;
+
+    // Adjacency Matrix Representation
+    class AdjacencyMatrixGraph {
+        int[][] matrix;
+        int vertices;
+
+        AdjacencyMatrixGraph(int vertices) {
+            this.vertices = vertices;
+            this.matrix = new int[vertices][vertices];
+        }
+
+        void addEdge(int src, int dest) {
+            matrix[src][dest] = 1; // For weighted graph, set weight instead of 1
+            // Uncomment for undirected graph
+            // matrix[dest][src] = 1;
+        }
+
+        void printMatrix() {
+            for (int i = 0; i < vertices; i++) {
+                System.out.println(Arrays.toString(matrix[i]));
+            }
+        }
     }
-    fprintf(file, "Hello, world!");
-    fclose(file);
-    return 0;
-}"""
+
+    // Adjacency List Representation
+    class AdjacencyListGraph {
+        LinkedList<Integer>[] adjList;
+        int vertices;
+
+        AdjacencyListGraph(int vertices) {
+            this.vertices = vertices;
+            adjList = new LinkedList[vertices];
+            for (int i = 0; i < vertices; i++) {
+                adjList[i] = new LinkedList<>();
+            }
+        }
+
+        void addEdge(int src, int dest) {
+            adjList[src].add(dest);
+            // Uncomment for undirected graph
+            // adjList[dest].add(src);
+        }
+
+        void printList() {
+            for (int i = 0; i < vertices; i++) {
+                System.out.print(i + ": ");
+                for (int neighbor : adjList[i]) {
+                    System.out.print(neighbor + " ");
+                }
+                System.out.println();
+            }
+        }
+    }
+
+    // Example Usage:
+    public static void main(String[] args) {
+        // Adjacency Matrix
+        AdjacencyMatrixGraph matrixGraph = new AdjacencyMatrixGraph(5);
+        matrixGraph.addEdge(0, 1);
+        matrixGraph.addEdge(0, 4);
+        matrixGraph.addEdge(1, 2);
+        matrixGraph.printMatrix();
+
+        // Adjacency List
+        AdjacencyListGraph listGraph = new AdjacencyListGraph(5);
+        listGraph.addEdge(0, 1);
+        listGraph.addEdge(0, 4);
+        listGraph.addEdge(1, 2);
+        listGraph.printList();
+    }
+            """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+    Example:
+        Represent a graph with 5 vertices and edges:
+        - 0 → 1
+        - 0 → 4
+        - 1 → 2
+        
+        Using Adjacency Matrix:
+        [
+            [0, 1, 0, 0, 1],
+            [0, 0, 1, 0, 0],
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0]
+        ]
+        
+        Using Adjacency List:
+        0: 1 4
+        1: 2
+        2:
+        3:
+        4:
+                """.trimIndent()
+                                )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson11_subs[5],
-                        title = "Closing a File",
+                        title = "Importance of Graphs",
+                        description = "Understand the critical role graphs play in representing and solving complex real-world problems across various domains.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Use fclose() to close a file and ensure data integrity by flushing buffers.",
-                                    listOf("fclose()")
+                                createSimpleText(
+                                    "Graphs are fundamental data structures that model relationships between entities, making them versatile tools for solving real-world problems in networking, navigation, and data organization. They are used in applications like social networks to represent connections between users, GPS systems for route optimization, web crawling for search engine indexing, and dependency management for build systems or package managers. Graphs also play a crucial role in designing and optimizing communication networks and understanding biological relationships like protein-protein interactions. The key benefits of graphs include their ability to efficiently represent complex relationships, the availability of optimized algorithms like Dijkstra's and Kruskal's for solving critical problems, and their flexibility to model directed and undirected relationships with weighted and unweighted edges."
                                 )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Example demonstrating file closure:",
-                                    listOf()
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """#include <stdio.h>
-
-int main() {
-    FILE *file = fopen("example.txt", "w");
-    if (file == NULL) {
-        printf("Error opening file.\n");
-        return 1;
-    }
-    fprintf(file, "Hello, world!");
-    fclose(file);
-    return 0;
-}"""
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson11_subs[6],
-                        title = "File Error Handling",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Always check file operations for errors. Use functions like ferror() to identify issues.",
-                                    listOf("ferror()")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Example demonstrating error handling during file access:",
-                                    listOf()
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """#include <stdio.h>
-
-int main() {
-    FILE *file = fopen("nonexistent.txt", "r");
-    if (file == NULL) {
-        printf("Error opening file.\n");
-        return 1;
-    }
-    fclose(file);
-    return 0;
-}"""
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson11_subs[7],
-                        title = "Quiz",
-                        contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "What mode should be used with fopen() to append content to an existing file?",
-                                incompleteCode = "FILE *file = fopen(\"example.txt\", ___);",
-                                correctCode = "a",
-                                userInput = null,
-                                isCodeCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson11_subs[8],
-                        title = "Real-Life Example of File Handling",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "A real-world application demonstrates managing student records using file handling in C.",
-                                    listOf()
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """#include <stdio.h>
-#include <stdlib.h>
-
-struct Student {
-    char name[50];
-    int rollNumber;
-    float marks;
-};
-
-void addStudent(FILE *file) {
-    struct Student s;
-    printf("Enter name: ");
-    scanf("%s", s.name);
-    printf("Enter roll number: ");
-    scanf("%d", &s.rollNumber);
-    printf("Enter marks: ");
-    scanf("%f", &s.marks);
-    fwrite(&s, sizeof(struct Student), 1, file);
-    printf("Student added successfully.\n");
-}
-
-void viewStudents(FILE *file) {
-    struct Student s;
-    rewind(file);
-    while (fread(&s, sizeof(struct Student), 1, file)) {
-        printf("Name: %s, Roll Number: %d, Marks: %.2f\n", s.name, s.rollNumber, s.marks);
-    }
-}
-
-int main() {
-    FILE *file = fopen("students.dat", "wb+");
-    if (file == NULL) {
-        printf("Error opening file.\n");
-        return 1;
-    }
-
-    int choice;
-    do {
-        printf("1. Add Student\n2. View Students\n3. Exit\nEnter your choice: ");
-        scanf("%d", &choice);
-        switch (choice) {
-            case 1:
-                addStudent(file);
-                break;
-            case 2:
-                viewStudents(file);
-                break;
-            case 3:
-                fclose(file);
-                printf("Exiting program.\n");
-                break;
-            default:
-                printf("Invalid choice.\n");
-        }
-    } while (choice != 3);
-
-    return 0;
-}"""
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson11_subs[9],
-                        title = "Quiz",
-                        contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "What is a file in the context of C programming?",
-                                options = listOf(
-                                    "A temporary storage used by the program",
-                                    "A collection of instructions executed by the CPU",
-                                    "A collection of data stored on a storage device",
-                                    "A program that helps manage memory"
-                                ),
-                                correctAnswer = "A collection of data stored on a storage device",
-                                userAnswer = null,
-                                isCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.QUIZ
                     )
                 ),
-                status = LessonStatus.ACTIVE
+                status = LessonStatus.LOCKED
             ),
 
             // Lesson 12
