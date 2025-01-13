@@ -3894,573 +3894,568 @@ val graph = mutableMapOf(
             // Lesson 12
             Lesson(
                 id = DSAAdvancedStageIds.lesson12,
-                title = "C Enumeration (enum)",
-                description = "Learn advanced techniques for using enums in C, including defining enums, changing their values, and using them in switch statements.",
+                title = "Graphs Traversals",
+                description = "Learn the core graph traversal techniques, including BFS and DFS, and how to apply them to explore graphs. 🌐",
                 lessonContents = listOf(
                     LessonContent(
-                        id = DSAAdvancedStageIds.lesson12_subs[0],
-                        title = "Introduction to Enums",
+                        id = DSAAdvancedStageIds.lesson11_subs[0],
+                        title = "Introduction to Graph Traversals",
+                        description = "Explore the importance of graph traversals and the basic algorithms: BFS (Breadth-First Search) and DFS (Depth-First Search).",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Enums in C are used to define a set of named integer constants. They improve code readability and provide better organization.",
-                                    listOf("Enums")
+                                    """
+A graph traversal refers to visiting all the vertices or nodes in a graph. There are two main types of graph traversals:
+1. **Breadth-First Search (BFS)**: Explores all vertices at the present depth level before moving on to vertices at the next depth level.
+2. **Depth-First Search (DFS)**: Explores as far as possible along each branch before backing up.
+                    """,
+                                    listOf("BFS", "DFS", "graph traversal")
                                 )
                             ),
-                            ContentBlock.Text(createAnnotatedText("Syntax:", listOf(""))),
-                            ContentBlock.Code(
-                                """enum EnumName {
-    CONSTANT_1,
-    CONSTANT_2,
-    CONSTANT_3
-};"""
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+BFS is implemented using a queue, where vertices are visited in levels. DFS is typically implemented using recursion or a stack, exploring deeper into the graph before moving to the next branch.
+                    """.trimIndent()
+                                )
                             ),
-                            ContentBlock.Text(createAnnotatedText("Example:", listOf(""))),
                             ContentBlock.Code(
-                                """#include <stdio.h>
+                                """
+// Graph Representation for BFS and DFS
+// Adjacency List for an undirected graph:
+// 0 - 1 - 2
+//     |
+//     3
 
-enum Day { Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday };
-
-int main() {
-    enum Day today = Wednesday;
-    printf("Today is %d\\n", today);
-    return 0;
-}"""
+val graph = mutableMapOf(
+    0 to listOf(1),
+    1 to listOf(0, 2, 3),
+    2 to listOf(1),
+    3 to listOf(1)
+)
+                    """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = DSAAdvancedStageIds.lesson12_subs[1],
-                        title = "Changing Enum Values",
+                        id = DSAAdvancedStageIds.lesson11_subs[1],
+                        title = "Manual Walkthrough of Graph Traversal",
+                        description = "Understand and manually implement Graph Traversal techniques like BFS and DFS.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(createSimpleText("In this lesson, we will explore Graph Traversal techniques and understand how algorithms like Depth-First Search (DFS) and Breadth-First Search (BFS) work.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 1:", listOf("Step 1"))),
+                            ContentBlock.Text(createSimpleText("Define the Graph structure. A Graph consists of vertices (nodes) and edges (connections between nodes). Graphs can be directed or undirected, and weighted or unweighted.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 2:", listOf("Step 2"))),
+                            ContentBlock.Text(createSimpleText("Create a Graph by adding vertices and connecting them with edges. Specify whether the edges are directed or undirected and whether they have weights.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 3:", listOf("Step 3"))),
+                            ContentBlock.Text(createSimpleText("Choose a representation for the Graph. Common representations include:")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                - Adjacency Matrix: A 2D array where the value at [i][j] indicates the presence and weight of an edge between vertex i and vertex j.
+                - Adjacency List: A collection where each vertex stores a list of its connected vertices and their edge weights.
+                - Edge List: A list of all edges, where each edge is represented as a tuple (start_vertex, end_vertex, weight).
+                """.trimIndent()
+                                )
+                            ),
+
+                            ContentBlock.Text(createAnnotatedText("Step 4:", listOf("Step 4"))),
+                            ContentBlock.Text(createSimpleText("Visualize the Graph. Draw the vertices and edges to understand the structure and relationships between nodes.")),
+
+                            ContentBlock.Text(createAnnotatedText("Step 5:", listOf("Step 5"))),
+                            ContentBlock.Text(createSimpleText("Example of creating and representing a Graph:")),
+
+                            ContentBlock.Text(createSimpleText("Graph:")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                Vertices: [A, B, C, D]
+                Edges:
+                - A -> B (Weight: 1)
+                - A -> C (Weight: 3)
+                - B -> D (Weight: 4)
+                - C -> D (Weight: 2)
+                """.trimIndent()
+                                )
+                            ),
+
+                            ContentBlock.Text(createSimpleText("Adjacency Matrix:")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                  A  B  C  D
+                A  0  1  3  0
+                B  0  0  0  4
+                C  0  0  0  2
+                D  0  0  0  0
+                """.trimIndent()
+                                )
+                            ),
+
+                            ContentBlock.Text(createSimpleText("Adjacency List:")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                A: [(B, 1), (C, 3)]
+                B: [(D, 4)]
+                C: [(D, 2)]
+                D: []
+                """.trimIndent()
+                                )
+                            ),
+
+                            ContentBlock.Text(createSimpleText("Edge List:")),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                [(A, B, 1), (A, C, 3), (B, D, 4), (C, D, 2)]
+                """.trimIndent()
+                                )
+                            ),
+
+                            ContentBlock.Text(createSimpleText("Understanding these representations helps analyze the Graph's properties and apply algorithms like BFS, DFS, Dijkstra's, and more.")),
+
+                            // New section for graph traversal algorithms
+
+                            ContentBlock.Text(createAnnotatedText("Step 6:", listOf("Step 6"))),
+                            ContentBlock.Text(createSimpleText("Now, let's explore graph traversal techniques. The two most common are Depth-First Search (DFS) and Breadth-First Search (BFS).")),
+
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Depth-First Search (DFS):",
+                                    listOf("DFS")
+                                )
+                            ),
+                            ContentBlock.Text(createSimpleText("DFS is a traversal algorithm where you start at a node and explore as far as possible along each branch before backtracking.")),
+                            ContentBlock.Text(createSimpleText("DFS can be implemented recursively or using a stack.")),
+                            ContentBlock.Text(createSimpleText("Example DFS traversal from node A:")),
+                            ContentBlock.Text(createSimpleText("DFS: A -> B -> D -> C")),
+
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Breadth-First Search (BFS):",
+                                    listOf("BFS")
+                                )
+                            ),
+                            ContentBlock.Text(createSimpleText("BFS is a traversal algorithm where you start at a node and explore all its neighbors first, before moving to the next level.")),
+                            ContentBlock.Text(createSimpleText("BFS is implemented using a queue.")),
+                            ContentBlock.Text(createSimpleText("Example BFS traversal from node A:")),
+                            ContentBlock.Text(createSimpleText("BFS: A -> B -> C -> D")),
+
+                            ContentBlock.Text(createSimpleText("Both DFS and BFS are fundamental for exploring graphs and can be applied in various algorithms, such as finding the shortest path or detecting cycles.")),
+
+                            ContentBlock.Text(createSimpleText("Understanding how to traverse a graph helps in solving problems efficiently and is crucial for algorithms like Dijkstra’s, Prim’s, and more.")),
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSAAdvancedStageIds.lesson11_subs[2],
+                        title = "Basic Graph Traversal Operations",
+                        description = "Learn how to perform essential graph traversal operations using BFS and DFS algorithms.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "You can change the underlying integer values of an enum. By default, the first value is 0, and each subsequent value increments by 1.",
-                                    listOf("0", "1")
+                                    "Graph Traversal Operations:\n" +
+                                            "1. BFS Traversal: Explore the graph level by level starting from a given vertex.\n" +
+                                            "2. DFS Traversal: Explore as deep as possible in the graph starting from a given vertex.",
+                                    listOf(
+                                        "Graph Traversal Operations",
+                                        "BFS Traversal",
+                                        "DFS Traversal"
+                                    )
                                 )
                             ),
-                            ContentBlock.Text(createAnnotatedText("Example:", listOf(""))),
                             ContentBlock.Code(
-                                """#include <stdio.h>
+                                """
+            // Example: Graph Traversal Using BFS and DFS
+            import java.util.*;
 
-enum Day { Sunday = 1, Monday = 2, Tuesday = 4, Wednesday = 8, Thursday = 16 };
+            class Graph {
+                private int vertices; // Number of vertices
+                private LinkedList<Integer>[] adjList; // Adjacency list
 
-int main() {
-    enum Day today = Tuesday;
-    printf("Today is %d\\n", today);
-    return 0;
-}"""
+                // Constructor
+                Graph(int vertices) {
+                    this.vertices = vertices;
+                    adjList = new LinkedList[vertices];
+                    for (int i = 0; i < vertices; i++) {
+                        adjList[i] = new LinkedList<>();
+                    }
+                }
+
+                // Add an edge
+                void addEdge(int src, int dest) {
+                    adjList[src].add(dest); // For directed graph
+                    // Uncomment the next line for undirected graph
+                    // adjList[dest].add(src);
+                }
+
+                // BFS Traversal
+                void bfs(int start) {
+                    boolean[] visited = new boolean[vertices];
+                    Queue<Integer> queue = new LinkedList<>();
+                    
+                    visited[start] = true;
+                    queue.add(start);
+                    
+                    while (!queue.isEmpty()) {
+                        int vertex = queue.poll();
+                        System.out.print(vertex + " ");
+                        
+                        for (int neighbor : adjList[vertex]) {
+                            if (!visited[neighbor]) {
+                                visited[neighbor] = true;
+                                queue.add(neighbor);
+                            }
+                        }
+                    }
+                }
+
+                // DFS Traversal
+                void dfs(int start) {
+                    boolean[] visited = new boolean[vertices];
+                    dfsUtil(start, visited);
+                }
+
+                private void dfsUtil(int vertex, boolean[] visited) {
+                    visited[vertex] = true;
+                    System.out.print(vertex + " ");
+                    
+                    for (int neighbor : adjList[vertex]) {
+                        if (!visited[neighbor]) {
+                            dfsUtil(neighbor, visited);
+                        }
+                    }
+                }
+            }
+
+            // Example Usage:
+            public static void main(String[] args) {
+                Graph graph = new Graph(5); // 5 vertices: 0, 1, 2, 3, 4
+                graph.addEdge(0, 1);
+                graph.addEdge(0, 2);
+                graph.addEdge(1, 3);
+                graph.addEdge(2, 4);
+
+                System.out.println("BFS starting from vertex 0:");
+                graph.bfs(0);
+
+                System.out.println("\nDFS starting from vertex 0:");
+                graph.dfs(0);
+            }
+            """.trimIndent()
+                            ),
+                            ContentBlock.Text(createSimpleText("In this example, we first create a graph with 5 vertices and add some edges. Then, we perform BFS and DFS starting from vertex 0.")),
+
+                            ContentBlock.Text(createSimpleText("### BFS Traversal:")),
+                            ContentBlock.Text(createSimpleText("BFS explores the graph level by level, visiting all nodes at the current level before moving to the next.")),
+                            ContentBlock.Text(createSimpleText("For example, in BFS starting from vertex 0, the traversal order will be: 0, 1, 2, 3, 4.")),
+
+                            ContentBlock.Text(createSimpleText("### DFS Traversal:")),
+                            ContentBlock.Text(createSimpleText("DFS explores as deeply as possible along each branch before backtracking.")),
+                            ContentBlock.Text(createSimpleText("For example, in DFS starting from vertex 0, the traversal order will be: 0, 1, 3, 2, 4.")),
+
+                            ContentBlock.Text(createSimpleText("Both BFS and DFS are fundamental traversal algorithms used for exploring graphs and solving problems like finding the shortest path or detecting cycles.")),
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSAAdvancedStageIds.lesson11_subs[3],
+                        title = "How Graph Traversal Works",
+                        description = "Detailed step-by-step breakdown of graph traversal techniques such as BFS and DFS, including graph construction and traversal examples.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Let's break down the essential graph traversal techniques step-by-step to understand how BFS and DFS help explore graphs."
+                                )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "In the above code, Sunday starts at 1, Monday at 2, Tuesday at 4, etc.",
-                                    listOf("")
+                                    "Graph Basics:",
+                                    listOf("Graph Basics")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                1. A graph consists of vertices (nodes) and edges (connections between nodes).
+                2. Graphs can be either directed or undirected.
+                3. The adjacency list or adjacency matrix is used to represent graphs.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Graph Construction:",
+                                    listOf("Adding Vertices", "Adding Edges")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                1. Adding a vertex: A new node is introduced into the graph.
+                2. Adding an edge: A connection (edge) is established between two vertices.
+                3. For directed graphs, edges have a direction from one vertex to another.
+                4. For undirected graphs, edges connect two vertices without a direction.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Graph Traversal Techniques:",
+                                    listOf("Graph Traversal", "BFS", "DFS")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+                Graph traversal involves visiting all vertices and edges in a specific manner. The most common traversal techniques are:
+                1. **BFS (Breadth-First Search):** Explores level by level, visiting all nodes at the current level before moving to the next.
+                2. **DFS (Depth-First Search):** Explores as deeply as possible along each branch before backtracking.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+            // Example Code: Graph Traversal Using BFS and DFS
+            import java.util.*;
+
+            class Graph {
+                private int vertices; // Number of vertices
+                private LinkedList<Integer>[] adjList; // Adjacency list
+
+                // Constructor
+                Graph(int vertices) {
+                    this.vertices = vertices;
+                    adjList = new LinkedList[vertices];
+                    for (int i = 0; i < vertices; i++) {
+                        adjList[i] = new LinkedList<>();
+                    }
+                }
+
+                // Add an edge
+                void addEdge(int src, int dest) {
+                    adjList[src].add(dest); // For directed graph
+                    // Uncomment the next line for undirected graph
+                    // adjList[dest].add(src);
+                }
+
+                // BFS Traversal
+                void bfs(int start) {
+                    boolean[] visited = new boolean[vertices];
+                    Queue<Integer> queue = new LinkedList<>();
+                    
+                    visited[start] = true;
+                    queue.add(start);
+                    
+                    while (!queue.isEmpty()) {
+                        int vertex = queue.poll();
+                        System.out.print(vertex + " ");
+                        
+                        for (int neighbor : adjList[vertex]) {
+                            if (!visited[neighbor]) {
+                                visited[neighbor] = true;
+                                queue.add(neighbor);
+                            }
+                        }
+                    }
+                }
+
+                // DFS Traversal
+                void dfs(int start) {
+                    boolean[] visited = new boolean[vertices];
+                    dfsUtil(start, visited);
+                }
+
+                private void dfsUtil(int vertex, boolean[] visited) {
+                    visited[vertex] = true;
+                    System.out.print(vertex + " ");
+                    
+                    for (int neighbor : adjList[vertex]) {
+                        if (!visited[neighbor]) {
+                            dfsUtil(neighbor, visited);
+                        }
+                    }
+                }
+            }
+
+            // Example Usage:
+            public static void main(String[] args) {
+                Graph graph = new Graph(5); // 5 vertices: 0, 1, 2, 3, 4
+                graph.addEdge(0, 1);
+                graph.addEdge(0, 2);
+                graph.addEdge(1, 3);
+                graph.addEdge(2, 4);
+
+                System.out.println("BFS starting from vertex 0:");
+                graph.bfs(0);
+
+                System.out.println("\nDFS starting from vertex 0:");
+                graph.dfs(0);
+            }
+            """.trimIndent()
+                            ),
+                            ContentBlock.Text(createSimpleText("In this example, we first create a graph with 5 vertices and add some edges. Then, we perform BFS and DFS starting from vertex 0.")),
+
+                            ContentBlock.Text(createSimpleText("### BFS Traversal:")),
+                            ContentBlock.Text(createSimpleText("BFS explores the graph level by level, visiting all nodes at the current level before moving to the next.")),
+                            ContentBlock.Text(createSimpleText("For example, in BFS starting from vertex 0, the traversal order will be: 0, 1, 2, 3, 4.")),
+
+                            ContentBlock.Text(createSimpleText("### DFS Traversal:")),
+                            ContentBlock.Text(createSimpleText("DFS explores as deeply as possible along each branch before backtracking.")),
+                            ContentBlock.Text(createSimpleText("For example, in DFS starting from vertex 0, the traversal order will be: 0, 1, 3, 2, 4.")),
+
+                            ContentBlock.Text(createSimpleText("Both BFS and DFS are essential graph traversal algorithms used for exploring graphs and solving various graph problems.")),
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSAAdvancedStageIds.lesson11_subs[4],
+                        title = "How to Represent Graphs",
+                        description = "Understand the different ways to represent graphs and their properties, enabling efficient traversal and operations.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Graphs can be represented in multiple ways depending on the type of graph (directed, undirected, weighted, unweighted). Common representations include adjacency matrix and adjacency list, each having its unique advantages and trade-offs."
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+    Key Properties of Graph Representations:
+    1. **Adjacency Matrix**: A 2D array where each cell indicates the presence (or weight) of an edge between two vertices.
+    2. **Adjacency List**: A list where each index represents a vertex and contains a list of all adjacent vertices.
+    3. The choice of representation depends on the graph's density and the operations you need to perform.
+                """.trimIndent()
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+    // Example: Graph Representation
+    import java.util.*;
+
+    // Adjacency Matrix Representation
+    class AdjacencyMatrixGraph {
+        int[][] matrix;
+        int vertices;
+
+        AdjacencyMatrixGraph(int vertices) {
+            this.vertices = vertices;
+            this.matrix = new int[vertices][vertices];
+        }
+
+        void addEdge(int src, int dest) {
+            matrix[src][dest] = 1; // For weighted graph, set weight instead of 1
+            // Uncomment for undirected graph
+            // matrix[dest][src] = 1;
+        }
+
+        void printMatrix() {
+            for (int i = 0; i < vertices; i++) {
+                System.out.println(Arrays.toString(matrix[i]));
+            }
+        }
+    }
+
+    // Adjacency List Representation
+    class AdjacencyListGraph {
+        LinkedList<Integer>[] adjList;
+        int vertices;
+
+        AdjacencyListGraph(int vertices) {
+            this.vertices = vertices;
+            adjList = new LinkedList[vertices];
+            for (int i = 0; i < vertices; i++) {
+                adjList[i] = new LinkedList<>();
+            }
+        }
+
+        void addEdge(int src, int dest) {
+            adjList[src].add(dest);
+            // Uncomment for undirected graph
+            // adjList[dest].add(src);
+        }
+
+        void printList() {
+            for (int i = 0; i < vertices; i++) {
+                System.out.print(i + ": ");
+                for (int neighbor : adjList[i]) {
+                    System.out.print(neighbor + " ");
+                }
+                System.out.println();
+            }
+        }
+    }
+
+    // Example Usage:
+    public static void main(String[] args) {
+        // Adjacency Matrix
+        AdjacencyMatrixGraph matrixGraph = new AdjacencyMatrixGraph(5);
+        matrixGraph.addEdge(0, 1);
+        matrixGraph.addEdge(0, 4);
+        matrixGraph.addEdge(1, 2);
+        matrixGraph.printMatrix();
+
+        // Adjacency List
+        AdjacencyListGraph listGraph = new AdjacencyListGraph(5);
+        listGraph.addEdge(0, 1);
+        listGraph.addEdge(0, 4);
+        listGraph.addEdge(1, 2);
+        listGraph.printList();
+    }
+            """.trimIndent()
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    """
+    Example:
+        Represent a graph with 5 vertices and edges:
+        - 0 → 1
+        - 0 → 4
+        - 1 → 2
+        
+        Using Adjacency Matrix:
+        [
+            [0, 1, 0, 0, 1],
+            [0, 0, 1, 0, 0],
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0]
+        ]
+        
+        Using Adjacency List:
+        0: 1 4
+        1: 2
+        2:
+        3:
+        4:
+                """.trimIndent()
                                 )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = DSAAdvancedStageIds.lesson12_subs[2],
-                        title = "Quiz",
-                        contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "Complete the missing part in code.",
-                                incompleteCode = """___ Day {
-    Sunday, 
-    Monday, 
-    Tuesday, 
-    Wednesday, 
-    Thursday, 
-    Friday, 
-    Saturday
-};""",
-                                correctCode = "enum"
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson12_subs[3],
-                        title = "Enum in Switch Statement",
+                        id = DSAAdvancedStageIds.lesson11_subs[5],
+                        title = "Importance of Graphs",
+                        description = "Understand the critical role graphs play in representing and solving complex real-world problems across various domains.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Enums work well with switch statements, as you can match specific enum values to execute corresponding code.",
-                                    listOf("statements")
-                                )
-                            ),
-                            ContentBlock.Text(createAnnotatedText("Example:", listOf(""))),
-                            ContentBlock.Code(
-                                """#include <stdio.h>
-
-enum Day { Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday };
-
-int main() {
-    enum Day today = Wednesday;
-    
-    switch(today) {
-        case Sunday:
-            printf("It's Sunday\\n");
-            break;
-        case Wednesday:
-            printf("It's Wednesday\\n");
-            break;
-        default:
-            printf("It's a weekday\\n");
-    }
-    return 0;
-}"""
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson12_subs[4],
-                        title = "Enum with Bit Flags",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "You can use enums with bit flags for efficient storage and checking multiple conditions.",
-                                    listOf("bit flags")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Bitwise OR | and AND & operations are used to combine or check flags.",
-                                    listOf("|", "&")
-                                )
-                            ),
-                            ContentBlock.Text(createAnnotatedText("Example:", listOf(""))),
-                            ContentBlock.Code(
-                                """#include <stdio.h>
-
-enum Permissions {
-    READ = 1 << 0,    // 0001
-    WRITE = 1 << 1,   // 0010
-    EXECUTE = 1 << 2  // 0100
-};
-
-int main() {
-    int userPermissions = READ | WRITE;  // User has read and write permissions
-    if (userPermissions & READ) {
-        printf("User has read permissions\\n");
-    }
-    if (userPermissions & EXECUTE) {
-        printf("User has execute permissions\\n");
-    } else {
-        printf("User does not have execute permissions\\n");
-    }
-    return 0;
-}"""
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson12_subs[5],
-                        title = "Quiz",
-                        contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "Complete the switch statement to print the correct message for today (assuming today = Wednesday):",
-                                incompleteCode = """enum Day { Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday };
-
-int main() {
-    enum ___ today = Wednesday;
-    
-    switch(today) {
-        case Sunday:
-            printf("It's Sunday\\n");
-            break;
-        case Wednesday:
-            printf("It's Wednesday\\n");
-            break;
-        default:
-            printf("It's a weekday\\n");
-    }
-    return 0;
-}""",
-                                correctCode = "Day"
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson12_subs[6],
-                        title = "Real-life Example of Enums",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText("Enums can represent user roles in a system, improving clarity and managing permissions efficiently.")),
-                            ContentBlock.Text(createAnnotatedText("Example:", listOf(""))),
-                            ContentBlock.Code(
-                                """#include <stdio.h>
-
-// Enum for user roles
-enum UserRole {
-    ADMIN,
-    MODERATOR,
-    USER,
-    GUEST
-};
-
-void printUserRole(enum UserRole role) {
-    switch(role) {
-        case ADMIN: printf("Admin privileges\\n"); break;
-        case MODERATOR: printf("Moderator privileges\\n"); break;
-        case USER: printf("User privileges\\n"); break;
-        case GUEST: printf("Guest privileges\\n"); break;
-        default: printf("Unknown role\\n");
-    }
-}
-
-int main() {
-    printUserRole(ADMIN);
-    printUserRole(GUEST);
-    return 0;
-}"""
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "This example shows how enums make role management and code readability simpler.",
-                                    listOf("")
+                                createSimpleText(
+                                    "Graphs are fundamental data structures that model relationships between entities, making them versatile tools for solving real-world problems in networking, navigation, and data organization. They are used in applications like social networks to represent connections between users, GPS systems for route optimization, web crawling for search engine indexing, and dependency management for build systems or package managers. Graphs also play a crucial role in designing and optimizing communication networks and understanding biological relationships like protein-protein interactions. The key benefits of graphs include their ability to efficiently represent complex relationships, the availability of optimized algorithms like Dijkstra's and Kruskal's for solving critical problems, and their flexibility to model directed and undirected relationships with weighted and unweighted edges."
                                 )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson12_subs[7],
-                        title = "Quiz",
-                        contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "Which of the following is an example of enum declaration?",
-                                options = listOf(
-                                    "int days = 7;",
-                                    "enum Day { Sunday, Monday, Tuesday };",
-                                    "const Day = { Sunday, Monday, Tuesday };",
-                                    "Day[] days = { Sunday, Monday, Tuesday };"
-                                ),
-                                correctAnswer = "enum Day { Sunday, Monday, Tuesday };"
-                            )
-                        ),
-                        type = LessonContentType.QUIZ
-                    ),
+                    )
                 ),
                 status = LessonStatus.LOCKED
             ),
 
-            // lesson 13
-            Lesson(
-                id = DSAAdvancedStageIds.lesson13,
-                title = "C Memory Management",
-                description = "Master memory management in C, including dynamic memory allocation, deallocation, and handling memory efficiently.",
-                lessonContents = listOf(
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson13_subs[0],
-                        title = "Introduction to Memory Management",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Memory management in C is a crucial concept that involves managing the allocation, use, and deallocation of memory resources. Efficient memory management ensures optimal performance, prevents memory leaks, and avoids issues like fragmentation.",
-                                    listOf("Memory management")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Memory in C is divided into three sections: the stack, heap, and data segment.",
-                                    listOf("stack", "heap")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "1.Stack: Used for local variables, automatically managed, limited size.",
-                                    listOf(
-                                        "Stack",
-                                    )
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "2.Heap: Used for dynamic memory allocation, manually managed.",
-                                    listOf("Heap")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "3.Data Segment: Used for global and static variables.",
-                                    listOf("Data Segment")
-                                )
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson13_subs[1],
-                        title = "Dynamic Memory Allocation",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "C provides functions for dynamic memory allocation, allowing memory to be allocated at runtime.",
-                                    listOf("dynamic memory allocation")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Functions:",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "1.malloc(): Allocates uninitialized memory.",
-                                    listOf("malloc()")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "2.calloc(): Allocates zero-initialized memory.",
-                                    listOf("calloc()")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "3.realloc(): Resizes previously allocated memory.",
-                                    listOf("realloc()")
-                                )
-                            ),
-                            ContentBlock.Text(createAnnotatedText("Example:", listOf(""))),
-                            ContentBlock.Code(
-                                """#include <stdio.h>
-#include <stdlib.h>
-
-int main() {
-    int *arr = (int*)malloc(5 * sizeof(int));  // malloc allocates 5 integers
-    if (arr == NULL) {
-        printf("Memory allocation failed\\n");
-        return 1;
-    }
-    arr[0] = 10;
-    arr[1] = 20;
-    printf("arr[0]: %d, arr[1]: %d\\n", arr[0], arr[1]);
-
-    // Reallocate memory
-    arr = (int*)realloc(arr, 10 * sizeof(int));  // realloc resizes the array
-    if (arr == NULL) {
-        printf("Memory reallocation failed\\n");
-        return 1;
-    }
-    arr[5] = 50;
-    printf("arr[5]: %d\\n", arr[5]);
-
-    free(arr);  // Free memory
-    return 0;
-}"""
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson13_subs[2],
-                        title = "Quiz",
-                        contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "What is the function used for dynamic memory allocation in C that allocates uninitialized memory?",
-                                incompleteCode = """int *arr = (int*)___(5 * sizeof(int));""",
-                                correctCode = "malloc",
-                                userInput = null,
-                                isCodeCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson13_subs[3],
-                        title = "Memory Deallocation",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Memory allocated dynamically using malloc, calloc, or realloc should be deallocated using free().",
-                                    listOf(
-                                        "free()",
-                                    )
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Failure to free memory can cause memory leaks, leading to resource wastage.",
-                                    listOf("memory leaks")
-                                )
-                            ),
-                            ContentBlock.Text(createAnnotatedText("Example:", listOf(""))),
-                            ContentBlock.Code(
-                                """#include <stdio.h>
-#include <stdlib.h>
-
-int main() {
-    int *ptr = (int*)malloc(sizeof(int));
-    *ptr = 100;
-    printf("Value: %d\\n", *ptr);
-    
-    free(ptr);  // Always free dynamically allocated memory
-    return 0;
-}"""
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson13_subs[4],
-                        title = "Memory Leaks and Optimization",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Memory leaks occur when dynamically allocated memory is not freed, causing wasted resources and possible application crashes.",
-                                    listOf(
-                                        "application crashes"
-                                    )
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Best Practices:",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "1.Always pair malloc/calloc/realloc with free.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "2.Use tools like Valgrind to detect memory leaks.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "3.Consider using smart pointers in C++ to automate memory management.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Example of a memory leak:",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """#include <stdio.h>
-#include <stdlib.h>
-
-int main() {
-    int *arr = (int*)malloc(5 * sizeof(int));
-    // Memory is not freed, causing a memory leak
-    return 0;
-}"""
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson13_subs[5],
-                        title = "Quiz",
-                        contentBlocks = listOf(
-                            InteractiveInputBlock(
-                                question = "In the following code, what is the missing step after malloc to avoid a memory leak?",
-                                incompleteCode = """int *ptr = (int*)malloc(sizeof(int));  ___(ptr);""",
-                                correctCode = "free",
-                                userInput = null,
-                                isCodeCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson13_subs[6],
-                        title = "Real-Life Memory Management Examples",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Efficient memory management is crucial in large apps like games and browsers.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "1.Memory Pools: Pre-allocate memory for reuse to reduce allocation overhead.",
-                                    listOf(
-                                    )
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "2.Games: Memory pools manage textures, reusing memory instead of reallocating it frequently.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "3.Browsers: Allocate memory for tabs, freeing it when closed to ensure smooth performance.",
-                                    listOf(
-                                    )
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Example: Memory pool for game textures:",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """#include <stdio.h>
-#include <stdlib.h>
-
-#define POOL_SIZE 1024
-char texture_pool[POOL_SIZE];
-
-void* allocate_texture(size_t size) {
-    static size_t offset = 0;
-    if (offset + size > POOL_SIZE) return NULL;
-    void* ptr = texture_pool + offset;
-    offset += size;
-    return ptr;
-}
-
-int main() {
-    char* texture = (char*)allocate_texture(100);
-    if (texture == NULL) {
-        printf("Texture pool exhausted\\n");
-    }
-    return 0;
-}"""
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson13_subs[7],
-                        title = "Quiz",
-                        contentBlocks = listOf(
-                            QuizContentBlock(
-                                question = "What is the consequence of failing to free dynamically allocated memory?",
-                                options = listOf(
-                                    "Memory leaks",
-                                    "Segmentation fault",
-                                    "Memory fragmentation",
-                                    "Out of memory error"
-                                ),
-                                correctAnswer = "Memory leaks",
-                                userAnswer = null,
-                                isCorrect = false
-                            )
-                        ),
-                        type = LessonContentType.INTERACTIVE
-                    ),
-                ),
-                status = LessonStatus.LOCKED
-            ),
 
             // continue from here
 
