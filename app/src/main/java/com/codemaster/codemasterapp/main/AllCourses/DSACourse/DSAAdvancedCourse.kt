@@ -3898,7 +3898,7 @@ val graph = mutableMapOf(
                 description = "Learn the core graph traversal techniques, including BFS and DFS, and how to apply them to explore graphs. 🌐",
                 lessonContents = listOf(
                     LessonContent(
-                        id = DSAAdvancedStageIds.lesson11_subs[0],
+                        id = DSAAdvancedStageIds.lesson12_subs[0],
                         title = "Introduction to Graph Traversals",
                         description = "Explore the importance of graph traversals and the basic algorithms: BFS (Breadth-First Search) and DFS (Depth-First Search).",
                         contentBlocks = listOf(
@@ -3939,7 +3939,7 @@ val graph = mutableMapOf(
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = DSAAdvancedStageIds.lesson11_subs[1],
+                        id = DSAAdvancedStageIds.lesson12_subs[1],
                         title = "Manual Walkthrough of Graph Traversal",
                         description = "Understand and manually implement Graph Traversal techniques like BFS and DFS.",
                         contentBlocks = listOf(
@@ -4053,7 +4053,7 @@ val graph = mutableMapOf(
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = DSAAdvancedStageIds.lesson11_subs[2],
+                        id = DSAAdvancedStageIds.lesson12_subs[2],
                         title = "Basic Graph Traversal Operations",
                         description = "Learn how to perform essential graph traversal operations using BFS and DFS algorithms.",
                         contentBlocks = listOf(
