@@ -4164,7 +4164,7 @@ val graph = mutableMapOf(
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = DSAAdvancedStageIds.lesson11_subs[3],
+                        id = DSAAdvancedStageIds.lesson12_subs[3],
                         title = "How Graph Traversal Works",
                         description = "Detailed step-by-step breakdown of graph traversal techniques such as BFS and DFS, including graph construction and traversal examples.",
                         contentBlocks = listOf(
@@ -4314,7 +4314,7 @@ val graph = mutableMapOf(
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = DSAAdvancedStageIds.lesson11_subs[4],
+                        id = DSAAdvancedStageIds.lesson12_subs[4],
                         title = "How to Represent Graphs",
                         description = "Understand the different ways to represent graphs and their properties, enabling efficient traversal and operations.",
                         contentBlocks = listOf(
