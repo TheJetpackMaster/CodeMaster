@@ -1,22 +1,22 @@
 package com.codemaster.codemasterapp.main.AllCourses.DSACourse.courseIds
 
 object DSAAdvancedStageIds {
-    val stageId = "dsa_intermediate_stage"
+    val stageId = "dsa_advanced_stage"
 
     // Course and Lesson IDs as constants
-    val lesson1 = "intermediate_dsa1"
-    val lesson2 = "intermediate_dsa2"
-    val lesson3 = "intermediate_dsa3"
-    val lesson4 = "intermediate_dsa4"
-    val lesson5 = "intermediate_dsa5"
-    val lesson6 = "intermediate_dsa6"
-    val lesson7 = "intermediate_dsa7"
-    val lesson8 = "intermediate_dsa8"
-    val lesson9 = "intermediate_dsa9"
-    val lesson10 = "intermediate_dsa10"
-    val lesson11 = "intermediate_dsa11"
-    val lesson12 = "intermediate_dsa12"
-    val lesson13 = "intermediate_dsa13"
+    val lesson1 = "advanced_dsa1"
+    val lesson2 = "advanced_dsa2"
+    val lesson3 = "advanced_dsa3"
+    val lesson4 = "advanced_dsa4"
+    val lesson5 = "advanced_dsa5"
+    val lesson6 = "advanced_dsa6"
+    val lesson7 = "advanced_dsa7"
+    val lesson8 = "advanced_dsa8"
+    val lesson9 = "advanced_dsa9"
+    val lesson10 = "advanced_dsa10"
+    val lesson11 = "advanced_dsa11"
+    val lesson12 = "advanced_dsa12"
+    val lesson13 = "advanced_dsa13"
 
 
     // Sub-lesson IDs for lesson 1 Welcome
