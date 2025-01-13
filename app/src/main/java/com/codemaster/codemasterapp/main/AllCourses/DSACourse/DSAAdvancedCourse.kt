@@ -4119,24 +4119,26 @@ fun findConnectedComponents(graph: Map<Int, List<Int>>): List<List<Int>> {
                     ),
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson12_subs[2],
-                        title = "Basic Graph Traversal Operations",
-                        description = "Learn how to perform essential graph traversal operations using BFS and DFS algorithms.",
+                        title = "Basic Graph Detection Operations",
+                        description = "Learn how to perform essential graph detection operations to identify key graph properties like cycles, connectivity, and bipartiteness.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Graph Traversal Operations:\n" +
-                                            "1. BFS Traversal: Explore the graph level by level starting from a given vertex.\n" +
-                                            "2. DFS Traversal: Explore as deep as possible in the graph starting from a given vertex.",
+                                    "Graph Detection Operations:\n" +
+                                            "1. Cycle Detection: Identify whether a graph contains any cycles.\n" +
+                                            "2. Connectivity Detection: Check if all vertices are connected in the graph.\n" +
+                                            "3. Bipartiteness Detection: Check if a graph can be colored using two colors without any two adjacent vertices sharing the same color.",
                                     listOf(
-                                        "Graph Traversal Operations",
-                                        "BFS Traversal",
-                                        "DFS Traversal"
+                                        "Graph Detection Operations",
+                                        "Cycle Detection",
+                                        "Connectivity Detection",
+                                        "Bipartiteness Detection"
                                     )
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-            // Example: Graph Traversal Using BFS and DFS
+            // Example: Graph Detection Operations (Cycle, Connectivity, and Bipartiteness)
             import java.util.*;
 
             class Graph {
@@ -4155,46 +4157,83 @@ fun findConnectedComponents(graph: Map<Int, List<Int>>): List<List<Int>> {
                 // Add an edge
                 void addEdge(int src, int dest) {
                     adjList[src].add(dest); // For directed graph
-                    // Uncomment the next line for undirected graph
-                    // adjList[dest].add(src);
+                    adjList[dest].add(src); // For undirected graph
                 }
 
-                // BFS Traversal
-                void bfs(int start) {
+                // Detect if the graph has a cycle
+                boolean hasCycle() {
                     boolean[] visited = new boolean[vertices];
+                    for (int i = 0; i < vertices; i++) {
+                        if (!visited[i] && dfsCycle(i, -1, visited)) {
+                            return true;
+                        }
+                    }
+                    return false;
+                }
+
+                private boolean dfsCycle(int vertex, int parent, boolean[] visited) {
+                    visited[vertex] = true;
+                    for (int neighbor : adjList[vertex]) {
+                        if (!visited[neighbor]) {
+                            if (dfsCycle(neighbor, vertex, visited)) {
+                                return true;
+                            }
+                        } else if (neighbor != parent) {
+                            return true;
+                        }
+                    }
+                    return false;
+                }
+
+                // Check if the graph is connected
+                boolean isConnected() {
+                    boolean[] visited = new boolean[vertices];
+                    dfsConnected(0, visited);
+                    for (boolean v : visited) {
+                        if (!v) return false;
+                    }
+                    return true;
+                }
+
+                private void dfsConnected(int vertex, boolean[] visited) {
+                    visited[vertex] = true;
+                    for (int neighbor : adjList[vertex]) {
+                        if (!visited[neighbor]) {
+                            dfsConnected(neighbor, visited);
+                        }
+                    }
+                }
+
+                // Check if the graph is bipartite
+                boolean isBipartite() {
+                    int[] color = new int[vertices];
+                    Arrays.fill(color, -1);
+
+                    for (int i = 0; i < vertices; i++) {
+                        if (color[i] == -1 && !bfsBipartite(i, color)) {
+                            return false;
+                        }
+                    }
+                    return true;
+                }
+
+                private boolean bfsBipartite(int start, int[] color) {
                     Queue<Integer> queue = new LinkedList<>();
-                    
-                    visited[start] = true;
                     queue.add(start);
-                    
+                    color[start] = 0;
+
                     while (!queue.isEmpty()) {
-                        int vertex = queue.poll();
-                        System.out.print(vertex + " ");
-                        
-                        for (int neighbor : adjList[vertex]) {
-                            if (!visited[neighbor]) {
-                                visited[neighbor] = true;
+                        int node = queue.poll();
+                        for (int neighbor : adjList[node]) {
+                            if (color[neighbor] == -1) {
+                                color[neighbor] = 1 - color[node];
                                 queue.add(neighbor);
+                            } else if (color[neighbor] == color[node]) {
+                                return false; // Found a conflict
                             }
                         }
                     }
-                }
-
-                // DFS Traversal
-                void dfs(int start) {
-                    boolean[] visited = new boolean[vertices];
-                    dfsUtil(start, visited);
-                }
-
-                private void dfsUtil(int vertex, boolean[] visited) {
-                    visited[vertex] = true;
-                    System.out.print(vertex + " ");
-                    
-                    for (int neighbor : adjList[vertex]) {
-                        if (!visited[neighbor]) {
-                            dfsUtil(neighbor, visited);
-                        }
-                    }
+                    return true;
                 }
             }
 
@@ -4202,32 +4241,35 @@ fun findConnectedComponents(graph: Map<Int, List<Int>>): List<List<Int>> {
             public static void main(String[] args) {
                 Graph graph = new Graph(5); // 5 vertices: 0, 1, 2, 3, 4
                 graph.addEdge(0, 1);
-                graph.addEdge(0, 2);
-                graph.addEdge(1, 3);
-                graph.addEdge(2, 4);
+                graph.addEdge(1, 2);
+                graph.addEdge(2, 0); // Adds a cycle
+                graph.addEdge(3, 4);
 
-                System.out.println("BFS starting from vertex 0:");
-                graph.bfs(0);
-
-                System.out.println("\nDFS starting from vertex 0:");
-                graph.dfs(0);
+                System.out.println("Cycle detected: " + graph.hasCycle());
+                System.out.println("Graph is connected: " + graph.isConnected());
+                System.out.println("Graph is bipartite: " + graph.isBipartite());
             }
             """.trimIndent()
                             ),
-                            ContentBlock.Text(createSimpleText("In this example, we first create a graph with 5 vertices and add some edges. Then, we perform BFS and DFS starting from vertex 0.")),
+                            ContentBlock.Text(createSimpleText("In this example, we perform operations to detect cycles, connectivity, and bipartiteness in a graph with 5 vertices.")),
 
-                            ContentBlock.Text(createSimpleText("### BFS Traversal:")),
-                            ContentBlock.Text(createSimpleText("BFS explores the graph level by level, visiting all nodes at the current level before moving to the next.")),
-                            ContentBlock.Text(createSimpleText("For example, in BFS starting from vertex 0, the traversal order will be: 0, 1, 2, 3, 4.")),
+                            ContentBlock.Text(createSimpleText("### Cycle Detection:")),
+                            ContentBlock.Text(createSimpleText("Cycle detection helps identify whether the graph contains any cycles (i.e., paths that start and end at the same vertex).")),
+                            ContentBlock.Text(createSimpleText("For example, in the graph above, there is a cycle between vertices 0, 1, and 2.")),
 
-                            ContentBlock.Text(createSimpleText("### DFS Traversal:")),
-                            ContentBlock.Text(createSimpleText("DFS explores as deeply as possible along each branch before backtracking.")),
-                            ContentBlock.Text(createSimpleText("For example, in DFS starting from vertex 0, the traversal order will be: 0, 1, 3, 2, 4.")),
+                            ContentBlock.Text(createSimpleText("### Connectivity Detection:")),
+                            ContentBlock.Text(createSimpleText("Connectivity detection checks if all vertices in the graph are reachable from each other.")),
+                            ContentBlock.Text(createSimpleText("In the graph above, vertices 0, 1, 2 form one connected component, while 3 and 4 form another.")),
 
-                            ContentBlock.Text(createSimpleText("Both BFS and DFS are fundamental traversal algorithms used for exploring graphs and solving problems like finding the shortest path or detecting cycles.")),
+                            ContentBlock.Text(createSimpleText("### Bipartiteness Detection:")),
+                            ContentBlock.Text(createSimpleText("Bipartiteness detection checks whether the graph can be colored using two colors such that no two adjacent vertices share the same color.")),
+                            ContentBlock.Text(createSimpleText("In the example graph, if we can color the vertices without conflicts, the graph is bipartite.")),
+
+                            ContentBlock.Text(createSimpleText("These graph detection operations are foundational for identifying key properties and solving problems such as cycle detection in network design, graph connectivity, and graph coloring for scheduling problems.")),
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
+
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson12_subs[3],
                         title = "How Graph Traversal Works",
