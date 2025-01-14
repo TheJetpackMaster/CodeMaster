@@ -1820,49 +1820,30 @@ void preorderTraversal(int[] tree, int index) {
                         description = "Understand the basics of binary search trees and their unique properties.",
                         contentBlocks = listOf(
                             ContentBlock.Text(createAnnotatedText( """A Binary Search Tree (BST) is a special type of binary tree where: """,listOf("Binary Search Tree",))),
-                            ContentBlock.Text(createAnnotatedText("""1. Each node contains a key.""",listOf())),
+                            ContentBlock.Text(createAnnotatedText("""
+                                1. Each node contains a key.
+                                2. The left subtree of a node contains keys smaller than the node's key.
+                                3. The right subtree of a node contains keys larger than the node's key.
+                                4. Both subtrees must also be BSTs.
+                                """.trimIndent(),listOf())),
                             ContentBlock.Text(
-                                createAnnotatedText("""2. The left subtree of a node contains keys smaller than the node's key.""",
-                                    listOf(
-
-                                    )
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText("""3. The right subtree of a node contains keys larger than the node's key.""",
-                                    listOf(
-
-                                    )
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText("""4. Both subtrees must also be BSTs.""",
-                                    listOf(
-
-                                    )
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    """
+                                createAnnotatedText("""
                         Advantages:
-                        - Allows efficient searching, insertion, and deletion.
-                        - Inorder traversal gives a sorted sequence of keys.
-                        """,
-                                    listOf("efficient searching", "inorder traversal")
+                        Allows efficient searching, insertion, and deletion.
+                        Inorder traversal gives a sorted sequence of keys.
+                        """.trimIndent(),
+                                    listOf("Advantages")
                                 )
                             ),
-                            ContentBlock.Text(createSimpleText("Example Structure:")),
                             ContentBlock.Text(
-                                createSimpleText(
-                                    """
-                            Example BST:
+                                createSimpleText("""
+                            Example Structure:
                                   10
                                  /  \
                                 5   20
                                / \
                               2   8
-                        """
+                        """.trimIndent()
                                 )
                             )
                         ),
@@ -2040,17 +2021,6 @@ void preorderTraversal(int[] tree, int index) {
                                 createSimpleText(
                                     "Search for a value by starting at the root. Compare the value with the current node, and move left or right based on the BST property until the value is found or the tree is exhausted."
                                 )
-                            ),
-                            ContentBlock.Code(
-                                """
-// Example Code for Inorder Traversal
-void inorderTraversal(int[] bst, int index) {
-    if (index >= bst.length || bst[index] == -1) return;
-    inorderTraversal(bst, 2 * index + 1);  // Traverse left subtree
-    System.out.print(bst[index] + " ");   // Access the current node
-    inorderTraversal(bst, 2 * index + 2);  // Traverse right subtree
-}
-            """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
