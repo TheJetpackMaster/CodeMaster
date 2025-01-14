@@ -3278,103 +3278,29 @@ val graph = mutableMapOf(
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson12_subs[0],
                         title = "Introduction to Graph Detection",
-                        description = "Explore the importance of detecting graphs and identifying their properties, such as cycles and connectivity.",
+                        description = "Learn to detect graph properties like cycles and connectivity.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    """
-Graph detection refers to the process of identifying the existence of specific structures or patterns within a graph. In graph detection, we focus on detecting cycles, connectivity, and other important properties. The key concepts we will cover include:
-1. Cycle Detection: Identifying if a graph contains cycles (circular paths).
-2. Connected Components: Identifying if a graph is connected or if it consists of multiple disconnected subgraphs.""",
-                                    listOf(
-                                        "graph detection",
-                                        "cycle detection",
-                                        "connected components"
-                                    )
+                                createAnnotatedText("""
+Graph detection identifies patterns in graphs, focusing on:
+1. Cycle Detection: Checking for loops in a graph.
+2. Connected Components: Checking if all nodes are connected or isolated.
+""".trimIndent(),
+                                    listOf("graph detection", "cycle detection", "connected components")
                                 )
                             ),
                             ContentBlock.Text(
-                                createSimpleText("""Graph detection is crucial in understanding the nature of a graph and can be applied to solve problems such as detecting loops in a network, identifying isolated nodes, or checking if a graph is fully connected.
-                    """.trimIndent()
-                                )
+                                createSimpleText("Graph detection helps find network loops, isolated nodes, or check full connectivity.")
                             ),
-                            ContentBlock.Code(
-                                """
-// Graph Representation for Cycle Detection and Connected Components
-// Adjacency List for an undirected graph:
-// 0 - 1 - 2
-//     |
-//     3
-
-val graph = mutableMapOf(
-    0 to listOf(1),
-    1 to listOf(0, 2, 3),
-    2 to listOf(1),
-    3 to listOf(1)
-)
-
-// Function to check if a graph has a cycle using DFS
-fun hasCycle(graph: Map<Int, List<Int>>): Boolean {
-    val visited = mutableSetOf<Int>()
-    val recStack = mutableSetOf<Int>()
-
-    fun dfs(v: Int): Boolean {
-        if (v in recStack) return true
-        if (v in visited) return false
-
-        visited.add(v)
-        recStack.add(v)
-
-        for (neighbor in graph[v] ?: emptyList()) {
-            if (dfs(neighbor)) return true
-        }
-
-        recStack.remove(v)
-        return false
-    }
-
-    for (vertex in graph.keys) {
-        if (dfs(vertex)) return true
-    }
-    return false
-}
-
-// Function to find connected components using DFS
-fun findConnectedComponents(graph: Map<Int, List<Int>>): List<List<Int>> {
-    val visited = mutableSetOf<Int>()
-    val components = mutableListOf<List<Int>>()
-
-    fun dfs(v: Int, component: MutableList<Int>) {
-        visited.add(v)
-        component.add(v)
-        for (neighbor in graph[v] ?: emptyList()) {
-            if (neighbor !in visited) dfs(neighbor, component)
-        }
-    }
-
-    for (vertex in graph.keys) {
-        if (vertex !in visited) {
-            val component = mutableListOf<Int>()
-            dfs(vertex, component)
-            components.add(component)
-        }
-    }
-
-    return components
-}
-                    """.trimIndent()
+                            ContentBlock.Text(
+                                createSimpleText("Cycle Detection: Detects loops in a graph.")
                             ),
-                            ContentBlock.Text(createSimpleText("In this example, we use a graph represented by an adjacency list to detect cycles and find connected components.")),
-
-                            ContentBlock.Text(createSimpleText("### Cycle Detection:")),
-                            ContentBlock.Text(createSimpleText("Cycle detection is important for identifying loops in a graph. In the provided example, the `hasCycle` function uses DFS to check for cycles in the graph.")),
-                            ContentBlock.Text(createSimpleText("For example, in the graph above, there is no cycle, so the function will return `false`.")),
-
-                            ContentBlock.Text(createSimpleText("### Connected Components:")),
-                            ContentBlock.Text(createSimpleText("Connected components are subgraphs in which there is a path between every pair of vertices. The `findConnectedComponents` function helps identify these components in the graph.")),
-                            ContentBlock.Text(createSimpleText("For the given graph, it would return a single connected component containing all the vertices.")),
-
-                            ContentBlock.Text(createSimpleText("Both cycle detection and connected component analysis are vital tools for detecting properties within graphs, such as network loops or disconnected subgraphs.")),
+                            ContentBlock.Text(
+                                createSimpleText("Connected Components: Identifies subgraphs where all nodes are connected.")
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText("Cycle detection and connectivity analysis help solve network problems.")
+                            )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
@@ -3396,9 +3322,9 @@ fun findConnectedComponents(graph: Map<Int, List<Int>>): List<List<Int>> {
                             ContentBlock.Text(
                                 createSimpleText(
                                     """
-                - Adjacency Matrix: A 2D array where the value at [i][j] indicates the presence and weight of an edge between vertex i and vertex j.
-                - Adjacency List: A collection where each vertex stores a list of its connected vertices and their edge weights.
-                - Edge List: A list of all edges, where each edge is represented as a tuple (start_vertex, end_vertex, weight).
+                Adjacency Matrix: A 2D array where the value at [i][j] indicates the presence and weight of an edge between vertex i and vertex j.
+                Adjacency List: A collection where each vertex stores a list of its connected vertices and their edge weights.
+                Edge List: A list of all edges, where each edge is represented as a tuple (start_vertex, end_vertex, weight).
                 """.trimIndent()
                                 )
                             ),
