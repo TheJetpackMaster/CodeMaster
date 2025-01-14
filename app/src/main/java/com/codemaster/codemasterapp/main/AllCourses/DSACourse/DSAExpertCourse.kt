@@ -394,13 +394,13 @@ fun DSAExpertCourse(): Stage {
 
             // lesson 4
             Lesson(
-                id = DSAExpertStageIds.lesson3,
+                id = DSAExpertStageIds.lesson4,
                 title = "Mastering Logic Building with DSA - Middle of Linked List",
                 description = "Learn to solve problems step-by-step with DSA techniques using C++. This lesson focuses on finding the middle node of a singly linked list using the fast and slow pointer approach.",
                 lessonContents = listOf(
                     // Problem Statement
                     LessonContent(
-                        id = DSAExpertStageIds.lesson3_subs[0],
+                        id = DSAExpertStageIds.lesson4_subs[0],
                         title = "Problem Statement - Middle of Linked List",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -426,7 +426,7 @@ fun DSAExpertCourse(): Stage {
 
                     // Manual Walkthrough
                     LessonContent(
-                        id = DSAExpertStageIds.lesson3_subs[1],
+                        id = DSAExpertStageIds.lesson4_subs[1],
                         title = "Manual Walkthrough",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -469,7 +469,7 @@ fun DSAExpertCourse(): Stage {
 
                     // Optimized C++ Code Solution
                     LessonContent(
-                        id = DSAExpertStageIds.lesson3_subs[2],
+                        id = DSAExpertStageIds.lesson4_subs[2],
                         title = "Optimized C++ Code Solution",
                         contentBlocks = listOf(
                             ContentBlock.Code(
@@ -519,7 +519,7 @@ fun DSAExpertCourse(): Stage {
 
                     // Motivation
                     LessonContent(
-                        id = DSAExpertStageIds.lesson3_subs[3],
+                        id = DSAExpertStageIds.lesson4_subs[3],
                         title = "Motivation to Solve More Problems",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -546,13 +546,13 @@ fun DSAExpertCourse(): Stage {
 
             // lesson 5
             Lesson(
-                id = DSAExpertStageIds.lesson4,
+                id = DSAExpertStageIds.lesson5,
                 title = "Mastering Logic Building with DSA - Valid Parentheses",
                 description = "Learn to solve problems step-by-step with DSA techniques using C++. This lesson focuses on checking the validity of parentheses using a stack-based approach.",
                 lessonContents = listOf(
                     // Problem Statement
                     LessonContent(
-                        id = DSAExpertStageIds.lesson4_subs[0],
+                        id = DSAExpertStageIds.lesson5_subs[0],
                         title = "Problem Statement - Valid Parentheses",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -585,7 +585,7 @@ fun DSAExpertCourse(): Stage {
 
                     // Manual Walkthrough
                     LessonContent(
-                        id = DSAExpertStageIds.lesson4_subs[1],
+                        id = DSAExpertStageIds.lesson5_subs[1],
                         title = "Manual Walkthrough",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -630,7 +630,7 @@ fun DSAExpertCourse(): Stage {
 
                     // Optimized C++ Code Solution
                     LessonContent(
-                        id = DSAExpertStageIds.lesson4_subs[2],
+                        id = DSAExpertStageIds.lesson5_subs[2],
                         title = "Optimized C++ Code Solution",
                         contentBlocks = listOf(
                             ContentBlock.Code(
@@ -676,7 +676,7 @@ fun DSAExpertCourse(): Stage {
 
                     // Motivation
                     LessonContent(
-                        id = DSAExpertStageIds.lesson4_subs[3],
+                        id = DSAExpertStageIds.lesson5_subs[3],
                         title = "Motivation to Solve More Problems",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -703,13 +703,13 @@ fun DSAExpertCourse(): Stage {
 
             // lesson 6
             Lesson(
-                id = DSAExpertStageIds.lesson4,
+                id = DSAExpertStageIds.lesson6,
                 title = "Mastering Logic Building with DSA - Longest Substring Without Repeating Characters",
                 description = "Learn to solve problems step-by-step with DSA techniques using C++. This lesson focuses on finding the length of the longest substring without repeating characters using the sliding window technique.",
                 lessonContents = listOf(
                     // Problem Statement
                     LessonContent(
-                        id = DSAExpertStageIds.lesson4_subs[0],
+                        id = DSAExpertStageIds.lesson6_subs[0],
                         title = "Problem Statement - Longest Substring Without Repeating Characters",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -736,7 +736,7 @@ fun DSAExpertCourse(): Stage {
 
                     // Manual Walkthrough
                     LessonContent(
-                        id = DSAExpertStageIds.lesson4_subs[1],
+                        id = DSAExpertStageIds.lesson6_subs[1],
                         title = "Manual Walkthrough",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -780,7 +780,7 @@ fun DSAExpertCourse(): Stage {
 
                     // Optimized C++ Code Solution
                     LessonContent(
-                        id = DSAExpertStageIds.lesson4_subs[2],
+                        id = DSAExpertStageIds.lesson6_subs[2],
                         title = "Optimized C++ Code Solution",
                         contentBlocks = listOf(
                             ContentBlock.Code(
@@ -822,7 +822,7 @@ fun DSAExpertCourse(): Stage {
 
                     // Motivation
                     LessonContent(
-                        id = DSAExpertStageIds.lesson4_subs[3],
+                        id = DSAExpertStageIds.lesson6_subs[3],
                         title = "Motivation to Solve More Problems",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -853,13 +853,13 @@ fun DSAExpertCourse(): Stage {
 
             // lesson 7
             Lesson(
-                id = DSAExpertStageIds.lesson4,
+                id = DSAExpertStageIds.lesson7,
                 title = "Mastering Logic Building with DSA - Word Ladder",
                 description = "Learn to solve problems step-by-step with DSA techniques using C++. This lesson focuses on finding the shortest transformation sequence from the begin word to the end word using the graph BFS approach.",
                 lessonContents = listOf(
                     // Problem Statement
                     LessonContent(
-                        id = DSAExpertStageIds.lesson4_subs[0],
+                        id = DSAExpertStageIds.lesson7_subs[0],
                         title = "Problem Statement - Word Ladder",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -889,7 +889,7 @@ fun DSAExpertCourse(): Stage {
 
                     // Manual Walkthrough
                     LessonContent(
-                        id = DSAExpertStageIds.lesson4_subs[1],
+                        id = DSAExpertStageIds.lesson7_subs[1],
                         title = "Manual Walkthrough",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -933,7 +933,7 @@ fun DSAExpertCourse(): Stage {
 
                     // Optimized C++ Code Solution
                     LessonContent(
-                        id = DSAExpertStageIds.lesson4_subs[2],
+                        id = DSAExpertStageIds.lesson7_subs[2],
                         title = "Optimized C++ Code Solution",
                         contentBlocks = listOf(
                             ContentBlock.Code(
@@ -990,7 +990,7 @@ fun DSAExpertCourse(): Stage {
 
                     // Motivation
                     LessonContent(
-                        id = DSAExpertStageIds.lesson4_subs[3],
+                        id = DSAExpertStageIds.lesson7_subs[3],
                         title = "Motivation to Solve More Problems",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -1017,13 +1017,13 @@ fun DSAExpertCourse(): Stage {
 
             // lesson 8
             Lesson(
-                id = DSAExpertStageIds.lesson7,
+                id = DSAExpertStageIds.lesson8,
                 title = "Mastering Backtracking with DSA - N-Queens Problem",
                 description = "Learn to solve problems step-by-step with DSA techniques using C++. This lesson focuses on solving the N-Queens problem using the backtracking approach.",
                 lessonContents = listOf(
                     // Problem Statement
                     LessonContent(
-                        id = DSAExpertStageIds.lesson7_subs[0],
+                        id = DSAExpertStageIds.lesson8_subs[0],
                         title = "Problem Statement - N-Queens Problem",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -1063,7 +1063,7 @@ fun DSAExpertCourse(): Stage {
 
                     // Manual Walkthrough
                     LessonContent(
-                        id = DSAExpertStageIds.lesson7_subs[1],
+                        id = DSAExpertStageIds.lesson8_subs[1],
                         title = "Manual Walkthrough",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -1109,7 +1109,7 @@ fun DSAExpertCourse(): Stage {
 
                     // Optimized C++ Code Solution
                     LessonContent(
-                        id = DSAExpertStageIds.lesson7_subs[2],
+                        id = DSAExpertStageIds.lesson8_subs[2],
                         title = "Optimized C++ Code Solution",
                         contentBlocks = listOf(
                             ContentBlock.Code(
@@ -1159,7 +1159,7 @@ fun DSAExpertCourse(): Stage {
 
                     // Motivation
                     LessonContent(
-                        id = DSAExpertStageIds.lesson7_subs[3],
+                        id = DSAExpertStageIds.lesson8_subs[3],
                         title = "Motivation to Solve More Problems",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -1186,13 +1186,13 @@ fun DSAExpertCourse(): Stage {
 
             // lesson 9
             Lesson(
-                id = DSAExpertStageIds.lesson8,
+                id = DSAExpertStageIds.lesson9,
                 title = "Kth Smallest Element in a Binary Search Tree",
                 description = "Learn how to find the kth smallest element in a Binary Search Tree (BST) using Inorder Traversal. This lesson provides the techniques to implement an efficient solution.",
                 lessonContents = listOf(
                     // Problem Statement
                     LessonContent(
-                        id = DSAExpertStageIds.lesson8_subs[0],
+                        id = DSAExpertStageIds.lesson9_subs[0],
                         title = "Problem Statement - Kth Smallest Element in a BST",
                         contentBlocks = listOf(
                             ContentBlock.Text(
