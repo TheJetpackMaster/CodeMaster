@@ -1819,19 +1819,8 @@ void preorderTraversal(int[] tree, int index) {
                         title = "Introduction to Binary Search Trees",
                         description = "Understand the basics of binary search trees and their unique properties.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText( """A Binary Search Tree (BST) is a special type of binary tree where: """,
-                                    listOf(
-                                        "Binary Search Tree",
-                                    )
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText("""1. Each node contains a key.""",
-                                    listOf(
-
-                                    )
-                                )
-                            ),
+                            ContentBlock.Text(createAnnotatedText( """A Binary Search Tree (BST) is a special type of binary tree where: """,listOf("Binary Search Tree",))),
+                            ContentBlock.Text(createAnnotatedText("""1. Each node contains a key.""",listOf())),
                             ContentBlock.Text(
                                 createAnnotatedText("""2. The left subtree of a node contains keys smaller than the node's key.""",
                                     listOf(
