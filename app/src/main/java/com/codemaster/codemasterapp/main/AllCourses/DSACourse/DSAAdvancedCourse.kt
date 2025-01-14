@@ -2827,14 +2827,14 @@ void preorderTraversal(int[] tree, int index) {
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson10_subs[5],
                         title = "Importance of Graphs",
-                        description = "Understand the critical role graphs play in representing and solving complex real-world problems across various domains.",
+                        description = "Learn why graphs are essential for solving complex problems across various domains.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createSimpleText(
-                                    "Graphs are fundamental data structures that model relationships between entities, making them versatile tools for solving real-world problems in networking, navigation, and data organization. They are used in applications like social networks to represent connections between users, GPS systems for route optimization, web crawling for search engine indexing, and dependency management for build systems or package managers. Graphs also play a crucial role in designing and optimizing communication networks and understanding biological relationships like protein-protein interactions. The key benefits of graphs include their ability to efficiently represent complex relationships, the availability of optimized algorithms like Dijkstra's and Kruskal's for solving critical problems, and their flexibility to model directed and undirected relationships with weighted and unweighted edges."
+                                    "Graphs are versatile data structures that model relationships between entities. They are widely used in applications like social networks, GPS navigation, web crawling, and communication networks. Their flexibility and powerful algorithms, such as Dijkstra's and Kruskal's, make them essential for solving complex problems efficiently."
                                 )
                             )
-                        )
+                        ),
                         type = LessonContentType.NON_INTERACTIVE
                     )
                 ),
@@ -2856,8 +2856,8 @@ void preorderTraversal(int[] tree, int index) {
                                 createAnnotatedText(
                                     """
 A graph traversal refers to visiting all the vertices or nodes in a graph. There are two main types of graph traversals:
-1. **Breadth-First Search (BFS)**: Explores all vertices at the present depth level before moving on to vertices at the next depth level.
-2. **Depth-First Search (DFS)**: Explores as far as possible along each branch before backing up.
+1.Breadth-First Search (BFS): Explores all vertices at the present depth level before moving on to vertices at the next depth level.
+2.Depth-First Search (DFS): Explores as far as possible along each branch before backing up.
                     """,
                                     listOf("BFS", "DFS", "graph traversal")
                                 )
