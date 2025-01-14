@@ -3180,126 +3180,74 @@ val graph = mutableMapOf(
                     ),
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson11_subs[4],
-                        title = "How to Represent Graphs",
-                        description = "Understand the different ways to represent graphs and their properties, enabling efficient traversal and operations.",
+                        title = "How to Display Graph Traversal",
+                        description = "Learn how to display graph traversal using BFS and DFS, where BFS explores level by level and DFS dives deep into each path before backtracking.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createSimpleText(
-                                    "Graphs can be represented in multiple ways depending on the type of graph (directed, undirected, weighted, unweighted). Common representations include adjacency matrix and adjacency list, each having its unique advantages and trade-offs."
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    """
-    Key Properties of Graph Representations:
-    1. *Adjacency Matrix**: A 2D array where each cell indicates the presence (or weight) of an edge between two vertices.
-    2. **Adjacency List**: A list where each index represents a vertex and contains a list of all adjacent vertices.
-    3. The choice of representation depends on the graph's density and the operations you need to perform.
-                """.trimIndent()
+                                    "Graph traversal helps us visit all nodes in a graph. BFS explores nodes level by level, while DFS explores deep into one branch before backtracking."
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-    // Example: Graph Representation
-    import java.util.*;
+    // Example: Simple Graph Traversal Display
+    class Graph(val vertices: Int) {
+        private val adjList = Array(vertices) { mutableListOf<Int>() }
 
-    // Adjacency Matrix Representation
-    class AdjacencyMatrixGraph {
-        int[][] matrix;
-        int vertices;
-
-        AdjacencyMatrixGraph(int vertices) {
-            this.vertices = vertices;
-            this.matrix = new int[vertices][vertices];
+        fun addEdge(src: Int, dest: Int) {
+            adjList[src].add(dest)
         }
 
-        void addEdge(int src, int dest) {
-            matrix[src][dest] = 1; // For weighted graph, set weight instead of 1
-            // Uncomment for undirected graph
-            // matrix[dest][src] = 1;
-        }
+        // BFS Traversal Display
+        fun bfs(start: Int) {
+            val visited = BooleanArray(vertices)
+            val queue: Queue<Int> = LinkedList()
+            queue.add(start)
+            visited[start] = true
+            println("BFS Traversal:")
+            while (queue.isNotEmpty()) {
+                val node = queue.poll()
+                print("'$'node ")
 
-        void printMatrix() {
-            for (int i = 0; i < vertices; i++) {
-                System.out.println(Arrays.toString(matrix[i]));
-            }
-        }
-    }
-
-    // Adjacency List Representation
-    class AdjacencyListGraph {
-        LinkedList<Integer>[] adjList;
-        int vertices;
-
-        AdjacencyListGraph(int vertices) {
-            this.vertices = vertices;
-            adjList = new LinkedList[vertices];
-            for (int i = 0; i < vertices; i++) {
-                adjList[i] = new LinkedList<>();
-            }
-        }
-
-        void addEdge(int src, int dest) {
-            adjList[src].add(dest);
-            // Uncomment for undirected graph
-            // adjList[dest].add(src);
-        }
-
-        void printList() {
-            for (int i = 0; i < vertices; i++) {
-                System.out.print(i + ": ");
-                for (int neighbor : adjList[i]) {
-                    System.out.print(neighbor + " ");
+                adjList[node].forEach { neighbor ->
+                    if (!visited[neighbor]) {
+                        visited[neighbor] = true
+                        queue.add(neighbor)
+                    }
                 }
-                System.out.println();
+            }
+        }
+
+        // DFS Traversal Display
+        fun dfs(start: Int) {
+            val visited = BooleanArray(vertices)
+            println("DFS Traversal:")
+            dfsRecursive(start, visited)
+        }
+
+        private fun dfsRecursive(node: Int, visited: BooleanArray) {
+            visited[node] = true
+            print("'$'node ")
+
+            adjList[node].forEach { neighbor ->
+                if (!visited[neighbor]) dfsRecursive(neighbor, visited)
             }
         }
     }
 
-    // Example Usage:
-    public static void main(String[] args) {
-        // Adjacency Matrix
-        AdjacencyMatrixGraph matrixGraph = new AdjacencyMatrixGraph(5);
-        matrixGraph.addEdge(0, 1);
-        matrixGraph.addEdge(0, 4);
-        matrixGraph.addEdge(1, 2);
-        matrixGraph.printMatrix();
+    fun main() {
+        val graph = Graph(5)
+        graph.addEdge(0, 1)
+        graph.addEdge(0, 4)
+        graph.addEdge(1, 2)
+        graph.addEdge(1, 3)
+        graph.addEdge(3, 4)
 
-        // Adjacency List
-        AdjacencyListGraph listGraph = new AdjacencyListGraph(5);
-        listGraph.addEdge(0, 1);
-        listGraph.addEdge(0, 4);
-        listGraph.addEdge(1, 2);
-        listGraph.printList();
+        graph.bfs(0)
+        println()
+        graph.dfs(0)
     }
             """.trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    """
-    Example:
-        Represent a graph with 5 vertices and edges:
-        - 0 → 1
-        - 0 → 4
-        - 1 → 2
-        
-        Using Adjacency Matrix:
-        [
-            [0, 1, 0, 0, 1],
-            [0, 0, 1, 0, 0],
-            [0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0]
-        ]
-        
-        Using Adjacency List:
-        0: 1 4
-        1: 2
-        2:
-        3:
-        4:
-                """.trimIndent()
-                                )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
@@ -3307,11 +3255,11 @@ val graph = mutableMapOf(
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson11_subs[5],
                         title = "Importance of Graphs",
-                        description = "Understand the critical role graphs play in representing and solving complex real-world problems across various domains.",
+                        description = "Graphs are essential for modeling relationships between entities, enabling solutions for problems in networking, navigation, and data organization. They are widely used in applications like social networks, GPS systems, web crawling, and dependency management, making them crucial for optimizing routes, managing connections, and solving complex real-world problems.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createSimpleText(
-                                    "Graphs are fundamental data structures that model relationships between entities, making them versatile tools for solving real-world problems in networking, navigation, and data organization. They are used in applications like social networks to represent connections between users, GPS systems for route optimization, web crawling for search engine indexing, and dependency management for build systems or package managers. Graphs also play a crucial role in designing and optimizing communication networks and understanding biological relationships like protein-protein interactions. The key benefits of graphs include their ability to efficiently represent complex relationships, the availability of optimized algorithms like Dijkstra's and Kruskal's for solving critical problems, and their flexibility to model directed and undirected relationships with weighted and unweighted edges."
+                                    "Graphs are key data structures for representing relationships in applications such as social networks, GPS, and web crawling. They help solve complex problems like route optimization, search engine indexing, and dependency management, making them versatile tools in various domains."
                                 )
                             )
                         ),
@@ -3336,9 +3284,8 @@ val graph = mutableMapOf(
                                 createAnnotatedText(
                                     """
 Graph detection refers to the process of identifying the existence of specific structures or patterns within a graph. In graph detection, we focus on detecting cycles, connectivity, and other important properties. The key concepts we will cover include:
-1. **Cycle Detection**: Identifying if a graph contains cycles (circular paths).
-2. **Connected Components**: Identifying if a graph is connected or if it consists of multiple disconnected subgraphs.
-                    """,
+1. Cycle Detection: Identifying if a graph contains cycles (circular paths).
+2. Connected Components: Identifying if a graph is connected or if it consists of multiple disconnected subgraphs.""",
                                     listOf(
                                         "graph detection",
                                         "cycle detection",
@@ -3347,9 +3294,7 @@ Graph detection refers to the process of identifying the existence of specific s
                                 )
                             ),
                             ContentBlock.Text(
-                                createSimpleText(
-                                    """
-Graph detection is crucial in understanding the nature of a graph and can be applied to solve problems such as detecting loops in a network, identifying isolated nodes, or checking if a graph is fully connected.
+                                createSimpleText("""Graph detection is crucial in understanding the nature of a graph and can be applied to solve problems such as detecting loops in a network, identifying isolated nodes, or checking if a graph is fully connected.
                     """.trimIndent()
                                 )
                             ),
