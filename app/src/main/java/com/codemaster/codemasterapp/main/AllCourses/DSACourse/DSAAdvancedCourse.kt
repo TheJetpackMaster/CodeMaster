@@ -3554,15 +3554,15 @@ Graph detection identifies patterns in graphs, focusing on:
                             ),
                             ContentBlock.Text(createSimpleText("In this example, we perform operations to detect cycles, connectivity, and bipartiteness in a graph with 5 vertices.")),
 
-                            ContentBlock.Text(createSimpleText("### Cycle Detection:")),
+                            ContentBlock.Text(createSimpleText("Cycle Detection:")),
                             ContentBlock.Text(createSimpleText("Cycle detection helps identify whether the graph contains any cycles (i.e., paths that start and end at the same vertex).")),
                             ContentBlock.Text(createSimpleText("For example, in the graph above, there is a cycle between vertices 0, 1, and 2.")),
 
-                            ContentBlock.Text(createSimpleText("### Connectivity Detection:")),
+                            ContentBlock.Text(createSimpleText("Connectivity Detection:")),
                             ContentBlock.Text(createSimpleText("Connectivity detection checks if all vertices in the graph are reachable from each other.")),
                             ContentBlock.Text(createSimpleText("In the graph above, vertices 0, 1, 2 form one connected component, while 3 and 4 form another.")),
 
-                            ContentBlock.Text(createSimpleText("### Bipartiteness Detection:")),
+                            ContentBlock.Text(createSimpleText("Bipartiteness Detection:")),
                             ContentBlock.Text(createSimpleText("Bipartiteness detection checks whether the graph can be colored using two colors such that no two adjacent vertices share the same color.")),
                             ContentBlock.Text(createSimpleText("In the example graph, if we can color the vertices without conflicts, the graph is bipartite.")),
 
@@ -3598,7 +3598,7 @@ Graph detection identifies patterns in graphs, focusing on:
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     "Graph Construction:",
-                                    listOf("Adding Vertices", "Adding Edges")
+                                    listOf("Graph Construction")
                                 )
                             ),
                             ContentBlock.Text(
@@ -3615,9 +3615,7 @@ Graph detection identifies patterns in graphs, focusing on:
                                 createAnnotatedText(
                                     "Graph Detection Techniques:",
                                     listOf(
-                                        "Cycle Detection",
-                                        "Bipartite Graph Detection",
-                                        "Connected Components"
+                                        "Graph Detection Techniques:"
                                     )
                                 )
                             ),
@@ -3625,157 +3623,22 @@ Graph detection identifies patterns in graphs, focusing on:
                                 createSimpleText(
                                     """
                 Graph detection involves finding important properties of the graph, such as:
-                1. **Cycle Detection:** Detect if a graph contains cycles (a path that starts and ends at the same vertex).
-                2. **Bipartite Graph Detection:** Detect if a graph can be divided into two disjoint sets where each edge connects a vertex from one set to the other.
-                3. **Connected Components Detection:** Detect the distinct subgraphs in an undirected graph where there is a path between every pair of vertices.
+                1. Cycle Detection: Detect if a graph contains cycles (a path that starts and ends at the same vertex).
+                2. Bipartite Graph Detection: Detect if a graph can be divided into two disjoint sets where each edge connects a vertex from one set to the other.
+                3. Connected Components Detection: Detect the distinct subgraphs in an undirected graph where there is a path between every pair of vertices.
                 """.trimIndent()
                                 )
                             ),
-                            ContentBlock.Code(
-                                """
-// Example Code: Graph Detection Techniques
-import java.util.*;
 
-class Graph {
-    private int vertices; // Number of vertices
-    private LinkedList<Integer>[] adjList; // Adjacency list
-
-    // Constructor
-    Graph(int vertices) {
-        this.vertices = vertices;
-        adjList = new LinkedList[vertices];
-        for (int i = 0; i < vertices; i++) {
-            adjList[i] = new LinkedList<>();
-        }
-    }
-
-    // Add an edge
-    void addEdge(int src, int dest) {
-        adjList[src].add(dest); // For directed graph
-        // Uncomment the next line for undirected graph
-        // adjList[dest].add(src);
-    }
-
-    // Cycle Detection using DFS
-    boolean isCyclic() {
-        boolean[] visited = new boolean[vertices];
-        boolean[] recursionStack = new boolean[vertices];
-
-        for (int i = 0; i < vertices; i++) {
-            if (isCyclicUtil(i, visited, recursionStack)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private boolean isCyclicUtil(int vertex, boolean[] visited, boolean[] recursionStack) {
-        if (recursionStack[vertex]) return true;
-        if (visited[vertex]) return false;
-
-        visited[vertex] = true;
-        recursionStack[vertex] = true;
-
-        for (int neighbor : adjList[vertex]) {
-            if (isCyclicUtil(neighbor, visited, recursionStack)) {
-                return true;
-            }
-        }
-
-        recursionStack[vertex] = false;
-        return false;
-    }
-
-    // Bipartite Graph Detection using BFS
-    boolean isBipartite() {
-        int[] colors = new int[vertices];
-        Arrays.fill(colors, -1); // -1 indicates no color assigned
-
-        for (int i = 0; i < vertices; i++) {
-            if (colors[i] == -1 && !bfsCheckBipartite(i, colors)) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    private boolean bfsCheckBipartite(int start, int[] colors) {
-        Queue<Integer> queue = new LinkedList<>();
-        queue.add(start);
-        colors[start] = 0; // Assign initial color
-
-        while (!queue.isEmpty()) {
-            int vertex = queue.poll();
-
-            for (int neighbor : adjList[vertex]) {
-                if (colors[neighbor] == -1) {
-                    colors[neighbor] = 1 - colors[vertex]; // Alternate color
-                    queue.add(neighbor);
-                } else if (colors[neighbor] == colors[vertex]) {
-                    return false; // Same color on both ends of an edge
-                }
-            }
-        }
-        return true;
-    }
-
-    // Connected Components using DFS
-    void findConnectedComponents() {
-        boolean[] visited = new boolean[vertices];
-        int componentCount = 0;
-
-        for (int i = 0; i < vertices; i++) {
-            if (!visited[i]) {
-                dfsConnectedComponent(i, visited);
-                componentCount++;
-            }
-        }
-
-        System.out.println("Number of connected components: " + componentCount);
-    }
-
-    private void dfsConnectedComponent(int vertex, boolean[] visited) {
-        visited[vertex] = true;
-
-        for (int neighbor : adjList[vertex]) {
-            if (!visited[neighbor]) {
-                dfsConnectedComponent(neighbor, visited);
-            }
-        }
-    }
-}
-
-// Example Usage:
-public class Main {
-    public static void main(String[] args) {
-        Graph graph = new Graph(5); // 5 vertices: 0, 1, 2, 3, 4
-        graph.addEdge(0, 1);
-        graph.addEdge(1, 2);
-        graph.addEdge(3, 4);
-
-        // Detect if graph contains a cycle
-        System.out.println("Graph contains cycle: " + graph.isCyclic());
-
-        // Detect if graph is bipartite
-        System.out.println("Graph is bipartite: " + graph.isBipartite());
-
-        // Find connected components
-        graph.findConnectedComponents();
-    }
-}
-            """.trimIndent()
-                            ),
-                            ContentBlock.Text(createSimpleText("In this example, we first create a graph with 5 vertices and add some edges. Then, we detect cycles, check if the graph is bipartite, and find connected components.")),
-
-                            ContentBlock.Text(createSimpleText("### Cycle Detection:")),
+                            ContentBlock.Text(createAnnotatedText("Cycle Detection:", listOf("Cycle Detection:"))),
                             ContentBlock.Text(createSimpleText("Cycle detection identifies if a graph contains a cycle, which is a path that starts and ends at the same vertex.")),
                             ContentBlock.Text(createSimpleText("For example, if a cycle is detected, the graph has a cycle, otherwise, it doesn't.")),
 
-                            ContentBlock.Text(createSimpleText("### Bipartite Graph Detection:")),
+                            ContentBlock.Text(createAnnotatedText("Bipartite Graph Detection:", listOf("Bipartite Graph Detection:"))),
                             ContentBlock.Text(createSimpleText("Bipartite graph detection checks if a graph can be divided into two sets such that every edge connects vertices from different sets.")),
                             ContentBlock.Text(createSimpleText("For example, if the graph is bipartite, it means we can color the graph using two colors such that no two adjacent vertices share the same color.")),
 
-                            ContentBlock.Text(createSimpleText("### Connected Components Detection:")),
+                            ContentBlock.Text(createAnnotatedText("Connected Components Detection:", listOf("Connected Components Detection:"))),
                             ContentBlock.Text(createSimpleText("Connected components detection finds distinct subgraphs where each subgraph is connected within itself.")),
                             ContentBlock.Text(createSimpleText("For example, if the graph is disconnected, it will have multiple connected components.")),
 
