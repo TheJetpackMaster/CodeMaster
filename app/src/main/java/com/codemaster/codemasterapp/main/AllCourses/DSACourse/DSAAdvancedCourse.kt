@@ -1139,20 +1139,7 @@ fun DSAAdvancedCourse(): Stage {
             return search(root->right, value);
         }
         """.trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    "Example Inorder Traversal:\n" +
-                                            "Consider the binary tree:\n\n" +
-                                            """
-            1
-           / \
-          2   3
-         / \
-        4   5
-                    """.trimIndent()
-                                )
-                            ),
+                            )
 
                         ),
                         type = LessonContentType.NON_INTERACTIVE
