@@ -873,23 +873,6 @@ fun DSAAdvancedCourse(): Stage {
                                 )
                             ),
                             ContentBlock.Text(
-                                createSimpleText(
-                                    "Example Preorder Traversal:\n" +
-                                            """
-                Consider the binary tree:
-
-                    1
-                   / \
-                  2   3
-                 / \
-                4   5
-
-                Preorder Traversal Sequence:
-                1 -> 2 -> 4 -> 5 -> 3
-                """.trimIndent()
-                                )
-                            ),
-                            ContentBlock.Text(
                                 createAnnotatedText(
                                     "Searching:",
                                     listOf("Searching")
