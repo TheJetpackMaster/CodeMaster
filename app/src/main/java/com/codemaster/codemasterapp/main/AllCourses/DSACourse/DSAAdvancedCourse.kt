@@ -2858,11 +2858,16 @@ void preorderTraversal(int[] tree, int index) {
 A graph traversal refers to visiting all the vertices or nodes in a graph. There are two main types of graph traversals:
 1.Breadth-First Search (BFS): Explores all vertices at the present depth level before moving on to vertices at the next depth level.
 2.Depth-First Search (DFS): Explores as far as possible along each branch before backing up.""",
-                                    listOf("1.Breadth-First Search (BFS):", "2.Depth-First Search (DFS):", "graph traversal")
+                                    listOf(
+                                        "1.Breadth-First Search (BFS):",
+                                        "2.Depth-First Search (DFS):",
+                                        "graph traversal"
+                                    )
                                 )
                             ),
                             ContentBlock.Text(
-                                createSimpleText("""BFS is implemented using a queue, where vertices are visited in levels. DFS is typically implemented using recursion or a stack, exploring deeper into the graph before moving to the next branch.
+                                createSimpleText(
+                                    """BFS is implemented using a queue, where vertices are visited in levels. DFS is typically implemented using recursion or a stack, exploring deeper into the graph before moving to the next branch.
                     """.trimIndent()
                                 )
                             ),
@@ -3098,11 +3103,21 @@ val graph = mutableMapOf(
                             ),
                             ContentBlock.Text(createSimpleText("In this example, we first create a graph with 5 vertices and add some edges. Then, we perform BFS and DFS starting from vertex 0.")),
 
-                            ContentBlock.Text(createAnnotatedText("BFS Traversal:",listOf("BFS Traversal:"))),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "BFS Traversal:",
+                                    listOf("BFS Traversal:")
+                                )
+                            ),
                             ContentBlock.Text(createSimpleText("BFS explores the graph level by level, visiting all nodes at the current level before moving to the next.")),
                             ContentBlock.Text(createSimpleText("For example, in BFS starting from vertex 0, the traversal order will be: 0, 1, 2, 3, 4.")),
 
-                            ContentBlock.Text(createAnnotatedText("FS Traversal:",listOf("FS Traversal:"))),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "FS Traversal:",
+                                    listOf("FS Traversal:")
+                                )
+                            ),
                             ContentBlock.Text(createSimpleText("DFS explores as deeply as possible along each branch before backtracking.")),
                             ContentBlock.Text(createSimpleText("For example, in DFS starting from vertex 0, the traversal order will be: 0, 1, 3, 2, 4.")),
 
@@ -3166,11 +3181,21 @@ val graph = mutableMapOf(
                 """.trimIndent()
                                 )
                             ),
-                            ContentBlock.Text(createAnnotatedText("BFS Traversal:",listOf("BFS Traversal:"))),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "BFS Traversal:",
+                                    listOf("BFS Traversal:")
+                                )
+                            ),
                             ContentBlock.Text(createSimpleText("BFS explores the graph level by level, visiting all nodes at the current level before moving to the next.")),
                             ContentBlock.Text(createSimpleText("For example, in BFS starting from vertex 0, the traversal order will be: 0, 1, 2, 3, 4.")),
 
-                            ContentBlock.Text(createAnnotatedText("DFS Traversal:",listOf("DFS Traversal:"))),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "DFS Traversal:",
+                                    listOf("DFS Traversal:")
+                                )
+                            ),
                             ContentBlock.Text(createSimpleText("DFS explores as deeply as possible along each branch before backtracking.")),
                             ContentBlock.Text(createSimpleText("For example, in DFS starting from vertex 0, the traversal order will be: 0, 1, 3, 2, 4.")),
 
@@ -3281,12 +3306,17 @@ val graph = mutableMapOf(
                         description = "Learn to detect graph properties like cycles and connectivity.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
-                                createAnnotatedText("""
+                                createAnnotatedText(
+                                    """
 Graph detection identifies patterns in graphs, focusing on:
 1. Cycle Detection: Checking for loops in a graph.
 2. Connected Components: Checking if all nodes are connected or isolated.
 """.trimIndent(),
-                                    listOf("graph detection", "cycle detection", "connected components")
+                                    listOf(
+                                        "graph detection",
+                                        "cycle detection",
+                                        "connected components"
+                                    )
                                 )
                             ),
                             ContentBlock.Text(
@@ -3630,15 +3660,30 @@ Graph detection identifies patterns in graphs, focusing on:
                                 )
                             ),
 
-                            ContentBlock.Text(createAnnotatedText("Cycle Detection:", listOf("Cycle Detection:"))),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Cycle Detection:",
+                                    listOf("Cycle Detection:")
+                                )
+                            ),
                             ContentBlock.Text(createSimpleText("Cycle detection identifies if a graph contains a cycle, which is a path that starts and ends at the same vertex.")),
                             ContentBlock.Text(createSimpleText("For example, if a cycle is detected, the graph has a cycle, otherwise, it doesn't.")),
 
-                            ContentBlock.Text(createAnnotatedText("Bipartite Graph Detection:", listOf("Bipartite Graph Detection:"))),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Bipartite Graph Detection:",
+                                    listOf("Bipartite Graph Detection:")
+                                )
+                            ),
                             ContentBlock.Text(createSimpleText("Bipartite graph detection checks if a graph can be divided into two sets such that every edge connects vertices from different sets.")),
                             ContentBlock.Text(createSimpleText("For example, if the graph is bipartite, it means we can color the graph using two colors such that no two adjacent vertices share the same color.")),
 
-                            ContentBlock.Text(createAnnotatedText("Connected Components Detection:", listOf("Connected Components Detection:"))),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Connected Components Detection:",
+                                    listOf("Connected Components Detection:")
+                                )
+                            ),
                             ContentBlock.Text(createSimpleText("Connected components detection finds distinct subgraphs where each subgraph is connected within itself.")),
                             ContentBlock.Text(createSimpleText("For example, if the graph is disconnected, it will have multiple connected components.")),
 
@@ -3649,29 +3694,18 @@ Graph detection identifies patterns in graphs, focusing on:
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson12_subs[4],
                         title = "How to Detect Graph Properties",
-                        description = "Understand how to detect various graph properties such as cycles, connected components, and bipartiteness, enabling efficient graph analysis.",
+                        description = "Learn how to detect graph properties like cycles, connectivity, and bipartiteness for efficient graph analysis.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createSimpleText(
-                                    "Detecting graph properties is crucial for understanding the structure of a graph. In this lesson, we'll cover how to detect properties like cycles, connected components, and whether a graph is bipartite."
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    """
-    Key Properties to Detect in Graphs:
-    1. **Cycles**: A cycle exists if there is a path from a vertex back to itself.
-    2. **Connected Components**: A graph is fully connected if there is a path between every pair of vertices.
-    3. **Bipartiteness**: A graph is bipartite if its vertices can be divided into two disjoint sets such that no two vertices within the same set are adjacent.
-                """.trimIndent()
+                                    "Detecting graph properties like cycles, connected components, and bipartiteness helps analyze graph structures and solve problems such as detecting loops, checking connectivity, and verifying if a graph can be divided into two disjoint sets."
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-// Example: Graph Detection
+// Example: Detecting Graph Properties (Cycles, Connected Components, Bipartiteness)
 import java.util.*;
 
-// Detecting Cycles in a Directed Graph using DFS
 class Graph {
     int vertices;
     LinkedList<Integer>[] adjList;
@@ -3688,11 +3722,10 @@ class Graph {
         adjList[src].add(dest);
     }
 
-    // Detect cycle using DFS
+    // Cycle detection (DFS)
     boolean detectCycle() {
         boolean[] visited = new boolean[vertices];
-        boolean[] inStack = new boolean[vertices]; // Keeps track of recursion stack
-
+        boolean[] inStack = new boolean[vertices];
         for (int i = 0; i < vertices; i++) {
             if (detectCycleUtil(i, visited, inStack)) {
                 return true;
@@ -3704,24 +3737,20 @@ class Graph {
     private boolean detectCycleUtil(int vertex, boolean[] visited, boolean[] inStack) {
         if (inStack[vertex]) return true;
         if (visited[vertex]) return false;
-
         visited[vertex] = true;
         inStack[vertex] = true;
-
         for (int neighbor : adjList[vertex]) {
             if (detectCycleUtil(neighbor, visited, inStack)) {
                 return true;
             }
         }
-
-        inStack[vertex] = false; // Remove from recursion stack
+        inStack[vertex] = false;
         return false;
     }
 
-    // Detect connected components (for undirected graph)
+    // Detect connected components (BFS)
     void detectConnectedComponents() {
         boolean[] visited = new boolean[vertices];
-
         for (int i = 0; i < vertices; i++) {
             if (!visited[i]) {
                 bfs(i, visited);
@@ -3734,11 +3763,9 @@ class Graph {
         Queue<Integer> queue = new LinkedList<>();
         visited[start] = true;
         queue.add(start);
-
         while (!queue.isEmpty()) {
             int vertex = queue.poll();
             System.out.print(vertex + " ");
-
             for (int neighbor : adjList[vertex]) {
                 if (!visited[neighbor]) {
                     visited[neighbor] = true;
@@ -3748,11 +3775,10 @@ class Graph {
         }
     }
 
-    // Detect if the graph is bipartite
+    // Check bipartiteness (BFS)
     boolean isBipartite() {
         int[] colors = new int[vertices];
-        Arrays.fill(colors, -1); // -1 means no color assigned
-
+        Arrays.fill(colors, -1);
         for (int i = 0; i < vertices; i++) {
             if (colors[i] == -1 && !bfsBipartite(i, colors)) {
                 return false;
@@ -3763,19 +3789,16 @@ class Graph {
 
     private boolean bfsBipartite(int start, int[] colors) {
         Queue<Integer> queue = new LinkedList<>();
-        colors[start] = 1; // Assign a color
-
+        colors[start] = 1;
         queue.add(start);
         while (!queue.isEmpty()) {
             int vertex = queue.poll();
-
             for (int neighbor : adjList[vertex]) {
                 if (colors[neighbor] == -1) {
-                    // Assign alternate color
                     colors[neighbor] = 1 - colors[vertex];
                     queue.add(neighbor);
                 } else if (colors[neighbor] == colors[vertex]) {
-                    return false; // Same color, not bipartite
+                    return false;
                 }
             }
         }
@@ -3783,15 +3806,12 @@ class Graph {
     }
 
     public static void main(String[] args) {
-        Graph graph = new Graph(5); // Create a graph with 5 vertices
+        Graph graph = new Graph(5);
         graph.addEdge(0, 1);
         graph.addEdge(1, 2);
-        graph.addEdge(2, 0); // Creating a cycle
-
+        graph.addEdge(2, 0); // Cycle
         System.out.println("Cycle detected: " + graph.detectCycle());
-
         graph.detectConnectedComponents();
-
         System.out.println("Graph is bipartite: " + graph.isBipartite());
     }
 }
@@ -3799,24 +3819,7 @@ class Graph {
                             ),
                             ContentBlock.Text(
                                 createSimpleText(
-                                    """
-    Example Usage:
-        In this example, we create a graph with 5 vertices and edges:
-        - 0 → 1
-        - 1 → 2
-        - 2 → 0 (creating a cycle)
-        
-        The graph will detect if there is a cycle, detect the connected components, and determine if the graph is bipartite.
-        
-    Cycle Detection:
-        The graph contains a cycle since vertex 0, 1, and 2 form a cycle (0 → 1 → 2 → 0).
-        
-    Connected Components:
-        The graph may be split into different components if there are disconnected vertices.
-
-    Bipartiteness:
-        The graph is bipartite if it is possible to color it with two colors such that no two adjacent vertices share the same color. In this example, the graph will determine whether the graph can be split into two sets without conflict.
-                """.trimIndent()
+                                    "In this example, a graph is created with 5 vertices. We check for cycles, detect connected components, and verify if the graph is bipartite (can be divided into two sets)."
                                 )
                             )
                         ),
