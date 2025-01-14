@@ -2537,9 +2537,9 @@ void preorderTraversal(int[] tree, int index) {
                             ContentBlock.Text(
                                 createSimpleText(
                                     """
-                - Adjacency Matrix: A 2D array where the value at [i][j] indicates the presence and weight of an edge between vertex i and vertex j.
-                - Adjacency List: A collection where each vertex stores a list of its connected vertices and their edge weights.
-                - Edge List: A list of all edges, where each edge is represented as a tuple (start_vertex, end_vertex, weight).
+                Adjacency Matrix: A 2D array where the value at [i][j] indicates the presence and weight of an edge between vertex i and vertex j.
+                Adjacency List: A collection where each vertex stores a list of its connected vertices and their edge weights.
+                Edge List: A list of all edges, where each edge is represented as a tuple (start_vertex, end_vertex, weight).
                 """.trimIndent()
                                 )
                             ),
@@ -2757,102 +2757,11 @@ void preorderTraversal(int[] tree, int index) {
                                 createSimpleText(
                                     """
                 Graph traversal involves visiting all vertices and edges in a specific manner. The most common traversal techniques are:
-                1. **BFS (Breadth-First Search):** Explores level by level, visiting all nodes at the current level before moving to the next.
-                2. **DFS (Depth-First Search):** Explores as deeply as possible along each branch before backtracking.
+                1.BFS (Breadth-First Search): Explores level by level, visiting all nodes at the current level before moving to the next.
+                2.DFS (Depth-First Search): Explores as deeply as possible along each branch before backtracking.
                 """.trimIndent()
                                 )
-                            ),
-                            ContentBlock.Code(
-                                """
-            // Example Code: Graph Traversal Using BFS and DFS
-            import java.util.*;
-
-            class Graph {
-                private int vertices; // Number of vertices
-                private LinkedList<Integer>[] adjList; // Adjacency list
-
-                // Constructor
-                Graph(int vertices) {
-                    this.vertices = vertices;
-                    adjList = new LinkedList[vertices];
-                    for (int i = 0; i < vertices; i++) {
-                        adjList[i] = new LinkedList<>();
-                    }
-                }
-
-                // Add an edge
-                void addEdge(int src, int dest) {
-                    adjList[src].add(dest); // For directed graph
-                    // Uncomment the next line for undirected graph
-                    // adjList[dest].add(src);
-                }
-
-                // BFS Traversal
-                void bfs(int start) {
-                    boolean[] visited = new boolean[vertices];
-                    Queue<Integer> queue = new LinkedList<>();
-                    
-                    visited[start] = true;
-                    queue.add(start);
-                    
-                    while (!queue.isEmpty()) {
-                        int vertex = queue.poll();
-                        System.out.print(vertex + " ");
-                        
-                        for (int neighbor : adjList[vertex]) {
-                            if (!visited[neighbor]) {
-                                visited[neighbor] = true;
-                                queue.add(neighbor);
-                            }
-                        }
-                    }
-                }
-
-                // DFS Traversal
-                void dfs(int start) {
-                    boolean[] visited = new boolean[vertices];
-                    dfsUtil(start, visited);
-                }
-
-                private void dfsUtil(int vertex, boolean[] visited) {
-                    visited[vertex] = true;
-                    System.out.print(vertex + " ");
-                    
-                    for (int neighbor : adjList[vertex]) {
-                        if (!visited[neighbor]) {
-                            dfsUtil(neighbor, visited);
-                        }
-                    }
-                }
-            }
-
-            // Example Usage:
-            public static void main(String[] args) {
-                Graph graph = new Graph(5); // 5 vertices: 0, 1, 2, 3, 4
-                graph.addEdge(0, 1);
-                graph.addEdge(0, 2);
-                graph.addEdge(1, 3);
-                graph.addEdge(2, 4);
-
-                System.out.println("BFS starting from vertex 0:");
-                graph.bfs(0);
-
-                System.out.println("\nDFS starting from vertex 0:");
-                graph.dfs(0);
-            }
-            """.trimIndent()
-                            ),
-                            ContentBlock.Text(createSimpleText("In this example, we first create a graph with 5 vertices and add some edges. Then, we perform BFS and DFS starting from vertex 0.")),
-
-                            ContentBlock.Text(createSimpleText("### BFS Traversal:")),
-                            ContentBlock.Text(createSimpleText("BFS explores the graph level by level, visiting all nodes at the current level before moving to the next.")),
-                            ContentBlock.Text(createSimpleText("For example, in BFS starting from vertex 0, the traversal order will be: 0, 1, 2, 3, 4.")),
-
-                            ContentBlock.Text(createSimpleText("### DFS Traversal:")),
-                            ContentBlock.Text(createSimpleText("DFS explores as deeply as possible along each branch before backtracking.")),
-                            ContentBlock.Text(createSimpleText("For example, in DFS starting from vertex 0, the traversal order will be: 0, 1, 3, 2, 4.")),
-
-                            ContentBlock.Text(createSimpleText("Both BFS and DFS are essential graph traversal algorithms used for exploring graphs and solving various graph problems.")),
+                            )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
