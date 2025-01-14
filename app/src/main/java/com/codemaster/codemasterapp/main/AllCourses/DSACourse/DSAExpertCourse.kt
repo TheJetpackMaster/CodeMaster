@@ -1,6 +1,7 @@
 package com.codemaster.codemasterapp.main.AllCourses.DSACourse
 
 import com.codemaster.codemasterapp.main.AllCourses.CLangCourse.courseIds.CExpertStageIds
+import com.codemaster.codemasterapp.main.AllCourses.DSACourse.courseIds.DSAExpertStageIds
 import com.codemaster.codemasterapp.main.AllCourses.helperFuntions.createAnnotatedText
 import com.codemaster.codemasterapp.main.data.ContentBlock
 import com.codemaster.codemasterapp.main.data.Lesson
@@ -11,7 +12,7 @@ import com.codemaster.codemasterapp.main.data.Stage
 
 fun DSAExpertCourse(): Stage {
     return Stage(
-        id = CExpertStageIds.stageId,
+        id = DSAExpertStageIds.stageId,
         title = "Expert",
         lessons = listOf(
 
