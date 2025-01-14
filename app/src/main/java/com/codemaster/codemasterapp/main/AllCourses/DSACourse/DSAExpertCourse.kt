@@ -19,8 +19,8 @@ fun DSAExpertCourse(): Stage {
             // lesson 1
             Lesson(
                 id = DSAExpertStageIds.lesson1,
-                title = "Introduction to Expert Projects",
-                description = "Get an overview of what you'll learn in the expert-level projects, focusing on logic building and advanced programming concepts.",
+                title = "Welcome to Expert DSA Problem Solving",
+                description = "Learn how to solve complex problems systematically using advanced DSA concepts, while building projects that challenge your logic and creativity.",
                 lessonContents = listOf(
                     LessonContent(
                         id = DSAExpertStageIds.lesson1_subs[0],
@@ -28,18 +28,20 @@ fun DSAExpertCourse(): Stage {
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Welcome to the Expert Stage! Here, you'll tackle advanced projects designed to sharpen your programming skills and enhance your problem-solving abilities.",
-                                    listOf("Expert Stage", "advanced projects", "problem-solving")
+                                    "Welcome to the Expert Stage! This is where you'll learn how to systematically break down and solve any problem using advanced data structures and algorithms.",
+                                    listOf("Expert Stage", "data structures", "algorithms")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Throughout this stage, you'll build practical and impactful projects, focusing on logic building and mastering advanced programming concepts.",
-                                    listOf(
-                                        "practical projects",
-                                        "logic building",
-                                        "advanced programming"
-                                    )
+                                    "In this stage, we’ll focus on leveraging DSA concepts to build scalable solutions for real-world problems, honing your problem-solving mindset, and mastering advanced programming techniques.",
+                                    listOf("DSA concepts", "problem-solving mindset", "advanced programming")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Remember, every problem has a solution. The goal is to analyze, strategize, and implement using the right tools and techniques.",
+                                    listOf("analyze", "strategize", "implement")
                                 )
                             )
                         ),
@@ -52,25 +54,50 @@ fun DSAExpertCourse(): Stage {
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "In this expert-level course, you'll work on projects categorized into beginner, intermediate, advanced, and expert levels. Each project is tailored to improve specific skills.",
-                                    listOf("beginner", "intermediate", "advanced", "expert levels")
+                                    "This course offers hands-on experience through projects at beginner, intermediate, advanced, and expert levels. Each project focuses on improving your DSA knowledge and its practical applications.",
+                                    listOf("hands-on experience", "DSA knowledge", "practical applications")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Here's a quick glimpse of the projects you can expect to work on: personalized calculators, management systems, compression tools, and multi-threaded applications.",
+                                    "Projects you'll tackle include implementing dynamic programming solutions, designing efficient graph algorithms, building real-time processing tools, and creating optimized data management systems.",
                                     listOf(
-                                        "personalized calculators",
-                                        "management systems",
-                                        "compression tools",
-                                        "multi-threaded applications"
+                                        "dynamic programming solutions",
+                                        "graph algorithms",
+                                        "real-time processing tools",
+                                        "optimized data management systems"
                                     )
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "By the end of this course, you'll have built a solid foundation to tackle real-world problems using programming.",
-                                    listOf("real-world problems", "programming foundation")
+                                    "By the end of this course, you'll have the confidence and skills to approach and solve even the most challenging problems in the field of software development.",
+                                    listOf("confidence", "skills", "challenging problems")
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSAExpertStageIds.lesson1_subs[2],
+                        title = "Why Problem Solving with DSA?",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Problem-solving using DSA is about more than just coding—it’s about understanding the underlying principles that make algorithms efficient and data structures powerful.",
+                                    listOf("problem-solving", "efficient algorithms", "powerful data structures")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "With DSA, you can deconstruct complex problems into manageable parts, devise effective strategies, and implement solutions that work seamlessly even with large datasets.",
+                                    listOf("deconstruct problems", "effective strategies", "large datasets")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Whether you’re preparing for interviews, working on cutting-edge projects, or solving everyday coding challenges, DSA will always be your greatest asset.",
+                                    listOf("interviews", "cutting-edge projects", "coding challenges")
                                 )
                             )
                         ),
