@@ -2768,125 +2768,58 @@ void preorderTraversal(int[] tree, int index) {
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson10_subs[4],
                         title = "How to Represent Graphs",
-                        description = "Understand the different ways to represent graphs and their properties, enabling efficient traversal and operations.",
+                        description = "Learn how to represent graphs using adjacency matrix and adjacency list for efficient visualization and operations.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createSimpleText(
-                                    "Graphs can be represented in multiple ways depending on the type of graph (directed, undirected, weighted, unweighted). Common representations include adjacency matrix and adjacency list, each having its unique advantages and trade-offs."
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    """
-    Key Properties of Graph Representations:
-    1. **Adjacency Matrix**: A 2D array where each cell indicates the presence (or weight) of an edge between two vertices.
-    2. **Adjacency List**: A list where each index represents a vertex and contains a list of all adjacent vertices.
-    3. The choice of representation depends on the graph's density and the operations you need to perform.
-                """.trimIndent()
+                                    "Graphs can be represented using an adjacency matrix or an adjacency list. The adjacency matrix is a 2D array indicating the presence or weight of edges, while the adjacency list stores neighbors of each vertex in a list."
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-    // Example: Graph Representation
-    import java.util.*;
-
-    // Adjacency Matrix Representation
-    class AdjacencyMatrixGraph {
-        int[][] matrix;
-        int vertices;
-
-        AdjacencyMatrixGraph(int vertices) {
-            this.vertices = vertices;
-            this.matrix = new int[vertices][vertices];
-        }
-
-        void addEdge(int src, int dest) {
-            matrix[src][dest] = 1; // For weighted graph, set weight instead of 1
-            // Uncomment for undirected graph
-            // matrix[dest][src] = 1;
-        }
-
-        void printMatrix() {
-            for (int i = 0; i < vertices; i++) {
-                System.out.println(Arrays.toString(matrix[i]));
-            }
-        }
-    }
-
-    // Adjacency List Representation
-    class AdjacencyListGraph {
-        LinkedList<Integer>[] adjList;
-        int vertices;
-
-        AdjacencyListGraph(int vertices) {
-            this.vertices = vertices;
-            adjList = new LinkedList[vertices];
-            for (int i = 0; i < vertices; i++) {
-                adjList[i] = new LinkedList<>();
-            }
-        }
-
-        void addEdge(int src, int dest) {
-            adjList[src].add(dest);
-            // Uncomment for undirected graph
-            // adjList[dest].add(src);
-        }
-
-        void printList() {
-            for (int i = 0; i < vertices; i++) {
-                System.out.print(i + ": ");
-                for (int neighbor : adjList[i]) {
-                    System.out.print(neighbor + " ");
+            // Example: Display Graph Representations
+            
+            // Adjacency Matrix Representation
+            void displayAdjacencyMatrix(int[][] matrix) {
+                for (int[] row : matrix) {
+                    System.out.println(Arrays.toString(row));
                 }
-                System.out.println();
             }
-        }
-    }
+            
+            // Adjacency List Representation
+            void displayAdjacencyList(List<List<Integer>> adjList) {
+                for (int i = 0; i < adjList.size(); i++) {
+                    System.out.print(i + ": ");
+                    for (int neighbor : adjList.get(i)) {
+                        System.out.print(neighbor + " ");
+                    }
+                    System.out.println();
+                }
+            }
 
-    // Example Usage:
-    public static void main(String[] args) {
-        // Adjacency Matrix
-        AdjacencyMatrixGraph matrixGraph = new AdjacencyMatrixGraph(5);
-        matrixGraph.addEdge(0, 1);
-        matrixGraph.addEdge(0, 4);
-        matrixGraph.addEdge(1, 2);
-        matrixGraph.printMatrix();
+            // Example Usage
+            public static void main(String[] args) {
+                // Adjacency Matrix
+                int[][] matrix = {
+                    {0, 1, 0, 0, 1},
+                    {0, 0, 1, 0, 0},
+                    {0, 0, 0, 0, 0},
+                    {0, 0, 0, 0, 0},
+                    {0, 0, 0, 0, 0}
+                };
+                displayAdjacencyMatrix(matrix);
 
-        // Adjacency List
-        AdjacencyListGraph listGraph = new AdjacencyListGraph(5);
-        listGraph.addEdge(0, 1);
-        listGraph.addEdge(0, 4);
-        listGraph.addEdge(1, 2);
-        listGraph.printList();
-    }
+                // Adjacency List
+                List<List<Integer>> adjList = new ArrayList<>();
+                for (int i = 0; i < 5; i++) {
+                    adjList.add(new ArrayList<>());
+                }
+                adjList.get(0).add(1);
+                adjList.get(0).add(4);
+                adjList.get(1).add(2);
+                displayAdjacencyList(adjList);
+            }
             """.trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    """
-    Example:
-        Represent a graph with 5 vertices and edges:
-        - 0 → 1
-        - 0 → 4
-        - 1 → 2
-        
-        Using Adjacency Matrix:
-        [
-            [0, 1, 0, 0, 1],
-            [0, 0, 1, 0, 0],
-            [0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0]
-        ]
-        
-        Using Adjacency List:
-        0: 1 4
-        1: 2
-        2:
-        3:
-        4:
-                """.trimIndent()
-                                )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
@@ -2901,7 +2834,7 @@ void preorderTraversal(int[] tree, int index) {
                                     "Graphs are fundamental data structures that model relationships between entities, making them versatile tools for solving real-world problems in networking, navigation, and data organization. They are used in applications like social networks to represent connections between users, GPS systems for route optimization, web crawling for search engine indexing, and dependency management for build systems or package managers. Graphs also play a crucial role in designing and optimizing communication networks and understanding biological relationships like protein-protein interactions. The key benefits of graphs include their ability to efficiently represent complex relationships, the availability of optimized algorithms like Dijkstra's and Kruskal's for solving critical problems, and their flexibility to model directed and undirected relationships with weighted and unweighted edges."
                                 )
                             )
-                        ),
+                        )
                         type = LessonContentType.NON_INTERACTIVE
                     )
                 ),
