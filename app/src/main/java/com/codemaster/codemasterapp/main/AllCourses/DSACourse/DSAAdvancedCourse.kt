@@ -1808,7 +1808,6 @@ void preorderTraversal(int[] tree, int index) {
                 status = LessonStatus.LOCKED
             ),
 
-
             // lesson 8
             Lesson(
                 id = DSAAdvancedStageIds.lesson8,
@@ -1820,6 +1819,57 @@ void preorderTraversal(int[] tree, int index) {
                         title = "Introduction to Binary Search Trees",
                         description = "Understand the basics of binary search trees and their unique properties.",
                         contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                        A Binary Search Tree (BST) is a special type of binary tree where:
+                        1. Each node contains a key.
+                        2. The left subtree of a node contains keys smaller than the node's key.
+                        3. The right subtree of a node contains keys larger than the node's key.
+                        4. Both subtrees must also be BSTs.
+                        """,
+                                    listOf(
+                                        "Binary Search Tree",
+                                        "key",
+                                        "left subtree",
+                                        "right subtree"
+                                    )
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                        A Binary Search Tree (BST) is a special type of binary tree where:
+                        1. Each node contains a key.
+                        2. The left subtree of a node contains keys smaller than the node's key.
+                        3. The right subtree of a node contains keys larger than the node's key.
+                        4. Both subtrees must also be BSTs.
+                        """,
+                                    listOf(
+                                        "Binary Search Tree",
+                                        "key",
+                                        "left subtree",
+                                        "right subtree"
+                                    )
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                        A Binary Search Tree (BST) is a special type of binary tree where:
+                        1. Each node contains a key.
+                        2. The left subtree of a node contains keys smaller than the node's key.
+                        3. The right subtree of a node contains keys larger than the node's key.
+                        4. Both subtrees must also be BSTs.
+                        """,
+                                    listOf(
+                                        "Binary Search Tree",
+                                        "key",
+                                        "left subtree",
+                                        "right subtree"
+                                    )
+                                )
+                            ),
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
