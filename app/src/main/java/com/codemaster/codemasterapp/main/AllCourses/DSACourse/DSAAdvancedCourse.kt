@@ -1254,23 +1254,6 @@ fun DSAAdvancedCourse(): Stage {
             cout << root->data << " ";       // Print data
         }
         """.trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    """
-            Example Inorder Traversal:
-            
-            Tree:
-
-                1
-               / \
-              2   3
-             / \
-            4   5
-
-            Inorder Sequence: 4 -> 2 -> 5 -> 1 -> 3
-            """.trimIndent()
-                                )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
