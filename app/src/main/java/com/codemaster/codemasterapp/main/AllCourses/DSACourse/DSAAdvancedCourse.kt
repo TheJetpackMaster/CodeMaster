@@ -1769,87 +1769,24 @@ void preorderTraversal(int[] tree, int index) {
                     ),
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson7_subs[4],
-                        title = "How to Represent Binary Trees: Array Implementation",
-                        description = "Understand the basics of binary trees and how to represent them using an array-based approach.",
+                        title = "Binary Trees: Array Representation",
+                        description = "Learn how to traverse a binary tree represented in an array using a simple function.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createSimpleText(
-                                    "A binary tree is a hierarchical data structure where each node has at most two children, referred to as the left child and the right child."
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    """
-    In an array representation of binary trees:
-    1. The root node is stored at index 0.
-    2. For a node at index `i`:
-       a. The left child is stored at index `2*i + 1`.
-       b. The right child is stored at index `2*i + 2`.
-    3. The parent of a node at index `i` is located at index `(i-1)/2` (integer division).
-    This representation simplifies binary tree operations and allows efficient traversal.
-                """.trimIndent()
+                                    "In an array-based binary tree, nodes are stored sequentially. The left child of a node at index `i` is at `2*i + 1`, and the right child is at `2*i + 2`."
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-    // Example of Array Representation:
-    // Tree:
-    //        1
-    //       / \
-    //      2   3
-    //     / \
-    //    4   5
-    //
-    // Array: [1, 2, 3, 4, 5]
-
-    // Index Relations:
-    // Root (1) - Index 0
-    // Left Child of 1 (2) - Index 1
-    // Right Child of 1 (3) - Index 2
-    // Left Child of 2 (4) - Index 3
-    // Right Child of 2 (5) - Index 4
-    """.trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    """
-    Traversal in Array Representation:
-    1. Preorder: Start from the root and use indices to traverse left and right subtrees recursively.
-    2. Inorder: Traverse left subtree, then visit the root, followed by the right subtree.
-    3. Postorder: Traverse left and right subtrees first, then visit the root.
-                """.trimIndent()
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-    // Example Code for Preorder Traversal:
-    void preorderTraversal(int[] tree, int index) {
-        if (index >= tree.length || tree[index] == -1) return; // Check boundary and null
-        System.out.print(tree[index] + " ");  // Visit the current node
-        preorderTraversal(tree, 2 * index + 1);  // Traverse left subtree
-        preorderTraversal(tree, 2 * index + 2);  // Traverse right subtree
-    }
-    """.trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    """
-    Example Traversals:
-    
-    Tree: 
-        1
-       / \
-      2   3
-     / \
-    4   5
-
-    Array: [1, 2, 3, 4, 5]
-
-    Preorder Sequence: 1 -> 2 -> 4 -> 5 -> 3
-    Inorder Sequence: 4 -> 2 -> 5 -> 1 -> 3
-    Postorder Sequence: 4 -> 5 -> 2 -> 3 -> 1
-                """.trimIndent()
-                                )
+            // Preorder Traversal of Binary Tree in Array
+            void preorderTraversal(int[] tree, int index) {
+                if (index >= tree.length || tree[index] == -1) return; // Boundary and null check
+                System.out.print(tree[index] + " ");  // Visit current node
+                preorderTraversal(tree, 2 * index + 1);  // Traverse left subtree
+                preorderTraversal(tree, 2 * index + 2);  // Traverse right subtree
+            }
+            """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
