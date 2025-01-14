@@ -2461,7 +2461,7 @@ void preorderTraversal(int[] tree, int index) {
                 A graph is a data structure consisting of:
                 1. Nodes (or vertices) that represent entities.
                 2. Edges that represent connections or relationships between the nodes.
-                """,
+                """.trimIndent(),
                                     listOf("graph", "nodes", "edges")
                                 )
                             ),
@@ -2469,10 +2469,10 @@ void preorderTraversal(int[] tree, int index) {
                                 createSimpleText(
                                     """
                 Types of Graphs:
-                - Undirected: Edges have no direction.
-                - Directed (Digraph): Edges have a specific direction.
-                - Weighted: Edges have weights representing cost or distance.
-                - Unweighted: All edges are considered equal.
+                Undirected: Edges have no direction.
+                Directed (Digraph): Edges have a specific direction.
+                Weighted: Edges have weights representing cost or distance.
+                Unweighted: All edges are considered equal.
                 """.trimIndent()
                                 )
                             ),
