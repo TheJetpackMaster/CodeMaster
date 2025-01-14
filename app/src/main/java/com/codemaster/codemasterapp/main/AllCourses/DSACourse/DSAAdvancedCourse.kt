@@ -2903,9 +2903,9 @@ val graph = mutableMapOf(
                             ContentBlock.Text(
                                 createSimpleText(
                                     """
-                - Adjacency Matrix: A 2D array where the value at [i][j] indicates the presence and weight of an edge between vertex i and vertex j.
-                - Adjacency List: A collection where each vertex stores a list of its connected vertices and their edge weights.
-                - Edge List: A list of all edges, where each edge is represented as a tuple (start_vertex, end_vertex, weight).
+                Adjacency Matrix: A 2D array where the value at [i][j] indicates the presence and weight of an edge between vertex i and vertex j.
+                Adjacency List: A collection where each vertex stores a list of its connected vertices and their edge weights.
+                Edge List: A list of all edges, where each edge is represented as a tuple (start_vertex, end_vertex, weight).
                 """.trimIndent()
                                 )
                             ),
@@ -3098,11 +3098,11 @@ val graph = mutableMapOf(
                             ),
                             ContentBlock.Text(createSimpleText("In this example, we first create a graph with 5 vertices and add some edges. Then, we perform BFS and DFS starting from vertex 0.")),
 
-                            ContentBlock.Text(createSimpleText("### BFS Traversal:")),
+                            ContentBlock.Text(createAnnotatedText("BFS Traversal:",listOf("BFS Traversal:"))),
                             ContentBlock.Text(createSimpleText("BFS explores the graph level by level, visiting all nodes at the current level before moving to the next.")),
                             ContentBlock.Text(createSimpleText("For example, in BFS starting from vertex 0, the traversal order will be: 0, 1, 2, 3, 4.")),
 
-                            ContentBlock.Text(createSimpleText("### DFS Traversal:")),
+                            ContentBlock.Text(createAnnotatedText("FS Traversal:",listOf("FS Traversal:"))),
                             ContentBlock.Text(createSimpleText("DFS explores as deeply as possible along each branch before backtracking.")),
                             ContentBlock.Text(createSimpleText("For example, in DFS starting from vertex 0, the traversal order will be: 0, 1, 3, 2, 4.")),
 
