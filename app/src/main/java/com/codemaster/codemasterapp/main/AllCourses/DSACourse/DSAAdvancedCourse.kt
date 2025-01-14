@@ -2381,38 +2381,6 @@ void preorderTraversal(int[] tree, int index) {
                 3. Postorder: Traverse left and right subtrees, then access the current node.
                 """.trimIndent()
                                 )
-                            ),
-                            ContentBlock.Code(
-                                """
-            // Example Code: AVL Tree Insertion with Rotations
-            AVLNode insert(AVLNode node, int key) {
-                // Standard BST insertion
-                if (node == null) return new AVLNode(key);
-                if (key < node.key) node.left = insert(node.left, key);
-                else if (key > node.key) node.right = insert(node.right, key);
-                else return node; // Duplicate keys not allowed
-                
-                // Update height
-                node.height = 1 + Math.max(height(node.left), height(node.right));
-                
-                // Get balance factor
-                int balance = getBalance(node);
-                
-                // Perform rotations
-                if (balance > 1 && key < node.left.key) return rightRotate(node);
-                if (balance < -1 && key > node.right.key) return leftRotate(node);
-                if (balance > 1 && key > node.left.key) {
-                    node.left = leftRotate(node.left);
-                    return rightRotate(node);
-                }
-                if (balance < -1 && key < node.right.key) {
-                    node.right = rightRotate(node.right);
-                    return leftRotate(node);
-                }
-                
-                return node; // Return unchanged node if balanced
-            }
-            """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
@@ -2420,62 +2388,31 @@ void preorderTraversal(int[] tree, int index) {
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson9_subs[5],
                         title = "How to Represent AVL Trees",
-                        description = "Understand the structure of AVL Trees and their unique properties that ensure balanced binary search operations.",
+                        description = "Learn how to visually represent AVL Trees and understand their balancing mechanism.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createSimpleText(
-                                    "An AVL Tree is a self-balancing binary search tree where the difference between the heights of the left and right subtrees of any node is at most one. This property ensures that AVL Trees remain balanced, leading to efficient search, insertion, and deletion operations."
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    """
-    Key Properties of AVL Trees:
-    1. Each node stores an additional piece of information: its height.
-    2. The balance factor of a node is calculated as the height of the left subtree minus the height of the right subtree.
-    3. If the balance factor is not in the range [-1, 0, 1], rotations are performed to restore balance.
-                """.trimIndent()
+                                    "An AVL Tree is a self-balancing binary search tree where the difference in heights of the left and right subtrees of any node is at most one. This ensures efficient operations like search, insertion, and deletion."
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-    // Example: AVL Tree Rotations and Balance
-    class AVLNode {
-        int value;
-        int height;
-        AVLNode left, right;
+            // Example: Display AVL Tree Structure
+            void displayAVLTree(AVLNode node, String indent, boolean isLeft) {
+                if (node != null) {
+                    System.out.println(indent + (isLeft ? "L--- " : "R--- ") + node.value);
+                    displayAVLTree(node.left, indent + (isLeft ? "|    " : "     "), true);
+                    displayAVLTree(node.right, indent + (isLeft ? "|    " : "     "), false);
+                }
+            }
 
-        AVLNode(int value) {
-            this.value = value;
-            this.height = 1;
-        }
-    }
-
-    int getHeight(AVLNode node) {
-        return node == null ? 0 : node.height;
-    }
-
-    int getBalanceFactor(AVLNode node) {
-        return node == null ? 0 : getHeight(node.left) - getHeight(node.right);
-    }
-
-    // Update height of a node
-    void updateHeight(AVLNode node) {
-        node.height = 1 + Math.max(getHeight(node.left), getHeight(node.right));
-    }
+            // Usage
+            // Root node of the AVL Tree
+            AVLNode root = new AVLNode(10);
+            root.left = new AVLNode(5);
+            root.right = new AVLNode(15);
+            displayAVLTree(root, "", true);
             """.trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    """
-    Example:
-        Insert nodes 10, 20, 30 into an empty AVL Tree.
-        1. Insert 10: No imbalance.
-        2. Insert 20: No imbalance.
-        3. Insert 30: Balance factor of node 10 becomes -2, triggering a left rotation.
-        The AVL Tree balances itself automatically after each insertion or deletion.
-                """.trimIndent()
-                                )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
