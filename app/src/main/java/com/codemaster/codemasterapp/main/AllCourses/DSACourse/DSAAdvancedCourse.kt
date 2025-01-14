@@ -2027,59 +2027,28 @@ void preorderTraversal(int[] tree, int index) {
                     ),
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson8_subs[4],
-                        title = "How to Represent Binary Search Trees: Array Implementation",
-                        description = "Understand the basics of Binary Search Trees (BSTs) and how to represent them using an array-based approach.",
+                        title = "Binary Search Trees: Array Representation",
+                        description = "Learn how to perform inorder traversal on a Binary Search Tree represented in an array.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createSimpleText(
-                                    "A Binary Search Tree (BST) is a hierarchical data structure where each node has at most two children. The left subtree contains nodes with values smaller than the parent, and the right subtree contains nodes with values larger than the parent."
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    """
-    Traversal in BST (Array Representation):
-    1. Preorder: Start from the root and recursively traverse left and right subtrees.
-    2. Inorder: Traverse the left subtree, then visit the root, followed by the right subtree (yields sorted order in BST).
-    3. Postorder: Traverse the left and right subtrees first, then visit the root.
-                """.trimIndent()
+                                    "Binary Search Trees (BSTs) organize data hierarchically, ensuring efficient search, insertion, and deletion operations. In an array-based representation, the left and right subtrees are determined using index relationships, simplifying traversal algorithms like inorder."
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-    // Example Code for Inorder Traversal:
-    void inorderTraversal(int[] bst, int index) {
-        if (index >= bst.length || bst[index] == -1) return; // Check boundary and null
-        inorderTraversal(bst, 2 * index + 1);  // Traverse left subtree
-        System.out.print(bst[index] + " ");  // Visit the current node
-        inorderTraversal(bst, 2 * index + 2);  // Traverse right subtree
-    }
-    """.trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    """
-    Example Traversals:
-    
-    BST: 
-        4
-       / \
-      2   6
-     / \   \
-    1   3   7
-
-    Array: [4, 2, 6, 1, 3, -1, 7]
-
-    Preorder Sequence: 4 -> 2 -> 1 -> 3 -> 6 -> 7
-    Inorder Sequence: 1 -> 2 -> 3 -> 4 -> 6 -> 7 (sorted)
-    Postorder Sequence: 1 -> 3 -> 2 -> 7 -> 6 -> 4
-                """.trimIndent()
-                                )
+            // Inorder Traversal of BST in Array
+            void inorderTraversal(int[] bst, int index) {
+                if (index >= bst.length || bst[index] == -1) return; // Boundary and null check
+                inorderTraversal(bst, 2 * index + 1);  // Traverse left subtree
+                System.out.print(bst[index] + " ");  // Visit current node
+                inorderTraversal(bst, 2 * index + 2);  // Traverse right subtree
+            }
+            """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
-
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson8_subs[5],
                         title = "Importance of Array Representation in Binary Search Trees",
@@ -2109,12 +2078,11 @@ void preorderTraversal(int[] tree, int index) {
                         description = "Learn the fundamentals of AVL Trees and their balancing mechanism.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    """
+                                createAnnotatedText("""
                         An AVL Tree is a self-balancing Binary Search Tree (BST) where:
                         1. The height difference (balance factor) between the left and right subtrees of any node is at most 1.
                         2. Balancing is achieved through rotations during insertions and deletions.
-                        """,
+                        """.trimIndent(),
                                     listOf("AVL Tree", "balance factor", "rotations")
                                 )
                             ),
@@ -2122,13 +2090,12 @@ void preorderTraversal(int[] tree, int index) {
                                 createAnnotatedText(
                                     """
                         Advantages:
-                        - Ensures O(log N) height, making operations like search, insertion, and deletion consistently efficient.
-                        - Prevents worst-case scenarios of skewed BSTs.
-                        """,
-                                    listOf("O(log N)", "search", "insertion", "deletion")
+                        Ensures O(log N) height, making operations like search, insertion, and deletion consistently efficient.
+                        Prevents worst-case scenarios of skewed BSTs.
+                        """.trimIndent(),
+                                    listOf("Advantages","O(log N)", "search", "insertion", "deletion")
                                 )
                             ),
-                            ContentBlock.Text(createSimpleText("Example Structure:")),
                             ContentBlock.Text(
                                 createSimpleText(
                                     """
