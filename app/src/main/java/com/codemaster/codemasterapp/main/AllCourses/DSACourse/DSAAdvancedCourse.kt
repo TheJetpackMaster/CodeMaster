@@ -2147,33 +2147,6 @@ void preorderTraversal(int[] tree, int index) {
                             ),
                             ContentBlock.Text(createSimpleText("Array Representation: [10, 5, 20, 2, 7, 15, 25]")),
 
-                            ContentBlock.Text(createSimpleText("Let's demonstrate insertion and rotations to maintain balance in an AVL Tree:")),
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    """
-                Example:
-                Insert values: [10, 20, 30]
-                
-                Step 1: Insert 10:
-                Tree:
-                      10
-                
-                Step 2: Insert 20:
-                Tree:
-                      10
-                        \
-                        20
-                
-                Step 3: Insert 30 (Unbalanced: Balance Factor of root = -2):
-                Apply RR Rotation:
-                      20
-                     /  \
-                    10   30
-                """.trimIndent()
-                                )
-                            ),
-
-                            ContentBlock.Text(createSimpleText("This representation helps understand how AVL Trees maintain balance during insertions and deletions while ensuring efficient operations.")),
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
