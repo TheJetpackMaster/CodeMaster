@@ -152,7 +152,6 @@ fun DSAExpertCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.ACTIVE
                     ),
 
                     // Manual Walkthrough
@@ -180,7 +179,7 @@ fun DSAExpertCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.ACTIVE
+
                     ),
 
                     // Code Solution
@@ -222,7 +221,7 @@ fun DSAExpertCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.ACTIVE
+
                     ),
 
                     // Motivation
@@ -238,7 +237,7 @@ fun DSAExpertCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.ACTIVE
+
                     )
                 ),
                 status = LessonStatus.LOCKED
@@ -273,7 +272,7 @@ fun DSAExpertCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.ACTIVE
+
                     ),
 
                     // Manual Walkthrough
@@ -317,7 +316,6 @@ fun DSAExpertCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.ACTIVE
                     ),
 
                     // Optimized C++ Code Solution
@@ -362,7 +360,7 @@ fun DSAExpertCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.ACTIVE
+
                     ),
 
                     // Motivation
@@ -386,7 +384,7 @@ fun DSAExpertCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.ACTIVE
+
                     )
                 ),
                 status = LessonStatus.LOCKED
@@ -421,7 +419,7 @@ fun DSAExpertCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.ACTIVE
+
                     ),
 
                     // Manual Walkthrough
@@ -464,7 +462,7 @@ fun DSAExpertCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.ACTIVE
+
                     ),
 
                     // Optimized C++ Code Solution
@@ -514,7 +512,6 @@ fun DSAExpertCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.ACTIVE
                     ),
 
                     // Motivation
@@ -538,7 +535,6 @@ fun DSAExpertCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.ACTIVE
                     )
                 ),
                 status = LessonStatus.LOCKED
@@ -580,7 +576,7 @@ fun DSAExpertCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.ACTIVE
+
                     ),
 
                     // Manual Walkthrough
@@ -625,7 +621,7 @@ fun DSAExpertCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.ACTIVE
+
                     ),
 
                     // Optimized C++ Code Solution
@@ -671,7 +667,7 @@ fun DSAExpertCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.ACTIVE
+
                     ),
 
                     // Motivation
@@ -695,7 +691,7 @@ fun DSAExpertCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.ACTIVE
+                        
                     )
                 ),
                 status = LessonStatus.LOCKED
