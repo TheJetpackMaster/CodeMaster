@@ -2857,15 +2857,12 @@ void preorderTraversal(int[] tree, int index) {
                                     """
 A graph traversal refers to visiting all the vertices or nodes in a graph. There are two main types of graph traversals:
 1.Breadth-First Search (BFS): Explores all vertices at the present depth level before moving on to vertices at the next depth level.
-2.Depth-First Search (DFS): Explores as far as possible along each branch before backing up.
-                    """,
-                                    listOf("BFS", "DFS", "graph traversal")
+2.Depth-First Search (DFS): Explores as far as possible along each branch before backing up.""",
+                                    listOf("1.Breadth-First Search (BFS):", "2.Depth-First Search (DFS):", "graph traversal")
                                 )
                             ),
                             ContentBlock.Text(
-                                createSimpleText(
-                                    """
-BFS is implemented using a queue, where vertices are visited in levels. DFS is typically implemented using recursion or a stack, exploring deeper into the graph before moving to the next branch.
+                                createSimpleText("""BFS is implemented using a queue, where vertices are visited in levels. DFS is typically implemented using recursion or a stack, exploring deeper into the graph before moving to the next branch.
                     """.trimIndent()
                                 )
                             ),
