@@ -1216,7 +1216,7 @@ fun DSAExpertCourse(): Stage {
 
                     // Manual Walkthrough
                     LessonContent(
-                        id = DSAExpertStageIds.lesson8_subs[1],
+                        id = DSAExpertStageIds.lesson9_subs[1],
                         title = "Manual Walkthrough",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -1255,7 +1255,7 @@ fun DSAExpertCourse(): Stage {
 
                     // Optimized C++ Code Solution
                     LessonContent(
-                        id = DSAExpertStageIds.lesson8_subs[2],
+                        id = DSAExpertStageIds.lesson9_subs[2],
                         title = "Optimized C++ Code Solution",
                         contentBlocks = listOf(
                             ContentBlock.Code(
@@ -1316,7 +1316,7 @@ fun DSAExpertCourse(): Stage {
 
                     // Motivation
                     LessonContent(
-                        id = DSAExpertStageIds.lesson8_subs[3],
+                        id = DSAExpertStageIds.lesson9_subs[3],
                         title = "Motivation to Solve More Problems",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -1340,14 +1340,16 @@ fun DSAExpertCourse(): Stage {
                 ),
                 status = LessonStatus.LOCKED
             ),
+
+            // lesson 10
             Lesson(
-                id = DSAExpertStageIds.lesson9,
+                id = DSAExpertStageIds.lesson10,
                 title = "Maximum Subarray Sum with One Deletion",
                 description = "Learn how to find the maximum subarray sum by deleting at most one element using Dynamic Programming. This lesson will guide you through solving the problem efficiently.",
                 lessonContents = listOf(
                     // Problem Statement
                     LessonContent(
-                        id = DSAExpertStageIds.lesson9_subs[0],
+                        id = DSAExpertStageIds.lesson10_subs[0],
                         title = "Problem Statement - Maximum Subarray Sum with One Deletion",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -1370,7 +1372,7 @@ fun DSAExpertCourse(): Stage {
 
                     // Manual Walkthrough
                     LessonContent(
-                        id = DSAExpertStageIds.lesson9_subs[1],
+                        id = DSAExpertStageIds.lesson10_subs[1],
                         title = "Manual Walkthrough",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -1412,7 +1414,7 @@ fun DSAExpertCourse(): Stage {
 
                     // Optimized C++ Code Solution
                     LessonContent(
-                        id = DSAExpertStageIds.lesson9_subs[2],
+                        id = DSAExpertStageIds.lesson10_subs[2],
                         title = "Optimized C++ Code Solution",
                         contentBlocks = listOf(
                             ContentBlock.Code(
@@ -1449,7 +1451,7 @@ fun DSAExpertCourse(): Stage {
 
                     // Motivation
                     LessonContent(
-                        id = DSAExpertStageIds.lesson9_subs[3],
+                        id = DSAExpertStageIds.lesson10_subs[3],
                         title = "Motivation to Solve More Problems",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -1473,14 +1475,16 @@ fun DSAExpertCourse(): Stage {
                 ),
                 status = LessonStatus.LOCKED
             ),
+
+            // lesson 11
             Lesson(
-                id = DSAExpertStageIds.lesson9,
+                id = DSAExpertStageIds.lesson11,
                 title = "Traveling Salesman Problem (TSP)",
                 description = "Learn how to solve the Traveling Salesman Problem (TSP) using Dynamic Programming and Bitmasking. This lesson will guide you through solving the problem efficiently for finding the shortest possible route that visits all cities exactly once and returns to the starting city.",
                 lessonContents = listOf(
                     // Problem Statement
                     LessonContent(
-                        id = DSAExpertStageIds.lesson9_subs[0],
+                        id = DSAExpertStageIds.lesson11_subs[0],
                         title = "Problem Statement - Traveling Salesman Problem (TSP)",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -1508,7 +1512,7 @@ fun DSAExpertCourse(): Stage {
 
                     // Manual Walkthrough
                     LessonContent(
-                        id = DSAExpertStageIds.lesson9_subs[1],
+                        id = DSAExpertStageIds.lesson11_subs[1],
                         title = "Manual Walkthrough",
                         contentBlocks = listOf(
                             ContentBlock.Text(
@@ -1549,7 +1553,7 @@ fun DSAExpertCourse(): Stage {
 
                     // Optimized C++ Code Solution
                     LessonContent(
-                        id = DSAExpertStageIds.lesson9_subs[2],
+                        id = DSAExpertStageIds.lesson11_subs[2],
                         title = "Optimized C++ Code Solution",
                         contentBlocks = listOf(
                             ContentBlock.Code(
@@ -1602,7 +1606,7 @@ fun DSAExpertCourse(): Stage {
 
                     // Motivation
                     LessonContent(
-                        id = DSAExpertStageIds.lesson9_subs[3],
+                        id = DSAExpertStageIds.lesson11_subs[3],
                         title = "Motivation to Solve More Problems",
                         contentBlocks = listOf(
                             ContentBlock.Text(
