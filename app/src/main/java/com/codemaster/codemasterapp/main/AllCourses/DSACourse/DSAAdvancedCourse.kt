@@ -135,8 +135,7 @@ fun DSAAdvancedCourse(): Stage {
                     """.trimIndent()
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.ACTIVE
+                        type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson2_subs[1],
@@ -273,7 +272,7 @@ fun DSAAdvancedCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     )
                 ),
-                status = LessonStatus.ACTIVE
+                status = LessonStatus.LOCKED
             ),
 
             // lesson 3
@@ -611,7 +610,7 @@ fun DSAAdvancedCourse(): Stage {
                     )
 
                 ),
-                status = LessonStatus.ACTIVE
+                status = LessonStatus.LOCKED
             ),
 
             // lesson 4
@@ -806,25 +805,6 @@ fun DSAAdvancedCourse(): Stage {
             return search(root->right, value);
         }
         """.trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    "Example Preorder Traversal:\n" +
-                                            "Consider the binary tree:\n\n" +
-                                            """
-                1
-               / \
-              2   3
-             / \
-            4   5
-                        """.trimIndent()
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    "Preorder Traversal Sequence:\n" +
-                                            "1 -> 2 -> 4 -> 5 -> 3"
-                                )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
@@ -893,23 +873,6 @@ fun DSAAdvancedCourse(): Stage {
                                 )
                             ),
                             ContentBlock.Text(
-                                createSimpleText(
-                                    "Example Preorder Traversal:\n" +
-                                            """
-                Consider the binary tree:
-
-                    1
-                   / \
-                  2   3
-                 / \
-                4   5
-
-                Preorder Traversal Sequence:
-                1 -> 2 -> 4 -> 5 -> 3
-                """.trimIndent()
-                                )
-                            ),
-                            ContentBlock.Text(
                                 createAnnotatedText(
                                     "Searching:",
                                     listOf("Searching")
@@ -963,23 +926,6 @@ fun DSAAdvancedCourse(): Stage {
             cout << root->data << " ";       // Print data
         }
         """.trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    """
-            Example Preorder Traversal:
-            
-            Tree:
-
-                1
-               / \
-              2   3
-             / \
-            4   5
-
-            Preorder Sequence: 1 -> 2 -> 4 -> 5 -> 3
-            """.trimIndent()
-                                )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
@@ -998,7 +944,7 @@ fun DSAAdvancedCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     )
                 ),
-                status = LessonStatus.ACTIVE
+                status = LessonStatus.LOCKED
             ),
 
             // lesson 5
@@ -1193,26 +1139,8 @@ fun DSAAdvancedCourse(): Stage {
             return search(root->right, value);
         }
         """.trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    "Example Inorder Traversal:\n" +
-                                            "Consider the binary tree:\n\n" +
-                                            """
-            1
-           / \
-          2   3
-         / \
-        4   5
-                    """.trimIndent()
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    "Inorder Traversal Sequence:\n" +
-                                            "4 -> 2 -> 5 -> 1 -> 3"
-                                )
                             )
+
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
@@ -1326,23 +1254,6 @@ fun DSAAdvancedCourse(): Stage {
             cout << root->data << " ";       // Print data
         }
         """.trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    """
-            Example Inorder Traversal:
-            
-            Tree:
-
-                1
-               / \
-              2   3
-             / \
-            4   5
-
-            Inorder Sequence: 4 -> 2 -> 5 -> 1 -> 3
-            """.trimIndent()
-                                )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
@@ -1603,23 +1514,6 @@ fun DSAAdvancedCourse(): Stage {
         cout << root->data << " ";       // Print data
     }
     """.trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    """
-        Example Postorder Traversal:
-        
-        Tree:
-
-            1
-           / \
-          2   3
-         / \
-        4   5
-
-        Postorder Sequence: 4 -> 5 -> 2 -> 3 -> 1
-        """.trimIndent()
-                                )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
@@ -1875,87 +1769,24 @@ void preorderTraversal(int[] tree, int index) {
                     ),
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson7_subs[4],
-                        title = "How to Represent Binary Trees: Array Implementation",
-                        description = "Understand the basics of binary trees and how to represent them using an array-based approach.",
+                        title = "Binary Trees: Array Representation",
+                        description = "Learn how to traverse a binary tree represented in an array using a simple function.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createSimpleText(
-                                    "A binary tree is a hierarchical data structure where each node has at most two children, referred to as the left child and the right child."
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    """
-    In an array representation of binary trees:
-    1. The root node is stored at index 0.
-    2. For a node at index `i`:
-       a. The left child is stored at index `2*i + 1`.
-       b. The right child is stored at index `2*i + 2`.
-    3. The parent of a node at index `i` is located at index `(i-1)/2` (integer division).
-    This representation simplifies binary tree operations and allows efficient traversal.
-                """.trimIndent()
+                                    "In an array-based binary tree, nodes are stored sequentially. The left child of a node at index `i` is at `2*i + 1`, and the right child is at `2*i + 2`."
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-    // Example of Array Representation:
-    // Tree:
-    //        1
-    //       / \
-    //      2   3
-    //     / \
-    //    4   5
-    //
-    // Array: [1, 2, 3, 4, 5]
-
-    // Index Relations:
-    // Root (1) - Index 0
-    // Left Child of 1 (2) - Index 1
-    // Right Child of 1 (3) - Index 2
-    // Left Child of 2 (4) - Index 3
-    // Right Child of 2 (5) - Index 4
-    """.trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    """
-    Traversal in Array Representation:
-    1. Preorder: Start from the root and use indices to traverse left and right subtrees recursively.
-    2. Inorder: Traverse left subtree, then visit the root, followed by the right subtree.
-    3. Postorder: Traverse left and right subtrees first, then visit the root.
-                """.trimIndent()
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-    // Example Code for Preorder Traversal:
-    void preorderTraversal(int[] tree, int index) {
-        if (index >= tree.length || tree[index] == -1) return; // Check boundary and null
-        System.out.print(tree[index] + " ");  // Visit the current node
-        preorderTraversal(tree, 2 * index + 1);  // Traverse left subtree
-        preorderTraversal(tree, 2 * index + 2);  // Traverse right subtree
-    }
-    """.trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    """
-    Example Traversals:
-    
-    Tree: 
-        1
-       / \
-      2   3
-     / \
-    4   5
-
-    Array: [1, 2, 3, 4, 5]
-
-    Preorder Sequence: 1 -> 2 -> 4 -> 5 -> 3
-    Inorder Sequence: 4 -> 2 -> 5 -> 1 -> 3
-    Postorder Sequence: 4 -> 5 -> 2 -> 3 -> 1
-                """.trimIndent()
-                                )
+            // Preorder Traversal of Binary Tree in Array
+            void preorderTraversal(int[] tree, int index) {
+                if (index >= tree.length || tree[index] == -1) return; // Boundary and null check
+                System.out.print(tree[index] + " ");  // Visit current node
+                preorderTraversal(tree, 2 * index + 1);  // Traverse left subtree
+                preorderTraversal(tree, 2 * index + 2);  // Traverse right subtree
+            }
+            """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
@@ -1977,7 +1808,6 @@ void preorderTraversal(int[] tree, int index) {
                 status = LessonStatus.LOCKED
             ),
 
-
             // lesson 8
             Lesson(
                 id = DSAAdvancedStageIds.lesson8,
@@ -1991,42 +1821,40 @@ void preorderTraversal(int[] tree, int index) {
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
+                                    """A Binary Search Tree (BST) is a special type of binary tree where: """,
+                                    listOf("Binary Search Tree")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
                                     """
-                        A Binary Search Tree (BST) is a special type of binary tree where:
-                        1. Each node contains a key.
-                        2. The left subtree of a node contains keys smaller than the node's key.
-                        3. The right subtree of a node contains keys larger than the node's key.
-                        4. Both subtrees must also be BSTs.
-                        """,
-                                    listOf(
-                                        "Binary Search Tree",
-                                        "key",
-                                        "left subtree",
-                                        "right subtree"
-                                    )
+                                1. Each node contains a key.
+                                2. The left subtree of a node contains keys smaller than the node's key.
+                                3. The right subtree of a node contains keys larger than the node's key.
+                                4. Both subtrees must also be BSTs.
+                                """.trimIndent(), listOf()
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
                         Advantages:
-                        - Allows efficient searching, insertion, and deletion.
-                        - Inorder traversal gives a sorted sequence of keys.
-                        """,
-                                    listOf("efficient searching", "inorder traversal")
+                        Allows efficient searching, insertion, and deletion.
+                        Inorder traversal gives a sorted sequence of keys.
+                        """.trimIndent(),
+                                    listOf("Advantages")
                                 )
                             ),
-                            ContentBlock.Text(createSimpleText("Example Structure:")),
                             ContentBlock.Text(
                                 createSimpleText(
                                     """
-                            Example BST:
+                            Example Structure:
                                   10
                                  /  \
                                 5   20
                                / \
                               2   8
-                        """
+                        """.trimIndent()
                                 )
                             )
                         ),
@@ -2204,110 +2032,34 @@ void preorderTraversal(int[] tree, int index) {
                                 createSimpleText(
                                     "Search for a value by starting at the root. Compare the value with the current node, and move left or right based on the BST property until the value is found or the tree is exhausted."
                                 )
-                            ),
-                            ContentBlock.Code(
-                                """
-// Example Code for Inorder Traversal
-void inorderTraversal(int[] bst, int index) {
-    if (index >= bst.length || bst[index] == -1) return;
-    inorderTraversal(bst, 2 * index + 1);  // Traverse left subtree
-    System.out.print(bst[index] + " ");   // Access the current node
-    inorderTraversal(bst, 2 * index + 2);  // Traverse right subtree
-}
-            """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson8_subs[4],
-                        title = "How to Represent Binary Search Trees: Array Implementation",
-                        description = "Understand the basics of Binary Search Trees (BSTs) and how to represent them using an array-based approach.",
+                        title = "Binary Search Trees: Array Representation",
+                        description = "Learn how to perform inorder traversal on a Binary Search Tree represented in an array.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createSimpleText(
-                                    "A Binary Search Tree (BST) is a hierarchical data structure where each node has at most two children. The left subtree contains nodes with values smaller than the parent, and the right subtree contains nodes with values larger than the parent."
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    """
-    In an array representation of BSTs:
-    1. The root node is stored at index 0.
-    2. For a node at index `i`:
-       a. The left child is stored at index `2*i + 1`.
-       b. The right child is stored at index `2*i + 2`.
-    3. The parent of a node at index `i` is located at index `(i-1)/2` (integer division).
-    This representation simplifies BST operations like insertion and traversal, especially when the tree is complete.
-                """.trimIndent()
+                                    "Binary Search Trees (BSTs) organize data hierarchically, ensuring efficient search, insertion, and deletion operations. In an array-based representation, the left and right subtrees are determined using index relationships, simplifying traversal algorithms like inorder."
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-    // Example of Array Representation of a BST:
-    // BST:
-    //        4
-    //       / \
-    //      2   6
-    //     / \   \
-    //    1   3   7
-    //
-    // Array: [4, 2, 6, 1, 3, -1, 7]
-
-    // Index Relations:
-    // Root (4) - Index 0
-    // Left Child of 4 (2) - Index 1
-    // Right Child of 4 (6) - Index 2
-    // Left Child of 2 (1) - Index 3
-    // Right Child of 2 (3) - Index 4
-    // Right Child of 6 (7) - Index 6
-    """.trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    """
-    Traversal in BST (Array Representation):
-    1. Preorder: Start from the root and recursively traverse left and right subtrees.
-    2. Inorder: Traverse the left subtree, then visit the root, followed by the right subtree (yields sorted order in BST).
-    3. Postorder: Traverse the left and right subtrees first, then visit the root.
-                """.trimIndent()
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-    // Example Code for Inorder Traversal:
-    void inorderTraversal(int[] bst, int index) {
-        if (index >= bst.length || bst[index] == -1) return; // Check boundary and null
-        inorderTraversal(bst, 2 * index + 1);  // Traverse left subtree
-        System.out.print(bst[index] + " ");  // Visit the current node
-        inorderTraversal(bst, 2 * index + 2);  // Traverse right subtree
-    }
-    """.trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    """
-    Example Traversals:
-    
-    BST: 
-        4
-       / \
-      2   6
-     / \   \
-    1   3   7
-
-    Array: [4, 2, 6, 1, 3, -1, 7]
-
-    Preorder Sequence: 4 -> 2 -> 1 -> 3 -> 6 -> 7
-    Inorder Sequence: 1 -> 2 -> 3 -> 4 -> 6 -> 7 (sorted)
-    Postorder Sequence: 1 -> 3 -> 2 -> 7 -> 6 -> 4
-                """.trimIndent()
-                                )
+            // Inorder Traversal of BST in Array
+            void inorderTraversal(int[] bst, int index) {
+                if (index >= bst.length || bst[index] == -1) return; // Boundary and null check
+                inorderTraversal(bst, 2 * index + 1);  // Traverse left subtree
+                System.out.print(bst[index] + " ");  // Visit current node
+                inorderTraversal(bst, 2 * index + 2);  // Traverse right subtree
+            }
+            """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
-
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson8_subs[5],
                         title = "Importance of Array Representation in Binary Search Trees",
@@ -2342,7 +2094,7 @@ void inorderTraversal(int[] bst, int index) {
                         An AVL Tree is a self-balancing Binary Search Tree (BST) where:
                         1. The height difference (balance factor) between the left and right subtrees of any node is at most 1.
                         2. Balancing is achieved through rotations during insertions and deletions.
-                        """,
+                        """.trimIndent(),
                                     listOf("AVL Tree", "balance factor", "rotations")
                                 )
                             ),
@@ -2350,13 +2102,18 @@ void inorderTraversal(int[] bst, int index) {
                                 createAnnotatedText(
                                     """
                         Advantages:
-                        - Ensures O(log N) height, making operations like search, insertion, and deletion consistently efficient.
-                        - Prevents worst-case scenarios of skewed BSTs.
-                        """,
-                                    listOf("O(log N)", "search", "insertion", "deletion")
+                        Ensures O(log N) height, making operations like search, insertion, and deletion consistently efficient.
+                        Prevents worst-case scenarios of skewed BSTs.
+                        """.trimIndent(),
+                                    listOf(
+                                        "Advantages",
+                                        "O(log N)",
+                                        "search",
+                                        "insertion",
+                                        "deletion"
+                                    )
                                 )
                             ),
-                            ContentBlock.Text(createSimpleText("Example Structure:")),
                             ContentBlock.Text(
                                 createSimpleText(
                                     """
@@ -2408,34 +2165,7 @@ void inorderTraversal(int[] bst, int index) {
                             ),
                             ContentBlock.Text(createSimpleText("Array Representation: [10, 5, 20, 2, 7, 15, 25]")),
 
-                            ContentBlock.Text(createSimpleText("Let's demonstrate insertion and rotations to maintain balance in an AVL Tree:")),
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    """
-                Example:
-                Insert values: [10, 20, 30]
-                
-                Step 1: Insert 10:
-                Tree:
-                      10
-                
-                Step 2: Insert 20:
-                Tree:
-                      10
-                        \
-                        20
-                
-                Step 3: Insert 30 (Unbalanced: Balance Factor of root = -2):
-                Apply RR Rotation:
-                      20
-                     /  \
-                    10   30
-                """.trimIndent()
-                                )
                             ),
-
-                            ContentBlock.Text(createSimpleText("This representation helps understand how AVL Trees maintain balance during insertions and deletions while ensuring efficient operations.")),
-                        ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
@@ -2669,38 +2399,6 @@ void inorderTraversal(int[] bst, int index) {
                 3. Postorder: Traverse left and right subtrees, then access the current node.
                 """.trimIndent()
                                 )
-                            ),
-                            ContentBlock.Code(
-                                """
-            // Example Code: AVL Tree Insertion with Rotations
-            AVLNode insert(AVLNode node, int key) {
-                // Standard BST insertion
-                if (node == null) return new AVLNode(key);
-                if (key < node.key) node.left = insert(node.left, key);
-                else if (key > node.key) node.right = insert(node.right, key);
-                else return node; // Duplicate keys not allowed
-                
-                // Update height
-                node.height = 1 + Math.max(height(node.left), height(node.right));
-                
-                // Get balance factor
-                int balance = getBalance(node);
-                
-                // Perform rotations
-                if (balance > 1 && key < node.left.key) return rightRotate(node);
-                if (balance < -1 && key > node.right.key) return leftRotate(node);
-                if (balance > 1 && key > node.left.key) {
-                    node.left = leftRotate(node.left);
-                    return rightRotate(node);
-                }
-                if (balance < -1 && key < node.right.key) {
-                    node.right = rightRotate(node.right);
-                    return leftRotate(node);
-                }
-                
-                return node; // Return unchanged node if balanced
-            }
-            """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
@@ -2708,62 +2406,31 @@ void inorderTraversal(int[] bst, int index) {
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson9_subs[5],
                         title = "How to Represent AVL Trees",
-                        description = "Understand the structure of AVL Trees and their unique properties that ensure balanced binary search operations.",
+                        description = "Learn how to visually represent AVL Trees and understand their balancing mechanism.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createSimpleText(
-                                    "An AVL Tree is a self-balancing binary search tree where the difference between the heights of the left and right subtrees of any node is at most one. This property ensures that AVL Trees remain balanced, leading to efficient search, insertion, and deletion operations."
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    """
-    Key Properties of AVL Trees:
-    1. Each node stores an additional piece of information: its height.
-    2. The balance factor of a node is calculated as the height of the left subtree minus the height of the right subtree.
-    3. If the balance factor is not in the range [-1, 0, 1], rotations are performed to restore balance.
-                """.trimIndent()
+                                    "An AVL Tree is a self-balancing binary search tree where the difference in heights of the left and right subtrees of any node is at most one. This ensures efficient operations like search, insertion, and deletion."
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-    // Example: AVL Tree Rotations and Balance
-    class AVLNode {
-        int value;
-        int height;
-        AVLNode left, right;
+            // Example: Display AVL Tree Structure
+            void displayAVLTree(AVLNode node, String indent, boolean isLeft) {
+                if (node != null) {
+                    System.out.println(indent + (isLeft ? "L--- " : "R--- ") + node.value);
+                    displayAVLTree(node.left, indent + (isLeft ? "|    " : "     "), true);
+                    displayAVLTree(node.right, indent + (isLeft ? "|    " : "     "), false);
+                }
+            }
 
-        AVLNode(int value) {
-            this.value = value;
-            this.height = 1;
-        }
-    }
-
-    int getHeight(AVLNode node) {
-        return node == null ? 0 : node.height;
-    }
-
-    int getBalanceFactor(AVLNode node) {
-        return node == null ? 0 : getHeight(node.left) - getHeight(node.right);
-    }
-
-    // Update height of a node
-    void updateHeight(AVLNode node) {
-        node.height = 1 + Math.max(getHeight(node.left), getHeight(node.right));
-    }
+            // Usage
+            // Root node of the AVL Tree
+            AVLNode root = new AVLNode(10);
+            root.left = new AVLNode(5);
+            root.right = new AVLNode(15);
+            displayAVLTree(root, "", true);
             """.trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    """
-    Example:
-        Insert nodes 10, 20, 30 into an empty AVL Tree.
-        1. Insert 10: No imbalance.
-        2. Insert 20: No imbalance.
-        3. Insert 30: Balance factor of node 10 becomes -2, triggering a left rotation.
-        The AVL Tree balances itself automatically after each insertion or deletion.
-                """.trimIndent()
-                                )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
@@ -2812,19 +2479,25 @@ void inorderTraversal(int[] bst, int index) {
                 A graph is a data structure consisting of:
                 1. Nodes (or vertices) that represent entities.
                 2. Edges that represent connections or relationships between the nodes.
-                """,
-                                    listOf("graph", "nodes", "edges")
+                """.trimIndent(),
+                                    listOf("")
                                 )
                             ),
                             ContentBlock.Text(
-                                createSimpleText(
+                                createAnnotatedText(
                                     """
                 Types of Graphs:
-                - Undirected: Edges have no direction.
-                - Directed (Digraph): Edges have a specific direction.
-                - Weighted: Edges have weights representing cost or distance.
-                - Unweighted: All edges are considered equal.
-                """.trimIndent()
+                Undirected: Edges have no direction.
+                Directed (Digraph): Edges have a specific direction.
+                Weighted: Edges have weights representing cost or distance.
+                Unweighted: All edges are considered equal.
+                """.trimIndent(),
+                                    listOf(
+                                        " Undirected",
+                                        "Directed (Digraph)",
+                                        "Weighted",
+                                        "Unweighted"
+                                    )
                                 )
                             ),
                             ContentBlock.Code(
