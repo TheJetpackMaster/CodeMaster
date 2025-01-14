@@ -1819,15 +1819,25 @@ void preorderTraversal(int[] tree, int index) {
                         title = "Introduction to Binary Search Trees",
                         description = "Understand the basics of binary search trees and their unique properties.",
                         contentBlocks = listOf(
-                            ContentBlock.Text(createAnnotatedText( """A Binary Search Tree (BST) is a special type of binary tree where: """,listOf("Binary Search Tree",))),
-                            ContentBlock.Text(createAnnotatedText("""
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """A Binary Search Tree (BST) is a special type of binary tree where: """,
+                                    listOf("Binary Search Tree")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
                                 1. Each node contains a key.
                                 2. The left subtree of a node contains keys smaller than the node's key.
                                 3. The right subtree of a node contains keys larger than the node's key.
                                 4. Both subtrees must also be BSTs.
-                                """.trimIndent(),listOf())),
+                                """.trimIndent(), listOf()
+                                )
+                            ),
                             ContentBlock.Text(
-                                createAnnotatedText("""
+                                createAnnotatedText(
+                                    """
                         Advantages:
                         Allows efficient searching, insertion, and deletion.
                         Inorder traversal gives a sorted sequence of keys.
@@ -1836,7 +1846,8 @@ void preorderTraversal(int[] tree, int index) {
                                 )
                             ),
                             ContentBlock.Text(
-                                createSimpleText("""
+                                createSimpleText(
+                                    """
                             Example Structure:
                                   10
                                  /  \
@@ -2078,7 +2089,8 @@ void preorderTraversal(int[] tree, int index) {
                         description = "Learn the fundamentals of AVL Trees and their balancing mechanism.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
-                                createAnnotatedText("""
+                                createAnnotatedText(
+                                    """
                         An AVL Tree is a self-balancing Binary Search Tree (BST) where:
                         1. The height difference (balance factor) between the left and right subtrees of any node is at most 1.
                         2. Balancing is achieved through rotations during insertions and deletions.
@@ -2093,7 +2105,13 @@ void preorderTraversal(int[] tree, int index) {
                         Ensures O(log N) height, making operations like search, insertion, and deletion consistently efficient.
                         Prevents worst-case scenarios of skewed BSTs.
                         """.trimIndent(),
-                                    listOf("Advantages","O(log N)", "search", "insertion", "deletion")
+                                    listOf(
+                                        "Advantages",
+                                        "O(log N)",
+                                        "search",
+                                        "insertion",
+                                        "deletion"
+                                    )
                                 )
                             ),
                             ContentBlock.Text(
@@ -2147,7 +2165,7 @@ void preorderTraversal(int[] tree, int index) {
                             ),
                             ContentBlock.Text(createSimpleText("Array Representation: [10, 5, 20, 2, 7, 15, 25]")),
 
-                        ),
+                            ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
@@ -2462,18 +2480,24 @@ void preorderTraversal(int[] tree, int index) {
                 1. Nodes (or vertices) that represent entities.
                 2. Edges that represent connections or relationships between the nodes.
                 """.trimIndent(),
-                                    listOf("graph", "nodes", "edges")
+                                    listOf("")
                                 )
                             ),
                             ContentBlock.Text(
-                                createSimpleText(
+                                createAnnotatedText(
                                     """
                 Types of Graphs:
                 Undirected: Edges have no direction.
                 Directed (Digraph): Edges have a specific direction.
                 Weighted: Edges have weights representing cost or distance.
                 Unweighted: All edges are considered equal.
-                """.trimIndent()
+                """.trimIndent(),
+                                    listOf(
+                                        " Undirected",
+                                        "Directed (Digraph)",
+                                        "Weighted",
+                                        "Unweighted"
+                                    )
                                 )
                             ),
                             ContentBlock.Code(
