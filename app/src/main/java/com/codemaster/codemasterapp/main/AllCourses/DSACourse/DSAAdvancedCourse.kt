@@ -1153,12 +1153,7 @@ fun DSAAdvancedCourse(): Stage {
                     """.trimIndent()
                                 )
                             ),
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    "Inorder Traversal Sequence:\n" +
-                                            "4 -> 2 -> 5 -> 1 -> 3"
-                                )
-                            )
+
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
