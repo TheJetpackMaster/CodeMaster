@@ -2038,40 +2038,6 @@ void preorderTraversal(int[] tree, int index) {
                             ContentBlock.Text(
                                 createSimpleText(
                                     """
-    In an array representation of BSTs:
-    1. The root node is stored at index 0.
-    2. For a node at index `i`:
-       a. The left child is stored at index `2*i + 1`.
-       b. The right child is stored at index `2*i + 2`.
-    3. The parent of a node at index `i` is located at index `(i-1)/2` (integer division).
-    This representation simplifies BST operations like insertion and traversal, especially when the tree is complete.
-                """.trimIndent()
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-    // Example of Array Representation of a BST:
-    // BST:
-    //        4
-    //       / \
-    //      2   6
-    //     / \   \
-    //    1   3   7
-    //
-    // Array: [4, 2, 6, 1, 3, -1, 7]
-
-    // Index Relations:
-    // Root (4) - Index 0
-    // Left Child of 4 (2) - Index 1
-    // Right Child of 4 (6) - Index 2
-    // Left Child of 2 (1) - Index 3
-    // Right Child of 2 (3) - Index 4
-    // Right Child of 6 (7) - Index 6
-    """.trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    """
     Traversal in BST (Array Representation):
     1. Preorder: Start from the root and recursively traverse left and right subtrees.
     2. Inorder: Traverse the left subtree, then visit the root, followed by the right subtree (yields sorted order in BST).
