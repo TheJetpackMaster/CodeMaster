@@ -135,8 +135,7 @@ fun DSAAdvancedCourse(): Stage {
                     """.trimIndent()
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE,
-                        status = LessonStatus.ACTIVE
+                        type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson2_subs[1],
@@ -273,7 +272,7 @@ fun DSAAdvancedCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     )
                 ),
-                status = LessonStatus.ACTIVE
+                status = LessonStatus.LOCKED
             ),
 
             // lesson 3
@@ -611,7 +610,7 @@ fun DSAAdvancedCourse(): Stage {
                     )
 
                 ),
-                status = LessonStatus.ACTIVE
+                status = LessonStatus.LOCKED
             ),
 
             // lesson 4
@@ -806,25 +805,6 @@ fun DSAAdvancedCourse(): Stage {
             return search(root->right, value);
         }
         """.trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    "Example Preorder Traversal:\n" +
-                                            "Consider the binary tree:\n\n" +
-                                            """
-                1
-               / \
-              2   3
-             / \
-            4   5
-                        """.trimIndent()
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    "Preorder Traversal Sequence:\n" +
-                                            "1 -> 2 -> 4 -> 5 -> 3"
-                                )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
@@ -998,7 +978,7 @@ fun DSAAdvancedCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE
                     )
                 ),
-                status = LessonStatus.ACTIVE
+                status = LessonStatus.LOCKED
             ),
 
             // lesson 5
