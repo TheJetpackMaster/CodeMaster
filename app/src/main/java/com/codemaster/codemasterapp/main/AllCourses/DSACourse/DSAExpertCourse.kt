@@ -1422,10 +1422,10 @@ fun DSAExpertCourse(): Stage {
                                     """
                         You are given an array of integers. Your task is to find the maximum subarray sum you can achieve by deleting at most one element.
                         
-                        **Example:**  
-                        **Input:** 'arr = [1, -2, 0, 3]'  
-                        **Output:** '4'  
-                        **Explanation:** The maximum sum after deleting one element is achieved by deleting '-2', resulting in the subarray '[1, 0, 3]' which sums to '4'.
+                        Example:  
+                        Input: 'arr = [1, -2, 0, 3]'  
+                        Output: '4'  
+                        Explanation: The maximum sum after deleting one element is achieved by deleting '-2', resulting in the subarray '[1, 0, 3]' which sums to '4'.
                         """.trimIndent(),
                                     listOf("maximum subarray", "deletion", "dynamic programming")
                                 )
@@ -1443,7 +1443,7 @@ fun DSAExpertCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Step 1: Understand the Problem**  
+                        Step 1: Understand the Problem  
                         - Input: An array of integers where we need to find the maximum subarray sum after deleting at most one element.  
                         - Output: The maximum sum achievable with one deletion or no deletion at all.  
                         
