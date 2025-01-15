@@ -325,11 +325,18 @@ fun DSAExpertCourse(): Stage {
                         type = LessonContentType.NON_INTERACTIVE,
                     ),
 
-                    // Optimized C++ Code Solution
+                    // Optimized Code Solution
                     LessonContent(
                         id = DSAExpertStageIds.lesson3_subs[2],
-                        title = "Optimized C++ Code Solution",
+                        title = "Code Solution",
                         contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText("""
+                Below is the C++ code for merging two sorted arrays into a single sorted array. This approach uses two pointers to efficiently compare elements from both arrays, ensuring a linear time complexity of O(n1 + n2). It outputs the merged array directly.
+                """.trimIndent(),
+                                    listOf("")
+                                )
+                            ),
                             ContentBlock.Code(
                                 """
                     #include <iostream>
@@ -378,15 +385,15 @@ fun DSAExpertCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        Well done on mastering the **Merge Two Sorted Arrays** problem! 🎉  
+                        Well done on mastering the Merge Two Sorted Arrays problem! 🎉  
 
                         Why this matters:  
-                        - **Two-Pointer Technique:** You’ve learned a fundamental approach for efficient merging.  
-                        - **Memory Optimization:** Practicing solutions that avoid extra space is a critical skill for advanced problem-solving.  
+                        Two-Pointer Technique: You’ve learned a fundamental approach for efficient merging.  
+                        Memory Optimization: Practicing solutions that avoid extra space is a critical skill for advanced problem-solving.  
 
                         Keep pushing yourself to solve more challenging problems. Each step brings you closer to becoming a DSA expert! 🚀  
                         """.trimIndent(),
-                                    listOf("two-pointer", "problem-solving", "confidence")
+                                    listOf("")
                                 )
                             )
                         ),
