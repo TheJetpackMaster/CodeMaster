@@ -1077,9 +1077,9 @@ fun DSAExpertCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Example:**  
-                        **Input:** 'N = 4'  
-                        **Output:**  
+                        Example:  
+                        Input: 'N = 4'  
+                        Output:  
                         [
                           [".Q..",  // Solution 1
                            "...Q",
@@ -1090,7 +1090,7 @@ fun DSAExpertCourse(): Stage {
                            "...Q",
                            ".Q.."]
                         ]  
-                        **Explanation:** There are two distinct solutions to place 4 queens on a 4x4 board where no two queens threaten each other.  
+                        Explanation: There are two distinct solutions to place 4 queens on a 4x4 board where no two queens threaten each other.  
                         """.trimIndent(),
                                     listOf("example", "input", "output", "solution")
                                 )
