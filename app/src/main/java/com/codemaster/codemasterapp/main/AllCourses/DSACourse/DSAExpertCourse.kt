@@ -1269,30 +1269,40 @@ fun DSAExpertCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Step 1: Understand the Problem**  
-                        - Input: A Binary Search Tree and an integer 'k' which is the position of the smallest element to find.
-                        - Output: The 'k'th smallest element in the BST, which can be found by performing an inorder traversal.
-                        
-                        **Step 2: Approach**  
-                        - In a BST, the elements are arranged such that the left subtree of a node contains smaller elements and the right subtree contains larger elements. This makes inorder traversal naturally sorted.
-                        - Perform an inorder traversal to visit each node in ascending order and count nodes until you reach the 'k'th element.
-                        
-                        **Step 3: Approach in Detail**  
-                        - Initialize a counter 'count' to track how many nodes have been visited.
-                        - Use a recursive approach to traverse the tree. On visiting each node, increment the counter.
-                        - Once the counter reaches 'k', return the current node’s value as the 'k'th smallest element.
-                        """.trimIndent(),
-                                    listOf("inorder traversal", "recursive", "binary search tree")
+                        Step 1: Understand the Problem
+                        Input: A Binary Search Tree and an integer 'k' which is the position of the smallest element to find.
+                        Output: The 'k'th smallest element in the BST, which can be found by performing an inorder traversal.""".trimIndent(),
+                                    listOf("Step 1: Understand the Problem")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Step 4: Edge Cases**  
-                        - If 'k' is larger than the total number of nodes in the tree, return an error or handle it appropriately.
-                        - An empty BST should be handled as an invalid case.
+                        Step 2: Approach  
+                        In a BST, the elements are arranged such that the left subtree of a node contains smaller elements and the right subtree contains larger elements. This makes inorder traversal naturally sorted.
+                        Perform an inorder traversal to visit each node in ascending order and count nodes until you reach the 'k'th element.""".trimIndent(),
+                                    listOf("Step 2: Approach")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                        Step 3: Approach in Detail  
+                        Initialize a counter 'count' to track how many nodes have been visited.
+                        Use a recursive approach to traverse the tree. On visiting each node, increment the counter.
+                        Once the counter reaches 'k', return the current node’s value as the 'k'th smallest element.
                         """.trimIndent(),
-                                    listOf("edge cases", "error handling", "invalid input")
+                                    listOf("Step 3: Approach in Detail")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                        Step 4: Edge Cases  
+                        If 'k' is larger than the total number of nodes in the tree, return an error or handle it appropriately.
+                        An empty BST should be handled as an invalid case.
+                        """.trimIndent(),
+                                    listOf("Step 4: Edge Cases")
                                 )
                             )
                         ),
@@ -1303,8 +1313,16 @@ fun DSAExpertCourse(): Stage {
                     // Optimized C++ Code Solution
                     LessonContent(
                         id = DSAExpertStageIds.lesson9_subs[2],
-                        title = "Optimized C++ Code Solution",
+                        title = "Code Solution",
                         contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                This C++ code implements an efficient solution to find the kth smallest element in a Binary Search Tree (BST) using an iterative in-order traversal with a stack.
+                """.trimIndent(),
+                                    listOf("kth smallest", "Binary Search Tree", "in-order traversal", "stack")
+                                )
+                            ),
                             ContentBlock.Code(
                                 """
                     #include <iostream>
@@ -1369,11 +1387,11 @@ fun DSAExpertCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        Congratulations on solving the **Kth Smallest Element in a BST** problem! 🎉  
+                        Congratulations on solving the Kth Smallest Element in a BST problem! 🎉  
 
                         Why this matters:  
-                        - **Efficient Searching:** You now know how to efficiently search for the 'k'th smallest element in a binary search tree using inorder traversal.  
-                        - **Real-world Applications:** This technique is widely used in problems involving sorted data structures and searching, such as finding the median or determining range queries.  
+                        Efficient Searching: You now know how to efficiently search for the 'k'th smallest element in a binary search tree using inorder traversal.  
+                        Real-world Applications: This technique is widely used in problems involving sorted data structures and searching, such as finding the median or determining range queries.  
 
                         Keep practicing and challenge yourself with more tree traversal and BST problems to enhance your problem-solving skills! 🚀  
                         """.trimIndent(),
