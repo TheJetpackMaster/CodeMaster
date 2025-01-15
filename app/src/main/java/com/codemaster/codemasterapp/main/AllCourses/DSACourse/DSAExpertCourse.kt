@@ -905,10 +905,10 @@ fun DSAExpertCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        Example:**  
-                        **Input:** 'beginWord = "hit"', 'endWord = "cog"', 'dictionary = ["hot", "dot", "dog", "lot", "log", "cog"]'  
-                        **Output:** '5'  
-                        **Explanation:** The shortest transformation sequence is: 'hit -> hot -> dot -> dog -> cog'.  
+                        Example:  
+                        Input: 'beginWord = "hit"', 'endWord = "cog"', 'dictionary = ["hot", "dot", "dog", "lot", "log", "cog"]'  
+                        Output: '5'  
+                        Explanation: The shortest transformation sequence is: 'hit -> hot -> dot -> dog -> cog'.  
                         """.trimIndent(),
                                     listOf("example", "input", "output", "transformation sequence")
                                 )
@@ -926,11 +926,11 @@ fun DSAExpertCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Step 1: Understand the Problem**  
+                        Step 1: Understand the Problem 
                         - Input: A 'beginWord', an 'endWord', and a dictionary.  
                         - Output: The length of the shortest transformation sequence from 'beginWord' to 'endWord'.  
                         """.trimIndent(),
-                                    listOf("input", "output", "transformation sequence")
+                                    listOf("Step 1: Understand the Problem")
                                 )
                             ),
                             ContentBlock.Text(
