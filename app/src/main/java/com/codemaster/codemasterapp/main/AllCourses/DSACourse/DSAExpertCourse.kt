@@ -444,12 +444,12 @@ fun DSAExpertCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Step 1: Understand the Problem**  
-                        - Input: A singly linked list.  
-                        - Output: The middle node of the list.  
-                        - Note: If there are two middle nodes, return the second one.  
+                        Step 1: Understand the Problem 
+                        Input: A singly linked list.  
+                        Output: The middle node of the list.  
+                        Note: If there are two middle nodes, return the second one.  
                         """.trimIndent(),
-                                    listOf("input", "output", "middle node")
+                                    listOf("Step 1: Understand the Problem ")
                                 )
                             ),
                             ContentBlock.Text(
