@@ -173,8 +173,8 @@ fun DSAExpertCourse(): Stage {
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "3. **Edge Cases:**\n   - What if the array has fewer than two elements?\n   - What if no such pair exists?\n   - Handle cases with duplicate numbers.",
-                                    listOf("edge cases", "duplicates")
+                                    "3.Edge Cases:\nWhat if the array has fewer than two elements?\nWhat if no such pair exists?\nHandle cases with duplicate numbers.",
+                                    listOf("")
                                 )
                             )
                         ),
