@@ -425,8 +425,8 @@ fun DSAExpertCourse(): Stage {
                                 createAnnotatedText(
                                     """
                         Example:  
-                        **Input:** '1 -> 2 -> 3 -> 4 -> 5'  
-                        **Output:** '3'  
+                        Input: '1 -> 2 -> 3 -> 4 -> 5'  
+                        Output: '3'  
                         """.trimIndent(),
                                     listOf("example", "input", "output")
                                 )
