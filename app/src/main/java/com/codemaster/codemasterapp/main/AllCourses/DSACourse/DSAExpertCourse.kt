@@ -648,8 +648,15 @@ fun DSAExpertCourse(): Stage {
                     // Optimized C++ Code Solution
                     LessonContent(
                         id = DSAExpertStageIds.lesson5_subs[2],
-                        title = "Optimized C++ Code Solution",
+                        title = "Code Solution",
                         contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText("""
+                This C++ code checks whether a string containing parentheses, brackets, and braces is valid. It uses a stack to ensure every opening bracket has a corresponding and correctly ordered closing bracket.
+                """.trimIndent(),
+                                    listOf("")
+                                )
+                            ),
                             ContentBlock.Code(
                                 """
                     #include <iostream>
@@ -702,8 +709,8 @@ fun DSAExpertCourse(): Stage {
                         Well done on solving the **Valid Parentheses** problem! 🎉  
 
                         Why this matters:  
-                        - **Stack Mastery:** You've learned how to effectively use a stack for problem-solving.  
-                        - **Real-world Relevance:** Bracket matching is essential in compilers, parsers, and more.  
+                        Stack Mastery: You've learned how to effectively use a stack for problem-solving.  
+                        Real-world Relevance: Bracket matching is essential in compilers, parsers, and more.  
 
                         Keep challenging yourself with problems to enhance your confidence and skill in data structure-based solutions! 🚀  
                         """.trimIndent(),
