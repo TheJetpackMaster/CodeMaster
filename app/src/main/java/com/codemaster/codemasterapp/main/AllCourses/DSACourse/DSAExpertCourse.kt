@@ -1035,7 +1035,7 @@ fun DSAExpertCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        Congratulations on solving the **Word Ladder** problem! 🎉  
+                        Congratulations on solving the Word Ladder problem! 🎉  
 
                         Why this matters:  
                         Graph Algorithms Mastery: You've learned how to apply BFS to solve graph traversal problems.  
@@ -1057,7 +1057,7 @@ fun DSAExpertCourse(): Stage {
             // lesson 8
             Lesson(
                 id = DSAExpertStageIds.lesson8,
-                title = "Mastering Backtracking with DSA - N-Queens Problem",
+                title = "N-Queens Problem",
                 description = "Learn to solve problems step-by-step with DSA techniques using C++. This lesson focuses on solving the N-Queens problem using the backtracking approach.",
                 lessonContents = listOf(
                     // Problem Statement
@@ -1070,7 +1070,7 @@ fun DSAExpertCourse(): Stage {
                                     """
                         You are given an 'N x N' chessboard and must place 'N' queens on the board such that no two queens threaten each other.  
                         A queen can attack another queen if they are placed on the same row, column, or diagonal.
-                        """,
+                        """.trimIndent(),
                                     listOf("N-Queens", "chessboard", "backtracking")
                                 )
                             ),
