@@ -290,35 +290,35 @@ fun DSAExpertCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Step 1: Understand the Problem**  
-                        - Input: Two sorted arrays 'arr1' and 'arr2'.  
-                        - Output: A single merged sorted array.  
-                        - Constraint: Merge without using extra space.  
+                        Step 1: Understand the Problem
+                        Input: Two sorted arrays 'arr1' and 'arr2'.  
+                        Output: A single merged sorted array.  
+                        Constraint: Merge without using extra space.  
                         """.trimIndent(),
-                                    listOf("input", "output", "constraint")
+                                    listOf("Step 1: Understand the Problem")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Step 2: Plan the Approach (Two-Pointer Technique)**  
-                        - Use two pointers, one for each array.  
-                        - Compare the elements at the pointers.  
-                        - Append the smaller element to the result and move the corresponding pointer forward.  
-                        - If one array is exhausted, append the remaining elements from the other array.  
+                        Step 2: Plan the Approach (Two-Pointer Technique)
+                        Use two pointers, one for each array.  
+                        Compare the elements at the pointers.  
+                        Append the smaller element to the result and move the corresponding pointer forward.  
+                        If one array is exhausted, append the remaining elements from the other array.  
                         """.trimIndent(),
-                                    listOf("two-pointer", "compare", "append")
+                                    listOf("Step 2: Plan the Approach (Two-Pointer Technique)")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Step 3: Edge Cases**  
-                        - One or both arrays are empty.  
-                        - Arrays of different lengths.  
-                        - Arrays with duplicate elements.  
+                        Step 3: Edge Cases 
+                        One or both arrays are empty.  
+                        Arrays of different lengths.  
+                        Arrays with duplicate elements.  
                         """.trimIndent(),
-                                    listOf("edge cases", "duplicates", "empty arrays")
+                                    listOf("Step 3: Edge Cases ")
                                 )
                             )
                         ),
