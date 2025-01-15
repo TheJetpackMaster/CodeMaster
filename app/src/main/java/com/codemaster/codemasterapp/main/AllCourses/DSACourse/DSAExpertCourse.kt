@@ -618,26 +618,26 @@ fun DSAExpertCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Step 2: Plan the Approach (Stack for Matching Brackets)**  
-                        - Use a stack to track opening brackets.  
-                        - For each character in the string:  
-                          - If it’s an opening bracket, push it onto the stack.  
-                          - If it’s a closing bracket, check if the stack is not empty and matches the top element.  
-                          - If not, return 'false'.  
-                        - After processing all characters, ensure the stack is empty.  
+                        Step 2: Plan the Approach (Stack for Matching Brackets)
+                        Use a stack to track opening brackets.  
+                        For each character in the string:  
+                        If it’s an opening bracket, push it onto the stack.  
+                        If it’s a closing bracket, check if the stack is not empty and matches the top element.  
+                        If not, return 'false'.  
+                        After processing all characters, ensure the stack is empty.  
                         """.trimIndent(),
-                                    listOf("stack", "matching brackets")
+                                    listOf("Step 2: Plan the Approach (Stack for Matching Brackets)")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Step 3: Edge Cases**  
-                        - Empty string (valid).  
-                        - String with unmatched brackets.  
-                        - String with only opening or only closing brackets.  
+                        Step 3: Edge Cases
+                        Empty string (valid).  
+                        String with unmatched brackets.  
+                        String with only opening or only closing brackets.  
                         """.trimIndent(),
-                                    listOf("edge cases", "unmatched brackets")
+                                    listOf("Step 3: Edge Cases")
                                 )
                             )
                         ),
