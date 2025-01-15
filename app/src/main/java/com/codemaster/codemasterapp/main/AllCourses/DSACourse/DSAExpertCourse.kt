@@ -130,7 +130,7 @@ fun DSAExpertCourse(): Stage {
             // lesson 2
             Lesson(
                 id = DSAExpertStageIds.lesson2,
-                title = "Mastering Logic Building with DSA - Two Sum Problem",
+                title = "Two Sum Problem",
                 description = "Learn to solve problems step-by-step with DSA techniques using C++. This lesson focuses on the Two Sum problem, providing a walkthrough, solution, and motivation to enhance your problem-solving skills.",
                 lessonContents = listOf(
                     // Question
@@ -141,12 +141,12 @@ fun DSAExpertCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     "Given an array of integers 'nums' and an integer 'target', return the indices of the two numbers such that they add up to the target.",
-                                    listOf("array", "target", "indices")
+                                    listOf("nums", "target")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Example:\nInput: 'nums = [2, 7, 11, 15], target = 9'\nOutput: '[0, 1]'\nExplanation: Because 'nums[0] + nums[1] == 9'.",
+                                    "Example:\nInput: 'nums = [2, 7, 11, 15], target = 9'\nOutput: [0, 1]\nExplanation: Because 'nums[0] + nums[1] == 9'.",
                                     listOf("example", "indices")
                                 )
                             )
