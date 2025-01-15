@@ -1608,36 +1608,34 @@ fun DSAExpertCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Step 2: Approach (Dynamic Programming with Bitmasking)**  
-                        - Use dynamic programming (DP) to keep track of the shortest path to each city with a bitmask representing the set of visited cities.
-                        - Let 'dp[mask][i]' represent the shortest path to visit all cities in the 'mask' set, ending at city 'i'.
-                        - Initially, 'dp[1][0] = 0', meaning starting at city 0 with just city 0 visited.
-                        - For each set of cities (bitmask), calculate the shortest path to all unvisited cities, and update the DP table accordingly.
+                        Step 2: Approach (Dynamic Programming with Bitmasking)  
+                        Use dynamic programming (DP) to keep track of the shortest path to each city with a bitmask representing the set of visited cities.
+                        Let 'dp[mask][i]' represent the shortest path to visit all cities in the 'mask' set, ending at city 'i'.
+                        Initially, 'dp[1][0] = 0', meaning starting at city 0 with just city 0 visited.
+                        For each set of cities (bitmask), calculate the shortest path to all unvisited cities, and update the DP table accordingly.
 
                         """.trimIndent(),
-                                    listOf("dynamic programming", "bitmasking", "route optimization", "traveling salesman")
+                                    listOf("Step 2: Approach (Dynamic Programming with Bitmasking)")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText("""
+                        Step 3: Approach in Detail  
+                        Iterate over all possible subsets of cities (bitmask) and compute the shortest path by considering each possible next city.
+                        Use a recursive approach to explore all possible city orders and compute the minimum total distance.
+                        The final result is the minimum distance to visit all cities and return to the starting city.
+                        """.trimIndent(),
+                                    listOf("Step 3: Approach in Detail")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        
-                        **Step 3: Approach in Detail**  
-                        - Iterate over all possible subsets of cities (bitmask) and compute the shortest path by considering each possible next city.
-                        - Use a recursive approach to explore all possible city orders and compute the minimum total distance.
-                        - The final result is the minimum distance to visit all cities and return to the starting city.
+                        Step 4: Edge Cases  
+                        If the distance matrix contains only one city, the result is trivially 0.
+                        If the cities are disconnected or unreachable, it’s important to handle such cases by checking for valid connections between cities.
                         """.trimIndent(),
-                                    listOf("dynamic programming", "bitmasking", "route optimization", "traveling salesman")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    """
-                        **Step 4: Edge Cases**  
-                        - If the distance matrix contains only one city, the result is trivially 0.
-                        - If the cities are disconnected or unreachable, it’s important to handle such cases by checking for valid connections between cities.
-                        """.trimIndent(),
-                                    listOf("edge cases", "distance matrix", "disconnected cities")
+                                    listOf("Step 4: Edge Cases")
                                 )
                             )
                         ),
@@ -1650,6 +1648,14 @@ fun DSAExpertCourse(): Stage {
                         id = DSAExpertStageIds.lesson11_subs[2],
                         title = "Optimized C++ Code Solution",
                         contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                This solution implements the Traveling Salesman Problem (TSP) using dynamic programming and bitmasking to efficiently find the shortest possible route.
+                """.trimIndent(),
+                                    listOf("Traveling Salesman Problem", "dynamic programming", "bitmasking")
+                                )
+                            ),
                             ContentBlock.Code(
                                 """
                     #include <iostream>
@@ -1706,11 +1712,11 @@ fun DSAExpertCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        Congratulations on solving the **Traveling Salesman Problem (TSP)**! 🎉
+                        Congratulations on solving the Traveling Salesman Problem (TSP)! 🎉
 
                         Why this matters:  
-                        - **Optimization Challenges:** You've learned how to tackle one of the most famous optimization problems using dynamic programming and bitmasking.
-                        - **Real-world Applications:** This problem is widely used in logistics, route planning, and various other fields where optimization and efficiency are crucial.
+                        Optimization Challenges: You've learned how to tackle one of the most famous optimization problems using dynamic programming and bitmasking.
+                        Real-world Applications: This problem is widely used in logistics, route planning, and various other fields where optimization and efficiency are crucial.
 
                         Keep practicing and challenge yourself with more complex graph and DP problems to further enhance your problem-solving skills! 🚀
                         """.trimIndent(),
