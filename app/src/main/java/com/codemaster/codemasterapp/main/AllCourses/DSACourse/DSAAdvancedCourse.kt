@@ -2537,9 +2537,9 @@ void preorderTraversal(int[] tree, int index) {
                             ContentBlock.Text(
                                 createSimpleText(
                                     """
-                - Adjacency Matrix: A 2D array where the value at [i][j] indicates the presence and weight of an edge between vertex i and vertex j.
-                - Adjacency List: A collection where each vertex stores a list of its connected vertices and their edge weights.
-                - Edge List: A list of all edges, where each edge is represented as a tuple (start_vertex, end_vertex, weight).
+                Adjacency Matrix: A 2D array where the value at [i][j] indicates the presence and weight of an edge between vertex i and vertex j.
+                Adjacency List: A collection where each vertex stores a list of its connected vertices and their edge weights.
+                Edge List: A list of all edges, where each edge is represented as a tuple (start_vertex, end_vertex, weight).
                 """.trimIndent()
                                 )
                             ),
@@ -2757,225 +2757,8 @@ void preorderTraversal(int[] tree, int index) {
                                 createSimpleText(
                                     """
                 Graph traversal involves visiting all vertices and edges in a specific manner. The most common traversal techniques are:
-                1. **BFS (Breadth-First Search):** Explores level by level, visiting all nodes at the current level before moving to the next.
-                2. **DFS (Depth-First Search):** Explores as deeply as possible along each branch before backtracking.
-                """.trimIndent()
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-            // Example Code: Graph Traversal Using BFS and DFS
-            import java.util.*;
-
-            class Graph {
-                private int vertices; // Number of vertices
-                private LinkedList<Integer>[] adjList; // Adjacency list
-
-                // Constructor
-                Graph(int vertices) {
-                    this.vertices = vertices;
-                    adjList = new LinkedList[vertices];
-                    for (int i = 0; i < vertices; i++) {
-                        adjList[i] = new LinkedList<>();
-                    }
-                }
-
-                // Add an edge
-                void addEdge(int src, int dest) {
-                    adjList[src].add(dest); // For directed graph
-                    // Uncomment the next line for undirected graph
-                    // adjList[dest].add(src);
-                }
-
-                // BFS Traversal
-                void bfs(int start) {
-                    boolean[] visited = new boolean[vertices];
-                    Queue<Integer> queue = new LinkedList<>();
-                    
-                    visited[start] = true;
-                    queue.add(start);
-                    
-                    while (!queue.isEmpty()) {
-                        int vertex = queue.poll();
-                        System.out.print(vertex + " ");
-                        
-                        for (int neighbor : adjList[vertex]) {
-                            if (!visited[neighbor]) {
-                                visited[neighbor] = true;
-                                queue.add(neighbor);
-                            }
-                        }
-                    }
-                }
-
-                // DFS Traversal
-                void dfs(int start) {
-                    boolean[] visited = new boolean[vertices];
-                    dfsUtil(start, visited);
-                }
-
-                private void dfsUtil(int vertex, boolean[] visited) {
-                    visited[vertex] = true;
-                    System.out.print(vertex + " ");
-                    
-                    for (int neighbor : adjList[vertex]) {
-                        if (!visited[neighbor]) {
-                            dfsUtil(neighbor, visited);
-                        }
-                    }
-                }
-            }
-
-            // Example Usage:
-            public static void main(String[] args) {
-                Graph graph = new Graph(5); // 5 vertices: 0, 1, 2, 3, 4
-                graph.addEdge(0, 1);
-                graph.addEdge(0, 2);
-                graph.addEdge(1, 3);
-                graph.addEdge(2, 4);
-
-                System.out.println("BFS starting from vertex 0:");
-                graph.bfs(0);
-
-                System.out.println("\nDFS starting from vertex 0:");
-                graph.dfs(0);
-            }
-            """.trimIndent()
-                            ),
-                            ContentBlock.Text(createSimpleText("In this example, we first create a graph with 5 vertices and add some edges. Then, we perform BFS and DFS starting from vertex 0.")),
-
-                            ContentBlock.Text(createSimpleText("### BFS Traversal:")),
-                            ContentBlock.Text(createSimpleText("BFS explores the graph level by level, visiting all nodes at the current level before moving to the next.")),
-                            ContentBlock.Text(createSimpleText("For example, in BFS starting from vertex 0, the traversal order will be: 0, 1, 2, 3, 4.")),
-
-                            ContentBlock.Text(createSimpleText("### DFS Traversal:")),
-                            ContentBlock.Text(createSimpleText("DFS explores as deeply as possible along each branch before backtracking.")),
-                            ContentBlock.Text(createSimpleText("For example, in DFS starting from vertex 0, the traversal order will be: 0, 1, 3, 2, 4.")),
-
-                            ContentBlock.Text(createSimpleText("Both BFS and DFS are essential graph traversal algorithms used for exploring graphs and solving various graph problems.")),
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = DSAAdvancedStageIds.lesson10_subs[4],
-                        title = "How to Represent Graphs",
-                        description = "Understand the different ways to represent graphs and their properties, enabling efficient traversal and operations.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    "Graphs can be represented in multiple ways depending on the type of graph (directed, undirected, weighted, unweighted). Common representations include adjacency matrix and adjacency list, each having its unique advantages and trade-offs."
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    """
-    Key Properties of Graph Representations:
-    1. **Adjacency Matrix**: A 2D array where each cell indicates the presence (or weight) of an edge between two vertices.
-    2. **Adjacency List**: A list where each index represents a vertex and contains a list of all adjacent vertices.
-    3. The choice of representation depends on the graph's density and the operations you need to perform.
-                """.trimIndent()
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-    // Example: Graph Representation
-    import java.util.*;
-
-    // Adjacency Matrix Representation
-    class AdjacencyMatrixGraph {
-        int[][] matrix;
-        int vertices;
-
-        AdjacencyMatrixGraph(int vertices) {
-            this.vertices = vertices;
-            this.matrix = new int[vertices][vertices];
-        }
-
-        void addEdge(int src, int dest) {
-            matrix[src][dest] = 1; // For weighted graph, set weight instead of 1
-            // Uncomment for undirected graph
-            // matrix[dest][src] = 1;
-        }
-
-        void printMatrix() {
-            for (int i = 0; i < vertices; i++) {
-                System.out.println(Arrays.toString(matrix[i]));
-            }
-        }
-    }
-
-    // Adjacency List Representation
-    class AdjacencyListGraph {
-        LinkedList<Integer>[] adjList;
-        int vertices;
-
-        AdjacencyListGraph(int vertices) {
-            this.vertices = vertices;
-            adjList = new LinkedList[vertices];
-            for (int i = 0; i < vertices; i++) {
-                adjList[i] = new LinkedList<>();
-            }
-        }
-
-        void addEdge(int src, int dest) {
-            adjList[src].add(dest);
-            // Uncomment for undirected graph
-            // adjList[dest].add(src);
-        }
-
-        void printList() {
-            for (int i = 0; i < vertices; i++) {
-                System.out.print(i + ": ");
-                for (int neighbor : adjList[i]) {
-                    System.out.print(neighbor + " ");
-                }
-                System.out.println();
-            }
-        }
-    }
-
-    // Example Usage:
-    public static void main(String[] args) {
-        // Adjacency Matrix
-        AdjacencyMatrixGraph matrixGraph = new AdjacencyMatrixGraph(5);
-        matrixGraph.addEdge(0, 1);
-        matrixGraph.addEdge(0, 4);
-        matrixGraph.addEdge(1, 2);
-        matrixGraph.printMatrix();
-
-        // Adjacency List
-        AdjacencyListGraph listGraph = new AdjacencyListGraph(5);
-        listGraph.addEdge(0, 1);
-        listGraph.addEdge(0, 4);
-        listGraph.addEdge(1, 2);
-        listGraph.printList();
-    }
-            """.trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    """
-    Example:
-        Represent a graph with 5 vertices and edges:
-        - 0 → 1
-        - 0 → 4
-        - 1 → 2
-        
-        Using Adjacency Matrix:
-        [
-            [0, 1, 0, 0, 1],
-            [0, 0, 1, 0, 0],
-            [0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0]
-        ]
-        
-        Using Adjacency List:
-        0: 1 4
-        1: 2
-        2:
-        3:
-        4:
+                1.BFS (Breadth-First Search): Explores level by level, visiting all nodes at the current level before moving to the next.
+                2.DFS (Depth-First Search): Explores as deeply as possible along each branch before backtracking.
                 """.trimIndent()
                                 )
                             )
@@ -2983,13 +2766,72 @@ void preorderTraversal(int[] tree, int index) {
                         type = LessonContentType.NON_INTERACTIVE
                     ),
                     LessonContent(
-                        id = DSAAdvancedStageIds.lesson10_subs[5],
-                        title = "Importance of Graphs",
-                        description = "Understand the critical role graphs play in representing and solving complex real-world problems across various domains.",
+                        id = DSAAdvancedStageIds.lesson10_subs[4],
+                        title = "How to Represent Graphs",
+                        description = "Learn how to represent graphs using adjacency matrix and adjacency list for efficient visualization and operations.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createSimpleText(
-                                    "Graphs are fundamental data structures that model relationships between entities, making them versatile tools for solving real-world problems in networking, navigation, and data organization. They are used in applications like social networks to represent connections between users, GPS systems for route optimization, web crawling for search engine indexing, and dependency management for build systems or package managers. Graphs also play a crucial role in designing and optimizing communication networks and understanding biological relationships like protein-protein interactions. The key benefits of graphs include their ability to efficiently represent complex relationships, the availability of optimized algorithms like Dijkstra's and Kruskal's for solving critical problems, and their flexibility to model directed and undirected relationships with weighted and unweighted edges."
+                                    "Graphs can be represented using an adjacency matrix or an adjacency list. The adjacency matrix is a 2D array indicating the presence or weight of edges, while the adjacency list stores neighbors of each vertex in a list."
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+            // Example: Display Graph Representations
+            
+            // Adjacency Matrix Representation
+            void displayAdjacencyMatrix(int[][] matrix) {
+                for (int[] row : matrix) {
+                    System.out.println(Arrays.toString(row));
+                }
+            }
+            
+            // Adjacency List Representation
+            void displayAdjacencyList(List<List<Integer>> adjList) {
+                for (int i = 0; i < adjList.size(); i++) {
+                    System.out.print(i + ": ");
+                    for (int neighbor : adjList.get(i)) {
+                        System.out.print(neighbor + " ");
+                    }
+                    System.out.println();
+                }
+            }
+
+            // Example Usage
+            public static void main(String[] args) {
+                // Adjacency Matrix
+                int[][] matrix = {
+                    {0, 1, 0, 0, 1},
+                    {0, 0, 1, 0, 0},
+                    {0, 0, 0, 0, 0},
+                    {0, 0, 0, 0, 0},
+                    {0, 0, 0, 0, 0}
+                };
+                displayAdjacencyMatrix(matrix);
+
+                // Adjacency List
+                List<List<Integer>> adjList = new ArrayList<>();
+                for (int i = 0; i < 5; i++) {
+                    adjList.add(new ArrayList<>());
+                }
+                adjList.get(0).add(1);
+                adjList.get(0).add(4);
+                adjList.get(1).add(2);
+                displayAdjacencyList(adjList);
+            }
+            """.trimIndent()
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSAAdvancedStageIds.lesson10_subs[5],
+                        title = "Importance of Graphs",
+                        description = "Learn why graphs are essential for solving complex problems across various domains.",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createSimpleText(
+                                    "Graphs are versatile data structures that model relationships between entities. They are widely used in applications like social networks, GPS navigation, web crawling, and communication networks. Their flexibility and powerful algorithms, such as Dijkstra's and Kruskal's, make them essential for solving complex problems efficiently."
                                 )
                             )
                         ),
@@ -3014,16 +2856,18 @@ void preorderTraversal(int[] tree, int index) {
                                 createAnnotatedText(
                                     """
 A graph traversal refers to visiting all the vertices or nodes in a graph. There are two main types of graph traversals:
-1. **Breadth-First Search (BFS)**: Explores all vertices at the present depth level before moving on to vertices at the next depth level.
-2. **Depth-First Search (DFS)**: Explores as far as possible along each branch before backing up.
-                    """,
-                                    listOf("BFS", "DFS", "graph traversal")
+1.Breadth-First Search (BFS): Explores all vertices at the present depth level before moving on to vertices at the next depth level.
+2.Depth-First Search (DFS): Explores as far as possible along each branch before backing up.""",
+                                    listOf(
+                                        "1.Breadth-First Search (BFS):",
+                                        "2.Depth-First Search (DFS):",
+                                        "graph traversal"
+                                    )
                                 )
                             ),
                             ContentBlock.Text(
                                 createSimpleText(
-                                    """
-BFS is implemented using a queue, where vertices are visited in levels. DFS is typically implemented using recursion or a stack, exploring deeper into the graph before moving to the next branch.
+                                    """BFS is implemented using a queue, where vertices are visited in levels. DFS is typically implemented using recursion or a stack, exploring deeper into the graph before moving to the next branch.
                     """.trimIndent()
                                 )
                             ),
@@ -3064,9 +2908,9 @@ val graph = mutableMapOf(
                             ContentBlock.Text(
                                 createSimpleText(
                                     """
-                - Adjacency Matrix: A 2D array where the value at [i][j] indicates the presence and weight of an edge between vertex i and vertex j.
-                - Adjacency List: A collection where each vertex stores a list of its connected vertices and their edge weights.
-                - Edge List: A list of all edges, where each edge is represented as a tuple (start_vertex, end_vertex, weight).
+                Adjacency Matrix: A 2D array where the value at [i][j] indicates the presence and weight of an edge between vertex i and vertex j.
+                Adjacency List: A collection where each vertex stores a list of its connected vertices and their edge weights.
+                Edge List: A list of all edges, where each edge is represented as a tuple (start_vertex, end_vertex, weight).
                 """.trimIndent()
                                 )
                             ),
@@ -3259,11 +3103,21 @@ val graph = mutableMapOf(
                             ),
                             ContentBlock.Text(createSimpleText("In this example, we first create a graph with 5 vertices and add some edges. Then, we perform BFS and DFS starting from vertex 0.")),
 
-                            ContentBlock.Text(createSimpleText("### BFS Traversal:")),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "BFS Traversal:",
+                                    listOf("BFS Traversal:")
+                                )
+                            ),
                             ContentBlock.Text(createSimpleText("BFS explores the graph level by level, visiting all nodes at the current level before moving to the next.")),
                             ContentBlock.Text(createSimpleText("For example, in BFS starting from vertex 0, the traversal order will be: 0, 1, 2, 3, 4.")),
 
-                            ContentBlock.Text(createSimpleText("### DFS Traversal:")),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "FS Traversal:",
+                                    listOf("FS Traversal:")
+                                )
+                            ),
                             ContentBlock.Text(createSimpleText("DFS explores as deeply as possible along each branch before backtracking.")),
                             ContentBlock.Text(createSimpleText("For example, in DFS starting from vertex 0, the traversal order will be: 0, 1, 3, 2, 4.")),
 
@@ -3322,98 +3176,26 @@ val graph = mutableMapOf(
                                 createSimpleText(
                                     """
                 Graph traversal involves visiting all vertices and edges in a specific manner. The most common traversal techniques are:
-                1. **BFS (Breadth-First Search):** Explores level by level, visiting all nodes at the current level before moving to the next.
-                2. **DFS (Depth-First Search):** Explores as deeply as possible along each branch before backtracking.
+                1. BFS (Breadth-First Search): Explores level by level, visiting all nodes at the current level before moving to the next.
+                2. DFS (Depth-First Search): Explores as deeply as possible along each branch before backtracking.
                 """.trimIndent()
                                 )
                             ),
-                            ContentBlock.Code(
-                                """
-            // Example Code: Graph Traversal Using BFS and DFS
-            import java.util.*;
-
-            class Graph {
-                private int vertices; // Number of vertices
-                private LinkedList<Integer>[] adjList; // Adjacency list
-
-                // Constructor
-                Graph(int vertices) {
-                    this.vertices = vertices;
-                    adjList = new LinkedList[vertices];
-                    for (int i = 0; i < vertices; i++) {
-                        adjList[i] = new LinkedList<>();
-                    }
-                }
-
-                // Add an edge
-                void addEdge(int src, int dest) {
-                    adjList[src].add(dest); // For directed graph
-                    // Uncomment the next line for undirected graph
-                    // adjList[dest].add(src);
-                }
-
-                // BFS Traversal
-                void bfs(int start) {
-                    boolean[] visited = new boolean[vertices];
-                    Queue<Integer> queue = new LinkedList<>();
-                    
-                    visited[start] = true;
-                    queue.add(start);
-                    
-                    while (!queue.isEmpty()) {
-                        int vertex = queue.poll();
-                        System.out.print(vertex + " ");
-                        
-                        for (int neighbor : adjList[vertex]) {
-                            if (!visited[neighbor]) {
-                                visited[neighbor] = true;
-                                queue.add(neighbor);
-                            }
-                        }
-                    }
-                }
-
-                // DFS Traversal
-                void dfs(int start) {
-                    boolean[] visited = new boolean[vertices];
-                    dfsUtil(start, visited);
-                }
-
-                private void dfsUtil(int vertex, boolean[] visited) {
-                    visited[vertex] = true;
-                    System.out.print(vertex + " ");
-                    
-                    for (int neighbor : adjList[vertex]) {
-                        if (!visited[neighbor]) {
-                            dfsUtil(neighbor, visited);
-                        }
-                    }
-                }
-            }
-
-            // Example Usage:
-            public static void main(String[] args) {
-                Graph graph = new Graph(5); // 5 vertices: 0, 1, 2, 3, 4
-                graph.addEdge(0, 1);
-                graph.addEdge(0, 2);
-                graph.addEdge(1, 3);
-                graph.addEdge(2, 4);
-
-                System.out.println("BFS starting from vertex 0:");
-                graph.bfs(0);
-
-                System.out.println("\nDFS starting from vertex 0:");
-                graph.dfs(0);
-            }
-            """.trimIndent()
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "BFS Traversal:",
+                                    listOf("BFS Traversal:")
+                                )
                             ),
-                            ContentBlock.Text(createSimpleText("In this example, we first create a graph with 5 vertices and add some edges. Then, we perform BFS and DFS starting from vertex 0.")),
-
-                            ContentBlock.Text(createSimpleText("### BFS Traversal:")),
                             ContentBlock.Text(createSimpleText("BFS explores the graph level by level, visiting all nodes at the current level before moving to the next.")),
                             ContentBlock.Text(createSimpleText("For example, in BFS starting from vertex 0, the traversal order will be: 0, 1, 2, 3, 4.")),
 
-                            ContentBlock.Text(createSimpleText("### DFS Traversal:")),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "DFS Traversal:",
+                                    listOf("DFS Traversal:")
+                                )
+                            ),
                             ContentBlock.Text(createSimpleText("DFS explores as deeply as possible along each branch before backtracking.")),
                             ContentBlock.Text(createSimpleText("For example, in DFS starting from vertex 0, the traversal order will be: 0, 1, 3, 2, 4.")),
 
@@ -3423,126 +3205,74 @@ val graph = mutableMapOf(
                     ),
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson11_subs[4],
-                        title = "How to Represent Graphs",
-                        description = "Understand the different ways to represent graphs and their properties, enabling efficient traversal and operations.",
+                        title = "How to Display Graph Traversal",
+                        description = "Learn how to display graph traversal using BFS and DFS, where BFS explores level by level and DFS dives deep into each path before backtracking.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createSimpleText(
-                                    "Graphs can be represented in multiple ways depending on the type of graph (directed, undirected, weighted, unweighted). Common representations include adjacency matrix and adjacency list, each having its unique advantages and trade-offs."
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    """
-    Key Properties of Graph Representations:
-    1. **Adjacency Matrix**: A 2D array where each cell indicates the presence (or weight) of an edge between two vertices.
-    2. **Adjacency List**: A list where each index represents a vertex and contains a list of all adjacent vertices.
-    3. The choice of representation depends on the graph's density and the operations you need to perform.
-                """.trimIndent()
+                                    "Graph traversal helps us visit all nodes in a graph. BFS explores nodes level by level, while DFS explores deep into one branch before backtracking."
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-    // Example: Graph Representation
-    import java.util.*;
+    // Example: Simple Graph Traversal Display
+    class Graph(val vertices: Int) {
+        private val adjList = Array(vertices) { mutableListOf<Int>() }
 
-    // Adjacency Matrix Representation
-    class AdjacencyMatrixGraph {
-        int[][] matrix;
-        int vertices;
-
-        AdjacencyMatrixGraph(int vertices) {
-            this.vertices = vertices;
-            this.matrix = new int[vertices][vertices];
+        fun addEdge(src: Int, dest: Int) {
+            adjList[src].add(dest)
         }
 
-        void addEdge(int src, int dest) {
-            matrix[src][dest] = 1; // For weighted graph, set weight instead of 1
-            // Uncomment for undirected graph
-            // matrix[dest][src] = 1;
-        }
+        // BFS Traversal Display
+        fun bfs(start: Int) {
+            val visited = BooleanArray(vertices)
+            val queue: Queue<Int> = LinkedList()
+            queue.add(start)
+            visited[start] = true
+            println("BFS Traversal:")
+            while (queue.isNotEmpty()) {
+                val node = queue.poll()
+                print("'$'node ")
 
-        void printMatrix() {
-            for (int i = 0; i < vertices; i++) {
-                System.out.println(Arrays.toString(matrix[i]));
-            }
-        }
-    }
-
-    // Adjacency List Representation
-    class AdjacencyListGraph {
-        LinkedList<Integer>[] adjList;
-        int vertices;
-
-        AdjacencyListGraph(int vertices) {
-            this.vertices = vertices;
-            adjList = new LinkedList[vertices];
-            for (int i = 0; i < vertices; i++) {
-                adjList[i] = new LinkedList<>();
-            }
-        }
-
-        void addEdge(int src, int dest) {
-            adjList[src].add(dest);
-            // Uncomment for undirected graph
-            // adjList[dest].add(src);
-        }
-
-        void printList() {
-            for (int i = 0; i < vertices; i++) {
-                System.out.print(i + ": ");
-                for (int neighbor : adjList[i]) {
-                    System.out.print(neighbor + " ");
+                adjList[node].forEach { neighbor ->
+                    if (!visited[neighbor]) {
+                        visited[neighbor] = true
+                        queue.add(neighbor)
+                    }
                 }
-                System.out.println();
+            }
+        }
+
+        // DFS Traversal Display
+        fun dfs(start: Int) {
+            val visited = BooleanArray(vertices)
+            println("DFS Traversal:")
+            dfsRecursive(start, visited)
+        }
+
+        private fun dfsRecursive(node: Int, visited: BooleanArray) {
+            visited[node] = true
+            print("'$'node ")
+
+            adjList[node].forEach { neighbor ->
+                if (!visited[neighbor]) dfsRecursive(neighbor, visited)
             }
         }
     }
 
-    // Example Usage:
-    public static void main(String[] args) {
-        // Adjacency Matrix
-        AdjacencyMatrixGraph matrixGraph = new AdjacencyMatrixGraph(5);
-        matrixGraph.addEdge(0, 1);
-        matrixGraph.addEdge(0, 4);
-        matrixGraph.addEdge(1, 2);
-        matrixGraph.printMatrix();
+    fun main() {
+        val graph = Graph(5)
+        graph.addEdge(0, 1)
+        graph.addEdge(0, 4)
+        graph.addEdge(1, 2)
+        graph.addEdge(1, 3)
+        graph.addEdge(3, 4)
 
-        // Adjacency List
-        AdjacencyListGraph listGraph = new AdjacencyListGraph(5);
-        listGraph.addEdge(0, 1);
-        listGraph.addEdge(0, 4);
-        listGraph.addEdge(1, 2);
-        listGraph.printList();
+        graph.bfs(0)
+        println()
+        graph.dfs(0)
     }
             """.trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    """
-    Example:
-        Represent a graph with 5 vertices and edges:
-        - 0 → 1
-        - 0 → 4
-        - 1 → 2
-        
-        Using Adjacency Matrix:
-        [
-            [0, 1, 0, 0, 1],
-            [0, 0, 1, 0, 0],
-            [0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0]
-        ]
-        
-        Using Adjacency List:
-        0: 1 4
-        1: 2
-        2:
-        3:
-        4:
-                """.trimIndent()
-                                )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
@@ -3550,11 +3280,11 @@ val graph = mutableMapOf(
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson11_subs[5],
                         title = "Importance of Graphs",
-                        description = "Understand the critical role graphs play in representing and solving complex real-world problems across various domains.",
+                        description = "Graphs are essential for modeling relationships between entities, enabling solutions for problems in networking, navigation, and data organization. They are widely used in applications like social networks, GPS systems, web crawling, and dependency management, making them crucial for optimizing routes, managing connections, and solving complex real-world problems.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createSimpleText(
-                                    "Graphs are fundamental data structures that model relationships between entities, making them versatile tools for solving real-world problems in networking, navigation, and data organization. They are used in applications like social networks to represent connections between users, GPS systems for route optimization, web crawling for search engine indexing, and dependency management for build systems or package managers. Graphs also play a crucial role in designing and optimizing communication networks and understanding biological relationships like protein-protein interactions. The key benefits of graphs include their ability to efficiently represent complex relationships, the availability of optimized algorithms like Dijkstra's and Kruskal's for solving critical problems, and their flexibility to model directed and undirected relationships with weighted and unweighted edges."
+                                    "Graphs are key data structures for representing relationships in applications such as social networks, GPS, and web crawling. They help solve complex problems like route optimization, search engine indexing, and dependency management, making them versatile tools in various domains."
                                 )
                             )
                         ),
@@ -3573,15 +3303,15 @@ val graph = mutableMapOf(
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson12_subs[0],
                         title = "Introduction to Graph Detection",
-                        description = "Explore the importance of detecting graphs and identifying their properties, such as cycles and connectivity.",
+                        description = "Learn to detect graph properties like cycles and connectivity.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-Graph detection refers to the process of identifying the existence of specific structures or patterns within a graph. In graph detection, we focus on detecting cycles, connectivity, and other important properties. The key concepts we will cover include:
-1. **Cycle Detection**: Identifying if a graph contains cycles (circular paths).
-2. **Connected Components**: Identifying if a graph is connected or if it consists of multiple disconnected subgraphs.
-                    """,
+Graph detection identifies patterns in graphs, focusing on:
+1. Cycle Detection: Checking for loops in a graph.
+2. Connected Components: Checking if all nodes are connected or isolated.
+""".trimIndent(),
                                     listOf(
                                         "graph detection",
                                         "cycle detection",
@@ -3590,89 +3320,17 @@ Graph detection refers to the process of identifying the existence of specific s
                                 )
                             ),
                             ContentBlock.Text(
-                                createSimpleText(
-                                    """
-Graph detection is crucial in understanding the nature of a graph and can be applied to solve problems such as detecting loops in a network, identifying isolated nodes, or checking if a graph is fully connected.
-                    """.trimIndent()
-                                )
+                                createSimpleText("Graph detection helps find network loops, isolated nodes, or check full connectivity.")
                             ),
-                            ContentBlock.Code(
-                                """
-// Graph Representation for Cycle Detection and Connected Components
-// Adjacency List for an undirected graph:
-// 0 - 1 - 2
-//     |
-//     3
-
-val graph = mutableMapOf(
-    0 to listOf(1),
-    1 to listOf(0, 2, 3),
-    2 to listOf(1),
-    3 to listOf(1)
-)
-
-// Function to check if a graph has a cycle using DFS
-fun hasCycle(graph: Map<Int, List<Int>>): Boolean {
-    val visited = mutableSetOf<Int>()
-    val recStack = mutableSetOf<Int>()
-
-    fun dfs(v: Int): Boolean {
-        if (v in recStack) return true
-        if (v in visited) return false
-
-        visited.add(v)
-        recStack.add(v)
-
-        for (neighbor in graph[v] ?: emptyList()) {
-            if (dfs(neighbor)) return true
-        }
-
-        recStack.remove(v)
-        return false
-    }
-
-    for (vertex in graph.keys) {
-        if (dfs(vertex)) return true
-    }
-    return false
-}
-
-// Function to find connected components using DFS
-fun findConnectedComponents(graph: Map<Int, List<Int>>): List<List<Int>> {
-    val visited = mutableSetOf<Int>()
-    val components = mutableListOf<List<Int>>()
-
-    fun dfs(v: Int, component: MutableList<Int>) {
-        visited.add(v)
-        component.add(v)
-        for (neighbor in graph[v] ?: emptyList()) {
-            if (neighbor !in visited) dfs(neighbor, component)
-        }
-    }
-
-    for (vertex in graph.keys) {
-        if (vertex !in visited) {
-            val component = mutableListOf<Int>()
-            dfs(vertex, component)
-            components.add(component)
-        }
-    }
-
-    return components
-}
-                    """.trimIndent()
+                            ContentBlock.Text(
+                                createSimpleText("Cycle Detection: Detects loops in a graph.")
                             ),
-                            ContentBlock.Text(createSimpleText("In this example, we use a graph represented by an adjacency list to detect cycles and find connected components.")),
-
-                            ContentBlock.Text(createSimpleText("### Cycle Detection:")),
-                            ContentBlock.Text(createSimpleText("Cycle detection is important for identifying loops in a graph. In the provided example, the `hasCycle` function uses DFS to check for cycles in the graph.")),
-                            ContentBlock.Text(createSimpleText("For example, in the graph above, there is no cycle, so the function will return `false`.")),
-
-                            ContentBlock.Text(createSimpleText("### Connected Components:")),
-                            ContentBlock.Text(createSimpleText("Connected components are subgraphs in which there is a path between every pair of vertices. The `findConnectedComponents` function helps identify these components in the graph.")),
-                            ContentBlock.Text(createSimpleText("For the given graph, it would return a single connected component containing all the vertices.")),
-
-                            ContentBlock.Text(createSimpleText("Both cycle detection and connected component analysis are vital tools for detecting properties within graphs, such as network loops or disconnected subgraphs.")),
+                            ContentBlock.Text(
+                                createSimpleText("Connected Components: Identifies subgraphs where all nodes are connected.")
+                            ),
+                            ContentBlock.Text(
+                                createSimpleText("Cycle detection and connectivity analysis help solve network problems.")
+                            )
                         ),
                         type = LessonContentType.NON_INTERACTIVE
                     ),
@@ -3694,9 +3352,9 @@ fun findConnectedComponents(graph: Map<Int, List<Int>>): List<List<Int>> {
                             ContentBlock.Text(
                                 createSimpleText(
                                     """
-                - Adjacency Matrix: A 2D array where the value at [i][j] indicates the presence and weight of an edge between vertex i and vertex j.
-                - Adjacency List: A collection where each vertex stores a list of its connected vertices and their edge weights.
-                - Edge List: A list of all edges, where each edge is represented as a tuple (start_vertex, end_vertex, weight).
+                Adjacency Matrix: A 2D array where the value at [i][j] indicates the presence and weight of an edge between vertex i and vertex j.
+                Adjacency List: A collection where each vertex stores a list of its connected vertices and their edge weights.
+                Edge List: A list of all edges, where each edge is represented as a tuple (start_vertex, end_vertex, weight).
                 """.trimIndent()
                                 )
                             ),
@@ -3926,15 +3584,15 @@ fun findConnectedComponents(graph: Map<Int, List<Int>>): List<List<Int>> {
                             ),
                             ContentBlock.Text(createSimpleText("In this example, we perform operations to detect cycles, connectivity, and bipartiteness in a graph with 5 vertices.")),
 
-                            ContentBlock.Text(createSimpleText("### Cycle Detection:")),
+                            ContentBlock.Text(createSimpleText("Cycle Detection:")),
                             ContentBlock.Text(createSimpleText("Cycle detection helps identify whether the graph contains any cycles (i.e., paths that start and end at the same vertex).")),
                             ContentBlock.Text(createSimpleText("For example, in the graph above, there is a cycle between vertices 0, 1, and 2.")),
 
-                            ContentBlock.Text(createSimpleText("### Connectivity Detection:")),
+                            ContentBlock.Text(createSimpleText("Connectivity Detection:")),
                             ContentBlock.Text(createSimpleText("Connectivity detection checks if all vertices in the graph are reachable from each other.")),
                             ContentBlock.Text(createSimpleText("In the graph above, vertices 0, 1, 2 form one connected component, while 3 and 4 form another.")),
 
-                            ContentBlock.Text(createSimpleText("### Bipartiteness Detection:")),
+                            ContentBlock.Text(createSimpleText("Bipartiteness Detection:")),
                             ContentBlock.Text(createSimpleText("Bipartiteness detection checks whether the graph can be colored using two colors such that no two adjacent vertices share the same color.")),
                             ContentBlock.Text(createSimpleText("In the example graph, if we can color the vertices without conflicts, the graph is bipartite.")),
 
@@ -3970,7 +3628,7 @@ fun findConnectedComponents(graph: Map<Int, List<Int>>): List<List<Int>> {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     "Graph Construction:",
-                                    listOf("Adding Vertices", "Adding Edges")
+                                    listOf("Graph Construction")
                                 )
                             ),
                             ContentBlock.Text(
@@ -3987,9 +3645,7 @@ fun findConnectedComponents(graph: Map<Int, List<Int>>): List<List<Int>> {
                                 createAnnotatedText(
                                     "Graph Detection Techniques:",
                                     listOf(
-                                        "Cycle Detection",
-                                        "Bipartite Graph Detection",
-                                        "Connected Components"
+                                        "Graph Detection Techniques:"
                                     )
                                 )
                             ),
@@ -3997,157 +3653,37 @@ fun findConnectedComponents(graph: Map<Int, List<Int>>): List<List<Int>> {
                                 createSimpleText(
                                     """
                 Graph detection involves finding important properties of the graph, such as:
-                1. **Cycle Detection:** Detect if a graph contains cycles (a path that starts and ends at the same vertex).
-                2. **Bipartite Graph Detection:** Detect if a graph can be divided into two disjoint sets where each edge connects a vertex from one set to the other.
-                3. **Connected Components Detection:** Detect the distinct subgraphs in an undirected graph where there is a path between every pair of vertices.
+                1. Cycle Detection: Detect if a graph contains cycles (a path that starts and ends at the same vertex).
+                2. Bipartite Graph Detection: Detect if a graph can be divided into two disjoint sets where each edge connects a vertex from one set to the other.
+                3. Connected Components Detection: Detect the distinct subgraphs in an undirected graph where there is a path between every pair of vertices.
                 """.trimIndent()
                                 )
                             ),
-                            ContentBlock.Code(
-                                """
-// Example Code: Graph Detection Techniques
-import java.util.*;
 
-class Graph {
-    private int vertices; // Number of vertices
-    private LinkedList<Integer>[] adjList; // Adjacency list
-
-    // Constructor
-    Graph(int vertices) {
-        this.vertices = vertices;
-        adjList = new LinkedList[vertices];
-        for (int i = 0; i < vertices; i++) {
-            adjList[i] = new LinkedList<>();
-        }
-    }
-
-    // Add an edge
-    void addEdge(int src, int dest) {
-        adjList[src].add(dest); // For directed graph
-        // Uncomment the next line for undirected graph
-        // adjList[dest].add(src);
-    }
-
-    // Cycle Detection using DFS
-    boolean isCyclic() {
-        boolean[] visited = new boolean[vertices];
-        boolean[] recursionStack = new boolean[vertices];
-
-        for (int i = 0; i < vertices; i++) {
-            if (isCyclicUtil(i, visited, recursionStack)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private boolean isCyclicUtil(int vertex, boolean[] visited, boolean[] recursionStack) {
-        if (recursionStack[vertex]) return true;
-        if (visited[vertex]) return false;
-
-        visited[vertex] = true;
-        recursionStack[vertex] = true;
-
-        for (int neighbor : adjList[vertex]) {
-            if (isCyclicUtil(neighbor, visited, recursionStack)) {
-                return true;
-            }
-        }
-
-        recursionStack[vertex] = false;
-        return false;
-    }
-
-    // Bipartite Graph Detection using BFS
-    boolean isBipartite() {
-        int[] colors = new int[vertices];
-        Arrays.fill(colors, -1); // -1 indicates no color assigned
-
-        for (int i = 0; i < vertices; i++) {
-            if (colors[i] == -1 && !bfsCheckBipartite(i, colors)) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    private boolean bfsCheckBipartite(int start, int[] colors) {
-        Queue<Integer> queue = new LinkedList<>();
-        queue.add(start);
-        colors[start] = 0; // Assign initial color
-
-        while (!queue.isEmpty()) {
-            int vertex = queue.poll();
-
-            for (int neighbor : adjList[vertex]) {
-                if (colors[neighbor] == -1) {
-                    colors[neighbor] = 1 - colors[vertex]; // Alternate color
-                    queue.add(neighbor);
-                } else if (colors[neighbor] == colors[vertex]) {
-                    return false; // Same color on both ends of an edge
-                }
-            }
-        }
-        return true;
-    }
-
-    // Connected Components using DFS
-    void findConnectedComponents() {
-        boolean[] visited = new boolean[vertices];
-        int componentCount = 0;
-
-        for (int i = 0; i < vertices; i++) {
-            if (!visited[i]) {
-                dfsConnectedComponent(i, visited);
-                componentCount++;
-            }
-        }
-
-        System.out.println("Number of connected components: " + componentCount);
-    }
-
-    private void dfsConnectedComponent(int vertex, boolean[] visited) {
-        visited[vertex] = true;
-
-        for (int neighbor : adjList[vertex]) {
-            if (!visited[neighbor]) {
-                dfsConnectedComponent(neighbor, visited);
-            }
-        }
-    }
-}
-
-// Example Usage:
-public class Main {
-    public static void main(String[] args) {
-        Graph graph = new Graph(5); // 5 vertices: 0, 1, 2, 3, 4
-        graph.addEdge(0, 1);
-        graph.addEdge(1, 2);
-        graph.addEdge(3, 4);
-
-        // Detect if graph contains a cycle
-        System.out.println("Graph contains cycle: " + graph.isCyclic());
-
-        // Detect if graph is bipartite
-        System.out.println("Graph is bipartite: " + graph.isBipartite());
-
-        // Find connected components
-        graph.findConnectedComponents();
-    }
-}
-            """.trimIndent()
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Cycle Detection:",
+                                    listOf("Cycle Detection:")
+                                )
                             ),
-                            ContentBlock.Text(createSimpleText("In this example, we first create a graph with 5 vertices and add some edges. Then, we detect cycles, check if the graph is bipartite, and find connected components.")),
-
-                            ContentBlock.Text(createSimpleText("### Cycle Detection:")),
                             ContentBlock.Text(createSimpleText("Cycle detection identifies if a graph contains a cycle, which is a path that starts and ends at the same vertex.")),
                             ContentBlock.Text(createSimpleText("For example, if a cycle is detected, the graph has a cycle, otherwise, it doesn't.")),
 
-                            ContentBlock.Text(createSimpleText("### Bipartite Graph Detection:")),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Bipartite Graph Detection:",
+                                    listOf("Bipartite Graph Detection:")
+                                )
+                            ),
                             ContentBlock.Text(createSimpleText("Bipartite graph detection checks if a graph can be divided into two sets such that every edge connects vertices from different sets.")),
                             ContentBlock.Text(createSimpleText("For example, if the graph is bipartite, it means we can color the graph using two colors such that no two adjacent vertices share the same color.")),
 
-                            ContentBlock.Text(createSimpleText("### Connected Components Detection:")),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Connected Components Detection:",
+                                    listOf("Connected Components Detection:")
+                                )
+                            ),
                             ContentBlock.Text(createSimpleText("Connected components detection finds distinct subgraphs where each subgraph is connected within itself.")),
                             ContentBlock.Text(createSimpleText("For example, if the graph is disconnected, it will have multiple connected components.")),
 
@@ -4158,29 +3694,18 @@ public class Main {
                     LessonContent(
                         id = DSAAdvancedStageIds.lesson12_subs[4],
                         title = "How to Detect Graph Properties",
-                        description = "Understand how to detect various graph properties such as cycles, connected components, and bipartiteness, enabling efficient graph analysis.",
+                        description = "Learn how to detect graph properties like cycles, connectivity, and bipartiteness for efficient graph analysis.",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createSimpleText(
-                                    "Detecting graph properties is crucial for understanding the structure of a graph. In this lesson, we'll cover how to detect properties like cycles, connected components, and whether a graph is bipartite."
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createSimpleText(
-                                    """
-    Key Properties to Detect in Graphs:
-    1. **Cycles**: A cycle exists if there is a path from a vertex back to itself.
-    2. **Connected Components**: A graph is fully connected if there is a path between every pair of vertices.
-    3. **Bipartiteness**: A graph is bipartite if its vertices can be divided into two disjoint sets such that no two vertices within the same set are adjacent.
-                """.trimIndent()
+                                    "Detecting graph properties like cycles, connected components, and bipartiteness helps analyze graph structures and solve problems such as detecting loops, checking connectivity, and verifying if a graph can be divided into two disjoint sets."
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-// Example: Graph Detection
+// Example: Detecting Graph Properties (Cycles, Connected Components, Bipartiteness)
 import java.util.*;
 
-// Detecting Cycles in a Directed Graph using DFS
 class Graph {
     int vertices;
     LinkedList<Integer>[] adjList;
@@ -4197,11 +3722,10 @@ class Graph {
         adjList[src].add(dest);
     }
 
-    // Detect cycle using DFS
+    // Cycle detection (DFS)
     boolean detectCycle() {
         boolean[] visited = new boolean[vertices];
-        boolean[] inStack = new boolean[vertices]; // Keeps track of recursion stack
-
+        boolean[] inStack = new boolean[vertices];
         for (int i = 0; i < vertices; i++) {
             if (detectCycleUtil(i, visited, inStack)) {
                 return true;
@@ -4213,24 +3737,20 @@ class Graph {
     private boolean detectCycleUtil(int vertex, boolean[] visited, boolean[] inStack) {
         if (inStack[vertex]) return true;
         if (visited[vertex]) return false;
-
         visited[vertex] = true;
         inStack[vertex] = true;
-
         for (int neighbor : adjList[vertex]) {
             if (detectCycleUtil(neighbor, visited, inStack)) {
                 return true;
             }
         }
-
-        inStack[vertex] = false; // Remove from recursion stack
+        inStack[vertex] = false;
         return false;
     }
 
-    // Detect connected components (for undirected graph)
+    // Detect connected components (BFS)
     void detectConnectedComponents() {
         boolean[] visited = new boolean[vertices];
-
         for (int i = 0; i < vertices; i++) {
             if (!visited[i]) {
                 bfs(i, visited);
@@ -4243,11 +3763,9 @@ class Graph {
         Queue<Integer> queue = new LinkedList<>();
         visited[start] = true;
         queue.add(start);
-
         while (!queue.isEmpty()) {
             int vertex = queue.poll();
             System.out.print(vertex + " ");
-
             for (int neighbor : adjList[vertex]) {
                 if (!visited[neighbor]) {
                     visited[neighbor] = true;
@@ -4257,11 +3775,10 @@ class Graph {
         }
     }
 
-    // Detect if the graph is bipartite
+    // Check bipartiteness (BFS)
     boolean isBipartite() {
         int[] colors = new int[vertices];
-        Arrays.fill(colors, -1); // -1 means no color assigned
-
+        Arrays.fill(colors, -1);
         for (int i = 0; i < vertices; i++) {
             if (colors[i] == -1 && !bfsBipartite(i, colors)) {
                 return false;
@@ -4272,19 +3789,16 @@ class Graph {
 
     private boolean bfsBipartite(int start, int[] colors) {
         Queue<Integer> queue = new LinkedList<>();
-        colors[start] = 1; // Assign a color
-
+        colors[start] = 1;
         queue.add(start);
         while (!queue.isEmpty()) {
             int vertex = queue.poll();
-
             for (int neighbor : adjList[vertex]) {
                 if (colors[neighbor] == -1) {
-                    // Assign alternate color
                     colors[neighbor] = 1 - colors[vertex];
                     queue.add(neighbor);
                 } else if (colors[neighbor] == colors[vertex]) {
-                    return false; // Same color, not bipartite
+                    return false;
                 }
             }
         }
@@ -4292,15 +3806,12 @@ class Graph {
     }
 
     public static void main(String[] args) {
-        Graph graph = new Graph(5); // Create a graph with 5 vertices
+        Graph graph = new Graph(5);
         graph.addEdge(0, 1);
         graph.addEdge(1, 2);
-        graph.addEdge(2, 0); // Creating a cycle
-
+        graph.addEdge(2, 0); // Cycle
         System.out.println("Cycle detected: " + graph.detectCycle());
-
         graph.detectConnectedComponents();
-
         System.out.println("Graph is bipartite: " + graph.isBipartite());
     }
 }
@@ -4308,24 +3819,7 @@ class Graph {
                             ),
                             ContentBlock.Text(
                                 createSimpleText(
-                                    """
-    Example Usage:
-        In this example, we create a graph with 5 vertices and edges:
-        - 0 → 1
-        - 1 → 2
-        - 2 → 0 (creating a cycle)
-        
-        The graph will detect if there is a cycle, detect the connected components, and determine if the graph is bipartite.
-        
-    Cycle Detection:
-        The graph contains a cycle since vertex 0, 1, and 2 form a cycle (0 → 1 → 2 → 0).
-        
-    Connected Components:
-        The graph may be split into different components if there are disconnected vertices.
-
-    Bipartiteness:
-        The graph is bipartite if it is possible to color it with two colors such that no two adjacent vertices share the same color. In this example, the graph will determine whether the graph can be split into two sets without conflict.
-                """.trimIndent()
+                                    "In this example, a graph is created with 5 vertices. We check for cycles, detect connected components, and verify if the graph is bipartite (can be divided into two sets)."
                                 )
                             )
                         ),
