@@ -1569,19 +1569,18 @@ fun DSAExpertCourse(): Stage {
                         title = "Problem Statement - Traveling Salesman Problem (TSP)",
                         contentBlocks = listOf(
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    """
+                                createAnnotatedText("""
                         You are given a list of cities and the distances between each pair. Your task is to find the shortest possible route that visits each city exactly once and returns to the starting city.
 
-                        **Example:**  
-                        **Input:** Distance matrix:
+                        Example:  
+                        Input: Distance matrix:
                         [[0, 10, 15, 20],
                          [10, 0, 35, 25],
                          [15, 35, 0, 30],
                          [20, 25, 30, 0]]
 
-                        **Output:** 80  
-                        **Explanation:** The shortest possible route is [0 -> 1 -> 3 -> 2 -> 0] with a total distance of 80.
+                        Output: 80  
+                        Explanation: The shortest possible route is [0 -> 1 -> 3 -> 2 -> 0] with a total distance of 80.
                         """.trimIndent(),
                                     listOf("traveling salesman", "bitmasking", "dynamic programming", "route optimization")
                                 )
@@ -1597,18 +1596,32 @@ fun DSAExpertCourse(): Stage {
                         title = "Manual Walkthrough",
                         contentBlocks = listOf(
                             ContentBlock.Text(
+                                createAnnotatedText("""
+                        Step 1: Understand the Problem  
+                        Input: A distance matrix representing distances between cities.
+                        Output: The shortest possible route that visits every city once and returns to the starting city.
+                        
+                        """.trimIndent(),
+                                    listOf("Step 1: Understand the Problem")
+                                )
+                            ),
+                            ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Step 1: Understand the Problem**  
-                        - Input: A distance matrix representing distances between cities.
-                        - Output: The shortest possible route that visits every city once and returns to the starting city.
-                        
                         **Step 2: Approach (Dynamic Programming with Bitmasking)**  
                         - Use dynamic programming (DP) to keep track of the shortest path to each city with a bitmask representing the set of visited cities.
                         - Let 'dp[mask][i]' represent the shortest path to visit all cities in the 'mask' set, ending at city 'i'.
                         - Initially, 'dp[1][0] = 0', meaning starting at city 0 with just city 0 visited.
                         - For each set of cities (bitmask), calculate the shortest path to all unvisited cities, and update the DP table accordingly.
 
+                        """.trimIndent(),
+                                    listOf("dynamic programming", "bitmasking", "route optimization", "traveling salesman")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                        
                         **Step 3: Approach in Detail**  
                         - Iterate over all possible subsets of cities (bitmask) and compute the shortest path by considering each possible next city.
                         - Use a recursive approach to explore all possible city orders and compute the minimum total distance.
