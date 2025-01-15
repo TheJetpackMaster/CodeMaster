@@ -1108,37 +1108,37 @@ fun DSAExpertCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Step 1: Understand the Problem**  
-                        - Input: An integer 'N' representing the size of the chessboard and the number of queens.  
-                        - Output: All possible solutions where 'N' queens can be placed on the board such that no two queens threaten each other.  
+                        Step 1: Understand the Problem  
+                        Input: An integer 'N' representing the size of the chessboard and the number of queens.  
+                        Output: All possible solutions where 'N' queens can be placed on the board such that no two queens threaten each other.  
                         """.trimIndent(),
-                                    listOf("input", "output", "chessboard")
+                                    listOf("Step 1: Understand the Problem")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Step 2: Plan the Approach (Backtracking)**  
-                        - The backtracking approach will help generate all possible board configurations and prune invalid ones.  
-                        - We can use three arrays to track threatened columns and diagonals:  
-                          - 'cols': Tracks if a column is under attack.  
-                          - 'diag1': Tracks if a diagonal (top-left to bottom-right) is under attack.  
-                          - 'diag2': Tracks if a diagonal (top-right to bottom-left) is under attack.  
-                        - For each row, try placing a queen in each column and check if the current position is valid.  
-                        - Recursively place queens on the next row and backtrack if a solution is not found.  
+                        Step 2: Plan the Approach (Backtracking)  
+                        The backtracking approach will help generate all possible board configurations and prune invalid ones.  
+                        We can use three arrays to track threatened columns and diagonals:  
+                        'cols': Tracks if a column is under attack.  
+                        'diag1': Tracks if a diagonal (top-left to bottom-right) is under attack.  
+                        'diag2': Tracks if a diagonal (top-right to bottom-left) is under attack.  
+                        For each row, try placing a queen in each column and check if the current position is valid.  
+                        Recursively place queens on the next row and backtrack if a solution is not found.  
                         """.trimIndent(),
-                                    listOf("backtracking", "diagonals", "columns")
+                                    listOf("Step 2: Plan the Approach (Backtracking)")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Step 3: Edge Cases**  
-                        - If 'N = 1', the solution is a single queen on a 1x1 board.  
-                        - If 'N = 2' or 'N = 3', there is no solution because queens cannot be placed without threatening each other.  
-                        - For larger values of 'N', there may be multiple solutions.  
+                        Step 3: Edge Cases  
+                        If 'N = 1', the solution is a single queen on a 1x1 board.  
+                        If 'N = 2' or 'N = 3', there is no solution because queens cannot be placed without threatening each other.  
+                        For larger values of 'N', there may be multiple solutions.  
                         """.trimIndent(),
-                                    listOf("edge cases", "N=1", "no solution")
+                                    listOf("Step 3: Edge Cases")
                                 )
                             )
                         ),
@@ -1149,8 +1149,16 @@ fun DSAExpertCourse(): Stage {
                     // Optimized C++ Code Solution
                     LessonContent(
                         id = DSAExpertStageIds.lesson8_subs[2],
-                        title = "Optimized C++ Code Solution",
+                        title = "Code Solution",
                         contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                This C++ code provides a backtracking solution for the N-Queens problem. It systematically places queens on the board while avoiding conflicts to find all valid configurations.
+                """.trimIndent(),
+                                    listOf("N-Queens", "backtracking", "valid configurations")
+                                )
+                            ),
                             ContentBlock.Code(
                                 """
                     #include <iostream>
@@ -1204,11 +1212,11 @@ fun DSAExpertCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        Congratulations on solving the **N-Queens** problem! 🎉  
+                        Congratulations on solving the N-Queens problem! 🎉  
 
                         Why this matters:  
-                        - **Backtracking Mastery:** You've learned how to approach complex constraint satisfaction problems using backtracking.  
-                        - **Real-world Relevance:** N-Queens is a classic problem that helps you understand optimization techniques and constraint handling, commonly used in AI and game theory.  
+                        Backtracking Mastery: You've learned how to approach complex constraint satisfaction problems using backtracking.  
+                        Real-world Relevance: N-Queens is a classic problem that helps you understand optimization techniques and constraint handling, commonly used in AI and game theory.  
 
                         Keep practicing and challenge yourself with more backtracking problems to sharpen your problem-solving skills! 🚀  
                         """.trimIndent(),
