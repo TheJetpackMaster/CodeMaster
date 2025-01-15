@@ -407,7 +407,7 @@ fun DSAExpertCourse(): Stage {
             // lesson 4
             Lesson(
                 id = DSAExpertStageIds.lesson4,
-                title = "Mastering Logic Building with DSA - Middle of Linked List",
+                title = "Middle of Linked List",
                 description = "Learn to solve problems step-by-step with DSA techniques using C++. This lesson focuses on finding the middle node of a singly linked list using the fast and slow pointer approach.",
                 lessonContents = listOf(
                     // Problem Statement
