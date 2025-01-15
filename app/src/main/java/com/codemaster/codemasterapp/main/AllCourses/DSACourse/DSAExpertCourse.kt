@@ -449,29 +449,29 @@ fun DSAExpertCourse(): Stage {
                         Output: The middle node of the list.  
                         Note: If there are two middle nodes, return the second one.  
                         """.trimIndent(),
-                                    listOf("Step 1: Understand the Problem ")
+                                    listOf("Step 1: Understand the Problem")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Step 2: Plan the Approach (Fast and Slow Pointer Technique)**  
-                        - Initialize two pointers: 'slow' and 'fast', both starting at the head of the linked list.  
-                        - Move the 'fast' pointer two steps at a time and the 'slow' pointer one step at a time.  
-                        - When the 'fast' pointer reaches the end of the list, the 'slow' pointer will be at the middle.  
+                        Step 2: Plan the Approach (Fast and Slow Pointer Technique) 
+                        Initialize two pointers: 'slow' and 'fast', both starting at the head of the linked list.  
+                        Move the 'fast' pointer two steps at a time and the 'slow' pointer one step at a time.  
+                        When the 'fast' pointer reaches the end of the list, the 'slow' pointer will be at the middle.  
                         """.trimIndent(),
-                                    listOf("fast pointer", "slow pointer", "linked list")
+                                    listOf("Step 2: Plan the Approach (Fast and Slow Pointer Technique) ")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Step 3: Edge Cases**  
-                        - List has only one node.  
-                        - List has two nodes (return the second one).  
-                        - Handle odd and even length lists.  
+                        Step 3: Edge Cases
+                        List has only one node.  
+                        List has two nodes (return the second one).  
+                        Handle odd and even length lists.  
                         """.trimIndent(),
-                                    listOf("edge cases", "linked list length")
+                                    listOf("Step 3: Edge Cases")
                                 )
                             )
                         ),
@@ -482,8 +482,15 @@ fun DSAExpertCourse(): Stage {
                     // Optimized C++ Code Solution
                     LessonContent(
                         id = DSAExpertStageIds.lesson4_subs[2],
-                        title = "Optimized C++ Code Solution",
+                        title = "Code Solution",
                         contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText("""
+                This C++ code demonstrates how to find the middle node of a singly linked list using the two-pointer approach. The `slow` pointer advances one step while the `fast` pointer advances two steps, ensuring the `slow` pointer is at the middle when `fast` reaches the end.
+                """.trimIndent(),
+                                    listOf("linked list", "middle node", "two-pointer approach")
+                                )
+                            ),
                             ContentBlock.Code(
                                 """
                     #include <iostream>
