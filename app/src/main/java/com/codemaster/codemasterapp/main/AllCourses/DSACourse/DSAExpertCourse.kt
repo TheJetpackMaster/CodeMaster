@@ -130,7 +130,7 @@ fun DSAExpertCourse(): Stage {
             // lesson 2
             Lesson(
                 id = DSAExpertStageIds.lesson2,
-                title = "Mastering Logic Building with DSA - Two Sum Problem",
+                title = "Two Sum Problem",
                 description = "Learn to solve problems step-by-step with DSA techniques using C++. This lesson focuses on the Two Sum problem, providing a walkthrough, solution, and motivation to enhance your problem-solving skills.",
                 lessonContents = listOf(
                     // Question
@@ -140,13 +140,13 @@ fun DSAExpertCourse(): Stage {
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Given an array of integers `nums` and an integer `target`, return the indices of the two numbers such that they add up to the target.",
-                                    listOf("array", "target", "indices")
+                                    "Given an array of integers 'nums' and an integer 'target', return the indices of the two numbers such that they add up to the target.",
+                                    listOf("nums", "target")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Example:\nInput: `nums = [2, 7, 11, 15], target = 9`\nOutput: `[0, 1]`\nExplanation: Because `nums[0] + nums[1] == 9`.",
+                                    "Example:\nInput: 'nums = [2, 7, 11, 15], target = 9'\nOutput: [0, 1]\nExplanation: Because 'nums[0] + nums[1] == 9'.",
                                     listOf("example", "indices")
                                 )
                             )
@@ -161,20 +161,20 @@ fun DSAExpertCourse(): Stage {
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "1. **Understand the Problem:**\n   - Input: Array of integers `nums` and an integer `target`.\n   - Output: Indices of two numbers in the array that add up to `target`.",
-                                    listOf("input", "output", "target")
+                                    "1.Understand the Problem:\nInput: Array of integers 'nums' and an integer 'target'.\nOutput: Indices of two numbers in the array that add up to 'target'.",
+                                    listOf("1.Understand the Problem:")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "2. **Plan the Approach:**\n   - Iterate through the array while keeping track of visited numbers using a hash map.\n   - For each number, calculate the difference `target - nums[i]`.\n   - Check if the difference is already in the hash map. If yes, return the indices. If no, add the current number to the map.",
-                                    listOf("hash map", "difference", "indices")
+                                    "2.Plan the Approach:\n Iterate through the array while keeping track of visited numbers using a hash map.\nFor each number, calculate the difference 'target - nums[i]'.\nCheck if the difference is already in the hash map. If yes, return the indices. If no, add the current number to the map.",
+                                    listOf("2.Plan the Approach:")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "3. **Edge Cases:**\n   - What if the array has fewer than two elements?\n   - What if no such pair exists?\n   - Handle cases with duplicate numbers.",
-                                    listOf("edge cases", "duplicates")
+                                    "3.Edge Cases:\nWhat if the array has fewer than two elements?\nWhat if no such pair exists?\nHandle cases with duplicate numbers.",
+                                    listOf("3.Edge Cases:")
                                 )
                             )
                         ),
@@ -185,8 +185,15 @@ fun DSAExpertCourse(): Stage {
                     // Code Solution
                     LessonContent(
                         id = DSAExpertStageIds.lesson2_subs[2],
-                        title = "C++ Code Solution",
+                        title = "Code Solution",
                         contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText("""
+        Below is the optimized C++ solution for the Two Sum problem. It uses a hash map to achieve O(n) time complexity by storing each element with its index while traversing the array. For every element, its complement (target minus the element) is checked in the hash map. If found, the indices of the pair are returned, making this approach both efficient and straightforward.
+        """.trimIndent(),
+                                    listOf("")
+                                )
+                            ),
                             ContentBlock.Code(
                                 """
                     #include <iostream>
@@ -217,7 +224,7 @@ fun DSAExpertCourse(): Stage {
                         }
                         return 0;
                     }
-                    """
+                    """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
@@ -231,8 +238,8 @@ fun DSAExpertCourse(): Stage {
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Congratulations on solving the Two Sum problem! 🎉\n\nHere’s why this is important:\n- **Foundation for Hashing:** You’ve learned to use hash maps for constant-time lookups.\n- **Real-World Applications:** Similar approaches are used in search engines, databases, and more.\n\nKeep going! Each problem you solve builds confidence and mastery. Tackle the next problem to sharpen your skills further.",
-                                    listOf("hashing", "real-world", "confidence")
+                                    "Congratulations on solving the Two Sum problem! 🎉\n\nHere’s why this is important:\nFoundation for Hashing: You’ve learned to use hash maps for constant-time lookups.\nReal-World Applications: Similar approaches are used in search engines, databases, and more.\n\nKeep going! Each problem you solve builds confidence and mastery. Tackle the next problem to sharpen your skills further.",
+                                    listOf("")
                                 )
                             )
                         ),
@@ -246,7 +253,7 @@ fun DSAExpertCourse(): Stage {
             // lesson 3
             Lesson(
                 id = DSAExpertStageIds.lesson3,
-                title = "Mastering Logic Building with DSA - Merge Two Sorted Arrays",
+                title = "Merge Two Sorted Arrays",
                 description = "Learn to solve problems step-by-step with DSA techniques using C++. This lesson focuses on merging two sorted arrays without extra space, using the two-pointer technique.",
                 lessonContents = listOf(
                     // Problem Statement
@@ -256,18 +263,18 @@ fun DSAExpertCourse(): Stage {
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "You are given two sorted arrays. Your task is to merge them into a single sorted array **without using extra space**.",
-                                    listOf("sorted arrays", "merge", "no extra space")
+                                    "You are given two sorted arrays. Your task is to merge them into a single sorted array without using extra space.",
+                                    listOf("")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
                         Example:  
-                        **Input:** `arr1 = [1, 3, 5]`, `arr2 = [2, 4, 6]`  
-                        **Output:** `[1, 2, 3, 4, 5, 6]`  
+                        Input: arr1 = [1, 3, 5], arr2 = [2, 4, 6] 
+                        Output: [1, 2, 3, 4, 5, 6]' 
                         """.trimIndent(),
-                                    listOf("example", "input", "output")
+                                    listOf("")
                                 )
                             )
                         ),
@@ -283,46 +290,53 @@ fun DSAExpertCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Step 1: Understand the Problem**  
-                        - Input: Two sorted arrays `arr1` and `arr2`.  
-                        - Output: A single merged sorted array.  
-                        - Constraint: Merge without using extra space.  
+                        Step 1: Understand the Problem
+                        Input: Two sorted arrays 'arr1' and 'arr2'.  
+                        Output: A single merged sorted array.  
+                        Constraint: Merge without using extra space.  
                         """.trimIndent(),
-                                    listOf("input", "output", "constraint")
+                                    listOf("Step 1: Understand the Problem")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Step 2: Plan the Approach (Two-Pointer Technique)**  
-                        - Use two pointers, one for each array.  
-                        - Compare the elements at the pointers.  
-                        - Append the smaller element to the result and move the corresponding pointer forward.  
-                        - If one array is exhausted, append the remaining elements from the other array.  
+                        Step 2: Plan the Approach (Two-Pointer Technique)
+                        Use two pointers, one for each array.  
+                        Compare the elements at the pointers.  
+                        Append the smaller element to the result and move the corresponding pointer forward.  
+                        If one array is exhausted, append the remaining elements from the other array.  
                         """.trimIndent(),
-                                    listOf("two-pointer", "compare", "append")
+                                    listOf("Step 2: Plan the Approach (Two-Pointer Technique)")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Step 3: Edge Cases**  
-                        - One or both arrays are empty.  
-                        - Arrays of different lengths.  
-                        - Arrays with duplicate elements.  
+                        Step 3: Edge Cases 
+                        One or both arrays are empty.  
+                        Arrays of different lengths.  
+                        Arrays with duplicate elements.  
                         """.trimIndent(),
-                                    listOf("edge cases", "duplicates", "empty arrays")
+                                    listOf("Step 3: Edge Cases ")
                                 )
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
                     ),
 
-                    // Optimized C++ Code Solution
+                    // Optimized Code Solution
                     LessonContent(
                         id = DSAExpertStageIds.lesson3_subs[2],
-                        title = "Optimized C++ Code Solution",
+                        title = "Code Solution",
                         contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText("""
+                Below is the C++ code for merging two sorted arrays into a single sorted array. This approach uses two pointers to efficiently compare elements from both arrays, ensuring a linear time complexity of O(n1 + n2). It outputs the merged array directly.
+                """.trimIndent(),
+                                    listOf("")
+                                )
+                            ),
                             ContentBlock.Code(
                                 """
                     #include <iostream>
@@ -371,15 +385,15 @@ fun DSAExpertCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        Well done on mastering the **Merge Two Sorted Arrays** problem! 🎉  
+                        Well done on mastering the Merge Two Sorted Arrays problem! 🎉  
 
                         Why this matters:  
-                        - **Two-Pointer Technique:** You’ve learned a fundamental approach for efficient merging.  
-                        - **Memory Optimization:** Practicing solutions that avoid extra space is a critical skill for advanced problem-solving.  
+                        Two-Pointer Technique: You’ve learned a fundamental approach for efficient merging.  
+                        Memory Optimization: Practicing solutions that avoid extra space is a critical skill for advanced problem-solving.  
 
                         Keep pushing yourself to solve more challenging problems. Each step brings you closer to becoming a DSA expert! 🚀  
                         """.trimIndent(),
-                                    listOf("two-pointer", "problem-solving", "confidence")
+                                    listOf("")
                                 )
                             )
                         ),
@@ -393,7 +407,7 @@ fun DSAExpertCourse(): Stage {
             // lesson 4
             Lesson(
                 id = DSAExpertStageIds.lesson4,
-                title = "Mastering Logic Building with DSA - Middle of Linked List",
+                title = "Middle of Linked List",
                 description = "Learn to solve problems step-by-step with DSA techniques using C++. This lesson focuses on finding the middle node of a singly linked list using the fast and slow pointer approach.",
                 lessonContents = listOf(
                     // Problem Statement
@@ -411,8 +425,8 @@ fun DSAExpertCourse(): Stage {
                                 createAnnotatedText(
                                     """
                         Example:  
-                        **Input:** `1 -> 2 -> 3 -> 4 -> 5`  
-                        **Output:** `3`  
+                        Input: '1 -> 2 -> 3 -> 4 -> 5'  
+                        Output: '3'  
                         """.trimIndent(),
                                     listOf("example", "input", "output")
                                 )
@@ -430,34 +444,34 @@ fun DSAExpertCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Step 1: Understand the Problem**  
-                        - Input: A singly linked list.  
-                        - Output: The middle node of the list.  
-                        - Note: If there are two middle nodes, return the second one.  
+                        Step 1: Understand the Problem 
+                        Input: A singly linked list.  
+                        Output: The middle node of the list.  
+                        Note: If there are two middle nodes, return the second one.  
                         """.trimIndent(),
-                                    listOf("input", "output", "middle node")
+                                    listOf("Step 1: Understand the Problem")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Step 2: Plan the Approach (Fast and Slow Pointer Technique)**  
-                        - Initialize two pointers: `slow` and `fast`, both starting at the head of the linked list.  
-                        - Move the `fast` pointer two steps at a time and the `slow` pointer one step at a time.  
-                        - When the `fast` pointer reaches the end of the list, the `slow` pointer will be at the middle.  
+                        Step 2: Plan the Approach (Fast and Slow Pointer Technique) 
+                        Initialize two pointers: 'slow' and 'fast', both starting at the head of the linked list.  
+                        Move the 'fast' pointer two steps at a time and the 'slow' pointer one step at a time.  
+                        When the 'fast' pointer reaches the end of the list, the 'slow' pointer will be at the middle.  
                         """.trimIndent(),
-                                    listOf("fast pointer", "slow pointer", "linked list")
+                                    listOf("Step 2: Plan the Approach (Fast and Slow Pointer Technique) ")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Step 3: Edge Cases**  
-                        - List has only one node.  
-                        - List has two nodes (return the second one).  
-                        - Handle odd and even length lists.  
+                        Step 3: Edge Cases
+                        List has only one node.  
+                        List has two nodes (return the second one).  
+                        Handle odd and even length lists.  
                         """.trimIndent(),
-                                    listOf("edge cases", "linked list length")
+                                    listOf("Step 3: Edge Cases")
                                 )
                             )
                         ),
@@ -468,8 +482,15 @@ fun DSAExpertCourse(): Stage {
                     // Optimized C++ Code Solution
                     LessonContent(
                         id = DSAExpertStageIds.lesson4_subs[2],
-                        title = "Optimized C++ Code Solution",
+                        title = "Code Solution",
                         contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText("""
+                This C++ code demonstrates how to find the middle node of a singly linked list using the two-pointer approach. The `slow` pointer advances one step while the `fast` pointer advances two steps, ensuring the `slow` pointer is at the middle when `fast` reaches the end.
+                """.trimIndent(),
+                                    listOf("linked list", "middle node", "two-pointer approach")
+                                )
+                            ),
                             ContentBlock.Code(
                                 """
                     #include <iostream>
@@ -522,11 +543,11 @@ fun DSAExpertCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        Congratulations on solving the **Middle of Linked List** problem! 🎉  
+                        Congratulations on solving the Middle of Linked List problem! 🎉  
 
                         Why this matters:  
-                        - **Pointer Manipulation:** You've mastered a common linked list technique.  
-                        - **Efficiency:** The fast and slow pointer approach ensures an O(n) solution with minimal space usage.  
+                        Pointer Manipulation: You've mastered a common linked list technique.  
+                        Efficiency: The fast and slow pointer approach ensures an O(n) solution with minimal space usage.  
 
                         Keep practicing to enhance your DSA expertise. Tackle more problems to build confidence and mastery over linked lists! 🚀  
                         """.trimIndent(),
@@ -543,7 +564,7 @@ fun DSAExpertCourse(): Stage {
             // lesson 5
             Lesson(
                 id = DSAExpertStageIds.lesson5,
-                title = "Mastering Logic Building with DSA - Valid Parentheses",
+                title = "Valid Parentheses",
                 description = "Learn to solve problems step-by-step with DSA techniques using C++. This lesson focuses on checking the validity of parentheses using a stack-based approach.",
                 lessonContents = listOf(
                     // Problem Statement
@@ -553,25 +574,25 @@ fun DSAExpertCourse(): Stage {
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "You are given a string containing just the characters `(`, `)`, `{`, `}`, `[`, and `]`. Your task is to determine if the input string is valid.",
+                                    "You are given a string containing just the characters '(', ')', '{', '}', '[', and ']'. Your task is to determine if the input string is valid.",
                                     listOf("valid parentheses", "matching brackets")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **A valid string must:**  
-                        - Have matching opening and closing brackets of the same type.  
-                        - Ensure brackets are closed in the correct order.  
+                        A valid string must:  
+                        Have matching opening and closing brackets of the same type.  
+                        Ensure brackets are closed in the correct order.  
 
                         Example:  
-                        **Input:** `\"()[]{}\"`  
-                        **Output:** `true`  
+                        Input: '\"()[]{}\"'  
+                        Output: 'true'  
                         
-                        **Input:** `\"(]\"`  
-                        **Output:** `false`  
+                        Input: '\"(]\"'  
+                        Output: 'false'  
                         """.trimIndent(),
-                                    listOf("example", "input", "output", "valid string")
+                                    listOf("A valid string must:")
                                 )
                             )
                         ),
@@ -587,36 +608,36 @@ fun DSAExpertCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Step 1: Understand the Problem**  
-                        - Input: A string containing parentheses and brackets.  
-                        - Output: A boolean indicating if the string is valid.  
+                        Step 1: Understand the Problem  
+                        Input: A string containing parentheses and brackets.  
+                        Output: A boolean indicating if the string is valid.  
                         """.trimIndent(),
-                                    listOf("input", "output", "valid string")
+                                    listOf("Step 1: Understand the Problem")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Step 2: Plan the Approach (Stack for Matching Brackets)**  
-                        - Use a stack to track opening brackets.  
-                        - For each character in the string:  
-                          - If it’s an opening bracket, push it onto the stack.  
-                          - If it’s a closing bracket, check if the stack is not empty and matches the top element.  
-                          - If not, return `false`.  
-                        - After processing all characters, ensure the stack is empty.  
+                        Step 2: Plan the Approach (Stack for Matching Brackets)
+                        Use a stack to track opening brackets.  
+                        For each character in the string:  
+                        If it’s an opening bracket, push it onto the stack.  
+                        If it’s a closing bracket, check if the stack is not empty and matches the top element.  
+                        If not, return 'false'.  
+                        After processing all characters, ensure the stack is empty.  
                         """.trimIndent(),
-                                    listOf("stack", "matching brackets")
+                                    listOf("Step 2: Plan the Approach (Stack for Matching Brackets)")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Step 3: Edge Cases**  
-                        - Empty string (valid).  
-                        - String with unmatched brackets.  
-                        - String with only opening or only closing brackets.  
+                        Step 3: Edge Cases
+                        Empty string (valid).  
+                        String with unmatched brackets.  
+                        String with only opening or only closing brackets.  
                         """.trimIndent(),
-                                    listOf("edge cases", "unmatched brackets")
+                                    listOf("Step 3: Edge Cases")
                                 )
                             )
                         ),
@@ -627,8 +648,15 @@ fun DSAExpertCourse(): Stage {
                     // Optimized C++ Code Solution
                     LessonContent(
                         id = DSAExpertStageIds.lesson5_subs[2],
-                        title = "Optimized C++ Code Solution",
+                        title = "Code Solution",
                         contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText("""
+                This C++ code checks whether a string containing parentheses, brackets, and braces is valid. It uses a stack to ensure every opening bracket has a corresponding and correctly ordered closing bracket.
+                """.trimIndent(),
+                                    listOf("")
+                                )
+                            ),
                             ContentBlock.Code(
                                 """
                     #include <iostream>
@@ -678,11 +706,11 @@ fun DSAExpertCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        Well done on solving the **Valid Parentheses** problem! 🎉  
+                        Well done on solving the Valid Parentheses problem! 🎉  
 
                         Why this matters:  
-                        - **Stack Mastery:** You've learned how to effectively use a stack for problem-solving.  
-                        - **Real-world Relevance:** Bracket matching is essential in compilers, parsers, and more.  
+                        Stack Mastery: You've learned how to effectively use a stack for problem-solving.  
+                        Real-world Relevance: Bracket matching is essential in compilers, parsers, and more.  
 
                         Keep challenging yourself with problems to enhance your confidence and skill in data structure-based solutions! 🚀  
                         """.trimIndent(),
@@ -700,7 +728,7 @@ fun DSAExpertCourse(): Stage {
             // lesson 6
             Lesson(
                 id = DSAExpertStageIds.lesson6,
-                title = "Mastering Logic Building with DSA - Longest Substring Without Repeating Characters",
+                title = "Longest Substring Without Repeating Characters",
                 description = "Learn to solve problems step-by-step with DSA techniques using C++. This lesson focuses on finding the length of the longest substring without repeating characters using the sliding window technique.",
                 lessonContents = listOf(
                     // Problem Statement
@@ -710,17 +738,17 @@ fun DSAExpertCourse(): Stage {
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "You are given a string `s`. Your task is to find the length of the longest substring that contains no repeating characters.",
+                                    "You are given a string 's'. Your task is to find the length of the longest substring that contains no repeating characters.",
                                     listOf("longest substring", "repeating characters")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Example:**  
-                        **Input:** `abcabcbb`  
-                        **Output:** `3`  
-                        **Explanation:** The answer is `abc`, with a length of `3`.  
+                        Example: 
+                        Input: 'abcabcbb'  
+                        Output: '3'  
+                        Explanation: The answer is 'abc', with a length of '3'.  
                         """.trimIndent(),
                                     listOf("example", "input", "output", "substring")
                                 )
@@ -737,35 +765,35 @@ fun DSAExpertCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Step 1: Understand the Problem**  
-                        - Input: A string `s`.  
-                        - Output: The length of the longest substring with no repeating characters.  
+                        Step 1: Understand the Problem  
+                        Input: A string 's'.  
+                        Output: The length of the longest substring with no repeating characters.  
                         """.trimIndent(),
-                                    listOf("input", "output", "substring")
+                                    listOf("Step 1: Understand the Problem")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Step 2: Plan the Approach (Sliding Window Technique)**  
-                        - Use two pointers, `start` and `end`, to define the current window in the string.  
-                        - Use a set or map to track the characters in the current window.  
-                        - Expand the window by moving the `end` pointer and check for duplicates:  
-                          - If a duplicate exists, shrink the window from the `start` until it's valid.  
-                          - Keep track of the maximum length.  
+                        Step 2: Plan the Approach (Sliding Window Technique) 
+                        Use two pointers, 'start' and 'end', to define the current window in the string.  
+                        Use a set or map to track the characters in the current window.  
+                        Expand the window by moving the 'end' pointer and check for duplicates:  
+                          If a duplicate exists, shrink the window from the 'start' until it's valid.  
+                          Keep track of the maximum length.  
                         """.trimIndent(),
-                                    listOf("sliding window", "two pointers", "substring")
+                                    listOf("Step 2: Plan the Approach (Sliding Window Technique)")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Step 3: Edge Cases**  
-                        - Empty string (output is `0`).  
-                        - String with all unique characters.  
-                        - String with all repeating characters.  
+                        Step 3: Edge Cases
+                        Empty string (output is '0').  
+                        String with all unique characters.  
+                        String with all repeating characters.  
                         """.trimIndent(),
-                                    listOf("edge cases", "empty string", "unique characters")
+                                    listOf("Step 3: Edge Cases")
                                 )
                             )
                         ),
@@ -776,8 +804,16 @@ fun DSAExpertCourse(): Stage {
                     // Optimized C++ Code Solution
                     LessonContent(
                         id = DSAExpertStageIds.lesson6_subs[2],
-                        title = "Optimized C++ Code Solution",
+                        title = "Code Solution",
                         contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                This C++ code finds the length of the longest substring without repeating characters using a sliding window and an unordered set. It efficiently tracks characters and adjusts the window dynamically.
+                """.trimIndent(),
+                                    listOf("sliding window", "longest substring", "unordered set")
+                                )
+                            ),
                             ContentBlock.Code(
                                 """
                     #include <iostream>
@@ -823,11 +859,11 @@ fun DSAExpertCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        Congratulations on solving the **Longest Substring Without Repeating Characters** problem! 🎉  
+                        Congratulations on solving the Longest Substring Without Repeating Characters problem! 🎉  
 
                         Why this matters:  
-                        - **Sliding Window Mastery:** You've mastered an efficient approach for substring problems.  
-                        - **Real-world Applications:** This technique is widely used in string parsing and text processing tasks.  
+                        Sliding Window Mastery: You've mastered an efficient approach for substring problems.  
+                        Real-world Applications: This technique is widely used in string parsing and text processing tasks.  
 
                         Keep practicing and challenge yourself with more string manipulation problems to sharpen your problem-solving skills! 🚀  
                         """.trimIndent(),
@@ -849,7 +885,7 @@ fun DSAExpertCourse(): Stage {
             // lesson 7
             Lesson(
                 id = DSAExpertStageIds.lesson7,
-                title = "Mastering Logic Building with DSA - Word Ladder",
+                title = "Word Ladder",
                 description = "Learn to solve problems step-by-step with DSA techniques using C++. This lesson focuses on finding the shortest transformation sequence from the begin word to the end word using the graph BFS approach.",
                 lessonContents = listOf(
                     // Problem Statement
@@ -860,19 +896,19 @@ fun DSAExpertCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        You are given two words, `beginWord` and `endWord`, and a dictionary. You need to find the shortest transformation sequence from `beginWord` to `endWord`, such that each transformed word must exist in the dictionary.  
+                        You are given two words, 'beginWord' and 'endWord', and a dictionary. You need to find the shortest transformation sequence from 'beginWord' to 'endWord', such that each transformed word must exist in the dictionary.  
                         Only one letter can be changed at a time, and each transformed word must be a valid word in the dictionary.
-                        """,
+                        """.trimIndent(),
                                     listOf("word ladder", "transformation", "dictionary")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Example:**  
-                        **Input:** `beginWord = "hit"`, `endWord = "cog"`, `dictionary = ["hot", "dot", "dog", "lot", "log", "cog"]`  
-                        **Output:** `5`  
-                        **Explanation:** The shortest transformation sequence is: `hit -> hot -> dot -> dog -> cog`.  
+                        Example:  
+                        Input: 'beginWord = "hit"', 'endWord = "cog"', 'dictionary = ["hot", "dot", "dog", "lot", "log", "cog"]'  
+                        Output: '5'  
+                        Explanation: The shortest transformation sequence is: 'hit -> hot -> dot -> dog -> cog'.  
                         """.trimIndent(),
                                     listOf("example", "input", "output", "transformation sequence")
                                 )
@@ -890,35 +926,35 @@ fun DSAExpertCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Step 1: Understand the Problem**  
-                        - Input: A `beginWord`, an `endWord`, and a dictionary.  
-                        - Output: The length of the shortest transformation sequence from `beginWord` to `endWord`.  
+                        Step 1: Understand the Problem 
+                        Input: A 'beginWord', an 'endWord', and a dictionary.  
+                        Output: The length of the shortest transformation sequence from 'beginWord' to 'endWord'.  
                         """.trimIndent(),
-                                    listOf("input", "output", "transformation sequence")
+                                    listOf("Step 1: Understand the Problem")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Step 2: Plan the Approach (Graph BFS)**  
-                        - Treat each word as a node in a graph and each valid transformation as an edge.  
-                        - Perform a Breadth-First Search (BFS) starting from `beginWord`.  
-                        - For each word, try to change one letter at a time and check if the new word exists in the dictionary.  
-                        - Keep track of visited words to avoid cycles and unnecessary reprocessing.  
-                        - The BFS guarantees the shortest path to reach `endWord`.
+                        Step 2: Plan the Approach (Graph BFS)
+                        Treat each word as a node in a graph and each valid transformation as an edge.  
+                        Perform a Breadth-First Search (BFS) starting from 'beginWord'.  
+                        For each word, try to change one letter at a time and check if the new word exists in the dictionary.  
+                        Keep track of visited words to avoid cycles and unnecessary reprocessing.  
+                        The BFS guarantees the shortest path to reach 'endWord'.
                         """.trimIndent(),
-                                    listOf("BFS", "graph", "word transformation")
+                                    listOf("Step 2: Plan the Approach (Graph BFS)")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Step 3: Edge Cases**  
-                        - If `endWord` is not in the dictionary, return `0`.  
-                        - If `beginWord` is the same as `endWord`, the result is `1` (no transformation needed).  
-                        - If there are no valid transformations, return `0`.  
+                        Step 3: Edge Cases 
+                        If 'endWord' is not in the dictionary, return '0'.  
+                        If 'beginWord' is the same as 'endWord', the result is '1' (no transformation needed).  
+                        If there are no valid transformations, return '0'.  
                         """.trimIndent(),
-                                    listOf("edge cases", "no transformations", "dictionary")
+                                    listOf("Step 3: Edge Cases ")
                                 )
                             )
                         ),
@@ -929,8 +965,16 @@ fun DSAExpertCourse(): Stage {
                     // Optimized C++ Code Solution
                     LessonContent(
                         id = DSAExpertStageIds.lesson7_subs[2],
-                        title = "Optimized C++ Code Solution",
+                        title = "Code Solution",
                         contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                This C++ code solves the Word Ladder problem using BFS. It calculates the shortest transformation sequence length between two words by traversing through valid intermediate words in the dictionary.
+                """.trimIndent(),
+                                    listOf("Word Ladder", "BFS", "shortest transformation sequence")
+                                )
+                            ),
                             ContentBlock.Code(
                                 """
                     #include <iostream>
@@ -991,11 +1035,11 @@ fun DSAExpertCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        Congratulations on solving the **Word Ladder** problem! 🎉  
+                        Congratulations on solving the Word Ladder problem! 🎉  
 
                         Why this matters:  
-                        - **Graph Algorithms Mastery:** You've learned how to apply BFS to solve graph traversal problems.  
-                        - **Real-world Relevance:** Word ladder transformations are an important concept in natural language processing and word games.  
+                        Graph Algorithms Mastery: You've learned how to apply BFS to solve graph traversal problems.  
+                        Real-world Relevance: Word ladder transformations are an important concept in natural language processing and word games.  
 
                         Keep practicing and challenge yourself with more graph-related problems to sharpen your problem-solving skills! 🚀  
                         """.trimIndent(),
@@ -1013,7 +1057,7 @@ fun DSAExpertCourse(): Stage {
             // lesson 8
             Lesson(
                 id = DSAExpertStageIds.lesson8,
-                title = "Mastering Backtracking with DSA - N-Queens Problem",
+                title = "N-Queens Problem",
                 description = "Learn to solve problems step-by-step with DSA techniques using C++. This lesson focuses on solving the N-Queens problem using the backtracking approach.",
                 lessonContents = listOf(
                     // Problem Statement
@@ -1024,18 +1068,18 @@ fun DSAExpertCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        You are given an `N x N` chessboard and must place `N` queens on the board such that no two queens threaten each other.  
+                        You are given an 'N x N' chessboard and must place 'N' queens on the board such that no two queens threaten each other.  
                         A queen can attack another queen if they are placed on the same row, column, or diagonal.
-                        """,
+                        """.trimIndent(),
                                     listOf("N-Queens", "chessboard", "backtracking")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Example:**  
-                        **Input:** `N = 4`  
-                        **Output:**  
+                        Example:  
+                        Input: 'N = 4'  
+                        Output:  
                         [
                           [".Q..",  // Solution 1
                            "...Q",
@@ -1046,7 +1090,7 @@ fun DSAExpertCourse(): Stage {
                            "...Q",
                            ".Q.."]
                         ]  
-                        **Explanation:** There are two distinct solutions to place 4 queens on a 4x4 board where no two queens threaten each other.  
+                        Explanation: There are two distinct solutions to place 4 queens on a 4x4 board where no two queens threaten each other.  
                         """.trimIndent(),
                                     listOf("example", "input", "output", "solution")
                                 )
@@ -1064,37 +1108,37 @@ fun DSAExpertCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Step 1: Understand the Problem**  
-                        - Input: An integer `N` representing the size of the chessboard and the number of queens.  
-                        - Output: All possible solutions where `N` queens can be placed on the board such that no two queens threaten each other.  
+                        Step 1: Understand the Problem  
+                        Input: An integer 'N' representing the size of the chessboard and the number of queens.  
+                        Output: All possible solutions where 'N' queens can be placed on the board such that no two queens threaten each other.  
                         """.trimIndent(),
-                                    listOf("input", "output", "chessboard")
+                                    listOf("Step 1: Understand the Problem")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Step 2: Plan the Approach (Backtracking)**  
-                        - The backtracking approach will help generate all possible board configurations and prune invalid ones.  
-                        - We can use three arrays to track threatened columns and diagonals:  
-                          - `cols`: Tracks if a column is under attack.  
-                          - `diag1`: Tracks if a diagonal (top-left to bottom-right) is under attack.  
-                          - `diag2`: Tracks if a diagonal (top-right to bottom-left) is under attack.  
-                        - For each row, try placing a queen in each column and check if the current position is valid.  
-                        - Recursively place queens on the next row and backtrack if a solution is not found.  
+                        Step 2: Plan the Approach (Backtracking)  
+                        The backtracking approach will help generate all possible board configurations and prune invalid ones.  
+                        We can use three arrays to track threatened columns and diagonals:  
+                        'cols': Tracks if a column is under attack.  
+                        'diag1': Tracks if a diagonal (top-left to bottom-right) is under attack.  
+                        'diag2': Tracks if a diagonal (top-right to bottom-left) is under attack.  
+                        For each row, try placing a queen in each column and check if the current position is valid.  
+                        Recursively place queens on the next row and backtrack if a solution is not found.  
                         """.trimIndent(),
-                                    listOf("backtracking", "diagonals", "columns")
+                                    listOf("Step 2: Plan the Approach (Backtracking)")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Step 3: Edge Cases**  
-                        - If `N = 1`, the solution is a single queen on a 1x1 board.  
-                        - If `N = 2` or `N = 3`, there is no solution because queens cannot be placed without threatening each other.  
-                        - For larger values of `N`, there may be multiple solutions.  
+                        Step 3: Edge Cases  
+                        If 'N = 1', the solution is a single queen on a 1x1 board.  
+                        If 'N = 2' or 'N = 3', there is no solution because queens cannot be placed without threatening each other.  
+                        For larger values of 'N', there may be multiple solutions.  
                         """.trimIndent(),
-                                    listOf("edge cases", "N=1", "no solution")
+                                    listOf("Step 3: Edge Cases")
                                 )
                             )
                         ),
@@ -1105,8 +1149,16 @@ fun DSAExpertCourse(): Stage {
                     // Optimized C++ Code Solution
                     LessonContent(
                         id = DSAExpertStageIds.lesson8_subs[2],
-                        title = "Optimized C++ Code Solution",
+                        title = "Code Solution",
                         contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                This C++ code provides a backtracking solution for the N-Queens problem. It systematically places queens on the board while avoiding conflicts to find all valid configurations.
+                """.trimIndent(),
+                                    listOf("N-Queens", "backtracking", "valid configurations")
+                                )
+                            ),
                             ContentBlock.Code(
                                 """
                     #include <iostream>
@@ -1160,11 +1212,11 @@ fun DSAExpertCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        Congratulations on solving the **N-Queens** problem! 🎉  
+                        Congratulations on solving the N-Queens problem! 🎉  
 
                         Why this matters:  
-                        - **Backtracking Mastery:** You've learned how to approach complex constraint satisfaction problems using backtracking.  
-                        - **Real-world Relevance:** N-Queens is a classic problem that helps you understand optimization techniques and constraint handling, commonly used in AI and game theory.  
+                        Backtracking Mastery: You've learned how to approach complex constraint satisfaction problems using backtracking.  
+                        Real-world Relevance: N-Queens is a classic problem that helps you understand optimization techniques and constraint handling, commonly used in AI and game theory.  
 
                         Keep practicing and challenge yourself with more backtracking problems to sharpen your problem-solving skills! 🚀  
                         """.trimIndent(),
@@ -1188,18 +1240,18 @@ fun DSAExpertCourse(): Stage {
                     // Problem Statement
                     LessonContent(
                         id = DSAExpertStageIds.lesson9_subs[0],
-                        title = "Problem Statement - Kth Smallest Element in a BST",
+                        title = "Kth Smallest Element in a BST",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        You are given a Binary Search Tree (BST) and a positive integer `k`. Your task is to find the `k`th smallest element in the BST.
+                        You are given a Binary Search Tree (BST) and a positive integer 'k'. Your task is to find the 'k'th smallest element in the BST.
                         
-                        **Example:**  
-                        **Input:**  
+                        Example:  
+                        Input:  
                         BST = [3, 1, 4, null, 2], k = 1  
-                        **Output:** 1  
-                        **Explanation:** The inorder traversal of the BST is [1, 2, 3, 4], so the 1st smallest element is `1`.  
+                        Output: 1  
+                        Explanation: The inorder traversal of the BST is [1, 2, 3, 4], so the 1st smallest element is '1'.  
                         """.trimIndent(),
                                     listOf("BST", "kth smallest", "inorder traversal", "tree traversal")
                                 )
@@ -1217,30 +1269,40 @@ fun DSAExpertCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Step 1: Understand the Problem**  
-                        - Input: A Binary Search Tree and an integer `k` which is the position of the smallest element to find.
-                        - Output: The `k`th smallest element in the BST, which can be found by performing an inorder traversal.
-                        
-                        **Step 2: Approach**  
-                        - In a BST, the elements are arranged such that the left subtree of a node contains smaller elements and the right subtree contains larger elements. This makes inorder traversal naturally sorted.
-                        - Perform an inorder traversal to visit each node in ascending order and count nodes until you reach the `k`th element.
-                        
-                        **Step 3: Approach in Detail**  
-                        - Initialize a counter `count` to track how many nodes have been visited.
-                        - Use a recursive approach to traverse the tree. On visiting each node, increment the counter.
-                        - Once the counter reaches `k`, return the current node’s value as the `k`th smallest element.
-                        """.trimIndent(),
-                                    listOf("inorder traversal", "recursive", "binary search tree")
+                        Step 1: Understand the Problem
+                        Input: A Binary Search Tree and an integer 'k' which is the position of the smallest element to find.
+                        Output: The 'k'th smallest element in the BST, which can be found by performing an inorder traversal.""".trimIndent(),
+                                    listOf("Step 1: Understand the Problem")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Step 4: Edge Cases**  
-                        - If `k` is larger than the total number of nodes in the tree, return an error or handle it appropriately.
-                        - An empty BST should be handled as an invalid case.
+                        Step 2: Approach  
+                        In a BST, the elements are arranged such that the left subtree of a node contains smaller elements and the right subtree contains larger elements. This makes inorder traversal naturally sorted.
+                        Perform an inorder traversal to visit each node in ascending order and count nodes until you reach the 'k'th element.""".trimIndent(),
+                                    listOf("Step 2: Approach")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                        Step 3: Approach in Detail  
+                        Initialize a counter 'count' to track how many nodes have been visited.
+                        Use a recursive approach to traverse the tree. On visiting each node, increment the counter.
+                        Once the counter reaches 'k', return the current node’s value as the 'k'th smallest element.
                         """.trimIndent(),
-                                    listOf("edge cases", "error handling", "invalid input")
+                                    listOf("Step 3: Approach in Detail")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                        Step 4: Edge Cases  
+                        If 'k' is larger than the total number of nodes in the tree, return an error or handle it appropriately.
+                        An empty BST should be handled as an invalid case.
+                        """.trimIndent(),
+                                    listOf("Step 4: Edge Cases")
                                 )
                             )
                         ),
@@ -1251,8 +1313,16 @@ fun DSAExpertCourse(): Stage {
                     // Optimized C++ Code Solution
                     LessonContent(
                         id = DSAExpertStageIds.lesson9_subs[2],
-                        title = "Optimized C++ Code Solution",
+                        title = "Code Solution",
                         contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                This C++ code implements an efficient solution to find the kth smallest element in a Binary Search Tree (BST) using an iterative in-order traversal with a stack.
+                """.trimIndent(),
+                                    listOf("kth smallest", "Binary Search Tree", "in-order traversal", "stack")
+                                )
+                            ),
                             ContentBlock.Code(
                                 """
                     #include <iostream>
@@ -1317,11 +1387,11 @@ fun DSAExpertCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        Congratulations on solving the **Kth Smallest Element in a BST** problem! 🎉  
+                        Congratulations on solving the Kth Smallest Element in a BST problem! 🎉  
 
                         Why this matters:  
-                        - **Efficient Searching:** You now know how to efficiently search for the `k`th smallest element in a binary search tree using inorder traversal.  
-                        - **Real-world Applications:** This technique is widely used in problems involving sorted data structures and searching, such as finding the median or determining range queries.  
+                        Efficient Searching: You now know how to efficiently search for the 'k'th smallest element in a binary search tree using inorder traversal.  
+                        Real-world Applications: This technique is widely used in problems involving sorted data structures and searching, such as finding the median or determining range queries.  
 
                         Keep practicing and challenge yourself with more tree traversal and BST problems to enhance your problem-solving skills! 🚀  
                         """.trimIndent(),
@@ -1352,10 +1422,10 @@ fun DSAExpertCourse(): Stage {
                                     """
                         You are given an array of integers. Your task is to find the maximum subarray sum you can achieve by deleting at most one element.
                         
-                        **Example:**  
-                        **Input:** `arr = [1, -2, 0, 3]`  
-                        **Output:** `4`  
-                        **Explanation:** The maximum sum after deleting one element is achieved by deleting `-2`, resulting in the subarray `[1, 0, 3]` which sums to `4`.
+                        Example:  
+                        Input: 'arr = [1, -2, 0, 3]'  
+                        Output: '4'  
+                        Explanation: The maximum sum after deleting one element is achieved by deleting '-2', resulting in the subarray '[1, 0, 3]' which sums to '4'.
                         """.trimIndent(),
                                     listOf("maximum subarray", "deletion", "dynamic programming")
                                 )
@@ -1371,35 +1441,44 @@ fun DSAExpertCourse(): Stage {
                         title = "Manual Walkthrough",
                         contentBlocks = listOf(
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    """
-                        **Step 1: Understand the Problem**  
-                        - Input: An array of integers where we need to find the maximum subarray sum after deleting at most one element.  
-                        - Output: The maximum sum achievable with one deletion or no deletion at all.  
-                        
-                        **Step 2: Approach (Dynamic Programming)**  
-                        - Let `dp[i]` represent the maximum subarray sum ending at index `i` without any deletions.  
-                        - Let `dp1[i]` represent the maximum subarray sum ending at index `i` after deleting one element.  
-                        - For each element in the array, compute the maximum sum that can be achieved by either deleting the current element or keeping it.
-                        - We update the values of `dp` and `dp1` for every element in the array.
-                        - The final answer is the maximum of the last elements of `dp` and `dp1`.
-                        
-                        **Step 3: Approach in Detail**  
-                        - For each index `i`, calculate `dp[i]` as the maximum of `arr[i]` and `arr[i] + dp[i-1]` (the maximum sum ending at `i` without deletion).  
-                        - Calculate `dp1[i]` as the maximum of `arr[i]`, `arr[i] + dp[i-1]`, and `arr[i] + dp1[i-1]` (the maximum sum if we delete the current element).
-                        - Return the maximum of `dp[n-1]` and `dp1[n-1]`, where `n` is the length of the array.
+                                createAnnotatedText("""
+                        Step 1: Understand the Problem  
+                        Input: An array of integers where we need to find the maximum subarray sum after deleting at most one element.  
+                        Output: The maximum sum achievable with one deletion or no deletion at all.  
                         """.trimIndent(),
-                                    listOf("dynamic programming", "subarray sum", "deletion")
+                                    listOf("Step 1: Understand the Problem ")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText("""
+                        Step 2: Approach (Dynamic Programming)  
+                        Let 'dp[i]' represent the maximum subarray sum ending at index 'i' without any deletions.  
+                        Let 'dp1[i]' represent the maximum subarray sum ending at index 'i' after deleting one element.  
+                        For each element in the array, compute the maximum sum that can be achieved by either deleting the current element or keeping it.
+                        We update the values of 'dp' and 'dp1' for every element in the array.
+                        The final answer is the maximum of the last elements of 'dp' and 'dp1'.
+                        """.trimIndent(),
+                                    listOf("Step 2: Approach (Dynamic Programming)")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText("""
+                        Step 3: Approach in Detail  
+                        For each index 'i', calculate 'dp[i]' as the maximum of 'arr[i]' and 'arr[i] + dp[i-1]' (the maximum sum ending at 'i' without deletion).  
+                        Calculate 'dp1[i]' as the maximum of 'arr[i]', 'arr[i] + dp[i-1]', and 'arr[i] + dp1[i-1]' (the maximum sum if we delete the current element).
+                        Return the maximum of 'dp[n-1]' and 'dp1[n-1]', where 'n' is the length of the array.
+                        """.trimIndent(),
+                                    listOf("Step 3: Approach in Detail")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Step 4: Edge Cases**  
-                        - If the array has only one element, the result is the element itself.  
-                        - If all elements are negative, the maximum subarray sum might be the largest single element, even with deletion.
+                        Step 4: Edge Cases  
+                        If the array has only one element, the result is the element itself.  
+                        If all elements are negative, the maximum subarray sum might be the largest single element, even with deletion.
                         """.trimIndent(),
-                                    listOf("edge cases", "negative elements", "single element")
+                                    listOf("Step 4: Edge Cases")
                                 )
                             )
                         ),
@@ -1410,8 +1489,15 @@ fun DSAExpertCourse(): Stage {
                     // Optimized C++ Code Solution
                     LessonContent(
                         id = DSAExpertStageIds.lesson10_subs[2],
-                        title = "Optimized C++ Code Solution",
+                        title = "Code Solution",
                         contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText("""
+                This C++ solution calculates the maximum subarray sum, allowing at most one deletion, using dynamic programming to efficiently handle overlapping subproblems.
+                """.trimIndent(),
+                                    listOf("maximum subarray sum", "dynamic programming", "one deletion")
+                                )
+                            ),
                             ContentBlock.Code(
                                 """
                     #include <iostream>
@@ -1452,11 +1538,11 @@ fun DSAExpertCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        Congratulations on solving the **Maximum Subarray Sum with One Deletion** problem! 🎉  
+                        Congratulations on solving the Maximum Subarray Sum with One Deletion problem! 🎉  
 
                         Why this matters:  
-                        - **Dynamic Programming Mastery:** You've learned how to use dynamic programming to solve complex problems involving subarrays and deletions.  
-                        - **Real-world Applications:** This technique is widely used in optimization problems, such as finding maximum subsequences with constraints or handling missing data in time series.
+                        Dynamic Programming Mastery: You've learned how to use dynamic programming to solve complex problems involving subarrays and deletions.  
+                        Real-world Applications: This technique is widely used in optimization problems, such as finding maximum subsequences with constraints or handling missing data in time series.
 
                         Keep practicing and challenge yourself with more dynamic programming problems to improve your problem-solving skills! 🚀
                         """.trimIndent(),
@@ -1483,19 +1569,18 @@ fun DSAExpertCourse(): Stage {
                         title = "Problem Statement - Traveling Salesman Problem (TSP)",
                         contentBlocks = listOf(
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    """
+                                createAnnotatedText("""
                         You are given a list of cities and the distances between each pair. Your task is to find the shortest possible route that visits each city exactly once and returns to the starting city.
 
-                        **Example:**  
-                        **Input:** Distance matrix:
+                        Example:  
+                        Input: Distance matrix:
                         [[0, 10, 15, 20],
                          [10, 0, 35, 25],
                          [15, 35, 0, 30],
                          [20, 25, 30, 0]]
 
-                        **Output:** 80  
-                        **Explanation:** The shortest possible route is [0 -> 1 -> 3 -> 2 -> 0] with a total distance of 80.
+                        Output: 80  
+                        Explanation: The shortest possible route is [0 -> 1 -> 3 -> 2 -> 0] with a total distance of 80.
                         """.trimIndent(),
                                     listOf("traveling salesman", "bitmasking", "dynamic programming", "route optimization")
                                 )
@@ -1511,34 +1596,46 @@ fun DSAExpertCourse(): Stage {
                         title = "Manual Walkthrough",
                         contentBlocks = listOf(
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    """
-                        **Step 1: Understand the Problem**  
-                        - Input: A distance matrix representing distances between cities.
-                        - Output: The shortest possible route that visits every city once and returns to the starting city.
+                                createAnnotatedText("""
+                        Step 1: Understand the Problem  
+                        Input: A distance matrix representing distances between cities.
+                        Output: The shortest possible route that visits every city once and returns to the starting city.
                         
-                        **Step 2: Approach (Dynamic Programming with Bitmasking)**  
-                        - Use dynamic programming (DP) to keep track of the shortest path to each city with a bitmask representing the set of visited cities.
-                        - Let `dp[mask][i]` represent the shortest path to visit all cities in the `mask` set, ending at city `i`.
-                        - Initially, `dp[1][0] = 0`, meaning starting at city 0 with just city 0 visited.
-                        - For each set of cities (bitmask), calculate the shortest path to all unvisited cities, and update the DP table accordingly.
-
-                        **Step 3: Approach in Detail**  
-                        - Iterate over all possible subsets of cities (bitmask) and compute the shortest path by considering each possible next city.
-                        - Use a recursive approach to explore all possible city orders and compute the minimum total distance.
-                        - The final result is the minimum distance to visit all cities and return to the starting city.
                         """.trimIndent(),
-                                    listOf("dynamic programming", "bitmasking", "route optimization", "traveling salesman")
+                                    listOf("Step 1: Understand the Problem")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Step 4: Edge Cases**  
-                        - If the distance matrix contains only one city, the result is trivially 0.
-                        - If the cities are disconnected or unreachable, it’s important to handle such cases by checking for valid connections between cities.
+                        Step 2: Approach (Dynamic Programming with Bitmasking)  
+                        Use dynamic programming (DP) to keep track of the shortest path to each city with a bitmask representing the set of visited cities.
+                        Let 'dp[mask][i]' represent the shortest path to visit all cities in the 'mask' set, ending at city 'i'.
+                        Initially, 'dp[1][0] = 0', meaning starting at city 0 with just city 0 visited.
+                        For each set of cities (bitmask), calculate the shortest path to all unvisited cities, and update the DP table accordingly.
+
                         """.trimIndent(),
-                                    listOf("edge cases", "distance matrix", "disconnected cities")
+                                    listOf("Step 2: Approach (Dynamic Programming with Bitmasking)")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText("""
+                        Step 3: Approach in Detail  
+                        Iterate over all possible subsets of cities (bitmask) and compute the shortest path by considering each possible next city.
+                        Use a recursive approach to explore all possible city orders and compute the minimum total distance.
+                        The final result is the minimum distance to visit all cities and return to the starting city.
+                        """.trimIndent(),
+                                    listOf("Step 3: Approach in Detail")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                        Step 4: Edge Cases  
+                        If the distance matrix contains only one city, the result is trivially 0.
+                        If the cities are disconnected or unreachable, it’s important to handle such cases by checking for valid connections between cities.
+                        """.trimIndent(),
+                                    listOf("Step 4: Edge Cases")
                                 )
                             )
                         ),
@@ -1551,6 +1648,14 @@ fun DSAExpertCourse(): Stage {
                         id = DSAExpertStageIds.lesson11_subs[2],
                         title = "Optimized C++ Code Solution",
                         contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                This solution implements the Traveling Salesman Problem (TSP) using dynamic programming and bitmasking to efficiently find the shortest possible route.
+                """.trimIndent(),
+                                    listOf("Traveling Salesman Problem", "dynamic programming", "bitmasking")
+                                )
+                            ),
                             ContentBlock.Code(
                                 """
                     #include <iostream>
@@ -1607,11 +1712,11 @@ fun DSAExpertCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        Congratulations on solving the **Traveling Salesman Problem (TSP)**! 🎉
+                        Congratulations on solving the Traveling Salesman Problem (TSP)! 🎉
 
                         Why this matters:  
-                        - **Optimization Challenges:** You've learned how to tackle one of the most famous optimization problems using dynamic programming and bitmasking.
-                        - **Real-world Applications:** This problem is widely used in logistics, route planning, and various other fields where optimization and efficiency are crucial.
+                        Optimization Challenges: You've learned how to tackle one of the most famous optimization problems using dynamic programming and bitmasking.
+                        Real-world Applications: This problem is widely used in logistics, route planning, and various other fields where optimization and efficiency are crucial.
 
                         Keep practicing and challenge yourself with more complex graph and DP problems to further enhance your problem-solving skills! 🚀
                         """.trimIndent(),
