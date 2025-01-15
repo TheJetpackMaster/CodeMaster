@@ -543,11 +543,11 @@ fun DSAExpertCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        Congratulations on solving the **Middle of Linked List** problem! 🎉  
+                        Congratulations on solving the Middle of Linked List problem! 🎉  
 
                         Why this matters:  
-                        - **Pointer Manipulation:** You've mastered a common linked list technique.  
-                        - **Efficiency:** The fast and slow pointer approach ensures an O(n) solution with minimal space usage.  
+                        Pointer Manipulation: You've mastered a common linked list technique.  
+                        Efficiency: The fast and slow pointer approach ensures an O(n) solution with minimal space usage.  
 
                         Keep practicing to enhance your DSA expertise. Tackle more problems to build confidence and mastery over linked lists! 🚀  
                         """.trimIndent(),
@@ -564,7 +564,7 @@ fun DSAExpertCourse(): Stage {
             // lesson 5
             Lesson(
                 id = DSAExpertStageIds.lesson5,
-                title = "Mastering Logic Building with DSA - Valid Parentheses",
+                title = "Valid Parentheses",
                 description = "Learn to solve problems step-by-step with DSA techniques using C++. This lesson focuses on checking the validity of parentheses using a stack-based approach.",
                 lessonContents = listOf(
                     // Problem Statement
@@ -581,7 +581,7 @@ fun DSAExpertCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **A valid string must:**  
+                        A valid string must:**  
                         - Have matching opening and closing brackets of the same type.  
                         - Ensure brackets are closed in the correct order.  
 
