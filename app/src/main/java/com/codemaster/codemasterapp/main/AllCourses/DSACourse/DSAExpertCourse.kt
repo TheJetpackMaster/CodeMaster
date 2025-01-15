@@ -162,19 +162,19 @@ fun DSAExpertCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     "1.Understand the Problem:\nInput: Array of integers 'nums' and an integer 'target'.\nOutput: Indices of two numbers in the array that add up to 'target'.",
-                                    listOf("Output:", "Input:")
+                                    listOf("1.Understand the Problem:")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     "2.Plan the Approach:\n Iterate through the array while keeping track of visited numbers using a hash map.\nFor each number, calculate the difference 'target - nums[i]'.\nCheck if the difference is already in the hash map. If yes, return the indices. If no, add the current number to the map.",
-                                    listOf("")
+                                    listOf("2.Plan the Approach:")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     "3.Edge Cases:\nWhat if the array has fewer than two elements?\nWhat if no such pair exists?\nHandle cases with duplicate numbers.",
-                                    listOf("")
+                                    listOf("3.Edge Cases:")
                                 )
                             )
                         ),
@@ -185,8 +185,15 @@ fun DSAExpertCourse(): Stage {
                     // Code Solution
                     LessonContent(
                         id = DSAExpertStageIds.lesson2_subs[2],
-                        title = "C++ Code Solution",
+                        title = "Code Solution",
                         contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText("""
+        Below is the optimized C++ solution for the Two Sum problem. It uses a hash map to achieve O(n) time complexity by storing each element with its index while traversing the array. For every element, its complement (target minus the element) is checked in the hash map. If found, the indices of the pair are returned, making this approach both efficient and straightforward.
+        """.trimIndent(),
+                                    listOf("")
+                                )
+                            ),
                             ContentBlock.Code(
                                 """
                     #include <iostream>
@@ -217,7 +224,7 @@ fun DSAExpertCourse(): Stage {
                         }
                         return 0;
                     }
-                    """
+                    """.trimIndent()
                             )
                         ),
                         type = LessonContentType.NON_INTERACTIVE,
