@@ -1441,35 +1441,44 @@ fun DSAExpertCourse(): Stage {
                         title = "Manual Walkthrough",
                         contentBlocks = listOf(
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    """
+                                createAnnotatedText("""
                         Step 1: Understand the Problem  
-                        - Input: An array of integers where we need to find the maximum subarray sum after deleting at most one element.  
-                        - Output: The maximum sum achievable with one deletion or no deletion at all.  
-                        
-                        **Step 2: Approach (Dynamic Programming)**  
-                        - Let 'dp[i]' represent the maximum subarray sum ending at index 'i' without any deletions.  
-                        - Let 'dp1[i]' represent the maximum subarray sum ending at index 'i' after deleting one element.  
-                        - For each element in the array, compute the maximum sum that can be achieved by either deleting the current element or keeping it.
-                        - We update the values of 'dp' and 'dp1' for every element in the array.
-                        - The final answer is the maximum of the last elements of 'dp' and 'dp1'.
-                        
-                        **Step 3: Approach in Detail**  
-                        - For each index 'i', calculate 'dp[i]' as the maximum of 'arr[i]' and 'arr[i] + dp[i-1]' (the maximum sum ending at 'i' without deletion).  
-                        - Calculate 'dp1[i]' as the maximum of 'arr[i]', 'arr[i] + dp[i-1]', and 'arr[i] + dp1[i-1]' (the maximum sum if we delete the current element).
-                        - Return the maximum of 'dp[n-1]' and 'dp1[n-1]', where 'n' is the length of the array.
+                        Input: An array of integers where we need to find the maximum subarray sum after deleting at most one element.  
+                        Output: The maximum sum achievable with one deletion or no deletion at all.  
                         """.trimIndent(),
-                                    listOf("dynamic programming", "subarray sum", "deletion")
+                                    listOf("Step 1: Understand the Problem ")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText("""
+                        Step 2: Approach (Dynamic Programming)  
+                        Let 'dp[i]' represent the maximum subarray sum ending at index 'i' without any deletions.  
+                        Let 'dp1[i]' represent the maximum subarray sum ending at index 'i' after deleting one element.  
+                        For each element in the array, compute the maximum sum that can be achieved by either deleting the current element or keeping it.
+                        We update the values of 'dp' and 'dp1' for every element in the array.
+                        The final answer is the maximum of the last elements of 'dp' and 'dp1'.
+                        """.trimIndent(),
+                                    listOf("Step 2: Approach (Dynamic Programming)")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText("""
+                        Step 3: Approach in Detail  
+                        For each index 'i', calculate 'dp[i]' as the maximum of 'arr[i]' and 'arr[i] + dp[i-1]' (the maximum sum ending at 'i' without deletion).  
+                        Calculate 'dp1[i]' as the maximum of 'arr[i]', 'arr[i] + dp[i-1]', and 'arr[i] + dp1[i-1]' (the maximum sum if we delete the current element).
+                        Return the maximum of 'dp[n-1]' and 'dp1[n-1]', where 'n' is the length of the array.
+                        """.trimIndent(),
+                                    listOf("Step 3: Approach in Detail")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Step 4: Edge Cases**  
-                        - If the array has only one element, the result is the element itself.  
-                        - If all elements are negative, the maximum subarray sum might be the largest single element, even with deletion.
+                        Step 4: Edge Cases  
+                        If the array has only one element, the result is the element itself.  
+                        If all elements are negative, the maximum subarray sum might be the largest single element, even with deletion.
                         """.trimIndent(),
-                                    listOf("edge cases", "negative elements", "single element")
+                                    listOf("Step 4: Edge Cases")
                                 )
                             )
                         ),
