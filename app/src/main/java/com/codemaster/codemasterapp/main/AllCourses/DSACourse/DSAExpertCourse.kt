@@ -162,13 +162,13 @@ fun DSAExpertCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     "1.Understand the Problem:\nInput: Array of integers 'nums' and an integer 'target'.\nOutput: Indices of two numbers in the array that add up to 'target'.",
-                                    listOf("input", "output", "target")
+                                    listOf("Output:", "Input:")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "2. **Plan the Approach:**\n   - Iterate through the array while keeping track of visited numbers using a hash map.\n   - For each number, calculate the difference 'target - nums[i]'.\n   - Check if the difference is already in the hash map. If yes, return the indices. If no, add the current number to the map.",
-                                    listOf("hash map", "difference", "indices")
+                                    "2.Plan the Approach:\n Iterate through the array while keeping track of visited numbers using a hash map.\nFor each number, calculate the difference 'target - nums[i]'.\nCheck if the difference is already in the hash map. If yes, return the indices. If no, add the current number to the map.",
+                                    listOf("")
                                 )
                             ),
                             ContentBlock.Text(
