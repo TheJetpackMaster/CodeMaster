@@ -927,8 +927,8 @@ fun DSAExpertCourse(): Stage {
                                 createAnnotatedText(
                                     """
                         Step 1: Understand the Problem 
-                        - Input: A 'beginWord', an 'endWord', and a dictionary.  
-                        - Output: The length of the shortest transformation sequence from 'beginWord' to 'endWord'.  
+                        Input: A 'beginWord', an 'endWord', and a dictionary.  
+                        Output: The length of the shortest transformation sequence from 'beginWord' to 'endWord'.  
                         """.trimIndent(),
                                     listOf("Step 1: Understand the Problem")
                                 )
@@ -936,25 +936,25 @@ fun DSAExpertCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Step 2: Plan the Approach (Graph BFS)**  
-                        - Treat each word as a node in a graph and each valid transformation as an edge.  
-                        - Perform a Breadth-First Search (BFS) starting from 'beginWord'.  
-                        - For each word, try to change one letter at a time and check if the new word exists in the dictionary.  
-                        - Keep track of visited words to avoid cycles and unnecessary reprocessing.  
-                        - The BFS guarantees the shortest path to reach 'endWord'.
+                        Step 2: Plan the Approach (Graph BFS)
+                        Treat each word as a node in a graph and each valid transformation as an edge.  
+                        Perform a Breadth-First Search (BFS) starting from 'beginWord'.  
+                        For each word, try to change one letter at a time and check if the new word exists in the dictionary.  
+                        Keep track of visited words to avoid cycles and unnecessary reprocessing.  
+                        The BFS guarantees the shortest path to reach 'endWord'.
                         """.trimIndent(),
-                                    listOf("BFS", "graph", "word transformation")
+                                    listOf("Step 2: Plan the Approach (Graph BFS)")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Step 3: Edge Cases**  
-                        - If 'endWord' is not in the dictionary, return '0'.  
-                        - If 'beginWord' is the same as 'endWord', the result is '1' (no transformation needed).  
-                        - If there are no valid transformations, return '0'.  
+                        Step 3: Edge Cases 
+                        If 'endWord' is not in the dictionary, return '0'.  
+                        If 'beginWord' is the same as 'endWord', the result is '1' (no transformation needed).  
+                        If there are no valid transformations, return '0'.  
                         """.trimIndent(),
-                                    listOf("edge cases", "no transformations", "dictionary")
+                                    listOf("Step 3: Edge Cases ")
                                 )
                             )
                         ),
@@ -965,8 +965,16 @@ fun DSAExpertCourse(): Stage {
                     // Optimized C++ Code Solution
                     LessonContent(
                         id = DSAExpertStageIds.lesson7_subs[2],
-                        title = "Optimized C++ Code Solution",
+                        title = "Code Solution",
                         contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                This C++ code solves the Word Ladder problem using BFS. It calculates the shortest transformation sequence length between two words by traversing through valid intermediate words in the dictionary.
+                """.trimIndent(),
+                                    listOf("Word Ladder", "BFS", "shortest transformation sequence")
+                                )
+                            ),
                             ContentBlock.Code(
                                 """
                     #include <iostream>
@@ -1030,8 +1038,8 @@ fun DSAExpertCourse(): Stage {
                         Congratulations on solving the **Word Ladder** problem! 🎉  
 
                         Why this matters:  
-                        - **Graph Algorithms Mastery:** You've learned how to apply BFS to solve graph traversal problems.  
-                        - **Real-world Relevance:** Word ladder transformations are an important concept in natural language processing and word games.  
+                        Graph Algorithms Mastery: You've learned how to apply BFS to solve graph traversal problems.  
+                        Real-world Relevance: Word ladder transformations are an important concept in natural language processing and word games.  
 
                         Keep practicing and challenge yourself with more graph-related problems to sharpen your problem-solving skills! 🚀  
                         """.trimIndent(),
