@@ -608,11 +608,11 @@ fun DSAExpertCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Step 1: Understand the Problem**  
-                        - Input: A string containing parentheses and brackets.  
-                        - Output: A boolean indicating if the string is valid.  
+                        Step 1: Understand the Problem  
+                        Input: A string containing parentheses and brackets.  
+                        Output: A boolean indicating if the string is valid.  
                         """.trimIndent(),
-                                    listOf("input", "output", "valid string")
+                                    listOf("Step 1: Understand the Problem")
                                 )
                             ),
                             ContentBlock.Text(
