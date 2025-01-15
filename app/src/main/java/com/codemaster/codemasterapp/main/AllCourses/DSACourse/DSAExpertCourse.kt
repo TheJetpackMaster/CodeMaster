@@ -161,7 +161,7 @@ fun DSAExpertCourse(): Stage {
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "1. **Understand the Problem:**\n   - Input: Array of integers 'nums' and an integer 'target'.\n   - Output: Indices of two numbers in the array that add up to 'target'.",
+                                    "1.Understand the Problem:\nInput: Array of integers 'nums' and an integer 'target'.\nOutput: Indices of two numbers in the array that add up to 'target'.",
                                     listOf("input", "output", "target")
                                 )
                             ),
