@@ -765,35 +765,35 @@ fun DSAExpertCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Step 1: Understand the Problem**  
-                        - Input: A string 's'.  
-                        - Output: The length of the longest substring with no repeating characters.  
+                        Step 1: Understand the Problem  
+                        Input: A string 's'.  
+                        Output: The length of the longest substring with no repeating characters.  
                         """.trimIndent(),
-                                    listOf("input", "output", "substring")
+                                    listOf("Step 1: Understand the Problem")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Step 2: Plan the Approach (Sliding Window Technique)**  
-                        - Use two pointers, 'start' and 'end', to define the current window in the string.  
-                        - Use a set or map to track the characters in the current window.  
-                        - Expand the window by moving the 'end' pointer and check for duplicates:  
-                          - If a duplicate exists, shrink the window from the 'start' until it's valid.  
-                          - Keep track of the maximum length.  
+                        Step 2: Plan the Approach (Sliding Window Technique) 
+                        Use two pointers, 'start' and 'end', to define the current window in the string.  
+                        Use a set or map to track the characters in the current window.  
+                        Expand the window by moving the 'end' pointer and check for duplicates:  
+                          If a duplicate exists, shrink the window from the 'start' until it's valid.  
+                          Keep track of the maximum length.  
                         """.trimIndent(),
-                                    listOf("sliding window", "two pointers", "substring")
+                                    listOf("Step 2: Plan the Approach (Sliding Window Technique)")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Step 3: Edge Cases**  
-                        - Empty string (output is '0').  
-                        - String with all unique characters.  
-                        - String with all repeating characters.  
+                        Step 3: Edge Cases
+                        Empty string (output is '0').  
+                        String with all unique characters.  
+                        String with all repeating characters.  
                         """.trimIndent(),
-                                    listOf("edge cases", "empty string", "unique characters")
+                                    listOf("Step 3: Edge Cases")
                                 )
                             )
                         ),
@@ -804,7 +804,7 @@ fun DSAExpertCourse(): Stage {
                     // Optimized C++ Code Solution
                     LessonContent(
                         id = DSAExpertStageIds.lesson6_subs[2],
-                        title = "Optimized C++ Code Solution",
+                        title = "Code Solution",
                         contentBlocks = listOf(
                             ContentBlock.Code(
                                 """
