@@ -581,18 +581,18 @@ fun DSAExpertCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        A valid string must:**  
-                        - Have matching opening and closing brackets of the same type.  
-                        - Ensure brackets are closed in the correct order.  
+                        A valid string must:  
+                        Have matching opening and closing brackets of the same type.  
+                        Ensure brackets are closed in the correct order.  
 
                         Example:  
-                        **Input:** '\"()[]{}\"'  
-                        **Output:** 'true'  
+                        Input: '\"()[]{}\"'  
+                        Output: 'true'  
                         
-                        **Input:** '\"(]\"'  
-                        **Output:** 'false'  
+                        Input: '\"(]\"'  
+                        Output: 'false'  
                         """.trimIndent(),
-                                    listOf("example", "input", "output", "valid string")
+                                    listOf("A valid string must:")
                                 )
                             )
                         ),
