@@ -238,8 +238,8 @@ fun DSAExpertCourse(): Stage {
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Congratulations on solving the Two Sum problem! 🎉\n\nHere’s why this is important:\n- **Foundation for Hashing:** You’ve learned to use hash maps for constant-time lookups.\n- **Real-World Applications:** Similar approaches are used in search engines, databases, and more.\n\nKeep going! Each problem you solve builds confidence and mastery. Tackle the next problem to sharpen your skills further.",
-                                    listOf("hashing", "real-world", "confidence")
+                                    "Congratulations on solving the Two Sum problem! 🎉\n\nHere’s why this is important:\nFoundation for Hashing: You’ve learned to use hash maps for constant-time lookups.\nReal-World Applications: Similar approaches are used in search engines, databases, and more.\n\nKeep going! Each problem you solve builds confidence and mastery. Tackle the next problem to sharpen your skills further.",
+                                    listOf("")
                                 )
                             )
                         ),
