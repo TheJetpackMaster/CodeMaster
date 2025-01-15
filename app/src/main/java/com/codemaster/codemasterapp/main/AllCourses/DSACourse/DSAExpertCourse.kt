@@ -706,7 +706,7 @@ fun DSAExpertCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        Well done on solving the **Valid Parentheses** problem! 🎉  
+                        Well done on solving the Valid Parentheses problem! 🎉  
 
                         Why this matters:  
                         Stack Mastery: You've learned how to effectively use a stack for problem-solving.  
@@ -728,7 +728,7 @@ fun DSAExpertCourse(): Stage {
             // lesson 6
             Lesson(
                 id = DSAExpertStageIds.lesson6,
-                title = "Mastering Logic Building with DSA - Longest Substring Without Repeating Characters",
+                title = "Longest Substring Without Repeating Characters",
                 description = "Learn to solve problems step-by-step with DSA techniques using C++. This lesson focuses on finding the length of the longest substring without repeating characters using the sliding window technique.",
                 lessonContents = listOf(
                     // Problem Statement
@@ -745,10 +745,10 @@ fun DSAExpertCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Example:**  
-                        **Input:** 'abcabcbb'  
-                        **Output:** '3'  
-                        **Explanation:** The answer is 'abc', with a length of '3'.  
+                        Example: 
+                        Input: 'abcabcbb'  
+                        Output: '3'  
+                        Explanation: The answer is 'abc', with a length of '3'.  
                         """.trimIndent(),
                                     listOf("example", "input", "output", "substring")
                                 )
