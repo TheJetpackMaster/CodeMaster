@@ -1489,8 +1489,15 @@ fun DSAExpertCourse(): Stage {
                     // Optimized C++ Code Solution
                     LessonContent(
                         id = DSAExpertStageIds.lesson10_subs[2],
-                        title = "Optimized C++ Code Solution",
+                        title = "Code Solution",
                         contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText("""
+                This C++ solution calculates the maximum subarray sum, allowing at most one deletion, using dynamic programming to efficiently handle overlapping subproblems.
+                """.trimIndent(),
+                                    listOf("maximum subarray sum", "dynamic programming", "one deletion")
+                                )
+                            ),
                             ContentBlock.Code(
                                 """
                     #include <iostream>
@@ -1531,11 +1538,11 @@ fun DSAExpertCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        Congratulations on solving the **Maximum Subarray Sum with One Deletion** problem! 🎉  
+                        Congratulations on solving the Maximum Subarray Sum with One Deletion problem! 🎉  
 
                         Why this matters:  
-                        - **Dynamic Programming Mastery:** You've learned how to use dynamic programming to solve complex problems involving subarrays and deletions.  
-                        - **Real-world Applications:** This technique is widely used in optimization problems, such as finding maximum subsequences with constraints or handling missing data in time series.
+                        Dynamic Programming Mastery: You've learned how to use dynamic programming to solve complex problems involving subarrays and deletions.  
+                        Real-world Applications: This technique is widely used in optimization problems, such as finding maximum subsequences with constraints or handling missing data in time series.
 
                         Keep practicing and challenge yourself with more dynamic programming problems to improve your problem-solving skills! 🚀
                         """.trimIndent(),
