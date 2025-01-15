@@ -1240,18 +1240,18 @@ fun DSAExpertCourse(): Stage {
                     // Problem Statement
                     LessonContent(
                         id = DSAExpertStageIds.lesson9_subs[0],
-                        title = "Problem Statement - Kth Smallest Element in a BST",
+                        title = "Kth Smallest Element in a BST",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
                         You are given a Binary Search Tree (BST) and a positive integer 'k'. Your task is to find the 'k'th smallest element in the BST.
                         
-                        **Example:**  
-                        **Input:**  
+                        Example:  
+                        Input:  
                         BST = [3, 1, 4, null, 2], k = 1  
-                        **Output:** 1  
-                        **Explanation:** The inorder traversal of the BST is [1, 2, 3, 4], so the 1st smallest element is '1'.  
+                        Output: 1  
+                        Explanation: The inorder traversal of the BST is [1, 2, 3, 4], so the 1st smallest element is '1'.  
                         """.trimIndent(),
                                     listOf("BST", "kth smallest", "inorder traversal", "tree traversal")
                                 )
