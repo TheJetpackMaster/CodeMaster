@@ -140,13 +140,13 @@ fun DSAExpertCourse(): Stage {
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Given an array of integers `nums` and an integer `target`, return the indices of the two numbers such that they add up to the target.",
+                                    "Given an array of integers 'nums' and an integer 'target', return the indices of the two numbers such that they add up to the target.",
                                     listOf("array", "target", "indices")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Example:\nInput: `nums = [2, 7, 11, 15], target = 9`\nOutput: `[0, 1]`\nExplanation: Because `nums[0] + nums[1] == 9`.",
+                                    "Example:\nInput: 'nums = [2, 7, 11, 15], target = 9'\nOutput: '[0, 1]'\nExplanation: Because 'nums[0] + nums[1] == 9'.",
                                     listOf("example", "indices")
                                 )
                             )
@@ -161,13 +161,13 @@ fun DSAExpertCourse(): Stage {
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "1. **Understand the Problem:**\n   - Input: Array of integers `nums` and an integer `target`.\n   - Output: Indices of two numbers in the array that add up to `target`.",
+                                    "1. **Understand the Problem:**\n   - Input: Array of integers 'nums' and an integer 'target'.\n   - Output: Indices of two numbers in the array that add up to 'target'.",
                                     listOf("input", "output", "target")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "2. **Plan the Approach:**\n   - Iterate through the array while keeping track of visited numbers using a hash map.\n   - For each number, calculate the difference `target - nums[i]`.\n   - Check if the difference is already in the hash map. If yes, return the indices. If no, add the current number to the map.",
+                                    "2. **Plan the Approach:**\n   - Iterate through the array while keeping track of visited numbers using a hash map.\n   - For each number, calculate the difference 'target - nums[i]'.\n   - Check if the difference is already in the hash map. If yes, return the indices. If no, add the current number to the map.",
                                     listOf("hash map", "difference", "indices")
                                 )
                             ),
@@ -264,8 +264,8 @@ fun DSAExpertCourse(): Stage {
                                 createAnnotatedText(
                                     """
                         Example:  
-                        **Input:** `arr1 = [1, 3, 5]`, `arr2 = [2, 4, 6]`  
-                        **Output:** `[1, 2, 3, 4, 5, 6]`  
+                        **Input:** 'arr1 = [1, 3, 5]', 'arr2 = [2, 4, 6]'  
+                        **Output:** '[1, 2, 3, 4, 5, 6]'  
                         """.trimIndent(),
                                     listOf("example", "input", "output")
                                 )
@@ -284,7 +284,7 @@ fun DSAExpertCourse(): Stage {
                                 createAnnotatedText(
                                     """
                         **Step 1: Understand the Problem**  
-                        - Input: Two sorted arrays `arr1` and `arr2`.  
+                        - Input: Two sorted arrays 'arr1' and 'arr2'.  
                         - Output: A single merged sorted array.  
                         - Constraint: Merge without using extra space.  
                         """.trimIndent(),
@@ -411,8 +411,8 @@ fun DSAExpertCourse(): Stage {
                                 createAnnotatedText(
                                     """
                         Example:  
-                        **Input:** `1 -> 2 -> 3 -> 4 -> 5`  
-                        **Output:** `3`  
+                        **Input:** '1 -> 2 -> 3 -> 4 -> 5'  
+                        **Output:** '3'  
                         """.trimIndent(),
                                     listOf("example", "input", "output")
                                 )
@@ -442,9 +442,9 @@ fun DSAExpertCourse(): Stage {
                                 createAnnotatedText(
                                     """
                         **Step 2: Plan the Approach (Fast and Slow Pointer Technique)**  
-                        - Initialize two pointers: `slow` and `fast`, both starting at the head of the linked list.  
-                        - Move the `fast` pointer two steps at a time and the `slow` pointer one step at a time.  
-                        - When the `fast` pointer reaches the end of the list, the `slow` pointer will be at the middle.  
+                        - Initialize two pointers: 'slow' and 'fast', both starting at the head of the linked list.  
+                        - Move the 'fast' pointer two steps at a time and the 'slow' pointer one step at a time.  
+                        - When the 'fast' pointer reaches the end of the list, the 'slow' pointer will be at the middle.  
                         """.trimIndent(),
                                     listOf("fast pointer", "slow pointer", "linked list")
                                 )
@@ -553,7 +553,7 @@ fun DSAExpertCourse(): Stage {
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "You are given a string containing just the characters `(`, `)`, `{`, `}`, `[`, and `]`. Your task is to determine if the input string is valid.",
+                                    "You are given a string containing just the characters '(', ')', '{', '}', '[', and ']'. Your task is to determine if the input string is valid.",
                                     listOf("valid parentheses", "matching brackets")
                                 )
                             ),
@@ -565,11 +565,11 @@ fun DSAExpertCourse(): Stage {
                         - Ensure brackets are closed in the correct order.  
 
                         Example:  
-                        **Input:** `\"()[]{}\"`  
-                        **Output:** `true`  
+                        **Input:** '\"()[]{}\"'  
+                        **Output:** 'true'  
                         
-                        **Input:** `\"(]\"`  
-                        **Output:** `false`  
+                        **Input:** '\"(]\"'  
+                        **Output:** 'false'  
                         """.trimIndent(),
                                     listOf("example", "input", "output", "valid string")
                                 )
@@ -602,7 +602,7 @@ fun DSAExpertCourse(): Stage {
                         - For each character in the string:  
                           - If it’s an opening bracket, push it onto the stack.  
                           - If it’s a closing bracket, check if the stack is not empty and matches the top element.  
-                          - If not, return `false`.  
+                          - If not, return 'false'.  
                         - After processing all characters, ensure the stack is empty.  
                         """.trimIndent(),
                                     listOf("stack", "matching brackets")
@@ -710,7 +710,7 @@ fun DSAExpertCourse(): Stage {
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "You are given a string `s`. Your task is to find the length of the longest substring that contains no repeating characters.",
+                                    "You are given a string 's'. Your task is to find the length of the longest substring that contains no repeating characters.",
                                     listOf("longest substring", "repeating characters")
                                 )
                             ),
@@ -718,9 +718,9 @@ fun DSAExpertCourse(): Stage {
                                 createAnnotatedText(
                                     """
                         **Example:**  
-                        **Input:** `abcabcbb`  
-                        **Output:** `3`  
-                        **Explanation:** The answer is `abc`, with a length of `3`.  
+                        **Input:** 'abcabcbb'  
+                        **Output:** '3'  
+                        **Explanation:** The answer is 'abc', with a length of '3'.  
                         """.trimIndent(),
                                     listOf("example", "input", "output", "substring")
                                 )
@@ -738,7 +738,7 @@ fun DSAExpertCourse(): Stage {
                                 createAnnotatedText(
                                     """
                         **Step 1: Understand the Problem**  
-                        - Input: A string `s`.  
+                        - Input: A string 's'.  
                         - Output: The length of the longest substring with no repeating characters.  
                         """.trimIndent(),
                                     listOf("input", "output", "substring")
@@ -748,10 +748,10 @@ fun DSAExpertCourse(): Stage {
                                 createAnnotatedText(
                                     """
                         **Step 2: Plan the Approach (Sliding Window Technique)**  
-                        - Use two pointers, `start` and `end`, to define the current window in the string.  
+                        - Use two pointers, 'start' and 'end', to define the current window in the string.  
                         - Use a set or map to track the characters in the current window.  
-                        - Expand the window by moving the `end` pointer and check for duplicates:  
-                          - If a duplicate exists, shrink the window from the `start` until it's valid.  
+                        - Expand the window by moving the 'end' pointer and check for duplicates:  
+                          - If a duplicate exists, shrink the window from the 'start' until it's valid.  
                           - Keep track of the maximum length.  
                         """.trimIndent(),
                                     listOf("sliding window", "two pointers", "substring")
@@ -761,7 +761,7 @@ fun DSAExpertCourse(): Stage {
                                 createAnnotatedText(
                                     """
                         **Step 3: Edge Cases**  
-                        - Empty string (output is `0`).  
+                        - Empty string (output is '0').  
                         - String with all unique characters.  
                         - String with all repeating characters.  
                         """.trimIndent(),
@@ -860,7 +860,7 @@ fun DSAExpertCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        You are given two words, `beginWord` and `endWord`, and a dictionary. You need to find the shortest transformation sequence from `beginWord` to `endWord`, such that each transformed word must exist in the dictionary.  
+                        You are given two words, 'beginWord' and 'endWord', and a dictionary. You need to find the shortest transformation sequence from 'beginWord' to 'endWord', such that each transformed word must exist in the dictionary.  
                         Only one letter can be changed at a time, and each transformed word must be a valid word in the dictionary.
                         """,
                                     listOf("word ladder", "transformation", "dictionary")
@@ -870,9 +870,9 @@ fun DSAExpertCourse(): Stage {
                                 createAnnotatedText(
                                     """
                         **Example:**  
-                        **Input:** `beginWord = "hit"`, `endWord = "cog"`, `dictionary = ["hot", "dot", "dog", "lot", "log", "cog"]`  
-                        **Output:** `5`  
-                        **Explanation:** The shortest transformation sequence is: `hit -> hot -> dot -> dog -> cog`.  
+                        **Input:** 'beginWord = "hit"', 'endWord = "cog"', 'dictionary = ["hot", "dot", "dog", "lot", "log", "cog"]'  
+                        **Output:** '5'  
+                        **Explanation:** The shortest transformation sequence is: 'hit -> hot -> dot -> dog -> cog'.  
                         """.trimIndent(),
                                     listOf("example", "input", "output", "transformation sequence")
                                 )
@@ -891,8 +891,8 @@ fun DSAExpertCourse(): Stage {
                                 createAnnotatedText(
                                     """
                         **Step 1: Understand the Problem**  
-                        - Input: A `beginWord`, an `endWord`, and a dictionary.  
-                        - Output: The length of the shortest transformation sequence from `beginWord` to `endWord`.  
+                        - Input: A 'beginWord', an 'endWord', and a dictionary.  
+                        - Output: The length of the shortest transformation sequence from 'beginWord' to 'endWord'.  
                         """.trimIndent(),
                                     listOf("input", "output", "transformation sequence")
                                 )
@@ -902,10 +902,10 @@ fun DSAExpertCourse(): Stage {
                                     """
                         **Step 2: Plan the Approach (Graph BFS)**  
                         - Treat each word as a node in a graph and each valid transformation as an edge.  
-                        - Perform a Breadth-First Search (BFS) starting from `beginWord`.  
+                        - Perform a Breadth-First Search (BFS) starting from 'beginWord'.  
                         - For each word, try to change one letter at a time and check if the new word exists in the dictionary.  
                         - Keep track of visited words to avoid cycles and unnecessary reprocessing.  
-                        - The BFS guarantees the shortest path to reach `endWord`.
+                        - The BFS guarantees the shortest path to reach 'endWord'.
                         """.trimIndent(),
                                     listOf("BFS", "graph", "word transformation")
                                 )
@@ -914,9 +914,9 @@ fun DSAExpertCourse(): Stage {
                                 createAnnotatedText(
                                     """
                         **Step 3: Edge Cases**  
-                        - If `endWord` is not in the dictionary, return `0`.  
-                        - If `beginWord` is the same as `endWord`, the result is `1` (no transformation needed).  
-                        - If there are no valid transformations, return `0`.  
+                        - If 'endWord' is not in the dictionary, return '0'.  
+                        - If 'beginWord' is the same as 'endWord', the result is '1' (no transformation needed).  
+                        - If there are no valid transformations, return '0'.  
                         """.trimIndent(),
                                     listOf("edge cases", "no transformations", "dictionary")
                                 )
@@ -1024,7 +1024,7 @@ fun DSAExpertCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        You are given an `N x N` chessboard and must place `N` queens on the board such that no two queens threaten each other.  
+                        You are given an 'N x N' chessboard and must place 'N' queens on the board such that no two queens threaten each other.  
                         A queen can attack another queen if they are placed on the same row, column, or diagonal.
                         """,
                                     listOf("N-Queens", "chessboard", "backtracking")
@@ -1034,7 +1034,7 @@ fun DSAExpertCourse(): Stage {
                                 createAnnotatedText(
                                     """
                         **Example:**  
-                        **Input:** `N = 4`  
+                        **Input:** 'N = 4'  
                         **Output:**  
                         [
                           [".Q..",  // Solution 1
@@ -1065,8 +1065,8 @@ fun DSAExpertCourse(): Stage {
                                 createAnnotatedText(
                                     """
                         **Step 1: Understand the Problem**  
-                        - Input: An integer `N` representing the size of the chessboard and the number of queens.  
-                        - Output: All possible solutions where `N` queens can be placed on the board such that no two queens threaten each other.  
+                        - Input: An integer 'N' representing the size of the chessboard and the number of queens.  
+                        - Output: All possible solutions where 'N' queens can be placed on the board such that no two queens threaten each other.  
                         """.trimIndent(),
                                     listOf("input", "output", "chessboard")
                                 )
@@ -1077,9 +1077,9 @@ fun DSAExpertCourse(): Stage {
                         **Step 2: Plan the Approach (Backtracking)**  
                         - The backtracking approach will help generate all possible board configurations and prune invalid ones.  
                         - We can use three arrays to track threatened columns and diagonals:  
-                          - `cols`: Tracks if a column is under attack.  
-                          - `diag1`: Tracks if a diagonal (top-left to bottom-right) is under attack.  
-                          - `diag2`: Tracks if a diagonal (top-right to bottom-left) is under attack.  
+                          - 'cols': Tracks if a column is under attack.  
+                          - 'diag1': Tracks if a diagonal (top-left to bottom-right) is under attack.  
+                          - 'diag2': Tracks if a diagonal (top-right to bottom-left) is under attack.  
                         - For each row, try placing a queen in each column and check if the current position is valid.  
                         - Recursively place queens on the next row and backtrack if a solution is not found.  
                         """.trimIndent(),
@@ -1090,9 +1090,9 @@ fun DSAExpertCourse(): Stage {
                                 createAnnotatedText(
                                     """
                         **Step 3: Edge Cases**  
-                        - If `N = 1`, the solution is a single queen on a 1x1 board.  
-                        - If `N = 2` or `N = 3`, there is no solution because queens cannot be placed without threatening each other.  
-                        - For larger values of `N`, there may be multiple solutions.  
+                        - If 'N = 1', the solution is a single queen on a 1x1 board.  
+                        - If 'N = 2' or 'N = 3', there is no solution because queens cannot be placed without threatening each other.  
+                        - For larger values of 'N', there may be multiple solutions.  
                         """.trimIndent(),
                                     listOf("edge cases", "N=1", "no solution")
                                 )
@@ -1193,13 +1193,13 @@ fun DSAExpertCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        You are given a Binary Search Tree (BST) and a positive integer `k`. Your task is to find the `k`th smallest element in the BST.
+                        You are given a Binary Search Tree (BST) and a positive integer 'k'. Your task is to find the 'k'th smallest element in the BST.
                         
                         **Example:**  
                         **Input:**  
                         BST = [3, 1, 4, null, 2], k = 1  
                         **Output:** 1  
-                        **Explanation:** The inorder traversal of the BST is [1, 2, 3, 4], so the 1st smallest element is `1`.  
+                        **Explanation:** The inorder traversal of the BST is [1, 2, 3, 4], so the 1st smallest element is '1'.  
                         """.trimIndent(),
                                     listOf("BST", "kth smallest", "inorder traversal", "tree traversal")
                                 )
@@ -1218,17 +1218,17 @@ fun DSAExpertCourse(): Stage {
                                 createAnnotatedText(
                                     """
                         **Step 1: Understand the Problem**  
-                        - Input: A Binary Search Tree and an integer `k` which is the position of the smallest element to find.
-                        - Output: The `k`th smallest element in the BST, which can be found by performing an inorder traversal.
+                        - Input: A Binary Search Tree and an integer 'k' which is the position of the smallest element to find.
+                        - Output: The 'k'th smallest element in the BST, which can be found by performing an inorder traversal.
                         
                         **Step 2: Approach**  
                         - In a BST, the elements are arranged such that the left subtree of a node contains smaller elements and the right subtree contains larger elements. This makes inorder traversal naturally sorted.
-                        - Perform an inorder traversal to visit each node in ascending order and count nodes until you reach the `k`th element.
+                        - Perform an inorder traversal to visit each node in ascending order and count nodes until you reach the 'k'th element.
                         
                         **Step 3: Approach in Detail**  
-                        - Initialize a counter `count` to track how many nodes have been visited.
+                        - Initialize a counter 'count' to track how many nodes have been visited.
                         - Use a recursive approach to traverse the tree. On visiting each node, increment the counter.
-                        - Once the counter reaches `k`, return the current node’s value as the `k`th smallest element.
+                        - Once the counter reaches 'k', return the current node’s value as the 'k'th smallest element.
                         """.trimIndent(),
                                     listOf("inorder traversal", "recursive", "binary search tree")
                                 )
@@ -1237,7 +1237,7 @@ fun DSAExpertCourse(): Stage {
                                 createAnnotatedText(
                                     """
                         **Step 4: Edge Cases**  
-                        - If `k` is larger than the total number of nodes in the tree, return an error or handle it appropriately.
+                        - If 'k' is larger than the total number of nodes in the tree, return an error or handle it appropriately.
                         - An empty BST should be handled as an invalid case.
                         """.trimIndent(),
                                     listOf("edge cases", "error handling", "invalid input")
@@ -1320,7 +1320,7 @@ fun DSAExpertCourse(): Stage {
                         Congratulations on solving the **Kth Smallest Element in a BST** problem! 🎉  
 
                         Why this matters:  
-                        - **Efficient Searching:** You now know how to efficiently search for the `k`th smallest element in a binary search tree using inorder traversal.  
+                        - **Efficient Searching:** You now know how to efficiently search for the 'k'th smallest element in a binary search tree using inorder traversal.  
                         - **Real-world Applications:** This technique is widely used in problems involving sorted data structures and searching, such as finding the median or determining range queries.  
 
                         Keep practicing and challenge yourself with more tree traversal and BST problems to enhance your problem-solving skills! 🚀  
@@ -1353,9 +1353,9 @@ fun DSAExpertCourse(): Stage {
                         You are given an array of integers. Your task is to find the maximum subarray sum you can achieve by deleting at most one element.
                         
                         **Example:**  
-                        **Input:** `arr = [1, -2, 0, 3]`  
-                        **Output:** `4`  
-                        **Explanation:** The maximum sum after deleting one element is achieved by deleting `-2`, resulting in the subarray `[1, 0, 3]` which sums to `4`.
+                        **Input:** 'arr = [1, -2, 0, 3]'  
+                        **Output:** '4'  
+                        **Explanation:** The maximum sum after deleting one element is achieved by deleting '-2', resulting in the subarray '[1, 0, 3]' which sums to '4'.
                         """.trimIndent(),
                                     listOf("maximum subarray", "deletion", "dynamic programming")
                                 )
@@ -1378,16 +1378,16 @@ fun DSAExpertCourse(): Stage {
                         - Output: The maximum sum achievable with one deletion or no deletion at all.  
                         
                         **Step 2: Approach (Dynamic Programming)**  
-                        - Let `dp[i]` represent the maximum subarray sum ending at index `i` without any deletions.  
-                        - Let `dp1[i]` represent the maximum subarray sum ending at index `i` after deleting one element.  
+                        - Let 'dp[i]' represent the maximum subarray sum ending at index 'i' without any deletions.  
+                        - Let 'dp1[i]' represent the maximum subarray sum ending at index 'i' after deleting one element.  
                         - For each element in the array, compute the maximum sum that can be achieved by either deleting the current element or keeping it.
-                        - We update the values of `dp` and `dp1` for every element in the array.
-                        - The final answer is the maximum of the last elements of `dp` and `dp1`.
+                        - We update the values of 'dp' and 'dp1' for every element in the array.
+                        - The final answer is the maximum of the last elements of 'dp' and 'dp1'.
                         
                         **Step 3: Approach in Detail**  
-                        - For each index `i`, calculate `dp[i]` as the maximum of `arr[i]` and `arr[i] + dp[i-1]` (the maximum sum ending at `i` without deletion).  
-                        - Calculate `dp1[i]` as the maximum of `arr[i]`, `arr[i] + dp[i-1]`, and `arr[i] + dp1[i-1]` (the maximum sum if we delete the current element).
-                        - Return the maximum of `dp[n-1]` and `dp1[n-1]`, where `n` is the length of the array.
+                        - For each index 'i', calculate 'dp[i]' as the maximum of 'arr[i]' and 'arr[i] + dp[i-1]' (the maximum sum ending at 'i' without deletion).  
+                        - Calculate 'dp1[i]' as the maximum of 'arr[i]', 'arr[i] + dp[i-1]', and 'arr[i] + dp1[i-1]' (the maximum sum if we delete the current element).
+                        - Return the maximum of 'dp[n-1]' and 'dp1[n-1]', where 'n' is the length of the array.
                         """.trimIndent(),
                                     listOf("dynamic programming", "subarray sum", "deletion")
                                 )
@@ -1519,8 +1519,8 @@ fun DSAExpertCourse(): Stage {
                         
                         **Step 2: Approach (Dynamic Programming with Bitmasking)**  
                         - Use dynamic programming (DP) to keep track of the shortest path to each city with a bitmask representing the set of visited cities.
-                        - Let `dp[mask][i]` represent the shortest path to visit all cities in the `mask` set, ending at city `i`.
-                        - Initially, `dp[1][0] = 0`, meaning starting at city 0 with just city 0 visited.
+                        - Let 'dp[mask][i]' represent the shortest path to visit all cities in the 'mask' set, ending at city 'i'.
+                        - Initially, 'dp[1][0] = 0', meaning starting at city 0 with just city 0 visited.
                         - For each set of cities (bitmask), calculate the shortest path to all unvisited cities, and update the DP table accordingly.
 
                         **Step 3: Approach in Detail**  
