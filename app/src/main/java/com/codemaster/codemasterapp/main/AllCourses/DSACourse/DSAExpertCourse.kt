@@ -806,6 +806,14 @@ fun DSAExpertCourse(): Stage {
                         id = DSAExpertStageIds.lesson6_subs[2],
                         title = "Code Solution",
                         contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                This C++ code finds the length of the longest substring without repeating characters using a sliding window and an unordered set. It efficiently tracks characters and adjusts the window dynamically.
+                """.trimIndent(),
+                                    listOf("sliding window", "longest substring", "unordered set")
+                                )
+                            ),
                             ContentBlock.Code(
                                 """
                     #include <iostream>
@@ -851,11 +859,11 @@ fun DSAExpertCourse(): Stage {
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        Congratulations on solving the **Longest Substring Without Repeating Characters** problem! 🎉  
+                        Congratulations on solving the Longest Substring Without Repeating Characters problem! 🎉  
 
                         Why this matters:  
-                        - **Sliding Window Mastery:** You've mastered an efficient approach for substring problems.  
-                        - **Real-world Applications:** This technique is widely used in string parsing and text processing tasks.  
+                        Sliding Window Mastery: You've mastered an efficient approach for substring problems.  
+                        Real-world Applications: This technique is widely used in string parsing and text processing tasks.  
 
                         Keep practicing and challenge yourself with more string manipulation problems to sharpen your problem-solving skills! 🚀  
                         """.trimIndent(),
@@ -877,7 +885,7 @@ fun DSAExpertCourse(): Stage {
             // lesson 7
             Lesson(
                 id = DSAExpertStageIds.lesson7,
-                title = "Mastering Logic Building with DSA - Word Ladder",
+                title = "Word Ladder",
                 description = "Learn to solve problems step-by-step with DSA techniques using C++. This lesson focuses on finding the shortest transformation sequence from the begin word to the end word using the graph BFS approach.",
                 lessonContents = listOf(
                     // Problem Statement
@@ -890,14 +898,14 @@ fun DSAExpertCourse(): Stage {
                                     """
                         You are given two words, 'beginWord' and 'endWord', and a dictionary. You need to find the shortest transformation sequence from 'beginWord' to 'endWord', such that each transformed word must exist in the dictionary.  
                         Only one letter can be changed at a time, and each transformed word must be a valid word in the dictionary.
-                        """,
+                        """.trimIndent(),
                                     listOf("word ladder", "transformation", "dictionary")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
                                     """
-                        **Example:**  
+                        Example:**  
                         **Input:** 'beginWord = "hit"', 'endWord = "cog"', 'dictionary = ["hot", "dot", "dog", "lot", "log", "cog"]'  
                         **Output:** '5'  
                         **Explanation:** The shortest transformation sequence is: 'hit -> hot -> dot -> dog -> cog'.  
