@@ -253,7 +253,7 @@ fun DSAExpertCourse(): Stage {
             // lesson 3
             Lesson(
                 id = DSAExpertStageIds.lesson3,
-                title = "Mastering Logic Building with DSA - Merge Two Sorted Arrays",
+                title = "Merge Two Sorted Arrays",
                 description = "Learn to solve problems step-by-step with DSA techniques using C++. This lesson focuses on merging two sorted arrays without extra space, using the two-pointer technique.",
                 lessonContents = listOf(
                     // Problem Statement
@@ -263,8 +263,8 @@ fun DSAExpertCourse(): Stage {
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "You are given two sorted arrays. Your task is to merge them into a single sorted array **without using extra space**.",
-                                    listOf("sorted arrays", "merge", "no extra space")
+                                    "You are given two sorted arrays. Your task is to merge them into a single sorted array without using extra space.",
+                                    listOf("")
                                 )
                             ),
                             ContentBlock.Text(
