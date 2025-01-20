@@ -30,6 +30,7 @@ import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.Pro
 import com.codemaster.codemasterapp.main.ui.components.ContinueLearningCard
 import com.codemaster.codemasterapp.main.ui.components.LanguageCardDesign
 import com.codemaster.codemasterapp.main.ui.viewModels.CourseViewModel
+import com.codemaster.codemasterapp.main.ui.viewModels.UserProfileViewModel
 import com.codemaster.codemasterapp.ui.theme.*
 import kotlinx.coroutines.launch
 
@@ -39,8 +40,10 @@ import kotlinx.coroutines.launch
 fun HomeScreen(
     navController: NavController,
     courseViewModel: CourseViewModel,
+    userProfileViewModel: UserProfileViewModel,
     courses: List<Course> = emptyList<Course>(),
-    allLessonsStatus: State<Map<String, LessonStatus>>
+    allLessonsStatus: State<Map<String, LessonStatus>>,
+
 ) {
     val scrollState = rememberScrollState()
     val completedLessonCount = remember { mutableStateOf(0) }
@@ -50,6 +53,10 @@ fun HomeScreen(
     // Get last saved stage name
     val coroutineScope = rememberCoroutineScope()
     val stageNames = remember { mutableStateOf<Map<String, String?>>(emptyMap()) }
+
+
+    //GuestUserDetails
+    val guestUserDetails = userProfileViewModel.guestProfile.collectAsState()
 
     // Fetch stage names when the composable is loaded
     LaunchedEffect(courses) {
@@ -75,7 +82,9 @@ fun HomeScreen(
                     ) {
                         navController.navigate(ProfileRoutes.PROFILE_ROOT.route)
                     }
-                }
+                },
+                userProfileImage = guestUserDetails.value?.profilePicture,
+                userName = guestUserDetails.value?.username,
             )
         }
     ) { paddingValues ->

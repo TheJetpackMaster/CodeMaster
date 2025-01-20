@@ -16,11 +16,13 @@ import com.codemaster.codemasterapp.main.ui.bottomNavigation.screens.Achievement
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.screens.CompilerView
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.screens.HomeScreen
 import com.codemaster.codemasterapp.main.ui.viewModels.CourseViewModel
+import com.codemaster.codemasterapp.main.ui.viewModels.UserProfileViewModel
 
 
 fun NavGraphBuilder.bottomNavHost(
     navController: NavController,
     courseViewModel: CourseViewModel,
+    userProfileViewModel: UserProfileViewModel,
     courses:List<Course> = emptyList<Course>(),
     allLessonsStatus: State<Map<String, LessonStatus>>
 ) {
@@ -46,6 +48,7 @@ fun NavGraphBuilder.bottomNavHost(
             HomeScreen(
                 navController = navController,
                 courseViewModel = courseViewModel,
+                userProfileViewModel = userProfileViewModel,
                 courses = courses,
                 allLessonsStatus = allLessonsStatus
             )

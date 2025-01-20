@@ -20,7 +20,7 @@ import androidx.room.TypeConverters
 data class UserProfile(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "user_id")
-    val userId: Int = 0,
+    val userId: Int = 1,
 
     @ColumnInfo(name = "username")
     val username: String,
@@ -55,6 +55,10 @@ interface UserProfileDao {
     // Insert or update the guest profile (always replace the latest guest profile)
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertOrUpdateGuestProfile(userProfile: UserProfile)
+
+    // Update the guest profile
+    @Query("UPDATE user_profiles SET username = :username, profile_picture = :profilePicture WHERE user_id = 1")
+    suspend fun updateGuestProfile(username: String, profilePicture: ByteArray?)
 
     // Fetch the latest guest profile
     @Query("SELECT * FROM user_profiles ORDER BY user_id DESC LIMIT 1")
@@ -114,10 +118,17 @@ abstract class UserProfileDB : RoomDatabase() {
 
 
 class UserProfileRepository(private val dao: UserProfileDao) {
+
     suspend fun createOrUpdateGuestProfile(username: String, profilePicture: ByteArray?) {
         val guestProfile = UserProfile(username = username, profilePicture = profilePicture)
         dao.insertOrUpdateGuestProfile(guestProfile)
     }
+
+    // Update the guest profile
+    suspend fun updateGuestProfile(username: String, profilePicture: ByteArray?) {
+        dao.updateGuestProfile(username, profilePicture)
+    }
+
 
     suspend fun getLatestGuestProfile(): UserProfile? {
         return dao.getLatestGuestProfile()

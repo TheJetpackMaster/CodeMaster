@@ -47,6 +47,7 @@ fun RootNavHost(
         bottomNavHost(
             navController = navController,
             courseViewModel = courseViewModel,
+            userProfileViewModel = userProfileViewModel,
             courses = courses,
             allLessonsStatus = allLessonsStatus
         )

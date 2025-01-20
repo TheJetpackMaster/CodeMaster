@@ -8,11 +8,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import com.codemaster.codemasterapp.main.AllCourses.CLangCourse.CLangCourseProvider
 import com.codemaster.codemasterapp.main.AllCourses.CppCourse.CPPCourseProvider
-import com.codemaster.codemasterapp.main.AllCourses.DSACourse.DSAAdvancedCourse
-import com.codemaster.codemasterapp.main.AllCourses.DSACourse.DSABeginnerCourse
 import com.codemaster.codemasterapp.main.AllCourses.DSACourse.DSACourseProvider
-import com.codemaster.codemasterapp.main.AllCourses.DSACourse.DSAExpertCourse
-import com.codemaster.codemasterapp.main.AllCourses.DSACourse.DSAIntermediateCourse
 import com.codemaster.codemasterapp.main.AllCourses.PythonCourse.PythonBeginnerCourse
 import com.codemaster.codemasterapp.main.AllCourses.PythonCourse.PythonCourseProvider
 import com.codemaster.codemasterapp.main.AllCourses.PythonCourse.PythonIntermediateCourse
@@ -40,6 +36,7 @@ class CourseViewModel @Inject constructor(
 ) : ViewModel() {
 
 
+
     // List of courses to display
     val courses: List<Course> = AllCoursesProvider()
 
@@ -50,7 +47,7 @@ class CourseViewModel @Inject constructor(
     private val _selectedCourse = MutableStateFlow<Course?>(
         Course(
             id = "python_course",
-            language = "Python",
+            name = "Python",
             stages = listOf(
                 PythonBeginnerCourse(),
                 PythonIntermediateCourse(),

@@ -2,6 +2,9 @@ package com.codemaster.codemasterapp.main.ui.userProfileDetails
 
 import android.net.Uri
 import android.util.Log
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -17,19 +20,33 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.KeyboardArrowLeft
 import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedIconButton
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -40,6 +57,7 @@ import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.PathEffect
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
@@ -52,6 +70,7 @@ import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
 import com.codemaster.codemasterapp.R
 import com.codemaster.codemasterapp.main.DataBase.NoteViewModel
+import com.codemaster.codemasterapp.main.ui.auth.uriToByteArray
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.ProfileRoutes
 import com.codemaster.codemasterapp.main.ui.viewModels.UserProfileViewModel
 
@@ -95,72 +114,92 @@ val liveSupportButtonColors = Brush.horizontalGradient(
 )
 
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun UserProfileScreen(
     navController: NavController,
     noteViewModel: NoteViewModel,
     userProfileViewModel: UserProfileViewModel
 ) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
+    Scaffold(
+        containerColor = Color.Transparent,
+        topBar = {
+            TopAppBar(
+                navigationIcon = {
 
-    ) {
-        // Top Header
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(100.dp)
-                .background(Color(0xFF101820).copy(.5f))
-                .padding(bottom = 16.dp)
-                .padding(horizontal = 12.dp)
-                .statusBarsPadding(),
-            horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Text(
-                text = "Profile",
-                style = MaterialTheme.typography.titleLarge.copy(
-                    color = Color.White.copy(.7f),
-                    fontSize = 24.sp,
-                    fontWeight = FontWeight.Bold
-                )
+                    OutlinedIconButton(
+                        onClick = {
+                            if (navController.currentBackStackEntry?.lifecycle?.currentState
+                                == Lifecycle.State.RESUMED
+                            ) {
+                                navController.popBackStack()
+                            }
+                        },
+                        modifier = Modifier
+                            .statusBarsPadding()
+                            .padding(start = 8.dp)
+                            .size(36.dp),
+                        border = BorderStroke(
+                            1.3.dp,
+                            color = Color.LightGray.copy(alpha = 0.4f)
+                        ), // Light border with transparency
+                        colors = IconButtonDefaults.outlinedIconButtonColors(
+                            containerColor = Color.White.copy(.08f),
+                        )
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.KeyboardArrowLeft,
+                            contentDescription = "",
+                            modifier = Modifier.size(26.dp),
+                            tint = Color.White.copy(alpha = 0.8f) // White icon with some transparency for the glass effect
+                        )
+                    }
+                },
+
+                title = {
+                    Text(
+                        modifier = Modifier.padding(start = 24.dp),
+                        text = "Profile",
+                        color = Color.White
+                    )
+
+                },
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = Color(0x990F263D) // Desired dark gradient tone
+                ),
+                modifier = Modifier.shadow(
+                    .5.dp,
+                    ambientColor = Color.White,
+                    spotColor = Color.White
+                ),
+                actions = {
+                    IconButton(
+                        onClick = {
+                            if (navController.currentBackStackEntry?.lifecycle?.currentState
+                                == Lifecycle.State.RESUMED
+                            ) {
+                                navController.navigate(ProfileRoutes.SettingsScreen.route)
+                            }
+                        },
+                        modifier = Modifier
+                            .padding(end = 8.dp)
+                            .size(32.dp)
+                            .clip(RoundedCornerShape(12.dp))
+                            .background(Color.White.copy(.08f))
+                    ) {
+                        Icon(imageVector = Icons.Default.Settings,
+                            contentDescription = "",
+                            tint = Color.White.copy(.8f))
+                    }
+                }
             )
-            Row(
-                horizontalArrangement = Arrangement.spacedBy(4.dp),
-                modifier = Modifier
-                    .clip(RoundedCornerShape(6.dp))
-                    .clickable(onClick = {
-                        if (navController.currentBackStackEntry?.lifecycle?.currentState
-                            == Lifecycle.State.RESUMED
-                        ) {
-                            navController.navigate(ProfileRoutes.SettingsScreen.route)
-                        }
-                    })
-                    .background(Color.LightGray.copy(.2f))
-                    .padding(6.dp)
-
-            ) {
-                Icon(
-                    imageVector = Icons.Default.Settings,
-                    contentDescription = "",
-                    tint = Color.White.copy(.7f)
-                )
-
-                Text(
-                    "Settings",
-                    color = Color.White.copy(.7f),
-                    fontWeight = FontWeight.Medium
-                )
-            }
         }
-
-        HorizontalDivider(thickness = 1.dp, color = Color.LightGray.copy(.2f))
-
+    ) { innerpadding ->
 
         //Main Content Section
         Column(
             modifier = Modifier
+                .padding(innerpadding)
                 .fillMaxSize()
                 .verticalScroll(rememberScrollState())
         ) {
@@ -368,6 +407,22 @@ fun SavedNoteCard(tittle: String, description: String, onClick: () -> Unit) {
 fun UserProfileSection(userProfileViewModel: UserProfileViewModel) {
 
     val guestProfile = userProfileViewModel.guestProfile.collectAsState()
+    val onEditMode = remember{ mutableStateOf(false) }
+
+
+    val context = LocalContext.current
+
+
+    //Update Profile data
+    val newName = remember { mutableStateOf(guestProfile.value?.username ?: "") }
+    val newImage = remember { mutableStateOf(guestProfile.value?.profilePicture) }
+    val imagePickerLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.GetContent()
+    ) { uri: Uri? ->
+        uri?.let {
+            newImage.value = uriToByteArray(context,it)
+        }
+    }
 
     Box(
         modifier = Modifier
@@ -410,7 +465,7 @@ fun UserProfileSection(userProfileViewModel: UserProfileViewModel) {
 
         // Edit Icon (Top-right corner)
         Icon(
-            painter = painterResource(R.drawable.editicon), // Replace with your edit icon resource
+            painter = painterResource(R.drawable.editicon),
             contentDescription = "Edit Profile",
             tint = Color.White,
             modifier = Modifier
@@ -418,8 +473,9 @@ fun UserProfileSection(userProfileViewModel: UserProfileViewModel) {
                 .size(44.dp)
                 .padding(12.dp)
                 .clickable(onClick = {
-                    // Handle edit profile click
-                })
+                    onEditMode.value = !onEditMode.value
+                }
+                )
         )
 
         // Profile content
@@ -447,7 +503,7 @@ fun UserProfileSection(userProfileViewModel: UserProfileViewModel) {
                     )
                 }
 
-                Log.d("image",guestProfile.value?.profilePicture.toString())
+                Log.d("image", guestProfile.value?.profilePicture.toString())
 
                 GlideImage(
                     model = guestProfile.value?.profilePicture,
@@ -480,6 +536,70 @@ fun UserProfileSection(userProfileViewModel: UserProfileViewModel) {
                 )
             )
         }
+    }
+
+
+    // Edit Profile Dialog
+    if (onEditMode.value) {
+        AlertDialog(
+            onDismissRequest = { onEditMode.value = false },
+            title = { Text(text = "Edit Profile") },
+            text = {
+                Column {
+                    // Profile Picture Picker
+                    Box(
+                        modifier = Modifier
+                            .size(100.dp)
+                            .clip(CircleShape)
+                            .background(Color(0xFF2A2A2A))
+                            .clickable { imagePickerLauncher.launch("image/*") }
+                    ) {
+                        if (newImage.value != null) {
+                            GlideImage(
+                                model = newImage.value,
+                                contentDescription = "New Profile Picture",
+                                modifier = Modifier.fillMaxSize(),
+                                contentScale = ContentScale.FillBounds
+                            )
+                        } else {
+                            Text(
+                                text = "Pick Image",
+                                color = Color.White,
+                                modifier = Modifier.align(Alignment.Center)
+                            )
+                        }
+                    }
+
+                    Spacer(modifier = Modifier.height(16.dp))
+
+                    // Name Input Field
+                    OutlinedTextField(
+                        value = newName.value,
+                        onValueChange = { newName.value = it },
+                        label = { Text("Name") },
+                        modifier = Modifier.fillMaxWidth()
+                    )
+                }
+            },
+            confirmButton = {
+                Button(
+                    onClick = {
+                        userProfileViewModel.updateGuestProfile(
+                            name = newName.value,
+                            profilePictureUrl = newImage.value
+                        )
+                        onEditMode.value = false
+                    }
+                ) {
+                    Text("Save")
+                }
+            },
+            dismissButton = {
+                Button(onClick = { onEditMode.value = false }) {
+                    Text("Cancel")
+                }
+            }
+        )
     }
 }
 

@@ -32,6 +32,14 @@ class UserProfileViewModel @Inject constructor(
         }
     }
 
+    //Update Guest
+    fun updateGuestProfile(name: String, profilePictureUrl: ByteArray? = null) {
+        viewModelScope.launch {
+            userProfileRepository.updateGuestProfile(name, profilePictureUrl)
+            fetchLatestGuestProfile() // Refresh the latest guest profile
+        }
+    }
+
     // Fetch the latest guest profile
     private fun fetchLatestGuestProfile() {
         viewModelScope.launch {

@@ -18,6 +18,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -42,6 +43,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -50,19 +52,25 @@ import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
+import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
+import com.bumptech.glide.integration.compose.GlideImage
 import kotlin.random.Random
 import com.codemaster.codemasterapp.R
 import com.codemaster.codemasterapp.ui.theme.bluishPython
 import com.codemaster.codemasterapp.ui.theme.greenishPython
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalGlideComposeApi::class)
 @Composable
 fun HomeScreenCustomTopBar(
-    onProfileClick: () -> Unit
+    onProfileClick: () -> Unit,
+    userProfileImage: ByteArray? = null,
+    userName: String? = ""
+
 ) {
 
     // Remember Lottie composition
-    val composition = rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.homescreentopbarlotie))
+    val composition =
+        rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.homescreentopbarlotie))
 
     // Animate the Lottie composition with looping enabled
     val progress = animateLottieCompositionAsState(
@@ -187,7 +195,8 @@ fun HomeScreenCustomTopBar(
                 .statusBarsPadding()
         ) {
             Row(
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier
+                    .fillMaxWidth()
                     .padding(start = 10.dp, end = 8.dp),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
@@ -203,7 +212,7 @@ fun HomeScreenCustomTopBar(
                             ),
                             shape = RoundedCornerShape(16.dp)
                         )
-                        .border(1.dp,Color.White.copy(.2f), shape = RoundedCornerShape(16.dp))
+                        .border(1.dp, Color.White.copy(.2f), shape = RoundedCornerShape(16.dp))
                 ) {
                     Icon(
                         imageVector = Icons.Default.Notifications,
@@ -217,6 +226,7 @@ fun HomeScreenCustomTopBar(
                     verticalAlignment = Alignment.CenterVertically,
                     modifier = Modifier
                         .height(64.dp)
+                        .widthIn(max = 150.dp)
                         .clip(RoundedCornerShape(16.dp))
                         .background(
                             brush = Brush.horizontalGradient(
@@ -235,11 +245,11 @@ fun HomeScreenCustomTopBar(
                             .background(Color.LightGray.copy(0.4f)),
                         contentAlignment = Alignment.Center
                     ) {
-                        Image(
-                            painter = painterResource(id = R.drawable.person),
-                            contentDescription = "Profile Picture",
-                            contentScale = ContentScale.Crop,
-                            modifier = Modifier.size(30.dp)
+                        GlideImage(
+                            model = userProfileImage,
+                        contentDescription = "Profile Picture",
+                        contentScale = ContentScale.FillBounds,
+                        modifier = Modifier.fillMaxSize()
                         )
                     }
 
@@ -248,12 +258,13 @@ fun HomeScreenCustomTopBar(
                     // Name and Points
                     Column {
                         Text(
-                            text = "Alan Cooper",
+                            text = userName.toString(),
                             maxLines = 1,
                             style = MaterialTheme.typography.bodyLarge.copy(
                                 color = Color.White,
                                 fontWeight = FontWeight.Medium
-                            )
+                            ),
+                            overflow = TextOverflow.Ellipsis
                         )
                         Text(
                             text = "1520 pts",

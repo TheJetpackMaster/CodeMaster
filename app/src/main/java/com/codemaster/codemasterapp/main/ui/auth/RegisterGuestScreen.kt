@@ -119,6 +119,7 @@ fun GuestScreenContent(
     var imageUri by remember { mutableStateOf<Uri?>(null) }
     var imageByteArray by remember { mutableStateOf<ByteArray?>(null) }
 
+
     val focusManager = LocalFocusManager.current
     val context = LocalContext.current
 
