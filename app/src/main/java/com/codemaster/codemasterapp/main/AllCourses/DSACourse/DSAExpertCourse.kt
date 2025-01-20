@@ -1,6 +1,7 @@
 package com.codemaster.codemasterapp.main.AllCourses.DSACourse
 
-import com.codemaster.codemasterapp.main.AllCourses.CLangCourse.courseIds.CExpertStageIds
+
+import com.codemaster.codemasterapp.main.AllCourses.DSACourse.courseIds.DSAExpertStageIds
 import com.codemaster.codemasterapp.main.AllCourses.helperFuntions.createAnnotatedText
 import com.codemaster.codemasterapp.main.data.ContentBlock
 import com.codemaster.codemasterapp.main.data.Lesson
@@ -11,34 +12,40 @@ import com.codemaster.codemasterapp.main.data.Stage
 
 fun DSAExpertCourse(): Stage {
     return Stage(
-        id = CExpertStageIds.stageId,
+        id = DSAExpertStageIds.stageId,
         title = "Expert",
         lessons = listOf(
 
             // lesson 1
             Lesson(
-                id = CExpertStageIds.lesson1,
-                title = "Introduction to Expert Projects",
-                description = "Get an overview of what you'll learn in the expert-level projects, focusing on logic building and advanced programming concepts.",
+                id = DSAExpertStageIds.lesson1,
+                title = "Welcome to Expert DSA Problem Solving",
+                description = "Learn how to solve complex problems systematically using advanced DSA concepts, while building projects that challenge your logic and creativity.",
                 lessonContents = listOf(
                     LessonContent(
-                        id = CExpertStageIds.lesson1_subs[0],
+                        id = DSAExpertStageIds.lesson1_subs[0],
                         title = "Introduction to the Expert Stage",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Welcome to the Expert Stage! Here, you'll tackle advanced projects designed to sharpen your programming skills and enhance your problem-solving abilities.",
-                                    listOf("Expert Stage", "advanced projects", "problem-solving")
+                                    "Welcome to the Expert Stage! This is where you'll learn how to systematically break down and solve any problem using advanced data structures and algorithms.",
+                                    listOf("Expert Stage", "data structures", "algorithms")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Throughout this stage, you'll build practical and impactful projects, focusing on logic building and mastering advanced programming concepts.",
+                                    "In this stage, we’ll focus on leveraging DSA concepts to build scalable solutions for real-world problems, honing your problem-solving mindset, and mastering advanced programming techniques.",
                                     listOf(
-                                        "practical projects",
-                                        "logic building",
+                                        "DSA concepts",
+                                        "problem-solving mindset",
                                         "advanced programming"
                                     )
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Remember, every problem has a solution. The goal is to analyze, strategize, and implement using the right tools and techniques.",
+                                    listOf("analyze", "strategize", "implement")
                                 )
                             )
                         ),
@@ -46,30 +53,71 @@ fun DSAExpertCourse(): Stage {
                         status = LessonStatus.ACTIVE
                     ),
                     LessonContent(
-                        id = CExpertStageIds.lesson1_subs[1],
+                        id = DSAExpertStageIds.lesson1_subs[1],
                         title = "Overview of Projects and Goals",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "In this expert-level course, you'll work on projects categorized into beginner, intermediate, advanced, and expert levels. Each project is tailored to improve specific skills.",
-                                    listOf("beginner", "intermediate", "advanced", "expert levels")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Here's a quick glimpse of the projects you can expect to work on: personalized calculators, management systems, compression tools, and multi-threaded applications.",
+                                    "This course offers hands-on experience through projects at beginner, intermediate, advanced, and expert levels. Each project focuses on improving your DSA knowledge and its practical applications.",
                                     listOf(
-                                        "personalized calculators",
-                                        "management systems",
-                                        "compression tools",
-                                        "multi-threaded applications"
+                                        "hands-on experience",
+                                        "DSA knowledge",
+                                        "practical applications"
                                     )
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "By the end of this course, you'll have built a solid foundation to tackle real-world problems using programming.",
-                                    listOf("real-world problems", "programming foundation")
+                                    "Projects you'll tackle include implementing dynamic programming solutions, designing efficient graph algorithms, building real-time processing tools, and creating optimized data management systems.",
+                                    listOf(
+                                        "dynamic programming solutions",
+                                        "graph algorithms",
+                                        "real-time processing tools",
+                                        "optimized data management systems"
+                                    )
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "By the end of this course, you'll have the confidence and skills to approach and solve even the most challenging problems in the field of software development.",
+                                    listOf("confidence", "skills", "challenging problems")
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE
+                    ),
+                    LessonContent(
+                        id = DSAExpertStageIds.lesson1_subs[2],
+                        title = "Why Problem Solving with DSA?",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Problem-solving using DSA is about more than just coding—it’s about understanding the underlying principles that make algorithms efficient and data structures powerful.",
+                                    listOf(
+                                        "problem-solving",
+                                        "efficient algorithms",
+                                        "powerful data structures"
+                                    )
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "With DSA, you can deconstruct complex problems into manageable parts, devise effective strategies, and implement solutions that work seamlessly even with large datasets.",
+                                    listOf(
+                                        "deconstruct problems",
+                                        "effective strategies",
+                                        "large datasets"
+                                    )
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Whether you’re preparing for interviews, working on cutting-edge projects, or solving everyday coding challenges, DSA will always be your greatest asset.",
+                                    listOf(
+                                        "interviews",
+                                        "cutting-edge projects",
+                                        "coding challenges"
+                                    )
                                 )
                             )
                         ),
@@ -81,128 +129,122 @@ fun DSAExpertCourse(): Stage {
 
             // lesson 2
             Lesson(
-                id = CExpertStageIds.lesson2,
-                title = "Mastering Logic Building and Project Execution",
-                description = "Learn the essential strategies to build projects, solve problems, escape tutorial hell, and become a great programmer using the tools provided in this app.",
+                id = DSAExpertStageIds.lesson2,
+                title = "Two Sum Problem",
+                description = "Learn to solve problems step-by-step with DSA techniques using C++. This lesson focuses on the Two Sum problem, providing a walkthrough, solution, and motivation to enhance your problem-solving skills.",
                 lessonContents = listOf(
+                    // Question
                     LessonContent(
-                        id = CExpertStageIds.lesson2_subs[0],
-                        title = "Key Strategies for Logic Building",
+                        id = DSAExpertStageIds.lesson2_subs[0],
+                        title = "Problem Statement - Two Sum",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Logic building is the foundation of programming. Start by breaking problems into smaller parts and solving them step by step.",
-                                    listOf("")
+                                    "Given an array of integers 'nums' and an integer 'target', return the indices of the two numbers such that they add up to the target.",
+                                    listOf("nums", "target")
                                 )
                             ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Example:\nInput: 'nums = [2, 7, 11, 15], target = 9'\nOutput: [0, 1]\nExplanation: Because 'nums[0] + nums[1] == 9'.",
+                                    listOf("example", "indices")
+                                )
+                            )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
                     ),
+
+                    // Manual Walkthrough
                     LessonContent(
-                        id = CExpertStageIds.lesson2_subs[1],
-                        title = "Project Execution Framework",
+                        id = DSAExpertStageIds.lesson2_subs[1],
+                        title = "Manual Walkthrough",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "To execute projects effectively, start by defining clear goals and breaking them into smaller milestones.",
-                                    listOf("")
+                                    "1.Understand the Problem:\nInput: Array of integers 'nums' and an integer 'target'.\nOutput: Indices of two numbers in the array that add up to 'target'.",
+                                    listOf("1.Understand the Problem:")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Focus on implementing a minimum viable product (MVP) first, then enhance features iteratively.",
-                                    listOf("")
+                                    "2.Plan the Approach:\n Iterate through the array while keeping track of visited numbers using a hash map.\nFor each number, calculate the difference 'target - nums[i]'.\nCheck if the difference is already in the hash map. If yes, return the indices. If no, add the current number to the map.",
+                                    listOf("2.Plan the Approach:")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Use this app's guided lessons and templates to plan and structure your projects.",
+                                    "3.Edge Cases:\nWhat if the array has fewer than two elements?\nWhat if no such pair exists?\nHandle cases with duplicate numbers.",
+                                    listOf("3.Edge Cases:")
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+
+                    ),
+
+                    // Code Solution
+                    LessonContent(
+                        id = DSAExpertStageIds.lesson2_subs[2],
+                        title = "Code Solution",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText("""
+        Below is the optimized C++ solution for the Two Sum problem. It uses a hash map to achieve O(n) time complexity by storing each element with its index while traversing the array. For every element, its complement (target minus the element) is checked in the hash map. If found, the indices of the pair are returned, making this approach both efficient and straightforward.
+        """.trimIndent(),
+                                    listOf("")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+                    #include <iostream>
+                    #include <vector>
+                    #include <unordered_map>
+                    using namespace std;
+
+                    vector<int> twoSum(vector<int>& nums, int target) {
+                        unordered_map<int, int> numMap;
+                        for (int i = 0; i < nums.size(); ++i) {
+                            int complement = target - nums[i];
+                            if (numMap.find(complement) != numMap.end()) {
+                                return {numMap[complement], i};
+                            }
+                            numMap[nums[i]] = i;
+                        }
+                        return {}; // Return empty if no solution exists.
+                    }
+
+                    int main() {
+                        vector<int> nums = {2, 7, 11, 15};
+                        int target = 9;
+                        vector<int> result = twoSum(nums, target);
+                        if (!result.empty()) {
+                            cout << "Indices: " << result[0] << ", " << result[1] << endl;
+                        } else {
+                            cout << "No solution found!" << endl;
+                        }
+                        return 0;
+                    }
+                    """.trimIndent()
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+
+                    ),
+
+                    // Motivation
+                    LessonContent(
+                        id = DSAExpertStageIds.lesson2_subs[3],
+                        title = "Motivation to Solve More Problems",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    "Congratulations on solving the Two Sum problem! 🎉\n\nHere’s why this is important:\nFoundation for Hashing: You’ve learned to use hash maps for constant-time lookups.\nReal-World Applications: Similar approaches are used in search engines, databases, and more.\n\nKeep going! Each problem you solve builds confidence and mastery. Tackle the next problem to sharpen your skills further.",
                                     listOf("")
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CExpertStageIds.lesson2_subs[2],
-                        title = "Escaping Tutorial Hell",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Tutorial hell occurs when you rely solely on following tutorials without applying knowledge to independent projects.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "To escape it, start small: replicate features from tutorials in your unique projects, then build new features.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "This app provides challenge-based tasks to ensure hands-on learning and independent problem-solving.",
-                                    listOf("")
-                                )
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CExpertStageIds.lesson2_subs[3],
-                        title = "Becoming a Great Programmer",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Becoming a great programmer involves consistency, practice, and learning from mistakes.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Use this app's curated lessons, projects, and tips to enhance your knowledge and skills step by step.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Participate in coding challenges, debug code independently, and always seek to understand 'why' something works.",
-                                    listOf("")
-                                )
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CExpertStageIds.lesson2_subs[4],
-                        title = "Problem-Solving Techniques",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Solving problems efficiently starts with understanding the problem thoroughly. Break it into smaller parts and analyze each part individually.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Apply patterns like divide and conquer, brute force, or greedy algorithms as applicable. Identify which strategy fits best.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Iteratively refine solutions by testing with edge cases and incorporating feedback from debugging or code reviews.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Leverage tools and resources provided in this app to practice and master problem-solving techniques.",
-                                    listOf("")
-                                )
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+
                     )
                 ),
                 status = LessonStatus.LOCKED
@@ -210,336 +252,153 @@ fun DSAExpertCourse(): Stage {
 
             // lesson 3
             Lesson(
-                id = CExpertStageIds.lesson3,
-                title = "Personalized Calculator",
-                description = "Build a personalized calculator with custom functions, UI, and logic.",
+                id = DSAExpertStageIds.lesson3,
+                title = "Merge Two Sorted Arrays",
+                description = "Learn to solve problems step-by-step with DSA techniques using C++. This lesson focuses on merging two sorted arrays without extra space, using the two-pointer technique.",
                 lessonContents = listOf(
+                    // Problem Statement
                     LessonContent(
-                        id = CExpertStageIds.lesson3_subs[0],
-                        title = "Introduction to Personalized Calculator",
+                        id = DSAExpertStageIds.lesson3_subs[0],
+                        title = "Problem Statement - Merge Two Sorted Arrays",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "A personalized calculator allows for custom operations and functions based on the user's needs. In this lesson, we'll guide you through building your own calculator with unique features.",
-                                    listOf("personalized calculator")
+                                    "You are given two sorted arrays. Your task is to merge them into a single sorted array without using extra space.",
+                                    listOf("")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "The application will support basic operations, custom functions, and error handling.",
-                                    listOf("basic operations", "custom functions", "error handling")
+                                    """
+                        Example:  
+                        Input: arr1 = [1, 3, 5], arr2 = [2, 4, 6] 
+                        Output: [1, 2, 3, 4, 5, 6]' 
+                        """.trimIndent(),
+                                    listOf("")
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+
                     ),
+
+                    // Manual Walkthrough
                     LessonContent(
-                        id = CExpertStageIds.lesson3_subs[1],
-                        title = "Basic Operations",
+                        id = DSAExpertStageIds.lesson3_subs[1],
+                        title = "Manual Walkthrough",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "We will begin by implementing basic operations like addition, subtraction, multiplication, and division.",
-                                    listOf("addition", "subtraction", "multiplication", "division")
+                                    """
+                        Step 1: Understand the Problem
+                        Input: Two sorted arrays 'arr1' and 'arr2'.  
+                        Output: A single merged sorted array.  
+                        Constraint: Merge without using extra space.  
+                        """.trimIndent(),
+                                    listOf("Step 1: Understand the Problem")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                        Step 2: Plan the Approach (Two-Pointer Technique)
+                        Use two pointers, one for each array.  
+                        Compare the elements at the pointers.  
+                        Append the smaller element to the result and move the corresponding pointer forward.  
+                        If one array is exhausted, append the remaining elements from the other array.  
+                        """.trimIndent(),
+                                    listOf("Step 2: Plan the Approach (Two-Pointer Technique)")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                        Step 3: Edge Cases 
+                        One or both arrays are empty.  
+                        Arrays of different lengths.  
+                        Arrays with duplicate elements.  
+                        """.trimIndent(),
+                                    listOf("Step 3: Edge Cases ")
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+                    ),
+
+                    // Optimized Code Solution
+                    LessonContent(
+                        id = DSAExpertStageIds.lesson3_subs[2],
+                        title = "Code Solution",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText("""
+                Below is the C++ code for merging two sorted arrays into a single sorted array. This approach uses two pointers to efficiently compare elements from both arrays, ensuring a linear time complexity of O(n1 + n2). It outputs the merged array directly.
+                """.trimIndent(),
+                                    listOf("")
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-double add(double a, double b) {
-    return a + b;
-}
+                    #include <iostream>
+                    #include <vector>
+                    using namespace std;
 
-double subtract(double a, double b) {
-    return a - b;
-}
+                    void mergeArrays(vector<int>& arr1, vector<int>& arr2) {
+                        int n1 = arr1.size(), n2 = arr2.size();
+                        int i = 0, j = 0;
 
-double multiply(double a, double b) {
-    return a * b;
-}
+                        cout << "Merged Array: ";
+                        while (i < n1 && j < n2) {
+                            if (arr1[i] < arr2[j]) {
+                                cout << arr1[i] << " ";
+                                i++;
+                            } else {
+                                cout << arr2[j] << " ";
+                                j++;
+                            }
+                        }
+                        
+                        // Append remaining elements
+                        while (i < n1) cout << arr1[i++] << " ";
+                        while (j < n2) cout << arr2[j++] << " ";
+                        cout << endl;
+                    }
 
-double divide(double a, double b) {
-    if (b == 0) {
-        printf("Error: Division by zero!\n");
-        return 0;  // Handle division by zero
-    }
-    return a / b;
-}
-"""
+                    int main() {
+                        vector<int> arr1 = {1, 3, 5};
+                        vector<int> arr2 = {2, 4, 6};
+                        mergeArrays(arr1, arr2);
+                        return 0;
+                    }
+                    """.trimIndent()
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+
                     ),
+
+                    // Motivation
                     LessonContent(
-                        id = CExpertStageIds.lesson3_subs[2],
-                        title = "Custom Functions",
+                        id = DSAExpertStageIds.lesson3_subs[3],
+                        title = "Motivation to Solve More Problems",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Next, we will add custom functions like square root, power, and logarithmic calculations.",
-                                    listOf("square root", "power", "logarithms")
+                                    """
+                        Well done on mastering the Merge Two Sorted Arrays problem! 🎉  
+
+                        Why this matters:  
+                        Two-Pointer Technique: You’ve learned a fundamental approach for efficient merging.  
+                        Memory Optimization: Practicing solutions that avoid extra space is a critical skill for advanced problem-solving.  
+
+                        Keep pushing yourself to solve more challenging problems. Each step brings you closer to becoming a DSA expert! 🚀  
+                        """.trimIndent(),
+                                    listOf("")
                                 )
-                            ),
-                            ContentBlock.Code(
-                                """
-#include <stdio.h>
-#include <math.h>
-
-double squareRoot(double a) {
-    if (a < 0) {
-        printf("Error: Negative number for square root!\n");
-        return 0;  // Handle negative square root
-    }
-    return sqrt(a);
-}
-
-double power(double a, double b) {
-    return pow(a, b);
-}
-
-double logarithm(double a, double base) {
-    if (a <= 0 || base <= 0 || base == 1) {
-        printf("Error: Invalid logarithm parameters!\n");
-        return 0;  // Handle invalid logarithm input
-    }
-    return log(a) / log(base);
-}
-"""
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CExpertStageIds.lesson3_subs[3],
-                        title = "User Interface Design",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "The user interface (UI) should have buttons for numbers and operators, along with a display area to show results.",
-                                    listOf("user interface", "buttons", "display area")
-                                )
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "You can use a layout manager to arrange buttons and a text view for displaying results.",
-                                    listOf("layout manager", "buttons", "text view")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """#include <stdio.h>
+                        type = LessonContentType.NON_INTERACTIVE,
 
-void displayCalculator() {
-    printf("Simple Calculator: \n");
-    printf("1. Add\n2. Subtract\n3. Multiply\n4. Divide\n5. Square Root\n6. Power\n7. Logarithm\n");
-}
-"""
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CExpertStageIds.lesson3_subs[4],
-                        title = "Handling User Input",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Handle the input values for operations and update the display dynamically as the user interacts with the buttons.",
-                                    listOf("user input", "update display")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-
-double getUserInput() {
-    int choice;
-    double num1, num2;
-    double result = 0;
-
-    displayCalculator();
-    printf("Enter operation choice: ");
-    scanf("%d", &choice);
-    
-    if (choice >= 1 && choice <= 4) {
-        printf("Enter two numbers: ");
-        scanf("%lf %lf", &num1, &num2);
-        if (choice == 1) {
-            result = add(num1, num2);
-        } else if (choice == 2) {
-            result = subtract(num1, num2);
-        } else if (choice == 3) {
-            result = multiply(num1, num2);
-        } else if (choice == 4) {
-            result = divide(num1, num2);
-        }
-    } else if (choice == 5) {
-        printf("Enter number for square root: ");
-        scanf("%lf", &num1);
-        result = squareRoot(num1);
-    } else if (choice == 6) {
-        printf("Enter base and exponent: ");
-        scanf("%lf %lf", &num1, &num2);
-        result = power(num1, num2);
-    } else if (choice == 7) {
-        printf("Enter number and base for log: ");
-        scanf("%lf %lf", &num1, &num2);
-        result = logarithm(num1, num2);
-    } else {
-        printf("Invalid choice!\n");
-        return 0;
-    }
-
-    return result;
-}
-"""
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CExpertStageIds.lesson3_subs[5],
-                        title = "Error Handling",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Handle errors like division by zero and invalid inputs to ensure smooth user experience.",
-                                    listOf("error handling", "division by zero")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-double divide(double a, double b) {
-    if (b == 0) {
-        printf("Error: Division by zero!\n");
-        return 0;  // Handle division by zero
-    }
-    return a / b;
-}
-"""
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CExpertStageIds.lesson3_subs[6],
-                        title = "Complete Project Code",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Below is the complete code for the personalized calculator integrating all the features discussed in the previous lessons.",
-                                    listOf("complete code", "calculator", "project")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-#include <stdio.h>
-#include <math.h>
-
-// Function declarations
-double add(double a, double b);
-double subtract(double a, double b);
-double multiply(double a, double b);
-double divide(double a, double b);
-double squareRoot(double a);
-double power(double a, double b);
-double logarithm(double a, double base);
-void displayCalculator();
-double getUserInput();
-
-int main() {
-    double result = getUserInput();  // Get user input and calculate the result
-    printf("Result: %.2f\n", result);
-    return 0;
-}
-
-// Function definitions
-double add(double a, double b) {
-    return a + b;
-}
-
-double subtract(double a, double b) {
-    return a - b;
-}
-
-double multiply(double a, double b) {
-    return a * b;
-}
-
-double divide(double a, double b) {
-    if (b == 0) {
-        printf("Error: Division by zero!\n");
-        return 0;  // Handle division by zero
-    }
-    return a / b;
-}
-
-double squareRoot(double a) {
-    if (a < 0) {
-        printf("Error: Negative number for square root!\n");
-        return 0;  // Handle negative square root
-    }
-    return sqrt(a);
-}
-
-double power(double a, double b) {
-    return pow(a, b);
-}
-
-double logarithm(double a, double base) {
-    if (a <= 0 || base <= 0 || base == 1) {
-        printf("Error: Invalid logarithm parameters!\n");
-        return 0;  // Handle invalid logarithm input
-    }
-    return log(a) / log(base);
-}
-
-void displayCalculator() {
-    printf("Simple Calculator: \n");
-    printf("1. Add\n2. Subtract\n3. Multiply\n4. Divide\n5. Square Root\n6. Power\n7. Logarithm\n");
-}
-
-double getUserInput() {
-    int choice;
-    double num1, num2;
-    double result = 0;
-
-    displayCalculator();
-    printf("Enter operation choice: ");
-    scanf("%d", &choice);
-    
-    if (choice >= 1 && choice <= 4) {
-        printf("Enter two numbers: ");
-        scanf("%lf %lf", &num1, &num2);
-        if (choice == 1) {
-            result = add(num1, num2);
-        } else if (choice == 2) {
-            result = subtract(num1, num2);
-        } else if (choice == 3) {
-            result = multiply(num1, num2);
-        } else if (choice == 4) {
-            result = divide(num1, num2);
-        }
-    } else if (choice == 5) {
-        printf("Enter number for square root: ");
-        scanf("%lf", &num1);
-        result = squareRoot(num1);
-    } else if (choice == 6) {
-        printf("Enter base and exponent: ");
-        scanf("%lf %lf", &num1, &num2);
-        result = power(num1, num2);
-    } else if (choice == 7) {
-        printf("Enter number and base for log: ");
-        scanf("%lf %lf", &num1, &num2);
-        result = logarithm(num1, num2);
-    } else {
-        printf("Invalid choice!\n");
-        return 0;
-    }
-
-    return result;
-}
-"""
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
                     )
                 ),
                 status = LessonStatus.LOCKED
@@ -547,399 +406,156 @@ double getUserInput() {
 
             // lesson 4
             Lesson(
-                id = CExpertStageIds.lesson4,
-                title = "Contact Management System",
-                description = "Create an advanced contact management system with features like adding, viewing, searching, updating, and deleting contacts.",
+                id = DSAExpertStageIds.lesson4,
+                title = "Middle of Linked List",
+                description = "Learn to solve problems step-by-step with DSA techniques using C++. This lesson focuses on finding the middle node of a singly linked list using the fast and slow pointer approach.",
                 lessonContents = listOf(
-
+                    // Problem Statement
                     LessonContent(
-                        id = CExpertStageIds.lesson4_subs[0],
-                        title = "Introduction to Contact Management System",
+                        id = DSAExpertStageIds.lesson4_subs[0],
+                        title = "Problem Statement - Middle of Linked List",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "This project will help you build an advanced contact management system in Kotlin. The system will allow users to add, view, search, update, and delete contacts from the contact book.",
-                                    listOf("contact management system")
+                                    "You are given a singly linked list. Your task is to find the middle node of the list. If there are two middle nodes, return the second one.",
+                                    listOf("singly linked list", "middle node")
                                 )
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "In this project, we will use basic Kotlin concepts like arrays, strings, and loops, and we will also learn how to use Jetpack Compose for building the UI.",
-                                    listOf("Jetpack Compose", "arrays", "strings", "loops")
+                                    """
+                        Example:  
+                        Input: '1 -> 2 -> 3 -> 4 -> 5'  
+                        Output: '3'  
+                        """.trimIndent(),
+                                    listOf("example", "input", "output")
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+
                     ),
+
+                    // Manual Walkthrough
                     LessonContent(
-                        id = CExpertStageIds.lesson4_subs[1],
-                        title = "Defining the Contact Structure",
+                        id = DSAExpertStageIds.lesson4_subs[1],
+                        title = "Manual Walkthrough",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "This lesson defines the Contact structure with name and phone fields and sets constants for the maximum number of contacts and the length limits for names and phone numbers.",
-                                    listOf("structure", "contact", "constants")
+                                    """
+                        Step 1: Understand the Problem 
+                        Input: A singly linked list.  
+                        Output: The middle node of the list.  
+                        Note: If there are two middle nodes, return the second one.  
+                        """.trimIndent(),
+                                    listOf("Step 1: Understand the Problem")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                        Step 2: Plan the Approach (Fast and Slow Pointer Technique) 
+                        Initialize two pointers: 'slow' and 'fast', both starting at the head of the linked list.  
+                        Move the 'fast' pointer two steps at a time and the 'slow' pointer one step at a time.  
+                        When the 'fast' pointer reaches the end of the list, the 'slow' pointer will be at the middle.  
+                        """.trimIndent(),
+                                    listOf("Step 2: Plan the Approach (Fast and Slow Pointer Technique) ")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                        Step 3: Edge Cases
+                        List has only one node.  
+                        List has two nodes (return the second one).  
+                        Handle odd and even length lists.  
+                        """.trimIndent(),
+                                    listOf("Step 3: Edge Cases")
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+
+                    ),
+
+                    // Optimized C++ Code Solution
+                    LessonContent(
+                        id = DSAExpertStageIds.lesson4_subs[2],
+                        title = "Code Solution",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText("""
+                This C++ code demonstrates how to find the middle node of a singly linked list using the two-pointer approach. The `slow` pointer advances one step while the `fast` pointer advances two steps, ensuring the `slow` pointer is at the middle when `fast` reaches the end.
+                """.trimIndent(),
+                                    listOf("linked list", "middle node", "two-pointer approach")
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-#include <stdio.h>
-#include <string.h>
+                    #include <iostream>
+                    using namespace std;
 
-#define MAX_CONTACTS 100
-#define NAME_LENGTH 50
-#define PHONE_LENGTH 15
+                    struct ListNode {
+                        int val;
+                        ListNode* next;
+                        ListNode(int x) : val(x), next(nullptr) {}
+                    };
 
-typedef struct {
-    char name[NAME_LENGTH];
-    char phone[PHONE_LENGTH];
-} Contact;
-""".trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "The Contact structure holds name and phone, while constants manage the maximum contacts and field lengths.",
-                                    listOf(
-                                        "MAX_CONTACTS",
-                                        "NAME_LENGTH",
-                                        "PHONE_LENGTH",
-                                        "structure"
-                                    )
-                                )
+                    ListNode* findMiddle(ListNode* head) {
+                        ListNode* slow = head;
+                        ListNode* fast = head;
+
+                        while (fast != nullptr && fast->next != nullptr) {
+                            slow = slow->next;
+                            fast = fast->next->next;
+                        }
+                        return slow;
+                    }
+
+                    int main() {
+                        // Example: 1 -> 2 -> 3 -> 4 -> 5
+                        ListNode* head = new ListNode(1);
+                        head->next = new ListNode(2);
+                        head->next->next = new ListNode(3);
+                        head->next->next->next = new ListNode(4);
+                        head->next->next->next->next = new ListNode(5);
+
+                        ListNode* middle = findMiddle(head);
+                        if (middle != nullptr) {
+                            cout << "Middle Node: " << middle->val << endl;
+                        } else {
+                            cout << "The list is empty!" << endl;
+                        }
+                        return 0;
+                    }
+                    """.trimIndent()
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
                     ),
 
-                    // Sublesson: Adding a Contact
+                    // Motivation
                     LessonContent(
-                        id = CExpertStageIds.lesson4_subs[2],
-                        title = "Adding a Contact",
+                        id = DSAExpertStageIds.lesson4_subs[3],
+                        title = "Motivation to Solve More Problems",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "In this lesson, we will implement the functionality to add new contacts to the system. The contacts will have a name and phone number.",
-                                    listOf("adding contacts", "name", "phone number")
+                                    """
+                        Congratulations on solving the Middle of Linked List problem! 🎉  
+
+                        Why this matters:  
+                        Pointer Manipulation: You've mastered a common linked list technique.  
+                        Efficiency: The fast and slow pointer approach ensures an O(n) solution with minimal space usage.  
+
+                        Keep practicing to enhance your DSA expertise. Tackle more problems to build confidence and mastery over linked lists! 🚀  
+                        """.trimIndent(),
+                                    listOf("pointer manipulation", "problem-solving", "confidence")
                                 )
-                            ),
-                            ContentBlock.Code(
-                                """
-void addContact() {
-    if (contactCount >= MAX_CONTACTS) {
-        printf("Contact book is full! Cannot add more contacts.\n");
-        return;
-    }
-
-    Contact newContact;
-    printf("Enter name: ");
-    scanf(" %[^\n]", newContact.name); // Read string with spaces
-    printf("Enter phone: ");
-    scanf(" %[^\n]", newContact.phone);
-
-    contactBook[contactCount++] = newContact;
-    printf("Contact added successfully!\n");
-}
-"""
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-
-                    // Sublesson: Viewing Contacts
-                    LessonContent(
-                        id = CExpertStageIds.lesson4_subs[3],
-                        title = "Viewing Contacts",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "In this lesson, we will implement the functionality to display all the contacts in the contact book.",
-                                    listOf("viewing contacts", "display")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-void viewContacts() {
-    if (contactCount == 0) {
-        printf("No contacts available.\n");
-        return;
-    }
-
-    printf("All Contacts:\n");
-    for (int i = 0; i < contactCount; i++) {
-        printf("%d. Name: %s, Phone: %s\n", i + 1, contactBook[i].name, contactBook[i].phone);
-    }
-}
-""".trimIndent()
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-
-                    // Sublesson: Searching for a Contact
-                    LessonContent(
-                        id = CExpertStageIds.lesson4_subs[4],
-                        title = "Searching for a Contact",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Now, we will implement the search functionality. The user will be able to search for a contact by name.",
-                                    listOf("searching", "contact", "name")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-void searchContact() {
-    char searchName[NAME_LENGTH];
-    printf("Enter name to search: ");
-    scanf(" %[^\n]", searchName);
-
-    int found = 0;
-    for (int i = 0; i < contactCount; i++) {
-        if (strcasecmp(contactBook[i].name, searchName) == 0) {
-            printf("Found Contact: Name: %s, Phone: %s\n", contactBook[i].name, contactBook[i].phone);
-            found = 1;
-        }
-    }
-
-    if (!found) {
-        printf("No contact found with the name \"%s\".\n", searchName);
-    }
-}
-"""
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-
-                    // Sublesson: Updating a Contact
-                    LessonContent(
-                        id = CExpertStageIds.lesson4_subs[5],
-                        title = "Updating a Contact",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "This lesson covers updating the details of a contact. The user can modify the phone number of an existing contact.",
-                                    listOf("updating contacts", "phone number")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-void updateContact() {
-    char searchName[NAME_LENGTH];
-    printf("Enter name to update: ");
-    scanf(" %[^\n]", searchName);
-
-    for (int i = 0; i < contactCount; i++) {
-        if (strcasecmp(contactBook[i].name, searchName) == 0) {
-            printf("Enter new phone number: ");
-            scanf(" %[^\n]", contactBook[i].phone);
-            printf("Contact updated successfully!\n");
-            return;
-        }
-    }
-
-    printf("No contact found with the name \"%s\".\n", searchName);
-}
-"""
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-
-                    // Sublesson: Deleting a Contact
-                    LessonContent(
-                        id = CExpertStageIds.lesson4_subs[6],
-                        title = "Deleting a Contact",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "In this lesson, we will implement the functionality to delete a contact from the contact book.",
-                                    listOf("deleting contacts")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-void deleteContact() {
-    char searchName[NAME_LENGTH];
-    printf("Enter name to delete: ");
-    scanf(" %[^\n]", searchName);
-
-    for (int i = 0; i < contactCount; i++) {
-        if (strcasecmp(contactBook[i].name, searchName) == 0) {
-            for (int j = i; j < contactCount - 1; j++) {
-                contactBook[j] = contactBook[j + 1];
-            }
-            contactCount--;
-            printf("Contact deleted successfully!\n");
-            return;
-        }
-    }
-
-    printf("No contact found with the name \"%s\".\n", searchName);
-}
-"""
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-
-                    LessonContent(
-                        id = CExpertStageIds.lesson4_subs[7],
-                        title = "Complete Project Code",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Below is the complete code for the Contact Management System, integrating all features like add, view, search, update, and delete.",
-                                    listOf("complete project", "contact management system")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-#include <stdio.h>
-#include <string.h>
-
-#define MAX_CONTACTS 100
-#define NAME_LENGTH 50
-#define PHONE_LENGTH 15
-
-typedef struct {
-    char name[NAME_LENGTH];
-    char phone[PHONE_LENGTH];
-} Contact;
-
-Contact contactBook[MAX_CONTACTS];
-int contactCount = 0;
-
-// Function to add a contact
-void addContact() {
-    if (contactCount >= MAX_CONTACTS) {
-        printf("Contact book is full! Cannot add more contacts.\n");
-        return;
-    }
-
-    Contact newContact;
-    printf("Enter name: ");
-    scanf(" %[^\n]", newContact.name); // Read string with spaces
-    printf("Enter phone: ");
-    scanf(" %[^\n]", newContact.phone);
-
-    contactBook[contactCount++] = newContact;
-    printf("Contact added successfully!\n");
-}
-
-// Function to view all contacts
-void viewContacts() {
-    if (contactCount == 0) {
-        printf("No contacts available.\n");
-        return;
-    }
-
-    printf("All Contacts:\n");
-    for (int i = 0; i < contactCount; i++) {
-        printf("%d. Name: %s, Phone: %s\n", i + 1, contactBook[i].name, contactBook[i].phone);
-    }
-}
-
-// Function to search for a contact
-void searchContact() {
-    char searchName[NAME_LENGTH];
-    printf("Enter name to search: ");
-    scanf(" %[^\n]", searchName);
-
-    int found = 0;
-    for (int i = 0; i < contactCount; i++) {
-        if (strcasecmp(contactBook[i].name, searchName) == 0) {
-            printf("Found Contact: Name: %s, Phone: %s\n", contactBook[i].name, contactBook[i].phone);
-            found = 1;
-        }
-    }
-
-    if (!found) {
-        printf("No contact found with the name \"%s\".\n", searchName);
-    }
-}
-
-// Function to update a contact
-void updateContact() {
-    char searchName[NAME_LENGTH];
-    printf("Enter name to update: ");
-    scanf(" %[^\n]", searchName);
-
-    for (int i = 0; i < contactCount; i++) {
-        if (strcasecmp(contactBook[i].name, searchName) == 0) {
-            printf("Enter new phone number: ");
-            scanf(" %[^\n]", contactBook[i].phone);
-            printf("Contact updated successfully!\n");
-            return;
-        }
-    }
-
-    printf("No contact found with the name \"%s\".\n", searchName);
-}
-
-// Function to delete a contact
-void deleteContact() {
-    char searchName[NAME_LENGTH];
-    printf("Enter name to delete: ");
-    scanf(" %[^\n]", searchName);
-
-    for (int i = 0; i < contactCount; i++) {
-        if (strcasecmp(contactBook[i].name, searchName) == 0) {
-            for (int j = i; j < contactCount - 1; j++) {
-                contactBook[j] = contactBook[j + 1];
-            }
-            contactCount--;
-            printf("Contact deleted successfully!\n");
-            return;
-        }
-    }
-
-    printf("No contact found with the name \"%s\".\n", searchName);
-}
-int main() {
-    int choice;
-
-    do {
-        printf("\nContact Book Menu:\n");
-        printf("1. Add Contact\n");
-        printf("2. View Contacts\n");
-        printf("3. Search Contact\n");
-        printf("4. Update Contact\n");
-        printf("5. Delete Contact\n");
-        printf("6. Exit\n");
-        printf("Enter your choice: ");
-        scanf("%d", &choice);
-
-        switch (choice) {
-            case 1:
-                addContact();
-                break;
-            case 2:
-                viewContacts();
-                break;
-            case 3:
-                searchContact();
-                break;
-            case 4:
-                updateContact();
-                break;
-            case 5:
-                deleteContact();
-                break;
-            case 6:
-                printf("Exiting Contact Book. Goodbye!\\n");
-                break;
-            default:
-                printf("Invalid choice. Please try again.\\n");
-        }
-    } while (choice != 6);
-
-    return 0;
-}
-"""
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
                     )
                 ),
                 status = LessonStatus.LOCKED
@@ -947,335 +563,163 @@ int main() {
 
             // lesson 5
             Lesson(
-                id = CExpertStageIds.lesson5,
-                title = "Unit Converter",
-                description = "A comprehensive unit converter system for converting between different units such as length, weight, temperature, and more.",
+                id = DSAExpertStageIds.lesson5,
+                title = "Valid Parentheses",
+                description = "Learn to solve problems step-by-step with DSA techniques using C++. This lesson focuses on checking the validity of parentheses using a stack-based approach.",
                 lessonContents = listOf(
-
+                    // Problem Statement
                     LessonContent(
-                        id = CExpertStageIds.lesson5_subs[0],
-                        title = "Introduction to Unit Converter Program",
-                        description = "This project teaches how to create a unit converter program in C, allowing users to convert between categories like length, weight, and temperature using modularized functions and conditionals.",
+                        id = DSAExpertStageIds.lesson5_subs[0],
+                        title = "Problem Statement - Valid Parentheses",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "This project will help you build a unit converter program in C that allows users to convert between different categories like length, weight, and temperature. The program will offer users the ability to choose the category, input a value, and convert between various units.",
-                                    listOf("length", "weight", "temperature")
+                                    "You are given a string containing just the characters '(', ')', '{', '}', '[', and ']'. Your task is to determine if the input string is valid.",
+                                    listOf("valid parentheses", "matching brackets")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                        A valid string must:  
+                        Have matching opening and closing brackets of the same type.  
+                        Ensure brackets are closed in the correct order.  
+
+                        Example:  
+                        Input: '\"()[]{}\"'  
+                        Output: 'true'  
+                        
+                        Input: '\"(]\"'  
+                        Output: 'false'  
+                        """.trimIndent(),
+                                    listOf("A valid string must:")
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+
                     ),
 
+                    // Manual Walkthrough
                     LessonContent(
-                        id = CExpertStageIds.lesson5_subs[1],
-                        title = "Converting Length Units with a Function",
-                        description = "This lesson explains how to create a function that converts between various length units such as meters, kilometers, miles, and centimeters.",
+                        id = DSAExpertStageIds.lesson5_subs[1],
+                        title = "Manual Walkthrough",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "This lesson shows how to define a function that converts between length units (meters, kilometers, miles, centimeters) using conversion factors.",
-                                    listOf("unit conversion")
+                                    """
+                        Step 1: Understand the Problem  
+                        Input: A string containing parentheses and brackets.  
+                        Output: A boolean indicating if the string is valid.  
+                        """.trimIndent(),
+                                    listOf("Step 1: Understand the Problem")
                                 )
-                            ),
-                            ContentBlock.Code(
-                                """
-#include <stdio.h>
-
-float convertLength(float value, int fromUnit, int toUnit) {
-    // Conversion factors
-    if (fromUnit == 1) { // Meters
-        if (toUnit == 2) return value / 1000; // Meters to Kilometers
-        if (toUnit == 3) return value * 0.000621371; // Meters to Miles
-        if (toUnit == 4) return value * 100; // Meters to Centimeters
-    }
-    if (fromUnit == 2) { // Kilometers
-        if (toUnit == 1) return value * 1000; // Kilometers to Meters
-        if (toUnit == 3) return value * 0.621371; // Kilometers to Miles
-        if (toUnit == 4) return value * 100000; // Kilometers to Centimeters
-    }
-    if (fromUnit == 3) { // Miles
-        if (toUnit == 1) return value / 0.000621371; // Miles to Meters
-        if (toUnit == 2) return value / 0.621371; // Miles to Kilometers
-        if (toUnit == 4) return value * 160934; // Miles to Centimeters
-    }
-    if (fromUnit == 4) { // Centimeters
-        if (toUnit == 1) return value / 100; // Centimeters to Meters
-        if (toUnit == 2) return value / 100000; // Centimeters to Kilometers
-        if (toUnit == 3) return value / 160934; // Centimeters to Miles
-    }
-    return value; // Return original value if units are the same
-}
-""".trimIndent()
                             ),
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "The convertLength function converts length units based on input and output units, using predefined conversion factors.",
-                                    listOf("")
+                                    """
+                        Step 2: Plan the Approach (Stack for Matching Brackets)
+                        Use a stack to track opening brackets.  
+                        For each character in the string:  
+                        If it’s an opening bracket, push it onto the stack.  
+                        If it’s a closing bracket, check if the stack is not empty and matches the top element.  
+                        If not, return 'false'.  
+                        After processing all characters, ensure the stack is empty.  
+                        """.trimIndent(),
+                                    listOf("Step 2: Plan the Approach (Stack for Matching Brackets)")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                        Step 3: Edge Cases
+                        Empty string (valid).  
+                        String with unmatched brackets.  
+                        String with only opening or only closing brackets.  
+                        """.trimIndent(),
+                                    listOf("Step 3: Edge Cases")
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+
                     ),
 
+                    // Optimized C++ Code Solution
                     LessonContent(
-                        id = CExpertStageIds.lesson5_subs[1],
-                        title = "Converting Weight Units with a Function",
-                        description = "This lesson demonstrates how to create a function to convert between various weight units such as kilograms, pounds, grams, and ounces.",
+                        id = DSAExpertStageIds.lesson5_subs[2],
+                        title = "Code Solution",
                         contentBlocks = listOf(
                             ContentBlock.Text(
-                                createAnnotatedText(
-                                    "This lesson shows how to define a function that converts between weight units (kilograms, pounds, grams, ounces) using conversion factors.",
-                                    listOf("unit conversion")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-#include <stdio.h>
-
-float convertWeight(float value, int fromUnit, int toUnit) {
-    // Conversion factors
-    if (fromUnit == 1) { // Kilograms
-        if (toUnit == 2) return value * 2.20462; // Kilograms to Pounds
-        if (toUnit == 3) return value * 1000; // Kilograms to Grams
-        if (toUnit == 4) return value * 35.274; // Kilograms to Ounces
-    }
-    if (fromUnit == 2) { // Pounds
-        if (toUnit == 1) return value / 2.20462; // Pounds to Kilograms
-        if (toUnit == 3) return value * 453.592; // Pounds to Grams
-        if (toUnit == 4) return value * 16; // Pounds to Ounces
-    }
-    if (fromUnit == 3) { // Grams
-        if (toUnit == 1) return value / 1000; // Grams to Kilograms
-        if (toUnit == 2) return value / 453.592; // Grams to Pounds
-        if (toUnit == 4) return value / 28.3495; // Grams to Ounces
-    }
-    if (fromUnit == 4) { // Ounces
-        if (toUnit == 1) return value / 35.274; // Ounces to Kilograms
-        if (toUnit == 2) return value / 16; // Ounces to Pounds
-        if (toUnit == 3) return value * 28.3495; // Ounces to Grams
-    }
-    return value; // Return original value if units are the same
-}
-
-""".trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "The convertWeight function converts weight units based on input and output units, using predefined conversion factors.",
-                                    listOf("")
-                                )
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-
-                    // Sublesson: Viewing Contacts
-                    LessonContent(
-                        id = CExpertStageIds.lesson5_subs[3],
-                        title = "Converting Temperature Units",
-                        description = "In this lesson, we will implement a function to convert between temperature units such as Celsius, Fahrenheit, and Kelvin.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "This lesson shows how to define a function that converts temperatures between Celsius, Fahrenheit, and Kelvin using appropriate formulas.",
-                                    listOf("unit conversion")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-#include <stdio.h>
-
-float convertTemperature(float value, int fromUnit, int toUnit) {
-    if (fromUnit == 1) { // Celsius
-        if (toUnit == 2) return (value * 9/5) + 32; // Celsius to Fahrenheit
-        if (toUnit == 3) return value + 273.15; // Celsius to Kelvin
-    }
-    if (fromUnit == 2) { // Fahrenheit
-        if (toUnit == 1) return (value - 32) * 5/9; // Fahrenheit to Celsius
-        if (toUnit == 3) return (value - 32) * 5/9 + 273.15; // Fahrenheit to Kelvin
-    }
-    if (fromUnit == 3) { // Kelvin
-        if (toUnit == 1) return value - 273.15; // Kelvin to Celsius
-        if (toUnit == 2) return (value - 273.15) * 9/5 + 32; // Kelvin to Fahrenheit
-    }
-    return value; // Return original value if units are the same
-}
-""".trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "The convertTemperature function applies formulas to convert between Celsius, Fahrenheit, and Kelvin based on input and output units.",
-                                    listOf("")
-                                )
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-
-                    LessonContent(
-                        id = CExpertStageIds.lesson5_subs[4],
-                        title = "Complete Project Code",
-                        description = "Below is the complete code for the Unit Converter program, which supports converting between different units of length, weight, and temperature.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Below is the complete code for the Unit Converter program. This program allows users to convert between length, weight, and temperature units. The user selects the category (length, weight, or temperature) and then inputs the value along with the units to convert from and to. The temperature conversion supports Celsius, Fahrenheit, and Kelvin.",
+                                createAnnotatedText("""
+                This C++ code checks whether a string containing parentheses, brackets, and braces is valid. It uses a stack to ensure every opening bracket has a corresponding and correctly ordered closing bracket.
+                """.trimIndent(),
                                     listOf("")
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-#include <stdio.h>
+                    #include <iostream>
+                    #include <stack>
+                    using namespace std;
 
-// Function prototypes for conversion
-float convertLength(float value, int fromUnit, int toUnit);
-float convertWeight(float value, int fromUnit, int toUnit);
-float convertTemperature(float value, int fromUnit, int toUnit);
+                    bool isValid(string s) {
+                        stack<char> st;
+                        for (char ch : s) {
+                            if (ch == '(' || ch == '[' || ch == '{') {
+                                st.push(ch);
+                            } else {
+                                if (st.empty()) return false;
+                                char top = st.top();
+                                if ((ch == ')' && top != '(') ||
+                                    (ch == ']' && top != '[') ||
+                                    (ch == '}' && top != '{')) {
+                                    return false;
+                                }
+                                st.pop();
+                            }
+                        }
+                        return st.empty();
+                    }
 
-int main() {
-    int choice, fromUnit, toUnit;
-    float value, result;
+                    int main() {
+                        string s = "()[]{}";
+                        cout << "Is the string valid? " << (isValid(s) ? "True" : "False") << endl;
 
-    printf("Unit Converter\n");
-    printf("Choose the category:\n");
-    printf("1. Length\n");
-    printf("2. Weight\n");
-    printf("3. Temperature\n");
-    printf("Enter choice (1-3): ");
-    scanf("%d", &choice);
+                        s = "(]";
+                        cout << "Is the string valid? " << (isValid(s) ? "True" : "False") << endl;
 
-    // Ask for input value
-    printf("Enter value to convert: ");
-    scanf("%f", &value);
-
-    // Handle different categories
-    switch (choice) {
-        case 1: // Length
-            printf("Choose the unit to convert from:\n");
-            printf("1. Meters\n2. Kilometers\n3. Miles\n4. Centimeters\n");
-            printf("Enter choice (1-4): ");
-            scanf("%d", &fromUnit);
-
-            printf("Choose the unit to convert to:\n");
-            printf("1. Meters\n2. Kilometers\n3. Miles\n4. Centimeters\n");
-            printf("Enter choice (1-4): ");
-            scanf("%d", &toUnit);
-
-            result = convertLength(value, fromUnit, toUnit);
-            printf("Converted value: %.2f\n", result);
-            break;
-
-        case 2: // Weight
-            printf("Choose the unit to convert from:\n");
-            printf("1. Kilograms\n2. Pounds\n3. Grams\n4. Ounces\n");
-            printf("Enter choice (1-4): ");
-            scanf("%d", &fromUnit);
-
-            printf("Choose the unit to convert to:\n");
-            printf("1. Kilograms\n2. Pounds\n3. Grams\n4. Ounces\n");
-            printf("Enter choice (1-4): ");
-            scanf("%d", &toUnit);
-
-            result = convertWeight(value, fromUnit, toUnit);
-            printf("Converted value: %.2f\n", result);
-            break;
-
-        case 3: // Temperature
-            printf("Choose the unit to convert from:\n");
-            printf("1. Celsius\n2. Fahrenheit\n3. Kelvin\n");
-            printf("Enter choice (1-3): ");
-            scanf("%d", &fromUnit);
-
-            printf("Choose the unit to convert to:\n");
-            printf("1. Celsius\n2. Fahrenheit\n3. Kelvin\n");
-            printf("Enter choice (1-3): ");
-            scanf("%d", &toUnit);
-
-            result = convertTemperature(value, fromUnit, toUnit);
-            printf("Converted value: %.2f\n", result);
-            break;
-
-        default:
-            printf("Invalid choice.\n");
-    }
-
-    return 0;
-}
-
-// Function to convert length
-float convertLength(float value, int fromUnit, int toUnit) {
-    // Conversion factors
-    if (fromUnit == 1) { // Meters
-        if (toUnit == 2) return value / 1000; // Meters to Kilometers
-        if (toUnit == 3) return value * 0.000621371; // Meters to Miles
-        if (toUnit == 4) return value * 100; // Meters to Centimeters
-    }
-    if (fromUnit == 2) { // Kilometers
-        if (toUnit == 1) return value * 1000; // Kilometers to Meters
-        if (toUnit == 3) return value * 0.621371; // Kilometers to Miles
-        if (toUnit == 4) return value * 100000; // Kilometers to Centimeters
-    }
-    if (fromUnit == 3) { // Miles
-        if (toUnit == 1) return value / 0.000621371; // Miles to Meters
-        if (toUnit == 2) return value / 0.621371; // Miles to Kilometers
-        if (toUnit == 4) return value * 160934; // Miles to Centimeters
-    }
-    if (fromUnit == 4) { // Centimeters
-        if (toUnit == 1) return value / 100; // Centimeters to Meters
-        if (toUnit == 2) return value / 100000; // Centimeters to Kilometers
-        if (toUnit == 3) return value / 160934; // Centimeters to Miles
-    }
-    return value; // Return original value if units are the same
-}
-
-// Function to convert weight
-float convertWeight(float value, int fromUnit, int toUnit) {
-    // Conversion factors
-    if (fromUnit == 1) { // Kilograms
-        if (toUnit == 2) return value * 2.20462; // Kilograms to Pounds
-        if (toUnit == 3) return value * 1000; // Kilograms to Grams
-        if (toUnit == 4) return value * 35.274; // Kilograms to Ounces
-    }
-    if (fromUnit == 2) { // Pounds
-        if (toUnit == 1) return value / 2.20462; // Pounds to Kilograms
-        if (toUnit == 3) return value * 453.592; // Pounds to Grams
-        if (toUnit == 4) return value * 16; // Pounds to Ounces
-    }
-    if (fromUnit == 3) { // Grams
-        if (toUnit == 1) return value / 1000; // Grams to Kilograms
-        if (toUnit == 2) return value / 453.592; // Grams to Pounds
-        if (toUnit == 4) return value / 28.3495; // Grams to Ounces
-    }
-    if (fromUnit == 4) { // Ounces
-        if (toUnit == 1) return value / 35.274; // Ounces to Kilograms
-        if (toUnit == 2) return value / 16; // Ounces to Pounds
-        if (toUnit == 3) return value * 28.3495; // Ounces to Grams
-    }
-    return value; // Return original value if units are the same
-}
-
-// Function to convert temperature
-float convertTemperature(float value, int fromUnit, int toUnit) {
-    if (fromUnit == 1) { // Celsius
-        if (toUnit == 2) return (value * 9/5) + 32; // Celsius to Fahrenheit
-        if (toUnit == 3) return value + 273.15; // Celsius to Kelvin
-    }
-    if (fromUnit == 2) { // Fahrenheit
-        if (toUnit == 1) return (value - 32) * 5/9; // Fahrenheit to Celsius
-        if (toUnit == 3) return (value - 32) * 5/9 + 273.15; // Fahrenheit to Kelvin
-    }
-    if (fromUnit == 3) { // Kelvin
-        if (toUnit == 1) return value - 273.15; // Kelvin to Celsius
-        if (toUnit == 2) return (value - 273.15) * 9/5 + 32; // Kelvin to Fahrenheit
-    }
-    return value; // Return original value if units are the same
-}
-
-"""
+                        return 0;
+                    }
+                    """.trimIndent()
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+
+                    ),
+
+                    // Motivation
+                    LessonContent(
+                        id = DSAExpertStageIds.lesson5_subs[3],
+                        title = "Motivation to Solve More Problems",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                        Well done on solving the Valid Parentheses problem! 🎉  
+
+                        Why this matters:  
+                        Stack Mastery: You've learned how to effectively use a stack for problem-solving.  
+                        Real-world Relevance: Bracket matching is essential in compilers, parsers, and more.  
+
+                        Keep challenging yourself with problems to enhance your confidence and skill in data structure-based solutions! 🚀  
+                        """.trimIndent(),
+                                    listOf("stack mastery", "problem-solving", "confidence")
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+
                     )
                 ),
                 status = LessonStatus.LOCKED
@@ -1283,351 +727,156 @@ float convertTemperature(float value, int fromUnit, int toUnit) {
 
             // lesson 6
             Lesson(
-                id = CExpertStageIds.lesson6,
-                title = "Tic-Tac-Toe Game",
-                description = "Create a text-based Tic-Tac-Toe game that allows two players to take turns marking spaces on a 3x3 grid. The game will check for winning conditions, handle user input, and display the board after each move.",
+                id = DSAExpertStageIds.lesson6,
+                title = "Longest Substring Without Repeating Characters",
+                description = "Learn to solve problems step-by-step with DSA techniques using C++. This lesson focuses on finding the length of the longest substring without repeating characters using the sliding window technique.",
                 lessonContents = listOf(
-
+                    // Problem Statement
                     LessonContent(
-                        id = CExpertStageIds.lesson6_subs[0],
-                        title = "Introduction to Tic-Tac-Toe Game",
-                        description = "This project teaches how to create a text-based Tic-Tac-Toe game in C, where players can take turns to make moves and check for winning conditions or a draw using arrays, loops, and conditional statements.",
+                        id = DSAExpertStageIds.lesson6_subs[0],
+                        title = "Problem Statement - Longest Substring Without Repeating Characters",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "In this project, you will develop a simple Tic-Tac-Toe game in C, where two players take turns to place their marks ('X' or 'O') on a 3x3 grid. The game will check for a winner after each move, and will also handle situations where the game ends in a draw. The program will use arrays to represent the game board, loops for turns, and conditional statements to evaluate the win and draw conditions.",
-                                    listOf("arrays", "loops", "conditional statements")
+                                    "You are given a string 's'. Your task is to find the length of the longest substring that contains no repeating characters.",
+                                    listOf("longest substring", "repeating characters")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                        Example: 
+                        Input: 'abcabcbb'  
+                        Output: '3'  
+                        Explanation: The answer is 'abc', with a length of '3'.  
+                        """.trimIndent(),
+                                    listOf("example", "input", "output", "substring")
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
                     ),
 
+                    // Manual Walkthrough
                     LessonContent(
-                        id = CExpertStageIds.lesson6_subs[1],
-                        title = "Initializing a Tic-Tac-Toe Board in C",
-                        description = "Learn how to initialize a 3x3 Tic-Tac-Toe board with numbers 1 to 9 in C.",
+                        id = DSAExpertStageIds.lesson6_subs[1],
+                        title = "Manual Walkthrough",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "This lesson demonstrates how to use a 3x3 array to initialize a Tic-Tac-Toe board with numbers 1 to 9, representing player move positions. The initializeBoard function employs nested loops to fill the array, incrementing the variable value from 1 to 9 for each cell.",
+                                    """
+                        Step 1: Understand the Problem  
+                        Input: A string 's'.  
+                        Output: The length of the longest substring with no repeating characters.  
+                        """.trimIndent(),
+                                    listOf("Step 1: Understand the Problem")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                        Step 2: Plan the Approach (Sliding Window Technique) 
+                        Use two pointers, 'start' and 'end', to define the current window in the string.  
+                        Use a set or map to track the characters in the current window.  
+                        Expand the window by moving the 'end' pointer and check for duplicates:  
+                          If a duplicate exists, shrink the window from the 'start' until it's valid.  
+                          Keep track of the maximum length.  
+                        """.trimIndent(),
+                                    listOf("Step 2: Plan the Approach (Sliding Window Technique)")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                        Step 3: Edge Cases
+                        Empty string (output is '0').  
+                        String with all unique characters.  
+                        String with all repeating characters.  
+                        """.trimIndent(),
+                                    listOf("Step 3: Edge Cases")
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+
+                    ),
+
+                    // Optimized C++ Code Solution
+                    LessonContent(
+                        id = DSAExpertStageIds.lesson6_subs[2],
+                        title = "Code Solution",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                This C++ code finds the length of the longest substring without repeating characters using a sliding window and an unordered set. It efficiently tracks characters and adjusts the window dynamically.
+                """.trimIndent(),
+                                    listOf("sliding window", "longest substring", "unordered set")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+                    #include <iostream>
+                    #include <unordered_set>
+                    using namespace std;
+
+                    int lengthOfLongestSubstring(string s) {
+                        unordered_set<char> charSet;
+                        int maxLength = 0, start = 0;
+
+                        for (int end = 0; end < s.size(); ++end) {
+                            while (charSet.find(s[end]) != charSet.end()) {
+                                charSet.erase(s[start]);
+                                start++;
+                            }
+                            charSet.insert(s[end]);
+                            maxLength = max(maxLength, end - start + 1);
+                        }
+                        return maxLength;
+                    }
+
+                    int main() {
+                        string s = "abcabcbb";
+                        cout << "Length of the longest substring: " << lengthOfLongestSubstring(s) << endl;
+
+                        s = "bbbbb";
+                        cout << "Length of the longest substring: " << lengthOfLongestSubstring(s) << endl;
+
+                        return 0;
+                    }
+                    """.trimIndent()
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+
+                    ),
+
+                    // Motivation
+                    LessonContent(
+                        id = DSAExpertStageIds.lesson6_subs[3],
+                        title = "Motivation to Solve More Problems",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                        Congratulations on solving the Longest Substring Without Repeating Characters problem! 🎉  
+
+                        Why this matters:  
+                        Sliding Window Mastery: You've mastered an efficient approach for substring problems.  
+                        Real-world Applications: This technique is widely used in string parsing and text processing tasks.  
+
+                        Keep practicing and challenge yourself with more string manipulation problems to sharpen your problem-solving skills! 🚀  
+                        """.trimIndent(),
                                     listOf(
-                                        "3x3",
+                                        "sliding window",
+                                        "problem-solving",
+                                        "string manipulation"
                                     )
                                 )
-                            ),
-                            ContentBlock.Code(
-                                """
-char board[3][3];  // 3x3 Tic-Tac-Toe board
-
-// Function to initialize the board with numbers
-void initializeBoard() {
-    char value = '1';
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 3; j++) {
-            board[i][j] = value++;
-        }
-    }
-}
-""".trimIndent()
-                            ),
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-
-                    LessonContent(
-                        id = CExpertStageIds.lesson6_subs[2],
-                        title = "Displaying the Tic-Tac-Toe Board in C",
-                        description = "This lesson demonstrates how to create a function to display a Tic-Tac-Toe board in C using loops and conditional statements. The board is displayed with a grid format, and the cells are separated by pipes ('|') for clarity.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "This lesson shows how to create a function that displays the Tic-Tac-Toe board with values in a grid format. Pipes '|' separate the cells, and dashes ('---|---|---') separate rows for clarity.",
-                                    listOf("display board", "'|'", "'---|---|---'")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-// Function to display the board
-void displayBoard() {
-    printf("\nTic-Tac-Toe Board:\n");
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 3; j++) {
-            printf(" %c ", board[i][j]);
-            if (j < 2) printf("|");
-        }
-        printf("\n");
-        if (i < 2) printf("---|---|---\n");
-    }
-}
-""".trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "The displayBoard function uses nested loops to iterate through the 3x3 array and print each cell. Pipes separate columns, and dashes between rows enhance the visual structure of the grid.",
-                                    listOf("")
-                                )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CExpertStageIds.lesson6_subs[3],
-                        title = "Checking for a Winner in Tic-Tac-Toe",
-                        description = "In this lesson, we will implement a function to check if a player has won the game in Tic-Tac-Toe by evaluating rows, columns, and diagonals for a winning condition.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "This lesson demonstrates how to check if a player has won by evaluating the rows, columns, and diagonals of the game board.",
-                                    listOf("")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-// Function to check if a player has won
-int checkWin(char player) {
-    // Check rows and columns
-    for (int i = 0; i < 3; i++) {
-        if ((board[i][0] == player && board[i][1] == player && board[i][2] == player) || 
-            (board[0][i] == player && board[1][i] == player && board[2][i] == player)) {
-            return 1;
-        }
-    }
-    // Check diagonals
-    if ((board[0][0] == player && board[1][1] == player && board[2][2] == player) || 
-        (board[0][2] == player && board[1][1] == player && board[2][0] == player)) {
-        return 1;
-    }
-    return 0;
-}
-""".trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "The checkWin function checks all rows, columns, and diagonals. It returns 1 if a win is detected, otherwise 0.",
-                                    listOf("1,0")
-                                )
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
+                        type = LessonContentType.NON_INTERACTIVE,
 
-                    LessonContent(
-                        id = CExpertStageIds.lesson6_subs[4],
-                        title = "Checking for a Draw in Tic-Tac-Toe",
-                        description = "In this lesson, we will implement a function to check if the game has ended in a draw, meaning all cells are filled without a winner.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "This lesson demonstrates how to check for a draw by verifying if all board cells are filled with 'X' or 'O'.",
-                                    listOf("'X'", "'O'")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-// Function to check if the game is a draw
-int checkDraw() {
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 3; j++) {
-            if (board[i][j] != 'X' && board[i][j] != 'O') {
-                return 0;  // Not a draw yet
-            }
-        }
-    }
-    return 1;  // All cells are filled, it's a draw
-}
-""".trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "The checkDraw function returns 1 if all cells are filled with 'X' or 'O'; otherwise, it returns `0`.",
-                                    listOf("")
-                                )
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-
-                    LessonContent(
-                        id = CExpertStageIds.lesson6_subs[5],
-                        title = "Handling Player Moves in Tic-Tac-Toe",
-                        description = "In this lesson, we will implement a function to take input from the player and make their move on the Tic-Tac-Toe board.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "This lesson explains how to take player input and validate the move, ensuring the chosen cell is available.",
-                                    listOf("player input ", "validate")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-// Function to take input from the player
-void playerMove(char player) {
-    int choice;
-    int validMove = 0;
-
-    // Loop until the player enters a valid move
-    while (!validMove) {
-        printf("Player %c, enter a number (1-9) to make your move: ", player);
-        scanf("%d", &choice);
-
-        if (choice >= 1 && choice <= 9) {
-            int row = (choice - 1) / 3;
-            int col = (choice - 1) % 3;
-
-            if (board[row][col] != 'X' && board[row][col] != 'O') {
-                board[row][col] = player;
-                validMove = 1;  // Valid move
-            } else {
-                printf("Cell already taken! Try again.\n");
-            }
-        } else {
-            printf("Invalid choice! Please enter a number between 1 and 9.\n");
-        }
-    }
-}
-""".trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "The playerMove function prompts the player for a valid move, ensuring the chosen cell is not already occupied.",
-                                    listOf("")
-                                )
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-
-                    LessonContent(
-                        id = CExpertStageIds.lesson6_subs[6],
-                        title = "Complete Project Code",
-                        description = "Below is the complete code for the Tic-Tac-Toe game, which allows two players to take turns and play the game on a 3x3 grid.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "Below is the complete code for the Tic-Tac-Toe game. This program allows two players, X and O, to take turns and make moves on a 3x3 grid. The game checks for a winner after every move and also checks for a draw when all the cells are filled. The user inputs a number between 1 and 9 to choose the cell for their move, and the game displays the updated board after each move.",
-                                    listOf("X ", " O")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-#include <stdio.h>
-
-char board[3][3];  // 3x3 Tic-Tac-Toe board
-
-// Function to initialize the board with numbers
-void initializeBoard() {
-    char value = '1';
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 3; j++) {
-            board[i][j] = value++;
-        }
-    }
-}
-
-// Function to display the board
-void displayBoard() {
-    printf("\nTic-Tac-Toe Board:\n");
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 3; j++) {
-            printf(" %c ", board[i][j]);
-            if (j < 2) printf("|");
-        }
-        printf("\n");
-        if (i < 2) printf("---|---|---\n");
-    }
-}
-
-// Function to check if a player has won
-int checkWin(char player) {
-    // Check rows and columns
-    for (int i = 0; i < 3; i++) {
-        if ((board[i][0] == player && board[i][1] == player && board[i][2] == player) || 
-            (board[0][i] == player && board[1][i] == player && board[2][i] == player)) {
-            return 1;
-        }
-    }
-    // Check diagonals
-    if ((board[0][0] == player && board[1][1] == player && board[2][2] == player) || 
-        (board[0][2] == player && board[1][1] == player && board[2][0] == player)) {
-        return 1;
-    }
-    return 0;
-}
-
-// Function to check if the game is a draw
-int checkDraw() {
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 3; j++) {
-            if (board[i][j] != 'X' && board[i][j] != 'O') {
-                return 0;  // Not a draw yet
-            }
-        }
-    }
-    return 1;  // All cells are filled, it's a draw
-}
-
-// Function to take input from the player
-void playerMove(char player) {
-    int choice;
-    int validMove = 0;
-
-    // Loop until the player enters a valid move
-    while (!validMove) {
-        printf("Player %c, enter a number (1-9) to make your move: ", player);
-        scanf("%d", &choice);
-
-        if (choice >= 1 && choice <= 9) {
-            int row = (choice - 1) / 3;
-            int col = (choice - 1) % 3;
-
-            if (board[row][col] != 'X' && board[row][col] != 'O') {
-                board[row][col] = player;
-                validMove = 1;  // Valid move
-            } else {
-                printf("Cell already taken! Try again.\n");
-            }
-        } else {
-            printf("Invalid choice! Please enter a number between 1 and 9.\n");
-        }
-    }
-}
-
-// Main function to run the game
-int main() {
-    int turn = 0;  // To track the turn (0 for Player X, 1 for Player O)
-    char player = 'X';  // Start with Player X
-
-    initializeBoard();  // Initialize the board
-    displayBoard();  // Display the initial empty board
-
-    while (1) {
-        playerMove(player);  // Let the current player make a move
-        displayBoard();  // Display the board after the move
-
-        // Check if the current player won
-        if (checkWin(player)) {
-            printf("Player %c wins!\n", player);
-            break;
-        }
-
-        // Check if it's a draw
-        if (checkDraw()) {
-            printf("It's a draw!\n");
-            break;
-        }
-
-        // Switch player for the next turn
-        player = (player == 'X') ? 'O' : 'X';
-        turn++;
-    }
-
-    return 0;
-}
-"""
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
                     )
                 ),
                 status = LessonStatus.LOCKED
@@ -1635,499 +884,171 @@ int main() {
 
             // lesson 7
             Lesson(
-                id = CExpertStageIds.lesson7,
-                title = "Text Editor",
-                description = "A simple text editor that allows the user to create, save, and open files. It will require handling file operations and memory management for dynamic text manipulation.",
+                id = DSAExpertStageIds.lesson7,
+                title = "Word Ladder",
+                description = "Learn to solve problems step-by-step with DSA techniques using C++. This lesson focuses on finding the shortest transformation sequence from the begin word to the end word using the graph BFS approach.",
                 lessonContents = listOf(
-
+                    // Problem Statement
                     LessonContent(
-                        id = CExpertStageIds.lesson7_subs[0],
-                        title = "Introduction to Text Editor Project",
-                        description = "This project teaches how to create a simple text-based text editor in C, allowing users to create, edit, view, and manage text files dynamically using memory allocation, file handling, and string manipulation.",
+                        id = DSAExpertStageIds.lesson7_subs[0],
+                        title = "Problem Statement - Word Ladder",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "In this project, you will develop a text editor in C that enables users to create new files, edit existing files, and read file content. Users can input text dynamically, append or edit file content, and save changes as needed. The program makes use of dynamic memory allocation to handle variable-length content, file handling for managing text files, and string manipulation techniques to process user input and file data.",
-                                    listOf(
-                                        "memory allocation",
-                                        "file handling",
-                                        "string manipulation"
-                                    )
+                                    """
+                        You are given two words, 'beginWord' and 'endWord', and a dictionary. You need to find the shortest transformation sequence from 'beginWord' to 'endWord', such that each transformed word must exist in the dictionary.  
+                        Only one letter can be changed at a time, and each transformed word must be a valid word in the dictionary.
+                        """.trimIndent(),
+                                    listOf("word ladder", "transformation", "dictionary")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                        Example:  
+                        Input: 'beginWord = "hit"', 'endWord = "cog"', 'dictionary = ["hot", "dot", "dog", "lot", "log", "cog"]'  
+                        Output: '5'  
+                        Explanation: The shortest transformation sequence is: 'hit -> hot -> dot -> dog -> cog'.  
+                        """.trimIndent(),
+                                    listOf("example", "input", "output", "transformation sequence")
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+
                     ),
 
+                    // Manual Walkthrough
                     LessonContent(
-                        id = CExpertStageIds.lesson7_subs[1],
-                        title = "Initializing the Text Editor in C",
-                        description = "Learn to set up a text editor in C with dynamic memory and file handling.",
+                        id = DSAExpertStageIds.lesson7_subs[1],
+                        title = "Manual Walkthrough",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "This lesson demonstrates the initialization of a text editor in C, using key libraries like <stdio.h> for input/output, <stdlib.h> for dynamic memory allocation, and <string.h> for string manipulation. Constants such as MAX_LINE_LENGTH and INITIAL_BUFFER_SIZE are defined to manage input length and buffer size efficiently, enabling robust text and file handling.",
-                                    listOf("dynamic memory", "file handling")
+                                    """
+                        Step 1: Understand the Problem 
+                        Input: A 'beginWord', an 'endWord', and a dictionary.  
+                        Output: The length of the shortest transformation sequence from 'beginWord' to 'endWord'.  
+                        """.trimIndent(),
+                                    listOf("Step 1: Understand the Problem")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                        Step 2: Plan the Approach (Graph BFS)
+                        Treat each word as a node in a graph and each valid transformation as an edge.  
+                        Perform a Breadth-First Search (BFS) starting from 'beginWord'.  
+                        For each word, try to change one letter at a time and check if the new word exists in the dictionary.  
+                        Keep track of visited words to avoid cycles and unnecessary reprocessing.  
+                        The BFS guarantees the shortest path to reach 'endWord'.
+                        """.trimIndent(),
+                                    listOf("Step 2: Plan the Approach (Graph BFS)")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                        Step 3: Edge Cases 
+                        If 'endWord' is not in the dictionary, return '0'.  
+                        If 'beginWord' is the same as 'endWord', the result is '1' (no transformation needed).  
+                        If there are no valid transformations, return '0'.  
+                        """.trimIndent(),
+                                    listOf("Step 3: Edge Cases ")
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+
+                    ),
+
+                    // Optimized C++ Code Solution
+                    LessonContent(
+                        id = DSAExpertStageIds.lesson7_subs[2],
+                        title = "Code Solution",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                This C++ code solves the Word Ladder problem using BFS. It calculates the shortest transformation sequence length between two words by traversing through valid intermediate words in the dictionary.
+                """.trimIndent(),
+                                    listOf("Word Ladder", "BFS", "shortest transformation sequence")
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+                    #include <iostream>
+                    #include <queue>
+                    #include <unordered_set>
+                    #include <vector>
+                    using namespace std;
 
-#define MAX_LINE_LENGTH 256
-#define INITIAL_BUFFER_SIZE 1024
-""".trimIndent()
-                            ),
+                    int ladderLength(string beginWord, string endWord, unordered_set<string>& wordList) {
+                        if (wordList.find(endWord) == wordList.end()) return 0;
+                        
+                        queue<string> q;
+                        q.push(beginWord);
+                        int level = 1;
+                        
+                        while (!q.empty()) {
+                            int size = q.size();
+                            for (int i = 0; i < size; ++i) {
+                                string word = q.front();
+                                q.pop();
+                                
+                                for (int j = 0; j < word.size(); ++j) {
+                                    char original = word[j];
+                                    for (char ch = 'a'; ch <= 'z'; ++ch) {
+                                        word[j] = ch;
+                                        if (word == endWord) return level + 1;
+                                        if (wordList.find(word) != wordList.end()) {
+                                            q.push(word);
+                                            wordList.erase(word);
+                                        }
+                                    }
+                                    word[j] = original;
+                                }
+                            }
+                            ++level;
+                        }
+                        return 0;
+                    }
+
+                    int main() {
+                        unordered_set<string> wordList = {"hot", "dot", "dog", "lot", "log", "cog"};
+                        string beginWord = "hit", endWord = "cog";
+                        cout << "Length of the shortest transformation sequence: " << ladderLength(beginWord, endWord, wordList) << endl;
+                        return 0;
+                    }
+                    """.trimIndent()
+                            )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+
                     ),
 
+                    // Motivation
                     LessonContent(
-                        id = CExpertStageIds.lesson7_subs[2],
-                        title = "Creating and Saving a New File in C",
-                        description = "Learn how to create, edit, and save a new file in C using dynamic memory and user input handling.",
+                        id = DSAExpertStageIds.lesson7_subs[3],
+                        title = "Motivation to Solve More Problems",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "This lesson demonstrates how to create a function to manage file creation and editing in C. It uses dynamic memory allocation to handle content, checks for existing files to avoid overwrites, and allows users to input and save text. Key concepts include file handling, memory management, and user interaction.",
-                                    listOf("dynamic memory", "file handling", "user input")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-void createNewFile(char **buffer, size_t *bufferSize, char *filename) {
-    FILE *file = fopen(filename, "r");
-    if (file != NULL) {
-        fclose(file);
-        printf("Error: File with name '%s' already exists. Choose a different name.\n", filename);
-        return;
-    }
+                                    """
+                        Congratulations on solving the Word Ladder problem! 🎉  
 
-    free(*buffer); // Free any existing buffer
-    *buffer = (char *)malloc(INITIAL_BUFFER_SIZE * sizeof(char));
-    if (*buffer == NULL) {
-        perror("Failed to allocate memory");
-        exit(EXIT_FAILURE);
-    }
-    (*buffer)[0] = '\0'; // Start with an empty buffer
-    *bufferSize = INITIAL_BUFFER_SIZE;
+                        Why this matters:  
+                        Graph Algorithms Mastery: You've learned how to apply BFS to solve graph traversal problems.  
+                        Real-world Relevance: Word ladder transformations are an important concept in natural language processing and word games.  
 
-    printf("New file '%s' created.\n", filename);
-    printf("Enter content for the file (type END on a new line to finish):\n");
-
-    char input[MAX_LINE_LENGTH];
-    while (1) {
-        fgets(input, MAX_LINE_LENGTH, stdin);
-        input[strcspn(input, "\n")] = '\0'; // Remove trailing newline
-
-        if (strcmp(input, "END") == 0)
-            break;
-
-        size_t currentLength = strlen(*buffer);
-        size_t additionalLength = strlen(input) + 1; // Include newline character
-
-        if (currentLength + additionalLength >= *bufferSize) {
-            *bufferSize = (currentLength + additionalLength) * 2;
-            *buffer = realloc(*buffer, *bufferSize * sizeof(char));
-            if (*buffer == NULL) {
-                perror("Failed to reallocate memory");
-                exit(EXIT_FAILURE);
-            }
-        }
-
-        strcat(*buffer, input);
-        strcat(*buffer, "\n");
-    }
-
-    printf("Do you want to save the file? (y/n): ");
-    char choice;
-    scanf(" %c", &choice);
-    getchar(); // Consume newline
-    if (choice == 'y' || choice == 'Y') {
-        FILE *outFile = fopen(filename, "w");
-        if (outFile == NULL) {
-            perror("Failed to save file");
-            return;
-        }
-        fprintf(outFile, "%s", *buffer);
-        fclose(outFile);
-        printf("File saved successfully as '%s'.\n", filename);
-    } else {
-        printf("File not saved.\n");
-    }
-}
-""".trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "The function ensures efficient memory usage and user-friendly file creation, making it easy to edit and save text content dynamically.",
-                                    listOf("memory management", "file handling")
+                        Keep practicing and challenge yourself with more graph-related problems to sharpen your problem-solving skills! 🚀  
+                        """.trimIndent(),
+                                    listOf("graph algorithms", "problem-solving", "BFS")
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
+                        type = LessonContentType.NON_INTERACTIVE,
 
-                    LessonContent(
-                        id = CExpertStageIds.lesson7_subs[3],
-                        title = "Editing and Appending Content to a File in C",
-                        description = "Learn how to edit and append content to an existing file in C using dynamic memory and file handling techniques.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "This lesson explains how to edit and append content to a file in C. The function dynamically allocates memory to read the file's current content and allows users to append new text interactively. Key operations include reading, resizing memory, and saving changes.",
-                                    listOf("dynamic memory", "file handling", "append content")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-void editFile(char **buffer, size_t *bufferSize, const char *filename) {
-    FILE *file = fopen(filename, "r");
-    if (file == NULL) {
-        printf("Error: File '%s' does not exist.\n", filename);
-        return;
-    }
-
-    fseek(file, 0, SEEK_END);
-    long fileSize = ftell(file);
-    rewind(file);
-
-    if (fileSize > *bufferSize) {
-        *buffer = realloc(*buffer, (fileSize + 1) * sizeof(char));
-        if (*buffer == NULL) {
-            perror("Failed to allocate memory");
-            fclose(file);
-            exit(EXIT_FAILURE);
-        }
-        *bufferSize = fileSize + 1;
-    }
-
-    fread(*buffer, sizeof(char), fileSize, file);
-    (*buffer)[fileSize] = '\0'; // Null-terminate the buffer
-    fclose(file);
-
-    printf("Current content of '%s':\n%s\n", filename, *buffer);
-    printf("Enter new content to append (type END on a new line to finish):\n");
-
-    char input[MAX_LINE_LENGTH];
-    while (1) {
-        fgets(input, MAX_LINE_LENGTH, stdin);
-        input[strcspn(input, "\n")] = '\0'; // Remove trailing newline
-
-        if (strcmp(input, "END") == 0)
-            break;
-
-        size_t currentLength = strlen(*buffer);
-        size_t additionalLength = strlen(input) + 1; // Include newline character
-
-        if (currentLength + additionalLength >= *bufferSize) {
-            *bufferSize = (currentLength + additionalLength) * 2;
-            *buffer = realloc(*buffer, *bufferSize * sizeof(char));
-            if (*buffer == NULL) {
-                perror("Failed to reallocate memory");
-                exit(EXIT_FAILURE);
-            }
-        }
-
-        strcat(*buffer, input);
-        strcat(*buffer, "\n");
-    }
-
-    printf("Do you want to save the changes? (y/n): ");
-    char choice;
-    scanf(" %c", &choice);
-    getchar(); // Consume newline
-    if (choice == 'y' || choice == 'Y') {
-        FILE *outFile = fopen(filename, "w");
-        if (outFile == NULL) {
-            perror("Failed to save file");
-            return;
-        }
-        fprintf(outFile, "%s", *buffer);
-        fclose(outFile);
-        printf("Changes saved successfully to '%s'.\n", filename);
-    } else {
-        printf("Changes not saved.\n");
-    }
-}
-""".trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "The function dynamically adjusts buffer size to accommodate new content, ensuring smooth editing and appending operations.",
-                                    listOf("buffer size", "dynamic allocation")
-                                )
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-
-                    LessonContent(
-                        id = CExpertStageIds.lesson7_subs[4],
-                        title = "Opening and Reading File Content in C",
-                        description = "This lesson covers how to open and read the contents of a file line by line in C using file handling techniques.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "This lesson explains how to open a file and display its contents line by line. The function ensures the file exists and handles errors gracefully if it cannot be opened.",
-                                    listOf("open a file", "display contents", "handle errors")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-void openFile(const char *filename) {
-    FILE *file = fopen(filename, "r");
-    if (file == NULL) {
-        printf("Error: File '%s' does not exist or cannot be opened.\n", filename);
-        return;
-    }
-
-    printf("Contents of '%s':\n", filename);
-    char line[MAX_LINE_LENGTH];
-    while (fgets(line, MAX_LINE_LENGTH, file) != NULL) {
-        printf("%s", line);
-    }
-    fclose(file);
-}
-""".trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "The openFile function reads the file line by line using fgets and prints each line to the console. If the file cannot be opened, an error message is displayed.",
-                                    listOf("fgets", "console output")
-                                )
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-
-                    LessonContent(
-                        id = CExpertStageIds.lesson7_subs[5],
-                        title = "Complete Text Editor Project",
-                        description = "Below is the complete code for a text editor program in C. This project allows users to create, edit, and view text files, showcasing essential file handling operations in C.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "This is the full implementation of a text editor written in C. The program includes functionalities for creating a new file, editing an existing file, and viewing the content of a file. It ensures memory safety and handles various file operations like reading, writing, and appending content. The user interacts with a menu-driven interface to perform these actions.",
-                                    listOf("text editor", "file operations", "memory safety")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-#define MAX_LINE_LENGTH 256
-#define INITIAL_BUFFER_SIZE 1024
-
-void createNewFile(char **buffer, size_t *bufferSize, char *filename) {
-    FILE *file = fopen(filename, "r");
-    if (file != NULL) {
-        fclose(file);
-        printf("Error: File with name '%s' already exists. Choose a different name.\n", filename);
-        return;
-    }
-
-    free(*buffer); // Free any existing buffer
-    *buffer = (char *)malloc(INITIAL_BUFFER_SIZE * sizeof(char));
-    if (*buffer == NULL) {
-        perror("Failed to allocate memory");
-        exit(EXIT_FAILURE);
-    }
-    (*buffer)[0] = '\0'; // Start with an empty buffer
-    *bufferSize = INITIAL_BUFFER_SIZE;
-
-    printf("New file '%s' created.\n", filename);
-    printf("Enter content for the file (type END on a new line to finish):\n");
-
-    char input[MAX_LINE_LENGTH];
-    while (1) {
-        fgets(input, MAX_LINE_LENGTH, stdin);
-        input[strcspn(input, "\n")] = '\0'; // Remove trailing newline
-
-        if (strcmp(input, "END") == 0)
-            break;
-
-        size_t currentLength = strlen(*buffer);
-        size_t additionalLength = strlen(input) + 1; // Include newline character
-
-        if (currentLength + additionalLength >= *bufferSize) {
-            *bufferSize = (currentLength + additionalLength) * 2;
-            *buffer = realloc(*buffer, *bufferSize * sizeof(char));
-            if (*buffer == NULL) {
-                perror("Failed to reallocate memory");
-                exit(EXIT_FAILURE);
-            }
-        }
-
-        strcat(*buffer, input);
-        strcat(*buffer, "\n");
-    }
-
-    printf("Do you want to save the file? (y/n): ");
-    char choice;
-    scanf(" %c", &choice);
-    getchar(); // Consume newline
-    if (choice == 'y' || choice == 'Y') {
-        FILE *outFile = fopen(filename, "w");
-        if (outFile == NULL) {
-            perror("Failed to save file");
-            return;
-        }
-        fprintf(outFile, "%s", *buffer);
-        fclose(outFile);
-        printf("File saved successfully as '%s'.\n", filename);
-    } else {
-        printf("File not saved.\n");
-    }
-}
-
-void editFile(char **buffer, size_t *bufferSize, const char *filename) {
-    FILE *file = fopen(filename, "r");
-    if (file == NULL) {
-        printf("Error: File '%s' does not exist.\n", filename);
-        return;
-    }
-
-    fseek(file, 0, SEEK_END);
-    long fileSize = ftell(file);
-    rewind(file);
-
-    if (fileSize > *bufferSize) {
-        *buffer = realloc(*buffer, (fileSize + 1) * sizeof(char));
-        if (*buffer == NULL) {
-            perror("Failed to allocate memory");
-            fclose(file);
-            exit(EXIT_FAILURE);
-        }
-        *bufferSize = fileSize + 1;
-    }
-
-    fread(*buffer, sizeof(char), fileSize, file);
-    (*buffer)[fileSize] = '\0'; // Null-terminate the buffer
-    fclose(file);
-
-    printf("Current content of '%s':\n%s\n", filename, *buffer);
-    printf("Enter new content to append (type END on a new line to finish):\n");
-
-    char input[MAX_LINE_LENGTH];
-    while (1) {
-        fgets(input, MAX_LINE_LENGTH, stdin);
-        input[strcspn(input, "\n")] = '\0'; // Remove trailing newline
-
-        if (strcmp(input, "END") == 0)
-            break;
-
-        size_t currentLength = strlen(*buffer);
-        size_t additionalLength = strlen(input) + 1; // Include newline character
-
-        if (currentLength + additionalLength >= *bufferSize) {
-            *bufferSize = (currentLength + additionalLength) * 2;
-            *buffer = realloc(*buffer, *bufferSize * sizeof(char));
-            if (*buffer == NULL) {
-                perror("Failed to reallocate memory");
-                exit(EXIT_FAILURE);
-            }
-        }
-
-        strcat(*buffer, input);
-        strcat(*buffer, "\n");
-    }
-
-    printf("Do you want to save the changes? (y/n): ");
-    char choice;
-    scanf(" %c", &choice);
-    getchar(); // Consume newline
-    if (choice == 'y' || choice == 'Y') {
-        FILE *outFile = fopen(filename, "w");
-        if (outFile == NULL) {
-            perror("Failed to save file");
-            return;
-        }
-        fprintf(outFile, "%s", *buffer);
-        fclose(outFile);
-        printf("Changes saved successfully to '%s'.\n", filename);
-    } else {
-        printf("Changes not saved.\n");
-    }
-}
-
-void openFile(const char *filename) {
-    FILE *file = fopen(filename, "r");
-    if (file == NULL) {
-        printf("Error: File '%s' does not exist or cannot be opened.\n", filename);
-        return;
-    }
-
-    printf("Contents of '%s':\n", filename);
-    char line[MAX_LINE_LENGTH];
-    while (fgets(line, MAX_LINE_LENGTH, file) != NULL) {
-        printf("%s", line);
-    }
-    fclose(file);
-}
-
-int main() {
-    char *buffer = NULL;
-    size_t bufferSize = 0;
-    int command;
-    char filename[100];
-
-    printf("Welcome to the Text Editor!\n");
-
-    while (1) {
-        printf("\nMenu:\n");
-        printf("1. Create New File\n");
-        printf("2. Edit File\n");
-        printf("3. Open File\n");
-        printf("4. Exit\n");
-        printf("Enter your choice: ");
-        scanf("%d", &command);
-        getchar(); // Consume newline
-
-        if (command == 1) {
-            printf("Enter new file name: ");
-            scanf("%s", filename);
-            getchar(); // Consume newline
-            createNewFile(&buffer, &bufferSize, filename);
-        } else if (command == 2) {
-            printf("Enter filename to edit: ");
-            scanf("%s", filename);
-            getchar(); // Consume newline
-            editFile(&buffer, &bufferSize, filename);
-        } else if (command == 3) {
-            printf("Enter filename to open: ");
-            scanf("%s", filename);
-            getchar(); // Consume newline
-            openFile(filename);
-        } else if (command == 4) {
-            printf("Exiting program.\n");
-            break;
-        } else {
-            printf("Invalid choice. Try again.\n");
-        }
-    }
-
-    free(buffer); // Free allocated memory
-    return 0;
-}
-"""
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "This project demonstrates practical use of file handling in C, including dynamic memory management and user interaction via a menu. It is a foundational project for learning C programming and understanding file I/O operations.",
-                                    listOf(
-                                        "file handling",
-                                        "dynamic memory",
-                                        "menu-driven interface"
-                                    )
-                                )
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
                     )
                 ),
                 status = LessonStatus.LOCKED
@@ -2135,543 +1056,176 @@ int main() {
 
             // lesson 8
             Lesson(
-                id = CExpertStageIds.lesson8,
-                title = "Student Grading System",
-                description = " Build a system to manage student grades, calculate averages, and display results. This project will involve basic data structures and file handling.",
+                id = DSAExpertStageIds.lesson8,
+                title = "N-Queens Problem",
+                description = "Learn to solve problems step-by-step with DSA techniques using C++. This lesson focuses on solving the N-Queens problem using the backtracking approach.",
                 lessonContents = listOf(
+                    // Problem Statement
                     LessonContent(
-                        id = CExpertStageIds.lesson8_subs[0],
-                        title = "Student Grading System in C",
-                        description = "This project teaches how to build a robust student grading system in C, allowing users to add, view, and manage student records. The system ensures uniqueness of roll numbers and includes features like grade computation, file storage, and record retrieval.",
+                        id = DSAExpertStageIds.lesson8_subs[0],
+                        title = "Problem Statement - N-Queens Problem",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "In this project, you will develop a student grading system in C that allows users to add and manage student records. The system enforces unique roll numbers to maintain data integrity. It supports dynamic input of student names, roll numbers, and marks for multiple subjects, computes averages, assigns grades, and saves records to a file for persistence. The project demonstrates practical usage of concepts like array management, file handling, and logical validations to build a functional and user-friendly application.",
-                                    listOf(
-                                        "array management",
-                                        "file handling",
-                                        "logical validations"
-                                    )
+                                    """
+                        You are given an 'N x N' chessboard and must place 'N' queens on the board such that no two queens threaten each other.  
+                        A queen can attack another queen if they are placed on the same row, column, or diagonal.
+                        """.trimIndent(),
+                                    listOf("N-Queens", "chessboard", "backtracking")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                        Example:  
+                        Input: 'N = 4'  
+                        Output:  
+                        [
+                          [".Q..",  // Solution 1
+                           "...Q",
+                           "Q...",
+                           "..Q."],
+                          ["..Q.",  // Solution 2
+                           "Q...",
+                           "...Q",
+                           ".Q.."]
+                        ]  
+                        Explanation: There are two distinct solutions to place 4 queens on a 4x4 board where no two queens threaten each other.  
+                        """.trimIndent(),
+                                    listOf("example", "input", "output", "solution")
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+
                     ),
 
+                    // Manual Walkthrough
                     LessonContent(
-                        id = CExpertStageIds.lesson8_subs[1],
-                        title = "Building a Student Grading System in C",
-                        description = "Learn how to build a student grading system in C with features like unique roll number validation, grade calculation, and persistent file storage.",
+                        id = DSAExpertStageIds.lesson8_subs[1],
+                        title = "Manual Walkthrough",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "This lesson guides you through the implementation of a student grading system in C. Key features include enforcing unique roll numbers, calculating averages and grades, and saving records to a file for persistence. You will use essential libraries like <stdio.h> for input/output, <stdlib.h> for memory management, and <string.h> for string operations. Constants such as MAX_STUDENTS and MAX_SUBJECTS are defined to manage data efficiently, ensuring robust record handling and validation.",
-                                    listOf(
-                                        "unique roll numbers",
-                                        "file storage",
-                                        "grade calculation"
-                                    )
+                                    """
+                        Step 1: Understand the Problem  
+                        Input: An integer 'N' representing the size of the chessboard and the number of queens.  
+                        Output: All possible solutions where 'N' queens can be placed on the board such that no two queens threaten each other.  
+                        """.trimIndent(),
+                                    listOf("Step 1: Understand the Problem")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                        Step 2: Plan the Approach (Backtracking)  
+                        The backtracking approach will help generate all possible board configurations and prune invalid ones.  
+                        We can use three arrays to track threatened columns and diagonals:  
+                        'cols': Tracks if a column is under attack.  
+                        'diag1': Tracks if a diagonal (top-left to bottom-right) is under attack.  
+                        'diag2': Tracks if a diagonal (top-right to bottom-left) is under attack.  
+                        For each row, try placing a queen in each column and check if the current position is valid.  
+                        Recursively place queens on the next row and backtrack if a solution is not found.  
+                        """.trimIndent(),
+                                    listOf("Step 2: Plan the Approach (Backtracking)")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                        Step 3: Edge Cases  
+                        If 'N = 1', the solution is a single queen on a 1x1 board.  
+                        If 'N = 2' or 'N = 3', there is no solution because queens cannot be placed without threatening each other.  
+                        For larger values of 'N', there may be multiple solutions.  
+                        """.trimIndent(),
+                                    listOf("Step 3: Edge Cases")
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+
+                    ),
+
+                    // Optimized C++ Code Solution
+                    LessonContent(
+                        id = DSAExpertStageIds.lesson8_subs[2],
+                        title = "Code Solution",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                This C++ code provides a backtracking solution for the N-Queens problem. It systematically places queens on the board while avoiding conflicts to find all valid configurations.
+                """.trimIndent(),
+                                    listOf("N-Queens", "backtracking", "valid configurations")
                                 )
                             ),
                             ContentBlock.Code(
                                 """
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+                    #include <iostream>
+                    #include <vector>
+                    using namespace std;
 
-#define MAX_STUDENTS 100
-#define MAX_NAME_LENGTH 50
-#define MAX_SUBJECTS 5
+                    void solveNQueensUtil(int row, int n, vector<string>& board, vector<bool>& cols, vector<bool>& diag1, vector<bool>& diag2, vector<vector<string>>& solutions) {
+                        if (row == n) {
+                            solutions.push_back(board);
+                            return;
+                        }
+                        
+                        for (int col = 0; col < n; ++col) {
+                            if (cols[col] || diag1[row - col + n - 1] || diag2[row + col]) {
+                                continue;
+                            }
+                            board[row][col] = 'Q';
+                            cols[col] = diag1[row - col + n - 1] = diag2[row + col] = true;
+                            solveNQueensUtil(row + 1, n, board, cols, diag1, diag2, solutions);
+                            board[row][col] = '.';
+                            cols[col] = diag1[row - col + n - 1] = diag2[row + col] = false;
+                        }
+                    }
 
-typedef struct {
-    char name[MAX_NAME_LENGTH];
-    int rollNumber;
-    float numbers[MAX_SUBJECTS];
-    float average;
-    int isSaved;
-} Student;
+                    vector<vector<string>> solveNQueens(int n) {
+                        vector<vector<string>> solutions;
+                        vector<string> board(n, string(n, '.'));
+                        vector<bool> cols(n, false), diag1(2 * n - 1, false), diag2(2 * n - 1, false);
+                        solveNQueensUtil(0, n, board, cols, diag1, diag2, solutions);
+                        return solutions;
+                    }
 
-Student students[MAX_STUDENTS];
-int studentCount = 0;
-""".trimIndent()
-                            ),
+                    int main() {
+                        int n = 4;
+                        vector<vector<string>> solutions = solveNQueens(n);
+                        cout << "Number of solutions for " << n << "-Queens problem: " << solutions.size() << endl;
+                        return 0;
+                    }
+                    """.trimIndent()
+                            )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+
                     ),
 
+                    // Motivation
                     LessonContent(
-                        id = CExpertStageIds.lesson8_subs[2],
-                        title = "Adding and Validating Student Records in C",
-                        description = "Learn how to implement a function for adding student records in C while ensuring validation, accurate grade calculation, and options for saving the records persistently.",
+                        id = DSAExpertStageIds.lesson8_subs[3],
+                        title = "Motivation to Solve More Problems",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "This lesson covers a function that calculates grades based on averages and validates student records by ensuring unique roll numbers, making it easy to manage and save records effectively.",
-                                    listOf("data validation", "grade calculation", "file handling")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-char getGrade(float average) {
-    if (average >= 90) return 'A';
-    if (average >= 80) return 'B';
-    if (average >= 70) return 'C';
-    if (average >= 60) return 'D';
-    return 'F';
-}
-""".trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "This implementation ensures records are accurate, prevents duplicates, and supports saving for future access.",
-                                    listOf("data validation", "grade calculation", "file handling")
+                                    """
+                        Congratulations on solving the N-Queens problem! 🎉  
+
+                        Why this matters:  
+                        Backtracking Mastery: You've learned how to approach complex constraint satisfaction problems using backtracking.  
+                        Real-world Relevance: N-Queens is a classic problem that helps you understand optimization techniques and constraint handling, commonly used in AI and game theory.  
+
+                        Keep practicing and challenge yourself with more backtracking problems to sharpen your problem-solving skills! 🚀  
+                        """.trimIndent(),
+                                    listOf("backtracking", "constraint satisfaction", "problem-solving")
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
+                        type = LessonContentType.NON_INTERACTIVE,
 
-                    LessonContent(
-                        id = CExpertStageIds.lesson8_subs[3],
-                        title = "Adding New Student Records with Validation in C",
-                        description = "Learn how to add new student records with validation, calculate averages, and provide options to save records in C.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "This lesson demonstrates how to add new student records while validating roll numbers to ensure uniqueness. Users can input scores for multiple subjects, calculate averages, and optionally save the record to persistent storage. The function prevents duplicates, manages data efficiently, and provides a seamless user experience.",
-                                    listOf(
-                                        "data validation",
-                                        "average calculation",
-                                        "file handling"
-                                    )
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-void addStudent() {
-    if (studentCount >= MAX_STUDENTS) {
-        printf("Student limit reached!\n");
-        return;
-    }
-
-    Student newStudent;
-    printf("Enter student name: ");
-    scanf(" %[^\n]s", newStudent.name);
-    printf("Enter roll number: ");
-    scanf("%d", &newStudent.rollNumber);
-
-    // Check if the roll number already exists
-    for (int i = 0; i < studentCount; i++) {
-        if (students[i].rollNumber == newStudent.rollNumber) {
-            printf("Error: A student with roll number %d already exists.\n", newStudent.rollNumber);
-            return;
-        }
-    }
-
-    printf("Enter numbers for %d subjects:\n", MAX_SUBJECTS);
-    float total = 0;
-    for (int i = 0; i < MAX_SUBJECTS; i++) {
-        printf("Subject %d: ", i + 1);
-        if (scanf("%f", &newStudent.numbers[i]) != 1) {
-            printf("Invalid number input. Please enter a valid number.\n");
-            return;
-        }
-        total += newStudent.numbers[i];
-    }
-    newStudent.average = total / MAX_SUBJECTS;
-    newStudent.isSaved = 0;
-
-    students[studentCount++] = newStudent;
-    printf("Student record added successfully.\n");
-
-    char saveChoice;
-    printf("Do you want to save this record? (Y/N): ");
-    scanf(" %c", &saveChoice);
-    if (saveChoice == 'Y' || saveChoice == 'y') {
-        saveRecord(studentCount - 1);
-    }
-}
-""".trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "The function ensures robust data management by dynamically allocating memory for new records, validating inputs, and allowing users to save data for persistent access.",
-                                    listOf(
-                                        "dynamic allocation",
-                                        "data validation",
-                                        "persistent storage"
-                                    )
-                                )
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-
-                    LessonContent(
-                        id = CExpertStageIds.lesson8_subs[4],
-                        title = "Viewing Student Records by Roll Number in C",
-                        description = "Learn how to search and display student records by roll number in C.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "This lesson demonstrates a function to search for and display a student's record by roll number. It validates input, checks if the record exists, and displays details like scores, averages, and grades, ensuring saved records are retrieved accurately.",
-                                    listOf("search records", "validate input", "display details")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-void viewRecordByRollNumber() {
-    if (studentCount == 0) {
-        printf("No student records available.\n");
-        return;
-    }
-
-    int rollNumberToSearch;
-    printf("Enter the roll number to search: ");
-    scanf("%d", &rollNumberToSearch);
-
-    int found = 0;
-    for (int i = 0; i < studentCount; i++) {
-        if (students[i].rollNumber == rollNumberToSearch && students[i].isSaved) {
-            printf("\nStudent Record:\n");
-            printf("Name: %s\n", students[i].name);
-            printf("Roll Number: %d\n", students[i].rollNumber);
-            printf("Subjects Scores: ");
-            for (int j = 0; j < MAX_SUBJECTS; j++) {
-                printf("%.2f ", students[i].numbers[j]);
-            }
-            printf("\nAverage: %.2f\n", students[i].average);
-            printf("Grade: %c\n", getGrade(students[i].average));
-            found = 1;
-            break;
-        }
-    }
-
-    if (!found) {
-        printf("No record found for roll number %d.\n", rollNumberToSearch);
-    }
-}
-""".trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "This function efficiently retrieves and displays student records by roll number, ensuring accurate data management and user-friendly output.",
-                                    listOf(
-                                        "search functionality",
-                                        "data retrieval",
-                                        "user-friendly output"
-                                    )
-                                )
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-
-                    LessonContent(
-                        id = CExpertStageIds.lesson8_subs[5],
-                        title = "Saving Student Records in C",
-                        description = "Learn how to save student records to a file in C.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "This lesson demonstrates how to save a student's record to a file. The function writes data in a structured format, including the name, roll number, subject scores, and average, ensuring successful file persistence.",
-                                    listOf("save records", "file handling", "structured format")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-void saveRecord(int studentIndex) {
-    FILE *file = fopen("student_records.txt", "a");
-    if (file == NULL) {
-        printf("Error opening file for writing.\n");
-        return;
-    }
-
-    // Write the student record in a consistent format
-    fprintf(file, "%s\n", students[studentIndex].name);
-    fprintf(file, "%d\n", students[studentIndex].rollNumber);
-    for (int j = 0; j < MAX_SUBJECTS; j++) {
-        fprintf(file, "%.2f ", students[studentIndex].numbers[j]);
-    }
-    fprintf(file, "\n%.2f\n", students[studentIndex].average); // Save average
-    fclose(file);
-    students[studentIndex].isSaved = 1;
-    printf("Student record saved successfully.\n");
-}
-""".trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "This function writes student data to a file in an organized way, ensuring records are stored persistently and marked as saved.",
-                                    listOf("file persistence", "organized storage", "data saving")
-                                )
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-                    LessonContent(
-                        id = CExpertStageIds.lesson8_subs[6],
-                        title = "Loading Student Records in C",
-                        description = "Learn how to load student records from a file in C.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "This lesson demonstrates how to load student records from a file. The function reads data line by line, calculates averages, and marks records as loaded successfully.",
-                                    listOf("load records", "file reading", "data initialization")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-void loadRecords() {
-    FILE *file = fopen("student_records.txt", "r");
-    if (file == NULL) {
-        printf("No previous records found.\n");
-        return;
-    }
-
-    // Read until the end of the file
-    while (fscanf(file, " %[^\n]s", students[studentCount].name) != EOF) {
-        fscanf(file, "%d", &students[studentCount].rollNumber);
-
-        // Read the scores for each subject
-        float total = 0;
-        for (int i = 0; i < MAX_SUBJECTS; i++) {
-            fscanf(file, "%f", &students[studentCount].numbers[i]);
-            total += students[studentCount].numbers[i];
-        }
-        students[studentCount].average = total / MAX_SUBJECTS;
-
-        // Set the record as saved
-        students[studentCount].isSaved = 1;
-
-        studentCount++;  // Increment the student count
-    }
-
-    fclose(file);
-    printf("Records loaded successfully.\n");
-}
-""".trimIndent()
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "The function efficiently reads student records, calculates averages, and updates the system with previously saved data.",
-                                    listOf("file reading", "data loading", "average calculation")
-                                )
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
-
-                    LessonContent(
-                        id = CExpertStageIds.lesson8_subs[7],
-                        title = "Student Grading System in C",
-                        description = "Complete implementation of a student grading system in C, showcasing file handling, data management, and a menu-driven interface.",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "This program allows users to add, save, and view student records. It demonstrates file handling, structured data storage, and user interaction through a menu-driven interface.",
-                                    listOf("file handling", "data management", "menu interface")
-                                )
-                            ),
-                            ContentBlock.Code(
-                                """
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-#define MAX_STUDENTS 100
-#define MAX_NAME_LENGTH 50
-#define MAX_SUBJECTS 5
-
-typedef struct {
-    char name[MAX_NAME_LENGTH];
-    int rollNumber;
-    float numbers[MAX_SUBJECTS];
-    float average;
-    int isSaved;
-} Student;
-
-Student students[MAX_STUDENTS];
-int studentCount = 0;
-
-// Function prototypes
-void saveRecord(int studentIndex);
-void addStudent();
-void viewRecordByRollNumber();
-char getGrade(float average);
-
-char getGrade(float average) {
-    if (average >= 90) return 'A';
-    if (average >= 80) return 'B';
-    if (average >= 70) return 'C';
-    if (average >= 60) return 'D';
-    return 'F';
-}
-
-void addStudent() {
-    if (studentCount >= MAX_STUDENTS) {
-        printf("Student limit reached!\n");
-        return;
-    }
-
-    Student newStudent;
-    printf("Enter student name: ");
-    scanf(" %[^\n]s", newStudent.name);
-    printf("Enter roll number: ");
-    scanf("%d", &newStudent.rollNumber);
-
-    // Check if the roll number already exists
-    for (int i = 0; i < studentCount; i++) {
-        if (students[i].rollNumber == newStudent.rollNumber) {
-            printf("Error: A student with roll number %d already exists.\n", newStudent.rollNumber);
-            return;
-        }
-    }
-
-    printf("Enter numbers for %d subjects:\n", MAX_SUBJECTS);
-    float total = 0;
-    for (int i = 0; i < MAX_SUBJECTS; i++) {
-        printf("Subject %d: ", i + 1);
-        if (scanf("%f", &newStudent.numbers[i]) != 1) {
-            printf("Invalid number input. Please enter a valid number.\n");
-            return;
-        }
-        total += newStudent.numbers[i];
-    }
-    newStudent.average = total / MAX_SUBJECTS;
-    newStudent.isSaved = 0;
-
-    students[studentCount++] = newStudent;
-    printf("Student record added successfully.\n");
-
-    char saveChoice;
-    printf("Do you want to save this record? (Y/N): ");
-    scanf(" %c", &saveChoice);
-    if (saveChoice == 'Y' || saveChoice == 'y') {
-        saveRecord(studentCount - 1);
-    }
-}
-
-
-void viewRecordByRollNumber() {
-    if (studentCount == 0) {
-        printf("No student records available.\n");
-        return;
-    }
-
-    int rollNumberToSearch;
-    printf("Enter the roll number to search: ");
-    scanf("%d", &rollNumberToSearch);
-
-    int found = 0;
-    for (int i = 0; i < studentCount; i++) {
-        if (students[i].rollNumber == rollNumberToSearch && students[i].isSaved) {
-            printf("\nStudent Record:\n");
-            printf("Name: %s\n", students[i].name);
-            printf("Roll Number: %d\n", students[i].rollNumber);
-            printf("Subjects Scores: ");
-            for (int j = 0; j < MAX_SUBJECTS; j++) {
-                printf("%.2f ", students[i].numbers[j]);
-            }
-            printf("\nAverage: %.2f\n", students[i].average);
-            printf("Grade: %c\n", getGrade(students[i].average));
-            found = 1;
-            break;
-        }
-    }
-
-    if (!found) {
-        printf("No record found for roll number %d.\n", rollNumberToSearch);
-    }
-}
-
-void saveRecord(int studentIndex) {
-    FILE *file = fopen("student_records.txt", "a");
-    if (file == NULL) {
-        printf("Error opening file for writing.\n");
-        return;
-    }
-
-    // Write the student record in a consistent format
-    fprintf(file, "%s\n", students[studentIndex].name);
-    fprintf(file, "%d\n", students[studentIndex].rollNumber);
-    for (int j = 0; j < MAX_SUBJECTS; j++) {
-        fprintf(file, "%.2f ", students[studentIndex].numbers[j]);
-    }
-    fprintf(file, "\n%.2f\n", students[studentIndex].average); // Save average
-    fclose(file);
-    students[studentIndex].isSaved = 1;
-    printf("Student record saved successfully.\n");
-}
-
-void loadRecords() {
-    FILE *file = fopen("student_records.txt", "r");
-    if (file == NULL) {
-        printf("No previous records found.\n");
-        return;
-    }
-
-    // Read until the end of the file
-    while (fscanf(file, " %[^\n]s", students[studentCount].name) != EOF) {
-        fscanf(file, "%d", &students[studentCount].rollNumber);
-
-        // Read the scores for each subject
-        float total = 0;
-        for (int i = 0; i < MAX_SUBJECTS; i++) {
-            fscanf(file, "%f", &students[studentCount].numbers[i]);
-            total += students[studentCount].numbers[i];
-        }
-        students[studentCount].average = total / MAX_SUBJECTS;
-
-        // Set the record as saved
-        students[studentCount].isSaved = 1;
-
-        studentCount++;  // Increment the student count
-    }
-
-    fclose(file);
-    printf("Records loaded successfully.\n");
-}
-
-int main() {
-    loadRecords();
-    int choice;
-
-    while (1) {
-        printf("\nStudent Grading System Menu:\n");
-        printf("1. Add Student Record\n");
-        printf("2. View Record by Roll Number\n");
-        printf("3. Exit\n");
-        printf("Enter your choice: ");
-        scanf("%d", &choice);
-
-        switch (choice) {
-            case 1:
-                addStudent();
-                break;
-            case 2:
-                viewRecordByRollNumber();
-                break;
-            case 3:
-                printf("Exiting program.\n");
-                return 0;
-            default:
-                printf("Invalid choice. Please try again.\n");
-        }
-    }
-    return 0;
-}
-
-"""
-                            ),
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "This project demonstrates practical file handling in C, focusing on saving and retrieving structured data with user-friendly functionality.",
-                                    listOf("file handling", "menu interface", "data persistence")
-                                )
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
                     )
                 ),
                 status = LessonStatus.LOCKED
@@ -2679,103 +1233,505 @@ int main() {
 
             // lesson 9
             Lesson(
-                id = CExpertStageIds.lesson9,
-                title = "End of C Language Lessons",
-                description = "Congratulations! You have completed the C programming lessons.",
+                id = DSAExpertStageIds.lesson9,
+                title = "Kth Smallest Element in a Binary Search Tree",
+                description = "Learn how to find the kth smallest element in a Binary Search Tree (BST) using Inorder Traversal. This lesson provides the techniques to implement an efficient solution.",
                 lessonContents = listOf(
+                    // Problem Statement
                     LessonContent(
-                        id = CExpertStageIds.lesson9_subs[0],
-                        title = "Conclusion of C Language Learning",
-                        description = "This marks the end of your C programming journey. You've covered the fundamentals and advanced topics in C, including control structures, functions, arrays, pointers, memory management, and more.",
+                        id = DSAExpertStageIds.lesson9_subs[0],
+                        title = "Kth Smallest Element in a BST",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "You have now learned the essential concepts in C programming, including syntax, control structures, functions, pointers, file handling, and memory management. These skills will help you solve real-world problems and form the foundation for learning more advanced programming topics in the future.",
-                                    listOf(
-                                        "C fundamentals",
-                                        "memory management",
-                                        "control structures"
-                                    )
+                                    """
+                        You are given a Binary Search Tree (BST) and a positive integer 'k'. Your task is to find the 'k'th smallest element in the BST.
+                        
+                        Example:  
+                        Input:  
+                        BST = [3, 1, 4, null, 2], k = 1  
+                        Output: 1  
+                        Explanation: The inorder traversal of the BST is [1, 2, 3, 4], so the 1st smallest element is '1'.  
+                        """.trimIndent(),
+                                    listOf("BST", "kth smallest", "inorder traversal", "tree traversal")
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+
                     ),
 
+                    // Manual Walkthrough
                     LessonContent(
-                        id = CExpertStageIds.lesson9_subs[1],
-                        title = "Farewell to C: Embracing New Beginnings",
-                        description = "It's time to say goodbye to C programming. While it's bittersweet, you are now equipped with valuable skills for the next phase of your learning journey.",
+                        id = DSAExpertStageIds.lesson9_subs[1],
+                        title = "Manual Walkthrough",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Though you're leaving the C language behind, the lessons and skills you've learned will continue to shape your growth as a programmer. As you step into real-world projects, remember that C has given you a solid foundation in understanding the inner workings of programming languages.",
-                                    listOf(
-                                        "programming foundation",
-                                        "real-world applications"
-                                    )
+                                    """
+                        Step 1: Understand the Problem
+                        Input: A Binary Search Tree and an integer 'k' which is the position of the smallest element to find.
+                        Output: The 'k'th smallest element in the BST, which can be found by performing an inorder traversal.""".trimIndent(),
+                                    listOf("Step 1: Understand the Problem")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                        Step 2: Approach  
+                        In a BST, the elements are arranged such that the left subtree of a node contains smaller elements and the right subtree contains larger elements. This makes inorder traversal naturally sorted.
+                        Perform an inorder traversal to visit each node in ascending order and count nodes until you reach the 'k'th element.""".trimIndent(),
+                                    listOf("Step 2: Approach")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                        Step 3: Approach in Detail  
+                        Initialize a counter 'count' to track how many nodes have been visited.
+                        Use a recursive approach to traverse the tree. On visiting each node, increment the counter.
+                        Once the counter reaches 'k', return the current node’s value as the 'k'th smallest element.
+                        """.trimIndent(),
+                                    listOf("Step 3: Approach in Detail")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                        Step 4: Edge Cases  
+                        If 'k' is larger than the total number of nodes in the tree, return an error or handle it appropriately.
+                        An empty BST should be handled as an invalid case.
+                        """.trimIndent(),
+                                    listOf("Step 4: Edge Cases")
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+
                     ),
 
+                    // Optimized C++ Code Solution
                     LessonContent(
-                        id = CExpertStageIds.lesson9_subs[2],
-                        title = "The Journey Ahead: Real-World Projects Await",
-                        description = "You're ready to take on real-world projects now! With your C language skills, you have the tools to tackle complex challenges and build powerful applications.",
+                        id = DSAExpertStageIds.lesson9_subs[2],
+                        title = "Code Solution",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "As you transition to building real-world projects, you'll find that the concepts you've learned in C are everywhere. Whether you're working on applications, embedded systems, or even starting with a new language, your understanding of C will be invaluable. Keep building, keep creating, and never stop learning!",
-                                    listOf(
-                                        "real-world projects",
-                                        "continuous learning"
-                                    )
+                                    """
+                This C++ code implements an efficient solution to find the kth smallest element in a Binary Search Tree (BST) using an iterative in-order traversal with a stack.
+                """.trimIndent(),
+                                    listOf("kth smallest", "Binary Search Tree", "in-order traversal", "stack")
                                 )
+                            ),
+                            ContentBlock.Code(
+                                """
+                    #include <iostream>
+                    #include <stack>
+                    using namespace std;
+
+                    struct TreeNode {
+                        int val;
+                        TreeNode* left;
+                        TreeNode* right;
+                        TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+                    };
+
+                    int kthSmallest(TreeNode* root, int k) {
+                        stack<TreeNode*> s;
+                        TreeNode* node = root;
+                        int count = 0;
+
+                        while (node != NULL || !s.empty()) {
+                            while (node != NULL) {
+                                s.push(node);
+                                node = node->left;
+                            }
+
+                            node = s.top();
+                            s.pop();
+                            count++;
+                            
+                            if (count == k) {
+                                return node->val;
+                            }
+                            
+                            node = node->right;
+                        }
+
+                        return -1; // If k is greater than the number of nodes in the BST
+                    }
+
+                    int main() {
+                        // Constructing the tree: [3, 1, 4, null, 2]
+                        TreeNode* root = new TreeNode(3);
+                        root->left = new TreeNode(1);
+                        root->right = new TreeNode(4);
+                        root->left->right = new TreeNode(2);
+
+                        int k = 1;
+                        cout << "The " << k << "th smallest element is " << kthSmallest(root, k) << endl;
+                        return 0;
+                    }
+                    """.trimIndent()
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+
                     ),
 
+                    // Motivation
                     LessonContent(
-                        id = CExpertStageIds.lesson9_subs[3],
-                        title = "Embrace the Challenge: You're Ready",
-                        description = "With determination and the knowledge you've gained, you're more than ready for the next chapter in your programming journey.",
+                        id = DSAExpertStageIds.lesson9_subs[3],
+                        title = "Motivation to Solve More Problems",
                         contentBlocks = listOf(
                             ContentBlock.Text(
                                 createAnnotatedText(
-                                    "Programming is an ongoing adventure, and you've just completed an important chapter. Take pride in how far you've come, and always remember that every new challenge is an opportunity to grow even more. The best is yet to come, and you're fully prepared for it!",
-                                    listOf(
-                                        "embracing challenges",
-                                        "growth and learning"
-                                    )
-                                )
-                            )
-                        ),
-                        type = LessonContentType.NON_INTERACTIVE
-                    ),
+                                    """
+                        Congratulations on solving the Kth Smallest Element in a BST problem! 🎉  
 
-                    LessonContent(
-                        id = CExpertStageIds.lesson9_subs[4],
-                        title = "Best Wishes for Your Future Projects",
-                        description = "The road ahead is bright. Best of luck in your future programming endeavors!",
-                        contentBlocks = listOf(
-                            ContentBlock.Text(
-                                createAnnotatedText(
-                                    "You’ve come so far, and now you're ready to make a real impact in the programming world. Whether you're diving into app development, game design, or systems programming, the journey ahead is full of exciting possibilities. Best of luck with your future projects. May your code always compile successfully!",
-                                    listOf(
-                                        "future projects",
-                                        "success and impact"
-                                    )
+                        Why this matters:  
+                        Efficient Searching: You now know how to efficiently search for the 'k'th smallest element in a binary search tree using inorder traversal.  
+                        Real-world Applications: This technique is widely used in problems involving sorted data structures and searching, such as finding the median or determining range queries.  
+
+                        Keep practicing and challenge yourself with more tree traversal and BST problems to enhance your problem-solving skills! 🚀  
+                        """.trimIndent(),
+                                    listOf("binary search tree", "inorder traversal", "tree problems")
                                 )
                             )
                         ),
-                        type = LessonContentType.NON_INTERACTIVE
+                        type = LessonContentType.NON_INTERACTIVE,
+
                     )
                 ),
                 status = LessonStatus.LOCKED
             ),
+
+            // lesson 10
+            Lesson(
+                id = DSAExpertStageIds.lesson10,
+                title = "Maximum Subarray Sum with One Deletion",
+                description = "Learn how to find the maximum subarray sum by deleting at most one element using Dynamic Programming. This lesson will guide you through solving the problem efficiently.",
+                lessonContents = listOf(
+                    // Problem Statement
+                    LessonContent(
+                        id = DSAExpertStageIds.lesson10_subs[0],
+                        title = "Problem Statement - Maximum Subarray Sum with One Deletion",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                        You are given an array of integers. Your task is to find the maximum subarray sum you can achieve by deleting at most one element.
+                        
+                        Example:  
+                        Input: 'arr = [1, -2, 0, 3]'  
+                        Output: '4'  
+                        Explanation: The maximum sum after deleting one element is achieved by deleting '-2', resulting in the subarray '[1, 0, 3]' which sums to '4'.
+                        """.trimIndent(),
+                                    listOf("maximum subarray", "deletion", "dynamic programming")
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+
+                    ),
+
+                    // Manual Walkthrough
+                    LessonContent(
+                        id = DSAExpertStageIds.lesson10_subs[1],
+                        title = "Manual Walkthrough",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText("""
+                        Step 1: Understand the Problem  
+                        Input: An array of integers where we need to find the maximum subarray sum after deleting at most one element.  
+                        Output: The maximum sum achievable with one deletion or no deletion at all.  
+                        """.trimIndent(),
+                                    listOf("Step 1: Understand the Problem ")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText("""
+                        Step 2: Approach (Dynamic Programming)  
+                        Let 'dp[i]' represent the maximum subarray sum ending at index 'i' without any deletions.  
+                        Let 'dp1[i]' represent the maximum subarray sum ending at index 'i' after deleting one element.  
+                        For each element in the array, compute the maximum sum that can be achieved by either deleting the current element or keeping it.
+                        We update the values of 'dp' and 'dp1' for every element in the array.
+                        The final answer is the maximum of the last elements of 'dp' and 'dp1'.
+                        """.trimIndent(),
+                                    listOf("Step 2: Approach (Dynamic Programming)")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText("""
+                        Step 3: Approach in Detail  
+                        For each index 'i', calculate 'dp[i]' as the maximum of 'arr[i]' and 'arr[i] + dp[i-1]' (the maximum sum ending at 'i' without deletion).  
+                        Calculate 'dp1[i]' as the maximum of 'arr[i]', 'arr[i] + dp[i-1]', and 'arr[i] + dp1[i-1]' (the maximum sum if we delete the current element).
+                        Return the maximum of 'dp[n-1]' and 'dp1[n-1]', where 'n' is the length of the array.
+                        """.trimIndent(),
+                                    listOf("Step 3: Approach in Detail")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                        Step 4: Edge Cases  
+                        If the array has only one element, the result is the element itself.  
+                        If all elements are negative, the maximum subarray sum might be the largest single element, even with deletion.
+                        """.trimIndent(),
+                                    listOf("Step 4: Edge Cases")
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+
+                    ),
+
+                    // Optimized C++ Code Solution
+                    LessonContent(
+                        id = DSAExpertStageIds.lesson10_subs[2],
+                        title = "Code Solution",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText("""
+                This C++ solution calculates the maximum subarray sum, allowing at most one deletion, using dynamic programming to efficiently handle overlapping subproblems.
+                """.trimIndent(),
+                                    listOf("maximum subarray sum", "dynamic programming", "one deletion")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+                    #include <iostream>
+                    #include <vector>
+                    using namespace std;
+
+                    int maximumSum(vector<int>& arr) {
+                        int n = arr.size();
+                        vector<int> dp(n), dp1(n);
+                        dp[0] = arr[0];
+                        dp1[0] = arr[0];
+
+                        for (int i = 1; i < n; ++i) {
+                            dp[i] = max(arr[i], arr[i] + dp[i-1]);
+                            dp1[i] = max(arr[i], max(arr[i] + dp[i-1], arr[i] + dp1[i-1]));
+                        }
+
+                        return max(dp[n-1], dp1[n-1]);
+                    }
+
+                    int main() {
+                        vector<int> arr = {1, -2, 0, 3};
+                        cout << "The maximum subarray sum with one deletion is " << maximumSum(arr) << endl;
+                        return 0;
+                    }
+                    """.trimIndent()
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+
+                    ),
+
+                    // Motivation
+                    LessonContent(
+                        id = DSAExpertStageIds.lesson10_subs[3],
+                        title = "Motivation to Solve More Problems",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                        Congratulations on solving the Maximum Subarray Sum with One Deletion problem! 🎉  
+
+                        Why this matters:  
+                        Dynamic Programming Mastery: You've learned how to use dynamic programming to solve complex problems involving subarrays and deletions.  
+                        Real-world Applications: This technique is widely used in optimization problems, such as finding maximum subsequences with constraints or handling missing data in time series.
+
+                        Keep practicing and challenge yourself with more dynamic programming problems to improve your problem-solving skills! 🚀
+                        """.trimIndent(),
+                                    listOf("dynamic programming", "subarrays", "optimization")
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+
+                    )
+                ),
+                status = LessonStatus.LOCKED
+            ),
+
+            // lesson 11
+            Lesson(
+                id = DSAExpertStageIds.lesson11,
+                title = "Traveling Salesman Problem (TSP)",
+                description = "Learn how to solve the Traveling Salesman Problem (TSP) using Dynamic Programming and Bitmasking. This lesson will guide you through solving the problem efficiently for finding the shortest possible route that visits all cities exactly once and returns to the starting city.",
+                lessonContents = listOf(
+                    // Problem Statement
+                    LessonContent(
+                        id = DSAExpertStageIds.lesson11_subs[0],
+                        title = "Problem Statement - Traveling Salesman Problem (TSP)",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText("""
+                        You are given a list of cities and the distances between each pair. Your task is to find the shortest possible route that visits each city exactly once and returns to the starting city.
+
+                        Example:  
+                        Input: Distance matrix:
+                        [[0, 10, 15, 20],
+                         [10, 0, 35, 25],
+                         [15, 35, 0, 30],
+                         [20, 25, 30, 0]]
+
+                        Output: 80  
+                        Explanation: The shortest possible route is [0 -> 1 -> 3 -> 2 -> 0] with a total distance of 80.
+                        """.trimIndent(),
+                                    listOf("traveling salesman", "bitmasking", "dynamic programming", "route optimization")
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+
+                    ),
+
+                    // Manual Walkthrough
+                    LessonContent(
+                        id = DSAExpertStageIds.lesson11_subs[1],
+                        title = "Manual Walkthrough",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText("""
+                        Step 1: Understand the Problem  
+                        Input: A distance matrix representing distances between cities.
+                        Output: The shortest possible route that visits every city once and returns to the starting city.
+                        
+                        """.trimIndent(),
+                                    listOf("Step 1: Understand the Problem")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                        Step 2: Approach (Dynamic Programming with Bitmasking)  
+                        Use dynamic programming (DP) to keep track of the shortest path to each city with a bitmask representing the set of visited cities.
+                        Let 'dp[mask][i]' represent the shortest path to visit all cities in the 'mask' set, ending at city 'i'.
+                        Initially, 'dp[1][0] = 0', meaning starting at city 0 with just city 0 visited.
+                        For each set of cities (bitmask), calculate the shortest path to all unvisited cities, and update the DP table accordingly.
+
+                        """.trimIndent(),
+                                    listOf("Step 2: Approach (Dynamic Programming with Bitmasking)")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText("""
+                        Step 3: Approach in Detail  
+                        Iterate over all possible subsets of cities (bitmask) and compute the shortest path by considering each possible next city.
+                        Use a recursive approach to explore all possible city orders and compute the minimum total distance.
+                        The final result is the minimum distance to visit all cities and return to the starting city.
+                        """.trimIndent(),
+                                    listOf("Step 3: Approach in Detail")
+                                )
+                            ),
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                        Step 4: Edge Cases  
+                        If the distance matrix contains only one city, the result is trivially 0.
+                        If the cities are disconnected or unreachable, it’s important to handle such cases by checking for valid connections between cities.
+                        """.trimIndent(),
+                                    listOf("Step 4: Edge Cases")
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+
+                    ),
+
+                    // Optimized C++ Code Solution
+                    LessonContent(
+                        id = DSAExpertStageIds.lesson11_subs[2],
+                        title = "Optimized C++ Code Solution",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                This solution implements the Traveling Salesman Problem (TSP) using dynamic programming and bitmasking to efficiently find the shortest possible route.
+                """.trimIndent(),
+                                    listOf("Traveling Salesman Problem", "dynamic programming", "bitmasking")
+                                )
+                            ),
+                            ContentBlock.Code(
+                                """
+                    #include <iostream>
+                    #include <vector>
+                    #include <climits>
+                    using namespace std;
+
+                    int travelingSalesman(vector<vector<int>>& dist) {
+                        int n = dist.size();
+                        vector<vector<int>> dp(1 << n, vector<int>(n, INT_MAX));
+
+                        dp[1][0] = 0;  // Start from city 0
+
+                        for (int mask = 1; mask < (1 << n); ++mask) {
+                            for (int u = 0; u < n; ++u) {
+                                if (mask & (1 << u)) {
+                                    for (int v = 0; v < n; ++v) {
+                                        if ((mask & (1 << v)) == 0) {
+                                            dp[mask | (1 << v)][v] = min(dp[mask | (1 << v)][v], dp[mask][u] + dist[u][v]);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        int result = INT_MAX;
+                        for (int u = 1; u < n; ++u) {
+                            result = min(result, dp[(1 << n) - 1][u] + dist[u][0]);
+                        }
+                        
+                        return result;
+                    }
+
+                    int main() {
+                        vector<vector<int>> dist = {{0, 10, 15, 20},
+                                                     {10, 0, 35, 25},
+                                                     {15, 35, 0, 30},
+                                                     {20, 25, 30, 0}};
+                        cout << "The shortest path length is " << travelingSalesman(dist) << endl;
+                        return 0;
+                    }
+                    """.trimIndent()
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+
+                    ),
+
+                    // Motivation
+                    LessonContent(
+                        id = DSAExpertStageIds.lesson11_subs[3],
+                        title = "Motivation to Solve More Problems",
+                        contentBlocks = listOf(
+                            ContentBlock.Text(
+                                createAnnotatedText(
+                                    """
+                        Congratulations on solving the Traveling Salesman Problem (TSP)! 🎉
+
+                        Why this matters:  
+                        Optimization Challenges: You've learned how to tackle one of the most famous optimization problems using dynamic programming and bitmasking.
+                        Real-world Applications: This problem is widely used in logistics, route planning, and various other fields where optimization and efficiency are crucial.
+
+                        Keep practicing and challenge yourself with more complex graph and DP problems to further enhance your problem-solving skills! 🚀
+                        """.trimIndent(),
+                                    listOf("dynamic programming", "bitmasking", "optimization", "traveling salesman")
+                                )
+                            )
+                        ),
+                        type = LessonContentType.NON_INTERACTIVE,
+
+                    )
+                ),
+                status = LessonStatus.LOCKED
+            )
+
+
         )
     )
 }
