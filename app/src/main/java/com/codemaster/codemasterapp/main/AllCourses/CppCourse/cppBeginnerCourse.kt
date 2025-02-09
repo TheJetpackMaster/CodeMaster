@@ -151,7 +151,7 @@ fun cppBeginnerCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        points = 10,
+                        points = 0,
                         status = LessonStatus.LOCKED
                     )
                 ),
@@ -270,7 +270,7 @@ fun cppBeginnerCourse(): Stage {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        points = 10,
+                        points = 0,
                         status = LessonStatus.LOCKED
                     )
                 ),
@@ -491,7 +491,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.QUIZ,
-                        points = 10,
+                        points = 0,
                         status = LessonStatus.LOCKED
                     ),
 
@@ -545,7 +545,7 @@ int main() {
                                 isCorrect = false
                             )
                         ),
-                        type = LessonContentType.QUIZ, points = 10,
+                        type = LessonContentType.QUIZ, points = 0,
                         status = LessonStatus.LOCKED
                     )
                 ),
@@ -666,7 +666,7 @@ int main () {
                             )
                         ),
                         type = LessonContentType.INTERACTIVE,
-                        points = 20,
+                        points = 0,
                         status = LessonStatus.LOCKED
                     ),
 
@@ -710,7 +710,7 @@ int main () {
                             )
                         ),
                         type = LessonContentType.INTERACTIVE,
-                        points = 20,
+                        points = 0,
                         status = LessonStatus.LOCKED
                     ),
 
@@ -755,7 +755,7 @@ int main () {
                                 isCorrect = false
                             )
                         ),
-                        type = LessonContentType.QUIZ, points = 10,
+                        type = LessonContentType.QUIZ, points = 0,
                         status = LessonStatus.LOCKED
                     ),
                 ),
@@ -887,7 +887,7 @@ int main () {
                             )
                         ),
                         type = LessonContentType.INTERACTIVE,
-                        points = 20,
+                        points = 0,
                         status = LessonStatus.LOCKED
                     ),
 
@@ -1196,7 +1196,7 @@ int main () {
                             )
                         ),
                         type = LessonContentType.INTERACTIVE,
-                        points = 20,
+                        points = 0,
                         status = LessonStatus.LOCKED
                     ),
 
@@ -1432,7 +1432,7 @@ int main () {
                             )
                         ),
                         type = LessonContentType.INTERACTIVE,
-                        points = 20,
+                        points = 0,
                         status = LessonStatus.LOCKED
                     ),
 
@@ -1639,7 +1639,7 @@ int main () {
                             )
                         ),
                         type = LessonContentType.INTERACTIVE,
-                        points = 20,
+                        points = 0,
                         status = LessonStatus.LOCKED
                     ),
 
@@ -2068,7 +2068,7 @@ int main() {
                                 )
                         ),
                         type = LessonContentType.INTERACTIVE,
-                        points = 20,
+                        points = 0,
                         status = LessonStatus.LOCKED
                     ),
 
@@ -2433,7 +2433,7 @@ int main () {
                             )
                         ),
                         type = LessonContentType.INTERACTIVE,
-                        points = 20,
+                        points = 0,
                         status = LessonStatus.LOCKED
                     ),
 
@@ -2513,7 +2513,7 @@ int main () {
                                 isCorrect = false
                             ),
                         ),
-                        type = LessonContentType.QUIZ, points = 10,
+                        type = LessonContentType.QUIZ, points = 0,
                         status = LessonStatus.LOCKED
                     ),
 
@@ -2595,7 +2595,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.INTERACTIVE,
-                        points = 20,
+                        points = 0,
                         status = LessonStatus.LOCKED
                     ),
 
@@ -2722,7 +2722,7 @@ int main() {
                                 isCorrect = false
                             )
                         ),
-                        type = LessonContentType.QUIZ, points = 10,
+                        type = LessonContentType.QUIZ, points = 0,
                         status = LessonStatus.LOCKED
                     ),
 
@@ -2809,7 +2809,7 @@ int main () {
                             )
                         ),
                         type = LessonContentType.INTERACTIVE,
-                        points = 20,
+                        points = 0,
                         status = LessonStatus.LOCKED
                     ),
 
@@ -3019,7 +3019,7 @@ int main() {
                             )
                         ),
                         type = LessonContentType.INTERACTIVE,
-                        points = 20,
+                        points = 0,
                         status = LessonStatus.LOCKED
                     ),
 
@@ -3231,7 +3231,7 @@ switch (number) {
                             )
                         ),
                         type = LessonContentType.INTERACTIVE,
-                        points = 20,
+                        points = 0,
                         status = LessonStatus.LOCKED
                     ),
 
@@ -3357,7 +3357,7 @@ switch (number) {
                                 correctAnswer = "The default case is optional."
                             )
                         ),
-                        type = LessonContentType.QUIZ, points = 10,
+                        type = LessonContentType.QUIZ, points = 0,
                         status = LessonStatus.LOCKED
                     )
                 ),
@@ -3389,7 +3389,7 @@ switch (number) {
                                 isCorrect = false
                             )
                         ),
-                        type = LessonContentType.QUIZ, points = 10,
+                        type = LessonContentType.QUIZ, points = 0,
                         status = LessonStatus.LOCKED
                     ),
 
@@ -3412,7 +3412,7 @@ switch (number) {
                                 isCorrect = false
                             )
                         ),
-                        type = LessonContentType.QUIZ, points = 10,
+                        type = LessonContentType.QUIZ, points = 0,
                         status = LessonStatus.LOCKED
                     ),
 
@@ -3435,7 +3435,7 @@ switch (number) {
                                 isCorrect = false
                             )
                         ),
-                        type = LessonContentType.QUIZ, points = 10,
+                        type = LessonContentType.QUIZ, points = 0,
                         status = LessonStatus.LOCKED
                     ),
 
@@ -3458,7 +3458,7 @@ switch (number) {
                                 isCorrect = false
                             )
                         ),
-                        type = LessonContentType.QUIZ, points = 10,
+                        type = LessonContentType.QUIZ, points = 0,
                         status = LessonStatus.LOCKED
                     ),
 
@@ -3481,7 +3481,7 @@ switch (number) {
                                 isCorrect = false
                             )
                         ),
-                        type = LessonContentType.QUIZ, points = 10,
+                        type = LessonContentType.QUIZ, points = 0,
                         status = LessonStatus.LOCKED
                     ),
 
@@ -3504,7 +3504,7 @@ switch (number) {
                                 isCorrect = false
                             )
                         ),
-                        type = LessonContentType.QUIZ, points = 10,
+                        type = LessonContentType.QUIZ, points = 0,
                         status = LessonStatus.LOCKED
                     ),
 
@@ -3527,7 +3527,7 @@ switch (number) {
                                 isCorrect = false
                             )
                         ),
-                        type = LessonContentType.QUIZ, points = 10,
+                        type = LessonContentType.QUIZ, points = 0,
                         status = LessonStatus.LOCKED
                     ),
 
@@ -3550,7 +3550,7 @@ switch (number) {
                                 isCorrect = false
                             )
                         ),
-                        type = LessonContentType.QUIZ, points = 10,
+                        type = LessonContentType.QUIZ, points = 0,
                         status = LessonStatus.LOCKED
                     ),
 
@@ -3573,7 +3573,7 @@ switch (number) {
                                 isCorrect = false
                             )
                         ),
-                        type = LessonContentType.QUIZ, points = 10,
+                        type = LessonContentType.QUIZ, points = 0,
                         status = LessonStatus.LOCKED
                     ),
 
@@ -3596,7 +3596,7 @@ switch (number) {
                                 isCorrect = false
                             )
                         ),
-                        type = LessonContentType.QUIZ, points = 10,
+                        type = LessonContentType.QUIZ, points = 0,
                         status = LessonStatus.LOCKED
                     ),
 
@@ -3619,7 +3619,7 @@ switch (number) {
                                 isCorrect = false
                             )
                         ),
-                        type = LessonContentType.QUIZ, points = 10,
+                        type = LessonContentType.QUIZ, points = 0,
                         status = LessonStatus.LOCKED
                     ),
 
@@ -3642,7 +3642,7 @@ switch (number) {
                                 isCorrect = false
                             )
                         ),
-                        type = LessonContentType.QUIZ, points = 10,
+                        type = LessonContentType.QUIZ, points = 0,
                         status = LessonStatus.LOCKED
                     ),
 
@@ -3665,7 +3665,7 @@ switch (number) {
                                 isCorrect = false
                             )
                         ),
-                        type = LessonContentType.QUIZ, points = 10,
+                        type = LessonContentType.QUIZ, points = 0,
                         status = LessonStatus.LOCKED
                     ),
 
@@ -3688,7 +3688,7 @@ switch (number) {
                                 isCorrect = false
                             )
                         ),
-                        type = LessonContentType.QUIZ, points = 10,
+                        type = LessonContentType.QUIZ, points = 0,
                         status = LessonStatus.LOCKED
                     )
                 )

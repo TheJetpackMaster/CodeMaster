@@ -43,7 +43,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.Lifecycle
-import com.codemaster.codemasterapp.main.DataBase.NoteViewModel
+import com.codemaster.codemasterapp.main.ui.viewModels.NoteViewModel
 import com.codemaster.codemasterapp.main.data.LearningProgress
 import com.codemaster.codemasterapp.main.data.LessonStatus
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.MainRoutes
@@ -133,7 +133,7 @@ fun LevelSelectionScreen(
                                     stageName = stage.title, // Stage name dynamically
                                     lessonCount = stage.lessons.size, // Lesson count dynamically
                                     completedLessonCount = completedLessons, // Completed lessons
-                                    icon = painterResource(id = R.drawable.cpp), // This could be dynamic based on language
+                                    icon = if(selectedCourse!!.name == "C") painterResource(R.drawable.clang) else painterResource(id = R.drawable.cpp), // This could be dynamic based on language
                                     onClick = {
                                         // Navigate to lesson list, passing the selected stage
                                         courseViewModel.selectStage(stage)

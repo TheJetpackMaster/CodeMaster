@@ -312,7 +312,7 @@ fun CAdvancedCourse(): Stage {
                         type = LessonContentType.QUIZ
                     )
                 ),
-                status = LessonStatus.ACTIVE
+                status = LessonStatus.LOCKED
             ),
             
 
@@ -2437,7 +2437,7 @@ int main() {
                         type = LessonContentType.QUIZ
                     )
                 ),
-                status = LessonStatus.ACTIVE
+                status = LessonStatus.LOCKED
             ),
 
             // Lesson 12

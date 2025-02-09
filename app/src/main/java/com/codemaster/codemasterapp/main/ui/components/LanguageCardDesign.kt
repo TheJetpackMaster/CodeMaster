@@ -168,7 +168,9 @@ fun LanguageCardDesign(
                 progress = {progress.value},
                 trackColor = Color.White.copy(.5f),
                 color = Color(0xFF3CAFE3),
-                modifier = Modifier.align(Alignment.BottomCenter)
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .align(Alignment.BottomCenter)
                     .height(5.dp)
             )
 

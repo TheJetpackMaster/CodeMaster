@@ -1,8 +1,11 @@
-package com.codemaster.codemasterapp.main.DataBase
+package com.codemaster.codemasterapp.main.di
 
 
 
 import android.content.Context
+import com.codemaster.codemasterapp.main.DataBase.NoteDao
+import com.codemaster.codemasterapp.main.DataBase.NoteDatabase
+import com.codemaster.codemasterapp.main.DataBase.NoteRepository
 import com.codemaster.codemasterapp.main.DataBase.continueLearningprogressDB.UserLearningProgressDB
 import com.codemaster.codemasterapp.main.DataBase.continueLearningprogressDB.UserLearningProgressDao
 import com.codemaster.codemasterapp.main.DataBase.continueLearningprogressDB.UserLearningProgressRepository
@@ -27,7 +30,7 @@ object AppModule {
     @Provides
     @Singleton
     fun provideNoteDatabase(@ApplicationContext context: Context): NoteDatabase {
-        return NoteDatabase.getDatabase(context)
+        return NoteDatabase.Companion.getDatabase(context)
     }
 
     @Provides

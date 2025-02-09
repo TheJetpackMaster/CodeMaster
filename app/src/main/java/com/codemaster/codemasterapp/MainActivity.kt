@@ -9,9 +9,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
-import com.codemaster.codemasterapp.main.DataBase.NoteViewModel
+import com.codemaster.codemasterapp.main.ui.viewModels.NoteViewModel
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.MainScreen
 import com.codemaster.codemasterapp.main.ui.viewModels.CourseViewModel
+import com.codemaster.codemasterapp.main.ui.viewModels.MainViewModel
 import com.codemaster.codemasterapp.main.ui.viewModels.UserProfileViewModel
 import com.codemaster.codemasterapp.ui.theme.CodeMasterTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -25,6 +26,7 @@ class MainActivity : ComponentActivity() {
         val courseViewModel: CourseViewModel by viewModels()
         val noteViewModel: NoteViewModel by viewModels()
         val userProfileViewModel : UserProfileViewModel by viewModels()
+        val mainViewModel : MainViewModel by viewModels()
 
         enableEdgeToEdge()
 
@@ -39,6 +41,7 @@ class MainActivity : ComponentActivity() {
                         courseViewModel = courseViewModel,
                         noteViewModel = noteViewModel,
                         userProfileViewModel = userProfileViewModel,
+                        mainViewModel = mainViewModel,
                         context = this@MainActivity,
                         courses = courses,
                         allLessonsStatus = allLessonStatus

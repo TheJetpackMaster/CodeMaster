@@ -50,7 +50,9 @@ import kotlinx.coroutines.launch
 @Composable
 fun AchievementScreenCustomTopBar(
     onTabSelected: (Int) -> Unit,
-    pagerState: PagerState
+    pagerState: PagerState,
+    completedAchievements: Int = 0,
+    totalAchievements: Int = 15,
 ) {
     // State for selected tab
     var selectedTabIndex by remember { mutableStateOf(0) }
@@ -142,7 +144,7 @@ fun AchievementScreenCustomTopBar(
                             )
                             Spacer(modifier = Modifier.width(4.dp)) // Add some space between the icon and text
                             Text(
-                                text = "Award 1/10",
+                                text = "Achievements  $completedAchievements/${totalAchievements}",
                                 style = MaterialTheme.typography.bodyMedium.copy(
                                     color = Color.White,
                                 ),

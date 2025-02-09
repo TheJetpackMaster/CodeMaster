@@ -3,6 +3,7 @@ package com.codemaster.codemasterapp.main.ui.learning.lessons.components
 import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -69,88 +70,133 @@ fun LessonContentView(
             lessonContent.type == LessonContentType.INTERACTIVE || lessonContent.type == LessonContentType.QUIZ
     }
 
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp)
-            .verticalScroll(rememberScrollState()),
-        verticalArrangement = Arrangement.spacedBy(16.dp)
-    ) {
+    Box (
+        modifier = Modifier.fillMaxSize()
 
-        // Show the lesson title at the top
-        Text(
-            text = lessonContent.title,
-            style = TextStyle(
-                fontSize = 22.sp,
-                fontWeight = FontWeight.Medium,
-                color = Color.White
-            ),
-            modifier = Modifier.padding(bottom = 16.dp) // Space below the title
-        )
+    ){
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp)
+                .verticalScroll(rememberScrollState()),
+            verticalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
 
-        lessonContent.contentBlocks.forEach { contentBlock ->
-            when (contentBlock) {
-                is ContentBlock.Text -> {
-                    Text(
-                        text = contentBlock.text,
-                        style = TextStyle(fontSize = 16.sp, color = Color.White),
-                        lineHeight = 24.sp
-                    )
-                }
+            // Show the lesson title at the top
+            Text(
+                text = lessonContent.title,
+                style = TextStyle(
+                    fontSize = 22.sp,
+                    fontWeight = FontWeight.Medium,
+                    color = Color.White
+                ),
+                modifier = Modifier.padding(bottom = 16.dp) // Space below the title
+            )
 
-                is ContentBlock.Image -> {
-                    Column(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(150.dp),
-                        verticalArrangement = Arrangement.Center,
-                        horizontalAlignment = Alignment.CenterHorizontally
-                    ) {
-                        Image(
-                            painter = painterResource(contentBlock.imageRes),
-                            contentDescription = null,
-                            modifier = Modifier.fillMaxWidth()
+            lessonContent.contentBlocks.forEach { contentBlock ->
+                when (contentBlock) {
+                    is ContentBlock.Text -> {
+                        Text(
+                            text = contentBlock.text,
+                            style = TextStyle(fontSize = 16.sp, color = Color.White),
+                            lineHeight = 24.sp
+                        )
+                    }
+
+                    is ContentBlock.Image -> {
+                        Column(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(150.dp),
+                            verticalArrangement = Arrangement.Center,
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ) {
+                            Image(
+                                painter = painterResource(contentBlock.imageRes),
+                                contentDescription = null,
+                                modifier = Modifier.fillMaxWidth()
+                            )
+                        }
+                    }
+
+                    is ContentBlock.Code -> {
+
+                        NormalCodeBlock(contentBlock.code)
+                    }
+
+
+                    is ContentBlock.InteractiveCodeBlock -> {
+
+                        InteractiveCodeBlockView(
+                            contentBlock = contentBlock,
+                            isAnswerGiven = isAnswerGiven,
+                            answerFeedbackText = answerFeedbackText,
+                            subLessonStatus = subLessonStatus
+                        )
+                    }
+
+                    is ContentBlock.QuizContentBlock -> {
+                        QuizContentBlock(
+                            contentBlock = contentBlock,
+                            isAnswerGiven = isAnswerGiven,
+                            answerFeedbackText = answerFeedbackText,
+                            subLessonStatus = subLessonStatus
+                        )
+                    }
+
+                    is ContentBlock.InteractiveInputBlock -> {
+                        InteractiveInputBlockView(
+                            contentBlock = contentBlock,
+                            isAnswerGiven = isAnswerGiven,
+                            answerFeedbackText = answerFeedbackText,
+                            subLessonStatus = subLessonStatus
                         )
                     }
                 }
-
-                is ContentBlock.Code -> {
-
-                    NormalCodeBlock(contentBlock.code)
-                }
-
-
-                is ContentBlock.InteractiveCodeBlock -> {
-
-                    InteractiveCodeBlockView(
-                        contentBlock = contentBlock,
-                        isAnswerGiven = isAnswerGiven,
-                        answerFeedbackText = answerFeedbackText,
-                        subLessonStatus = subLessonStatus
-                    )
-                }
-
-                is ContentBlock.QuizContentBlock -> {
-                    QuizContentBlock(
-                        contentBlock = contentBlock,
-                        isAnswerGiven = isAnswerGiven,
-                        answerFeedbackText = answerFeedbackText,
-                        subLessonStatus = subLessonStatus
-                    )
-                }
-
-                is ContentBlock.InteractiveInputBlock -> {
-                    InteractiveInputBlockView(
-                        contentBlock = contentBlock,
-                        isAnswerGiven = isAnswerGiven,
-                        answerFeedbackText = answerFeedbackText,
-                        subLessonStatus = subLessonStatus
-                    )
-                }
             }
-        }
 
-        Spacer(modifier = Modifier.weight(1f))
+//            Spacer(modifier = Modifier.weight(1f))
+//
+//
+//            //Continue Button
+//            Row(
+//                modifier = Modifier
+//                    .fillMaxWidth()
+//                    .padding(8.dp)
+//                    .height(46.dp),
+//                horizontalArrangement = Arrangement.SpaceBetween
+//            ) {
+//                Button(
+//                    modifier = Modifier
+//                        .fillMaxSize(),
+//                    onClick = {
+//                        onNext()
+//                        if (pagerState.currentPage >= subLessons.size - 1) {
+//                            onFinish()
+//                        }
+//
+//                    },
+//                    shape = RoundedCornerShape(8.dp),
+//                    colors = ButtonDefaults.buttonColors(
+//                        containerColor = bluishPython,
+//                        disabledContainerColor = Color(0xFF414559)
+//                    ),
+//                    enabled = shouldEnableContinueButton(
+//                        isInteractive = isInteractiveTypeLesson.value,
+//                        answerFeedbackText = answerFeedbackText.value,
+//                        isAnswerGiven = isAnswerGiven.value,
+//                        subLessonStatus = subLessonStatus
+//                    )
+//                ) {
+//                    Text(
+//                        text = if (pagerState.currentPage < subLessons.size - 1) "Continue" else "Finish",
+//                        style = TextStyle(fontSize = 16.sp, color = Color.White)
+//                    )
+//                }
+//            }
+
+            Spacer(Modifier.height(54.dp))
+        }
 
 
         //Continue Button
@@ -158,8 +204,11 @@ fun LessonContentView(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(8.dp)
-                .height(46.dp),
-            horizontalArrangement = Arrangement.SpaceBetween
+                .padding(bottom = 16.dp)
+                .height(46.dp)
+                .align(Alignment.BottomEnd),
+            horizontalArrangement = Arrangement.SpaceBetween,
+
         ) {
             Button(
                 modifier = Modifier

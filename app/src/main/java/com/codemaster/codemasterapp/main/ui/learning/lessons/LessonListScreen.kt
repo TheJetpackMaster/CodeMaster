@@ -66,10 +66,11 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.lifecycle.Lifecycle
-import com.codemaster.codemasterapp.main.DataBase.NoteViewModel
+import com.codemaster.codemasterapp.main.ui.viewModels.NoteViewModel
 import com.codemaster.codemasterapp.main.data.LessonContent
 import com.codemaster.codemasterapp.main.data.LessonStatus
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.MainRoutes
+import com.codemaster.codemasterapp.main.ui.userProfileDetails.settings.showToast
 import com.codemaster.codemasterapp.main.ui.viewModels.CourseViewModel
 import com.codemaster.codemasterapp.ui.theme.bluishPython
 import com.codemaster.codemasterapp.ui.theme.yellowishJava
@@ -341,13 +342,7 @@ fun LessonListScreen(
                                                             navController.navigate(MainRoutes.LessonContentScreen.route)
                                                         }
                                                     } else {
-                                                        Toast
-                                                            .makeText(
-                                                                context,
-                                                                "complete previous lesson first",
-                                                                Toast.LENGTH_SHORT
-                                                            )
-                                                            .show()
+                                                        showToast(context,"complete previous lesson(s) first")
                                                     }
                                                 },
                                                 isExpanded = isExpanded,
@@ -395,13 +390,7 @@ fun LessonListScreen(
                                                                     )
                                                                 }
                                                             } else {
-                                                                Toast
-                                                                    .makeText(
-                                                                        context,
-                                                                        "complete previous lesson first",
-                                                                        Toast.LENGTH_SHORT
-                                                                    )
-                                                                    .show()
+                                                                showToast(context,"complete previous lesson(s) first")
                                                             }
                                                         }
                                                     )

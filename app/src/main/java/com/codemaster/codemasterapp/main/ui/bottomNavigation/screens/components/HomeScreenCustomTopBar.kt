@@ -41,6 +41,7 @@ import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.nativeCanvas
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
@@ -56,6 +57,7 @@ import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
 import kotlin.random.Random
 import com.codemaster.codemasterapp.R
+import com.codemaster.codemasterapp.main.ui.userProfileDetails.settings.showToast
 import com.codemaster.codemasterapp.ui.theme.bluishPython
 import com.codemaster.codemasterapp.ui.theme.greenishPython
 
@@ -67,6 +69,8 @@ fun HomeScreenCustomTopBar(
     userName: String? = ""
 
 ) {
+
+    val context = LocalContext.current
 
     // Remember Lottie composition
     val composition =
@@ -203,7 +207,9 @@ fun HomeScreenCustomTopBar(
             ) {
                 // Notification Icon
                 IconButton(
-                    onClick = { /* Notification click */ },
+                    onClick = {
+                        showToast(context = context,"You don't have any notifications yet!")
+                    },
                     modifier = Modifier
                         .size(40.dp)
                         .background(
@@ -241,6 +247,7 @@ fun HomeScreenCustomTopBar(
                     Box(
                         modifier = Modifier
                             .size(40.dp)
+                            .border(1.dp,Color.White.copy(.5f),CircleShape)
                             .clip(CircleShape)
                             .background(Color.LightGray.copy(0.4f)),
                         contentAlignment = Alignment.Center
@@ -248,7 +255,7 @@ fun HomeScreenCustomTopBar(
                         GlideImage(
                             model = userProfileImage,
                         contentDescription = "Profile Picture",
-                        contentScale = ContentScale.FillBounds,
+                        contentScale = ContentScale.Crop,
                         modifier = Modifier.fillMaxSize()
                         )
                     }

@@ -295,7 +295,7 @@ fun cppIntermediateCourse(): Stage {
 
                     // Content for Basic Loop Quiz
                     LessonContent(
-                        id = "intermediate_cpp2_sub6",
+                        id = "intermediate_cpp2_sub7",
                         title = "Basic Loop Quiz 🧠",
                         description = "Test your knowledge of loops in C++.",
                         contentBlocks = listOf(

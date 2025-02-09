@@ -1,12 +1,12 @@
 package com.codemaster.codemasterapp.main.ui.userProfileDetails
 
+import android.content.Intent
 import android.net.Uri
 import android.util.Log
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Canvas
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -20,7 +20,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -32,7 +31,6 @@ import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.IconButtonDefaults
@@ -65,12 +63,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.NavController
-import coil.compose.rememberImagePainter
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
 import com.codemaster.codemasterapp.R
-import com.codemaster.codemasterapp.main.DataBase.NoteViewModel
+import com.codemaster.codemasterapp.main.ui.viewModels.NoteViewModel
 import com.codemaster.codemasterapp.main.ui.auth.uriToByteArray
+import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.BottomNavRoutes
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.ProfileRoutes
 import com.codemaster.codemasterapp.main.ui.viewModels.UserProfileViewModel
 
@@ -121,6 +119,9 @@ fun UserProfileScreen(
     noteViewModel: NoteViewModel,
     userProfileViewModel: UserProfileViewModel
 ) {
+
+    val context = LocalContext.current
+
     Scaffold(
         containerColor = Color.Transparent,
         topBar = {
@@ -260,7 +261,12 @@ fun UserProfileScreen(
                         modifier = Modifier
                             .clip(RoundedCornerShape(6.dp))
                             .background(Color(0xFF1A7306)) // Vibrant green for CTA
-                            .padding(horizontal = 8.dp, vertical = 6.dp), // Compact padding
+                            .padding(horizontal = 8.dp, vertical = 6.dp)
+                            .clickable(
+                                onClick = {
+                                    navController.navigate(BottomNavRoutes.AllCoursesScreen.route)
+                                }
+                            ), // Compact padding
                         contentAlignment = Alignment.Center
                     ) {
                         Text(
@@ -334,7 +340,14 @@ fun UserProfileScreen(
                         liveSupportButtonColors,
                         shape = RoundedCornerShape(12.dp)
                     )
-                    .clickable { /* Handle click */ }
+                    .clickable {
+                        val intent = Intent(Intent.ACTION_SENDTO).apply {
+                            data = Uri.parse("mailto:kpdevelopers613@gmail.com") // Change to your email
+                            putExtra(Intent.EXTRA_SUBJECT, "Support Request...")
+                            putExtra(Intent.EXTRA_TEXT, "How may we help you?...")
+                        }
+                        context.startActivity(intent)
+                    }
                     .padding(vertical = 14.dp),
                 contentAlignment = Alignment.Center
             ) {
@@ -512,7 +525,7 @@ fun UserProfileSection(userProfileViewModel: UserProfileViewModel) {
                         .fillMaxSize()
                         .padding(6.dp)
                         .clip(CircleShape),
-                    contentScale = ContentScale.FillBounds
+                    contentScale = ContentScale.Crop
                 )
             }
 
@@ -559,7 +572,7 @@ fun UserProfileSection(userProfileViewModel: UserProfileViewModel) {
                                 model = newImage.value,
                                 contentDescription = "New Profile Picture",
                                 modifier = Modifier.fillMaxSize(),
-                                contentScale = ContentScale.FillBounds
+                                contentScale = ContentScale.Crop
                             )
                         } else {
                             Text(

@@ -1,4 +1,4 @@
-package com.codemaster.codemasterapp.main.DataBase
+package com.codemaster.codemasterapp.main.di
 
 import android.content.Context
 import android.content.SharedPreferences

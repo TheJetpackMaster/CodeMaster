@@ -1,6 +1,7 @@
 package com.codemaster.codemasterapp.main.ui.learning.lessons.components
 
 import android.util.Log
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -79,6 +80,9 @@ fun QuizContentBlock(
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier.fillMaxWidth()
+                    .clickable(
+                        onClick = {onOptionSelected(option)}
+                    )
             ) {
                 RadioButton(
                     selected = userAnswer == option,

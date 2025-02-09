@@ -270,6 +270,18 @@ class CourseViewModel @Inject constructor(
     }
 
 
+    //Clear all Lesson Status
+    fun clearAllCourseProgress(){
+        viewModelScope.launch {
+            lessonStatusRepository.clearAllLessonStatuses()
+            _lessonCompletionStatus.value = emptyMap()
+
+            learningProgressRepository.clearAllProgress()
+            _lastSavedProgress.value = null
+        }
+    }
+
+
     // Last saved learning
     fun saveProgress(progress: LearningProgress) {
         viewModelScope.launch {
@@ -304,14 +316,14 @@ class CourseViewModel @Inject constructor(
 fun AllCoursesProvider(): List<Course> {
     val cCourse = CLangCourseProvider()
     val cppCourse = CPPCourseProvider()
-    val pythonCourse = PythonCourseProvider()
     val dsaCourse = DSACourseProvider()
+    val pythonCourse = PythonCourseProvider()
 
     return listOf(
         cCourse.getCompleteCLangCourse(),
         cppCourse.getCompleteCPPCourse(),
+        dsaCourse.getCompleteDSACourse(),
         pythonCourse.getCompletePythonCourse(),
-        dsaCourse.getCompleteDSACourse()
 
     )
 }

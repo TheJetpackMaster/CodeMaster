@@ -1,12 +1,19 @@
 package com.codemaster.codemasterapp.main.ui.bottomNavigation.screens
 
+import android.app.Activity
+import android.content.Context
+import android.os.Build
 import android.util.Log
+import androidx.activity.OnBackPressedCallback
+import androidx.activity.compose.LocalOnBackPressedDispatcherOwner
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.State
 import androidx.compose.runtime.collectAsState
@@ -21,28 +28,35 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.NavController
+import com.SoundScapeApp.soundscape.SoundScapeApp.inAppUpdate.CheckForUpdates
 import com.codemaster.codemasterapp.R
 import com.codemaster.codemasterapp.main.data.Course
 import com.codemaster.codemasterapp.main.data.LessonStatus
+import com.codemaster.codemasterapp.main.ui.bottomNavigation.ExitConfirmationDialog
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.screens.components.HomeScreenCustomTopBar
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.MainRoutes
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.ProfileRoutes
 import com.codemaster.codemasterapp.main.ui.components.ContinueLearningCard
 import com.codemaster.codemasterapp.main.ui.components.LanguageCardDesign
+import com.codemaster.codemasterapp.main.ui.userProfileDetails.settings.showToast
 import com.codemaster.codemasterapp.main.ui.viewModels.CourseViewModel
+import com.codemaster.codemasterapp.main.ui.viewModels.MainViewModel
 import com.codemaster.codemasterapp.main.ui.viewModels.UserProfileViewModel
 import com.codemaster.codemasterapp.ui.theme.*
 import kotlinx.coroutines.launch
 
 
+@RequiresApi(Build.VERSION_CODES.TIRAMISU)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
     navController: NavController,
     courseViewModel: CourseViewModel,
     userProfileViewModel: UserProfileViewModel,
+    mainViewModel: MainViewModel,
     courses: List<Course> = emptyList<Course>(),
     allLessonsStatus: State<Map<String, LessonStatus>>,
+    context: Context
 
 ) {
     val scrollState = rememberScrollState()
@@ -53,11 +67,25 @@ fun HomeScreen(
     // Get last saved stage name
     val coroutineScope = rememberCoroutineScope()
     val stageNames = remember { mutableStateOf<Map<String, String?>>(emptyMap()) }
+    val isUpdateDialogShown = mainViewModel.isUpdateDialogShown.collectAsState()
 
 
     //GuestUserDetails
     val guestUserDetails = userProfileViewModel.guestProfile.collectAsState()
 
+    if(!isUpdateDialogShown.value) {
+        CheckForUpdates(
+            onCheck = {
+                mainViewModel.isUpdateDialogueShown(true)
+            }
+        )
+
+
+    }
+
+
+
+    Log.d("isUpdate",isUpdateDialogShown.value.toString())
     // Fetch stage names when the composable is loaded
     LaunchedEffect(courses) {
         coroutineScope.launch {
@@ -69,6 +97,30 @@ fun HomeScreen(
 
     LaunchedEffect(Unit) {
         courseViewModel.loadLastSavedProgress()
+    }
+
+
+    // Ask for exiting app
+    val shouldExit = remember { mutableStateOf(false) }
+
+    // Handle back press
+    val backDispatcher = LocalOnBackPressedDispatcherOwner.current?.onBackPressedDispatcher
+    DisposableEffect(backDispatcher) {
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+
+                if (!shouldExit.value) {
+                    shouldExit.value = true
+                } else {
+                    (context as? Activity)?.finish()
+                }
+            }
+        }
+
+        backDispatcher?.addCallback(callback)
+        onDispose {
+            callback.remove()
+        }
     }
 
     Log.d("home", "home")
@@ -183,7 +235,7 @@ fun HomeScreen(
                                 onClick = {
                                     courseViewModel.selectLanguage(course)
                                     if (isComingSoon) {
-
+                                        showToast(context, "Course Coming Soon...")
                                     } else {
                                         if (navController.currentBackStackEntry?.lifecycle?.currentState == Lifecycle.State.RESUMED) {
                                             navController.navigate(MainRoutes.MAIN_ROOT.route)
@@ -371,6 +423,19 @@ fun HomeScreen(
             }
         }
     }
+
+    ExitConfirmationDialog(
+        openDialog = shouldExit,
+        onExitClick = {
+            (context as? Activity)?.finish()
+            shouldExit.value = false
+        },
+
+        onCancelClick = {
+            shouldExit.value = false
+        }
+    )
+
 }
 
 

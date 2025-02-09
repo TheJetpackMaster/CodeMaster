@@ -1,19 +1,16 @@
 package com.codemaster.codemasterapp.main.ui.bottomNavigation;
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.content.Context
-import android.util.Log
-import androidx.activity.OnBackPressedCallback
-import androidx.activity.compose.LocalOnBackPressedDispatcherOwner
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.navigationBars
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.AlertDialog
@@ -23,12 +20,9 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
@@ -42,25 +36,29 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.codemaster.codemasterapp.main.DataBase.NoteViewModel
+import com.SoundScapeApp.soundscape.SoundScapeApp.inAppUpdate.CheckForUpdates
+import com.codemaster.codemasterapp.main.ui.viewModels.NoteViewModel
 import com.codemaster.codemasterapp.main.data.Course
 import com.codemaster.codemasterapp.main.data.LessonStatus
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.RootNavHost
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.BottomNavRoutes
 import com.codemaster.codemasterapp.main.ui.viewModels.CourseViewModel
+import com.codemaster.codemasterapp.main.ui.viewModels.MainViewModel
 import com.codemaster.codemasterapp.main.ui.viewModels.UserProfileViewModel
-import kotlinx.coroutines.flow.StateFlow
+import com.codemaster.codemasterapp.ui.theme.Pink80
 import kotlin.random.Random
 
 
+@RequiresApi(Build.VERSION_CODES.TIRAMISU)
 @Composable
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 fun MainScreen(
     courseViewModel: CourseViewModel,
     noteViewModel: NoteViewModel,
     userProfileViewModel: UserProfileViewModel,
+    mainViewModel: MainViewModel,
     context: Context,
-    courses:List<Course> = emptyList<Course>(),
+    courses: List<Course> = emptyList<Course>(),
     allLessonsStatus: State<Map<String, LessonStatus>>
 ) {
     val navController = rememberNavController()
@@ -70,34 +68,38 @@ fun MainScreen(
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentDestination = navBackStackEntry?.destination?.route
     val showBar =
-        currentDestination == BottomNavRoutes.HomeScreen.route || currentDestination == BottomNavRoutes.AchievementsScreen.route
+        currentDestination == BottomNavRoutes.HomeScreen.route
+                || currentDestination == BottomNavRoutes.AchievementsScreen.route
+                || currentDestination == BottomNavRoutes.CompilerScreen.route
+
+//
+//    // Ask for exiting app
+//    val shouldExit = remember { mutableStateOf(false) }
+//
+//    // Handle back press
+//    val backDispatcher = LocalOnBackPressedDispatcherOwner.current?.onBackPressedDispatcher
+//    DisposableEffect(backDispatcher) {
+//        val callback = object : OnBackPressedCallback(true) {
+//            override fun handleOnBackPressed() {
+//
+//                if (!shouldExit.value) {
+//                    shouldExit.value = true
+//                } else {
+//                    (context as? Activity)?.finish()
+//                }
+//            }
+//        }
+//
+//        backDispatcher?.addCallback(callback)
+//        onDispose {
+//            callback.remove()
+//        }
+//    }
 
 
-    // Ask for exiting app
-    val shouldExit = remember { mutableStateOf(false) }
 
-    // Handle back press
-    val backDispatcher = LocalOnBackPressedDispatcherOwner.current?.onBackPressedDispatcher
-    DisposableEffect(backDispatcher) {
-        val callback = object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-
-                if (!shouldExit.value) {
-                    shouldExit.value = true
-                } else {
-                    (context as? Activity)?.finish()
-                }
-            }
-        }
-
-        backDispatcher?.addCallback(callback)
-        onDispose {
-            callback.remove()
-        }
-    }
-
-    Log.d("exit",shouldExit.value.toString())
     Scaffold(
+        modifier = Modifier.navigationBarsPadding(),
         bottomBar = {
             if (showBar) {
 
@@ -155,35 +157,35 @@ fun MainScreen(
             navController = navController,
             courseViewModel = courseViewModel,
             noteViewModel = noteViewModel
-        ){
+        ) {
             RootNavHost(
                 navController = navController,
                 courseViewModel = courseViewModel,
                 noteViewModel = noteViewModel,
                 userProfileViewModel = userProfileViewModel,
+                mainViewModel = mainViewModel,
                 courses = courses,
-                allLessonsStatus = allLessonsStatus
+                allLessonsStatus = allLessonsStatus,
+                context = context
             )
         }
 
 
-        ExitConfirmationDialog(
-            openDialog = shouldExit,
-            onExitClick = {
-                (context as? Activity)?.finish()
-                shouldExit.value = false
-            },
-
-            onCancelClick = {
-                shouldExit.value = false
-            }
-        )
+//        ExitConfirmationDialog(
+//            openDialog = shouldExit,
+//            onExitClick = {
+//                (context as? Activity)?.finish()
+//                shouldExit.value = false
+//            },
+//
+//            onCancelClick = {
+//                shouldExit.value = false
+//            }
+//        )
 
 
     }
 }
-
-
 
 
 val blueTechGradient = Brush.verticalGradient(
@@ -207,7 +209,7 @@ fun TechBackground(
     navController: NavHostController,
     courseViewModel: CourseViewModel,
     noteViewModel: NoteViewModel,
-    content:@Composable () -> Unit = {},
+    content: @Composable () -> Unit = {},
 ) {
     Box(
         modifier = Modifier
@@ -326,14 +328,14 @@ fun ExitConfirmationDialog(
                     style = MaterialTheme.typography.titleLarge.copy(
                         fontWeight = FontWeight.Bold
                     ),
-                    color = MaterialTheme.colorScheme.onSurface
+                    color = Color.White
                 )
             },
             text = {
                 Text(
                     text = "Are you sure you want to exit? You can always come back! 👋",
                     style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                    color = Color.LightGray
                 )
             },
             confirmButton = {
@@ -361,7 +363,7 @@ fun ExitConfirmationDialog(
                 ) {
                     Text(
                         text = "Stay Here",
-                        color = MaterialTheme.colorScheme.primary,
+                        color = Pink80,
                         style = MaterialTheme.typography.bodyLarge.copy(
                             fontWeight = FontWeight.Bold
                         )

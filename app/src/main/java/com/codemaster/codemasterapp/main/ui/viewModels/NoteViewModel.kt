@@ -1,13 +1,11 @@
-package com.codemaster.codemasterapp.main.DataBase
+package com.codemaster.codemasterapp.main.ui.viewModels
 
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
+import com.codemaster.codemasterapp.main.DataBase.NoteRepository
 import com.codemaster.codemasterapp.main.data.Note
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

@@ -34,11 +34,13 @@ import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.codemaster.codemasterapp.R
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.AuthRoutes
+import com.codemaster.codemasterapp.main.ui.viewModels.MainViewModel
 import com.google.accompanist.pager.*
 import kotlinx.coroutines.launch
 
 @Composable
 fun OnBoardingScreen(
+    mainViewModel: MainViewModel,
     navController: NavController
 ) {
     val pagerState = rememberPagerState()
@@ -128,7 +130,9 @@ fun OnBoardingScreen(
             verticalAlignment = Alignment.CenterVertically
         ) {
             TextButton(onClick = {
+                mainViewModel.setIsFirstTime(false)
                 navController.navigate(AuthRoutes.PreRegistrationScreen.route)
+
             }) {
                 Text(
                     text = "Skip",
@@ -143,7 +147,12 @@ fun OnBoardingScreen(
 
                         scope.launch { pagerState.animateScrollToPage(pagerState.currentPage + 1) }
                     } else {
-                        navController.navigate(AuthRoutes.PreRegistrationScreen.route)
+                        mainViewModel.setIsFirstTime(false)
+                        navController.navigate(AuthRoutes.PreRegistrationScreen.route){
+                            // Ensure to pop back to prevent navigating back to onboarding
+                            popUpTo(AuthRoutes.OnboardingScreen.route) { inclusive = true }
+                        }
+
                     }
                 },
                 colors = IconButtonDefaults.iconButtonColors(

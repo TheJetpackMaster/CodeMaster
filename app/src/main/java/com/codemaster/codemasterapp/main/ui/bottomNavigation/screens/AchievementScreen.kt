@@ -1,5 +1,6 @@
 package com.codemaster.codemasterapp.main.ui.bottomNavigation.screens
 
+import android.util.Log
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -48,6 +49,9 @@ fun AchievementScreen(
     val pagerState = rememberPagerState(pageCount = { 2 })
     val coroutineScope = rememberCoroutineScope()
 
+    val completedAchievementsCount = remember { mutableStateOf(0) }
+
+
     Scaffold(
         containerColor = Color.Transparent,
         topBar = {
@@ -57,7 +61,8 @@ fun AchievementScreen(
                         pagerState.animateScrollToPage(selectedIndex) // Animate to selected tab
                     }
                 },
-                pagerState = pagerState // Pass the pagerState as well
+                pagerState = pagerState,
+                completedAchievements = completedAchievementsCount.value
             )
         }
     ) { paddingValues ->
@@ -80,7 +85,8 @@ fun AchievementScreen(
                     when (page) {
                         0 -> AchievementsContent(
                             courses = courses,
-                            allLessonsStatus = allLessonsStatus
+                            allLessonsStatus = allLessonsStatus,
+                            completedAchievements = completedAchievementsCount
                         )
                         1 -> ProgressContent(courseViewModel = courseViewModel)
                     }
@@ -95,7 +101,8 @@ fun AchievementScreen(
 @Composable
 fun AchievementsContent(
     courses: List<Course>,
-    allLessonsStatus: State<Map<String, LessonStatus>>
+    allLessonsStatus: State<Map<String, LessonStatus>>,
+    completedAchievements: MutableState<Int>
 ) {
 
     val titles = listOf(
@@ -216,6 +223,13 @@ fun AchievementsContent(
         )
     }
 
+    val completedCount = achievements.count { it.progressValue >= 1.0f }
+    completedAchievements.value = completedCount
+
+    Log.d("achievements",completedAchievements.value.toString())
+
+
+
 
     // AchievementCard bg colors
     val achievementCardColor = Brush.verticalGradient(
@@ -224,6 +238,7 @@ fun AchievementsContent(
             Color(0xFF1565C0)  // Brighter blue at the bottom
         )
     )
+
 
     LazyColumn(
         modifier = Modifier.fillMaxSize()
@@ -307,7 +322,7 @@ fun ProgressContent(
                         allCompletedLessons = allCompletedLessons.value
                     ),
                     animationResource = R.raw.cardbadge,
-                    bgDecorativeIcon = R.drawable.cpp,
+                    bgDecorativeIcon = R.drawable.clang,
                     modifier = Modifier.weight(1f),
 
                     //Test
@@ -334,40 +349,6 @@ fun ProgressContent(
         item {
             Row() {
                 LanguageProgressCard(
-                    title = "Python",
-                    progressValue =  getCourseProgress(
-                        courseId = "python_course",
-                        courses = courses,
-                        allCompletedLessons = allCompletedLessons.value
-                    ),
-                    animationResource = R.raw.cardbadge,
-                    bgDecorativeIcon = R.drawable.pythonlogo,
-                    modifier = Modifier.weight(1f),
-
-                    //Test
-                    decorativeImagePadding = 24.dp
-                )
-                LanguageProgressCard(
-                    title = "Java",
-                    progressValue =  getCourseProgress(
-                        courseId = "java_course",
-                        courses = courses,
-                        allCompletedLessons = allCompletedLessons.value
-                    ),
-                    animationResource = R.raw.cardbadge,
-                    bgDecorativeIcon = R.drawable.java,
-                    modifier = Modifier.weight(1f),
-
-                    //Test
-                    decorativeImagePadding = 24.dp
-                )
-            }
-        }
-
-        // Third Row
-        item {
-            Row() {
-                LanguageProgressCard(
                     title = "DSA",
                     progressValue =  getCourseProgress(
                         courseId = "DSA_course",
@@ -382,6 +363,28 @@ fun ProgressContent(
                     decorativeImagePadding = 0.dp
                 )
                 LanguageProgressCard(
+                    title = "Python",
+                    progressValue =  getCourseProgress(
+                        courseId = "python_course",
+                        courses = courses,
+                        allCompletedLessons = allCompletedLessons.value
+                    ),
+                    animationResource = R.raw.cardbadge,
+                    bgDecorativeIcon = R.drawable.pythonlogo,
+                    modifier = Modifier.weight(1f),
+
+                    //Test
+                    decorativeImagePadding = 24.dp
+                )
+
+            }
+        }
+
+        // Third Row
+        item {
+            Row() {
+
+                LanguageProgressCard(
                     title = "Kotlin",
                     progressValue =  getCourseProgress(
                         courseId = "kotlin_course",
@@ -395,6 +398,21 @@ fun ProgressContent(
 
                     //Test
                     decorativeImagePadding = 34.dp
+                )
+
+                LanguageProgressCard(
+                    title = "Java",
+                    progressValue =  getCourseProgress(
+                        courseId = "java_course",
+                        courses = courses,
+                        allCompletedLessons = allCompletedLessons.value
+                    ),
+                    animationResource = R.raw.cardbadge,
+                    bgDecorativeIcon = R.drawable.java,
+                    modifier = Modifier.weight(1f),
+
+                    //Test
+                    decorativeImagePadding = 24.dp
                 )
             }
         }

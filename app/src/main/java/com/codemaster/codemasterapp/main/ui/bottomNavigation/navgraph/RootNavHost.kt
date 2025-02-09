@@ -1,55 +1,66 @@
 package com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph;
 
 import android.content.Context
-import android.util.Log
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.runtime.Composable;
-import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.runtime.collectAsState
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
-import com.codemaster.codemasterapp.main.DataBase.NoteViewModel
+import com.codemaster.codemasterapp.main.ui.viewModels.NoteViewModel
 import com.codemaster.codemasterapp.main.data.Course
 import com.codemaster.codemasterapp.main.data.LessonStatus
-import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.AuthRoutes
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.BottomNavRoutes
-import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.MainRoutes
-import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.ProfileRoutes
+import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.SplashRoutes
 import com.codemaster.codemasterapp.main.ui.viewModels.CourseViewModel
+import com.codemaster.codemasterapp.main.ui.viewModels.MainViewModel
 import com.codemaster.codemasterapp.main.ui.viewModels.UserProfileViewModel
 
+@RequiresApi(Build.VERSION_CODES.TIRAMISU)
 @Composable
 fun RootNavHost(
     navController: NavHostController,
     courseViewModel: CourseViewModel,
     noteViewModel: NoteViewModel,
     userProfileViewModel: UserProfileViewModel,
+    mainViewModel: MainViewModel,
     courses: List<Course> = emptyList<Course>(),
-    allLessonsStatus: State<Map<String, LessonStatus>>
+    allLessonsStatus: State<Map<String, LessonStatus>>,
+    context: Context
 ) {
 
-    val context = LocalContext.current
-    val sharedPreferences = context.getSharedPreferences("AppPrefs", Context.MODE_PRIVATE)
-    val isSignedUp = sharedPreferences.getBoolean("isSignedUp", false)
-    Log.d("RootNavHost", "isSignedUp: $isSignedUp")
+    //Is First Time
+    val isFirstTime = mainViewModel.isFirstTime.collectAsState()
 
     // Main NavHost (for the entire app)
     NavHost(
         navController = navController,
-        startDestination = if (isSignedUp) BottomNavRoutes.BOTTOM_ROOT.route else AuthRoutes.AUTH_ROOT.route,
+        startDestination =
+//        SplashRoutes.SplashRoot.route
+        BottomNavRoutes.BOTTOM_ROOT.route
+        ,
         route = "ROOT"
     ) {
+        splashNavHost(
+            mainViewModel = mainViewModel,
+            navController = navController
+        )
+
         authNavHost(
             userProfileViewModel,
-            navController
+            mainViewModel,
+            navController,
+            isFirstTime = isFirstTime.value
         )
         bottomNavHost(
             navController = navController,
             courseViewModel = courseViewModel,
             userProfileViewModel = userProfileViewModel,
+            mainViewModel = mainViewModel,
             courses = courses,
-            allLessonsStatus = allLessonsStatus
+            allLessonsStatus = allLessonsStatus,
+            context =  context
         )
         mainNavHost(
             navController = navController,
@@ -62,7 +73,8 @@ fun RootNavHost(
             navController = navController,
             noteViewModel = noteViewModel,
             courseViewModel = courseViewModel,
-            userProfileViewModel = userProfileViewModel
+            userProfileViewModel = userProfileViewModel,
+            mainViewModel = mainViewModel
         )
     }
 }

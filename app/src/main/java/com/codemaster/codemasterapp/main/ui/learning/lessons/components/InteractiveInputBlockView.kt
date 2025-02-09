@@ -173,7 +173,6 @@ import com.codemaster.codemasterapp.main.data.LessonStatus
 //}
 
 
-@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun InteractiveInputBlockView(
     contentBlock: ContentBlock.InteractiveInputBlock,
@@ -190,16 +189,14 @@ fun InteractiveInputBlockView(
     var feedback by remember { mutableStateOf("") }
     var isCodeCorrect by remember { mutableStateOf(false) }
 
-    LaunchedEffect(Unit) {
-        if (subLessonStatus == LessonStatus.COMPLETED) {
-            val correctCodeParts = contentBlock.correctCode.split(" ")
-            correctCodeParts.forEachIndexed { index, correctAnswer ->
-                if (index < userInputs.size) {
-                    userInputs[index] = correctAnswer
-                }
-            }
-        }
-    }
+    // Track the number of wrong attempts
+    var wrongAttempts by remember { mutableStateOf(0) }
+
+    // Flag to show the hint button
+    var showHintButton by remember { mutableStateOf(false) }
+
+    // State to hold the hint answer (just display the correct answer without modifying user inputs)
+    var hintText by remember { mutableStateOf("") }
 
     Column(
         modifier = Modifier.fillMaxWidth(),
@@ -239,11 +236,8 @@ fun InteractiveInputBlockView(
                                     .width(IntrinsicSize.Min) // Dynamically adjust width based on content
                                     .wrapContentWidth(Alignment.Start)
                                     .height(20.dp), // Ensure consistent height
-
                                 decorationBox = { innerTextField ->
-                                    Box(
-                                        contentAlignment = Alignment.CenterStart,
-                                    ) {
+                                    Box(contentAlignment = Alignment.CenterStart) {
                                         if (userInputs[index].isEmpty()) {
                                             Text(
                                                 text = "___",
@@ -274,15 +268,51 @@ fun InteractiveInputBlockView(
                 contentBlock.userInput = trimmedUserInputs.joinToString(" ")
                 answerFeedbackText.value = if (isCodeCorrect) "T" else "F"
                 isAnswerGiven.value = true
+
+                // Increment wrongAttempts and show hint button after 2 wrong attempts
+                if (!isCodeCorrect) {
+                    wrongAttempts++
+                    if (wrongAttempts >= 2) {
+                        showHintButton = true
+                    }
+                }
             },
             colors = ButtonDefaults.buttonColors(
-                containerColor = Color(0xFF66116E),
-                disabledContainerColor = Color(0xFF242734)
+                containerColor = Color(0xFF66116E)
             ),
             shape = RoundedCornerShape(8.dp),
             modifier = Modifier.fillMaxWidth()
         ) {
             Text(text = "Submit", style = TextStyle(fontSize = 16.sp, color = Color.White))
+        }
+
+        // Show Hint button after 2 wrong attempts
+        if (showHintButton) {
+            Button(
+                onClick = {
+                    // Provide the correct answer when clicked (but don't fill the user inputs)
+                    hintText = contentBlock.correctCode // Store the correct answer for the hint
+                    feedback = "Hint: Correct answer provided."
+                    // Hide the Hint button after showing the correct answer
+                    showHintButton = false
+                },
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color(0xFF66116E)
+                ),
+                shape = RoundedCornerShape(8.dp),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text(text = "Hint", style = TextStyle(fontSize = 16.sp, color = Color.White))
+            }
+        }
+
+        // Show the hint text (correct answer) when the hint is shown
+        if (hintText.isNotEmpty()) {
+            Text(
+                text = "Hint: $hintText",
+                style = TextStyle(fontSize = 16.sp, color = Color.Green),
+                modifier = Modifier.padding(top = 16.dp)
+            )
         }
 
         if (isAnswerGiven.value) {
@@ -297,3 +327,130 @@ fun InteractiveInputBlockView(
         }
     }
 }
+
+
+//
+//@OptIn(ExperimentalLayoutApi::class)
+//@Composable
+//fun InteractiveInputBlockView(
+//    contentBlock: ContentBlock.InteractiveInputBlock,
+//    isAnswerGiven: MutableState<Boolean>,
+//    answerFeedbackText: MutableState<String>,
+//    subLessonStatus: LessonStatus = LessonStatus.ACTIVE
+//) {
+//    val userInputs = remember {
+//        mutableStateListOf<String>().apply {
+//            repeat(contentBlock.incompleteCode.split("___").size - 1) { add("") }
+//        }
+//    }
+//
+//    var feedback by remember { mutableStateOf("") }
+//    var isCodeCorrect by remember { mutableStateOf(false) }
+//
+////    LaunchedEffect(Unit) {
+////        if (subLessonStatus == LessonStatus.COMPLETED) {
+////            val correctCodeParts = contentBlock.correctCode.split(" ")
+////            correctCodeParts.forEachIndexed { index, correctAnswer ->
+////                if (index < userInputs.size) {
+////                    userInputs[index] = correctAnswer
+////                }
+////            }
+////        }
+////    }
+//
+//    Column(
+//        modifier = Modifier.fillMaxWidth(),
+//        verticalArrangement = Arrangement.spacedBy(10.dp)
+//    ) {
+//        Text(
+//            text = contentBlock.question,
+//            style = TextStyle(fontSize = 18.sp, color = Color.White),
+//            modifier = Modifier.padding(bottom = 8.dp)
+//        )
+//
+//        Column(
+//            modifier = Modifier
+//                .background(Color.Black, shape = RoundedCornerShape(8.dp))
+//                .padding(16.dp)
+//                .fillMaxWidth()
+//        ) {
+//            contentBlock.incompleteCode.lines().forEach { line ->
+//                Row(
+//                    modifier = Modifier.fillMaxWidth(),
+//                    horizontalArrangement = Arrangement.Start
+//                ) {
+//                    val parts = line.split("___")
+//                    parts.forEachIndexed { index, part ->
+//                        Text(
+//                            text = part,
+//                            style = TextStyle(fontSize = 16.sp, color = Color.White)
+//                        )
+//                        if (index < parts.size - 1) {
+//                            BasicTextField(
+//                                value = userInputs[index],
+//                                onValueChange = { userInputs[index] = it },
+//                                textStyle = TextStyle(fontSize = 16.sp, color = Color.White),
+//                                singleLine = true,
+//                                cursorBrush = SolidColor(Color.White),
+//                                modifier = Modifier
+//                                    .width(IntrinsicSize.Min) // Dynamically adjust width based on content
+//                                    .wrapContentWidth(Alignment.Start)
+//                                    .height(20.dp), // Ensure consistent height
+//
+//                                decorationBox = { innerTextField ->
+//                                    Box(
+//                                        contentAlignment = Alignment.CenterStart,
+//                                    ) {
+//                                        if (userInputs[index].isEmpty()) {
+//                                            Text(
+//                                                text = "___",
+//                                                style = TextStyle(
+//                                                    fontSize = 16.sp,
+//                                                    color = Color.White.copy(alpha = 0.5f)
+//                                                ),
+//                                            )
+//                                        }
+//                                        innerTextField()
+//                                    }
+//                                }
+//                            )
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//
+//        Button(
+//            onClick = {
+//                val trimmedUserInputs = userInputs.map { it.replace("\\s".toRegex(), "") }
+//                val trimmedCorrectCode = contentBlock.correctCode.replace("\\s".toRegex(), "")
+//
+//                isCodeCorrect = (trimmedUserInputs.joinToString("") == trimmedCorrectCode)
+//                feedback = if (isCodeCorrect) "Correct!" else "Try Again!"
+//                contentBlock.isCodeCorrect = isCodeCorrect
+//                contentBlock.userInput = trimmedUserInputs.joinToString(" ")
+//                answerFeedbackText.value = if (isCodeCorrect) "T" else "F"
+//                isAnswerGiven.value = true
+//            },
+//            colors = ButtonDefaults.buttonColors(
+//                containerColor = Color(0xFF66116E),
+//                disabledContainerColor = Color(0xFF242734)
+//            ),
+//            shape = RoundedCornerShape(8.dp),
+//            modifier = Modifier.fillMaxWidth()
+//        ) {
+//            Text(text = "Submit", style = TextStyle(fontSize = 16.sp, color = Color.White))
+//        }
+//
+//        if (isAnswerGiven.value) {
+//            Text(
+//                text = feedback,
+//                style = TextStyle(
+//                    fontSize = 18.sp,
+//                    color = if (isCodeCorrect) Color.Green else Color.Red
+//                ),
+//                modifier = Modifier.padding(top = 16.dp)
+//            )
+//        }
+//    }
+//}

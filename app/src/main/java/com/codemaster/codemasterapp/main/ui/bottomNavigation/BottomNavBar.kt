@@ -109,11 +109,7 @@ fun CustomBottomBar(
                             } else {
                                 // Navigate to other screens, keeping HomeScreen in the stack
                                 navController.navigate(item.route) {
-                                    popUpTo(BottomNavRoutes.HomeScreen.route) {
-                                        saveState = true // Restore HomeScreen state when navigating back
-                                    }
-                                    launchSingleTop = true // Prevent multiple instances of the target
-                                    restoreState = true // Restore saved state for the target
+                                    popUpTo(BottomNavRoutes.HomeScreen.route)
                                 }
                             }
 

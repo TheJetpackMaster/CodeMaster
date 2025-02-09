@@ -1,6 +1,7 @@
 package com.codemaster.codemasterapp.main.ui.auth
 
 
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
@@ -33,13 +34,41 @@ import com.codemaster.codemasterapp.R
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.platform.LocalContext
 import com.codemaster.codemasterapp.main.ui.auth.components.AuthActionButton
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.AuthRoutes
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PreRegistrationScreen(navController: NavController) {
+
     val scrollState = rememberScrollState()
+
+    val context = LocalContext.current
+    val coroutineScope = rememberCoroutineScope()
+
+    // To prevent repeated toasts
+    var toastJob by remember { mutableStateOf<Job?>(null) }
+
+    // To prevent repeated toasts
+    var isToastShowing by remember { mutableStateOf(false) }
+
+    // Show maintenance message
+    val showToast = {
+        if (!isToastShowing) {
+            isToastShowing = true
+            Toast.makeText(context, "Currently under maintenance", Toast.LENGTH_SHORT).show()
+            // After a short delay, allow showing the toast again
+            coroutineScope.launch {
+                delay(2000)  // Adjust delay time if needed (time in milliseconds)
+                isToastShowing = false
+            }
+        }
+    }
+
 
     Column(
         modifier = Modifier
@@ -53,10 +82,10 @@ fun PreRegistrationScreen(navController: NavController) {
 
         PreRegistrationScreenContent(
             onLoginClick = {
-                navController.navigate(AuthRoutes.LoginScreen.route)
+                showToast()
             },
             onSignupClick = {
-                navController.navigate(AuthRoutes.SignUpScreen.route)
+                showToast()
             },
             onGuestClick = {
                 navController.navigate(AuthRoutes.GuestScreen.route)

@@ -43,7 +43,10 @@ data class UserLearningProgress(
     val lastSubLessonIndex: Int = 0,
 
     @ColumnInfo(name = "last_updated")
-    val lastUpdated: Long // Save timestamp for ordering
+    val lastUpdated: Long, // Save timestamp for ordering
+
+
+
 )
 
 
@@ -65,6 +68,11 @@ interface UserLearningProgressDao {
     // Insert or update user learning progress
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun saveUserLearningProgress(userLearningProgress: UserLearningProgress)
+
+    //Clear All
+    // Delete all saved progress
+    @Query("DELETE FROM user_learning_progress")
+    suspend fun clearAllProgress()
 
 }
 
@@ -144,5 +152,12 @@ class UserLearningProgressRepository(private val dao: UserLearningProgressDao) {
     // Get the last stage name for a specific course
     suspend fun getLastStageNameForCourse(courseId: String): String? {
         return dao.getLastStageNameForCourse(courseId)
+    }
+
+
+    //Clear
+    // Function to clear all saved progress
+    suspend fun clearAllProgress() {
+        dao.clearAllProgress()
     }
 }

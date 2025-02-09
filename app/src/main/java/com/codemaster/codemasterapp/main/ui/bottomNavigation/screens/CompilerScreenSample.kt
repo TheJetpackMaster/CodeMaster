@@ -1,7 +1,6 @@
 package com.codemaster.codemasterapp.main.ui.bottomNavigation.screens
 
 import android.graphics.Bitmap
-import android.os.Build
 import android.util.Log
 import android.webkit.CookieManager
 import android.webkit.WebChromeClient
@@ -13,23 +12,68 @@ import android.webkit.WebViewClient
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.Button
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.viewinterop.AndroidView
+import androidx.navigation.NavController
+import com.codemaster.codemasterapp.main.ui.userProfileDetails.settings.CompilerOption
+import com.codemaster.codemasterapp.main.ui.viewModels.MainViewModel
+
 @Composable
-fun CompilerView() {
-    Column(modifier = Modifier.fillMaxSize().statusBarsPadding()) {
-        OneCompilerWebView()
+fun CompilerScreen(
+    navController: NavController,
+    mainViewModel: MainViewModel
+) {
+    val isFirstTimeUser = remember { mutableStateOf(true) }
+    //
+    val url1 = "https://www.codechef.com/ide"
+    val url2 = "https://www.online-ide.com/"
+    val url3 = "https://ide.geeksforgeeks.org/"
+    val url4 = "https://ideone.com/"
+    val url5 = "https://godbolt.org/"
+
+    val compiler = mainViewModel.selectedCompilerOption.collectAsState().value
+
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .statusBarsPadding()
+    ) {
+        OnlineCompilerWebView(
+            url = when (compiler) {
+                CompilerOption.ONLINE_COMPILER_1 -> url1
+                CompilerOption.ONLINE_COMPILER_2 -> url2
+                CompilerOption.ONLINE_COMPILER_3 -> url3
+                CompilerOption.ONLINE_COMPILER_4 -> url4
+                CompilerOption.ONLINE_COMPILER_5 -> url5
+            }
+        )
+
+        // Show the information dialog if it's the first time user
+        if (isFirstTimeUser.value) {
+            FirstTimeDialog(
+                onGoBack = {
+                    isFirstTimeUser.value = false
+                    navController.popBackStack()
+                },
+                onContinue = {
+                    isFirstTimeUser.value = false
+                }
+            )
+        }
     }
+
 }
 
-val url1 = "https://www.codechef.com/ide"
-val url2 = "https://www.online-ide.com/"
-val url3 = "https://ide.geeksforgeeks.org/"
-val url4 = "https://ideone.com/"
 
 @Composable
-fun OneCompilerWebView(url: String = url1) {
+fun OnlineCompilerWebView(url: String) {
     AndroidView(
         modifier = Modifier.fillMaxSize(),
         factory = { context ->
@@ -63,12 +107,21 @@ fun OneCompilerWebView(url: String = url1) {
                         Log.d("WebView", "Page loading finished: $url")
                     }
 
-                    override fun onReceivedError(view: WebView?, errorCode: Int, description: String?, failingUrl: String?) {
+                    override fun onReceivedError(
+                        view: WebView?,
+                        errorCode: Int,
+                        description: String?,
+                        failingUrl: String?
+                    ) {
                         super.onReceivedError(view, errorCode, description, failingUrl)
                         Log.e("WebView", "Error: $errorCode $description $failingUrl")
                     }
 
-                    override fun onReceivedHttpError(view: WebView?, request: WebResourceRequest?, errorResponse: WebResourceResponse?) {
+                    override fun onReceivedHttpError(
+                        view: WebView?,
+                        request: WebResourceRequest?,
+                        errorResponse: WebResourceResponse?
+                    ) {
                         super.onReceivedHttpError(view, request, errorResponse)
                         Log.e("WebView", "HTTP error: ${errorResponse?.statusCode}")
                     }
@@ -87,4 +140,30 @@ fun OneCompilerWebView(url: String = url1) {
     )
 }
 
+@Composable
+fun FirstTimeDialog(onGoBack: () -> Unit, onContinue: () -> Unit) {
+    AlertDialog(
+        onDismissRequest = {},
+        title = { Text("Warning! Read Carefully") },
+        text = {
+
+            Text(
+                "This is an online compiler integrated into the app for your convenience. " +
+                        "Please note that it does not belong to us and may contain ads." +
+                        " We’ve added it to simplify your practice experience." +
+                        "You can also select different online compilers from general settings section."
+            )
+        },
+        confirmButton = {
+            Button(onClick = onContinue) {
+                Text("Continue")
+            }
+        },
+        dismissButton = {
+            Button(onClick = onGoBack) {
+                Text("Go Back")
+            }
+        }
+    )
+}
 
