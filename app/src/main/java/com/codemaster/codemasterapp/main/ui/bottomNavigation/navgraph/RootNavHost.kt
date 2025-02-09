@@ -11,7 +11,6 @@ import androidx.navigation.compose.NavHost
 import com.codemaster.codemasterapp.main.ui.viewModels.NoteViewModel
 import com.codemaster.codemasterapp.main.data.Course
 import com.codemaster.codemasterapp.main.data.LessonStatus
-import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.BottomNavRoutes
 import com.codemaster.codemasterapp.main.ui.bottomNavigation.navgraph.routes.SplashRoutes
 import com.codemaster.codemasterapp.main.ui.viewModels.CourseViewModel
 import com.codemaster.codemasterapp.main.ui.viewModels.MainViewModel
@@ -37,9 +36,7 @@ fun RootNavHost(
     NavHost(
         navController = navController,
         startDestination =
-//        SplashRoutes.SplashRoot.route
-        BottomNavRoutes.BOTTOM_ROOT.route
-        ,
+        SplashRoutes.SplashRoot.route,
         route = "ROOT"
     ) {
         splashNavHost(
